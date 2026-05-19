@@ -1,0 +1,2596 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ビーガン王子 · Alex Derycz — お笑いあり、涙あり、野菜あり</title>
+  <meta name="description" content="ビーガン王子ことアレックス・デレチの公式ホームページ。モデル、タレント、６カ国語MC、海外の架け橋。" />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600;1,9..144,900&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&family=Noto+Serif+JP:wght@200;300;400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Kosugi+Maru&family=Yusei+Magic&family=Hachi+Maru+Pop&family=Lilita+One&family=Reggae+One&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --color-paper: #FFF9EE;
+      --color-cream: #FDF1DA;
+      --color-cream-2: #F6E4BD;
+      --color-royal: #C9223A;
+      --color-royal-soft: #E55063;
+      --color-royal-deep: #9C1428;
+      --color-gold: #D4A847;
+      --color-gold-soft: #E8C76F;
+      --color-gold-deep: #9C7E2A;
+      --color-ink: #1F1812;
+      --color-ink-soft: #3C2E22;
+      --color-muted: #786148;
+      --color-sky: #B5D5E8;
+      --color-blush: #F8C8D2;
+      --color-leaf: #6C9560;
+      --color-leaf-deep: #3F6A3A;
+      --color-line-stamp: #06C755;
+      --color-line: #E9D9B5;
+
+      --font-display: "Fraunces", "Noto Serif JP", Georgia, serif;
+      --font-jp-display: "Noto Serif JP", "Fraunces", serif;
+      --font-sans: "Inter", "Noto Sans JP", system-ui, sans-serif;
+      --font-jp: "Noto Sans JP", "Inter", sans-serif;
+      --font-round: "Kosugi Maru", "Noto Sans JP", sans-serif;
+      --font-hand: "Caveat", "Yusei Magic", "Hachi Maru Pop", "Noto Sans JP", cursive;
+      --font-cute-jp: "Hachi Maru Pop", "Yusei Magic", "Kosugi Maru", "Noto Sans JP", sans-serif;
+      --font-fun: "Lilita One", "Fraunces", "Noto Serif JP", sans-serif;
+      --font-fun-jp: "Reggae One", "Hachi Maru Pop", "Noto Sans JP", sans-serif;
+    }
+
+    html, body { background: var(--color-paper); color: var(--color-ink); }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    @media (max-width: 767px) { html { scroll-padding-top: 116px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    /* Mobile section nav (sticky, horizontally scrollable) */
+    .mnav-scroll {
+      display: flex; gap: 6px;
+      overflow-x: auto; overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .mnav-scroll::-webkit-scrollbar { display: none; }
+    .mnav-chip {
+      flex: 0 0 auto;
+      font-family: var(--font-jp); font-size: 12px;
+      padding: 5px 13px; border-radius: 999px;
+      background: var(--color-cream); color: var(--color-ink-soft);
+      white-space: nowrap; border: 1px solid var(--color-line);
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .mnav-chip:hover, .mnav-chip:active { background: var(--color-royal); color: var(--color-paper); border-color: var(--color-royal); }
+    body { font-family: var(--font-sans); font-feature-settings: "ss01", "ss02", "cv11"; }
+
+    .font-display     { font-family: var(--font-display); font-optical-sizing: auto; }
+    .font-jp-display  { font-family: var(--font-jp-display); }
+    .font-jp          { font-family: var(--font-jp); }
+    .font-fun         { font-family: var(--font-fun); }
+    .font-fun-jp      { font-family: var(--font-fun-jp); }
+    .font-round       { font-family: var(--font-round); }
+    .font-hand        { font-family: var(--font-hand); }
+    .font-cute-jp     { font-family: var(--font-cute-jp); }
+    .display-tight    { letter-spacing: -0.035em; line-height: 0.92; }
+    .display-italic   { font-family: var(--font-display); font-style: italic; }
+
+    @utility eyebrow {
+      @apply text-[11px] tracking-[0.32em] uppercase text-royal font-medium;
+    }
+    @utility chip {
+      @apply inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3.5 py-1.5 text-[12px] tracking-[0.18em] uppercase text-ink-soft font-medium;
+    }
+    @utility crest-bullet {
+      @apply inline-block w-1.5 h-1.5 rounded-full bg-gold align-middle;
+    }
+    @utility btn-primary {
+      @apply inline-flex items-center gap-2 rounded-full bg-royal text-paper px-6 py-3 text-[14px] font-medium tracking-wide hover:bg-royal-deep transition-colors duration-300;
+    }
+    @utility btn-ghost {
+      @apply inline-flex items-center gap-2 rounded-full border border-royal/40 text-royal px-6 py-3 text-[14px] font-medium tracking-wide hover:bg-royal hover:text-paper transition-colors duration-300;
+    }
+    @utility btn-gold {
+      @apply inline-flex items-center gap-2 rounded-full bg-gold text-ink px-6 py-3 text-[14px] font-medium tracking-wide hover:bg-gold-deep hover:text-paper transition-colors duration-300;
+    }
+    @utility btn-line {
+      @apply inline-flex items-center gap-2 rounded-full text-paper px-6 py-3 text-[14px] font-medium tracking-wide transition-all duration-300;
+      background: var(--color-line-stamp);
+    }
+    @utility btn-line-hover {
+      background: #058442;
+    }
+
+    /* Rotating roles */
+    .lang-stack { display: grid; grid-template-areas: "stack"; align-items: center; justify-items: start; }
+    .lang-stack > * { grid-area: stack; }
+    .lang-word { opacity: 0; transform: translateY(14px); animation: langCycle 18s infinite; }
+    .lang-word:nth-child(1) { animation-delay: 0s; }
+    .lang-word:nth-child(2) { animation-delay: 3s; }
+    .lang-word:nth-child(3) { animation-delay: 6s; }
+    .lang-word:nth-child(4) { animation-delay: 9s; }
+    .lang-word:nth-child(5) { animation-delay: 12s; }
+    .lang-word:nth-child(6) { animation-delay: 15s; }
+    /* Pinned state via lang-chip click — disable animation, show only the active slot */
+    .lang-stack[data-pinned] .lang-word { animation: none; opacity: 0; transform: none; }
+    .lang-stack[data-pinned="0"] .lang-word[data-lang-slot="0"],
+    .lang-stack[data-pinned="1"] .lang-word[data-lang-slot="1"],
+    .lang-stack[data-pinned="2"] .lang-word[data-lang-slot="2"],
+    .lang-stack[data-pinned="3"] .lang-word[data-lang-slot="3"],
+    .lang-stack[data-pinned="4"] .lang-word[data-lang-slot="4"],
+    .lang-stack[data-pinned="5"] .lang-word[data-lang-slot="5"] { opacity: 1; }
+    .lang-chip[data-active="true"] {
+      background: var(--color-paper) !important;
+      color: var(--color-royal) !important;
+      border-color: var(--color-paper) !important;
+    }
+    @keyframes langCycle {
+      0%   { opacity: 0; transform: translateY(14px); }
+      4%   { opacity: 1; transform: translateY(0); }
+      14%  { opacity: 1; transform: translateY(0); }
+      18%  { opacity: 0; transform: translateY(-14px); }
+      100% { opacity: 0; transform: translateY(-14px); }
+    }
+
+    .marquee { display: flex; gap: 4rem; animation: marquee 38s linear infinite; width: max-content; align-items: center; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    @keyframes bobble { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(-2deg); } }
+    @keyframes peek { 0%, 100% { transform: translateY(2px); } 50% { transform: translateY(-3px); } }
+    @keyframes sparkle { 0%, 100% { opacity: 0.4; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.15); } }
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-10px) rotate(3deg); } }
+    @keyframes tilt { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+    @keyframes spin-slow { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    .anim-bobble  { animation: bobble 3.2s ease-in-out infinite; transform-origin: center bottom; }
+    .anim-peek    { animation: peek 2.6s ease-in-out infinite; }
+    .anim-sparkle { animation: sparkle 2.4s ease-in-out infinite; }
+    .anim-float   { animation: float 5.5s ease-in-out infinite; }
+    .anim-tilt    { animation: tilt 4s ease-in-out infinite; transform-origin: 50% 80%; }
+    .anim-spin    { animation: spin-slow 22s linear infinite; }
+
+    .pose-cycle { position: relative; }
+    .pose-cycle > img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+      opacity: 0; animation: poseCycle 9s infinite;
+    }
+    .pose-cycle > img:nth-of-type(1) { animation-delay: 0s; opacity: 1; }
+    .pose-cycle > img:nth-of-type(2) { animation-delay: 3s; }
+    .pose-cycle > img:nth-of-type(3) { animation-delay: 6s; }
+    @keyframes poseCycle {
+      0%, 2%  { opacity: 0; }
+      8%, 30% { opacity: 1; }
+      36%, 100% { opacity: 0; }
+    }
+
+    /* Hero photo cycle — 6 photos sync with role rotation (18s) */
+    .photo-cycle { position: relative; }
+    .photo-cycle > img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      opacity: 0;
+      animation: photoCycle 18s infinite;
+    }
+    .photo-cycle > img:nth-of-type(1) { animation-delay: 0s;  opacity: 1; }
+    .photo-cycle > img:nth-of-type(2) { animation-delay: 3s;  }
+    .photo-cycle > img:nth-of-type(3) { animation-delay: 6s;  }
+    .photo-cycle > img:nth-of-type(4) { animation-delay: 9s;  }
+    .photo-cycle > img:nth-of-type(5) { animation-delay: 12s; }
+    .photo-cycle > img:nth-of-type(6) { animation-delay: 15s; }
+    @keyframes photoCycle {
+      0%   { opacity: 0; }
+      4%   { opacity: 1; }
+      14%  { opacity: 1; }
+      18%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* Mobile-first responsive h-scroll for sections that need it */
+    .m-scroll {
+      display: flex; gap: 1rem;
+      overflow-x: auto; overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      padding-top: 0.25rem; padding-bottom: 1rem;
+      margin: 0 -1.5rem;
+      padding-left:  max(1.5rem, calc(50vw - 150px));
+      padding-right: max(1.5rem, calc(50vw - 150px));
+      scroll-padding-left: max(1.5rem, calc(50vw - 150px));
+    }
+    .m-scroll > * { flex: 0 0 auto; scroll-snap-align: center; }
+    @media (min-width: 768px) {
+      .m-scroll {
+        display: grid;
+        margin: 0; padding-left: 0; padding-right: 0;
+        overflow: visible;
+        scroll-padding-left: 0;
+      }
+      .m-scroll.m-scroll-2 { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .m-scroll.m-scroll-3 { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+      .m-scroll.m-scroll-4 { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+      .m-scroll > * { width: auto !important; scroll-snap-align: start; }
+    }
+
+    /* Calc 知ってた? collapsible — closed on mobile, always open on desktop */
+    .calc-info-content {
+      transition: grid-template-rows 0.4s ease, opacity 0.3s ease;
+      display: grid; grid-template-rows: 1fr;
+      opacity: 1;
+    }
+    .calc-info-content > .calc-info-inner { overflow: hidden; }
+    .calc-info[data-open="false"] .calc-info-content { grid-template-rows: 0fr; opacity: 0; pointer-events: none; }
+    .calc-info[data-open="true"] .calc-info-chev { transform: rotate(180deg); }
+    @media (min-width: 768px) {
+      .calc-info-toggle { pointer-events: none; }
+      .calc-info-content { grid-template-rows: 1fr !important; opacity: 1 !important; }
+      .calc-info-chev { display: none; }
+    }
+
+    /* Tool toggle on mobile (Calc <-> Map) */
+    @media (max-width: 767px) {
+      [data-tool-panel]:not([data-active="true"]) { display: none; }
+    }
+
+    .badge-ribbon {
+      position: relative; display: inline-block;
+      padding: 7px 22px; background: var(--color-royal); color: var(--color-paper);
+      font-family: var(--font-jp-display); font-size: 13px; letter-spacing: 0.12em;
+    }
+    .badge-ribbon::before, .badge-ribbon::after {
+      content: ""; position: absolute; top: 0; width: 12px; height: 100%;
+    }
+    .badge-ribbon::before { left: -12px;  background: var(--color-royal); clip-path: polygon(100% 0, 100% 100%, 0 50%); }
+    .badge-ribbon::after  { right: -12px; background: var(--color-royal); clip-path: polygon(0 0, 0 100%, 100% 50%); }
+
+    .photo-frame {
+      box-shadow: 0 30px 80px -20px rgba(156,20,40,0.25), 0 0 0 8px var(--color-paper), 0 0 0 9px var(--color-gold);
+      border-radius: 4px;
+    }
+
+    .svc-tile { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; }
+    .svc-tile:hover { transform: translateY(-6px); border-color: var(--color-royal); box-shadow: 0 20px 40px -20px rgba(156,20,40,0.25); }
+    .svc-tile:hover .svc-num { color: var(--color-royal); }
+
+    /* Horizontal-scroll rows for Work + Press */
+    .h-scroll {
+      display: flex; gap: 1.25rem;
+      overflow-x: auto; overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      padding: 0.5rem 0 1.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-line) transparent;
+    }
+    .h-scroll::-webkit-scrollbar { height: 8px; }
+    .h-scroll::-webkit-scrollbar-track { background: transparent; }
+    .h-scroll::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 8px; }
+    .h-scroll > * { flex: 0 0 auto; scroll-snap-align: start; }
+    .h-scroll-hint { position: relative; }
+    .h-scroll-hint::after {
+      content: ""; position: absolute; top: 0; right: 0; bottom: 1.5rem; width: 60px;
+      background: linear-gradient(90deg, transparent, var(--color-paper));
+      pointer-events: none;
+    }
+
+    /* Voices band — testimonial speech-bubble cards */
+    .voice-card {
+      position: relative; width: 260px;
+      background: var(--color-paper);
+      border: 1.5px solid var(--color-line);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 8px 24px -10px rgba(31,24,18,0.15);
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    @media (min-width: 768px) { .voice-card { width: 300px; } }
+    .voice-card:hover {
+      transform: translateY(-4px) rotate(-0.5deg);
+      box-shadow: 0 16px 36px -14px rgba(156,20,40,0.22);
+      border-color: var(--color-royal-soft);
+    }
+    .voice-card::after {
+      content: ""; position: absolute; bottom: -10px; left: 32px;
+      width: 16px; height: 16px;
+      background: var(--color-paper);
+      border-right: 1.5px solid var(--color-line);
+      border-bottom: 1.5px solid var(--color-line);
+      transform: rotate(45deg);
+      border-bottom-right-radius: 4px;
+    }
+    .voice-card:nth-child(even) { background: linear-gradient(180deg, var(--color-paper), var(--color-cream)); }
+    .voice-avatar {
+      width: 38px; height: 38px; border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-fun); font-size: 16px; color: var(--color-paper);
+      flex-shrink: 0;
+    }
+    .voice-quote {
+      font-family: var(--font-jp-display);
+      font-size: 14px; line-height: 1.75; color: var(--color-ink);
+    }
+    .voice-meta {
+      font-family: var(--font-jp);
+      font-size: 11px; color: var(--color-muted);
+      letter-spacing: 0.05em;
+    }
+    .voice-name { font-family: var(--font-fun-jp); font-size: 13px; color: var(--color-ink); }
+
+    /* Polaroid-style work cards */
+    .work-card {
+      position: relative; width: 280px;
+      background: var(--color-paper);
+      padding: 12px 12px 14px;
+      border-radius: 4px;
+      box-shadow: 0 14px 30px -14px rgba(31,24,18,0.25), 0 2px 4px rgba(31,24,18,0.06);
+      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
+    }
+    @media (min-width: 768px) { .work-card { width: 320px; } }
+    .work-card:nth-child(odd)  { transform: rotate(-1.2deg); }
+    .work-card:nth-child(even) { transform: rotate(1.2deg); }
+    .work-card:hover {
+      transform: rotate(0) translateY(-6px) scale(1.02);
+      box-shadow: 0 24px 50px -16px rgba(156,20,40,0.32), 0 4px 8px rgba(31,24,18,0.08);
+      z-index: 5;
+    }
+    .work-card-img-wrap { overflow: hidden; border-radius: 2px; position: relative; background: var(--color-cream); }
+    .work-card img { width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; display: block; transition: transform 0.8s cubic-bezier(0.22,1,0.36,1); }
+    .work-card:hover img { transform: scale(1.05); }
+    .work-card .ribbon { position: absolute; top: 10px; left: 10px; z-index: 2; }
+    .work-card .tape {
+      position: absolute; top: -8px; left: 50%; transform: translateX(-50%) rotate(-3deg);
+      width: 70px; height: 20px;
+      background: rgba(216, 200, 160, 0.55);
+      border-radius: 1px;
+      box-shadow: 0 1px 2px rgba(31,24,18,0.08);
+    }
+    .work-card .caption {
+      font-family: var(--font-hand);
+      font-size: 18px; color: var(--color-royal);
+      transform: rotate(-1deg);
+      padding-top: 4px;
+    }
+
+    .quote-card { width: 320px; }
+    @media (min-width: 768px) { .quote-card { width: 380px; } }
+
+    .booking-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.1rem;
+      border: 1px solid rgba(31,24,18,0.15); border-radius: 999px;
+      font-size: 13px; background: var(--color-paper); cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .booking-chip:hover { border-color: var(--color-royal); }
+    .booking-chip[data-active="true"] { background: var(--color-royal); color: var(--color-paper); border-color: var(--color-royal); }
+
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.6; } }
+    .map-pin { animation: pulse 2s ease-in-out infinite; transform-origin: center; }
+    .map-pin:nth-child(2) { animation-delay: 0.4s; }
+    .map-pin:nth-child(3) { animation-delay: 0.8s; }
+    .map-pin:nth-child(4) { animation-delay: 1.2s; }
+    .map-pin:nth-child(5) { animation-delay: 1.6s; }
+
+    .tier-card { border: 2px solid var(--color-line); border-radius: 10px; transition: all 0.3s cubic-bezier(0.22,1,0.36,1); }
+    .tier-card:hover { transform: translateY(-4px); border-color: var(--color-royal); }
+    .tier-card.featured { background: linear-gradient(180deg, var(--color-cream), var(--color-paper)); border-color: var(--color-gold); }
+
+    .scroll-cue { width: 1px; height: 48px; background: linear-gradient(to bottom, transparent, rgba(31,24,18,0.4), transparent); animation: scrollCue 2.4s infinite ease-in-out; }
+    @keyframes scrollCue { 0%, 100% { transform: translateY(-6px); opacity: 0.4; } 50% { transform: translateY(6px); opacity: 1; } }
+
+    .dots-bg { background-image: radial-gradient(circle, var(--color-gold-soft) 1.2px, transparent 1.4px); background-size: 18px 18px; }
+    .stars-bg {
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, var(--color-gold) 50%, transparent),
+        radial-gradient(1.5px 1.5px at 70% 60%, var(--color-royal-soft) 50%, transparent),
+        radial-gradient(1.8px 1.8px at 40% 80%, var(--color-gold-soft) 50%, transparent),
+        radial-gradient(1.5px 1.5px at 85% 20%, var(--color-royal) 50%, transparent),
+        radial-gradient(1.2px 1.2px at 10% 65%, var(--color-gold) 50%, transparent);
+    }
+
+    .ornament {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      color: var(--color-royal); font-family: var(--font-jp-display);
+      font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase;
+    }
+    .ornament::before, .ornament::after {
+      content: ""; height: 1px; width: 28px; background: var(--color-gold); opacity: 0.8;
+    }
+
+    /* Sticky social rail */
+    .social-rail {
+      position: fixed; top: 50%; right: 16px; transform: translateY(-50%);
+      z-index: 40; display: flex; flex-direction: column; gap: 10px;
+      padding: 12px 8px; background: var(--color-paper);
+      border: 1px solid var(--color-line); border-radius: 999px;
+      box-shadow: 0 8px 30px -8px rgba(31,24,18,0.15);
+    }
+    .social-rail::before { content: ""; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 1px; height: 16px; background: var(--color-line); }
+    .social-rail::after  { content: ""; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 1px; height: 16px; background: var(--color-line); }
+    .social-icon-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 999px;
+      color: var(--color-ink-soft);
+      background: var(--color-paper);
+      border: 1.5px solid var(--color-line);
+      transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
+    }
+    .social-icon-btn:hover { transform: translateY(-2px) scale(1.08); }
+    .social-icon-btn[data-brand="ig"]:hover { background: linear-gradient(45deg, #fdf497 0%, #fd5949 50%, #d6249f 100%); color: white; border-color: transparent; }
+    .social-icon-btn[data-brand="x"]:hover  { background: #000; color: white; border-color: #000; }
+    .social-icon-btn[data-brand="yt"]:hover { background: #FF0000; color: white; border-color: #FF0000; }
+    .social-icon-btn[data-brand="tt"]:hover { background: #000; color: white; border-color: #000; }
+    .social-icon-btn[data-brand="li"]:hover { background: #0A66C2; color: white; border-color: #0A66C2; }
+
+    .social-icon-lg {
+      display: flex; align-items: center; justify-content: center;
+      width: 64px; height: 64px; border-radius: 18px;
+      border: 2px solid var(--color-line); background: var(--color-paper);
+      color: var(--color-ink-soft);
+      transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    .social-icon-lg:hover { transform: translateY(-4px) rotate(-3deg) scale(1.05); box-shadow: 0 14px 36px -10px rgba(31,24,18,0.25); }
+    .social-icon-lg[data-brand="ig"]:hover { background: linear-gradient(45deg, #fdf497 0%, #fd5949 50%, #d6249f 100%); color: white; border-color: transparent; }
+    .social-icon-lg[data-brand="x"]:hover  { background: #000; color: white; border-color: #000; }
+    .social-icon-lg[data-brand="yt"]:hover { background: #FF0000; color: white; border-color: #FF0000; }
+    .social-icon-lg[data-brand="tt"]:hover { background: #000; color: white; border-color: #000; }
+    .social-icon-lg[data-brand="li"]:hover { background: #0A66C2; color: white; border-color: #0A66C2; }
+
+    /* Language dropdown */
+    .lang-menu { position: relative; }
+    .lang-trigger {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 12px; border-radius: 999px;
+      border: 1px solid var(--color-line); background: var(--color-paper);
+      font-size: 12px; color: var(--color-ink-soft);
+      transition: all 0.2s ease;
+    }
+    .lang-trigger:hover { border-color: var(--color-royal); color: var(--color-royal); }
+    .lang-dropdown {
+      position: absolute; top: calc(100% + 6px); right: 0;
+      min-width: 180px;
+      background: var(--color-paper);
+      border: 1px solid var(--color-line); border-radius: 12px;
+      box-shadow: 0 12px 36px -8px rgba(31,24,18,0.18);
+      padding: 6px;
+      z-index: 50;
+      opacity: 0; transform: translateY(-4px) scale(0.98);
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .lang-menu[data-open="true"] .lang-dropdown {
+      opacity: 1; transform: translateY(0) scale(1); pointer-events: auto;
+    }
+    .lang-dropdown li button {
+      display: flex; align-items: center; gap: 10px; width: 100%;
+      padding: 9px 12px; border-radius: 8px;
+      font-size: 13px; color: var(--color-ink-soft);
+      text-align: left;
+    }
+    .lang-dropdown li button:hover { background: var(--color-cream); color: var(--color-royal); }
+    .lang-dropdown li button[data-current="true"] { background: var(--color-royal); color: var(--color-paper); }
+    .lang-dropdown li button[data-soon="true"] { opacity: 0.55; cursor: not-allowed; font-style: italic; }
+
+    /* Calculator inputs */
+    .calc-num {
+      width: 70px; text-align: center;
+      font-family: var(--font-display); font-size: 26px; font-weight: 600;
+      color: var(--color-leaf-deep);
+      background: var(--color-paper);
+      border: 2px solid var(--color-line); border-radius: 12px;
+      padding: 7px 6px;
+      transition: border-color 0.2s ease;
+    }
+    .calc-num:focus { outline: none; border-color: var(--color-leaf-deep); }
+    .calc-preset {
+      cursor: pointer;
+      font-family: var(--font-jp); font-size: 12px;
+      padding: 6px 14px; border-radius: 999px;
+      background: var(--color-paper);
+      border: 1.5px solid var(--color-line); color: var(--color-ink-soft);
+      transition: all 0.18s cubic-bezier(0.22,1,0.36,1);
+    }
+    .calc-preset:hover { border-color: var(--color-leaf-deep); transform: translateY(-1px); }
+    .calc-preset[data-on="true"] {
+      background: var(--color-leaf-deep); border-color: var(--color-leaf-deep);
+      color: var(--color-paper);
+    }
+
+    /* Profile rows — Pokedex-style accordion on mobile, grid table on desktop */
+    .profile-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      gap: 4px 10px;
+      padding: 10px 4px;
+      border-bottom: 1px dashed var(--color-line);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .profile-row:last-child { border-bottom: none; }
+    .profile-row:hover { background: rgba(244,237,221,0.4); }
+    .profile-row::after {
+      content: "";
+      grid-column: 2; grid-row: 1;
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--color-royal);
+      align-self: center; justify-self: end;
+      transition: transform 0.25s ease;
+      margin-top: 2px;
+    }
+    .profile-row[data-row-open="true"]::after { transform: rotate(180deg); }
+    .profile-label {
+      grid-column: 1; grid-row: 1;
+      font-family: var(--font-jp-display);
+      font-size: 11px; color: var(--color-royal); letter-spacing: 0.16em;
+      align-self: center;
+    }
+    .profile-value {
+      grid-column: 1 / -1; grid-row: 2;
+      font-family: var(--font-jp);
+      font-size: 13px; color: var(--color-ink); line-height: 1.65;
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.2s ease, padding-top 0.2s ease;
+    }
+    .profile-row[data-row-open="true"] .profile-value {
+      max-height: 200px; opacity: 1; padding-top: 4px;
+    }
+    @media (min-width: 768px) {
+      .profile-row {
+        grid-template-columns: 110px 1fr; grid-template-rows: auto;
+        gap: 16px; padding: 14px 0; cursor: default;
+      }
+      .profile-row:hover { background: transparent; }
+      .profile-row::after { display: none; }
+      .profile-label { grid-column: 1; grid-row: 1; font-size: 12px; letter-spacing: 0.18em; }
+      .profile-value {
+        grid-column: 2; grid-row: 1;
+        max-height: none !important; opacity: 1 !important; padding-top: 0 !important;
+        font-size: 14px; line-height: 1.7;
+      }
+    }
+
+    /* Pokedex-style header on profile cards */
+    .profile-card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 8px 14px; margin-bottom: 14px;
+      background: var(--color-royal); color: var(--color-paper);
+      border-radius: 999px;
+      font-family: var(--font-jp-display);
+      font-size: 11px; letter-spacing: 0.22em;
+    }
+    .profile-card-header .dex-num {
+      font-family: var(--font-display);
+      letter-spacing: 0;
+      font-size: 14px;
+      color: var(--color-gold-soft);
+    }
+
+    /* Character tabs — segmented toggle, gold-framed for visibility */
+    .char-tabs-wrap {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px; background: var(--color-paper);
+      border: 2px solid var(--color-gold); border-radius: 999px;
+      box-shadow: 0 8px 24px -10px rgba(156,20,40,0.28);
+    }
+    .char-tab {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 18px; border-radius: 999px;
+      font-family: var(--font-jp-display); font-size: 13px;
+      color: var(--color-ink-soft); border: none;
+      background: transparent; cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.22,1,0.36,1);
+    }
+    .char-tab:hover { color: var(--color-royal); }
+    .char-tab[data-active="true"] { background: var(--color-royal); color: var(--color-paper); box-shadow: 0 3px 10px -2px rgba(156,20,40,0.4); }
+    .char-tab[data-active="true"] svg { color: var(--color-gold-soft); }
+
+    /* Logo wall (company portfolio + press) */
+    .logo-card {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px; padding: 18px 14px;
+      background: var(--color-paper);
+      border: 1px solid var(--color-line); border-radius: 14px;
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .logo-card:hover { transform: translateY(-3px); border-color: var(--color-royal); box-shadow: 0 14px 30px -14px rgba(156,20,40,0.3); }
+    .logo-img {
+      height: 44px; width: auto; max-width: 100%; object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    .logo-card:hover .logo-img { transform: scale(1.05); }
+    @media (min-width: 640px) { .logo-img { height: 52px; } }
+    .logo-strip {
+      display: flex; gap: 0.75rem;
+      overflow-x: auto; overscroll-behavior-x: contain;
+      padding-bottom: 8px;
+      scrollbar-width: thin; scrollbar-color: var(--color-line) transparent;
+    }
+    .logo-strip > * { flex: 0 0 76%; max-width: 300px; }
+    @media (min-width: 768px) {
+      .logo-strip { display: grid; grid-template-columns: repeat(4,1fr); overflow: visible; padding-bottom: 0; }
+      .logo-strip > * { flex: none; max-width: none; }
+    }
+    .press-strip {
+      display: flex; gap: 0.55rem;
+      overflow-x: auto; overscroll-behavior-x: contain;
+      padding: 2px 0 10px;
+      scrollbar-width: thin; scrollbar-color: var(--color-line) transparent;
+    }
+    .press-strip::-webkit-scrollbar { height: 6px; }
+    .press-strip::-webkit-scrollbar-track { background: transparent; }
+    .press-strip::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 6px; }
+    @media (min-width: 1024px) {
+      .press-strip { flex-wrap: wrap; justify-content: center; overflow: visible; }
+    }
+    .press-plate {
+      flex: 0 0 auto;
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      padding: 11px 16px; min-height: 52px; white-space: nowrap;
+      background: var(--color-paper);
+      border: 1px solid var(--color-line); border-radius: 999px;
+      color: var(--color-muted);
+      transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+    .press-plate:hover { color: var(--color-royal); border-color: var(--color-royal); transform: translateY(-2px); }
+    .press-tag {
+      font-family: var(--font-jp); font-size: 8.5px; letter-spacing: 0.1em;
+      padding: 2px 6px; border-radius: 999px;
+      background: var(--color-cream-2); color: var(--color-gold-deep);
+    }
+    .char-panel { display: none; }
+    .char-panel[data-active="true"] { display: block; }
+
+    /* Footer wave divider */
+    .footer-wave {
+      display: block; width: 100%; height: 30px;
+    }
+    .footer-card {
+      background: linear-gradient(180deg, var(--color-cream), var(--color-cream-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lang-word, .marquee, .scroll-cue, .anim-bobble, .anim-peek, .anim-sparkle, .anim-float, .anim-tilt, .anim-spin, .map-pin, .pose-cycle > img { animation: none !important; }
+      .lang-word { opacity: 1; transform: none; }
+      .lang-word:not(:first-child) { display: none; }
+      .pose-cycle > img:not(:first-of-type) { display: none; }
+    }
+    @media (max-width: 1100px) { .social-rail { display: none; } }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- ─────────────  SVG DEFS  ───────────── -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="crown" viewBox="0 0 32 32">
+        <path d="M4 22 L6 10 L11 16 L16 7 L21 16 L26 10 L28 22 Z" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+        <rect x="3" y="23" width="26" height="3" rx="0.5" fill="currentColor"/>
+        <circle cx="6"  cy="10" r="1.5" fill="#D4A847"/>
+        <circle cx="16" cy="7"  r="1.8" fill="#D4A847"/>
+        <circle cx="26" cy="10" r="1.5" fill="#D4A847"/>
+      </symbol>
+      <symbol id="sparkle" viewBox="0 0 24 24">
+        <path d="M12 2 L13.5 10 L22 12 L13.5 14 L12 22 L10.5 14 L2 12 L10.5 10 Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="note" viewBox="0 0 24 24">
+        <path d="M9 18 V6 L20 4 V16" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <ellipse cx="7" cy="18" rx="3" ry="2.5" fill="currentColor"/>
+        <ellipse cx="18" cy="16" rx="3" ry="2.5" fill="currentColor"/>
+      </symbol>
+      <symbol id="heart" viewBox="0 0 24 24">
+        <path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z" fill="currentColor"/>
+      </symbol>
+      <symbol id="leaf" viewBox="0 0 32 32">
+        <path d="M16 4 C 24 8, 27 16, 16 28 C 5 16, 8 8, 16 4 Z" fill="currentColor"/>
+        <line x1="16" y1="4" x2="16" y2="28" stroke="#FFF9EE" stroke-width="1" opacity="0.7"/>
+      </symbol>
+      <symbol id="pin" viewBox="0 0 24 32">
+        <path d="M12 0 C 5 0, 0 5, 0 12 C 0 22, 12 32, 12 32 C 12 32, 24 22, 24 12 C 24 5, 19 0, 12 0 Z" fill="currentColor"/>
+        <circle cx="12" cy="12" r="4.5" fill="#FFF9EE"/>
+      </symbol>
+
+      <!-- Globe with crown (lang switcher) -->
+      <symbol id="globe-crown" viewBox="0 0 32 32">
+        <circle cx="16" cy="19" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <ellipse cx="16" cy="19" rx="9" ry="4" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <ellipse cx="16" cy="19" rx="4" ry="9" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M7 19 H 25" stroke="currentColor" stroke-width="1.2" fill="none"/>
+        <!-- mini crown on top -->
+        <path d="M10 8 L11 4 L14 7 L16 3 L18 7 L21 4 L22 8 Z" fill="#D4A847" stroke="currentColor" stroke-width="1"/>
+        <rect x="9.5" y="8" width="13" height="2" fill="#D4A847" stroke="currentColor" stroke-width="1"/>
+        <circle cx="16" cy="3" r="0.7" fill="#C9223A"/>
+      </symbol>
+
+      <!-- Social icons -->
+      <symbol id="ig" viewBox="0 0 28 28">
+        <rect x="3.5" y="3.5" width="21" height="21" rx="6" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <circle cx="14" cy="14" r="5.2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <circle cx="20" cy="8" r="1.4" fill="currentColor"/>
+        <path d="M11 3.5 L12 5.5 L13 4 L14 6 L15 4 L16 5.5 L17 3.5" stroke="currentColor" stroke-width="0.9" fill="none" opacity="0.4"/>
+      </symbol>
+      <symbol id="x" viewBox="0 0 28 28">
+        <path d="M5 5 L23 23 M23 5 L5 23" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="22" cy="6" r="0.9" fill="currentColor"/>
+      </symbol>
+      <symbol id="yt" viewBox="0 0 28 28">
+        <rect x="2.5" y="6" width="23" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M12 10.5 L18 14 L12 17.5 Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="tt" viewBox="0 0 28 28">
+        <path d="M16 3.5 V18.5 a4.5 4.5 0 1 1 -4.5 -4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 3.5 Q 17.5 8, 22 8.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M22 4 L22.5 5 L23.5 5.5 L22.5 6 L22 7 L21.5 6 L20.5 5.5 L21.5 5 Z" fill="currentColor" opacity="0.6"/>
+      </symbol>
+      <symbol id="li" viewBox="0 0 28 28">
+        <rect x="3.5" y="3.5" width="21" height="21" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <circle cx="9" cy="10" r="1.4" fill="currentColor"/>
+        <rect x="8" y="12.5" width="2" height="8" fill="currentColor"/>
+        <path d="M13 20.5 V12.5 H15 V14 Q 16.5 12, 18.5 12.5 Q 21 13, 21 16 V20.5 H19 V16.5 Q 19 14.5, 17.5 14.5 Q 15 14.5, 15 16.5 V20.5 Z" fill="currentColor"/>
+      </symbol>
+      <!-- LINE Stamp icon -->
+      <symbol id="line-stamp" viewBox="0 0 28 28">
+        <rect x="3.5" y="3.5" width="21" height="21" rx="6" fill="currentColor"/>
+        <path d="M14 8 C 9 8, 6.5 11, 6.5 14 C 6.5 16.5, 8.5 18.5, 11.5 19.5 L 11 22 L 14 20 C 14 20, 21.5 19.8, 21.5 14 C 21.5 11, 19 8, 14 8 Z" fill="#FFF9EE"/>
+      </symbol>
+
+      <!-- ── Illustrated calculator icons ── -->
+      <symbol id="ill-water" viewBox="0 0 56 56">
+        <ellipse cx="28" cy="50" rx="14" ry="2.5" fill="#1F1812" opacity="0.1"/>
+        <path d="M28 6 C 18 22, 12 30, 12 38 C 12 46, 19 50, 28 50 C 37 50, 44 46, 44 38 C 44 30, 38 22, 28 6 Z" fill="#5BB1E5" stroke="#1F1812" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M22 28 C 19 32, 18 36, 19 40 Q 23 38, 22 28 Z" fill="#A8D5F0" opacity="0.7"/>
+        <ellipse cx="32" cy="40" rx="2" ry="3" fill="#A8D5F0" opacity="0.5"/>
+      </symbol>
+      <symbol id="ill-grain" viewBox="0 0 56 56">
+        <ellipse cx="28" cy="50" rx="14" ry="2.5" fill="#1F1812" opacity="0.1"/>
+        <!-- center stalk -->
+        <path d="M28 8 V 48" stroke="#9C7E2A" stroke-width="2" fill="none"/>
+        <!-- grain ovals -->
+        <g fill="#D4A847" stroke="#9C7E2A" stroke-width="1.2">
+          <ellipse cx="24" cy="14" rx="3" ry="5" transform="rotate(-20 24 14)"/>
+          <ellipse cx="32" cy="14" rx="3" ry="5" transform="rotate(20 32 14)"/>
+          <ellipse cx="22" cy="22" rx="3" ry="5" transform="rotate(-20 22 22)"/>
+          <ellipse cx="34" cy="22" rx="3" ry="5" transform="rotate(20 34 22)"/>
+          <ellipse cx="24" cy="30" rx="3" ry="5" transform="rotate(-20 24 30)"/>
+          <ellipse cx="32" cy="30" rx="3" ry="5" transform="rotate(20 32 30)"/>
+        </g>
+        <!-- leaves -->
+        <path d="M28 36 Q 20 38, 16 44" stroke="#6C9560" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M28 36 Q 36 38, 40 44" stroke="#6C9560" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="ill-forest" viewBox="0 0 56 56">
+        <ellipse cx="28" cy="50" rx="14" ry="2.5" fill="#1F1812" opacity="0.1"/>
+        <!-- trunk -->
+        <rect x="25" y="38" width="6" height="12" rx="1" fill="#9C7E2A" stroke="#1F1812" stroke-width="1.2"/>
+        <!-- foliage 3-circle -->
+        <circle cx="20" cy="32" r="9" fill="#6C9560" stroke="#1F1812" stroke-width="1.4"/>
+        <circle cx="36" cy="32" r="9" fill="#6C9560" stroke="#1F1812" stroke-width="1.4"/>
+        <circle cx="28" cy="20" r="11" fill="#8AB57A" stroke="#1F1812" stroke-width="1.4"/>
+        <!-- highlight -->
+        <circle cx="24" cy="16" r="2.5" fill="#FFF9EE" opacity="0.7"/>
+      </symbol>
+      <symbol id="ill-co2" viewBox="0 0 56 56">
+        <ellipse cx="28" cy="50" rx="14" ry="2.5" fill="#1F1812" opacity="0.1"/>
+        <!-- cloud -->
+        <path d="M14 30 Q 14 22, 22 22 Q 24 16, 32 18 Q 40 18, 42 26 Q 48 26, 48 32 Q 48 40, 38 40 L 18 40 Q 10 40, 12 33 Q 12 31, 14 30 Z" fill="#D8E2EA" stroke="#1F1812" stroke-width="1.4" stroke-linejoin="round"/>
+        <!-- leaf -->
+        <path d="M30 30 Q 24 26, 22 30 Q 24 36, 30 32 Q 30 31, 30 30 Z" fill="#6C9560" stroke="#1F1812" stroke-width="1"/>
+        <!-- co2 text -->
+        <text x="34" y="34" font-family="Inter" font-size="9" font-weight="700" fill="#1F1812">CO₂</text>
+      </symbol>
+      <symbol id="ill-cow" viewBox="0 0 56 56">
+        <ellipse cx="28" cy="50" rx="14" ry="2.5" fill="#1F1812" opacity="0.1"/>
+        <!-- ears -->
+        <ellipse cx="13" cy="22" rx="5" ry="7" fill="#7C5028" stroke="#1F1812" stroke-width="1.2"/>
+        <ellipse cx="43" cy="22" rx="5" ry="7" fill="#7C5028" stroke="#1F1812" stroke-width="1.2"/>
+        <!-- face -->
+        <ellipse cx="28" cy="30" rx="16" ry="14" fill="#F8D6B0" stroke="#1F1812" stroke-width="1.4"/>
+        <!-- spots -->
+        <ellipse cx="20" cy="22" rx="3" ry="2.5" fill="#7C5028"/>
+        <ellipse cx="36" cy="22" rx="2.5" ry="2" fill="#7C5028"/>
+        <ellipse cx="33" cy="40" rx="2" ry="1.5" fill="#7C5028"/>
+        <!-- snout -->
+        <ellipse cx="28" cy="36" rx="9" ry="6" fill="#F4A3B0" stroke="#1F1812" stroke-width="1.2"/>
+        <circle cx="24" cy="36" r="1.2" fill="#1F1812"/>
+        <circle cx="32" cy="36" r="1.2" fill="#1F1812"/>
+        <!-- eyes -->
+        <circle cx="22" cy="28" r="1.6" fill="#1F1812"/>
+        <circle cx="34" cy="28" r="1.6" fill="#1F1812"/>
+        <circle cx="22.5" cy="27.5" r="0.6" fill="#FFF"/>
+        <circle cx="34.5" cy="27.5" r="0.6" fill="#FFF"/>
+      </symbol>
+
+      <!-- Footer scallop divider -->
+      <symbol id="scallop" viewBox="0 0 1200 30" preserveAspectRatio="none">
+        <path d="M0 30 Q 30 0 60 30 Q 90 0 120 30 Q 150 0 180 30 Q 210 0 240 30 Q 270 0 300 30 Q 330 0 360 30 Q 390 0 420 30 Q 450 0 480 30 Q 510 0 540 30 Q 570 0 600 30 Q 630 0 660 30 Q 690 0 720 30 Q 750 0 780 30 Q 810 0 840 30 Q 870 0 900 30 Q 930 0 960 30 Q 990 0 1020 30 Q 1050 0 1080 30 Q 1110 0 1140 30 Q 1170 0 1200 30 L 1200 30 L 0 30 Z" fill="currentColor"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ─────────────  STICKY SOCIAL RAIL  ───────────── -->
+  <aside class="social-rail">
+    <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-btn" data-brand="ig"><svg width="20" height="20"><use href="#ig"/></svg></a>
+    <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="social-icon-btn" data-brand="x"><svg width="18" height="18"><use href="#x"/></svg></a>
+    <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-btn" data-brand="yt"><svg width="20" height="20"><use href="#yt"/></svg></a>
+    <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon-btn" data-brand="tt"><svg width="20" height="20"><use href="#tt"/></svg></a>
+    <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon-btn" data-brand="li"><svg width="20" height="20"><use href="#li"/></svg></a>
+  </aside>
+
+  <!-- ─────────────  NAV  ───────────── -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-paper/90 border-b border-line/60">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5">
+        <svg width="28" height="28" class="text-royal"><use href="#crown"/></svg>
+        <span class="font-cute-jp text-[20px] tracking-wide text-ink">ビーガン王子</span>
+        <span class="hidden md:inline text-[11px] tracking-[0.22em] text-muted uppercase">Vegan Oji</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-[13px] tracking-wide text-ink-soft">
+        <a href="#about"     class="hover:text-royal transition-colors">王子について</a>
+        <a href="#services"  class="hover:text-royal transition-colors">サービス</a>
+        <a href="#tools"     class="hover:text-royal transition-colors">王子のツール</a>
+        <a href="#work"      class="hover:text-royal transition-colors">活動</a>
+        <a href="#events"    class="hover:text-royal transition-colors">今後の予定</a>
+        <a href="#donate"    class="hover:text-royal transition-colors">応援する</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- Globe-crown language dropdown -->
+        <div class="lang-menu hidden md:block" id="lang-menu">
+          <button class="lang-trigger" aria-haspopup="listbox" aria-expanded="false">
+            <svg width="18" height="18" class="text-royal"><use href="#globe-crown"/></svg>
+            <span class="font-jp">日本語</span>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 L5 6.5 L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </button>
+          <ul class="lang-dropdown" role="listbox">
+            <li><button data-current="true"><span class="text-base">🇯🇵</span> <span>日本語</span><span class="ml-auto text-[11px] text-royal">●</span></button></li>
+            <li><button data-soon="true"><span class="text-base">🇺🇸</span> <span>English</span><span class="ml-auto text-[10px] uppercase">準備中</span></button></li>
+            <li><button data-soon="true"><span class="text-base">🇫🇷</span> <span>Français</span><span class="ml-auto text-[10px] uppercase">準備中</span></button></li>
+            <li><button data-soon="true"><span class="text-base">🇪🇸</span> <span>Español</span><span class="ml-auto text-[10px] uppercase">準備中</span></button></li>
+            <li><button data-soon="true"><span class="text-base">🇩🇪</span> <span>Deutsch</span><span class="ml-auto text-[10px] uppercase">準備中</span></button></li>
+            <li><button data-soon="true"><span class="text-base">🇨🇳</span> <span>中文</span><span class="ml-auto text-[10px] uppercase">準備中</span></button></li>
+          </ul>
+        </div>
+
+        <a href="#booking" class="btn-primary text-[12px] px-4 py-2">
+          <span class="font-jp">王子に依頼</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─────────────  MOBILE SECTION NAV (sticky, scrollable)  ───────────── -->
+  <nav class="md:hidden sticky top-[56px] z-40 bg-paper/95 backdrop-blur-md border-b border-line/60" aria-label="セクション">
+    <div class="mnav-scroll px-4 py-2">
+      <a href="#about"     class="mnav-chip">王子について</a>
+      <a href="#services"  class="mnav-chip">サービス</a>
+      <a href="#tools"     class="mnav-chip">王子のツール</a>
+      <a href="#work"      class="mnav-chip">活動</a>
+      <a href="#events"    class="mnav-chip">今後の予定</a>
+      <a href="#character" class="mnav-chip">プロフィール</a>
+      <a href="#donate"    class="mnav-chip">応援する</a>
+      <a href="#booking"   class="mnav-chip">お仕事相談</a>
+    </div>
+  </nav>
+
+  <!-- ─────────────  HERO (mobile-first)  ───────────── -->
+  <section id="top" class="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-6 sm:pt-10 lg:pt-14 pb-10 sm:pb-14 lg:pb-20 overflow-hidden">
+
+    <svg class="absolute top-12 left-[5%] w-5 h-5 text-gold anim-sparkle" style="animation-delay:0.5s"><use href="#sparkle"/></svg>
+    <svg class="absolute top-1/3 right-[6%] w-4 h-4 text-royal-soft anim-sparkle" style="animation-delay:1.1s"><use href="#sparkle"/></svg>
+    <svg class="absolute bottom-16 left-[8%] w-5 h-5 text-gold-soft anim-sparkle" style="animation-delay:1.6s"><use href="#sparkle"/></svg>
+    <svg class="absolute top-24 right-[2%] w-5 h-5 text-royal anim-sparkle" style="animation-delay:0.2s"><use href="#sparkle"/></svg>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14 items-center">
+
+      <!-- TEXT — order swapped on mobile so name+role+photo are tight -->
+      <div class="lg:col-span-7 relative order-1">
+        <div class="ornament mb-3 sm:mb-5"><span>東京 · 2017年から活動中</span></div>
+
+        <h1 class="font-display display-tight text-[17vw] sm:text-[72px] lg:text-[124px] font-medium text-ink whitespace-nowrap">
+          <span class="font-fun text-ink">Vegan</span> <span class="font-fun text-royal">Oji.</span>
+        </h1>
+
+        <div class="mt-2.5 lg:mt-3 flex items-center gap-3 flex-wrap">
+          <p class="font-cute-jp text-[26px] sm:text-[30px] lg:text-[38px] text-ink leading-none">ビーガン<span class="text-royal">王子</span></p>
+          <span class="text-muted">·</span>
+          <p class="font-display italic text-[15px] sm:text-[18px] lg:text-[22px] text-muted">Alex Derycz</p>
+        </div>
+
+        <div class="mt-4 sm:mt-6 flex items-baseline gap-3">
+          <span class="eyebrow font-jp">現在 —</span>
+          <div class="lang-stack font-jp-display text-[16px] sm:text-[18px] lg:text-[20px] text-ink-soft">
+            <span class="lang-word">モデル</span>
+            <span class="lang-word">タレント</span>
+            <span class="lang-word">６カ国語MC</span>
+            <span class="lang-word">SNSクリエイター</span>
+            <span class="lang-word">海外の架け橋</span>
+            <span class="lang-word">王子業、絶賛拡張中 ✨</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHOTO + MASCOT (mobile second, desktop right column) -->
+      <div class="lg:col-span-5 order-2">
+        <div class="relative max-w-[300px] sm:max-w-[360px] lg:max-w-none mx-auto">
+          <div class="absolute -top-4 -right-4 w-[108%] h-[108%] -z-10 rounded-full dots-bg opacity-50"></div>
+
+          <div class="relative photo-frame overflow-hidden bg-cream aspect-square">
+            <img src="https://veganoji.jp/wp-content/uploads/2026/03/Vegan-Oji_Profile-Picture.jpg"
+                 alt="アレックス・デレチ"
+                 class="absolute inset-0 w-full h-full object-cover"
+                 loading="eager"/>
+          </div>
+
+          <div class="absolute -top-3 -left-3 sm:-top-5 sm:-left-5 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-royal text-paper flex flex-col items-center justify-center rotate-[-8deg] shadow-xl border-4 border-paper">
+            <svg width="18" height="18" class="sm:hidden"><use href="#crown"/></svg>
+            <svg width="22" height="22" class="hidden sm:block"><use href="#crown"/></svg>
+            <span class="font-jp-display text-[11px] sm:text-[13px] lg:text-[15px] leading-none font-medium mt-0.5">王子</span>
+            <span class="text-[7px] sm:text-[8px] tracking-[0.15em] mt-0.5 sm:mt-1 font-jp">2017年〜</span>
+          </div>
+
+          <div class="absolute -bottom-8 -right-4 sm:-bottom-10 sm:-right-6 lg:-right-10 w-24 sm:w-32 lg:w-44 anim-bobble" style="animation-delay:0.3s">
+            <div class="pose-cycle aspect-[4/5] relative">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/05/10_Website-Characters_1_0009_Layer-10.png" alt="" class="drop-shadow-lg" loading="eager"/>
+              <img src="https://veganoji.jp/wp-content/uploads/2026/05/04_Website-Characters_1_0003_Layer-4.png" alt="" class="drop-shadow-lg" loading="eager"/>
+              <img src="https://veganoji.jp/wp-content/uploads/2026/05/11_Website-Characters_1_0010_Layer-11.png" alt="" class="drop-shadow-lg" loading="eager"/>
+            </div>
+          </div>
+
+          <div class="absolute -bottom-1 left-3 sm:left-6 lg:left-10 font-hand text-[18px] sm:text-[22px] lg:text-[24px] text-royal rotate-[-4deg]">
+            よろしくね！ ♡
+          </div>
+        </div>
+      </div>
+
+      <!-- TAGLINE + BUTTONS (mobile last for one-screen hero) -->
+      <div class="lg:col-span-7 order-3 lg:order-3 mt-6 sm:mt-8 lg:mt-0">
+        <div class="badge-ribbon mb-4 sm:mb-5 text-[12px] sm:text-[13px]">お笑いあり、涙あり、野菜あり</div>
+        <p class="font-jp text-[13px] sm:text-[15px] lg:text-[17px] leading-[1.85] sm:leading-[2] text-ink-soft max-w-[560px]">
+          国籍は三つ。操る言語は六つ。<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい<span class="text-royal">&ldquo;ディズニーみたいな世界&rdquo;</span>を現実にするため発信しています。
+        </p>
+        <div class="mt-5 sm:mt-7 flex flex-wrap items-center gap-3">
+          <a href="#booking" class="btn-primary !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3">
+            <span class="font-jp">仕事を依頼する</span>
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#about" class="btn-ghost !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">王子を知る</span></a>
+        </div>
+
+        <div class="lg:hidden mt-6 sm:mt-8 flex items-center gap-2.5 text-muted">
+          <span class="text-[10px] tracking-[0.22em] uppercase font-jp">フォロー</span>
+          <a href="https://instagram.com/veganoji" aria-label="Instagram" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="ig"><svg width="16" height="16"><use href="#ig"/></svg></a>
+          <a href="https://x.com/VeganOji" aria-label="X" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="x"><svg width="14" height="14"><use href="#x"/></svg></a>
+          <a href="https://www.youtube.com/@veganoji" aria-label="YouTube" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="yt"><svg width="16" height="16"><use href="#yt"/></svg></a>
+          <a href="https://www.tiktok.com/@veganoji" aria-label="TikTok" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="tt"><svg width="16" height="16"><use href="#tt"/></svg></a>
+          <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" aria-label="LinkedIn" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="li"><svg width="16" height="16"><use href="#li"/></svg></a>
+        </div>
+      </div>
+
+      <!-- DESKTOP quick facts (hidden on mobile to save space) -->
+      <div class="hidden lg:block lg:col-span-5 order-4 lg:order-4">
+        <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+          <div>
+            <div class="font-display text-[28px] text-ink leading-none">'96</div>
+            <div class="text-[11px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">L.A.生まれ</div>
+          </div>
+          <div>
+            <div class="font-display text-[28px] text-ink leading-none">5+1</div>
+            <div class="text-[11px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">言語</div>
+          </div>
+          <div>
+            <div class="font-display text-[28px] text-ink leading-none">∞</div>
+            <div class="text-[11px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">野菜LOVE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden lg:flex absolute bottom-2 left-1/2 -translate-x-1/2 items-center flex-col gap-2 text-muted">
+      <span class="text-[10px] tracking-[0.32em] uppercase font-jp">スクロール</span>
+      <div class="scroll-cue"></div>
+    </div>
+  </section>
+
+  <!-- ─────────────  VOICES (testimonials, intimate, right under hero)  ───────────── -->
+  <section class="bg-paper pt-2 pb-10 sm:pt-4 sm:pb-14 relative">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="flex items-baseline gap-3 mb-4 sm:mb-6">
+        <span class="font-hand text-[22px] sm:text-[26px] text-royal">王子の周りの声 ♡</span>
+        <span class="font-jp text-[11px] text-muted tracking-wider hidden sm:inline">— Voices from people who've worked with, watched, or been changed by ビーガン王子</span>
+      </div>
+      <div class="m-scroll">
+
+        <article class="voice-card">
+          <p class="voice-quote">ヴィーガンを「制限」じゃなくて「おしゃれな選択肢」として伝えてくれる、稀有な存在。<span class="text-royal">本当に伝え方がうまい。</span></p>
+          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
+            <div class="voice-avatar" style="background: linear-gradient(135deg, #E55063, #C9223A);">K</div>
+            <div>
+              <div class="voice-name">加藤さん</div>
+              <div class="voice-meta">イベント制作 · 東京</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="voice-card">
+          <p class="voice-quote">大学の特別講義で、初めてヴィーガンの話を「楽しい」と思いました。<span class="text-royal">考え方が変わりました。</span></p>
+          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
+            <div class="voice-avatar" style="background: linear-gradient(135deg, #D4A847, #9C7E2A);">Y</div>
+            <div>
+              <div class="voice-name">Y.M.さん</div>
+              <div class="voice-meta">学生 · 早稲田大学</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="voice-card">
+          <p class="voice-quote">外国人視点と日本理解、両方を持っているのが彼の強み。<span class="text-royal">海外向けPRはアレックスさんで決まり。</span></p>
+          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
+            <div class="voice-avatar" style="background: linear-gradient(135deg, #6C9560, #3F6A3A);">C</div>
+            <div>
+              <div class="voice-name">Catherine さん</div>
+              <div class="voice-meta">仏ブランド広報 · パリ</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="voice-card">
+          <p class="voice-quote">彼の動画を見て、週１回だけ野菜中心の日を作るように。<span class="text-royal">なんだか元気になった気がします！</span></p>
+          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
+            <div class="voice-avatar" style="background: linear-gradient(135deg, #F8C8D2, #E55063);">M</div>
+            <div>
+              <div class="voice-name">三浦さん</div>
+              <div class="voice-meta">SNSフォロワー · 大阪</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="voice-card">
+          <p class="voice-quote">現場の温度を一瞬で変えられるMC。お客さん、アレックスさんと話して帰っていきます。<span class="text-royal">一緒に仕事できて嬉しい。</span></p>
+          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
+            <div class="voice-avatar" style="background: linear-gradient(135deg, #B5D5E8, #58835A);">T</div>
+            <div>
+              <div class="voice-name">田中さん</div>
+              <div class="voice-meta">ヴィーガンフェス主催</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="voice-card">
+          <p class="voice-quote">ビジネスでも普段でも、いつも前向き。<span class="text-royal">一緒にいると元気をもらえる人</span>です。</p>
+          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
+            <div class="voice-avatar" style="background: linear-gradient(135deg, #C8A557, #9C7E2A);">S</div>
+            <div>
+              <div class="voice-name">山本さん</div>
+              <div class="voice-meta">コラボ企業 · プロデューサー</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  PRESS WALL  ───────────── -->
+  <section class="border-y border-line bg-cream py-9 sm:py-12">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-5 sm:mb-7">
+        <div class="ornament justify-center mb-2.5"><span>メディア掲載・出演</span></div>
+        <p class="font-jp text-[12px] sm:text-[13px] text-muted">テレビ・新聞・雑誌──さまざまなメディアで紹介いただいています。<span class="lg:hidden text-royal-soft">→ 横にスワイプ</span></p>
+      </div>
+      <div class="press-strip">
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">フジテレビ</span></a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">TBSテレビ</span></a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">関西テレビ</span></a>
+        <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">中京テレビ</span></a>
+        <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">日経新聞</span></a>
+        <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-plate"><span class="font-display italic text-[14px]">ELLE</span><span class="font-jp text-[11.5px]">スタイルインサイダー</span></a>
+        <div class="press-plate"><span class="font-display italic text-[15px]">veggy</span></div>
+        <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-display italic text-[15px]">Zakzak</span></a>
+        <div class="press-plate"><span class="font-jp-display text-[13px]">メトロポリターナ</span></div>
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[13px]">ネプリーグ</span></a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[13px]">モニタリング</span></a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[13px]">世界くらべてみたら</span></a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[13px]">池上彰の関西人が知らないKANSAI</span></a>
+      </div>
+      <div class="mt-5 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+        <span class="font-jp text-[12px] text-muted">メディア関係者の方へ —</span>
+        <a href="https://drive.google.com/drive/folders/1iFVzYBwNPQh3hLUdvMHZUehJamtOTNJJ?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-royal text-[13px] font-jp border border-royal/30 rounded-full px-4 py-2 hover:bg-royal hover:text-paper transition-colors">
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          プレスキット（写真・プロフィール・ロゴ）をダウンロード
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  ABOUT / SIX LANGUAGES  ───────────── -->
+  <section id="about" class="bg-royal text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 stars-bg opacity-50 pointer-events-none"></div>
+    <svg class="absolute top-16 left-[8%] w-12 h-12 text-gold opacity-30 anim-float"><use href="#sparkle"/></svg>
+    <svg class="absolute bottom-24 right-[12%] w-10 h-10 text-paper opacity-20 anim-float" style="animation-delay:1.4s"><use href="#sparkle"/></svg>
+    <svg class="absolute top-1/2 right-[5%] w-8 h-8 text-gold-soft opacity-40 anim-float" style="animation-delay:0.8s"><use href="#note"/></svg>
+
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-start">
+        <div class="lg:col-span-5">
+          <h2 class="font-display display-tight text-[40px] sm:text-[56px] lg:text-[80px] font-light leading-[0.95]">
+            <span class="block whitespace-nowrap">Speaks <span class="display-italic text-gold-soft">six.</span></span>
+            <span class="block text-paper/80 text-[24px] sm:text-[34px] lg:text-[50px] mt-1.5 sm:mt-2 font-jp-display font-light">挨拶は、世界中で。</span>
+          </h2>
+
+          <p class="font-jp text-[13px] sm:text-[15px] lg:text-[16px] leading-[1.95] sm:leading-[2] text-paper/85 mt-5 sm:mt-7 max-w-[440px]">
+            英語、フランス語、スペイン語、日本語、ドイツ語、そして現在は中国語を勉強中。UCLA一年早く卒業。<span class="text-gold-soft">国や言葉のちがいを越えて、笑いも想いも、まっすぐ届けます。</span>
+          </p>
+
+          <div class="mt-6 sm:mt-8 flex flex-wrap gap-1.5 sm:gap-2" id="lang-chips">
+            <button data-lang-idx="0" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">English · ネイティブ</button>
+            <button data-lang-idx="1" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">Français · ネイティブ</button>
+            <button data-lang-idx="3" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">日本語 · 流暢</button>
+            <button data-lang-idx="2" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">Español · 流暢</button>
+            <button data-lang-idx="4" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">Deutsch · 中級</button>
+            <button data-lang-idx="5" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-gold-soft border-gold-soft/60 bg-transparent hover:bg-gold-soft/10 transition-colors">+ 中国語 · 勉強中</button>
+          </div>
+          <div class="mt-3 text-[10px] tracking-[0.18em] text-paper/50 font-jp">タップで言語を切り替え</div>
+        </div>
+
+        <div class="lg:col-span-7 relative min-h-[120px] sm:min-h-[200px] lg:min-h-[440px] flex items-center">
+          <div id="lang-stack" class="lang-stack font-display display-tight text-[48px] sm:text-[80px] lg:text-[150px] font-medium leading-none text-paper w-full">
+            <div class="lang-word" data-lang-slot="0">
+              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">EN · ENGLISH</div>
+              Hello.
+            </div>
+            <div class="lang-word" data-lang-slot="1">
+              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">FR · FRANÇAIS</div>
+              <span class="display-italic font-light">Bonjour.</span>
+            </div>
+            <div class="lang-word" data-lang-slot="2">
+              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">ES · ESPAÑOL</div>
+              ¡Hola!
+            </div>
+            <div class="lang-word" data-lang-slot="3">
+              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">JP · 日本語</div>
+              <span class="font-jp-display">こんにちは。</span>
+            </div>
+            <div class="lang-word" data-lang-slot="4">
+              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">DE · DEUTSCH</div>
+              <span class="display-italic font-light">Hallo.</span>
+            </div>
+            <div class="lang-word" data-lang-slot="5">
+              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">中文 · 勉強中</div>
+              <span class="font-jp-display">你好。</span>
+            </div>
+          </div>
+
+          <div class="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-2 w-20 sm:w-28 lg:w-44 anim-tilt z-10 pointer-events-none">
+            <img src="https://veganoji.jp/wp-content/uploads/2026/05/05_Website-Characters_1_0004_Layer-5.png" alt="ビーガン王子 - 読書中" class="w-full h-auto drop-shadow-2xl" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  SERVICES  ───────────── -->
+  <section id="services" class="bg-paper py-14 sm:py-20 lg:py-32 relative">
+    <svg class="absolute top-20 right-[6%] w-8 h-8 text-royal-soft opacity-60 anim-sparkle"><use href="#sparkle"/></svg>
+    <svg class="absolute bottom-32 left-[4%] w-6 h-6 text-gold anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
+
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 lg:mb-16 relative">
+        <div>
+          <div class="ornament mb-4 sm:mb-6"><span>サービス</span></div>
+          <h2 class="font-display display-tight text-[42px] sm:text-[64px] lg:text-[88px] font-medium text-ink">
+            What the prince <span class="display-italic text-royal">does.</span>
+          </h2>
+          <p class="font-jp-display text-[15px] sm:text-[18px] text-muted mt-2 sm:mt-3">王子の提供できること、いろいろ。<span class="md:hidden text-royal-soft">→ 横にスワイプ</span></p>
+        </div>
+        <img src="https://veganoji.jp/wp-content/uploads/2026/05/06_Website-Characters_1_0005_Layer-6.png" alt="ビーガン王子 - MC" class="block absolute right-1 sm:right-3 -top-10 sm:-top-12 lg:-top-16 w-14 sm:w-20 lg:w-28 anim-tilt drop-shadow-lg pointer-events-none z-10" loading="lazy"/>
+        <a href="https://drive.google.com/file/d/1ungEEVMORVgH8B9wZw9ifKS0JZ_8K9PT/view?usp=drive_link" target="_blank" rel="noopener" class="btn-ghost self-start lg:self-auto !text-[13px] !px-5 !py-2.5">
+          <span class="font-jp">プロフィールをダウンロード</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+
+      <div class="m-scroll m-scroll-2">
+
+        <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
+          <div class="absolute top-4 right-4 w-14 h-14 text-royal opacity-20"><svg width="100%" height="100%"><use href="#note"/></svg></div>
+          <div class="flex items-start justify-between">
+            <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">01</span>
+            <span class="eyebrow font-jp">MC · 司会・講演</span>
+          </div>
+          <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
+            多言語MC・<br/>講演・大学授業
+          </h3>
+          <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
+            国際カンファレンスからビーガンフェス、大学の特別講義まで。最大６言語で、通訳を挟まずに会場と直接つながります。
+          </p>
+          <ul class="mt-auto text-[12px] text-muted space-y-1.5 font-jp">
+            <li>· 国際イベント司会（日英／日仏／日西）</li>
+            <li>· パネルモデレーション</li>
+            <li>· 大学・高校での特別講義</li>
+            <li>· 企業向けサステナ研修</li>
+          </ul>
+        </article>
+
+        <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
+          <div class="absolute top-4 right-4 w-14 h-14 text-royal opacity-20"><svg width="100%" height="100%"><use href="#sparkle"/></svg></div>
+          <div class="flex items-start justify-between">
+            <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">02</span>
+            <span class="eyebrow font-jp">タレント・モデル</span>
+          </div>
+          <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
+            モデル・<br/>タレント出演
+          </h3>
+          <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
+            ファッション、コマーシャル、TV、Web、声優。<br/>外国人視点のキャスティング、特に得意です。
+          </p>
+          <ul class="mt-auto text-[12px] text-muted space-y-1.5 font-jp">
+            <li>· テレビ・ウェブ番組出演</li>
+            <li>· 広告・ブランドキャンペーン</li>
+            <li>· 多言語ナレーション・声優</li>
+            <li>· ランウェイ・ファッション</li>
+          </ul>
+        </article>
+
+        <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
+          <div class="absolute top-4 right-4 w-14 h-14 text-royal opacity-20"><svg width="100%" height="100%"><use href="#heart"/></svg></div>
+          <div class="flex items-start justify-between">
+            <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">03</span>
+            <span class="eyebrow font-jp">SNS・クリエイター</span>
+          </div>
+          <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
+            王子としての<br/>SNS活動
+          </h3>
+          <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
+            王子の衣装に身を包んで、日本に笑顔とポジティブな変化を届けるコンテンツを毎日発信。モットーは<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>。
+          </p>
+          <ul class="mt-auto text-[12px] text-muted space-y-1.5 font-jp">
+            <li>· Instagram / TikTok / YouTube</li>
+            <li>· ブランドコラボ動画</li>
+            <li>· 多言語コンテンツ</li>
+            <li>· 社会派エンタメ企画</li>
+          </ul>
+        </article>
+
+        <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
+          <div class="absolute top-4 right-4 w-14 h-14 text-royal opacity-20"><svg width="100%" height="100%"><use href="#crown"/></svg></div>
+          <div class="flex items-start justify-between">
+            <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">04</span>
+            <span class="eyebrow font-jp">海外の架け橋</span>
+          </div>
+          <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
+            国際ビジネス・<br/>マーケティング
+          </h3>
+          <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
+            複数のブランドで、国内外マーケティング・AI活用・モデル／アーティスト事務所運営など、「海外と日本」をつなぐ仕事をしています。
+          </p>
+          <ul class="mt-auto text-[12px] text-muted space-y-1.5 font-jp">
+            <li>· <a href="https://www.researchsolutions.com" target="_blank" rel="noopener" class="text-royal hover:underline">Research Solutions</a> · Japan Territory Manager</li>
+            <li>· <a href="https://handpanstudiotokyo.jp" target="_blank" rel="noopener" class="text-royal hover:underline">Handpan Studio Tokyo</a> · 共同創業</li>
+            <li>· <a href="https://ojidigital.com" target="_blank" rel="noopener" class="text-royal hover:underline">OJI DIGITAL</a> · AI活用コンサル</li>
+            <li>· アーティスト・モデル事務所</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  COMPANY PORTFOLIO BAND  ───────────── -->
+  <section class="bg-royal text-paper py-10 sm:py-14 relative overflow-hidden">
+    <div class="absolute inset-0 stars-bg opacity-25 pointer-events-none"></div>
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
+      <div class="text-center mb-6 sm:mb-8">
+        <div class="ornament justify-center mb-3"><span style="color:#E8C76F">王子が手がけるもの</span></div>
+        <p class="font-jp text-[12px] sm:text-[13px] text-paper/75">モデル・タレント業とあわせて、こんなブランドを動かしています。<span class="md:hidden text-gold-soft">→ 横にスワイプ</span></p>
+      </div>
+      <div class="logo-strip">
+        <a href="https://www.researchsolutions.com" target="_blank" rel="noopener" class="logo-card">
+          <img src="/images/voji-logos/research-solutions.svg" alt="Research Solutions" class="logo-img" loading="lazy"/>
+          <span class="font-jp text-[11px] text-muted text-center leading-tight">Japan Territory Manager</span>
+        </a>
+        <a href="https://ojidigital.com" target="_blank" rel="noopener" class="logo-card">
+          <img src="/images/voji-logos/oji-digital.webp" alt="OJI DIGITAL" class="logo-img" loading="lazy"/>
+          <span class="font-jp text-[11px] text-muted text-center leading-tight">創業者 · AIマーケティング</span>
+        </a>
+        <a href="https://handpanstudiotokyo.jp" target="_blank" rel="noopener" class="logo-card">
+          <img src="/images/voji-logos/handpan-studio-tokyo.webp" alt="Handpan Studio Tokyo" class="logo-img" loading="lazy"/>
+          <span class="font-jp text-[11px] text-muted text-center leading-tight">共同創業者</span>
+        </a>
+        <a href="https://veganoji.jp" target="_blank" rel="noopener" class="logo-card">
+          <img src="/images/voji-logos/vegan-oji.png" alt="ビーガン王子株式会社" class="logo-img" loading="lazy"/>
+          <span class="font-jp text-[11px] text-muted text-center leading-tight">代表取締役 CEO</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  TOOLS — Calculator + Map  ───────────── -->
+  <section id="tools" class="bg-cream py-14 sm:py-20 lg:py-32 relative overflow-hidden border-y border-line">
+    <svg class="absolute top-14 left-[3%] w-14 h-14 text-leaf opacity-25 anim-float"><use href="#leaf"/></svg>
+    <svg class="absolute bottom-20 right-[3%] w-16 h-16 text-leaf opacity-20 anim-float" style="animation-delay:1.6s"><use href="#leaf"/></svg>
+    <svg class="absolute top-1/3 right-[15%] w-8 h-8 text-leaf-deep opacity-40 anim-float" style="animation-delay:0.8s"><use href="#leaf"/></svg>
+
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
+
+      <div class="text-center mb-8 sm:mb-12 lg:mb-16 max-w-[760px] mx-auto">
+        <div class="ornament mb-4 sm:mb-6 justify-center"><span>王子のツール</span></div>
+        <h2 class="font-display display-tight text-[36px] sm:text-[56px] lg:text-[72px] font-medium text-ink">
+          Try the <span class="display-italic text-royal">tools.</span>
+        </h2>
+        <p class="font-jp-display text-[14px] sm:text-[18px] lg:text-[20px] text-ink-soft mt-3 sm:mt-4">
+          「で、実際どうすればいいの？」── そんな疑問に答える、無料の２つの道具。
+        </p>
+
+        <!-- Mobile toggle -->
+        <div class="md:hidden mt-6 inline-flex bg-paper rounded-full p-1 border border-line" id="tool-toggle">
+          <button class="px-4 py-2 rounded-full text-[13px] font-jp transition-colors" data-tool="calc" data-active="true">計算機</button>
+          <button class="px-4 py-2 rounded-full text-[13px] font-jp transition-colors" data-tool="map">マップ</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+
+        <!-- ── CALCULATOR ── -->
+        <article data-tool-panel="calc" data-active="true" class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-9 border border-line relative overflow-hidden">
+          <div class="absolute top-6 right-6 chip border-leaf/40 text-leaf-deep bg-leaf/5 z-10">無料</div>
+          <img src="https://veganoji.jp/wp-content/uploads/2026/05/02_Website-Characters_1_0001_Layer-2.png" alt="ビーガン王子 - 計算機" class="block absolute bottom-3 right-3 w-14 sm:w-16 lg:w-20 anim-bobble drop-shadow-md pointer-events-none opacity-90 z-10" loading="lazy"/>
+
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-leaf/15 text-leaf-deep flex items-center justify-center">
+              <svg width="26" height="26"><use href="#leaf"/></svg>
+            </div>
+            <div>
+              <div class="eyebrow text-leaf-deep font-jp">道具その１</div>
+              <h3 class="font-jp-display text-[26px] lg:text-[32px] font-medium leading-tight text-ink mt-1">
+                ビーガン計算機
+              </h3>
+              <p class="font-display italic text-[15px] text-muted mt-1">If you went vegan for X — here's what you saved.</p>
+            </div>
+          </div>
+
+          <!-- WHY mini-info block (expandable on mobile) -->
+          <div class="calc-info bg-leaf/5 rounded-xl border border-leaf/20 mb-5 sm:mb-6 overflow-hidden" data-open="false">
+            <button class="calc-info-toggle w-full flex items-center justify-between p-4 sm:p-5 text-left gap-3">
+              <div class="font-jp-display text-[14px] sm:text-[15px] text-leaf-deep flex items-center gap-2 flex-1">
+                <img src="https://veganoji.jp/wp-content/uploads/2026/05/09_Website-Characters_1_0008_Layer-9.png" alt="ビーガン王子 - 考え中" class="w-10 sm:w-12 h-auto flex-shrink-0" loading="lazy"/>
+                <span>知ってた？ ビーガンが地球にやさしい３つの理由</span>
+              </div>
+              <svg class="calc-info-chev text-leaf-deep transition-transform md:hidden flex-shrink-0" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5 L7 9 L11 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+            </button>
+            <div class="calc-info-content">
+              <div class="calc-info-inner px-4 pb-5 sm:px-5 sm:pb-5">
+                <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[12px] font-jp text-ink-soft leading-relaxed">
+                  <li class="bg-paper/60 rounded-lg p-3 border border-line/60">
+                    <div class="font-display text-[22px] text-leaf-deep leading-none">14.5%</div>
+                    <div class="mt-1.5">世界の温室効果ガスのうち、畜産業が占める割合</div>
+                  </li>
+                  <li class="bg-paper/60 rounded-lg p-3 border border-line/60">
+                    <div class="font-display text-[22px] text-leaf-deep leading-none">70%</div>
+                    <div class="mt-1.5">農地のうち、家畜のために使われる割合</div>
+                  </li>
+                  <li class="bg-paper/60 rounded-lg p-3 border border-line/60">
+                    <div class="font-display text-[22px] text-leaf-deep leading-none">15,000L</div>
+                    <div class="mt-1.5">牛肉１kgを作るのに必要な水の量</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <p class="font-jp text-[13.5px] leading-[1.95] text-ink-soft mb-5">
+            <span class="font-medium text-ink">もし、ビーガンを続けたら？</span> 期間を入れるだけで、その間に地球へ贈れる<span class="text-royal">"ギフト"の大きさ</span>が見えてきます。
+          </p>
+
+          <!-- DURATION INPUT -->
+          <div class="bg-cream/60 rounded-xl p-4 sm:p-5 border border-line/60 mb-5">
+            <div class="font-jp text-[11px] text-muted mb-2.5 text-center tracking-wider">かんたんに選ぶ</div>
+            <div class="flex flex-wrap justify-center gap-2 mb-4" id="calc-presets">
+              <button class="calc-preset" data-years="0" data-months="1">１ヶ月</button>
+              <button class="calc-preset" data-years="1" data-months="0" data-on="true">１年</button>
+              <button class="calc-preset" data-years="3" data-months="0">３年</button>
+              <button class="calc-preset" data-years="5" data-months="0">５年</button>
+              <button class="calc-preset" data-years="10" data-months="0">１０年</button>
+            </div>
+            <div class="flex items-center justify-center gap-3 flex-wrap">
+              <span class="font-jp text-[12px] text-muted">じぶんで入力 —</span>
+              <div class="flex items-center gap-1.5">
+                <input id="calc-years" type="number" min="0" max="99" value="1" class="calc-num"/>
+                <span class="font-jp text-[14px] text-ink-soft">年</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <input id="calc-months" type="number" min="0" max="11" value="0" class="calc-num"/>
+                <span class="font-jp text-[14px] text-ink-soft">ヶ月</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="bg-cream/60 rounded-xl p-4 sm:p-5 lg:p-6 border border-line/60">
+            <div class="font-jp-display text-[13px] sm:text-[15px] text-leaf-deep flex items-center gap-2 mb-4 justify-center text-center">
+              <svg width="14" height="14" class="text-leaf-deep flex-shrink-0"><use href="#sparkle"/></svg>
+              <span id="calc-summary">１年のビーガン生活で、地球にこれだけのギフト</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-3 text-center">
+              <div class="bg-paper rounded-xl p-2.5 sm:p-3 border border-line/60">
+                <svg viewBox="0 0 56 56" class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mx-auto"><use href="#ill-water"/></svg>
+                <div class="font-display text-[15px] sm:text-[17px] lg:text-[20px] text-leaf-deep leading-none mt-1.5" data-out="water">0 L</div>
+                <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1 font-jp">水</div>
+              </div>
+              <div class="bg-paper rounded-xl p-2.5 sm:p-3 border border-line/60">
+                <svg viewBox="0 0 56 56" class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mx-auto"><use href="#ill-grain"/></svg>
+                <div class="font-display text-[15px] sm:text-[17px] lg:text-[20px] text-leaf-deep leading-none mt-1.5" data-out="grains">0 kg</div>
+                <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1 font-jp">穀物</div>
+              </div>
+              <div class="bg-paper rounded-xl p-2.5 sm:p-3 border border-line/60">
+                <svg viewBox="0 0 56 56" class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mx-auto"><use href="#ill-forest"/></svg>
+                <div class="font-display text-[15px] sm:text-[17px] lg:text-[20px] text-leaf-deep leading-none mt-1.5" data-out="forest">0 m²</div>
+                <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1 font-jp">森林</div>
+              </div>
+              <div class="bg-paper rounded-xl p-2.5 sm:p-3 border border-line/60">
+                <svg viewBox="0 0 56 56" class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mx-auto"><use href="#ill-co2"/></svg>
+                <div class="font-display text-[15px] sm:text-[17px] lg:text-[20px] text-leaf-deep leading-none mt-1.5" data-out="co2">0 kg</div>
+                <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1 font-jp">CO₂</div>
+              </div>
+              <div class="bg-paper rounded-xl p-2.5 sm:p-3 border border-line/60 col-span-2 sm:col-span-1">
+                <svg viewBox="0 0 56 56" class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mx-auto"><use href="#ill-cow"/></svg>
+                <div class="font-display text-[15px] sm:text-[17px] lg:text-[20px] text-leaf-deep leading-none mt-1.5" data-out="animals">0</div>
+                <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1 font-jp">動物のいのち</div>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-line/60 text-center">
+              <div class="font-jp-display text-[14px] sm:text-[16px] text-royal" id="calc-headline">王子からひとこと</div>
+            </div>
+
+            <p class="text-[10px] text-muted text-center mt-4 font-jp">※ 出典: Cowspiracy のデータを元に算出 · 試算値</p>
+          </div>
+
+          <!-- CTA: save image + follow -->
+          <div class="mt-5 bg-leaf/5 border border-leaf/20 rounded-xl p-4 sm:p-5">
+            <div class="font-jp-display text-[13px] sm:text-[14px] text-leaf-deep mb-3 flex items-center gap-2">
+              <svg width="14" height="14" class="text-leaf-deep"><use href="#sparkle"/></svg>
+              結果をシェアして、輪を広げよう
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+              <button id="calc-save" disabled class="btn-primary !text-[13px] !px-5 !py-2.5 disabled:opacity-40 disabled:cursor-not-allowed">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <span class="font-jp">結果を画像で保存</span>
+              </button>
+              <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="btn-ghost !text-[13px] !px-5 !py-2.5">
+                <svg width="15" height="15"><use href="#ig"/></svg>
+                <span class="font-jp">ヒントをフォロー</span>
+              </a>
+            </div>
+            <p class="font-jp text-[11px] text-muted mt-2.5 leading-relaxed">画像を保存して、SNSでシェア。<span class="text-leaf-deep">@veganoji</span> をタグ付けしてくれたら、王子が見つけにいきます ♡</p>
+          </div>
+          <canvas id="calc-canvas" width="1080" height="1080" class="hidden"></canvas>
+
+          <a href="https://veganoji.jp/vegan-and-the-environment-infographic-japanese/" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 text-royal text-[14px] hover:gap-3 transition-all">
+            <span class="font-jp">環境と食について、もっと学ぶ</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </a>
+        </article>
+
+        <!-- ── MAP ── -->
+        <article data-tool-panel="map" class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-9 border border-line relative overflow-hidden">
+          <div class="absolute top-6 right-6 chip border-leaf/40 text-leaf-deep bg-leaf/5 z-10">無料</div>
+          <img src="https://veganoji.jp/wp-content/uploads/2026/05/01_Website-Characters_1_0000_Layer-1.png" alt="ビーガン王子 - マップ" class="block absolute bottom-3 right-3 w-14 sm:w-16 lg:w-20 anim-bobble drop-shadow-md pointer-events-none opacity-90 z-10" style="animation-delay:0.4s" loading="lazy"/>
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-royal/10 text-royal flex items-center justify-center">
+              <svg width="22" height="24"><use href="#pin"/></svg>
+            </div>
+            <div>
+              <div class="eyebrow font-jp">道具その２</div>
+              <h3 class="font-jp-display text-[26px] lg:text-[32px] font-medium leading-tight text-ink mt-1">
+                ビーガンマップ
+              </h3>
+              <p class="font-display italic text-[15px] text-muted mt-1">Then find somewhere delicious — anywhere in Japan.</p>
+            </div>
+          </div>
+
+          <p class="font-jp text-[13.5px] leading-[1.95] text-ink-soft mb-6">
+            「ちょっと減らしてみようかな」と思ったら、次は探す番。日本全国のビーガン・ベジ対応レストランを王子が厳選してマップに。
+          </p>
+
+          <div class="relative bg-cream/60 rounded-xl border border-line/60 overflow-hidden aspect-[5/4]">
+            <svg viewBox="0 0 400 320" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
+              <rect width="400" height="320" fill="#E9F1F5"/>
+              <g fill="#F4E3C0" stroke="#9C7E2A" stroke-width="1.4" stroke-linejoin="round">
+                <path d="M260 30 Q 290 25, 310 45 Q 320 65, 305 85 Q 280 90, 265 75 Q 250 55, 260 30 Z"/>
+                <path d="M120 130 Q 100 110, 130 95 Q 165 90, 200 110 Q 235 100, 270 130 Q 290 155, 280 180 Q 250 200, 220 195 Q 190 205, 170 220 Q 145 225, 130 200 Q 110 175, 120 130 Z"/>
+                <path d="M180 230 Q 200 225, 215 235 Q 220 250, 205 255 Q 185 252, 180 240 Z"/>
+                <path d="M120 230 Q 110 215, 130 210 Q 155 215, 165 235 Q 170 260, 155 275 Q 130 280, 115 265 Q 105 245, 120 230 Z"/>
+                <path d="M50 290 Q 55 285, 62 290 Q 60 297, 52 295 Z"/>
+              </g>
+              <g class="map-pin" transform="translate(195,140)"><svg width="18" height="24" x="-9" y="-22" class="text-royal"><use href="#pin"/></svg></g>
+              <g class="map-pin" transform="translate(220,155)"><svg width="18" height="24" x="-9" y="-22" class="text-royal"><use href="#pin"/></svg></g>
+              <g class="map-pin" transform="translate(170,170)"><svg width="14" height="20" x="-7" y="-18" class="text-gold"><use href="#pin"/></svg></g>
+              <g class="map-pin" transform="translate(245,170)"><svg width="14" height="20" x="-7" y="-18" class="text-gold"><use href="#pin"/></svg></g>
+              <g class="map-pin" transform="translate(280,55)"><svg width="14" height="20" x="-7" y="-18" class="text-royal-soft"><use href="#pin"/></svg></g>
+              <g class="map-pin" transform="translate(140,240)"><svg width="14" height="20" x="-7" y="-18" class="text-royal-soft"><use href="#pin"/></svg></g>
+              <text x="287" y="55" font-family="Noto Sans JP" font-size="9" fill="#3C2E22">北海道</text>
+              <text x="225" y="138" font-family="Noto Sans JP" font-size="11" fill="#9C1428" font-weight="700">東京</text>
+              <text x="125" y="155" font-family="Noto Sans JP" font-size="9" fill="#3C2E22">関西</text>
+              <text x="100" y="240" font-family="Noto Sans JP" font-size="9" fill="#3C2E22">九州</text>
+            </svg>
+
+            <div class="absolute top-4 right-4 bg-paper rounded-lg shadow-lg p-3 border border-line text-[11px] max-w-[160px]">
+              <div class="font-jp-display text-[13px] text-ink mb-1.5 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-royal"></span> 完全ビーガン</div>
+              <div class="font-jp-display text-[13px] text-ink mb-1.5 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-gold"></span> 一部ビーガン対応</div>
+              <div class="font-jp-display text-[13px] text-ink flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-royal-soft"></span> 王子のおすすめ</div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+            <div>
+              <div class="font-display text-[24px] text-royal leading-none">3,200<span class="text-[16px]">+</span></div>
+              <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">登録店舗</div>
+            </div>
+            <div>
+              <div class="font-display text-[24px] text-royal leading-none">47</div>
+              <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">都道府県</div>
+            </div>
+            <div>
+              <div class="font-display text-[24px] text-royal leading-none">∞</div>
+              <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">王子の食べ歩き</div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="https://veganoji.jp/japan-vegan-map/" target="_blank" rel="noopener" class="btn-primary !text-[13px] !px-5 !py-2.5">
+              <span class="font-jp">マップを開く</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </a>
+            <a href="https://wkf.ms/3IbDnrC" target="_blank" rel="noopener" class="btn-ghost !text-[13px] !px-5 !py-2.5">
+              <span class="font-jp">お店を投稿・閉店報告</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+          <p class="text-[11px] text-muted font-jp mt-3 leading-relaxed">
+            ※ マップを最新に保つには、みんなの協力が頼り。新しいお店を見つけたら、閉店を知ったら、ぜひ報告してください 🙏
+          </p>
+        </article>
+      </div>
+
+      <div class="mt-12 flex items-center justify-center gap-4 max-w-[680px] mx-auto text-center">
+        <svg class="w-10 h-10 text-royal opacity-60 flex-shrink-0"><use href="#sparkle"/></svg>
+        <p class="font-jp text-[14px] text-ink-soft leading-[1.95]">
+          まず<span class="text-royal font-medium">「自分の影響」</span>を知って、それから<span class="text-royal font-medium">「美味しいお店」</span>を探す。<br/>王子が、両方ぜんぶ用意しておきました。
+        </p>
+        <svg class="w-10 h-10 text-gold opacity-60 flex-shrink-0"><use href="#sparkle"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  MISSION  ───────────── -->
+  <section class="bg-royal text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 stars-bg opacity-30 pointer-events-none"></div>
+    <svg class="absolute -right-32 top-10 w-[480px] h-[480px] text-paper opacity-[0.07]"><use href="#crown"/></svg>
+    <svg class="absolute top-20 left-[8%] w-8 h-8 text-gold opacity-60 anim-sparkle"><use href="#sparkle"/></svg>
+    <svg class="absolute bottom-32 right-[20%] w-6 h-6 text-gold-soft opacity-50 anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
+
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
+      <div class="ornament mb-8"><span style="color:#E8C76F">ミッション</span></div>
+
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] text-paper leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
+        「やさしさと行動こそ、本当の<span class="text-gold-soft display-italic font-display font-medium">王子様</span>らしさ」
+      </blockquote>
+
+      <div class="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-7">
+          <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85">
+            １７歳のとき、<span class="text-gold-soft font-medium">「目からうろこ」</span>の瞬間がありました。畜産業が気候変動の大きな原因のひとつだと知った瞬間、それまで「制限が多そう」と片付けていたビーガンが、急に<span class="text-gold-soft">「選択肢を増やすもの」</span>に見えてきたんです。
+          </p>
+          <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85 mt-6">
+            ２０１７年、UCLAを卒業して日本へ。アメリカではすでに浸透しているけれど、日本にはまだ<span class="text-gold-soft font-medium">「僕が貢献できる余地」</span>があると思いました。それから９年。テレビ、フェス、大学講義、企業コンサル、商品開発──野菜とユーモアと涙を持って、走り続けています。
+          </p>
+          <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85 mt-6">
+            目標はひとつ。<span class="text-gold-soft font-medium">日本を、世界で一番ビーガンフレンドリーな国にすること。</span>
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="bg-paper rounded-lg p-8 border border-line shadow-sm">
+            <div class="eyebrow mb-4 font-jp">王子の信条</div>
+            <ul class="space-y-5">
+              <li class="flex gap-4">
+                <span class="font-display text-[22px] text-royal leading-none">→</span>
+                <div>
+                  <div class="font-jp-display text-[17px] text-ink mb-1">美味しく、楽しく、健康に</div>
+                  <div class="font-jp text-[13px] text-muted leading-relaxed">伝え方こそが、ムーブメントを左右する。</div>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <span class="font-display text-[22px] text-royal leading-none">→</span>
+                <div>
+                  <div class="font-jp-display text-[17px] text-ink mb-1">制限ではなく、拡張</div>
+                  <div class="font-jp text-[13px] text-muted leading-relaxed">選択肢が増える生き方として、ビーガンを語る。</div>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <span class="font-display text-[22px] text-royal leading-none">→</span>
+                <div>
+                  <div class="font-jp-display text-[17px] text-ink mb-1">行動こそが王子様</div>
+                  <div class="font-jp text-[13px] text-muted leading-relaxed">立派な言葉より、小さな行動を重ねる。</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="absolute -bottom-8 -right-2 w-28 anim-peek">
+            <img src="https://veganoji.jp/wp-content/uploads/2026/05/12_Website-Characters_1_0011_Layer-12.png" alt="ビーガン王子" class="w-full h-auto drop-shadow" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  SELECTED WORK (horizontal scroll)  ───────────── -->
+  <section id="work" class="bg-paper py-14 sm:py-20 lg:py-32 relative">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 relative">
+        <div>
+          <div class="ornament mb-6"><span>最近の活動</span></div>
+          <h2 class="font-display display-tight text-[52px] lg:text-[88px] font-medium text-ink">
+            Recent <span class="display-italic text-royal">moments.</span>
+          </h2>
+          <p class="font-jp-display text-[18px] text-muted mt-3">最近の登壇・出演から、いくつか。<span class="text-royal-soft">→</span> 横にスワイプ</p>
+        </div>
+        <img src="https://veganoji.jp/wp-content/uploads/2026/05/08_Website-Characters_1_0007_Layer-8.png" alt="ビーガン王子 - ランニング" class="block absolute right-1 sm:right-3 -top-10 sm:-top-12 lg:-top-16 w-14 sm:w-20 lg:w-28 anim-bobble drop-shadow-lg pointer-events-none z-10" loading="lazy"/>
+        <a href="https://veganoji.jp" target="_blank" rel="noopener" class="text-ink-soft text-[13px] tracking-wider underline underline-offset-8 decoration-royal hover:text-royal transition-colors font-jp">
+          すべての活動を見る →
+        </a>
+      </div>
+
+      <div class="h-scroll-hint">
+        <div class="h-scroll">
+
+          <article class="work-card group cursor-pointer">
+            <span class="tape"></span>
+            <div class="work-card-img-wrap">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/04/KoizumiKankyoDaijinDinner_FEATURED-IMAGE.jpg" alt="小泉環境大臣との会食" loading="lazy"/>
+              <div class="ribbon chip border-paper/40 text-paper bg-royal/85 !font-jp">官公庁</div>
+            </div>
+            <div class="mt-3 px-1">
+              <div class="text-[11px] tracking-[0.22em] uppercase text-royal mb-2">2026 · 04月</div>
+              <h3 class="font-jp-display text-[17px] leading-snug text-ink">小泉環境大臣との会食 — プラントベース食の政策提言</h3>
+              <p class="caption mt-2">少人数ラウンドテーブル</p>
+            </div>
+          </article>
+
+          <article class="work-card group cursor-pointer">
+            <span class="tape"></span>
+            <div class="work-card-img-wrap">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/04/TokyoCollection_FEATURED-IMAGE.jpg" alt="東京コレクション" loading="lazy"/>
+              <div class="ribbon chip border-paper/40 text-paper bg-royal/85 !font-jp">ファッション</div>
+            </div>
+            <div class="mt-3 px-1">
+              <div class="text-[11px] tracking-[0.22em] uppercase text-royal mb-2">2026 · 03月</div>
+              <h3 class="font-jp-display text-[17px] leading-snug text-ink">東京コレクション — ランウェイ出演＆バックステージMC</h3>
+              <p class="caption mt-2">日英バイリンガル進行</p>
+            </div>
+          </article>
+
+          <article class="work-card group cursor-pointer">
+            <span class="tape"></span>
+            <div class="work-card-img-wrap">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/04/Shibuya-CrossFM.jpg" alt="渋谷クロスFM" loading="lazy"/>
+              <div class="ribbon chip border-paper/40 text-paper bg-royal/85 !font-jp">ラジオ</div>
+            </div>
+            <div class="mt-3 px-1">
+              <div class="text-[11px] tracking-[0.22em] uppercase text-royal mb-2">2026 · 03月</div>
+              <h3 class="font-jp-display text-[17px] leading-snug text-ink">渋谷クロスFM — ゲスト出演／レギュラー番組</h3>
+              <p class="caption mt-2">食、文化、多言語ライフ</p>
+            </div>
+          </article>
+
+          <article class="work-card group cursor-pointer">
+            <span class="tape"></span>
+            <div class="work-card-img-wrap">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/04/FrenchMC_FEATURED-IMAGE.png" alt="フランス語MC" loading="lazy"/>
+              <div class="ribbon chip border-paper/40 text-paper bg-royal/85 !font-jp">司会</div>
+            </div>
+            <div class="mt-3 px-1">
+              <div class="text-[11px] tracking-[0.22em] uppercase text-royal mb-2">2026 · 02月</div>
+              <h3 class="font-jp-display text-[17px] leading-snug text-ink">在日フランス商工会議所 — 仏日バイリンガルMC</h3>
+              <p class="caption mt-2">経済界の交流イベント</p>
+            </div>
+          </article>
+
+          <article class="work-card group cursor-pointer">
+            <span class="tape"></span>
+            <div class="work-card-img-wrap">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/04/AVA-Summit-2025_FEATURED-IMAGE.jpg" alt="AVA Summit 2025" loading="lazy"/>
+              <div class="ribbon chip border-paper/40 text-paper bg-royal/85 !font-jp">登壇</div>
+            </div>
+            <div class="mt-3 px-1">
+              <div class="text-[11px] tracking-[0.22em] uppercase text-royal mb-2">2025 · 11月</div>
+              <h3 class="font-jp-display text-[17px] leading-snug text-ink">Animal & Vegan Advocacy Summit — 国際登壇</h3>
+              <p class="caption mt-2">英語キーノート</p>
+            </div>
+          </article>
+
+          <article class="work-card group cursor-pointer">
+            <span class="tape"></span>
+            <div class="work-card-img-wrap">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/04/KansaiTV_FEATURED-IMAGE.jpg" alt="関西テレビ" loading="lazy"/>
+              <div class="ribbon chip border-paper/40 text-paper bg-royal/85 !font-jp">テレビ</div>
+            </div>
+            <div class="mt-3 px-1">
+              <div class="text-[11px] tracking-[0.22em] uppercase text-royal mb-2">2025 · 10月</div>
+              <h3 class="font-jp-display text-[17px] leading-snug text-ink">関西テレビ — レシピ実演＆ライフスタイル特集</h3>
+              <p class="caption mt-2">朝の情報番組</p>
+            </div>
+          </article>
+
+          <article class="work-card group cursor-pointer">
+            <span class="tape"></span>
+            <div class="work-card-img-wrap">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/04/Seoul-Marathon_FEATURED-IMAGE.jpg" alt="ソウルマラソン" loading="lazy"/>
+              <div class="ribbon chip border-paper/40 text-paper bg-royal/85 !font-jp">ライフ</div>
+            </div>
+            <div class="mt-3 px-1">
+              <div class="text-[11px] tracking-[0.22em] uppercase text-royal mb-2">2025 · 09月</div>
+              <h3 class="font-jp-display text-[17px] leading-snug text-ink">ソウルマラソン完走 — プラントベースで走る</h3>
+              <p class="caption mt-2">王子、走る</p>
+            </div>
+          </article>
+
+          <article class="work-card group cursor-pointer">
+            <span class="tape"></span>
+            <div class="work-card-img-wrap">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/04/Macho-House_FEATURED-IMAGE.jpg" alt="マッチョハウス" loading="lazy"/>
+              <div class="ribbon chip border-paper/40 text-paper bg-royal/85 !font-jp">バラエティ</div>
+            </div>
+            <div class="mt-3 px-1">
+              <div class="text-[11px] tracking-[0.22em] uppercase text-royal mb-2">2025 · 08月</div>
+              <h3 class="font-jp-display text-[17px] leading-snug text-ink">マッチョハウス出演 — バラエティ番組</h3>
+              <p class="caption mt-2">プラントベース筋肉論</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  UPCOMING EVENTS  ───────────── -->
+  <section id="events" class="bg-royal text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 stars-bg opacity-30 pointer-events-none"></div>
+    <svg class="absolute top-12 right-[10%] w-12 h-12 text-gold opacity-40 anim-float"><use href="#sparkle"/></svg>
+    <svg class="absolute bottom-16 left-[8%] w-10 h-10 text-paper opacity-15 anim-float" style="animation-delay:1.1s"><use href="#sparkle"/></svg>
+
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
+
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <div>
+          <div class="ornament mb-4 sm:mb-6"><span style="color:#E8C76F">今後の予定</span></div>
+          <h2 class="font-display display-tight text-[40px] sm:text-[60px] lg:text-[84px] font-medium">
+            Catch the <span class="display-italic text-gold-soft">prince.</span>
+          </h2>
+          <p class="font-jp-display text-[15px] sm:text-[18px] text-paper/75 mt-2 sm:mt-3">王子に会える、これからのイベント。</p>
+        </div>
+        <img src="https://veganoji.jp/wp-content/uploads/2026/05/08_Website-Characters_1_0007_Layer-8.png" alt="ビーガン王子 - ランニング" class="hidden lg:block w-28 anim-bobble drop-shadow-2xl self-end" loading="lazy"/>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+
+        <div class="group flex items-center gap-4 bg-paper text-ink rounded-2xl p-4 sm:p-5 border-2 border-transparent hover:border-gold transition-all">
+          <div class="flex-shrink-0 w-16 sm:w-20 text-center bg-royal text-paper rounded-xl py-2.5">
+            <div class="font-display text-[22px] sm:text-[26px] leading-none">31</div>
+            <div class="font-jp text-[10px] tracking-wider mt-0.5">5月</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">SPARTAN スプリント</div>
+            <div class="font-jp text-[12px] text-muted mt-1 flex items-center gap-1.5">
+              <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 千葉 · オブスタクルレース
+            </div>
+          </div>
+        </div>
+
+        <div class="group flex items-center gap-4 bg-paper text-ink rounded-2xl p-4 sm:p-5 border-2 border-transparent hover:border-gold transition-all">
+          <div class="flex-shrink-0 w-16 sm:w-20 text-center bg-royal text-paper rounded-xl py-2.5">
+            <div class="font-display text-[22px] sm:text-[26px] leading-none">7</div>
+            <div class="font-jp text-[10px] tracking-wider mt-0.5">6月</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">あだち荒川マラソン大会2026</div>
+            <div class="font-jp text-[12px] text-muted mt-1 flex items-center gap-1.5">
+              <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 東京 · マラソン
+            </div>
+          </div>
+        </div>
+
+        <div class="group flex items-center gap-4 bg-paper text-ink rounded-2xl p-4 sm:p-5 border-2 border-transparent hover:border-gold transition-all">
+          <div class="flex-shrink-0 w-16 sm:w-20 text-center bg-royal text-paper rounded-xl py-2.5">
+            <div class="font-display text-[22px] sm:text-[26px] leading-none">28</div>
+            <div class="font-jp text-[10px] tracking-wider mt-0.5">6月</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">2026 函館マラソン</div>
+            <div class="font-jp text-[12px] text-muted mt-1 flex items-center gap-1.5">
+              <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 函館 · マラソン
+            </div>
+          </div>
+        </div>
+
+        <div class="group flex items-center gap-4 bg-paper text-ink rounded-2xl p-4 sm:p-5 border-2 border-transparent hover:border-gold transition-all">
+          <div class="flex-shrink-0 w-16 sm:w-20 text-center bg-royal text-paper rounded-xl py-2.5">
+            <div class="font-display text-[22px] sm:text-[26px] leading-none">25</div>
+            <div class="font-jp text-[10px] tracking-wider mt-0.5">7月</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">SPARTAN スーパー</div>
+            <div class="font-jp text-[12px] text-muted mt-1 flex items-center gap-1.5">
+              <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 静岡・裾野（富士山近く）· オブスタクルレース
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-6 flex items-center justify-center gap-3 font-hand text-[22px] sm:text-[26px] text-gold-soft">
+        <svg width="18" height="18" class="text-gold-soft"><use href="#sparkle"/></svg>
+        もっと近日公開！ More coming soon
+        <svg width="18" height="18" class="text-gold-soft"><use href="#sparkle"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  CHARACTER + ALEX PROFILE TABS  ───────────── -->
+  <section id="character" class="bg-cream py-14 sm:py-20 lg:py-32 border-y border-line relative overflow-hidden">
+    <div class="absolute inset-0 dots-bg opacity-30 pointer-events-none"></div>
+    <svg class="absolute top-12 left-[10%] w-10 h-10 text-royal opacity-50 anim-sparkle"><use href="#sparkle"/></svg>
+    <svg class="absolute bottom-20 right-[12%] w-12 h-12 text-gold opacity-50 anim-sparkle" style="animation-delay:1.2s"><use href="#sparkle"/></svg>
+    <svg class="absolute top-1/2 right-[8%] w-8 h-8 text-royal-soft opacity-40 anim-float"><use href="#heart"/></svg>
+    <svg class="absolute bottom-12 left-[15%] w-9 h-9 text-gold-deep opacity-30 anim-float" style="animation-delay:0.8s"><use href="#note"/></svg>
+
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
+
+      <div class="text-center mb-10">
+        <div class="ornament mb-6 justify-center"><span>プロフィール</span></div>
+        <h2 class="font-display display-tight text-[44px] lg:text-[68px] font-medium text-ink">
+          Meet the <span class="display-italic text-royal">prince.</span>
+        </h2>
+        <p class="font-jp text-[14px] text-muted mt-4 max-w-[520px] mx-auto leading-relaxed">
+          ゆるキャラとしての王子、モデルとしてのアレックス──両方どうぞ。
+        </p>
+
+        <!-- TABS -->
+        <div class="mt-7 flex flex-col items-center gap-2.5">
+          <div class="char-tabs-wrap" id="char-tabs" role="tablist">
+            <button class="char-tab" data-target="mascot" data-active="true" role="tab">
+              <svg width="14" height="14"><use href="#crown"/></svg>
+              <span class="font-jp">ゆるキャラ</span>
+            </button>
+            <button class="char-tab" data-target="model" role="tab">
+              <svg width="14" height="14"><use href="#sparkle"/></svg>
+              <span class="font-jp">モデル・スペック</span>
+            </button>
+          </div>
+          <div class="font-hand text-[19px] text-royal flex items-center gap-1.5">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" class="text-royal"><path d="M9 7 L5 12 L9 17 M15 7 L19 12 L15 17" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            タップで切り替えてね！
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL: MASCOT -->
+      <div class="char-panel" data-panel="mascot" data-active="true">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+          <div class="lg:col-span-5 relative">
+            <div class="absolute inset-0 -m-4 rounded-full bg-paper border-2 border-dashed border-gold/60 -z-10"></div>
+            <svg class="absolute -top-4 left-1/2 -translate-x-1/2 w-14 h-14 text-gold anim-tilt"><use href="#crown"/></svg>
+            <svg class="absolute top-8 -left-2 w-8 h-8 text-royal anim-sparkle"><use href="#sparkle"/></svg>
+            <svg class="absolute bottom-12 -right-2 w-7 h-7 text-gold-deep anim-sparkle" style="animation-delay:0.6s"><use href="#sparkle"/></svg>
+
+            <div class="pose-cycle aspect-[4/5] relative w-full max-w-[360px] mx-auto">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/05/veagnoji_pose_1.png" alt="ビーガン王子 pose 1" loading="lazy" class="drop-shadow-xl"/>
+              <img src="https://veganoji.jp/wp-content/uploads/2026/05/veagnoji_pose_2.png" alt="ビーガン王子 pose 2" loading="lazy" class="drop-shadow-xl"/>
+              <img src="https://veganoji.jp/wp-content/uploads/2026/05/veagnoji_pose_3.png" alt="ビーガン王子 pose 3" loading="lazy" class="drop-shadow-xl"/>
+            </div>
+
+            <div class="text-center mt-8 font-hand text-[24px] text-royal">３つのポーズで登場中 ✨</div>
+
+            <!-- LINE Stamps CTA -->
+            <div class="mt-6 max-w-[360px] mx-auto bg-paper border border-line rounded-2xl p-4 flex items-center gap-3 shadow-sm">
+              <svg width="36" height="36" class="text-line-stamp flex-shrink-0"><use href="#line-stamp"/></svg>
+              <div class="flex-1">
+                <div class="font-jp-display text-[14px] text-ink leading-tight">LINEスタンプ発売中！</div>
+                <div class="font-jp text-[11px] text-muted leading-relaxed">毎日の会話に、王子を。</div>
+              </div>
+              <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener" class="btn-line !text-[12px] !px-4 !py-2">
+                <span class="font-jp">ゲット</span>
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-10 border-2 border-line shadow-sm relative">
+              <div class="absolute -top-5 -left-5 w-14 h-14 rounded-full bg-royal text-paper flex items-center justify-center shadow-md rotate-[-8deg]">
+                <svg width="22" height="22"><use href="#crown"/></svg>
+              </div>
+              <div class="flex items-baseline justify-between mb-4 sm:mb-5 flex-wrap gap-2">
+                <div>
+                  <h3 class="font-jp-display text-[28px] lg:text-[34px] text-ink font-medium leading-none">ビーガン王子</h3>
+                  <div class="font-display italic text-[16px] text-muted mt-1">Vegan Oji / The Vegan Prince</div>
+                </div>
+                <span class="chip border-royal/40 text-royal bg-royal/5 !font-jp-display">ゆるキャラ</span>
+              </div>
+
+              <div class="mt-2">
+                <div class="profile-row" data-row-open="false"><div class="profile-label">お誕生日</div><div class="profile-value">１１月１日（世界ヴィーガンの日 🌍）</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">出身地</div><div class="profile-value">ロサンゼルス王国 ✈ 現在は東京を本拠地に活動中</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">せいかく</div><div class="profile-value">お調子者でやさしい。ちょっと食いしん坊。冒険好きで、人見知りはほぼナシ。</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">とくいわざ</div><div class="profile-value">６カ国語をあやつる ✦ ヴァイオリン ✦ レシピ開発 ✦ どこでも誰とでも話せる</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">すきなもの</div><div class="profile-value">野菜全般 ✦ 王子の衣装 ✦ お笑い ✦ フランス映画 ✦ 日本のお祭り</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">にがてなもの</div><div class="profile-value">嘘 ✦ ものすごい早起き（がんばる）</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">くちぐせ</div><div class="profile-value font-jp-display text-[17px] text-royal">「やさしさと行動こそ、本当の王子様らしさ」</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL: ALEX (model card) -->
+      <div class="char-panel" data-panel="model">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+          <div class="lg:col-span-5 relative">
+            <div class="absolute -top-3 -right-3 w-[103%] h-[103%] -z-10 rounded-3xl bg-paper border border-line"></div>
+            <div class="relative bg-paper border border-line rounded-2xl overflow-hidden shadow-sm">
+              <img
+                src="https://veganoji.jp/wp-content/uploads/2026/03/Vegan-Oji_Profile-Picture.jpg"
+                alt="アレックス・デレチ モデル写真"
+                class="w-full block aspect-[4/5] object-cover"
+                loading="lazy"
+              />
+              <div class="absolute top-4 left-4 chip border-royal/40 text-paper bg-royal/85">モデル・コンプカード</div>
+            </div>
+            <div class="text-center mt-6">
+              <div class="font-display italic text-[20px] text-ink">Alex Derycz</div>
+              <div class="font-jp-display text-[15px] text-muted mt-1">アレックス・デレチ</div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-10 border-2 border-line shadow-sm relative">
+              <div class="absolute -top-5 -left-5 w-14 h-14 rounded-full bg-gold text-ink flex items-center justify-center shadow-md rotate-[-8deg]">
+                <svg width="22" height="22"><use href="#sparkle"/></svg>
+              </div>
+              <div class="flex items-baseline justify-between mb-4 sm:mb-5 flex-wrap gap-2">
+                <div>
+                  <h3 class="font-jp-display text-[28px] lg:text-[34px] text-ink font-medium leading-none">モデルプロフィール</h3>
+                  <div class="font-display italic text-[16px] text-muted mt-1">Comp Card</div>
+                </div>
+                <span class="chip border-gold/50 text-gold-deep bg-gold/10">CEO · 個人事業</span>
+              </div>
+
+              <p class="font-jp text-[13px] text-ink-soft leading-relaxed mb-5">
+                国内外の大手企業やラグジュアリーブランドで、幅広い現場で８年以上にわたり活動しています。
+              </p>
+
+              <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+                <div class="profile-row" data-row-open="false"><div class="profile-label">身長</div><div class="profile-value">180 cm</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">３サイズ</div><div class="profile-value">92 / 72 / 80</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">靴のサイズ</div><div class="profile-value">27 cm</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">目の色</div><div class="profile-value">ブルー</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">髪の色</div><div class="profile-value">ブラウン</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">誕生日</div><div class="profile-value">1996年4月15日</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">出身地</div><div class="profile-value">カリフォルニア州ロサンゼルス</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">国籍</div><div class="profile-value">アメリカ／フランス</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">言語</div><div class="profile-value">英・仏・西・日・独・中国語（学習中）</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">活動形態</div><div class="profile-value">ビーガン王子株式会社 代表取締役（非専属登録あり）</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">特技</div><div class="profile-value">語学、ピアノ、IT</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">趣味</div><div class="profile-value">ボルダリング、ビーガンカフェ巡り、映画、読書</div></div>
+              </div>
+
+              <div class="mt-8 pt-5 border-t border-line/60 flex flex-wrap items-center gap-3">
+                <a href="https://veganoji.jp/alex-oji-model/" target="_blank" rel="noopener" class="text-royal text-[13px] underline underline-offset-4 decoration-dotted hover:no-underline font-jp">
+                  詳細プロフィールを見る →
+                </a>
+                <span class="text-muted text-[12px]">·</span>
+                <a href="#booking" class="text-royal text-[13px] underline underline-offset-4 decoration-dotted hover:no-underline font-jp">
+                  キャスティング依頼
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  FOLLOW THE PRINCE — Mega Handle  ───────────── -->
+  <section class="bg-paper py-12 sm:py-16 lg:py-24 border-b border-line relative overflow-hidden">
+    <svg class="absolute top-12 left-[8%] w-10 h-10 text-gold opacity-40 anim-sparkle"><use href="#sparkle"/></svg>
+    <svg class="absolute bottom-16 right-[10%] w-12 h-12 text-royal-soft opacity-30 anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
+    <svg class="absolute top-1/2 right-[5%] w-8 h-8 text-gold-soft opacity-40 anim-float"><use href="#heart"/></svg>
+
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 text-center relative">
+      <div class="font-fun-jp text-[16px] sm:text-[18px] text-royal tracking-wider mb-3 inline-flex items-center gap-2">
+        <svg width="16" height="16" class="text-royal"><use href="#crown"/></svg>
+        フォローする
+        <svg width="16" height="16" class="text-royal"><use href="#crown"/></svg>
+      </div>
+
+      <h3 class="font-fun text-[56px] sm:text-[88px] lg:text-[140px] text-royal leading-[0.95]">
+        @VEGANOJI
+      </h3>
+      <p class="font-fun-jp text-[16px] sm:text-[20px] lg:text-[24px] text-muted mt-2">aka アレックス・デレチ</p>
+
+      <p class="font-cute-jp text-[14px] text-ink-soft mt-6 max-w-[480px] mx-auto leading-relaxed">
+        ぜんぶのプラットフォームで、王子は活動中。<br/>お好きなところで会いに来てください ♡
+      </p>
+
+      <div class="mt-8 sm:mt-10 flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-5">
+        <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="ig"><svg width="26" height="26"><use href="#ig"/></svg></a>
+        <a href="https://x.com/VeganOji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="x"><svg width="22" height="22"><use href="#x"/></svg></a>
+        <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="yt"><svg width="26" height="26"><use href="#yt"/></svg></a>
+        <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="tt"><svg width="26" height="26"><use href="#tt"/></svg></a>
+        <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" class="social-icon-lg" data-brand="li"><svg width="26" height="26"><use href="#li"/></svg></a>
+      </div>
+
+      <!-- Newsletter signup -->
+      <div class="mt-12 sm:mt-14 max-w-[520px] mx-auto">
+        <div class="relative bg-cream rounded-2xl border-2 border-line p-5 sm:p-7 text-left shadow-sm">
+          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-royal text-paper flex items-center justify-center shadow rotate-[-8deg]">
+            <svg width="18" height="18"><use href="#heart"/></svg>
+          </div>
+          <div class="font-fun-jp text-[15px] sm:text-[17px] text-ink leading-tight">王子からの月刊だより</div>
+          <div class="font-display italic text-[13px] text-muted mt-0.5">A monthly note from the prince</div>
+          <p class="font-jp text-[12px] sm:text-[13px] text-ink-soft mt-3 leading-relaxed">
+            新しいレシピ、最近の活動、ここでしか言えない裏話。月に１回、王子から手紙が届きます。
+          </p>
+          <form id="newsletter-form" class="mt-4 flex flex-col sm:flex-row gap-2.5">
+            <input type="email" required placeholder="you@example.jp" class="flex-1 bg-paper border border-line rounded-full px-4 py-2.5 text-[13px] text-ink focus:outline-none focus:border-royal transition-colors font-jp"/>
+            <button type="submit" class="btn-primary !text-[13px] !px-5 !py-2.5 justify-center">
+              <span class="font-fun-jp">登録</span>
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </button>
+          </form>
+          <div id="newsletter-msg" class="hidden font-hand text-[18px] text-royal mt-3 text-center">ありがとう！届くのを楽しみにしててね ♡</div>
+          <p class="font-jp text-[10px] text-muted mt-3">いつでも解除できます · スパムは一切送りません</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  DONATE  ───────────── -->
+  <section id="donate" class="bg-royal text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 stars-bg opacity-30 pointer-events-none"></div>
+    <svg class="absolute top-12 right-[12%] w-12 h-12 text-gold opacity-40 anim-float"><use href="#sparkle"/></svg>
+    <svg class="absolute bottom-20 left-[8%] w-14 h-14 text-paper opacity-15 anim-float" style="animation-delay:1.2s"><use href="#heart"/></svg>
+
+    <div class="absolute top-6 right-2 sm:top-12 sm:right-6 lg:top-1/2 lg:-translate-y-1/2 lg:right-[4%] w-20 sm:w-32 lg:w-48 anim-bobble pointer-events-none z-10">
+      <img src="https://veganoji.jp/wp-content/uploads/2026/05/03_Website-Characters_1_0002_Layer-3.png" alt="ビーガン王子 - サポーター" class="w-full h-auto drop-shadow-2xl" loading="lazy"/>
+    </div>
+
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
+
+      <div class="max-w-[680px]">
+        <div class="ornament mb-6"><span style="color:#E8C76F">応援する</span></div>
+        <h2 class="font-display display-tight text-[52px] lg:text-[80px] font-medium leading-[0.95]">
+          Support the <span class="display-italic text-gold-soft">cause.</span>
+        </h2>
+        <p class="font-jp-display text-[20px] text-paper/80 mt-4">王子の活動を、応援してください。</p>
+
+        <p class="font-jp text-[15px] leading-[2] text-paper/90 mt-8 max-w-[560px]">
+          ビーガン王子の活動は、レシピ開発、子ども向けワークショップ、ビーガンマップの維持、海外との橋渡し──そのほとんどが<span class="text-gold-soft">自費・小さなパートナーシップ</span>で成り立っています。あなたの支援は、王子業の次の一歩になります。
+        </p>
+      </div>
+
+      <div class="mt-10 sm:mt-14 m-scroll m-scroll-3">
+
+        <div class="tier-card bg-paper text-ink p-6 sm:p-7 lg:p-8 relative w-[270px] md:w-auto">
+          <div class="font-display italic text-[15px] text-muted">Squire</div>
+          <div class="font-jp-display text-[20px] mt-1 text-ink">見習いの剣士</div>
+          <div class="font-display text-[44px] lg:text-[52px] text-royal mt-4 leading-none">¥1,000<span class="text-[16px] text-muted">/月</span></div>
+          <ul class="mt-6 space-y-3 text-[13px] text-ink-soft font-jp">
+            <li class="flex gap-2"><span class="text-royal">♥</span> 限定ニュースレター</li>
+            <li class="flex gap-2"><span class="text-royal">♥</span> 王子からの月１動画メッセージ</li>
+            <li class="flex gap-2"><span class="text-royal">♥</span> 早期イベント情報</li>
+          </ul>
+          <a href="#" class="mt-7 inline-flex items-center gap-2 text-royal text-[13px] font-medium hover:gap-3 transition-all font-jp">
+            <span>支援する</span> →
+          </a>
+        </div>
+
+        <div class="tier-card featured text-ink p-6 sm:p-7 lg:p-8 relative w-[270px] md:w-auto">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 badge-ribbon !text-[11px] !py-1 !px-4">人気</div>
+          <div class="font-display italic text-[15px] text-gold-deep">Knight</div>
+          <div class="font-jp-display text-[20px] mt-1 text-ink">王子の騎士</div>
+          <div class="font-display text-[44px] lg:text-[52px] text-royal mt-4 leading-none">¥3,000<span class="text-[16px] text-muted">/月</span></div>
+          <ul class="mt-6 space-y-3 text-[13px] text-ink-soft font-jp">
+            <li class="flex gap-2"><span class="text-royal">♥</span> Squireの全特典</li>
+            <li class="flex gap-2"><span class="text-royal">♥</span> オリジナルステッカー＋手紙</li>
+            <li class="flex gap-2"><span class="text-royal">♥</span> 月１オンライン茶会への招待</li>
+            <li class="flex gap-2"><span class="text-royal">♥</span> 王子の新レシピ先行公開</li>
+          </ul>
+          <a href="#" class="mt-7 btn-primary !text-[12px] !px-5 !py-2.5">
+            <span class="font-jp">騎士になる</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+
+        <div class="tier-card bg-paper text-ink p-6 sm:p-7 lg:p-8 relative w-[270px] md:w-auto">
+          <div class="font-display italic text-[15px] text-muted">Royal Court</div>
+          <div class="font-jp-display text-[20px] mt-1 text-ink">王子の宮廷</div>
+          <div class="font-display text-[44px] lg:text-[52px] text-royal mt-4 leading-none">¥10,000<span class="text-[16px] text-muted">/月</span></div>
+          <ul class="mt-6 space-y-3 text-[13px] text-ink-soft font-jp">
+            <li class="flex gap-2"><span class="text-royal">♥</span> Knightの全特典</li>
+            <li class="flex gap-2"><span class="text-royal">♥</span> 年１回、王子とのランチ会</li>
+            <li class="flex gap-2"><span class="text-royal">♥</span> ホームページに名前掲載</li>
+            <li class="flex gap-2"><span class="text-royal">♥</span> 個別相談チケット（年２回）</li>
+          </ul>
+          <a href="#" class="mt-7 inline-flex items-center gap-2 text-royal text-[13px] font-medium hover:gap-3 transition-all font-jp">
+            <span>宮廷に入る</span> →
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-14 flex flex-wrap items-center gap-5 text-[13px] text-paper/75 font-jp">
+        <span class="opacity-80">単発でのご支援も大歓迎です ──</span>
+        <a href="#" class="border-b border-paper/40 hover:text-gold-soft hover:border-gold-soft transition-colors">¥500</a>
+        <a href="#" class="border-b border-paper/40 hover:text-gold-soft hover:border-gold-soft transition-colors">¥3,000</a>
+        <a href="#" class="border-b border-paper/40 hover:text-gold-soft hover:border-gold-soft transition-colors">¥10,000</a>
+        <a href="#" class="border-b border-paper/40 hover:text-gold-soft hover:border-gold-soft transition-colors">自由金額</a>
+        <span class="opacity-60 text-[12px]">· Stripe / PayPal / 銀行振込</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  BOOKING  ───────────── -->
+  <section id="booking" class="bg-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+    <svg class="absolute -left-32 top-20 w-[460px] h-[460px] text-gold opacity-[0.08]"><use href="#crown"/></svg>
+
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
+      <div class="ornament mb-4 sm:mb-6"><span>お仕事のご相談</span></div>
+      <h2 class="font-display display-tight text-[40px] sm:text-[64px] lg:text-[88px] font-medium leading-[0.95] text-ink">
+        Talk to <span class="display-italic text-royal">the prince.</span>
+      </h2>
+      <p class="font-jp-display text-[15px] sm:text-[18px] lg:text-[20px] text-muted mt-3 sm:mt-4">王子に、お気軽にお声がけください。</p>
+
+      <div class="mt-8 sm:mt-12 lg:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10">
+
+        <div class="lg:col-span-7">
+          <p class="eyebrow mb-4 font-jp">ご相談内容を選んでください</p>
+          <div class="flex flex-wrap gap-2.5">
+            <button class="booking-chip" data-active="true"><span class="crest-bullet"></span><span class="font-jp">MC・講演</span></button>
+            <button class="booking-chip"><span class="crest-bullet"></span><span class="font-jp">モデル・出演</span></button>
+            <button class="booking-chip"><span class="crest-bullet"></span><span class="font-jp">SNSコラボ</span></button>
+            <button class="booking-chip"><span class="crest-bullet"></span><span class="font-jp">国際ビジネス</span></button>
+            <button class="booking-chip"><span class="crest-bullet"></span><span class="font-jp">取材・インタビュー</span></button>
+            <button class="booking-chip"><span class="crest-bullet"></span><span class="font-jp">その他</span></button>
+          </div>
+
+          <form class="mt-8 space-y-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <label class="block">
+                <span class="block text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">お名前</span>
+                <input type="text" class="w-full bg-transparent border-b border-ink/20 py-3 text-ink focus:outline-none focus:border-royal transition-colors font-jp" placeholder="山田 太郎" />
+              </label>
+              <label class="block">
+                <span class="block text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">会社・媒体</span>
+                <input type="text" class="w-full bg-transparent border-b border-ink/20 py-3 text-ink focus:outline-none focus:border-royal transition-colors font-jp" placeholder="株式会社〇〇" />
+              </label>
+            </div>
+            <label class="block">
+              <span class="block text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">メール</span>
+              <input type="email" class="w-full bg-transparent border-b border-ink/20 py-3 text-ink focus:outline-none focus:border-royal transition-colors" placeholder="you@brand.jp" />
+            </label>
+            <label class="block">
+              <span class="block text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">概要</span>
+              <textarea rows="4" class="w-full bg-transparent border-b border-ink/20 py-3 text-ink focus:outline-none focus:border-royal transition-colors font-jp" placeholder="日時、場所、テーマ、言語、ご予算など、ざっくりで構いません。"></textarea>
+            </label>
+
+            <button type="submit" class="mt-4 btn-primary !text-[14px] !px-7 !py-3.5">
+              <span class="font-jp">王子に送る</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </button>
+          </form>
+        </div>
+
+        <aside class="lg:col-span-5 space-y-8">
+          <div class="border-l-2 border-royal pl-5">
+            <div class="eyebrow mb-2 font-jp">直接連絡</div>
+            <a href="mailto:info@veganoji.jp" class="font-display text-[22px] hover:text-royal transition-colors">info@veganoji.jp</a>
+          </div>
+          <div class="border-l-2 border-line pl-5">
+            <div class="text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">活動形態</div>
+            <div class="font-jp-display text-[17px] text-ink">ビーガン王子株式会社 · 代表取締役</div>
+            <div class="font-display italic text-[13px] text-muted mt-0.5">CEO of Vegan Oji Inc.</div>
+            <div class="font-jp text-[12px] text-muted mt-2 leading-relaxed">事務所には専属せず、独立して活動しています。</div>
+          </div>
+          <div class="border-l-2 border-line pl-5">
+            <div class="text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">対応言語</div>
+            <div class="font-jp text-[14px] text-ink-soft leading-relaxed">英語・仏語・西語・日本語・独語・中国語（学習中）</div>
+          </div>
+          <div class="border-l-2 border-line pl-5">
+            <div class="text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">活動拠点</div>
+            <div class="font-jp text-[14px] text-ink-soft">東京 · 日本全国／海外案件可</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  FOOTER  ───────────── -->
+  <div class="bg-royal">
+    <svg class="footer-wave text-cream block" preserveAspectRatio="none" viewBox="0 0 1200 30" aria-hidden="true">
+      <use href="#scallop"/>
+    </svg>
+  </div>
+
+  <footer class="bg-cream pt-8 sm:pt-10 pb-10 sm:pb-12 relative overflow-hidden">
+
+    <!-- decorative pattern -->
+    <div class="absolute inset-0 dots-bg opacity-30 pointer-events-none"></div>
+
+    <svg class="absolute top-16 left-[6%] w-7 h-7 text-royal opacity-40 anim-sparkle"><use href="#sparkle"/></svg>
+    <svg class="absolute top-32 right-[8%] w-6 h-6 text-gold opacity-60 anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
+    <svg class="absolute bottom-24 left-[12%] w-8 h-8 text-royal-soft opacity-40 anim-float"><use href="#heart"/></svg>
+
+    <!-- mascot wave goodbye -->
+    <img
+      src="https://veganoji.jp/wp-content/uploads/2026/05/07_Website-Characters_1_0006_Layer-7.png"
+      alt="ビーガン王子 - おやすみ"
+      class="block absolute -bottom-2 right-2 sm:right-6 lg:right-16 w-24 sm:w-32 lg:w-52 anim-bobble pointer-events-none"
+      style="animation-delay:0.6s"
+      loading="lazy"
+    />
+
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
+
+      <!-- Top hand-written goodbye -->
+      <div class="text-center mb-8 sm:mb-10">
+        <div class="font-hand text-[40px] sm:text-[52px] lg:text-[64px] text-royal leading-none">またね！</div>
+        <div class="font-cute-jp text-[13px] sm:text-[15px] text-muted mt-3">最後まで読んでくれて、ありがとう ♡</div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 mb-10">
+
+        <!-- Brand block -->
+        <div class="lg:col-span-4 sm:col-span-2">
+          <div class="flex items-center gap-2.5 mb-4">
+            <svg width="26" height="26" class="text-royal anim-tilt"><use href="#crown"/></svg>
+            <span class="font-cute-jp text-[23px] text-ink">ビーガン王子</span>
+          </div>
+          <p class="font-cute-jp text-[13px] sm:text-[14px] text-ink-soft leading-[1.95]">
+            お笑いあり、涙あり、野菜あり。<br/>
+            日本を世界一ビーガンフレンドリーな国に。
+          </p>
+        </div>
+
+        <!-- Navigate -->
+        <div class="lg:col-span-3">
+          <div class="flex items-center gap-2 mb-4">
+            <svg width="14" height="14" class="text-royal"><use href="#crown"/></svg>
+            <span class="font-fun-jp text-[14px] text-ink tracking-wider">ナビゲーション</span>
+          </div>
+          <ul class="space-y-2 text-[13px] sm:text-[14px] text-ink-soft font-jp">
+            <li><a href="#about"     class="hover:text-royal transition-colors">王子について</a></li>
+            <li><a href="#services"  class="hover:text-royal transition-colors">サービス</a></li>
+            <li><a href="#tools"     class="hover:text-royal transition-colors">王子のツール</a></li>
+            <li><a href="#work"      class="hover:text-royal transition-colors">活動</a></li>
+            <li><a href="#events"    class="hover:text-royal transition-colors">今後の予定</a></li>
+            <li><a href="#character" class="hover:text-royal transition-colors">プロフィール</a></li>
+            <li><a href="#donate"    class="hover:text-royal transition-colors">応援する</a></li>
+            <li><a href="#booking"   class="hover:text-royal transition-colors">お仕事相談</a></li>
+          </ul>
+        </div>
+
+        <!-- Find online -->
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-2 mb-4">
+            <svg width="14" height="14" class="text-royal"><use href="#heart"/></svg>
+            <span class="font-fun-jp text-[14px] text-ink tracking-wider">王子に会える場所</span>
+          </div>
+          <ul class="grid grid-cols-1 gap-2 text-[13px] sm:text-[14px] text-ink-soft font-jp">
+            <li class="flex items-center gap-2.5"><svg width="16" height="16" class="text-royal"><use href="#ig"/></svg><a href="https://instagram.com/veganoji" class="hover:text-royal transition-colors">Instagram · @veganoji</a></li>
+            <li class="flex items-center gap-2.5"><svg width="14" height="14" class="text-royal"><use href="#x"/></svg><a href="https://x.com/VeganOji" class="hover:text-royal transition-colors">X · @VeganOji</a></li>
+            <li class="flex items-center gap-2.5"><svg width="16" height="16" class="text-royal"><use href="#yt"/></svg><a href="https://www.youtube.com/@veganoji" class="hover:text-royal transition-colors">YouTube · ビーガン王子</a></li>
+            <li class="flex items-center gap-2.5"><svg width="16" height="16" class="text-royal"><use href="#tt"/></svg><a href="https://www.tiktok.com/@veganoji" class="hover:text-royal transition-colors">TikTok · @veganoji</a></li>
+            <li class="flex items-center gap-2.5"><svg width="16" height="16" class="text-royal"><use href="#li"/></svg><a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" class="hover:text-royal transition-colors">LinkedIn · Alex Derycz</a></li>
+            <li class="flex items-center gap-2.5 pt-2 mt-1 border-t border-line/60"><svg width="16" height="16" class="text-line-stamp"><use href="#line-stamp"/></svg><a href="https://store.line.me/stickershop/author/veganoji" class="hover:text-royal transition-colors">LINEスタンプ · 発売中</a></li>
+            <li class="pt-2 mt-1 border-t border-line/60"><a href="https://veganoji.jp" class="hover:text-royal transition-colors text-[12px] sm:text-[13px]">→ veganoji.jp（公式サイト）</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom strip -->
+      <div class="pt-8 border-t border-line flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-muted">
+          <svg width="16" height="16" class="text-gold"><use href="#crown"/></svg>
+          <span class="font-cute-jp normal-case tracking-normal text-[12px]">© 2026 ビーガン王子株式会社 / アレックス・デレチ</span>
+        </div>
+        <div class="font-hand text-[18px] text-royal flex items-center gap-2">
+          Made with <svg width="14" height="14" class="text-royal"><use href="#heart"/></svg> in Tokyo
+        </div>
+      </div>
+
+      <div class="text-center text-[11px] text-muted mt-6 font-jp normal-case tracking-normal">
+        このページはホームページ改善の提案デザインです · Playground mockup
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Smooth-scroll for in-page anchor links (with sticky-header offset)
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const id = link.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        const offset = window.innerWidth < 768 ? 110 : 80;
+        const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        history.pushState(null, '', '#' + id);
+      });
+    });
+
+    // Booking chip toggle
+    document.querySelectorAll('.booking-chip').forEach(chip => {
+      chip.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('.booking-chip').forEach(c => c.removeAttribute('data-active'));
+        chip.setAttribute('data-active', 'true');
+      });
+    });
+
+    // Character section tabs
+    document.querySelectorAll('#char-tabs .char-tab').forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        const target = tab.dataset.target;
+        document.querySelectorAll('#char-tabs .char-tab').forEach(t => t.removeAttribute('data-active'));
+        tab.setAttribute('data-active', 'true');
+        document.querySelectorAll('.char-panel').forEach(p => p.removeAttribute('data-active'));
+        document.querySelector(`.char-panel[data-panel="${target}"]`).setAttribute('data-active', 'true');
+      });
+    });
+
+    // Language dropdown
+    const langMenu = document.getElementById('lang-menu');
+    if (langMenu) {
+      const trigger = langMenu.querySelector('.lang-trigger');
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = langMenu.getAttribute('data-open') === 'true';
+        langMenu.setAttribute('data-open', open ? 'false' : 'true');
+        trigger.setAttribute('aria-expanded', open ? 'false' : 'true');
+      });
+      document.addEventListener('click', (e) => {
+        if (!langMenu.contains(e.target)) {
+          langMenu.setAttribute('data-open', 'false');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // ── Tool toggle (mobile: Calc <-> Map) ──
+    const toolToggle = document.getElementById('tool-toggle');
+    if (toolToggle) {
+      toolToggle.querySelectorAll('button').forEach(btn => {
+        btn.style.cssText = btn.dataset.active === 'true'
+          ? 'background:#C9223A;color:#FFF9EE;'
+          : '';
+        btn.addEventListener('click', () => {
+          const target = btn.dataset.tool;
+          toolToggle.querySelectorAll('button').forEach(b => {
+            const active = b === btn;
+            b.dataset.active = active ? 'true' : 'false';
+            b.style.cssText = active ? 'background:#C9223A;color:#FFF9EE;' : '';
+          });
+          document.querySelectorAll('[data-tool-panel]').forEach(p => {
+            p.dataset.active = p.dataset.toolPanel === target ? 'true' : 'false';
+          });
+        });
+      });
+    }
+
+    // ── Newsletter form (display-only mockup) ──
+    (function() {
+      const form = document.getElementById('newsletter-form');
+      const msg  = document.getElementById('newsletter-msg');
+      if (!form) return;
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        form.style.display = 'none';
+        msg.classList.remove('hidden');
+      });
+    })();
+
+    // ── Language chips: click to pin, click again or wait to resume rotation ──
+    (function() {
+      const stack = document.getElementById('lang-stack');
+      const chips = document.querySelectorAll('.lang-chip');
+      let pinTimer = null;
+      function clearActive() { chips.forEach(c => c.removeAttribute('data-active')); }
+      function resume() {
+        stack.removeAttribute('data-pinned');
+        clearActive();
+        if (pinTimer) { clearTimeout(pinTimer); pinTimer = null; }
+      }
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const idx = chip.dataset.langIdx;
+          if (stack.getAttribute('data-pinned') === idx) { resume(); return; }
+          clearActive();
+          chip.setAttribute('data-active', 'true');
+          stack.setAttribute('data-pinned', idx);
+          if (pinTimer) clearTimeout(pinTimer);
+          pinTimer = setTimeout(resume, 6000);
+        });
+      });
+    })();
+
+    // ── Profile rows accordion (mobile only) ──
+    document.querySelectorAll('.profile-row').forEach(row => {
+      row.addEventListener('click', () => {
+        if (window.innerWidth >= 768) return;
+        row.dataset.rowOpen = row.dataset.rowOpen === 'true' ? 'false' : 'true';
+      });
+    });
+
+    // ── Calc info expandable on mobile ──
+    document.querySelectorAll('.calc-info-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.calc-info');
+        const open = card.dataset.open === 'true';
+        card.dataset.open = open ? 'false' : 'true';
+      });
+    });
+
+    // ── VEGAN CALCULATOR (duration-based) ──
+    (function() {
+      // Per-day savings of a vegan diet (Cowspiracy-based estimates)
+      const perDay = { water: 4163.9, grains: 18.1, forest: 2.8, co2: 9.1, animals: 1 };
+      const fmt = n => Math.round(n).toLocaleString('ja-JP');
+      const yearsEl = document.getElementById('calc-years');
+      const monthsEl = document.getElementById('calc-months');
+      const summary  = document.getElementById('calc-summary');
+      const headline = document.getElementById('calc-headline');
+      const saveBtn  = document.getElementById('calc-save');
+      const presets  = document.querySelectorAll('#calc-presets .calc-preset');
+      if (!yearsEl) return;
+
+      let lastTotal = { water: 0, grains: 0, forest: 0, co2: 0, animals: 0 };
+      let lastLabel = '';
+
+      // mascot for the share card (same-origin → canvas-safe)
+      const mascot = new Image();
+      let mascotReady = false;
+      mascot.addEventListener('load', () => { mascotReady = true; });
+      mascot.src = '/images/voji-logos/calc-mascot.png';
+
+      function durationLabel(y, m) {
+        if (y && m) return `${y}年${m}ヶ月`;
+        if (y)      return `${y}年`;
+        if (m)      return `${m}ヶ月`;
+        return '0日';
+      }
+
+      function recalc() {
+        const y = Math.max(0, Math.min(99, +yearsEl.value || 0));
+        const m = Math.max(0, Math.min(11, +monthsEl.value || 0));
+        const days = y * 365 + m * 30;
+        const total = {};
+        Object.keys(perDay).forEach(k => total[k] = perDay[k] * days);
+        lastTotal = total;
+        lastLabel = durationLabel(y, m);
+        document.querySelector('[data-out="water"]').textContent   = fmt(total.water)  + ' L';
+        document.querySelector('[data-out="grains"]').textContent  = fmt(total.grains) + ' kg';
+        document.querySelector('[data-out="forest"]').textContent  = fmt(total.forest) + ' m²';
+        document.querySelector('[data-out="co2"]').textContent     = fmt(total.co2)    + ' kg';
+        document.querySelector('[data-out="animals"]').textContent = fmt(total.animals);
+        if (days === 0) {
+          summary.textContent  = '期間を入力してみてね';
+          headline.textContent = '王子からひとこと';
+          if (saveBtn) saveBtn.disabled = true;
+        } else {
+          summary.textContent  = `${lastLabel}のビーガン生活で、地球にこれだけのギフト 🎁`;
+          headline.textContent = `動物 ${fmt(total.animals)} 匹のいのちに、やさしい選択を 🌱`;
+          if (saveBtn) saveBtn.disabled = false;
+        }
+      }
+
+      presets.forEach(btn => btn.addEventListener('click', () => {
+        yearsEl.value  = btn.dataset.years;
+        monthsEl.value = btn.dataset.months;
+        presets.forEach(b => b.removeAttribute('data-on'));
+        btn.dataset.on = 'true';
+        recalc();
+      }));
+      [yearsEl, monthsEl].forEach(el => el.addEventListener('input', () => {
+        presets.forEach(b => b.removeAttribute('data-on'));
+        recalc();
+      }));
+      recalc();
+
+      // ── Savings image generator (Instagram square, with mascot) ──
+      function buildCard() {
+        const c = document.getElementById('calc-canvas');
+        const ctx = c.getContext('2d');
+        const W = 1080, H = 1080;
+        ctx.clearRect(0,0,W,H);
+        ctx.fillStyle = '#C9223A'; ctx.fillRect(0,0,W,H);
+        ctx.fillStyle = '#FFF9EE';
+        ctx.beginPath(); ctx.roundRect(46,46,W-92,H-92,46); ctx.fill();
+        // mascot
+        if (mascotReady && mascot.naturalWidth) {
+          const mw = 184, mh = mw * (mascot.naturalHeight / mascot.naturalWidth);
+          ctx.drawImage(mascot, W/2 - mw/2, 74, mw, mh);
+        }
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#1F1812';
+        ctx.font = '700 56px "Noto Serif JP", serif';
+        ctx.fillText('私のビーガン・インパクト', W/2, 322);
+        ctx.font = '700 40px "Noto Sans JP", sans-serif';
+        ctx.fillStyle = '#9C1428';
+        ctx.fillText(`もし ${lastLabel} ビーガンを続けたら`, W/2, 376);
+        const rows = [
+          ['💧','水',          fmt(lastTotal.water)  + ' L'],
+          ['🌾','穀物',        fmt(lastTotal.grains) + ' kg'],
+          ['🌳','森林',        fmt(lastTotal.forest) + ' m²'],
+          ['☁️','CO₂',         fmt(lastTotal.co2)    + ' kg'],
+          ['🐄','動物のいのち', fmt(lastTotal.animals) + ' 匹']
+        ];
+        let y = 418;
+        rows.forEach(([emoji,label,val]) => {
+          ctx.fillStyle = '#FDF1DA';
+          ctx.beginPath(); ctx.roundRect(112, y, W-224, 80, 22); ctx.fill();
+          ctx.textAlign = 'left';
+          ctx.font = '40px sans-serif';
+          ctx.fillText(emoji, 144, y+54);
+          ctx.font = '500 32px "Noto Sans JP", sans-serif';
+          ctx.fillStyle = '#3C2E22';
+          ctx.fillText(label, 214, y+52);
+          ctx.textAlign = 'right';
+          ctx.font = '700 38px "Noto Serif JP", serif';
+          ctx.fillStyle = '#3F6A3A';
+          ctx.fillText(val, W-148, y+54);
+          y += 92;
+        });
+        ctx.textAlign = 'center';
+        ctx.font = '500 25px "Noto Sans JP", sans-serif';
+        ctx.fillStyle = '#786148';
+        ctx.fillText('ビーガンを続けると、地球にこれだけの違い。', W/2, y+30);
+        ctx.font = '700 40px "Noto Serif JP", serif';
+        ctx.fillStyle = '#C9223A';
+        ctx.fillText('ビーガン王子の計算機', W/2, H-126);
+        ctx.font = '500 27px "Noto Sans JP", sans-serif';
+        ctx.fillStyle = '#786148';
+        ctx.fillText('veganoji.jp    ·    @veganoji', W/2, H-82);
+        return c;
+      }
+      if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+          if (saveBtn.disabled) return;
+          const draw = () => buildCard().toBlob(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = 'veganoji-impact.png';
+            document.body.appendChild(a); a.click(); a.remove();
+            URL.revokeObjectURL(url);
+          }, 'image/png');
+          const whenMascot = mascotReady ? Promise.resolve()
+            : new Promise(res => { mascot.addEventListener('load', res, {once:true}); mascot.addEventListener('error', res, {once:true}); });
+          const whenFonts = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+          Promise.all([whenMascot, whenFonts]).then(draw);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
