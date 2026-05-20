@@ -830,7 +830,6 @@
       <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-[13px] tracking-wide text-ink-soft">
         <a href="#about"     class="hover:text-royal transition-colors">王子について</a>
         <a href="#services"  class="hover:text-royal transition-colors">サービス</a>
-        <a href="#tools"     class="hover:text-royal transition-colors">王子のツール</a>
         <a href="#work"      class="hover:text-royal transition-colors">活動</a>
         <a href="#events"    class="hover:text-royal transition-colors">今後の予定</a>
         <a href="/blog/"     class="hover:text-royal transition-colors">ブログ</a>
@@ -868,7 +867,7 @@
     <div class="mnav-scroll px-4 py-2">
       <a href="#about"     class="mnav-chip">王子について</a>
       <a href="#services"  class="mnav-chip">サービス</a>
-      <a href="#tools"     class="mnav-chip">王子のツール</a>
+      <a href="/tools/"    class="mnav-chip">王子のツール</a>
       <a href="#work"      class="mnav-chip">活動</a>
       <a href="#events"    class="mnav-chip">今後の予定</a>
       <a href="/blog/"     class="mnav-chip">ブログ</a>
@@ -997,12 +996,34 @@
     </div>
   </section>
 
-  <!-- ─────────────  VOICES (testimonials, intimate, right under hero)  ───────────── -->
-  <section class="bg-paper pt-2 pb-10 sm:pt-4 sm:pb-14 relative">
+  <!-- ─────────────  KEY ACTIONS RAIL (right under hero)  ───────────── -->
+  <section class="bg-paper border-y border-line py-4 sm:py-5">
+    <div class="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="grid grid-cols-3 gap-2 sm:gap-3">
+        <a href="#booking" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-royal text-paper py-3 sm:py-3.5 px-2 sm:px-4 text-[12px] sm:text-[14px] font-jp hover:bg-royal-deep transition-colors text-center leading-tight">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="flex-shrink-0 hidden sm:block"><path d="M3 7h18M5 7v12a2 2 0 002 2h10a2 2 0 002-2V7M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          仕事を依頼
+        </a>
+        <a href="/tools/" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-paper border-2 border-leaf-deep/30 text-leaf-deep py-3 sm:py-3.5 px-2 sm:px-4 text-[12px] sm:text-[14px] font-jp hover:bg-leaf/10 transition-colors text-center leading-tight">
+          <svg width="16" height="16" class="flex-shrink-0 hidden sm:block"><use href="#leaf"/></svg>
+          王子のツール
+        </a>
+        <a href="/blog/" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-paper border-2 border-gold/40 text-gold-deep py-3 sm:py-3.5 px-2 sm:px-4 text-[12px] sm:text-[14px] font-jp hover:bg-gold/10 transition-colors text-center leading-tight">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="flex-shrink-0 hidden sm:block"><path d="M4 4h12l4 4v12H4z M16 4v4h4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="none"/></svg>
+          ブログを読む
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────  SOCIAL PROOF: VOICES + PRESS (merged)  ───────────── -->
+  <section class="bg-cream border-y border-line py-10 sm:py-14">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+      <!-- VOICES strip -->
       <div class="flex items-baseline gap-3 mb-4 sm:mb-6">
         <span class="font-hand text-[22px] sm:text-[26px] text-royal">王子の周りの声 ♡</span>
-        <span class="font-jp text-[11px] text-muted tracking-wider hidden sm:inline">— Voices from people who've worked with, watched, or been changed by ビーガン王子</span>
+        <span class="font-jp text-[11px] text-muted tracking-wider hidden sm:inline">— 一緒に働いた人、観た人、変わった人の声</span>
       </div>
       <div class="m-scroll">
 
@@ -1073,16 +1094,15 @@
         </article>
 
       </div>
-    </div>
-  </section>
 
-  <!-- ─────────────  PRESS WALL  ───────────── -->
-  <section class="border-y border-line bg-cream py-9 sm:py-12">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
-      <div class="text-center mb-5 sm:mb-7">
-        <div class="ornament justify-center mb-2.5"><span>メディア掲載・出演</span></div>
-        <p class="font-jp text-[12px] sm:text-[13px] text-muted">テレビ・新聞・雑誌──さまざまなメディアで紹介いただいています。<span class="lg:hidden text-royal-soft">→ 横にスワイプ</span></p>
+      <!-- DIVIDER -->
+      <div class="my-8 sm:my-10 lg:my-12 flex items-center gap-3 max-w-[680px] mx-auto">
+        <hr class="flex-1 border-t border-line"/>
+        <span class="font-jp text-[10.5px] tracking-[0.22em] uppercase text-muted whitespace-nowrap">メディア掲載・出演</span>
+        <hr class="flex-1 border-t border-line"/>
       </div>
+
+      <!-- PRESS strip -->
       <div class="press-strip">
         <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">フジテレビ</span></a>
         <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">TBSテレビ</span></a>
@@ -1098,6 +1118,7 @@
         <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[13px]">世界くらべてみたら</span></a>
         <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[13px]">池上彰の関西人が知らないKANSAI</span></a>
       </div>
+
       <div class="mt-5 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
         <span class="font-jp text-[12px] text-muted">メディア関係者の方へ —</span>
         <a href="https://drive.google.com/drive/folders/1iFVzYBwNPQh3hLUdvMHZUehJamtOTNJJ?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-royal text-[13px] font-jp border border-royal/30 rounded-full px-4 py-2 hover:bg-royal hover:text-paper transition-colors">
@@ -1311,261 +1332,45 @@
     </div>
   </section>
 
-  <!-- ─────────────  TOOLS — Calculator + Map  ───────────── -->
-  <section id="tools" class="bg-cream py-14 sm:py-20 lg:py-32 relative overflow-hidden border-y border-line">
-    <svg class="absolute top-14 left-[3%] w-14 h-14 text-leaf opacity-25 anim-float"><use href="#leaf"/></svg>
-    <svg class="absolute bottom-20 right-[3%] w-16 h-16 text-leaf opacity-20 anim-float" style="animation-delay:1.6s"><use href="#leaf"/></svg>
-    <svg class="absolute top-1/3 right-[15%] w-8 h-8 text-leaf-deep opacity-40 anim-float" style="animation-delay:0.8s"><use href="#leaf"/></svg>
-
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
-
-      <div class="text-center mb-8 sm:mb-12 lg:mb-16 max-w-[760px] mx-auto">
-        <div class="ornament mb-4 sm:mb-6 justify-center"><span>王子のツール</span></div>
-        <h2 class="font-display display-tight text-[36px] sm:text-[56px] lg:text-[72px] font-medium text-ink">
-          Try the <span class="display-italic text-royal">tools.</span>
-        </h2>
-        <p class="font-jp-display text-[14px] sm:text-[18px] lg:text-[20px] text-ink-soft mt-3 sm:mt-4">
-          「で、実際どうすればいいの？」── そんな疑問に答える、無料の２つの道具。
-        </p>
-
-        <!-- Mobile toggle -->
-        <div class="md:hidden mt-6 inline-flex bg-paper rounded-full p-1 border border-line" id="tool-toggle">
-          <button class="px-4 py-2 rounded-full text-[13px] font-jp transition-colors" data-tool="calc" data-active="true">計算機</button>
-          <button class="px-4 py-2 rounded-full text-[13px] font-jp transition-colors" data-tool="map">マップ</button>
-        </div>
+  <!-- ─────────────  TOOLS TEASER (full tools at /tools/)  ───────────── -->
+  <section id="tools" class="bg-cream border-y border-line py-10 sm:py-14">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-6 sm:mb-8">
+        <div class="ornament justify-center mb-2.5"><span>王子のツール</span></div>
+        <p class="font-jp text-[12px] sm:text-[13px] text-muted">「で、実際どうすればいいの？」── そんな疑問に答える、無料の道具を２つ用意しました。</p>
       </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-
-        <!-- ── CALCULATOR ── -->
-        <article data-tool-panel="calc" data-active="true" class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-9 border border-line relative overflow-hidden">
-          <div class="absolute top-6 right-6 chip border-leaf/40 text-leaf-deep bg-leaf/5 z-10">無料</div>
-          <img src="https://veganoji.jp/wp-content/uploads/2026/05/02_Website-Characters_1_0001_Layer-2.png" alt="ビーガン王子 - 計算機" class="block absolute bottom-3 right-3 w-14 sm:w-16 lg:w-20 anim-bobble drop-shadow-md pointer-events-none opacity-90 z-10" loading="lazy"/>
-
-          <div class="flex items-start gap-4 mb-6">
-            <div class="w-14 h-14 rounded-2xl bg-leaf/15 text-leaf-deep flex items-center justify-center">
-              <svg width="26" height="26"><use href="#leaf"/></svg>
-            </div>
-            <div>
-              <div class="eyebrow text-leaf-deep font-jp">道具その１</div>
-              <h3 class="font-jp-display text-[26px] lg:text-[32px] font-medium leading-tight text-ink mt-1">
-                ビーガン計算機
-              </h3>
-              <p class="font-display italic text-[15px] text-muted mt-1">If you went vegan for X — here's what you saved.</p>
-            </div>
+        <a href="/tools/" class="bg-paper border border-line rounded-2xl p-5 sm:p-6 flex items-start gap-4 hover:border-leaf-deep hover:shadow-lg hover:-translate-y-0.5 transition-all">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-leaf/15 text-leaf-deep flex items-center justify-center flex-shrink-0">
+            <svg width="22" height="22"><use href="#leaf"/></svg>
           </div>
-
-          <!-- WHY mini-info block (expandable on mobile) -->
-          <div class="calc-info bg-leaf/5 rounded-xl border border-leaf/20 mb-5 sm:mb-6 overflow-hidden" data-open="false">
-            <button class="calc-info-toggle w-full flex items-center justify-between p-4 sm:p-5 text-left gap-3">
-              <div class="font-jp-display text-[14px] sm:text-[15px] text-leaf-deep flex items-center gap-2 flex-1">
-                <img src="https://veganoji.jp/wp-content/uploads/2026/05/09_Website-Characters_1_0008_Layer-9.png" alt="ビーガン王子 - 考え中" class="w-10 sm:w-12 h-auto flex-shrink-0" loading="lazy"/>
-                <span>知ってた？ ビーガンが地球にやさしい３つの理由</span>
-              </div>
-              <svg class="calc-info-chev text-leaf-deep transition-transform md:hidden flex-shrink-0" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5 L7 9 L11 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
-            </button>
-            <div class="calc-info-content">
-              <div class="calc-info-inner px-4 pb-5 sm:px-5 sm:pb-5">
-                <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[12px] font-jp text-ink-soft leading-relaxed">
-                  <li class="bg-paper/60 rounded-lg p-3 border border-line/60">
-                    <div class="font-display text-[22px] text-leaf-deep leading-none">14.5%</div>
-                    <div class="mt-1.5">世界の温室効果ガスのうち、畜産業が占める割合</div>
-                  </li>
-                  <li class="bg-paper/60 rounded-lg p-3 border border-line/60">
-                    <div class="font-display text-[22px] text-leaf-deep leading-none">70%</div>
-                    <div class="mt-1.5">農地のうち、家畜のために使われる割合</div>
-                  </li>
-                  <li class="bg-paper/60 rounded-lg p-3 border border-line/60">
-                    <div class="font-display text-[22px] text-leaf-deep leading-none">15,000L</div>
-                    <div class="mt-1.5">牛肉１kgを作るのに必要な水の量</div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <p class="font-jp text-[13.5px] leading-[1.95] text-ink-soft mb-5">
-            <span class="font-medium text-ink">もし、ビーガンを続けたら？</span> 期間を入れるだけで、その間に地球へ贈れる<span class="text-royal">"ギフト"の大きさ</span>が見えてきます。
-          </p>
-
-          <!-- DURATION INPUT -->
-          <div class="bg-cream/60 rounded-xl p-4 sm:p-5 border border-line/60 mb-5">
-            <div class="font-jp text-[11px] text-muted mb-2.5 text-center tracking-wider">かんたんに選ぶ</div>
-            <div class="flex flex-wrap justify-center gap-2 mb-4" id="calc-presets">
-              <button class="calc-preset" data-years="0" data-months="1">１ヶ月</button>
-              <button class="calc-preset" data-years="1" data-months="0" data-on="true">１年</button>
-              <button class="calc-preset" data-years="3" data-months="0">３年</button>
-              <button class="calc-preset" data-years="5" data-months="0">５年</button>
-              <button class="calc-preset" data-years="10" data-months="0">１０年</button>
-            </div>
-            <div class="flex items-center justify-center gap-3 flex-wrap">
-              <span class="font-jp text-[12px] text-muted">じぶんで入力 —</span>
-              <div class="flex items-center gap-1.5">
-                <input id="calc-years" type="number" min="0" max="99" value="1" class="calc-num"/>
-                <span class="font-jp text-[14px] text-ink-soft">年</span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <input id="calc-months" type="number" min="0" max="11" value="0" class="calc-num"/>
-                <span class="font-jp text-[14px] text-ink-soft">ヶ月</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- RESULTS -->
-          <div class="bg-cream/60 rounded-xl p-4 sm:p-5 lg:p-6 border border-line/60">
-            <div class="font-jp-display text-[13px] sm:text-[15px] text-leaf-deep flex items-center gap-2 mb-4 justify-center text-center">
-              <svg width="14" height="14" class="text-leaf-deep flex-shrink-0"><use href="#sparkle"/></svg>
-              <span id="calc-summary">１年のビーガン生活で、地球にこれだけのギフト</span>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-3 text-center">
-              <div class="bg-paper rounded-xl p-2.5 sm:p-3 border border-line/60">
-                <svg viewBox="0 0 56 56" class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mx-auto"><use href="#ill-water"/></svg>
-                <div class="font-display text-[15px] sm:text-[17px] lg:text-[20px] text-leaf-deep leading-none mt-1.5" data-out="water">0 L</div>
-                <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1 font-jp">水</div>
-              </div>
-              <div class="bg-paper rounded-xl p-2.5 sm:p-3 border border-line/60">
-                <svg viewBox="0 0 56 56" class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mx-auto"><use href="#ill-grain"/></svg>
-                <div class="font-display text-[15px] sm:text-[17px] lg:text-[20px] text-leaf-deep leading-none mt-1.5" data-out="grains">0 kg</div>
-                <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1 font-jp">穀物</div>
-              </div>
-              <div class="bg-paper rounded-xl p-2.5 sm:p-3 border border-line/60">
-                <svg viewBox="0 0 56 56" class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mx-auto"><use href="#ill-forest"/></svg>
-                <div class="font-display text-[15px] sm:text-[17px] lg:text-[20px] text-leaf-deep leading-none mt-1.5" data-out="forest">0 m²</div>
-                <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1 font-jp">森林</div>
-              </div>
-              <div class="bg-paper rounded-xl p-2.5 sm:p-3 border border-line/60">
-                <svg viewBox="0 0 56 56" class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mx-auto"><use href="#ill-co2"/></svg>
-                <div class="font-display text-[15px] sm:text-[17px] lg:text-[20px] text-leaf-deep leading-none mt-1.5" data-out="co2">0 kg</div>
-                <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1 font-jp">CO₂</div>
-              </div>
-              <div class="bg-paper rounded-xl p-2.5 sm:p-3 border border-line/60 col-span-2 sm:col-span-1">
-                <svg viewBox="0 0 56 56" class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mx-auto"><use href="#ill-cow"/></svg>
-                <div class="font-display text-[15px] sm:text-[17px] lg:text-[20px] text-leaf-deep leading-none mt-1.5" data-out="animals">0</div>
-                <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1 font-jp">動物のいのち</div>
-              </div>
-            </div>
-
-            <div class="mt-4 pt-4 border-t border-line/60 text-center">
-              <div class="font-jp-display text-[14px] sm:text-[16px] text-royal" id="calc-headline">王子からひとこと</div>
-            </div>
-
-            <p class="text-[10px] text-muted text-center mt-4 font-jp">※ 出典: Cowspiracy のデータを元に算出 · 試算値</p>
-          </div>
-
-          <!-- CTA: save image + follow -->
-          <div class="mt-5 bg-leaf/5 border border-leaf/20 rounded-xl p-4 sm:p-5">
-            <div class="font-jp-display text-[13px] sm:text-[14px] text-leaf-deep mb-3 flex items-center gap-2">
-              <svg width="14" height="14" class="text-leaf-deep"><use href="#sparkle"/></svg>
-              結果をシェアして、輪を広げよう
-            </div>
-            <div class="flex flex-wrap items-center gap-3">
-              <button id="calc-save" disabled class="btn-primary !text-[13px] !px-5 !py-2.5 disabled:opacity-40 disabled:cursor-not-allowed">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                <span class="font-jp">結果を画像で保存</span>
-              </button>
-              <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="btn-ghost !text-[13px] !px-5 !py-2.5">
-                <svg width="15" height="15"><use href="#ig"/></svg>
-                <span class="font-jp">ヒントをフォロー</span>
-              </a>
-            </div>
-            <p class="font-jp text-[11px] text-muted mt-2.5 leading-relaxed">画像を保存して、SNSでシェア。<span class="text-leaf-deep">@veganoji</span> をタグ付けしてくれたら、王子が見つけにいきます ♡</p>
-          </div>
-          <canvas id="calc-canvas" width="1080" height="1080" class="hidden"></canvas>
-
-          <a href="https://veganoji.jp/vegan-and-the-environment-infographic-japanese/" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 text-royal text-[14px] hover:gap-3 transition-all">
-            <span class="font-jp">環境と食について、もっと学ぶ</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </a>
-        </article>
-
-        <!-- ── MAP ── -->
-        <article data-tool-panel="map" class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-9 border border-line relative overflow-hidden">
-          <div class="absolute top-6 right-6 chip border-leaf/40 text-leaf-deep bg-leaf/5 z-10">無料</div>
-          <img src="https://veganoji.jp/wp-content/uploads/2026/05/01_Website-Characters_1_0000_Layer-1.png" alt="ビーガン王子 - マップ" class="block absolute bottom-3 right-3 w-14 sm:w-16 lg:w-20 anim-bobble drop-shadow-md pointer-events-none opacity-90 z-10" style="animation-delay:0.4s" loading="lazy"/>
-          <div class="flex items-start gap-4 mb-6">
-            <div class="w-14 h-14 rounded-2xl bg-royal/10 text-royal flex items-center justify-center">
-              <svg width="22" height="24"><use href="#pin"/></svg>
-            </div>
-            <div>
-              <div class="eyebrow font-jp">道具その２</div>
-              <h3 class="font-jp-display text-[26px] lg:text-[32px] font-medium leading-tight text-ink mt-1">
-                ビーガンマップ
-              </h3>
-              <p class="font-display italic text-[15px] text-muted mt-1">Then find somewhere delicious — anywhere in Japan.</p>
-            </div>
-          </div>
-
-          <p class="font-jp text-[13.5px] leading-[1.95] text-ink-soft mb-6">
-            「ちょっと減らしてみようかな」と思ったら、次は探す番。日本全国のビーガン・ベジ対応レストランを王子が厳選してマップに。
-          </p>
-
-          <div class="relative bg-cream/60 rounded-xl border border-line/60 overflow-hidden aspect-[5/4]">
-            <svg viewBox="0 0 400 320" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
-              <rect width="400" height="320" fill="#E9F1F5"/>
-              <g fill="#F4E3C0" stroke="#9C7E2A" stroke-width="1.4" stroke-linejoin="round">
-                <path d="M260 30 Q 290 25, 310 45 Q 320 65, 305 85 Q 280 90, 265 75 Q 250 55, 260 30 Z"/>
-                <path d="M120 130 Q 100 110, 130 95 Q 165 90, 200 110 Q 235 100, 270 130 Q 290 155, 280 180 Q 250 200, 220 195 Q 190 205, 170 220 Q 145 225, 130 200 Q 110 175, 120 130 Z"/>
-                <path d="M180 230 Q 200 225, 215 235 Q 220 250, 205 255 Q 185 252, 180 240 Z"/>
-                <path d="M120 230 Q 110 215, 130 210 Q 155 215, 165 235 Q 170 260, 155 275 Q 130 280, 115 265 Q 105 245, 120 230 Z"/>
-                <path d="M50 290 Q 55 285, 62 290 Q 60 297, 52 295 Z"/>
-              </g>
-              <g class="map-pin" transform="translate(195,140)"><svg width="18" height="24" x="-9" y="-22" class="text-royal"><use href="#pin"/></svg></g>
-              <g class="map-pin" transform="translate(220,155)"><svg width="18" height="24" x="-9" y="-22" class="text-royal"><use href="#pin"/></svg></g>
-              <g class="map-pin" transform="translate(170,170)"><svg width="14" height="20" x="-7" y="-18" class="text-gold"><use href="#pin"/></svg></g>
-              <g class="map-pin" transform="translate(245,170)"><svg width="14" height="20" x="-7" y="-18" class="text-gold"><use href="#pin"/></svg></g>
-              <g class="map-pin" transform="translate(280,55)"><svg width="14" height="20" x="-7" y="-18" class="text-royal-soft"><use href="#pin"/></svg></g>
-              <g class="map-pin" transform="translate(140,240)"><svg width="14" height="20" x="-7" y="-18" class="text-royal-soft"><use href="#pin"/></svg></g>
-              <text x="287" y="55" font-family="Noto Sans JP" font-size="9" fill="#3C2E22">北海道</text>
-              <text x="225" y="138" font-family="Noto Sans JP" font-size="11" fill="#9C1428" font-weight="700">東京</text>
-              <text x="125" y="155" font-family="Noto Sans JP" font-size="9" fill="#3C2E22">関西</text>
-              <text x="100" y="240" font-family="Noto Sans JP" font-size="9" fill="#3C2E22">九州</text>
-            </svg>
-
-            <div class="absolute top-4 right-4 bg-paper rounded-lg shadow-lg p-3 border border-line text-[11px] max-w-[160px]">
-              <div class="font-jp-display text-[13px] text-ink mb-1.5 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-royal"></span> 完全ビーガン</div>
-              <div class="font-jp-display text-[13px] text-ink mb-1.5 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-gold"></span> 一部ビーガン対応</div>
-              <div class="font-jp-display text-[13px] text-ink flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-royal-soft"></span> 王子のおすすめ</div>
-            </div>
-          </div>
-
-          <div class="mt-6 grid grid-cols-3 gap-3 text-center">
-            <div>
-              <div class="font-display text-[24px] text-royal leading-none">3,200<span class="text-[16px]">+</span></div>
-              <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">登録店舗</div>
-            </div>
-            <div>
-              <div class="font-display text-[24px] text-royal leading-none">47</div>
-              <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">都道府県</div>
-            </div>
-            <div>
-              <div class="font-display text-[24px] text-royal leading-none">∞</div>
-              <div class="text-[10px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">王子の食べ歩き</div>
-            </div>
-          </div>
-
-          <div class="mt-6 flex flex-wrap items-center gap-3">
-            <a href="https://veganoji.jp/japan-vegan-map/" target="_blank" rel="noopener" class="btn-primary !text-[13px] !px-5 !py-2.5">
-              <span class="font-jp">マップを開く</span>
+          <div class="flex-1 min-w-0">
+            <div class="eyebrow text-leaf-deep font-jp">道具その１</div>
+            <h3 class="font-jp-display text-[18px] sm:text-[20px] font-medium text-ink leading-tight mt-1">ビーガン計算機</h3>
+            <p class="font-jp text-[12px] sm:text-[13px] text-muted mt-1.5 leading-relaxed">「もし◯年ビーガンを続けたら…」 水・穀物・森林・CO₂・動物のいのちで、地球への貢献度を計算。</p>
+            <div class="mt-3 inline-flex items-center gap-1.5 text-royal text-[13px] font-jp">
+              開く
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </a>
-            <a href="https://wkf.ms/3IbDnrC" target="_blank" rel="noopener" class="btn-ghost !text-[13px] !px-5 !py-2.5">
-              <span class="font-jp">お店を投稿・閉店報告</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </a>
+            </div>
           </div>
-          <p class="text-[11px] text-muted font-jp mt-3 leading-relaxed">
-            ※ マップを最新に保つには、みんなの協力が頼り。新しいお店を見つけたら、閉店を知ったら、ぜひ報告してください 🙏
-          </p>
-        </article>
-      </div>
+        </a>
 
-      <div class="mt-12 flex items-center justify-center gap-4 max-w-[680px] mx-auto text-center">
-        <svg class="w-10 h-10 text-royal opacity-60 flex-shrink-0"><use href="#sparkle"/></svg>
-        <p class="font-jp text-[14px] text-ink-soft leading-[1.95]">
-          まず<span class="text-royal font-medium">「自分の影響」</span>を知って、それから<span class="text-royal font-medium">「美味しいお店」</span>を探す。<br/>王子が、両方ぜんぶ用意しておきました。
-        </p>
-        <svg class="w-10 h-10 text-gold opacity-60 flex-shrink-0"><use href="#sparkle"/></svg>
+        <a href="/tools/" class="bg-paper border border-line rounded-2xl p-5 sm:p-6 flex items-start gap-4 hover:border-royal hover:shadow-lg hover:-translate-y-0.5 transition-all">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-royal/10 text-royal flex items-center justify-center flex-shrink-0">
+            <svg width="20" height="22"><use href="#pin"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="eyebrow font-jp">道具その２</div>
+            <h3 class="font-jp-display text-[18px] sm:text-[20px] font-medium text-ink leading-tight mt-1">ビーガンマップ</h3>
+            <p class="font-jp text-[12px] sm:text-[13px] text-muted mt-1.5 leading-relaxed">日本全国 3,200+ 店舗のビーガン・ベジ対応レストランを、王子が厳選してマップに。</p>
+            <div class="mt-3 inline-flex items-center gap-1.5 text-royal text-[13px] font-jp">
+              開く
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -1586,15 +1391,21 @@
 
       <div class="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
         <div class="lg:col-span-7">
-          <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85">
-            １７歳のとき、<span class="text-gold-soft font-medium">「目からうろこ」</span>の瞬間がありました。畜産業が気候変動の大きな原因のひとつだと知った瞬間、それまで「制限が多そう」と片付けていたビーガンが、急に<span class="text-gold-soft">「選択肢を増やすもの」</span>に見えてきたんです。
-          </p>
-          <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85 mt-6">
-            ２０１７年、UCLAを卒業して日本へ。アメリカではすでに浸透しているけれど、日本にはまだ<span class="text-gold-soft font-medium">「僕が貢献できる余地」</span>があると思いました。それから９年。テレビ、フェス、大学講義、企業コンサル、商品開発──野菜とユーモアと涙を持って、走り続けています。
-          </p>
-          <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85 mt-6">
-            目標はひとつ。<span class="text-gold-soft font-medium">日本を、世界で一番ビーガンフレンドリーな国にすること。</span>
-          </p>
+          <button class="mission-toggle md:hidden inline-flex items-center gap-2 text-paper/90 border border-paper/30 rounded-full px-4 py-2 text-[12px] font-jp hover:bg-paper/10 transition-colors">
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" class="mission-toggle-chev transition-transform"><path d="M3 5 L7 9 L11 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+            <span class="mission-toggle-text">王子の歩んだ道を読む</span>
+          </button>
+          <div class="mission-prose hidden md:block">
+            <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85">
+              １７歳のとき、<span class="text-gold-soft font-medium">「目からうろこ」</span>の瞬間がありました。畜産業が気候変動の大きな原因のひとつだと知った瞬間、それまで「制限が多そう」と片付けていたビーガンが、急に<span class="text-gold-soft">「選択肢を増やすもの」</span>に見えてきたんです。
+            </p>
+            <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85 mt-6">
+              ２０１７年、UCLAを卒業して日本へ。アメリカではすでに浸透しているけれど、日本にはまだ<span class="text-gold-soft font-medium">「僕が貢献できる余地」</span>があると思いました。それから９年。テレビ、フェス、大学講義、企業コンサル、商品開発──野菜とユーモアと涙を持って、走り続けています。
+            </p>
+            <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85 mt-6">
+              目標はひとつ。<span class="text-gold-soft font-medium">日本を、世界で一番ビーガンフレンドリーな国にすること。</span>
+            </p>
+          </div>
         </div>
 
         <div class="lg:col-span-5 relative">
@@ -1863,28 +1674,10 @@
         <p class="font-jp text-[14px] text-muted mt-4 max-w-[520px] mx-auto leading-relaxed">
           ゆるキャラとしての王子、モデルとしてのアレックス──両方どうぞ。
         </p>
-
-        <!-- TABS -->
-        <div class="mt-7 flex flex-col items-center gap-2.5">
-          <div class="char-tabs-wrap" id="char-tabs" role="tablist">
-            <button class="char-tab" data-target="mascot" data-active="true" role="tab">
-              <svg width="14" height="14"><use href="#crown"/></svg>
-              <span class="font-jp">ゆるキャラ</span>
-            </button>
-            <button class="char-tab" data-target="model" role="tab">
-              <svg width="14" height="14"><use href="#sparkle"/></svg>
-              <span class="font-jp">モデル・スペック</span>
-            </button>
-          </div>
-          <div class="font-hand text-[19px] text-royal flex items-center gap-1.5">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" class="text-royal"><path d="M9 7 L5 12 L9 17 M15 7 L19 12 L15 17" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            タップで切り替えてね！
-          </div>
-        </div>
       </div>
 
-      <!-- PANEL: MASCOT -->
-      <div class="char-panel" data-panel="mascot" data-active="true">
+      <!-- MASCOT PANEL (only panel — model card moved to /profile/) -->
+      <div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
           <div class="lg:col-span-5 relative">
@@ -1942,71 +1735,19 @@
         </div>
       </div>
 
-      <!-- PANEL: ALEX (model card) -->
-      <div class="char-panel" data-panel="model">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-
-          <div class="lg:col-span-5 relative">
-            <div class="absolute -top-3 -right-3 w-[103%] h-[103%] -z-10 rounded-3xl bg-paper border border-line"></div>
-            <div class="relative bg-paper border border-line rounded-2xl overflow-hidden shadow-sm">
-              <img
-                src="https://veganoji.jp/wp-content/uploads/2026/03/Vegan-Oji_Profile-Picture.jpg"
-                alt="アレックス・デレチ モデル写真"
-                class="w-full block aspect-[4/5] object-cover"
-                loading="lazy"
-              />
-              <div class="absolute top-4 left-4 chip border-royal/40 text-paper bg-royal/85">モデル・コンプカード</div>
-            </div>
-            <div class="text-center mt-6">
-              <div class="font-display italic text-[20px] text-ink">Alex Derycz</div>
-              <div class="font-jp-display text-[15px] text-muted mt-1">アレックス・デレチ</div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-7">
-            <div class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-10 border-2 border-line shadow-sm relative">
-              <div class="absolute -top-5 -left-5 w-14 h-14 rounded-full bg-gold text-ink flex items-center justify-center shadow-md rotate-[-8deg]">
-                <svg width="22" height="22"><use href="#sparkle"/></svg>
-              </div>
-              <div class="flex items-baseline justify-between mb-4 sm:mb-5 flex-wrap gap-2">
-                <div>
-                  <h3 class="font-jp-display text-[28px] lg:text-[34px] text-ink font-medium leading-none">モデルプロフィール</h3>
-                  <div class="font-display italic text-[16px] text-muted mt-1">Comp Card</div>
-                </div>
-                <span class="chip border-gold/50 text-gold-deep bg-gold/10">CEO · 個人事業</span>
-              </div>
-
-              <p class="font-jp text-[13px] text-ink-soft leading-relaxed mb-5">
-                国内外の大手企業やラグジュアリーブランドで、幅広い現場で８年以上にわたり活動しています。
-              </p>
-
-              <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8">
-                <div class="profile-row" data-row-open="false"><div class="profile-label">身長</div><div class="profile-value">180 cm</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">３サイズ</div><div class="profile-value">92 / 72 / 80</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">靴のサイズ</div><div class="profile-value">27 cm</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">目の色</div><div class="profile-value">ブルー</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">髪の色</div><div class="profile-value">ブラウン</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">誕生日</div><div class="profile-value">1996年4月15日</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">出身地</div><div class="profile-value">カリフォルニア州ロサンゼルス</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">国籍</div><div class="profile-value">アメリカ／フランス</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">言語</div><div class="profile-value">英・仏・西・日・独・中国語（学習中）</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">活動形態</div><div class="profile-value">ビーガン王子株式会社 代表取締役（非専属登録あり）</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">特技</div><div class="profile-value">語学、ピアノ、IT</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">趣味</div><div class="profile-value">ボルダリング、ビーガンカフェ巡り、映画、読書</div></div>
-              </div>
-
-              <div class="mt-8 pt-5 border-t border-line/60 flex flex-wrap items-center gap-3">
-                <a href="https://veganoji.jp/alex-oji-model/" target="_blank" rel="noopener" class="text-royal text-[13px] underline underline-offset-4 decoration-dotted hover:no-underline font-jp">
-                  詳細プロフィールを見る →
-                </a>
-                <span class="text-muted text-[12px]">·</span>
-                <a href="#booking" class="text-royal text-[13px] underline underline-offset-4 decoration-dotted hover:no-underline font-jp">
-                  キャスティング依頼
-                </a>
-              </div>
-            </div>
-          </div>
+      <!-- Model profile CTA — full comp card moved to /profile/ -->
+      <div class="mt-10 sm:mt-12 max-w-[640px] mx-auto bg-paper border border-line rounded-2xl p-5 sm:p-7 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 shadow-sm">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gold/15 text-gold-deep flex items-center justify-center flex-shrink-0">
+          <svg width="28" height="28"><use href="#sparkle"/></svg>
         </div>
+        <div class="flex-1 text-center sm:text-left">
+          <h3 class="font-jp-display text-[18px] sm:text-[20px] text-ink leading-tight">モデル業のキャスティングをご検討の方へ</h3>
+          <p class="font-jp text-[12.5px] sm:text-[13px] text-muted mt-1.5 leading-relaxed">身長、サイズ、出身、言語、特技などの詳細プロフィールはこちら。</p>
+        </div>
+        <a href="/profile/" class="btn-ghost !text-[13px] !px-5 !py-2.5 flex-shrink-0">
+          <span class="font-jp">モデル・スペックを見る</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -2281,7 +2022,7 @@
           <ul class="space-y-2 text-[13px] sm:text-[14px] text-ink-soft font-jp">
             <li><a href="#about"     class="hover:text-royal transition-colors">王子について</a></li>
             <li><a href="#services"  class="hover:text-royal transition-colors">サービス</a></li>
-            <li><a href="#tools"     class="hover:text-royal transition-colors">王子のツール</a></li>
+            <li><a href="/tools/"    class="hover:text-royal transition-colors">王子のツール</a></li>
             <li><a href="#work"      class="hover:text-royal transition-colors">活動</a></li>
             <li><a href="#events"    class="hover:text-royal transition-colors">今後の予定</a></li>
             <li><a href="/blog/"     class="hover:text-royal transition-colors">ブログ</a></li>
@@ -2351,17 +2092,6 @@
       });
     });
 
-    // Character section tabs
-    document.querySelectorAll('#char-tabs .char-tab').forEach(tab => {
-      tab.addEventListener('click', (e) => {
-        const target = tab.dataset.target;
-        document.querySelectorAll('#char-tabs .char-tab').forEach(t => t.removeAttribute('data-active'));
-        tab.setAttribute('data-active', 'true');
-        document.querySelectorAll('.char-panel').forEach(p => p.removeAttribute('data-active'));
-        document.querySelector(`.char-panel[data-panel="${target}"]`).setAttribute('data-active', 'true');
-      });
-    });
-
     // Language dropdown
     const langMenu = document.getElementById('lang-menu');
     if (langMenu) {
@@ -2377,27 +2107,6 @@
           langMenu.setAttribute('data-open', 'false');
           trigger.setAttribute('aria-expanded', 'false');
         }
-      });
-    }
-
-    // ── Tool toggle (mobile: Calc <-> Map) ──
-    const toolToggle = document.getElementById('tool-toggle');
-    if (toolToggle) {
-      toolToggle.querySelectorAll('button').forEach(btn => {
-        btn.style.cssText = btn.dataset.active === 'true'
-          ? 'background:#C9223A;color:#FFF9EE;'
-          : '';
-        btn.addEventListener('click', () => {
-          const target = btn.dataset.tool;
-          toolToggle.querySelectorAll('button').forEach(b => {
-            const active = b === btn;
-            b.dataset.active = active ? 'true' : 'false';
-            b.style.cssText = active ? 'background:#C9223A;color:#FFF9EE;' : '';
-          });
-          document.querySelectorAll('[data-tool-panel]').forEach(p => {
-            p.dataset.active = p.dataset.toolPanel === target ? 'true' : 'false';
-          });
-        });
       });
     }
 
@@ -2445,154 +2154,25 @@
       });
     });
 
-    // ── Calc info expandable on mobile ──
-    document.querySelectorAll('.calc-info-toggle').forEach(btn => {
+    // ── Mission narrative collapse (mobile only) ──
+    document.querySelectorAll('.mission-toggle').forEach(btn => {
       btn.addEventListener('click', () => {
-        const card = btn.closest('.calc-info');
-        const open = card.dataset.open === 'true';
-        card.dataset.open = open ? 'false' : 'true';
+        const prose = btn.parentElement.querySelector('.mission-prose');
+        const chev = btn.querySelector('.mission-toggle-chev');
+        const label = btn.querySelector('.mission-toggle-text');
+        const isOpen = !prose.classList.contains('hidden');
+        if (isOpen) {
+          prose.classList.add('hidden');
+          if (label) label.textContent = '王子の歩んだ道を読む';
+          if (chev) chev.style.transform = '';
+        } else {
+          prose.classList.remove('hidden');
+          if (label) label.textContent = '閉じる';
+          if (chev) chev.style.transform = 'rotate(180deg)';
+        }
       });
     });
 
-    // ── VEGAN CALCULATOR (duration-based) ──
-    (function() {
-      // Per-day savings of a vegan diet (Cowspiracy-based estimates)
-      const perDay = { water: 4163.9, grains: 18.1, forest: 2.8, co2: 9.1, animals: 1 };
-      const fmt = n => Math.round(n).toLocaleString('ja-JP');
-      const yearsEl = document.getElementById('calc-years');
-      const monthsEl = document.getElementById('calc-months');
-      const summary  = document.getElementById('calc-summary');
-      const headline = document.getElementById('calc-headline');
-      const saveBtn  = document.getElementById('calc-save');
-      const presets  = document.querySelectorAll('#calc-presets .calc-preset');
-      if (!yearsEl) return;
-
-      let lastTotal = { water: 0, grains: 0, forest: 0, co2: 0, animals: 0 };
-      let lastLabel = '';
-
-      // mascot for the share card (same-origin → canvas-safe)
-      const mascot = new Image();
-      let mascotReady = false;
-      mascot.addEventListener('load', () => { mascotReady = true; });
-      mascot.src = '/images/voji-logos/calc-mascot.png';
-
-      function durationLabel(y, m) {
-        if (y && m) return `${y}年${m}ヶ月`;
-        if (y)      return `${y}年`;
-        if (m)      return `${m}ヶ月`;
-        return '0日';
-      }
-
-      function recalc() {
-        const y = Math.max(0, Math.min(99, +yearsEl.value || 0));
-        const m = Math.max(0, Math.min(11, +monthsEl.value || 0));
-        const days = y * 365 + m * 30;
-        const total = {};
-        Object.keys(perDay).forEach(k => total[k] = perDay[k] * days);
-        lastTotal = total;
-        lastLabel = durationLabel(y, m);
-        document.querySelector('[data-out="water"]').textContent   = fmt(total.water)  + ' L';
-        document.querySelector('[data-out="grains"]').textContent  = fmt(total.grains) + ' kg';
-        document.querySelector('[data-out="forest"]').textContent  = fmt(total.forest) + ' m²';
-        document.querySelector('[data-out="co2"]').textContent     = fmt(total.co2)    + ' kg';
-        document.querySelector('[data-out="animals"]').textContent = fmt(total.animals);
-        if (days === 0) {
-          summary.textContent  = '期間を入力してみてね';
-          headline.textContent = '王子からひとこと';
-          if (saveBtn) saveBtn.disabled = true;
-        } else {
-          summary.textContent  = `${lastLabel}のビーガン生活で、地球にこれだけのギフト 🎁`;
-          headline.textContent = `動物 ${fmt(total.animals)} 匹のいのちに、やさしい選択を 🌱`;
-          if (saveBtn) saveBtn.disabled = false;
-        }
-      }
-
-      presets.forEach(btn => btn.addEventListener('click', () => {
-        yearsEl.value  = btn.dataset.years;
-        monthsEl.value = btn.dataset.months;
-        presets.forEach(b => b.removeAttribute('data-on'));
-        btn.dataset.on = 'true';
-        recalc();
-      }));
-      [yearsEl, monthsEl].forEach(el => el.addEventListener('input', () => {
-        presets.forEach(b => b.removeAttribute('data-on'));
-        recalc();
-      }));
-      recalc();
-
-      // ── Savings image generator (Instagram square, with mascot) ──
-      function buildCard() {
-        const c = document.getElementById('calc-canvas');
-        const ctx = c.getContext('2d');
-        const W = 1080, H = 1080;
-        ctx.clearRect(0,0,W,H);
-        ctx.fillStyle = '#C9223A'; ctx.fillRect(0,0,W,H);
-        ctx.fillStyle = '#FFF9EE';
-        ctx.beginPath(); ctx.roundRect(46,46,W-92,H-92,46); ctx.fill();
-        // mascot
-        if (mascotReady && mascot.naturalWidth) {
-          const mw = 184, mh = mw * (mascot.naturalHeight / mascot.naturalWidth);
-          ctx.drawImage(mascot, W/2 - mw/2, 74, mw, mh);
-        }
-        ctx.textAlign = 'center';
-        ctx.fillStyle = '#1F1812';
-        ctx.font = '700 56px "Noto Serif JP", serif';
-        ctx.fillText('私のビーガン・インパクト', W/2, 322);
-        ctx.font = '700 40px "Noto Sans JP", sans-serif';
-        ctx.fillStyle = '#9C1428';
-        ctx.fillText(`もし ${lastLabel} ビーガンを続けたら`, W/2, 376);
-        const rows = [
-          ['💧','水',          fmt(lastTotal.water)  + ' L'],
-          ['🌾','穀物',        fmt(lastTotal.grains) + ' kg'],
-          ['🌳','森林',        fmt(lastTotal.forest) + ' m²'],
-          ['☁️','CO₂',         fmt(lastTotal.co2)    + ' kg'],
-          ['🐄','動物のいのち', fmt(lastTotal.animals) + ' 匹']
-        ];
-        let y = 418;
-        rows.forEach(([emoji,label,val]) => {
-          ctx.fillStyle = '#FDF1DA';
-          ctx.beginPath(); ctx.roundRect(112, y, W-224, 80, 22); ctx.fill();
-          ctx.textAlign = 'left';
-          ctx.font = '40px sans-serif';
-          ctx.fillText(emoji, 144, y+54);
-          ctx.font = '500 32px "Noto Sans JP", sans-serif';
-          ctx.fillStyle = '#3C2E22';
-          ctx.fillText(label, 214, y+52);
-          ctx.textAlign = 'right';
-          ctx.font = '700 38px "Noto Serif JP", serif';
-          ctx.fillStyle = '#3F6A3A';
-          ctx.fillText(val, W-148, y+54);
-          y += 92;
-        });
-        ctx.textAlign = 'center';
-        ctx.font = '500 25px "Noto Sans JP", sans-serif';
-        ctx.fillStyle = '#786148';
-        ctx.fillText('ビーガンを続けると、地球にこれだけの違い。', W/2, y+30);
-        ctx.font = '700 40px "Noto Serif JP", serif';
-        ctx.fillStyle = '#C9223A';
-        ctx.fillText('ビーガン王子の計算機', W/2, H-126);
-        ctx.font = '500 27px "Noto Sans JP", sans-serif';
-        ctx.fillStyle = '#786148';
-        ctx.fillText('veganoji.jp    ·    @veganoji', W/2, H-82);
-        return c;
-      }
-      if (saveBtn) {
-        saveBtn.addEventListener('click', () => {
-          if (saveBtn.disabled) return;
-          const draw = () => buildCard().toBlob(blob => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url; a.download = 'veganoji-impact.png';
-            document.body.appendChild(a); a.click(); a.remove();
-            URL.revokeObjectURL(url);
-          }, 'image/png');
-          const whenMascot = mascotReady ? Promise.resolve()
-            : new Promise(res => { mascot.addEventListener('load', res, {once:true}); mascot.addEventListener('error', res, {once:true}); });
-          const whenFonts = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
-          Promise.all([whenMascot, whenFonts]).then(draw);
-        });
-      }
-    })();
   </script>
 
 </body>
