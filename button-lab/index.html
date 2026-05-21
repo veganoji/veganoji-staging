@@ -11,9 +11,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,400..700&family=Hachi+Maru+Pop&family=Inter:wght@300..700&family=Lilita+One&family=Noto+Sans+JP:wght@400..700&family=Noto+Serif+JP:wght@400..700&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Map the site's custom color tokens onto Tailwind v3 CDN so text-royal etc. work
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FFF8EB',
+            cream: '#F4E8CC',
+            ink: '#1F1812',
+            'ink-soft': '#3A2F26',
+            royal: '#C8102E',
+            'royal-deep': '#8E0D22',
+            gold: '#D9A441',
+            'gold-deep': '#B5832C',
+            'gold-soft': '#E8C76F',
+            line: '#E5DAC0',
+            muted: '#6B6055',
+          }
+        }
+      }
+    };
+  </script>
 
-  <style type="text/tailwindcss">
-    @theme {
+  <style>
+    :root {
       --color-paper: #FFF8EB;
       --color-cream: #F4E8CC;
       --color-ink: #1F1812;
@@ -25,9 +47,7 @@
       --color-gold-soft: #E8C76F;
       --color-line: #E5DAC0;
       --color-muted: #6B6055;
-    }
 
-    :root {
       --font-display: "Fraunces", "Noto Serif JP", serif;
       --font-jp-display: "Noto Serif JP", "Fraunces", serif;
       --font-jp: "Noto Sans JP", "Inter", sans-serif;
