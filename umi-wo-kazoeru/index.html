@@ -386,9 +386,10 @@
     />
 
     <div class="relative z-10 max-w-3xl mx-auto text-center pt-16 sm:pt-0">
-      <h1 class="font-jp-display font-normal display-tight text-[46px] sm:text-[70px] lg:text-[92px] leading-[1.16] text-paper">
+      <h1 class="font-jp-display font-normal display-tight text-[38px] sm:text-[68px] lg:text-[88px] leading-[1.18] text-paper">
         今年、世界で<br/>
-        <span class="text-gold">何匹</span>の魚が獲られると思う？
+        <span class="text-gold">何匹</span>の魚が<br class="sm:hidden"/>
+        獲られると思う？
       </h1>
 
       <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[17px] sm:text-[19px] leading-[1.9]">
@@ -649,35 +650,35 @@
         海の大きな魚は <span class="text-gold gold-underline">およそ ９０％</span> いなくなりました。<a href="#src-10" class="src">10</a>
       </h2>
 
-      <!-- Timeline bars -->
-      <div class="mt-16 sm:mt-20 max-w-2xl mx-auto space-y-5">
-        <div class="flex items-center gap-4">
-          <div class="w-16 sm:w-20 text-right font-jp-display text-paper/80 text-[15px] sm:text-[17px]">1950</div>
-          <div class="flex-1 h-3 bg-deep/60 rounded-full overflow-hidden">
+      <!-- Timeline bars — fuller and more prominent -->
+      <div class="mt-16 sm:mt-20 max-w-2xl mx-auto space-y-6 sm:space-y-7">
+        <div class="flex items-center gap-5">
+          <div class="w-20 sm:w-24 text-right font-jp-display text-paper/85 text-[20px] sm:text-[24px]">1950</div>
+          <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
             <div class="h-full bg-gold rounded-full" style="width:100%"></div>
           </div>
-          <div class="w-12 text-left text-paper/60 text-[12px] ticker">100</div>
+          <div class="w-14 sm:w-16 text-left text-paper/70 text-[18px] sm:text-[22px] font-jp-display ticker">100</div>
         </div>
-        <div class="flex items-center gap-4">
-          <div class="w-16 sm:w-20 text-right font-jp-display text-paper/80 text-[15px] sm:text-[17px]">1980</div>
-          <div class="flex-1 h-3 bg-deep/60 rounded-full overflow-hidden">
+        <div class="flex items-center gap-5">
+          <div class="w-20 sm:w-24 text-right font-jp-display text-paper/85 text-[20px] sm:text-[24px]">1980</div>
+          <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
             <div class="h-full bg-gold/80 rounded-full" style="width:55%"></div>
           </div>
-          <div class="w-12 text-left text-paper/60 text-[12px] ticker">55</div>
+          <div class="w-14 sm:w-16 text-left text-paper/70 text-[18px] sm:text-[22px] font-jp-display ticker">55</div>
         </div>
-        <div class="flex items-center gap-4">
-          <div class="w-16 sm:w-20 text-right font-jp-display text-paper/80 text-[15px] sm:text-[17px]">2010</div>
-          <div class="flex-1 h-3 bg-deep/60 rounded-full overflow-hidden">
+        <div class="flex items-center gap-5">
+          <div class="w-20 sm:w-24 text-right font-jp-display text-paper/85 text-[20px] sm:text-[24px]">2010</div>
+          <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
             <div class="h-full bg-gold/60 rounded-full" style="width:18%"></div>
           </div>
-          <div class="w-12 text-left text-paper/60 text-[12px] ticker">18</div>
+          <div class="w-14 sm:w-16 text-left text-paper/70 text-[18px] sm:text-[22px] font-jp-display ticker">18</div>
         </div>
-        <div class="flex items-center gap-4">
-          <div class="w-16 sm:w-20 text-right font-jp-display text-gold text-[15px] sm:text-[17px]">今</div>
-          <div class="flex-1 h-3 bg-deep/60 rounded-full overflow-hidden">
+        <div class="flex items-center gap-5">
+          <div class="w-20 sm:w-24 text-right font-jp-display text-gold text-[22px] sm:text-[26px]">今</div>
+          <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
             <div class="h-full bg-gold rounded-full" style="width:10%"></div>
           </div>
-          <div class="w-12 text-left text-gold text-[12px] ticker">10</div>
+          <div class="w-14 sm:w-16 text-left text-gold text-[18px] sm:text-[22px] font-jp-display ticker">10</div>
         </div>
       </div>
 
@@ -802,26 +803,51 @@
         };
       }
 
-      // ─────────────── Hero starfield (gentle, ambient) ───────────────
+      // ─────────────── Hero plankton — gentle ambient drift ─────────────
       const heroCanvas = document.getElementById('hero-stars');
-      function drawHero() {
+      let heroState = { ctx: null, w: 0, h: 0, particles: [] };
+
+      function rebuildHero() {
         const { ctx, w, h } = fitCanvas(heroCanvas);
-        ctx.clearRect(0, 0, w, h);
         const rand = mulberry32(11);
         const count = Math.floor((w * h) / 2200);
+        const particles = new Array(count);
         for (let i = 0; i < count; i++) {
-          const x = rand() * w;
-          const y = rand() * h;
-          const r = rand() * 1.6 + 0.4;
-          const alpha = 0.25 + rand() * 0.5;
-          ctx.fillStyle = `rgba(232, 199, 111, ${alpha})`;
+          particles[i] = {
+            x:       rand() * w,
+            y:       rand() * h,
+            r:       rand() * 1.6 + 0.4,
+            a:       0.25 + rand() * 0.55,
+            // gentle vertical drift up, with a slow horizontal sway
+            vy:      -(rand() * 5 + 2),                  // px/sec, drifting up
+            swayAmp: rand() * 8 + 3,
+            swayFreq: rand() * 0.4 + 0.2,
+            phase:    rand() * Math.PI * 2,
+          };
+        }
+        heroState = { ctx, w, h, particles };
+      }
+
+      function drawHero(t) {
+        const { ctx, w, h, particles } = heroState;
+        if (!ctx) return;
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          let y = p.y + (prefersReduced ? 0 : p.vy * t);
+          // Wrap top→bottom so it drifts forever
+          y = ((y % h) + h) % h;
+          const x = p.x + (prefersReduced ? 0 : Math.sin(t * p.swayFreq + p.phase) * p.swayAmp);
+          const twinkle = prefersReduced ? 1 : (0.7 + 0.3 * Math.sin(t * 0.8 + p.phase));
+          ctx.fillStyle = `rgba(232, 199, 111, ${p.a * twinkle})`;
           ctx.beginPath();
-          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.arc(x, y, p.r, 0, Math.PI * 2);
           ctx.fill();
         }
       }
-      drawHero();
-      window.addEventListener('resize', drawHero);
+
+      rebuildHero();
+      window.addEventListener('resize', rebuildHero);
 
       // ─────────────── Counting canvas — driven by scroll progress ───────────────
       const countSection = document.getElementById('count-section');
@@ -1038,6 +1064,7 @@
       // and keeps the dot field shimmering even when the user has stopped.
       const LERP = prefersReduced ? 1 : 0.14;
       function tick() {
+        const t = performance.now() / 1000;
         const diff = targetCount - displayedCount;
         if (Math.abs(diff) > 5) {
           displayedCount += diff * LERP;
@@ -1047,6 +1074,7 @@
         counter.textContent = formatFishCount(Math.floor(displayedCount));
         pauseCta.dataset.visible = pauseStrength > 0.5 ? 'true' : 'false';
         renderCountCanvas(lastProgress);
+        drawHero(t);
       }
 
       rebuildCountCanvas();
@@ -1106,5 +1134,6 @@
     })();
   </script>
 
+  <script src="/js/draggable-mascots.js" defer></script>
 </body>
 </html>
