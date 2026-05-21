@@ -846,7 +846,6 @@
       // Continuous tick — eases the displayed counter toward its scroll target
       // and keeps the dot field shimmering even when the user has stopped.
       const LERP = prefersReduced ? 1 : 0.14;
-      window.__umi_debug = { ticks: 0, lastTarget: 0, lastDisplayed: 0 };
       function tick() {
         const diff = targetCount - displayedCount;
         if (Math.abs(diff) > 5) {
@@ -855,21 +854,29 @@
           displayedCount = targetCount;
         }
         counter.textContent = formatFishCount(Math.floor(displayedCount));
-
-        // CTA visibility
         pauseCta.dataset.visible = pauseStrength > 0.5 ? 'true' : 'false';
-
         renderCountCanvas(lastProgress);
-        window.__umi_debug.ticks++;
-        window.__umi_debug.lastTarget = targetCount;
-        window.__umi_debug.lastDisplayed = displayedCount;
-        requestAnimationFrame(tick);
       }
 
       rebuildCountCanvas();
       window.addEventListener('resize', rebuildCountCanvas);
       window.addEventListener('scroll', onScroll, { passive: true });
-      requestAnimationFrame(tick); // counter lerp + canvas shimmer
+
+      // Drive the tick loop.  We use requestAnimationFrame normally, but fall
+      // back to setInterval if rAF is throttled — this happens in some headless
+      // / inactive-tab environments and would otherwise freeze the counter.
+      let lastRafStamp = performance.now();
+      function rafLoop(ts) {
+        lastRafStamp = ts;
+        tick();
+        requestAnimationFrame(rafLoop);
+      }
+      requestAnimationFrame(rafLoop);
+      setInterval(() => {
+        // If rAF hasn't run in over half a second, drive tick manually.
+        if (performance.now() - lastRafStamp > 500) tick();
+      }, 60);
+
       onScroll(); // initial paint
 
       // ─────────────── Mini comparison canvases (humans vs fish) ───────────────
