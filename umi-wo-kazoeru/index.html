@@ -74,16 +74,35 @@
         linear-gradient(180deg, #020c14 0%, #031826 50%, #020c14 100%);
     }
 
-    /* Hero background — generated underwater painting beneath a soft tonal overlay */
+    /* ─── Section backgrounds: each section has its own generated watercolor ──
+       Shared positioning, per-section image, shared darken-overlay for legibility. */
+    .section-bg-img,
     .hero-bg-img {
-      background-image: url('/images/umi-wo-kazoeru/hero-bg.jpg');
       background-size: cover;
       background-position: center;
     }
+    .hero-bg-img      { background-image: url('/images/umi-wo-kazoeru/hero-bg.jpg'); }
+    .count-bg-img     { background-image: url('/images/umi-wo-kazoeru/count-bg.jpg'); }
+    .bycatch-bg-img   { background-image: url('/images/umi-wo-kazoeru/bycatch-bg.jpg'); }
+    .japan-bg-img     { background-image: url('/images/umi-wo-kazoeru/japan-bg.jpg'); }
+    .trajectory-bg-img{ background-image: url('/images/umi-wo-kazoeru/trajectory-bg.jpg'); }
+    .close-bg-img     { background-image: url('/images/umi-wo-kazoeru/close-bg.jpg'); }
+
+    /* Soft darken so headings stay legible on top of the painted scene */
     .hero-bg-overlay {
       background:
         radial-gradient(ellipse at 50% 30%, rgba(2, 12, 20, 0.20), rgba(2, 12, 20, 0.55) 70%),
         linear-gradient(180deg, rgba(2, 12, 20, 0.20) 0%, rgba(2, 12, 20, 0.45) 60%, rgba(2, 12, 20, 0.85) 100%);
+    }
+    .section-bg-overlay {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(2, 12, 20, 0.15), rgba(2, 12, 20, 0.40) 75%),
+        linear-gradient(180deg, rgba(2, 12, 20, 0.45) 0%, rgba(2, 12, 20, 0.55) 50%, rgba(2, 12, 20, 0.75) 100%);
+    }
+    /* Warm sections need lighter overlay so colour doesn't get muddied */
+    .section-bg-overlay--warm {
+      background:
+        linear-gradient(180deg, rgba(2, 12, 20, 0.30) 0%, rgba(2, 12, 20, 0.45) 100%);
     }
     .ocean-gradient-deeper {
       background:
@@ -307,7 +326,7 @@
       <!-- Prince — 考え中 pose, floating gently -->
       <div class="mt-12 sm:mt-16 flex justify-center">
         <img
-          src="https://veganoji.jp/wp-content/uploads/2026/05/09_Website-Characters_1_0008_Layer-9.png"
+          src="/images/mascot/thinking.png"
           alt="ビーガン王子 — 考え中"
           class="w-28 sm:w-36 lg:w-44 anim-bobble drop-shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
           loading="eager"
@@ -329,7 +348,9 @@
        The pause-zone buffer is what stops momentum-scrolling from overshooting.   -->
   <section id="count-section" class="relative" style="height: 900vh;">
     <!-- Sticky stage that holds the canvas + counter while the section scrolls -->
-    <div class="sticky top-0 h-[100svh] w-full overflow-hidden ocean-gradient-deeper">
+    <div class="sticky top-0 h-[100svh] w-full overflow-hidden bg-abyss">
+      <div class="count-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
+      <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
       <canvas id="count-canvas" class="ocean-canvas" aria-hidden="true"></canvas>
 
       <!-- Counter overlay -->
@@ -367,7 +388,7 @@
 
       <!-- Prince — 読書中, drifting along the right side as a quiet companion -->
       <img
-        src="https://veganoji.jp/wp-content/uploads/2026/05/06_Website-Characters_1_0005_Layer-6.png"
+        src="/images/mascot/mc-mic.png"
         alt="ビーガン王子"
         class="hidden sm:block absolute bottom-10 right-6 w-24 lg:w-32 anim-drift opacity-80 pointer-events-none"
         loading="lazy"
@@ -376,7 +397,9 @@
   </section>
 
   <!-- ───────────────────── 3.  Human comparison reveal  ───────────────────── -->
-  <section id="after-count" class="relative ocean-gradient melt-up py-32 sm:py-48 px-6 sm:px-10 overflow-hidden scroll-mt-12">
+  <section id="after-count" class="relative bg-abyss melt-up py-32 sm:py-48 px-6 sm:px-10 overflow-hidden scroll-mt-12">
+    <div class="count-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
+    <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
       <div class="section-label mb-7 sm:mb-9">
         <span class="section-label__line"></span>
@@ -421,7 +444,9 @@
   </section>
 
   <!-- ───────────────────── 4.  Bycatch reveal  ───────────────────── -->
-  <section class="relative ocean-gradient-deeper py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
+  <section class="relative bg-abyss py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
+    <div class="bycatch-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
+    <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
 
       <!-- Thoughtful prince — quiet character moment marking the tonal shift -->
@@ -482,7 +507,9 @@
   </section>
 
   <!-- ───────────────────── 5.  Japan zoom-in — 3 vignettes ───────────────────── -->
-  <section class="relative ocean-gradient py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
+  <section class="relative bg-abyss py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
+    <div class="japan-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
+    <div class="section-bg-overlay section-bg-overlay--warm absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-5xl mx-auto">
       <div class="text-center mb-16 sm:mb-24 reveal">
         <div class="section-label mb-6 sm:mb-7 justify-center">
@@ -558,7 +585,9 @@
   </section>
 
   <!-- ───────────────────── 6.  Trajectory  ───────────────────── -->
-  <section class="relative ocean-gradient-deeper py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
+  <section class="relative bg-abyss py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
+    <div class="trajectory-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
+    <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
       <div class="section-label mb-7 sm:mb-9">
         <span class="section-label__line"></span>
@@ -610,12 +639,14 @@
   </section>
 
   <!-- ───────────────────── 7.  Soft close ───────────────────── -->
-  <section class="relative ocean-gradient py-32 sm:py-48 px-6 sm:px-10 overflow-hidden">
+  <section class="relative bg-abyss py-32 sm:py-48 px-6 sm:px-10 overflow-hidden">
+    <div class="close-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
+    <div class="section-bg-overlay section-bg-overlay--warm absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
 
       <div class="flex justify-center mb-10">
         <img
-          src="https://veganoji.jp/wp-content/uploads/2026/05/04_Website-Characters_1_0003_Layer-4.png"
+          src="/images/mascot/eating-vegan.png"
           alt="ビーガン王子 — サポーター"
           class="w-32 sm:w-44 anim-bobble drop-shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
           loading="lazy"
@@ -777,20 +808,41 @@
       function rebuildCountCanvas() {
         const { ctx, w, h } = fitCanvas(countCanvas);
         const rand = mulberry32(91);
-        // ~one dot per 60-90 sq px; cap so very large screens stay tasteful
-        const target = Math.min(Math.floor((w * h) / 80), 9000);
+        // Tiny fish silhouettes — each "dot" in the old field is now a fish.
+        // Density tuned a bit lower than dots since fish are larger visually.
+        const target = Math.min(Math.floor((w * h) / 220), 4500);
         const dots = new Array(target);
         for (let i = 0; i < target; i++) {
           dots[i] = {
-            x: rand() * w,
-            y: rand() * h,
-            r: rand() * 1.4 + 0.5,
-            a: 0.35 + rand() * 0.55,
+            x:     rand() * w,
+            y:     rand() * h,
+            size:  rand() * 2.2 + 1.6,        // body half-length, ~1.6–3.8 px
+            dir:   rand() < 0.5 ? -1 : 1,     // facing left or right
+            a:     0.45 + rand() * 0.45,
             phase: rand() * Math.PI * 2,
           };
         }
         countCanvasState = { ctx, w, h, dots, maxDots: target };
         renderCountCanvas(lastProgress);
+      }
+
+      // Draw a tiny fish silhouette (ellipse body + triangle tail) at (x,y)
+      function drawFishSilhouette(ctx, x, y, size, dir, alpha) {
+        ctx.fillStyle = `rgba(232, 199, 111, ${alpha})`;
+        ctx.beginPath();
+        ctx.ellipse(x, y, size, size * 0.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+        // Tail (triangle) on the opposite side of facing direction
+        const tx = x - dir * size * 0.95;
+        const ty1 = y - size * 0.42;
+        const ty2 = y + size * 0.42;
+        const tx2 = x - dir * size * 1.55;
+        ctx.beginPath();
+        ctx.moveTo(tx, y);
+        ctx.lineTo(tx2, ty1);
+        ctx.lineTo(tx2, ty2);
+        ctx.closePath();
+        ctx.fill();
       }
 
       let lastProgress = 0;
@@ -799,21 +851,17 @@
         if (!ctx) return;
         ctx.clearRect(0, 0, w, h);
 
-        // Linger near the very start so the first dots feel paced
+        // Linger near the very start so the first fish feel paced
         const eased = progress < 0.05
-          ? progress * 8                       // 0..0.05 → 0..0.4
+          ? progress * 8                            // 0..0.05 → 0..0.4
           : 0.4 + (progress - 0.05) * (0.6 / 0.95); // rest of the way
 
         const visible = Math.min(maxDots, Math.floor(eased * maxDots));
         const t = performance.now() / 1000;
         for (let i = 0; i < visible; i++) {
           const d = dots[i];
-          // Gentle twinkle
-          const twinkle = prefersReduced ? 1 : (0.7 + 0.3 * Math.sin(t * 1.2 + d.phase));
-          ctx.fillStyle = `rgba(232, 199, 111, ${d.a * twinkle})`;
-          ctx.beginPath();
-          ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-          ctx.fill();
+          const twinkle = prefersReduced ? 1 : (0.78 + 0.22 * Math.sin(t * 1.1 + d.phase));
+          drawFishSilhouette(ctx, d.x, d.y, d.size, d.dir, d.a * twinkle);
         }
       }
 
@@ -929,40 +977,34 @@
 
       onScroll(); // initial paint
 
-      // ─────────────── Mini comparison canvases (humans vs fish) ───────────────
+      // ─────────────── Mini comparison canvases — 1 dot vs many fish ─────────
+      // Visceral asymmetry: humans = a single small mark, fish = a teeming swarm.
       function drawMiniHumans() {
         const canvas = document.getElementById('mini-humans');
         if (!canvas) return;
         const { ctx, w, h } = fitCanvas(canvas);
         ctx.clearRect(0, 0, w, h);
-        // 80 dots = "8 billion people, abstracted"
-        const cols = 10, rows = 8;
-        const padX = w * 0.18, padY = h * 0.18;
-        const gx = (w - padX * 2) / (cols - 1);
-        const gy = (h - padY * 2) / (rows - 1);
-        ctx.fillStyle = 'rgba(248, 200, 210, 0.9)';
-        for (let r = 0; r < rows; r++) {
-          for (let c = 0; c < cols; c++) {
-            ctx.beginPath();
-            ctx.arc(padX + c * gx, padY + r * gy, 2.2, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
+        // One small pink dot in the middle — that's all of humanity.
+        ctx.fillStyle = 'rgba(248, 200, 210, 0.95)';
+        ctx.beginPath();
+        ctx.arc(w / 2, h / 2, 3.2, 0, Math.PI * 2);
+        ctx.fill();
       }
       function drawMiniFish() {
         const canvas = document.getElementById('mini-fish');
         if (!canvas) return;
         const { ctx, w, h } = fitCanvas(canvas);
         ctx.clearRect(0, 0, w, h);
-        // ~250x denser than the humans canvas, capped for legibility
+        // Hundreds of tiny fish silhouettes scattered across the panel.
         const rand = mulberry32(7);
-        const count = Math.floor((w * h) / 6); // very dense
+        const count = Math.min(420, Math.floor((w * h) / 110));
         for (let i = 0; i < count; i++) {
           const x = rand() * w;
           const y = rand() * h;
-          const a = 0.4 + rand() * 0.4;
-          ctx.fillStyle = `rgba(232, 199, 111, ${a})`;
-          ctx.fillRect(x, y, 1, 1);
+          const size = rand() * 1.6 + 1.6;
+          const dir = rand() < 0.5 ? -1 : 1;
+          const a = 0.45 + rand() * 0.4;
+          drawFishSilhouette(ctx, x, y, size, dir, a);
         }
       }
       function drawMinis() { drawMiniHumans(); drawMiniFish(); }
