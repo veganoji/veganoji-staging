@@ -4,14 +4,14 @@ date:     2024-04-13
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/fairtrade-overview-benefits-why.png"
+hero:     "/images/blog/2024/fairtrade-overview-benefits-why.jpg"
 excerpt:  "フェアトレードは開発途上国の生産者と意識の高い消費者の両方に利益をもたらす公正な世界的取引システムを構築するための力強い活動として注目されています。このブログではフェアトレードがどのようなものなのか、その様々な側面を紹介…"
 source:   "https://veganoji.jp/fairtrade-overview-benefits-why/"
 ---
 
 フェアトレードは**開発途上国の生産者と意識の高い消費者の両方に利益をもたらす公正な世界的取引システムを構築するための力強い活動**として注目されています。このブログではフェアトレードがどのようなものなのか、その様々な側面を紹介し、多くの人々がフェアトレード製品を選択する理由を紹介します。さらに日本におけるフェアトレード製品の現状にも触れましょう。
 
-![](/images/blog/2024/fairtrade-overview-benefits-why.png)
+![](/images/blog/2024/fairtrade-overview-benefits-why.jpg)
 
 ## フェアトレードとは？
 

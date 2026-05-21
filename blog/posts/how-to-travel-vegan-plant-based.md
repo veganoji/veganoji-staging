@@ -4,7 +4,7 @@ date:     2024-04-24
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/how-to-travel-vegan-plant-based.png"
+hero:     "/images/blog/2024/how-to-travel-vegan-plant-based.jpg"
 excerpt:  "初めての場所へ旅行する場合でもプラントベースのライフスタイルは維持できます。プラントベースの食事スタイルを維持したままでも美味しく充実した体験はできるはずです。このブログでは食事メニューの上手な選択方法や体力を維持する方…"
 source:   "https://veganoji.jp/how-to-travel-vegan-plant-based/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/how-to-travel-vegan-plant-based/"
 
 [日本国内のことでしたら「王子のビーガンマップ」をこちらからお使いください！](https://maps.app.goo.gl/8tyER4M5xx1vQQni6?g_st=i)
 
-![](/images/blog/2024/how-to-travel-vegan-plant-based.png)
+![](/images/blog/2024/how-to-travel-vegan-plant-based.jpg)
 
 ### 1. 事前に計画を立てる
 

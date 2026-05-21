@@ -4,14 +4,14 @@ date:     2024-04-06
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/seaweed-superfood-benefits-nutrition.png"
+hero:     "/images/blog/2024/seaweed-superfood-benefits-nutrition.jpg"
 excerpt:  "「海の野菜」とも呼ばれる食材である海藻は、様々なアジア料理で古来より愛されてきました。様々な料理に利用できることはもちろん、その栄養価の高さから、海藻は多くのヴィーガンたちの関心を集めています。このブログではヴィーガン食…"
 source:   "https://veganoji.jp/seaweed-superfood-benefits-nutrition/"
 ---
 
 「海の野菜」とも呼ばれる食材である海藻は、様々なアジア料理で古来より愛されてきました。様々な料理に利用できることはもちろん、その栄養価の高さから、海藻は多くのヴィーガンたちの関心を集めています。このブログでは**ヴィーガン食において海藻がもたらす効果**に注目し、**海藻がもつ豊かな栄養成分が健康にどのような良い効果を及ぼすか**を探求してみましょう。
 
-![](/images/blog/2024/seaweed-superfood-benefits-nutrition.png)
+![](/images/blog/2024/seaweed-superfood-benefits-nutrition.jpg)
 
 ## 豊かな栄養素
 

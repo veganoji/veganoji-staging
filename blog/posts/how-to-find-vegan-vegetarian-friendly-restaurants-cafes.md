@@ -21,7 +21,7 @@ source:   "https://veganoji.jp/how-to-find-vegan-vegetarian-friendly-restaurants
 
 ## [①ビーガン王子のマップ](https://veganoji.jp/japan-vegan-map/)
 
-[![](/images/blog/2022/1-OJI-MAPS.png)](https://veganoji.jp/japan-vegan-map/)
+[![](/images/blog/2022/1-OJI-MAPS.jpg)](https://veganoji.jp/japan-vegan-map/)
 
 ビーガンのお店探しを楽しく、分かりやすくするため、ビーガン王子のマップを開発させていただきました。ビーガンが食べられるお店が見れるのだけではなく、カテゴリーや有名な方のおすすめなお店を見ることができます！そしてお店の写真をクリックすると、そのお店の詳細が見れるページまで飛びます！まだ完成していないところが多少ありますが、ぜひ使ってみてください！
 

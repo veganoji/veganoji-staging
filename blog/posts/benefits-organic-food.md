@@ -4,14 +4,14 @@ date:     2024-03-16
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/benefits-organic-food.png"
+hero:     "/images/blog/2024/benefits-organic-food.jpg"
 excerpt:  "健康や環境問題に意識的な生活を送る人が増えつつある現代において、有機食品を選択するか従来の食品を選択するかという問題はもはや個人的な嗜好によるものではありません。その選択は私たちの健康だけでなく、未来の地球環境問題にも影…"
 source:   "https://veganoji.jp/benefits-organic-food/"
 ---
 
 健康や環境問題に意識的な生活を送る人が増えつつある現代において、有機食品を選択するか従来の食品を選択するかという問題はもはや個人的な嗜好によるものではありません。その選択は**私たちの健康だけでなく、未来の地球環境問題にも影響を及ぼします**。この記事では従来の食品より有機食品を選ぶ理由を紹介し、その選択が私たちの健康と地球に及ぼすポジティブな影響について考えてみましょう。
 
-![](/images/blog/2024/benefits-organic-food.png)
+![](/images/blog/2024/benefits-organic-food.jpg)
 
 ## 1. 健康を守ること
 

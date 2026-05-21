@@ -182,9 +182,60 @@
     }
     .src:hover { color: var(--color-gold); }
 
-    /* Eyebrow */
-    @utility eyebrow {
-      @apply text-[10px] tracking-[0.36em] uppercase text-gold/80 font-medium;
+    /* ─────────────── Section labels ───────────────
+       Replaces the old uppercase "eyebrow" pattern with a softer
+       gradient-line + cute-jp text + gradient-line motif.            */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(232, 199, 111, 0.92);
+    }
+    .section-label__line {
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232, 199, 111, 0.5));
+    }
+    .section-label__line--right {
+      background: linear-gradient(90deg, rgba(232, 199, 111, 0.5), transparent);
+    }
+    .section-label__text {
+      font-family: var(--font-cute-jp);
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    @media (min-width: 640px) {
+      .section-label { gap: 16px; }
+      .section-label__line { width: 42px; }
+      .section-label__text { font-size: 14px; }
+    }
+
+    /* Smaller card-level label (no flanking lines), used inside vignettes */
+    .card-label {
+      font-family: var(--font-cute-jp);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      color: rgba(232, 199, 111, 0.85);
+      line-height: 1;
+    }
+    @media (min-width: 640px) {
+      .card-label { font-size: 13px; }
+    }
+
+    /* Pause-zone CTA at the end of the count section */
+    .pause-cta {
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      transform: translateY(12px);
+    }
+    .pause-cta[data-visible="true"] {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
   </style>
 </head>
@@ -199,7 +250,7 @@
       </svg>
       <span class="font-cute-jp text-[14px] tracking-wide">ビーガン王子</span>
     </a>
-    <span class="eyebrow hidden sm:inline">海をかぞえる</span>
+    <span class="hidden sm:inline font-cute-jp text-[13px] tracking-[0.14em] text-gold/80">海をかぞえる</span>
   </header>
 
   <!-- ───────────────────── 1.  Hero  ───────────────────── -->
@@ -207,7 +258,11 @@
     <canvas id="hero-stars" class="ocean-canvas" aria-hidden="true"></canvas>
 
     <div class="relative z-10 max-w-3xl mx-auto text-center pt-16 sm:pt-0">
-      <div class="eyebrow mb-6 sm:mb-8">海をかぞえる ・ a quiet count</div>
+      <div class="section-label mb-7 sm:mb-9">
+        <span class="section-label__line"></span>
+        <span class="section-label__text">海をかぞえる</span>
+        <span class="section-label__line section-label__line--right"></span>
+      </div>
 
       <h1 class="font-jp-display font-light display-tight text-[40px] sm:text-[60px] lg:text-[76px] leading-[1.18] text-paper">
         今年、世界で<br/>
@@ -240,28 +295,46 @@
     </div>
   </section>
 
-  <!-- ───────────────────── 2.  The count begins — sticky scroll  ───────────────────── -->
-  <section id="count-section" class="relative" style="height: 700vh;">
+  <!-- ───────────────────── 2.  The count begins — sticky scroll  ─────────────────────
+       Total height = 900vh:  ~720vh of active counting (progress 0→1)  +  ~180vh of
+       "pause zone" where the counter holds at 2.30 兆匹 and the CTA fades in.
+       The pause-zone buffer is what stops momentum-scrolling from overshooting.   -->
+  <section id="count-section" class="relative" style="height: 900vh;">
     <!-- Sticky stage that holds the canvas + counter while the section scrolls -->
     <div class="sticky top-0 h-[100svh] w-full overflow-hidden ocean-gradient-deeper">
       <canvas id="count-canvas" class="ocean-canvas" aria-hidden="true"></canvas>
 
       <!-- Counter overlay -->
       <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6">
-        <div class="counter-pill rounded-2xl px-6 py-5 sm:px-10 sm:py-6 text-center max-w-[92vw]">
-          <div class="eyebrow mb-3">今年、世界で獲られた魚</div>
-          <div id="counter" class="ticker font-jp-display text-[36px] sm:text-[56px] lg:text-[72px] leading-none text-gold">
-            0
+        <div class="counter-pill rounded-2xl px-6 py-5 sm:px-10 sm:py-7 text-center max-w-[92vw]">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <span class="block w-6 sm:w-8 h-px bg-gradient-to-r from-transparent to-gold/45"></span>
+            <span class="font-cute-jp text-[12px] sm:text-[13px] tracking-[0.14em] text-gold/85">今年、世界で獲られた魚</span>
+            <span class="block w-6 sm:w-8 h-px bg-gradient-to-l from-transparent to-gold/45"></span>
           </div>
-          <div class="mt-3 text-[12px] sm:text-[13px] text-paper/55 font-jp">
+          <div id="counter" class="ticker font-jp-display text-[36px] sm:text-[56px] lg:text-[72px] leading-none text-gold">
+            0 匹
+          </div>
+          <div class="mt-4 text-[13px] sm:text-[14px] text-paper/55 font-jp">
             <span id="counter-context">スクロールで進みます</span>
           </div>
         </div>
 
         <!-- Annotation strip — appears at scroll milestones -->
-        <div id="annotation" class="mt-8 text-center font-cute-jp text-[14px] sm:text-[16px] text-paper/70 max-w-md opacity-0 transition-opacity duration-700 px-4">
+        <div id="annotation" class="mt-8 text-center font-cute-jp text-[15px] sm:text-[17px] text-paper/75 max-w-md opacity-0 transition-opacity duration-700 px-4 leading-[1.9]">
           <!-- filled by JS -->
         </div>
+      </div>
+
+      <!-- Pause-zone CTA: fades in once counter reaches 2.30 兆匹 -->
+      <div id="pause-cta" class="pause-cta absolute bottom-10 sm:bottom-14 left-0 right-0 flex flex-col items-center px-6">
+        <p class="font-cute-jp text-paper/70 text-[14px] sm:text-[15px] mb-4 text-center">これで、今年の一年分です。</p>
+        <a href="#after-count" class="inline-flex items-center gap-2 rounded-full bg-gold text-abyss px-7 py-3.5 text-[14px] font-medium tracking-wide hover:bg-paper transition-colors duration-300 shadow-lg shadow-abyss/60">
+          次へ進む
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M7 2 L7 11 M3 7 L7 11 L11 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          </svg>
+        </a>
       </div>
 
       <!-- Prince — 読書中, drifting along the right side as a quiet companion -->
@@ -275,9 +348,14 @@
   </section>
 
   <!-- ───────────────────── 3.  Human comparison reveal  ───────────────────── -->
-  <section class="relative ocean-gradient melt-up py-32 sm:py-48 px-6 sm:px-10 overflow-hidden">
+  <section id="after-count" class="relative ocean-gradient melt-up py-32 sm:py-48 px-6 sm:px-10 overflow-hidden scroll-mt-12">
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
-      <div class="eyebrow mb-6">スケール</div>
+      <div class="section-label mb-7 sm:mb-9">
+        <span class="section-label__line"></span>
+        <span class="section-label__text">スケール</span>
+        <span class="section-label__line section-label__line--right"></span>
+      </div>
+
       <p class="font-jp-display text-[26px] sm:text-[40px] lg:text-[52px] leading-[1.5] text-paper">
         ちなみに、世界中の<br class="sm:hidden"/>
         <span class="text-gold gold-underline">人類は ８０億人</span>。
@@ -294,21 +372,20 @@
             <div class="aspect-square bg-deep/60 rounded-2xl border border-line/60 flex items-center justify-center mb-3 overflow-hidden relative">
               <canvas id="mini-humans" class="w-full h-full"></canvas>
             </div>
-            <div class="eyebrow">人類</div>
-            <div class="font-jp-display text-[20px] sm:text-[26px] text-paper">80億</div>
+            <div class="card-label">人類</div>
+            <div class="font-jp-display text-[20px] sm:text-[26px] text-paper mt-1.5">80億</div>
           </div>
           <div class="text-center">
             <div class="aspect-square bg-deep/60 rounded-2xl border border-line/60 flex items-center justify-center mb-3 overflow-hidden relative">
               <canvas id="mini-fish" class="w-full h-full"></canvas>
             </div>
-            <div class="eyebrow">魚 (一年)</div>
-            <div class="font-jp-display text-[20px] sm:text-[26px] text-gold">1〜3兆</div>
+            <div class="card-label">魚 (一年)</div>
+            <div class="font-jp-display text-[20px] sm:text-[26px] text-gold mt-1.5">1〜3兆</div>
           </div>
         </div>
-        <!-- ratio is enforced visually by the canvases themselves -->
       </div>
 
-      <p class="mt-10 font-cute-jp text-paper/50 text-[13px] sm:text-[14px]">
+      <p class="mt-12 font-cute-jp text-paper/65 text-[15px] sm:text-[17px] leading-[2]">
         魚の数は人類のおよそ <span class="text-gold">150〜375倍</span>。<br/>
         一年で、です。
       </p>
@@ -318,7 +395,12 @@
   <!-- ───────────────────── 4.  Bycatch reveal  ───────────────────── -->
   <section class="relative ocean-gradient-deeper py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
-      <div class="eyebrow mb-6">混獲 (こんかく) ・ bycatch</div>
+      <div class="section-label mb-7 sm:mb-9">
+        <span class="section-label__line"></span>
+        <span class="section-label__text">混獲 (こんかく)</span>
+        <span class="section-label__line section-label__line--right"></span>
+      </div>
+
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
         獲られた命の <span class="text-gold">およそ ４割</span> は、<br/>
         食卓のためではありません。
@@ -334,23 +416,26 @@
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <div class="text-[36px] sm:text-[44px] mb-2" aria-hidden="true">🐢</div>
           <div class="font-jp-display text-paper text-[15px]">ウミガメ</div>
+          <div class="text-paper/60 font-cute-jp text-[12px] sm:text-[13px] mt-1.5">年に 数十万匹<a href="#src-3" class="src">3</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <div class="text-[36px] sm:text-[44px] mb-2" aria-hidden="true">🐬</div>
           <div class="font-jp-display text-paper text-[15px]">イルカ</div>
+          <div class="text-paper/60 font-cute-jp text-[12px] sm:text-[13px] mt-1.5">年に 約30万頭<a href="#src-3" class="src">3</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <div class="text-[36px] sm:text-[44px] mb-2" aria-hidden="true">🦈</div>
           <div class="font-jp-display text-paper text-[15px]">サメ</div>
-          <div class="text-paper/60 font-cute-jp text-[11px] mt-1">毎年1億匹<a href="#src-3" class="src">3</a></div>
+          <div class="text-paper/60 font-cute-jp text-[12px] sm:text-[13px] mt-1.5">年に 約1億匹<a href="#src-3a" class="src">3a</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <div class="text-[36px] sm:text-[44px] mb-2" aria-hidden="true">🐟</div>
           <div class="font-jp-display text-paper text-[15px]">小さな魚</div>
+          <div class="text-paper/60 font-cute-jp text-[12px] sm:text-[13px] mt-1.5">数えきれないほど</div>
         </div>
       </div>
 
-      <p class="mt-12 font-cute-jp text-paper/55 text-[13px] sm:text-[14px] max-w-md mx-auto leading-[1.9]">
+      <p class="mt-12 font-cute-jp text-paper/65 text-[15px] sm:text-[17px] max-w-xl mx-auto leading-[2]">
         海底をひきずる漁は、一年で日本の国土の<br/>
         <span class="text-gold">およそ 14倍</span> の海底をならしています。<a href="#src-4" class="src">4</a>
       </p>
@@ -361,12 +446,16 @@
   <section class="relative ocean-gradient py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
     <div class="relative z-10 max-w-5xl mx-auto">
       <div class="text-center mb-16 sm:mb-24 reveal">
-        <div class="eyebrow mb-4">日本のはなし</div>
+        <div class="section-label mb-6 sm:mb-7 justify-center">
+          <span class="section-label__line"></span>
+          <span class="section-label__text">日本のはなし</span>
+          <span class="section-label__line section-label__line--right"></span>
+        </div>
         <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
           日本の食卓と、<br/>
           <span class="display-italic text-gold">海のこと。</span>
         </h2>
-        <p class="mt-6 font-jp text-paper/65 text-[14px] sm:text-[16px] leading-[1.95] max-w-xl mx-auto">
+        <p class="mt-6 font-jp text-paper/65 text-[15px] sm:text-[17px] leading-[1.95] max-w-xl mx-auto">
           わたしたちの暮らしと、深くつながっている三つのいきもの。
         </p>
       </div>
@@ -375,7 +464,7 @@
       <article class="vignette rounded-3xl p-8 sm:p-12 mb-10 sm:mb-14 reveal">
         <div class="grid sm:grid-cols-[1fr,auto] gap-8 items-start">
           <div>
-            <div class="eyebrow mb-3">クロマグロ</div>
+            <div class="card-label mb-3">クロマグロ</div>
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
               世界のクロマグロの <span class="text-gold">およそ ８割</span> を、<br class="hidden sm:block"/>
               日本が食べています。<a href="#src-5" class="src">5</a>
@@ -395,7 +484,7 @@
         <div class="grid sm:grid-cols-[auto,1fr] gap-8 items-start">
           <div class="text-[80px] sm:text-[100px] leading-none text-center anim-drift order-2 sm:order-1" aria-hidden="true">🍱</div>
           <div class="order-1 sm:order-2">
-            <div class="eyebrow mb-3">ニホンウナギ</div>
+            <div class="card-label mb-3">ニホンウナギ</div>
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
               夏に食べる、あの一匹は <br class="hidden sm:block"/>
               <span class="text-gold">絶滅危惧種</span> です。<a href="#src-7" class="src">7</a>
@@ -413,7 +502,7 @@
       <article class="vignette rounded-3xl p-8 sm:p-12 reveal">
         <div class="grid sm:grid-cols-[1fr,auto] gap-8 items-start">
           <div>
-            <div class="eyebrow mb-3">クジラ</div>
+            <div class="card-label mb-3">クジラ</div>
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
               日本では今も、毎年 <span class="text-gold">およそ ３００頭</span> の<br class="hidden sm:block"/>
               クジラが捕鯨の対象になっています。<a href="#src-9" class="src">9</a>
@@ -432,7 +521,11 @@
   <!-- ───────────────────── 6.  Trajectory  ───────────────────── -->
   <section class="relative ocean-gradient-deeper py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
-      <div class="eyebrow mb-6">これまでと、これから</div>
+      <div class="section-label mb-7 sm:mb-9">
+        <span class="section-label__line"></span>
+        <span class="section-label__text">これまでと、これから</span>
+        <span class="section-label__line section-label__line--right"></span>
+      </div>
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
         1950年と比べて、<br/>
         海の大きな魚は <span class="text-gold gold-underline">およそ ９０％</span> いなくなりました。<a href="#src-10" class="src">10</a>
@@ -470,7 +563,7 @@
         </div>
       </div>
 
-      <p class="mt-12 font-cute-jp text-paper/55 text-[13px] sm:text-[14px] max-w-md mx-auto leading-[1.9]">
+      <p class="mt-12 font-cute-jp text-paper/65 text-[15px] sm:text-[17px] max-w-xl mx-auto leading-[2]">
         マグロ・カジキ・タラのような大きな魚ほど、<br/>
         早くいなくなっています。
       </p>
@@ -520,11 +613,16 @@
   <!-- ───────────────────── 8.  Sources ───────────────────── -->
   <footer class="bg-abyss border-t border-line/40 py-16 sm:py-20 px-6 sm:px-10">
     <div class="max-w-3xl mx-auto">
-      <div class="eyebrow mb-6">出典 ・ sources</div>
+      <div class="section-label mb-7">
+        <span class="section-label__line"></span>
+        <span class="section-label__text">出典 ・ sources</span>
+        <span class="section-label__line section-label__line--right"></span>
+      </div>
       <ol class="space-y-3 text-paper/60 text-[12px] sm:text-[13px] leading-[1.8] font-jp ticker">
         <li id="src-1"><span class="text-gold/60">1.</span> 年間に獲られる魚の数の推定は <a href="http://fishcount.org.uk/fish-count-estimates-2" target="_blank" rel="noopener" class="underline hover:text-paper">fishcount.org.uk</a> による（0.79〜2.3兆匹）。一人あたりの内訳は世界人口80億人で割った値。</li>
         <li id="src-2"><span class="text-gold/60">2.</span> 混獲（bycatch）の割合は FAO 'Discards in the world's marine fisheries' (2005) ほか、後年の報告でもほぼ同水準。</li>
-        <li id="src-3"><span class="text-gold/60">3.</span> サメの推計死亡数は <a href="https://doi.org/10.1016/j.marpol.2013.03.002" target="_blank" rel="noopener" class="underline hover:text-paper">Worm et al., Marine Policy (2013)</a> — 年間およそ 1億 匹。</li>
+        <li id="src-3"><span class="text-gold/60">3.</span> ウミガメの混獲は <a href="https://doi.org/10.1111/j.1461-0248.2004.00573.x" target="_blank" rel="noopener" class="underline hover:text-paper">Lewison et al., Ecology Letters (2004)</a> ほかにより年に数十万匹規模。イルカ等の鯨類混獲は <a href="https://doi.org/10.1111/j.1523-1739.2006.00338.x" target="_blank" rel="noopener" class="underline hover:text-paper">Read et al., Conservation Biology (2006)</a> による全世界で年間約 30万頭 の推計。</li>
+        <li id="src-3a"><span class="text-gold/60">3a.</span> サメの推計死亡数は <a href="https://doi.org/10.1016/j.marpol.2013.03.002" target="_blank" rel="noopener" class="underline hover:text-paper">Worm et al., Marine Policy (2013)</a> — 年間およそ 1億 匹。</li>
         <li id="src-4"><span class="text-gold/60">4.</span> 底曳網による海底破壊面積は Halpern et al. および Sala et al. (Nature, 2021) の推計に基づく。日本国土面積（約37.8万 km²）との比較。</li>
         <li id="src-5"><span class="text-gold/60">5.</span> WWF Japan・ISC（北太平洋マグロ類国際科学委員会）の長年の統計より。日本の消費比率は約 70〜80%。</li>
         <li id="src-6"><span class="text-gold/60">6.</span> 太平洋クロマグロの資源量、初期資源量比は ISC 2016 評価で約 2.6%。</li>
@@ -615,6 +713,14 @@
       const counter      = document.getElementById('counter');
       const counterCtx   = document.getElementById('counter-context');
       const annotation   = document.getElementById('annotation');
+      const pauseCta     = document.getElementById('pause-cta');
+
+      // ─────────────── Pause-zone configuration ───────────────
+      // The count section is taller than the active counting needs.  Counting
+      // runs 0 → 1 in the first COUNT_END fraction of the section; the rest is
+      // a "pause zone" where the counter holds at 2.30 兆匹 and a CTA fades in.
+      const COUNT_END = 0.80;   // counter reaches 1.0 at 80% of section scroll
+      const CTA_FADE  = 0.04;   // CTA fades fully in over the next 4%
 
       let countCanvasState = { ctx: null, w: 0, h: 0, dots: [], maxDots: 0 };
 
@@ -710,39 +816,60 @@
       }
 
       // Scroll-progress driver for the count section
-      let rafId = null;
+      //   - rawProgress is the linear 0→1 scroll progress through the whole section
+      //   - countProgress is the counter's clamped 0→1 (reaches 1 at COUNT_END)
+      //   - pauseProgress is 0 until COUNT_END, then climbs to 1 over CTA_FADE
+      let targetCount    = 0;
+      let displayedCount = 0;
+      let pauseStrength  = 0;   // current eased CTA opacity 0..1
+
       function onScroll() {
-        if (rafId) return;
-        rafId = requestAnimationFrame(() => {
-          rafId = null;
-          const rect = countSection.getBoundingClientRect();
-          const total = rect.height - window.innerHeight;
-          const scrolled = Math.min(Math.max(-rect.top, 0), total);
-          const progress = total > 0 ? scrolled / total : 0;
-          lastProgress = progress;
+        const rect = countSection.getBoundingClientRect();
+        const total = rect.height - window.innerHeight;
+        const scrolled = Math.min(Math.max(-rect.top, 0), total);
+        const rawProgress = total > 0 ? scrolled / total : 0;
 
-          // Counter
-          const n = Math.floor(progress * TOTAL_FISH);
-          counter.textContent = formatFishCount(n);
-          if (progress < 0.001)        counterCtx.textContent = 'スクロールで進みます';
-          else if (progress < 0.999)   counterCtx.textContent = 'まだ、ぜんぜん途中です';
-          else                          counterCtx.textContent = '今年一年分（推計）';
+        const countProgress = Math.min(rawProgress / COUNT_END, 1);
+        const pauseProgress = Math.max(0, Math.min(1, (rawProgress - COUNT_END) / CTA_FADE));
 
-          renderCountCanvas(progress);
-          updateAnnotation(progress);
-        });
+        lastProgress  = countProgress;
+        targetCount   = Math.floor(countProgress * TOTAL_FISH);
+        pauseStrength = pauseProgress;
+
+        if (rawProgress < 0.001)         counterCtx.textContent = 'スクロールで進みます';
+        else if (countProgress < 0.999)  counterCtx.textContent = 'まだ、ぜんぜん途中です';
+        else                              counterCtx.textContent = '今年一年分（推計）';
+
+        updateAnnotation(countProgress);
       }
 
-      // Continuous twinkle even when not scrolling
+      // Continuous tick — eases the displayed counter toward its scroll target
+      // and keeps the dot field shimmering even when the user has stopped.
+      const LERP = prefersReduced ? 1 : 0.14;
+      window.__umi_debug = { ticks: 0, lastTarget: 0, lastDisplayed: 0 };
       function tick() {
+        const diff = targetCount - displayedCount;
+        if (Math.abs(diff) > 5) {
+          displayedCount += diff * LERP;
+        } else {
+          displayedCount = targetCount;
+        }
+        counter.textContent = formatFishCount(Math.floor(displayedCount));
+
+        // CTA visibility
+        pauseCta.dataset.visible = pauseStrength > 0.5 ? 'true' : 'false';
+
         renderCountCanvas(lastProgress);
+        window.__umi_debug.ticks++;
+        window.__umi_debug.lastTarget = targetCount;
+        window.__umi_debug.lastDisplayed = displayedCount;
         requestAnimationFrame(tick);
       }
 
       rebuildCountCanvas();
       window.addEventListener('resize', rebuildCountCanvas);
       window.addEventListener('scroll', onScroll, { passive: true });
-      if (!prefersReduced) requestAnimationFrame(tick);
+      requestAnimationFrame(tick); // counter lerp + canvas shimmer
       onScroll(); // initial paint
 
       // ─────────────── Mini comparison canvases (humans vs fish) ───────────────

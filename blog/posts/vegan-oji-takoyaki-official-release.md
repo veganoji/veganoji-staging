@@ -90,7 +90,7 @@ source:   "https://veganoji.jp/vegan-oji-takoyaki-official-release/"
 
 **▶︎「ビーガン王子」Tシャツ** 👕
 
-![](/images/blog/2021/60-LONE-1.png)
+![](/images/blog/2021/60-LONE-1.jpg)
 
 サステナブル(オーガニック)コットンでできた、こだわりの優しいTシャツです。  
 おうちで友達とタコパをするときはもちろん、タコパの前のお買い物に行くとき、運動する時、仕事に行く時…様々な場面で着やすいデザインになっています。  

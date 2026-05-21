@@ -14,7 +14,7 @@ source:   "https://veganoji.jp/onetime-real-matching-app-appearance-report/"
 
 今回の動画では、「姉の彼氏を、目の前に並んだ男性20人の中から弟が本気で選ぶ」というユニークな設定のもと、年齢・仕事・収入・家事力まで含めて“本気審査”が行われる、緊張感たっぷりの内容となっています。恋愛リアリティーらしいドキドキ感はもちろん、兄弟ならではの本音や価値観も垣間見える構成で、最後まで見逃せない展開となっています。
 
-![](/images/blog/2026/image_1.png)
+![](/images/blog/2026/image_1.jpg)
 
 その中でビーガン王子も出演者のひとりとして参加し、普段の活動とはまた違ったかたちで存在感を見せました。外見だけではなく、仕事や生活力まで含めて見られるこの企画は、まさに“リアルマッチングアプリ”というタイトルにふさわしい内容であり、出演者それぞれの人柄や空気感が自然に伝わる回になっています。
 
@@ -38,6 +38,6 @@ Appearances like this continue to highlight the growing range of Vegan Oji’s w
 YouTube video:  
 https://www.youtube.com/watch?v=N161bzaIOBc
 
-![](/images/blog/2026/image_2.png)
-![](/images/blog/2026/image_3.png)
-![](/images/blog/2026/image_4.png)
+![](/images/blog/2026/image_2.jpg)
+![](/images/blog/2026/image_3.jpg)
+![](/images/blog/2026/image_4.jpg)

@@ -33,7 +33,7 @@ source:   "https://veganoji.jp/burger-king-plant-based-leader-worldwide/"
 
 昨年、バーガーキングはImpossible Foodsとの提携を拡大し、同ブランドのヴィーガン・チキンナゲットを3つのテスト市場でメニューに加え、再び、当時としては**新しいナゲットを提供する最初の大手チェーン**となり、アイオワ州のデモイン、マサチューセッツ州のボストン、フロリダ州のマイアミのバーガーキング店舗でディッピングソースを選んで8ピースを注文することができた。そして先月は、Impossible Foodsの植物から作られた新しい**「Impossible Chicken Patties」**を使った、ファンに人気のオリジナルチキンサンドイッチの植物性バージョンが、オハイオ州シンシナティ店のメニューに期間限定で登場しました。
 
-![](/images/blog/2022/burger-king-impossible-chicken-uk.png)
+![](/images/blog/2022/burger-king-impossible-chicken-uk.jpg)
 
 バーガーキングはこのほど、Impossibleのラインナップに加え、Impossible KingとSouthwest Bacon Impossible Whopperの2つのメニューを米国で発売しました。どちらもImpossible Foodsの植物性パティを使用していますが、Impossible Kingには**通常のチーズ**、Wopperには通常の**ベーコンとチーズ**という形で動物性食品も入っており、完全植物性バーガーに挑戦することにためらいがあり、**肉の消費を制限している消費者をターゲットに**した方法となっています。
 

@@ -4,14 +4,14 @@ date:     2024-04-10
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/animal-rights-welfare-key-points.png"
+hero:     "/images/blog/2024/animal-rights-welfare-key-points.jpg"
 excerpt:  "近年、西半球における動物福祉に対する意識と支援は驚くほど急速に盛り上がっています。この関心の高まりは、動物を幸福にしたいという多くの人々に共通する願いから生まれたもので、人類の価値観の向上により動物愛護が社会の優先事項と…"
 source:   "https://veganoji.jp/animal-rights-welfare-key-points/"
 ---
 
 近年、西半球における動物福祉に対する意識と支援は驚くほど急速に盛り上がっています。この関心の高まりは、**動物を幸福にしたいという多くの人々に共通する願い**から生まれたもので、人類の価値観の向上により**動物愛護が社会の優先事項となった**ことを反映しています。このブログでは動物福祉に対する意識向上の背後にある要因を探求し、動物福祉に対する共感や科学的理解、倫理的概念について焦点を当ててみましょう。
 
-![](/images/blog/2024/animal-rights-welfare-key-points.png)
+![](/images/blog/2024/animal-rights-welfare-key-points.jpg)
 
 ### 共感と思いやり
 

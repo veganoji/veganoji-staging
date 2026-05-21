@@ -4,14 +4,14 @@ date:     2024-04-20
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/vegan-fitness-training-tips.png"
+hero:     "/images/blog/2024/vegan-fitness-training-tips.jpg"
 excerpt:  "ヴィーガンの食生活で体力をワンランクアップさせたいですか？熟練したアスリートもフィットネスのプログラムを始めたばかり人も、ヴィーガンダイエットと効果的なエクササイズを組み合わせることで素晴らしい結果を得ることができます。…"
 source:   "https://veganoji.jp/vegan-fitness-training-tips/"
 ---
 
 ヴィーガンの食生活で体力をワンランクアップさせたいですか？熟練したアスリートもフィットネスのプログラムを始めたばかり人も、ヴィーガンダイエットと効果的なエクササイズを組み合わせることで素晴らしい結果を得ることができます。このブログではいきいきとした**ヴィーガンのライフスタイルをおくりながらプロのアスリートのようなワークアウトを行うことができる非常に効果的な方法**を紹介します。
 
-![](/images/blog/2024/vegan-fitness-training-tips.png)
+![](/images/blog/2024/vegan-fitness-training-tips.jpg)
 
 ### 1. 適切な燃料補給
 

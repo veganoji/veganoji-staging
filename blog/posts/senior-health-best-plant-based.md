@@ -4,7 +4,7 @@ date:     2024-03-02
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/senior-health-best-plant-based.png"
+hero:     "/images/blog/2024/senior-health-best-plant-based.jpg"
 excerpt:  "高齢になるにつれ、栄養の摂り方はこれまで以上に重要になってくる。ここでは、高齢者の健康に最適な食事について考えてみよう。 欧州の多くの地域と比べると、ギリシャのイカリア島に住む人々は90代まで健康でいられる可能性が高い。…"
 source:   "https://veganoji.jp/senior-health-best-plant-based/"
 ---
@@ -17,7 +17,7 @@ source:   "https://veganoji.jp/senior-health-best-plant-based/"
 
 高齢者の健康にとって、**植物由来の食品を摂取するホールフーズダイエットは一番良い選択肢である**のか、長寿地域の食生活はどのようなものかを考えれば、確かにそれが正解のように思える。その理由を詳しくみてみよう。
 
-![](/images/blog/2024/senior-health-best-plant-based.png)
+![](/images/blog/2024/senior-health-best-plant-based.jpg)
 
 ## 食事と老化
 

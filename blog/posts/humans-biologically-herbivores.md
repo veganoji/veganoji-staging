@@ -4,7 +4,7 @@ date:     2024-03-27
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/humans-biologically-herbivores.png"
+hero:     "/images/blog/2024/humans-biologically-herbivores.jpg"
 excerpt:  "医師やその他の専門家、そしてこれまでの常識では、動物性食品は健康的な食生活に不可欠な要素であるとよく言われる。この多数派の見解は、人間は雑食であることを示唆している。しかし、私たちの身体はどうなのだろうか？ チャイナ・ス…"
 source:   "https://veganoji.jp/humans-biologically-herbivores/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/humans-biologically-herbivores/"
 
 この記事は、**人間は解剖学的に草食動物**であり、雑食動物ではないことを示している。だから人間はWFPB食で成長するのである。この記事の情報は、拙著『持続可能な食料生産と食生活』に基づいている。
 
-![](/images/blog/2024/humans-biologically-herbivores.png)
+![](/images/blog/2024/humans-biologically-herbivores.jpg)
 
 **人類は歴史的に動物性食品を食べてきたと主張する人がいる**。したがって、それらは自然で健康的なものに違いない。動物性食品は人間にとって最適な食品ではないのに、人間が動物性食品を食べる理由はたくさんある。例えば、原住民が北方へ移住する際、十分な植物性食品が手に入らなかったため、生き延びるために動物性食品を食べることが多かった。また、動物性食品の栄養成分には通常脂肪が多く含まれるため、カロリーが高く、短期的な生存には好都合だったのかもしれない。
 

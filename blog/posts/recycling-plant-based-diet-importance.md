@@ -4,14 +4,14 @@ date:     2024-04-03
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/recycling-plant-based-diet-importance.png"
+hero:     "/images/blog/2024/recycling-plant-based-diet-importance.jpg"
 excerpt:  "環境への関心が高まる中、持続可能な活動の重要性はどんなに強調してもしすぎることはありません。環境に配慮した選択肢の中で重要な役割を果たすのが、リサイクルと植物由来の食生活です。このブログでは、リサイクル活動のメリットにつ…"
 source:   "https://veganoji.jp/recycling-plant-based-diet-importance/"
 ---
 
 環境への関心が高まる中、持続可能な活動の重要性はどんなに強調してもしすぎることはありません。環境に配慮した選択肢の中で重要な役割を果たすのが、リサイクルと植物由来の食生活です。このブログでは、リサイクル活動のメリットについて考え、現在の課題を明らかにし、**植物由来の食生活が環境にどんなに大きな影響を与えるのか**ということについて検証します。
 
-![](/images/blog/2024/recycling-plant-based-diet-importance.png)
+![](/images/blog/2024/recycling-plant-based-diet-importance.jpg)
 
 ## リサイクル活動のメリット
 

@@ -1070,6 +1070,13 @@
       function esc(s) {
         return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
       }
+      // Map a hero URL to its -card thumbnail variant (used in list views).
+      // Falls back to the original if it's already a -card.
+      function cardSrc(u) {
+        if (!u) return u;
+        if (/-card\.[a-z]+$/i.test(u)) return u;
+        return u.replace(/(\.[a-z]+)$/i, '-card$1');
+      }
       function postURL(slug) { return `${siteOrigin}/blog/?post=${encodeURIComponent(slug)}`; }
       function toast(msg) {
         toastEl.textContent = msg;
@@ -1107,7 +1114,7 @@
         emptyEl.classList.add('hidden');
         listEl.innerHTML = filtered.map(p => `
           <a href="?post=${encodeURIComponent(p.slug)}" class="post-card block bg-paper border border-line rounded-2xl overflow-hidden">
-            <div class="post-card-img">${p.hero ? `<img src="${esc(p.hero)}" alt="" loading="lazy">` : ''}</div>
+            <div class="post-card-img">${p.hero ? `<img src="${esc(cardSrc(p.hero))}" alt="" loading="lazy">` : ''}</div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2.5 flex-wrap">
                 <span class="cat-chip cat-${esc(p.category)}">${esc(p.category_display || CAT_LABELS[p.category] || 'ブログ')}</span>

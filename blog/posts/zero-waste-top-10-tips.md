@@ -4,14 +4,14 @@ date:     2024-03-06
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/zero-waste-top-10-tips.png"
+hero:     "/images/blog/2024/zero-waste-top-10-tips.jpg"
 excerpt:  "世界中で生産される食料の3分の1が毎年無駄になっていますが、無駄な食料はお金と貴重な天然資源の浪費につながります。この問題に立ち向かうために、日常的に持続可能な食品を節約する簡単な方法を取り入れましょう。ここでは地球を守…"
 source:   "https://veganoji.jp/zero-waste-top-10-tips/"
 ---
 
 世界中で生産される食料の3分の1が毎年無駄になっていますが、無駄な食料はお金と貴重な天然資源の浪費につながります。この問題に立ち向かうために、**日常的に持続可能な食品を節約する簡単な方法**を取り入れましょう。ここでは地球を守り、お金を節約し、家にある食品を楽しむための10の簡単なヒントを紹介します。
 
-![](/images/blog/2024/zero-waste-top-10-tips.png)
+![](/images/blog/2024/zero-waste-top-10-tips.jpg)
 
 ## 食品廃棄はなぜ問題なのか？
 

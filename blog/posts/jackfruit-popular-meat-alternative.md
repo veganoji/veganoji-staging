@@ -4,7 +4,7 @@ date:     2024-03-20
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/jackfruit-popular-meat-alternative.png"
+hero:     "/images/blog/2024/jackfruit-popular-meat-alternative.jpg"
 excerpt:  "ジャックフルーツの人気は、私たちが大好きなファーストフードのハンバーガーやナゲット、朝食用ソーセージをより持続可能なものにする手頃な代替肉として世界の食品業界で高まっている。 私たちは何年もの間、豚肉の代用品としてじっく…"
 source:   "https://veganoji.jp/jackfruit-popular-meat-alternative/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/jackfruit-popular-meat-alternative/"
 
 アジア諸国では何世紀にもわたって珍重されてきたジャックフルーツは、先進的な企業数社の努力により、**肉の代用品として次世代に世界的なセンセーションを巻き起こしそうな勢い**だ。
 
-![](/images/blog/2024/jackfruit-popular-meat-alternative.png)
+![](/images/blog/2024/jackfruit-popular-meat-alternative.jpg)
 
 その先駆者であるジャックフルーツ・カンパニーは、早くからジャックフルーツの可能性に着目していた。ハーバード大学を卒業したアニー・リュウによって設立された同社は、**新興市場の農業と食糧システムを変革す**るという彼女の使命から生まれた。
 

@@ -4,14 +4,14 @@ date:     2024-04-17
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/different-types-of-miso-overview.png"
+hero:     "/images/blog/2024/different-types-of-miso-overview.jpg"
 excerpt:  "味噌は日本の料理の基本食材であり、豊かで複雑な風味はもちろん、古来より潜在的な健康効果をもつ食材として称賛されてきました。このブログでは味噌とはどのようなものなのか、どんな種類があるか、味噌に期待できる素晴らしい健康効果…"
 source:   "https://veganoji.jp/different-types-of-miso-overview/"
 ---
 
 味噌は日本の料理の基本食材であり、豊かで複雑な風味はもちろん、古来より潜在的な健康効果をもつ食材として称賛されてきました。このブログでは味噌とはどのようなものなのか、どんな種類があるか、味噌に期待できる素晴らしい健康効果について紹介します。
 
-![](/images/blog/2024/different-types-of-miso-overview.png)
+![](/images/blog/2024/different-types-of-miso-overview.jpg)
 
 ## 味噌とは？
 
