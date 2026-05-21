@@ -482,8 +482,8 @@
           <div class="font-jp-display text-[22px] sm:text-[28px] text-paper leading-none">80億</div>
         </div>
         <div class="comp-fish-label">
-          <div class="font-cute-jp text-[13px] sm:text-[14px] tracking-[0.14em] text-gold/85 mb-1">魚（一年）</div>
-          <div class="font-jp-display text-[22px] sm:text-[28px] text-gold leading-none">1〜3兆</div>
+          <div class="font-cute-jp text-[13px] sm:text-[14px] tracking-[0.14em] text-abyss/75 mb-1">魚（一年）</div>
+          <div class="font-jp-display text-[24px] sm:text-[32px] text-abyss leading-none">1〜3兆</div>
         </div>
       </div>
 
@@ -825,24 +825,35 @@
 
       let countCanvasState = { ctx: null, w: 0, h: 0, dots: [], maxDots: 0 };
 
+      // Chibi fish sprites used to populate the count canvas.  Mixed for variety
+      // so each scroll reveals a teeming, characterful ocean instead of a uniform
+      // gold-dot field.  Silhouette fallback below keeps the canvas alive while
+      // these PNGs are still loading.
+      const fishSprites = [
+        '/images/umi-wo-kazoeru/fish-sprite-a.png',
+        '/images/umi-wo-kazoeru/fish-sprite-b.png',
+        '/images/umi-wo-kazoeru/fish-sprite-c.png',
+        '/images/umi-wo-kazoeru/fish-sprite-d.png',
+      ].map(src => { const img = new Image(); img.src = src; return img; });
+
       function rebuildCountCanvas() {
         const { ctx, w, h } = fitCanvas(countCanvas);
         const rand = mulberry32(91);
-        // Tiny fish silhouettes — bigger now so they're clearly fish-shaped,
-        // and each carries its own horizontal drift speed for swimming motion.
-        const target = Math.min(Math.floor((w * h) / 480), 2400);
+        // Restored density (overcrowded ocean) with doubled visual size.
+        const target = Math.min(Math.floor((w * h) / 220), 4500);
         const dots = new Array(target);
         for (let i = 0; i < target; i++) {
           dots[i] = {
-            x:     rand() * w,
-            y:     rand() * h,
-            size:  rand() * 3.0 + 3.5,       // body half-length, ~3.5–6.5 px
-            dir:   rand() < 0.5 ? -1 : 1,
-            speed: rand() * 9 + 4,           // px/sec horizontal drift
-            wobAmp: rand() * 2 + 0.5,        // vertical wobble amplitude
-            wobFreq: rand() * 0.5 + 0.4,     // vertical wobble frequency
-            a:     0.55 + rand() * 0.40,
-            phase: rand() * Math.PI * 2,
+            x:       rand() * w,
+            y:       rand() * h,
+            width:   rand() * 14 + 18,       // displayed sprite size 18–32 px
+            dir:     rand() < 0.5 ? -1 : 1,
+            speed:   rand() * 9 + 4,         // px/sec horizontal drift
+            wobAmp:  rand() * 2 + 0.5,
+            wobFreq: rand() * 0.5 + 0.4,
+            a:       0.78 + rand() * 0.22,   // mostly opaque so sprites read
+            phase:   rand() * Math.PI * 2,
+            sprite:  Math.floor(rand() * fishSprites.length),
           };
         }
         countCanvasState = { ctx, w, h, dots, maxDots: target };
@@ -874,24 +885,37 @@
         if (!ctx) return;
         ctx.clearRect(0, 0, w, h);
 
-        // Linger near the very start so the first fish feel paced
         const eased = progress < 0.05
-          ? progress * 8                            // 0..0.05 → 0..0.4
-          : 0.4 + (progress - 0.05) * (0.6 / 0.95); // rest of the way
+          ? progress * 8
+          : 0.4 + (progress - 0.05) * (0.6 / 0.95);
 
         const visible = Math.min(maxDots, Math.floor(eased * maxDots));
         const t = performance.now() / 1000;
-        // Wrap span gives the fish a bit of margin so they fade off + reappear
-        const span = w + 80;
+        const span = w + 100;
+
         for (let i = 0; i < visible; i++) {
           const d = dots[i];
-          // Horizontal drift, wrapping seamlessly across the canvas
           let x = d.x + d.dir * d.speed * (prefersReduced ? 0 : t);
-          x = (((x + 40) % span) + span) % span - 40;
-          // Gentle vertical bobbing
+          x = (((x + 50) % span) + span) % span - 50;
           const y = d.y + (prefersReduced ? 0 : Math.sin(t * d.wobFreq + d.phase) * d.wobAmp);
-          const twinkle = prefersReduced ? 1 : (0.82 + 0.18 * Math.sin(t * 1.1 + d.phase));
-          drawFishSilhouette(ctx, x, y, d.size, d.dir, d.a * twinkle);
+          const wob = prefersReduced ? 1 : (0.90 + 0.10 * Math.sin(t * 1.1 + d.phase));
+
+          const sprite = fishSprites[d.sprite];
+          if (sprite && sprite.complete && sprite.naturalWidth) {
+            ctx.save();
+            ctx.globalAlpha = d.a * wob;
+            if (d.dir === -1) {
+              ctx.translate(x, y);
+              ctx.scale(-1, 1);
+              ctx.drawImage(sprite, -d.width / 2, -d.width / 2, d.width, d.width);
+            } else {
+              ctx.drawImage(sprite, x - d.width / 2, y - d.width / 2, d.width, d.width);
+            }
+            ctx.restore();
+          } else {
+            // Fallback while PNGs still loading: simple silhouette
+            drawFishSilhouette(ctx, x, y, d.width / 4, d.dir, d.a * wob);
+          }
         }
       }
 
