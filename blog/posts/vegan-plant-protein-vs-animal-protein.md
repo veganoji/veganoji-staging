@@ -4,7 +4,7 @@ date:     2022-07-19
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["オメガ３", "ガイド", "サプリメント", "ビタミンB12", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "recommended", "vegan", "vegan oji", "vegetarian", "vitamin b12", "摂取量", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2022/vegan-plant-protein-vs-animal-protein.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/07/VEGAN-PROTEIN-BANNER.png"
 excerpt:  "ビーガンあるあるですが、ベジーを取り入れ始めた方がよく聞かれるのが「タンパク質はどこで摂るのですか」という質問です。 これは私たちがタンパク質やカルシウムといった一部の栄養素を基準に食品を選ぶよう教えられ、海外の大企業か…"
 source:   "https://veganoji.jp/vegan-plant-protein-vs-animal-protein/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/vegan-plant-protein-vs-animal-protein/"
 
 その中でタンパク質ほど単一栄養素への集中が顕著なものはありません。
 
-![](/images/blog/2022/vegan-plant-protein-vs-animal-protein.png)
+![](https://veganoji.jp/wp-content/uploads/2022/07/VEGAN-PROTEIN-BANNER.png)
 
 ## タンパク質の重要性
 
@@ -45,7 +45,7 @@ source:   "https://veganoji.jp/vegan-plant-protein-vs-animal-protein/"
 
 動物たちは、食物繊維や抗酸化物質など、摂取した植物の最も有益な側面の多くを取り除く一方で、農薬や水銀などの汚染物質を濃縮し、エンドトキシンやNeu5Gcなどの炎症性の高い化合物を加えています。肉類やその他の動物性食品は、腸内細菌叢（腸内に生息する細菌）を変化させ、トリメチルアミンN-オキシド（TMAO）のような炎症性分子をより多く産生させるようにさえなります。このことは、ハンバーガー1個を食べるだけで、炎症の度合いが70％上昇し、血流も悪くなることが示されていることの説明にもなっています。炎症と血流障害は、短期的なパフォーマンスに悪影響を及ぼすだけでなく、将来的には心臓病やある種の癌を引き起こすという、より大きな問題を引き起こす恐れがあります。
 
-![](/images/blog/2022/likemeat-cSxpCQrRlo8-unsplash.jpg)
+![](https://veganoji.jp/wp-content/uploads/2022/07/likemeat-cSxpCQrRlo8-unsplash.jpg)
 
 植物性のソーセージ
 
@@ -61,7 +61,7 @@ source:   "https://veganoji.jp/vegan-plant-protein-vs-animal-protein/"
 
 先に述べたように、植物ベースの食事をしている人を含め、ほとんどの人は健康を最適化するために十分すぎるほどのタンパク質を簡単に摂取することができます。現在のタンパク質の推奨摂取量（RDA）は国によって異なりますが、米国やカナダを含む多くの国では、体重1キログラムあたり0.8グラムが一般的です。77kgの人であれば、約62gということになります。
 
-![](/images/blog/2022/v2osk-c9OfrVeD_tQ-unsplash.jpg)
+![](https://veganoji.jp/wp-content/uploads/2022/07/v2osk-c9OfrVeD_tQ-unsplash.jpg)
 
 また、スポーツ選手や定期的にトレーニングを行っている人は、スポーツの種類や活動内容に応じて、より多くのタンパク質を必要とすることが多いようです。長距離ランナーやサイクリストなどの持久系アスリートは、回復とベストパフォーマンスのために、平均的な人よりも約50%多いタンパク質（1.2g〜1.4g/kg）を必要とします。しかし、持久系アスリートは通常、より多くのカロリーを摂取するため、自然とこの量のタンパク質を摂取しています。
 

@@ -4,7 +4,7 @@ date:     2022-09-12
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2022/burger-king-plant-based-leader-worldwide.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/09/BLOG-POST-COVER-IMAGES-11.png"
 excerpt:  "ロンドンで完全菜食主義者のための店舗をオープンし、ドイツではすべてのメニューに肉なしバージョンを提供するなど、バーガーキングは完全に肉なしのファストフードチェーンになろうとしているのだろうか。 昨年末に250以上のレスト…"
 source:   "https://veganoji.jp/burger-king-plant-based-leader-worldwide/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/burger-king-plant-based-leader-worldwide/"
 
 植物由来の肉を生産するビヨンド・ミート社と共同開発したマックプラントバーガーは、3年の歳月をかけて作られたパティが特徴です。マクドナルドのミートパティの味と品質を維持するために開発・設計されたマックプラントバーガーは、ファーストフードチェーンによると「**究極のビーガン代替品」**であるという。
 
-![](/images/blog/2022/burger-king-plant-based-leader-worldwide.png)
+![](https://veganoji.jp/wp-content/uploads/2022/09/BLOG-POST-COVER-IMAGES-11.png)
 
 毎週、ファーストフードチェーンのバーガーキングが、期間限定のプロモーションとして、あるいは**ミートレスメニューの拡大**の一環として、新たな店舗でミートレス化を行ったというニュースを耳にすることがある。世界には、完全ビーガンの方向けに店舗をオープンしたところもある。バーガーキングは、近い将来、動物性食品に完全に取って代わることを示唆しているのだろうか？
 
@@ -23,7 +23,7 @@ source:   "https://veganoji.jp/burger-king-plant-based-leader-worldwide/"
 
 バーガーキングの国際マーケティング責任者であるSabrina Ferretti氏は、同チェーンが**植物由来のファーストフードのリーダーになる**ために積極的に取り組んでいると海外ベジーメディアのVegNewsに語っています。「バーガーキングは、**比類のないバーガーキングの味を犠牲にすることなく**、動物性肉の代用品を希望するすべての人においしい代替品を提供するために、各国で植物性メニューを拡大しています」とFerrettiは言います。「私たちの究極の目標は、バーガーキングをクイックサービスレストラン業界で**最も美味しい植物性食品を提供するリーダー**であり、行きつけのチェーン店であると位置づけることです。」
 
-![](/images/blog/2022/burger-king-japan-plant-based-v1.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2022/09/burger-king-japan-plant-based-v1.jpeg)
 
 ## **バーガーキングのミートレスミッション**
 
@@ -33,7 +33,7 @@ source:   "https://veganoji.jp/burger-king-plant-based-leader-worldwide/"
 
 昨年、バーガーキングはImpossible Foodsとの提携を拡大し、同ブランドのヴィーガン・チキンナゲットを3つのテスト市場でメニューに加え、再び、当時としては**新しいナゲットを提供する最初の大手チェーン**となり、アイオワ州のデモイン、マサチューセッツ州のボストン、フロリダ州のマイアミのバーガーキング店舗でディッピングソースを選んで8ピースを注文することができた。そして先月は、Impossible Foodsの植物から作られた新しい**「Impossible Chicken Patties」**を使った、ファンに人気のオリジナルチキンサンドイッチの植物性バージョンが、オハイオ州シンシナティ店のメニューに期間限定で登場しました。
 
-![](/images/blog/2022/burger-king-impossible-chicken-uk.png)
+![](https://veganoji.jp/wp-content/uploads/2022/09/burger-king-impossible-chicken-uk.png)
 
 バーガーキングはこのほど、Impossibleのラインナップに加え、Impossible KingとSouthwest Bacon Impossible Whopperの2つのメニューを米国で発売しました。どちらもImpossible Foodsの植物性パティを使用していますが、Impossible Kingには**通常のチーズ**、Wopperには通常の**ベーコンとチーズ**という形で動物性食品も入っており、完全植物性バーガーに挑戦することにためらいがあり、**肉の消費を制限している消費者をターゲットに**した方法となっています。
 
@@ -43,7 +43,7 @@ source:   "https://veganoji.jp/burger-king-plant-based-leader-worldwide/"
 
 特に、ユニリーバ傘下でヨーロッパ全域に植物性肉を供給している**The Vegetarian Butcher（日本でも展開しています）**との提携を通じて、米国以外にも世界中で何らかの形でミートレスメニューを導入している。最近、ドイツの店舗では、すべてのメニューに肉なしのオプションを提供するようになり、その結果、同国のチェーンでは植物性食品の種類が倍増した。同様にオーストリアでも、同チェーンは植物性の食事を常態化させるため、ハンバーガーを注文する際に**「レギュラーかミートベースか」**を選択できるキャンペーンを導入した。
 
-![](/images/blog/2022/burger-king-austria-campaign.jpg)
+![](https://veganoji.jp/wp-content/uploads/2022/09/burger-king-austria-campaign.jpg)
 
 オーストリアにおけるバーガーキングのアプローチは、2019年にスウェーデンで行われたキャンペーンを彷彿とさせる。そこでは、バーガーキングは、**革新的な「50/50メニュー」で、植物由来のオプション**である「Rebel Whopper」と「Rebel Chicken King」を、顧客にあえてやみくもに注文させることで宣伝しました。その結果、お客さまは**植物性食品か肉類を使ったサンドイッチのどちらかを受け取り、その違いがわからない**というもので、バーガーキングが植物性食品に自信を持っていることがよくわかりました。さらに、ビーフバーガーを植物性食品に変えてもらうために、先週、英国でNational Burger Dayとして**植物性食品のWoppersを10,000個配布**しました。
 
@@ -55,7 +55,7 @@ source:   "https://veganoji.jp/burger-king-plant-based-leader-worldwide/"
 
 また、**スペイン、チリ、スイス、ロンドンでも**同様のコンセプトで実験している。後者では、バーガーキングは3月の1ヶ月間、旗艦店であるレスター・スクエア店を完全菜食主義の店舗に変身させた。メニューには、植物性食品を使った定番のワッパーやヴィーガン・チキンナゲットのほか、**日本風のヴィーガン・カツ・ロワイヤル**や植物性カツチリ・ワッパーなど、より冒険的なメニューを含む25種類の植物性食品を用意した。
 
-![](/images/blog/2022/burger-king-japan-plant-based-v2.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2022/09/burger-king-japan-plant-based-v2.jpeg)
 
 これらの成功したポップアップに続いて、先月バーガーキングはコスタリカに**完全植物ベースのポップアップをオープン**し、中米にキャンペーンを持ち込んだ。このポップアップ・ロケーションはサンホセにあり、植物由来のワッパーズとしては**ラテンアメリカで2番目に大きな市場**であり、1個あたりの売上では6月時点で世界で4番目に大きな市場となっています。サンノゼ店のメニューは、ベジ・ワッパー、ベジ・ナゲット、キング・デ・ポーロ・ベジなどのメニューが用意されています。
 

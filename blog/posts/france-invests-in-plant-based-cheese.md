@@ -4,7 +4,7 @@ date:     2023-03-13
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2023/france-invests-in-plant-based-cheese.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2023/03/france-invests-in-plant-based-cheese_BANNER.png"
 excerpt:  "フランス政府からの出資を受け、エンドウ豆と空豆からヴィーガン乳製品を開発し、フランスのサステナビリティ目標を達成するための大規模な共同プロジェクト「AlinOVeg」。 チーズはフランスの食文化の重要な一部であり、フラン…"
 source:   "https://veganoji.jp/france-invests-in-plant-based-cheese/"
 ---
@@ -17,7 +17,7 @@ source:   "https://veganoji.jp/france-invests-in-plant-based-cheese/"
 
 このグループは、**エンドウタンパクや空豆などをベースに**したデザートなど、**乳製品に代わるチーズやその他の製品の開発・生産加速に取り組んでいく**予定です。
 
-![](/images/blog/2023/france-invests-in-plant-based-cheese.png)
+![](https://veganoji.jp/wp-content/uploads/2023/03/france-invests-in-plant-based-cheese_BANNER.png)
 
 この共同研究には、乳製品メーカーの「Eurial」、フランスを代表する研究機関である国立農業・食品・環境研究所（INRAE）、社会科学機関のリヨン第2大学、INRAEの子会社で豆類の開発・販売を行うAgri Obtentions、微生物バイオテクノロジー専門企業のGreencellが参加しています。
 
@@ -27,7 +27,7 @@ Bpifranceの農業食品部門責任者であるAriane Voyatzakis氏は、「Ali
 
 空豆がヴィーガンチーズのベースとして探求されるのは、フランスでの新しいプロジェクトが初めてではありません。**アムステルダムを拠点とする食品会社「Mr.and Mrs.Watson」**はすでに、従来の乳製品のチーズと同じように発酵させながら、**牛乳の代わりに高タンパクな空豆をベースにしたゴーダ風チーズを製造**しています。私は実際に2022年にこの店舗を訪れる機会があったのですが、**このヴィーガンチーズが絶品である**ことが確認できましたよ。
 
-![](/images/blog/2023/mr-and-mrs-watson-vegan-cheese-1.jpg)
+![](https://veganoji.jp/wp-content/uploads/2023/03/mr-and-mrs-watson-vegan-cheese-1.jpg)
 
 Mr. and Ms. Watson５周年記念日パーティー
 
@@ -37,7 +37,7 @@ Mr. and Ms. Watson５周年記念日パーティー
 
 Roquette社のオープンイノベーション責任者であるSergio Nevesは、「私たちは、同じ集団的な行動力と野心によって、**植物由来のソースという分野全体の発展に貢献し、今日の消費者と将来の世代の期待に応える、健康で持続可能でおいしいソリューションを提供したい**と考えています」と声明の中で述べています。
 
-![](/images/blog/2023/beth-macdonald-wmg4ZrEltlk-unsplash.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2023/03/beth-macdonald-wmg4ZrEltlk-unsplash.jpeg)
 
 そら豆
 
@@ -51,7 +51,7 @@ AlinOVegプロジェクトは、伝統的なチーズ生産が、自らが引き
 
 その始まりは、ベルグループがヴィーガンブランド「Follow Your Heart」の協力を得て開発した「Boursin Dairy-Free」（乳製品不使用のブルサン）でした。その直後、ベルグループは**代表的なスナックチーズであるBabybelのヴィーガンバージョンを発売**し、**より環境に優しい未来を示す**ために緑色の剥がせる蝋で包みました。昨年は、**アーモンドミルクを使用した乳製品不使用の「笑う牛」のチーズを発売**し、革新を続けています。
 
-![](/images/blog/2023/Bel-Brands-Vegan-Cheese.jpg)
+![](https://veganoji.jp/wp-content/uploads/2023/03/Bel-Brands-Vegan-Cheese.jpg)
 
 「Bel Brands USAのPlant-Based Acceleration DirectorであるFlorian Decaux氏は、次のように語っています。「10年近く、私たちは**植物由来の話題とイノベーション、特にチーズなどの乳製品に関わる話題を注視してきました。**」
 
@@ -59,7 +59,7 @@ AlinOVegプロジェクトは、伝統的なチーズ生産が、自らが引き
 
 Belはまた、Perfect Day（同社と協力して植物性ブランドNurishhの新しいクリームチーズを開発）やSuperbrewed Food（同社のポートフォリオ全体に変革をもたらす独自のポストバイオティクス微生物を提供）など、この分野の複数の革新者とともに微生物発酵の世界を探求しています。
 
-![](/images/blog/2023/Nutropy-Vegan-Cheese.jpg)
+![](https://veganoji.jp/wp-content/uploads/2023/03/Nutropy-Vegan-Cheese.jpg)
 
 フランスでは、「Nutropy」と「Standing Ovation」という2つの新興企業が、**乳製品を愛する人々に、より持続可能で倫理的なチーズを提供する**ために、昨年新たに資金を獲得しました。両社とも、**乳製品の機能性タンパク質であるカゼインを、微生物発酵によって動物性でなく製造しています。**
 

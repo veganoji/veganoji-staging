@@ -3,12 +3,12 @@ title:    "TBS「世界くらべてみたら」出演｜カリフォルニア代
 date:     2025-05-28
 category: katsudou
 category_display: "活動報告"
-hero:     "/images/blog/2026/tbs-sekai-kurabete-mitara-appearance-report-2025-05-28.jpg"
+hero:     "https://veganoji.jp/wp-content/uploads/2026/04/モニタリング_FEATURED-IMAGE-1.jpg"
 excerpt:  "【出演のご報告】 2026年5月28日（水）放送のTBS「世界くらべてみたら」に出演させていただきました。 今回はカリフォルニア州代表として参加し、アメリカのさまざまな州を代表する皆さんと一緒に、笑いあり、意見のぶつかり…"
 source:   "https://veganoji.jp/tbs-sekai-kurabete-mitara-appearance-report-2025-05-28/"
 ---
 
-![](/images/blog/2026/veganoji_1748701088_3644691351435379635_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1748701088_3644691351435379635_7583054138.jpg)
 
 ### 【出演のご報告】
 
@@ -36,12 +36,12 @@ If you missed it, the episode still seems to be available on TVer and other catc
 
 Instagram post: <https://www.instagram.com/p/DKUi32hvoua/>
 
-![](/images/blog/2026/veganoji_1748701088_3644691351443747171_7583054138.jpg)
-![](/images/blog/2026/veganoji_1748701088_3644691351452182968_7583054138.jpg)
-![](/images/blog/2026/veganoji_1748701088_3644691351452201229_7583054138.jpg)
-![](/images/blog/2026/veganoji_1748701088_3644691351452208724_7583054138.jpg)
-![](/images/blog/2026/veganoji_1748701088_3644691351233890568_7583054138.jpg)
-![](/images/blog/2026/veganoji_1748701088_3644691351250777683_7583054138.jpg)
-![](/images/blog/2026/veganoji_1748701088_3644691351435379635_7583054138.jpg)
-![](/images/blog/2026/veganoji_1748701088_3644691351435393581_7583054138.jpg)
-![](/images/blog/2026/veganoji_1748701088_3644691351435474969_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1748701088_3644691351443747171_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1748701088_3644691351452182968_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1748701088_3644691351452201229_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1748701088_3644691351452208724_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1748701088_3644691351233890568_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1748701088_3644691351250777683_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1748701088_3644691351435379635_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1748701088_3644691351435393581_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1748701088_3644691351435474969_7583054138.jpg)

@@ -4,14 +4,14 @@ date:     2024-04-03
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/recycling-plant-based-diet-importance.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2024/03/7-1.png"
 excerpt:  "環境への関心が高まる中、持続可能な活動の重要性はどんなに強調してもしすぎることはありません。環境に配慮した選択肢の中で重要な役割を果たすのが、リサイクルと植物由来の食生活です。このブログでは、リサイクル活動のメリットにつ…"
 source:   "https://veganoji.jp/recycling-plant-based-diet-importance/"
 ---
 
 環境への関心が高まる中、持続可能な活動の重要性はどんなに強調してもしすぎることはありません。環境に配慮した選択肢の中で重要な役割を果たすのが、リサイクルと植物由来の食生活です。このブログでは、リサイクル活動のメリットについて考え、現在の課題を明らかにし、**植物由来の食生活が環境にどんなに大きな影響を与えるのか**ということについて検証します。
 
-![](/images/blog/2024/recycling-plant-based-diet-importance.png)
+![](https://veganoji.jp/wp-content/uploads/2024/03/7-1.png)
 
 ## リサイクル活動のメリット
 
@@ -35,7 +35,7 @@ source:   "https://veganoji.jp/recycling-plant-based-diet-importance/"
 
 リサイクル活動は雇用創出を促進し、**廃棄物の管理やリサイクルに関連する産業の発展は地域経済を活性化**します。
 
-![](/images/blog/2024/environment-natural.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/environment-natural.jpeg)
 
 ## リサイクル活動の現在の問題点
 
@@ -53,7 +53,7 @@ source:   "https://veganoji.jp/recycling-plant-based-diet-importance/"
 
 最新の技術をもち、環境意識が高い日本でもリサイクル産業は大きな注目を集めています。一方で日本はリサイクル活動において高く評価されてはいるものの、日本ならではの課題も抱えています。例えば日本ではゴミの分別や再生資源の区分は複雑で、地域住民の混乱を招き、結果的に環境汚染が悪化する可能性があります。2020年現在、日本のリサイクル率は約20％であり、分別が難しい等といった課題を解決し、より持続可能なリサイクル活動を実現するためには、**継続的なシステム改善と環境問題に対する教育が必要**だということは確かです。
 
-![](/images/blog/2024/environment-agriculture.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/environment-agriculture.jpeg)
 
 ## 植物由来の食生活を取り入れる究極の環境対策
 
@@ -81,7 +81,7 @@ source:   "https://veganoji.jp/recycling-plant-based-diet-importance/"
 
 畜産業では廃棄物を流出したり排出するため、水質汚染や大気汚染を引き起こします。植物由来の食品を選択することは**大気や水の品質保全**につながります。
 
-![](/images/blog/2024/quinoa-salad.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/quinoa-salad.jpeg)
 
 ## まとめ
 

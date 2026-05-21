@@ -4,14 +4,14 @@ date:     2022-10-21
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2022/can-veganism-solve-world-hunger.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/10/can-veganism-solve-world-hunger_BANNER.png"
 excerpt:  "現在、何億人もの人々が、空腹のまま眠りにつくという事態に直面しています。裕福な地域でも貧困が顕著な地域でも、世界のあらゆる場所で人々が飢餓の影響を受けているのです。食料配給の不公平、食料廃棄、畜産業が世界の食料システムに…"
 source:   "https://veganoji.jp/can-veganism-solve-world-hunger/"
 ---
 
 現在、**何億人もの人々が、空腹のまま眠りにつく**という事態に直面しています。裕福な地域でも貧困が顕著な地域でも、**世界のあらゆる場所で人々が飢餓の影響を受けている**のです。**食料配給の不公平、食料廃棄、畜産業**が世界の食料システムに与える影響など、地理的な違いに関係なく、**飢餓の要因は同じ**であることが多いのです。
 
-![](/images/blog/2022/can-veganism-solve-world-hunger.png)
+![](https://veganoji.jp/wp-content/uploads/2022/10/can-veganism-solve-world-hunger_BANNER.png)
 
 ## 世界飢餓はなくせるか？
 
@@ -29,7 +29,7 @@ source:   "https://veganoji.jp/can-veganism-solve-world-hunger/"
 
 しかし、世界の人口比率は増加の一途をたどっています。2050年に地球上に住むと予測される100億人の人々に、生存と繁栄のために十分な食料を供給するためには、**食料システムをより持続可能な方法に変更する必要があります**。
 
-![](/images/blog/2022/japan-rice-field.jpg)
+![](https://veganoji.jp/wp-content/uploads/2022/10/japan-rice-field.jpg)
 
 ## 食料はどこへ行く？
 
@@ -57,7 +57,7 @@ source:   "https://veganoji.jp/can-veganism-solve-world-hunger/"
 
 基本的人権である食べ物がない人がいることを知れば、誰もが飢餓のない世界を目指して、自分のできる範囲で行動するようになるはずです。そうしなければ、この問題は永久に続き、より多くの不必要な死がもたらされるでしょう。**最近の推定では、1分間に11人が飢餓が原因で亡くなっていると言われています。**
 
-![](/images/blog/2022/japan-food-market-1.jpg)
+![](https://veganoji.jp/wp-content/uploads/2022/10/japan-food-market-1.jpg)
 
 ## 世界飢餓を解決するには？
 
@@ -87,7 +87,7 @@ source:   "https://veganoji.jp/can-veganism-solve-world-hunger/"
 
 もし人類が肉食をやめれば、**公衆と地球の健康は同様に改善される**でしょう。肉類、特に赤肉や加工肉の摂取は、**糖尿病や心臓病など、いくつかの健康問題に関連しています。**もし私たちがこれらの食品を食べるのをやめ、代わりに植物性食品、特にホールフード（加工や精製（砂糖など）を行わないか、可能な限り抑えた植物性食品のこと）の植物性食品を食べるようになれば、**高所得国の平均的な人々はより健康的な食生活を送ることができる**ようになるはずです。また、**人獣共通感染症の発生リスクを下げ、畜産農家から発せられる公害をなくす**ことができるだろう。
 
-![](/images/blog/2022/rolande-pg-SIO_bOZoStA-unsplash.jpg)
+![](https://veganoji.jp/wp-content/uploads/2022/10/rolande-pg-SIO_bOZoStA-unsplash.jpg)
 
 畜産は、環境破壊や環境悪化の主な原因ともなっている。肉食をやめれば、畜産業が原因となる人為的な温室効果ガスの14.5％（かなり控えめに見積もって）がなくなる。**この削減が公衆衛生に及ぼす将来の影響は甚大であろう。**[ヴィーガンと環境のつながりについてもっと知るには、こちらをご覧ください。](https://veganoji.jp/vegan-and-the-environment-infographic-japanese/)
 

@@ -3,12 +3,12 @@ title:    "JUST Egg、英国市場に参入：1150万ポンド投資で生産体
 date:     2025-11-18
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "/images/blog/2025/just-egg-uk-launch-115m-investment.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2025/11/just-egg-uk-launch-115m-investment.png"
 excerpt:  "植物性卵代替品として人気の高い「JUST Egg」が、ついに英国市場に正式参入しました。この展開は、カリフォルニア州に拠点を置く食品技術企業Eat Justと、植物性食品を専門とする英国企業Vegan Food Grou…"
 source:   "https://veganoji.jp/just-egg-uk-launch-115m-investment/"
 ---
 
-![](/images/blog/2025/just-egg-uk-launch-115m-investment.png)
+![](https://veganoji.jp/wp-content/uploads/2025/11/just-egg-uk-launch-115m-investment.png)
 
 植物性卵代替品として人気の高い「JUST Egg」が、ついに英国市場に正式参入しました。この展開は、カリフォルニア州に拠点を置く食品技術企業Eat Justと、植物性食品を専門とする英国企業Vegan Food Group（VFG）との新たなコラボレーションによって実現されました。
 

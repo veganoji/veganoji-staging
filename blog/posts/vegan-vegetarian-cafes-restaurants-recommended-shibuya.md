@@ -3,14 +3,14 @@ title:    "【渋谷】おすすめビーガンカフェ・レストラン ❘ 6
 date:     2022-01-06
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
-hero:     "/images/blog/2022/vegan-vegetarian-cafes-restaurants-recommended-shibuya.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/01/SHIBUYA-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE.png"
 excerpt:  "東京の中心として人気の高い渋谷。世界中の人が集まる都市でもあるので、もちろんおいしいビーガンスポットもたくさんあります！ 今回は６つに絞ってご紹介しますが、紹介しきれなかった美味しいビーガンのお店もまだまだあるので、ぜひ…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-shibuya/"
 ---
 
 東京の中心として人気の高い渋谷。世界中の人が集まる都市でもあるので、もちろんおいしいビーガンスポットもたくさんあります！
 
-![](/images/blog/2022/vegan-vegetarian-cafes-restaurants-recommended-shibuya.png)
+![](https://veganoji.jp/wp-content/uploads/2022/01/SHIBUYA-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE.png)
 
 　今回は６つに絞ってご紹介しますが、紹介しきれなかった美味しいビーガンのお店もまだまだあるので、[ぜひビーガンレストランの情報サイトで探して見てください！](https://veganoji.jp/2022/01/02/how-to-find-vegan-vegetarian-friendly-restaurants-cafes/)
 
@@ -198,7 +198,7 @@ POINTS
 
 　ここはで人気なのはハンバーグです。
 
-![](/images/blog/2022/Peace-Table-Shibuya.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2022/01/Peace-Table-Shibuya.jpeg)
 
 　ハンバーグはもちろん、デミグラスソースも野菜のみで作られている絶品ビーガンハンバーグなんです。
 

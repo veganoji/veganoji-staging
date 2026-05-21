@@ -3,12 +3,12 @@ title:    "ONETIME「モテランキング6」2本に出演｜“日本でモテ
 date:     2026-05-12
 category: katsudou
 category_display: "活動報告"
-hero:     "/images/blog/2026/onetime-appearance-mote-ranking-6.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2026/05/26-05_OneTime_FEATURED-IMAGE.png"
 excerpt:  "【出演告知】 YouTube番組「ONETIME」の「モテランキング6」シリーズ、2本に出演しました。 1本目は、「イケメンvsマッチョvs高身長！女子が本気で決めるモテ男ランキング開幕｜モテランキング6」（2026年4…"
 source:   "https://veganoji.jp/onetime-appearance-mote-ranking-6/"
 ---
 
-![](/images/blog/2026/onetime-appearance-mote-ranking-6.png)
+![](https://veganoji.jp/wp-content/uploads/2026/05/26-05_OneTime_FEATURED-IMAGE.png)
 
 ### **【出演告知】**
 
@@ -64,8 +64,8 @@ https://youtu.be/73eUs5LBVhk?si=YFK6S1Y\_MTEQGh8s
 
 ONETIME is a Japanese YouTube reality/variety channel featuring everyday people in romance, ranking, matching, game, and other social-format content.
 
-![](/images/blog/2026/26-05_OneTime_1.png)
-![](/images/blog/2026/26-04_OneTime_2.png)
-![](/images/blog/2026/26-05_OneTime_6.png)
-![](/images/blog/2026/26-05_OneTime_8.png)
-![](/images/blog/2026/26-05_OneTime_2-1.png)
+![](https://veganoji.jp/wp-content/uploads/2026/05/26-05_OneTime_1.png)
+![](https://veganoji.jp/wp-content/uploads/2026/05/26-04_OneTime_2.png)
+![](https://veganoji.jp/wp-content/uploads/2026/05/26-05_OneTime_6.png)
+![](https://veganoji.jp/wp-content/uploads/2026/05/26-05_OneTime_8.png)
+![](https://veganoji.jp/wp-content/uploads/2026/05/26-05_OneTime_2-1.png)

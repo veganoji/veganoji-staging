@@ -4,7 +4,7 @@ date:     2024-04-24
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/how-to-travel-vegan-plant-based.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2024/03/1-1.png"
 excerpt:  "初めての場所へ旅行する場合でもプラントベースのライフスタイルは維持できます。プラントベースの食事スタイルを維持したままでも美味しく充実した体験はできるはずです。このブログでは食事メニューの上手な選択方法や体力を維持する方…"
 source:   "https://veganoji.jp/how-to-travel-vegan-plant-based/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/how-to-travel-vegan-plant-based/"
 
 [日本国内のことでしたら「王子のビーガンマップ」をこちらからお使いください！](https://maps.app.goo.gl/8tyER4M5xx1vQQni6?g_st=i)
 
-![](/images/blog/2024/how-to-travel-vegan-plant-based.png)
+![](https://veganoji.jp/wp-content/uploads/2024/03/1-1.png)
 
 ### 1. 事前に計画を立てる
 
@@ -23,7 +23,7 @@ source:   "https://veganoji.jp/how-to-travel-vegan-plant-based/"
 
 **持ち運びやすいスナックを用意して、移動中や食事の間にエネルギーを補給**しましょう。ナッツや種子、ドライフルーツ、エナジーバー、また小さく切った野菜もおすすめです。
 
-![](/images/blog/2024/pistachios-nuts.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/pistachios-nuts.jpeg)
 
 ### 3. 宿泊施設に通知する
 
@@ -41,7 +41,7 @@ source:   "https://veganoji.jp/how-to-travel-vegan-plant-based/"
 
 **料理をプラントベースのものへカスタマイズしてほしいとレストランにリクエスト**することに遠慮は必要ありません。リクエストに応じてくれるレストランは少なくないはずです。例えば、クリームソースパスタを野菜とオリーブオイルで調理したパスタに変更するなどといった注文をしてみてください。
 
-![](/images/blog/2024/pasta-italian-vegan.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/pasta-italian-vegan.jpeg)
 
 ### 7. アプリや翻訳カードを利用する
 
@@ -71,7 +71,7 @@ source:   "https://veganoji.jp/how-to-travel-vegan-plant-based/"
 
 宿泊施設が用意している朝食の中からオートミールや新鮮な野菜、ナッツ、プラントベースのミルクなどを組み合わせれば自分好みの朝食を作ることができます。
 
-![](/images/blog/2024/food-indian-curry.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/food-indian-curry.jpeg)
 
 ### 14. 忍耐強く柔軟に対応する
 

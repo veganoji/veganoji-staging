@@ -3,12 +3,12 @@ title:    "チェコのスタートアップMewery、培養肉開発に300万ユ
 date:     2026-01-20
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "/images/blog/2026/mewery-czech-startup-raises-3m-euros-for-cultivated-meat.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2026/01/mewery-czech-startup-raises-3m-euros-for-cultivated-meat.png"
 excerpt:  "培養肉技術の革新的な発展が続く中、チェコ共和国のスタートアップ企業Meweryが、培養豚肉の開発と生産拡大のために290万ユーロ（約330万ドル）の政府助成金を獲得しました。この資金調達は、持続可能な食品産業の未来に向け…"
 source:   "https://veganoji.jp/mewery-czech-startup-raises-3m-euros-for-cultivated-meat/"
 ---
 
-![](/images/blog/2026/mewery-czech-startup-raises-3m-euros-for-cultivated-meat.png)
+![](https://veganoji.jp/wp-content/uploads/2026/01/mewery-czech-startup-raises-3m-euros-for-cultivated-meat.png)
 
 培養肉技術の革新的な発展が続く中、チェコ共和国のスタートアップ企業Meweryが、培養豚肉の開発と生産拡大のために290万ユーロ（約330万ドル）の政府助成金を獲得しました。この資金調達は、持続可能な食品産業の未来に向けた重要な一歩となります。
 

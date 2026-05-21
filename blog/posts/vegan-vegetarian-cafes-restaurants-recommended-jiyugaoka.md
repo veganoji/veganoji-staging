@@ -4,14 +4,14 @@ date:     2021-12-31
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
 tags:     ["ビーガン", "ビーガン王子のおすすめ", "ベジタリアン", "ベジー", "自由が丘", "jiyugaoka", "recommended", "vegan", "vegan oji", "vegan spots", "vegetarian"]
-hero:     "/images/blog/2021/vegan-vegetarian-cafes-restaurants-recommended-jiyugaoka.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2021/12/JIYUGAOKA-BLOG-POST-COVER-IMAGE.png"
 excerpt:  "自由が丘は程よい賑わいでとても心地いい街ですよね。街歩きを楽しみながらのんびりショッピングをしたり、乗換駅として使用される方も多いかと思います。 実はビーガン・ベジタリアンスポットが多い街としても有名なんですよ。今回は５…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-jiyugaoka/"
 ---
 
 自由が丘は程よい賑わいでとても心地いい街ですよね。街歩きを楽しみながらのんびりショッピングをしたり、乗換駅として使用される方も多いかと思います。
 
-![](/images/blog/2021/vegan-vegetarian-cafes-restaurants-recommended-jiyugaoka.png)
+![](https://veganoji.jp/wp-content/uploads/2021/12/JIYUGAOKA-BLOG-POST-COVER-IMAGE.png)
 
 　実はビーガン・ベジタリアンスポットが多い街としても有名なんですよ。今回は５つに絞ってご紹介しますが、紹介しきれなかった美味しいビーガンのお店もまだまだあるので、[ぜひビーガンレストランの情報サイトで探して見てください！](https://docs.google.com/document/d/1c3sLW9NMQtUeILLvVLHl4hapr0A2VhhjsQpHHH1n5ms/edit?usp=sharing)
 

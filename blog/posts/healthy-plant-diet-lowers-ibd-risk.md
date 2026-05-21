@@ -3,12 +3,12 @@ title:    "健康的な植物性食事が炎症性腸疾患のリスクを軽減
 date:     2025-12-03
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "/images/blog/2025/healthy-plant-diet-lowers-ibd-risk.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2025/11/healthy-plant-diet-lowers-ibd-risk.png"
 excerpt:  "はじめに 植物性食事の健康効果について、また新たな科学的証拠が発表されました。今回は、14万人以上を対象とした大規模研究により、健康的な植物性食事が炎症性腸疾患（IBD）のリスクを大幅に軽減することが明らかになりました。…"
 source:   "https://veganoji.jp/healthy-plant-diet-lowers-ibd-risk/"
 ---
 
-![](/images/blog/2025/healthy-plant-diet-lowers-ibd-risk.png)
+![](https://veganoji.jp/wp-content/uploads/2025/11/healthy-plant-diet-lowers-ibd-risk.png)
 
 ## **はじめに**
 

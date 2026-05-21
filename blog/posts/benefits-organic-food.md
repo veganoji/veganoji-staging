@@ -4,14 +4,14 @@ date:     2024-03-16
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/benefits-organic-food.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2024/03/4.png"
 excerpt:  "健康や環境問題に意識的な生活を送る人が増えつつある現代において、有機食品を選択するか従来の食品を選択するかという問題はもはや個人的な嗜好によるものではありません。その選択は私たちの健康だけでなく、未来の地球環境問題にも影…"
 source:   "https://veganoji.jp/benefits-organic-food/"
 ---
 
 健康や環境問題に意識的な生活を送る人が増えつつある現代において、有機食品を選択するか従来の食品を選択するかという問題はもはや個人的な嗜好によるものではありません。その選択は**私たちの健康だけでなく、未来の地球環境問題にも影響を及ぼします**。この記事では従来の食品より有機食品を選ぶ理由を紹介し、その選択が私たちの健康と地球に及ぼすポジティブな影響について考えてみましょう。
 
-![](/images/blog/2024/benefits-organic-food.png)
+![](https://veganoji.jp/wp-content/uploads/2024/03/4.png)
 
 ## 1. 健康を守ること
 
@@ -19,7 +19,7 @@ source:   "https://veganoji.jp/benefits-organic-food/"
 
 有機食品を摂取する最も重要なメリットの一つは、有害な農薬や合成化学物質にさらされるリスクが減少することです。従来の栽培作物はほとんどが農薬散布されたもので、私たちが摂取する生産物には有害物質が残留している可能性があります。有機食品を選べば、残留している有害物質を摂取する危険性が大幅に減少し、**健康への影響を軽減す**ることができます。
 
-![](/images/blog/2024/organic-healthy.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/organic-healthy.jpeg)
 
 ### 栄養価の高い食品を選択
 
@@ -27,7 +27,7 @@ source:   "https://veganoji.jp/benefits-organic-food/"
 
 ## 2. 環境の保護
 
-![](/images/blog/2024/organic-environment.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/organic-environment.jpeg)
 
 ### 持続可能な農業の実践
 
@@ -43,7 +43,7 @@ source:   "https://veganoji.jp/benefits-organic-food/"
 
 ## 3. 地域社会の支援
 
-![](/images/blog/2024/organic_community.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/organic_community.jpeg)
 
 ### 経済的な活性化
 

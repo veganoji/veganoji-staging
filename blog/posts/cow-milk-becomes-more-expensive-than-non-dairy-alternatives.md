@@ -4,7 +4,7 @@ date:     2022-10-03
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2022/cow-milk-becomes-more-expensive-than-non-dairy-alternatives.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/10/cow-milk-becomes-more-expensive-than-non-dairy-alternatives_BANNER.png"
 excerpt:  "牛乳の価格は1月以降36％上昇し、インフレが加速している。倹約家は植物由来の代替品を求めるかもしれません。 生活費の危機により、英国中の家庭の主食である牛乳の価格は、一部の買い物客にとっては乳製品を含まない代替品よりも高…"
 source:   "https://veganoji.jp/cow-milk-becomes-more-expensive-than-non-dairy-alternatives/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/cow-milk-becomes-more-expensive-than-non-dairy-al
 
 2本入りの自社ブランド牛乳は、英国の4大スーパーマーケットで平均1.25ポンド（２００円強）で、**1月から36％上昇している。**小売調査会社のアソシアによると、1リットル入りの自社ブランド牛乳に最も近い代替品は、**豆乳が1.05ポンド、アーモンドミルクが1.07ポンド、オートミルクが1.24ポンドである。**
 
-![](/images/blog/2022/cow-milk-becomes-more-expensive-than-non-dairy-alternatives.png)
+![](https://veganoji.jp/wp-content/uploads/2022/10/cow-milk-becomes-more-expensive-than-non-dairy-alternatives_BANNER.png)
 
 一般的に、オートミルクなどの植物由来の製品は牛乳より高く、植物性ミルクのオプションに**追加料金を課すこと**で批判にさらされているカフェもある。**ビーガン活動家や乳糖アレルギーを持つ顧客は、この料金設定が差別的である**とさえ訴えている。
 
@@ -25,7 +25,7 @@ source:   "https://veganoji.jp/cow-milk-becomes-more-expensive-than-non-dairy-al
 
 それでも、**どの分析でも牛乳が今年最大の値上がりを記録している。**ブルームバーグが毎月発表しているBreakfast Indexの最新版でも、卵、バター、ソーセージ、ティーバッグ、パンなど炒め物の材料の中で**牛乳が最も上昇した**ことが分かっています。
 
-![](/images/blog/2022/Dairy-Milk-Becomes-More-Expensive-Than-Non-Dairy-Alternatives-Graph.png)
+![](https://veganoji.jp/wp-content/uploads/2022/10/Dairy-Milk-Becomes-More-Expensive-Than-Non-Dairy-Alternatives-Graph.png)
 
 出典 Tesco、Sainsbury、Asda、Morrisonsの自社ブランド商品を含むAssosiaのデータ。
 

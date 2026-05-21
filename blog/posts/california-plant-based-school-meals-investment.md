@@ -4,7 +4,7 @@ date:     2022-08-01
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2022/california-plant-based-school-meals-investment.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/08/CALFIRONIA-PLANT-BASED-SCHOO-MEALS-BANNER.png"
 excerpt:  "カリフォルニア州の3,000億ドルの新予算には、学校での植物由来の食事の選択肢を増やすためのイニシアチブへの資金提供が含まれている。 カリフォルニア州知事のギャビン・ニューサムは、3080億ドルの州予算を承認したばかりだ…"
 source:   "https://veganoji.jp/california-plant-based-school-meals-investment/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/california-plant-based-school-meals-investment/"
 
 カリフォルニア州知事のギャビン・ニューサムは、3080億ドルの州予算を承認したばかりだが、その中には州内の学校における**植物由来の食事の普及をサポート**するための**歴史的な投資**が含まれている。この予算の一部として、**1億ドルが、植物由来の食品**、持続可能な方法で生産された食品、カリフォルニア産の食品、生徒の食事上のニーズに対応した食品を調達する学校を支援するために使用される予定だ。さら**に6億ドルは、学校の厨房のインフラ整備と、新しい植物性食品の調理とスクラッチクッキング**（新鮮な原材料を使って最初からお料理すること）の増加に従事する給食従事者の訓練と報酬に投資されます。
 
-![](/images/blog/2022/california-plant-based-school-meals-investment.png)
+![](https://veganoji.jp/wp-content/uploads/2022/08/CALFIRONIA-PLANT-BASED-SCHOO-MEALS-BANNER.png)
 
 「今年の予算に**植物性食品を使った学校給食が含まれていることを大変うれしく**思います。既存の肉や乳製品のメニューに加え、このようなオプションのプログラムがあれば、**生徒のために包括的な選択が可能**になります」と、下院議員のアドリン・ナザリアン（民主党、バンナイス）は声明で述べている。「州内の多くの学区では、**植物性食品や制限食を必要とする生徒が相当数おり**、価格が高くなることもあるため、**そのような生徒には手が届きません。**今年の予算は、**学校が生徒のニーズに応えられる**ようにするための**大きな一歩**です。
 
@@ -23,7 +23,7 @@ source:   "https://veganoji.jp/california-plant-based-school-meals-investment/"
 
 この進展により、カリフォルニア州は**植物由来の学校給食プログラムに公的資金を投入する最初の州**となりました。
 
-![](/images/blog/2022/kevin-mccutcheon-_afBES698bA-unsplash.jpg)
+![](https://veganoji.jp/wp-content/uploads/2022/08/kevin-mccutcheon-_afBES698bA-unsplash.jpg)
 
 ## **カリフォルニア州の植物由来の学校給食**
 
@@ -35,7 +35,7 @@ source:   "https://veganoji.jp/california-plant-based-school-meals-investment/"
 
 カリフォルニア州の植物性食品への歴史的な投資は、**公立学校給食の二酸化炭素排出量を削減**し、何百万人もの子供たちに健康的で文化的に適切な食事を提供する機会を拡大します」と「Friends of the Earth」の食品と農業の副ディレクター、Kari Hamerschlag氏は声明の中で述べています。「我々は、**現在と将来の世代のために健康的で公正な食糧システムを構築する学校給食プログラム**を支持したナザリアン下院議員、カルラ下院議員、スキナー上院議員、および他の多くの議員に非常に感謝しています。」
 
-![](/images/blog/2022/gustavo-zambelli-3fpAmmQ-WXA-unsplash.jpg)
+![](https://veganoji.jp/wp-content/uploads/2022/08/gustavo-zambelli-3fpAmmQ-WXA-unsplash.jpg)
 
 ## **アメリカの公立学校での植物性食品を使った食事**
 

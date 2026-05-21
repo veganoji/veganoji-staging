@@ -3,12 +3,12 @@ title:    "小泉進次郎環境大臣との対話から考える、食と環境
 date:     2020-11-11
 category: katsudou
 category_display: "活動報告"
-hero:     "/images/blog/2026/dialogue-with-environment-minister-on-food-and-environment.jpg"
+hero:     "https://veganoji.jp/wp-content/uploads/2026/04/KoizumiKankyoDaijinDinner_FEATURED-IMAGE.jpg"
 excerpt:  "日本語版 ビーガン王子ことAlex Deryczはこのたび、小泉進次郎環境大臣とともに、ヴィーガン料理を囲みながら、これからの食のあり方と環境問題について意見を交わしました。 会食の場となったのは、世界的にも高く評価され…"
 source:   "https://veganoji.jp/dialogue-with-environment-minister-on-food-and-environment/"
 ---
 
-![](/images/blog/2026/dialogue-with-environment-minister-on-food-and-environment.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/KoizumiKankyoDaijinDinner_FEATURED-IMAGE.jpg)
 
 ### **日本語版**
 
@@ -29,7 +29,7 @@ source:   "https://veganoji.jp/dialogue-with-environment-minister-on-food-and-en
 
 最後に、素晴らしいお料理と空間を提供してくださった菜道の皆さまにも、心より感謝申し上げます。
 
-![](/images/blog/2026/veganoji_1605100586_2440083034547200070_7583054138.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/veganoji_1605100586_2440083034547200070_7583054138.jpg)
 
 ---
 

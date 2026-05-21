@@ -3,12 +3,12 @@ title:    "植物性ミルクのフォーム性能をバリスタが徹底比較
 date:     2025-10-10
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "/images/blog/2025/barista-review-plant-based-milk-foam-performance.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2025/09/barista-review-plant-based-milk-foam-performance.png"
 excerpt:  "コーヒー愛好家にとって、完璧なラテアートやカプチーノを作るためのミルクフォームは欠かせない要素です。近年、植物性ミルクの選択肢が増える中、どの代替ミルクが最もフォーミング性能に優れているのか、プロのバリスタたちが実際に検…"
 source:   "https://veganoji.jp/barista-review-plant-based-milk-foam-performance/"
 ---
 
-![](/images/blog/2025/barista-review-plant-based-milk-foam-performance.png)
+![](https://veganoji.jp/wp-content/uploads/2025/09/barista-review-plant-based-milk-foam-performance.png)
 
 コーヒー愛好家にとって、完璧なラテアートやカプチーノを作るためのミルクフォームは欠かせない要素です。近年、植物性ミルクの選択肢が増える中、どの代替ミルクが最もフォーミング性能に優れているのか、プロのバリスタたちが実際に検証した結果をお届けします。
 

@@ -4,7 +4,7 @@ date:     2022-11-01
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2022/vegan-oji-favorite-vegan.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/11/VEGAN-OJI-RECOMMENDED-VEGAN-STORES.png"
 excerpt:  "ニョキ！ビーガン王子です。この記事では、僕のおすすめビーガンスポットを紹介していきます。 日本に来てもう5年経ちますが、次々と美味しいビーガン料理が日本全国に出ていて追いつけないです！！ こちらの記事で述べているおすすめ…"
 source:   "https://veganoji.jp/vegan-oji-favorite-vegan/"
 ---
@@ -17,7 +17,7 @@ source:   "https://veganoji.jp/vegan-oji-favorite-vegan/"
 
 それでは僕のおすすめビーガンスポットを６つ紹介していきます。
 
-![](/images/blog/2022/vegan-oji-favorite-vegan.png)
+![](https://veganoji.jp/wp-content/uploads/2022/11/VEGAN-OJI-RECOMMENDED-VEGAN-STORES.png)
 
 ## **１．PADMA｜ 平和的ごはんパドマ【京都府】**
 

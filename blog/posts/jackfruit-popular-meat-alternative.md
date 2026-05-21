@@ -4,7 +4,7 @@ date:     2024-03-20
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/jackfruit-popular-meat-alternative.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2024/03/BLOG-POST-COVER-IMAGES.png"
 excerpt:  "ジャックフルーツの人気は、私たちが大好きなファーストフードのハンバーガーやナゲット、朝食用ソーセージをより持続可能なものにする手頃な代替肉として世界の食品業界で高まっている。 私たちは何年もの間、豚肉の代用品としてじっく…"
 source:   "https://veganoji.jp/jackfruit-popular-meat-alternative/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/jackfruit-popular-meat-alternative/"
 
 アジア諸国では何世紀にもわたって珍重されてきたジャックフルーツは、先進的な企業数社の努力により、**肉の代用品として次世代に世界的なセンセーションを巻き起こしそうな勢い**だ。
 
-![](/images/blog/2024/jackfruit-popular-meat-alternative.png)
+![](https://veganoji.jp/wp-content/uploads/2024/03/BLOG-POST-COVER-IMAGES.png)
 
 その先駆者であるジャックフルーツ・カンパニーは、早くからジャックフルーツの可能性に着目していた。ハーバード大学を卒業したアニー・リュウによって設立された同社は、**新興市場の農業と食糧システムを変革す**るという彼女の使命から生まれた。
 
@@ -23,7 +23,7 @@ source:   "https://veganoji.jp/jackfruit-popular-meat-alternative/"
 
 持続可能な方法で収穫されたジャックフルーツをインドから調達することで、ザ・ジャックフルーツ・カンパニーは健康的で用途の広い製品を消費者に届けるだけでなく、**地元の農業コミュニティに収入を提供することで社会的インパクト**を生み出している。
 
-![](/images/blog/2024/jackfruit_2.webp)
+![](https://veganoji.jp/wp-content/uploads/2024/03/jackfruit_2.webp)
 
 「私たちは、これまで存在しなかった、そして今では世界をリードする、奇跡の作物であるジャックフルーツの農場から市場までの**サプライチェーンを構築しなければなりません**でした」と、リュウ氏はベジニュースに語っている。
 
@@ -39,7 +39,7 @@ source:   "https://veganoji.jp/jackfruit-popular-meat-alternative/"
 
 最近、ファースト・カジュアル・レストラン・チェーンのスマッシュバーガーと提携したことで、同社の**ジャックフルーツ製品の認知度が高まった**。ニューヨーク、ニュージャージー、コロラドのスマッシュバーガー店舗では、ジャック＆アニーのジャックフルーツパティを使ったクラシック・スマッシュバーガーを期間限定で提供した。ジャックフルーツを使用した商品をメニューに取り入れたファスト・カジュアル・レストランは、この店舗が初めてである。
 
-![](/images/blog/2024/jackfruit_1.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/jackfruit_1.jpeg)
 
 「スマッシュバーガーとわが社は質の高い素材と素晴らしい味を優先するという点で共通しているため、この提携は非常に時流にあっています。」とリュウ氏は言う。
 
@@ -59,7 +59,7 @@ source:   "https://veganoji.jp/jackfruit-popular-meat-alternative/"
 
 「私はベジタリアンになる前はフレキシタリアンでしたし、その前はミートイーターでした。ですから、毎食肉を食べる食生活を本格的に肉を全く食べない食生活に変えることがどれほど大変なことかは知っています。私たちは消費者がその旅をする手助けをしたいのです。」
 
-![](/images/blog/2024/jackfruit_2.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/jackfruit_2.jpeg)
 
 ## ジャックフルーツの世界進出
 

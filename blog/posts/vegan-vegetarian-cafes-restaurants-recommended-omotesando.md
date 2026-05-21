@@ -4,14 +4,14 @@ date:     2021-11-29
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
 tags:     ["ビーガン王子のおすすめ", "表参道", "omotesando", "recommended", "vegan oji", "vegan spots"]
-hero:     "/images/blog/2021/vegan-vegetarian-cafes-restaurants-recommended-omotesando.jpg"
+hero:     "https://veganoji.jp/wp-content/uploads/2021/11/BLOG-POST-COVER-IMAGES.jpg"
 excerpt:  "この記事では、ビーガン王子がおすすめする表参道のビーガンスポットを紹介していきます。 渋谷や原宿にほど近く、ショッピングやランチで人気が高い表参道。ビーガンスポットも徐々に増えています！ それでは表参道のおすすめビーガン…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-omotesando/"
 ---
 
 この記事では、ビーガン王子がおすすめする表参道のビーガンスポットを紹介していきます。
 
-![](/images/blog/2021/BLOG-POST-COVER-IMAGES-A.webp)
+![](https://veganoji.jp/wp-content/uploads/2021/11/BLOG-POST-COVER-IMAGES-A.webp)
 
 　渋谷や原宿にほど近く、ショッピングやランチで人気が高い表参道。ビーガンスポットも徐々に増えています！
 

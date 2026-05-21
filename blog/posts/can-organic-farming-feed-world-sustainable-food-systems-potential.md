@@ -3,12 +3,12 @@ title:    "オーガニック農業は世界を養えるのか？持続可能な
 date:     2025-12-11
 category: oji-no-kurashi
 category_display: "王子の暮らし"
-hero:     "/images/blog/2025/can-organic-farming-feed-world-sustainable-food-systems-potential.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2025/12/can-organic-farming-feed-world-sustainable-food-systems-potential.png"
 excerpt:  "オーガニック農業が世界の食料需要を満たせるかという議論は、持続可能な食料システムを考える上で重要な課題です。化学肥料や農薬に依存しない農業が、増え続ける世界人口を養うことができるのでしょうか。最新の研究結果をもとに、この…"
 source:   "https://veganoji.jp/can-organic-farming-feed-world-sustainable-food-systems-potential/"
 ---
 
-![](/images/blog/2025/can-organic-farming-feed-world-sustainable-food-systems-potential.png)
+![](https://veganoji.jp/wp-content/uploads/2025/12/can-organic-farming-feed-world-sustainable-food-systems-potential.png)
 
 オーガニック農業が世界の食料需要を満たせるかという議論は、持続可能な食料システムを考える上で重要な課題です。化学肥料や農薬に依存しない農業が、増え続ける世界人口を養うことができるのでしょうか。最新の研究結果をもとに、この複雑な問題を詳しく見ていきましょう。
 

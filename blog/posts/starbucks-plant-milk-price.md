@@ -4,7 +4,7 @@ date:     2022-06-08
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2022/starbucks-plant-milk-price.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/06/8-1.png"
 excerpt:  "ビーガン初めて見たい人には持ってこいのチョイス！ スターバックスコーヒージャパン（東京）は4月13日より、人気商品である「スターバックスラテ」の植物性ミルクへの変更にかかっていた追加料金をなくすことにした。 これまで牛の…"
 source:   "https://veganoji.jp/starbucks-plant-milk-price/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/starbucks-plant-milk-price/"
 
 スターバックスコーヒージャパン（東京）は4月13日より、人気商品である「スターバックスラテ」の**植物性ミルクへの変更にかかっていた追加料金をなくす**ことにした。
 
-![](/images/blog/2022/starbucks-plant-milk-price.png)
+![](https://veganoji.jp/wp-content/uploads/2022/06/8-1.png)
 
 これまで牛のミルクである「スターバックスラテ」は**税込みで374～506円**だった。ソイ、アーモンド、オーツの植物性ミルクに変更すると、さらに約50円かかっていた。それが動物性、植物性ミルクの上記製品が**同408～545円の同一料金体系となる**のだ。
 

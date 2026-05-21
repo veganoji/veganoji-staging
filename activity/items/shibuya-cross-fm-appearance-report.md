@@ -3,12 +3,12 @@ title:    "笑いと本音で届けた、渋谷クロスFM出演レポート"
 date:     2026-03-28
 category: katsudou
 category_display: "活動報告"
-hero:     "/images/blog/2026/shibuya-cross-fm-appearance-report.jpg"
+hero:     "https://veganoji.jp/wp-content/uploads/2026/04/Shibuya-CrossFM.jpg"
 excerpt:  "活動報告本文（JP） 3月28日、渋谷クロスFMさんの番組に、王子スタイルで出演させていただきました。 当日は、僕のヴィーガンライフについてお話ししながら、視聴者の皆さまからいただいた「語学を身につけるにはどうすればいい…"
 source:   "https://veganoji.jp/shibuya-cross-fm-appearance-report/"
 ---
 
-![](/images/blog/2026/shibuya-cross-fm-appearance-report.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/Shibuya-CrossFM.jpg)
 
 ## **活動報告本文（JP）**
 

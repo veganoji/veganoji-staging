@@ -3,30 +3,30 @@ title:    "【大会参加報告】信州の山を駆け抜けて──いいづ
 date:     2026-05-02
 category: katsudou
 category_display: "活動報告"
-hero:     "/images/blog/2026/iizuna-trail-run-2026-report.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2026/05/Izuna-Trail-Run_FEATURED-IMAGE.png"
 excerpt:  "【大会参加報告】信州の山を駆け抜けて──いいづなトレイルラン2026 5月2日、長野県で開催された「いいづなトレイルラン」に参加してきました。もちろん今回も、会場の雰囲気を少しでも明るくできればと、ビーガン王子としてフル…"
 source:   "https://veganoji.jp/iizuna-trail-run-2026-report/"
 ---
 
-![](/images/blog/2026/iizuna-trail-run-2026-report.png)
+![](https://veganoji.jp/wp-content/uploads/2026/05/Izuna-Trail-Run_FEATURED-IMAGE.png)
 
 ### 【大会参加報告】信州の山を駆け抜けて──いいづなトレイルラン2026
 
 5月2日、長野県で開催された「いいづなトレイルラン」に参加してきました。もちろん今回も、会場の雰囲気を少しでも明るくできればと、ビーガン王子としてフル装備で登場！**最先端のランニングブーツ**も履きこなし、信州の美しい山々の中、20kmのコースに挑んできました。
 
-![](/images/blog/2026/IMG_1106.jpg)
-![](/images/blog/2026/IMG_1154.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1106.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1154.jpg)
 
 正直に言うと、今回は完全に練習不足。人生でまだ2度目のトレイルランで、累積標高はなんと1000m以上。これまでに経験したどのレースよりも過酷な登りでした。心拍は限界近く、水分も尽きかけ、脚は何度も「もう無理だよ〜！」と訴えてきます。それでもエイドステーションでしっかり給水し（山頂の補給所では一気に1リットル以上飲み干したと思います、笑）、一歩、また一歩と前へ進み続けることができました。
 
 トレイルランは決して甘く見てはいけない競技。それでも、ゴールに辿り着いた瞬間に込み上げてくる達成感、そして仲間や参加者の皆さんから受け取るエネルギーは、本当に何にも代えがたい宝物。「参加することそのものが力になる」と心から感じられる、最高の一日になりました。
 
-![](/images/blog/2026/IMG_1094.jpg)
-![](/images/blog/2026/IMG_1100.jpg)
-![](/images/blog/2026/IMG_1122.jpg)
-![](/images/blog/2026/IMG_1123.jpg)
-![](/images/blog/2026/IMG_1137.jpg)
-![](/images/blog/2026/IMG_8274.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1094.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1100.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1122.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1123.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1137.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_8274.jpg)
 
 レース後には、長野県産のフレッシュなりんごジュースをいただき、疲れ切った体に最高のリフレッシュを。会場では @fmc.st のFMCコミュニティの仲間たちにも再会でき、より一層思い出深いひとときとなりました。 <https://www.instagram.com/fmc.st/>
 
@@ -74,13 +74,13 @@ If you spot me at the venue, please come say hi! Let's run, laugh, and celebrate
 
 Much love! 💚
 
-![](/images/blog/2026/IMG_1096.jpg)
-![](/images/blog/2026/IMG_1107.jpg)
-![](/images/blog/2026/IMG_1108.jpg)
-![](/images/blog/2026/IMG_1151.jpg)
-![](/images/blog/2026/IMG_1181.jpg)
-![](/images/blog/2026/IMG_1192.jpg)
-![](/images/blog/2026/IMG_1193.jpg)
-![](/images/blog/2026/IMG_1202.jpg)
-![](/images/blog/2026/IMG_1204.jpg)
-![](/images/blog/2026/IMG_1209.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1096.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1107.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1108.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1151.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1181.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1192.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1193.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1202.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1204.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/05/IMG_1209.jpg)

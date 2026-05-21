@@ -4,14 +4,14 @@ date:     2022-07-20
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2022/novak-djokovic-wins-7th-title-vegan-wimbledon-finals.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/07/PLANT-BASED-FINALS-WIMBLEDON-ATHLETES-BANNER.png"
 excerpt:  "今年のウィンブルドンは、植物性アスリートのノバク・ジョコビッチ選手が優勝しただけでなく、決勝戦では2人の植物性アスリートが直接対決をしました。 ノバク・ジョコビッチは、世界で最も有名なプラントベース（ヴィーガン）アスリー…"
 source:   "https://veganoji.jp/novak-djokovic-wins-7th-title-vegan-wimbledon-finals/"
 ---
 
 今年のウィンブルドンは、**植物性アスリートのノバク・ジョコビッチ選手が優勝した**だけでなく、決勝戦では**2人の植物性アスリート**が直接対決をしました。
 
-![](/images/blog/2022/novak-djokovic-wins-7th-title-vegan-wimbledon-finals.png)
+![](https://veganoji.jp/wp-content/uploads/2022/07/PLANT-BASED-FINALS-WIMBLEDON-ATHLETES-BANNER.png)
 
 ノバク・ジョコビッチは、**世界で最も有名なプラントベース（ヴィーガン）アスリート**の一人で、この試合に勝利し、**7度目のウィンブルドン・タイトルを獲得**した。「明らかに、プラントベース（ヴィーガン）アスリートとして大きなインパクトがある。
 

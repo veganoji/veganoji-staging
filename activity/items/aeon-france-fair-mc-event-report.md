@@ -3,12 +3,12 @@ title:    "【イベント出演報告】イオン フランスフェアにMC出
 date:     2026-04-24
 category: katsudou
 category_display: "活動報告"
-hero:     "/images/blog/2026/aeon-france-fair-mc-event-report.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2026/04/FrenchMC_FEATURED-IMAGE.png"
 excerpt:  "【イベント出演報告】🇫🇷✨ 本日4月24日、イオンレイクタウンmoriで開催された 「イオン フランスフェア」開催記念セレモニー に、フランス語担当のバイリンガルMCとして出演させていただきました！ 会場はフランスらしい…"
 source:   "https://veganoji.jp/aeon-france-fair-mc-event-report/"
 ---
 
-![](/images/blog/2026/aeon-france-fair-mc-event-report.png)
+![](https://veganoji.jp/wp-content/uploads/2026/04/FrenchMC_FEATURED-IMAGE.png)
 
 ### 【イベント出演報告】🇫🇷✨
 
@@ -69,13 +69,13 @@ https://www.aeon-laketown.jp/mori/event/event\_e77098\_as.html
 
 #イオンフランスフェア #イオンレイクタウン #バイリンガルMC #フランス語MC #ビーガン王子
 
-![](/images/blog/2026/Bonjour-France-topaz-upscale-4x.jpg)
-![](/images/blog/2026/IMG_0167.jpg)
-![](/images/blog/2026/IMG_0170.jpg)
-![](/images/blog/2026/IMG_0171.jpg)
-![](/images/blog/2026/IMG_0741.jpg)
-![](/images/blog/2026/IMG_0794.jpg)
-![](/images/blog/2026/IMG_0798.jpg)
-![](/images/blog/2026/IMG_0800.jpg)
-![](/images/blog/2026/IMG_0808.jpg)
-![](/images/blog/2026/IMG_2591.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/Bonjour-France-topaz-upscale-4x.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/IMG_0167.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/IMG_0170.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/IMG_0171.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/IMG_0741.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/IMG_0794.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/IMG_0798.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/IMG_0800.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/IMG_0808.jpg)
+![](https://veganoji.jp/wp-content/uploads/2026/04/IMG_2591.jpg)

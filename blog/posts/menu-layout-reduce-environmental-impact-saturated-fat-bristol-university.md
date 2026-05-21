@@ -3,14 +3,14 @@ title:    "メニューの配置を変えるだけで環境負荷と飽和脂肪
 date:     2025-08-22
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "/images/blog/2025/menu-layout-reduce-environmental-impact-saturated-fat-bristol-university.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2025/08/menu-layout-reduce-environmental-impact-saturated-fat-bristol-university_banner.png"
 excerpt:  "イギリスのブリストル大学による最新の研究で、レシピを変更することなく、メニューの料理の配置を戦略的に変更するだけで、炭素排出量と飽和脂肪酸の摂取量を大幅に削減できることが明らかになりました。 研究の概要 この画期的な研究…"
 source:   "https://veganoji.jp/menu-layout-reduce-environmental-impact-saturated-fat-bristol-university/"
 ---
 
 イギリスのブリストル大学による最新の研究で、レシピを変更することなく、メニューの料理の配置を戦略的に変更するだけで、炭素排出量と飽和脂肪酸の摂取量を大幅に削減できることが明らかになりました。
 
-![](/images/blog/2025/menu-layout-reduce-environmental-impact-saturated-fat-bristol-university.png)
+![](https://veganoji.jp/wp-content/uploads/2025/08/menu-layout-reduce-environmental-impact-saturated-fat-bristol-university_banner.png)
 
 ## **研究の概要**
 

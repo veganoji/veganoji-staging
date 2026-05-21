@@ -4,7 +4,7 @@ date:     2024-03-02
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/senior-health-best-plant-based.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2024/03/senior-health-plant-based_BANNER.png"
 excerpt:  "高齢になるにつれ、栄養の摂り方はこれまで以上に重要になってくる。ここでは、高齢者の健康に最適な食事について考えてみよう。 欧州の多くの地域と比べると、ギリシャのイカリア島に住む人々は90代まで健康でいられる可能性が高い。…"
 source:   "https://veganoji.jp/senior-health-best-plant-based/"
 ---
@@ -17,7 +17,7 @@ source:   "https://veganoji.jp/senior-health-best-plant-based/"
 
 高齢者の健康にとって、**植物由来の食品を摂取するホールフーズダイエットは一番良い選択肢である**のか、長寿地域の食生活はどのようなものかを考えれば、確かにそれが正解のように思える。その理由を詳しくみてみよう。
 
-![](/images/blog/2024/senior-health-best-plant-based.png)
+![](https://veganoji.jp/wp-content/uploads/2024/03/senior-health-plant-based_BANNER.png)
 
 ## 食事と老化
 
@@ -29,7 +29,7 @@ source:   "https://veganoji.jp/senior-health-best-plant-based/"
 
 カリウムやオメガ3、マグネシウム、鉄分の欠乏症も高齢者によく見られる症状である。英国老年医学会によると、英国では85歳以上の高齢者の30％に貧血の症状がみられるという。
 
-![](/images/blog/2024/food-3348739_1920.jpg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/food-3348739_1920.jpg)
 
 ## 高齢者の健康
 
@@ -57,7 +57,7 @@ source:   "https://veganoji.jp/senior-health-best-plant-based/"
 
 ### 1 - 豆腐のような高タンパク食品
 
-![](/images/blog/2024/asian-cuisine-7209004_1920.jpg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/asian-cuisine-7209004_1920.jpg)
 
 「豆腐は、ビーガン食品の中で最もタンパク質を多く含む食品のひとつです」と、管理栄養士のPatricia Kolesa氏（MS RDN）は言う。100グラムあたり約8グラムのタンパク質を含む豆腐は、より多くのタンパク質を必要とする高齢者の健康維持に最適な食品である。
 
@@ -67,7 +67,7 @@ source:   "https://veganoji.jp/senior-health-best-plant-based/"
 
 ### 2 - 豆類
 
-![](/images/blog/2024/beans-4785_1920.jpg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/beans-4785_1920.jpg)
 
 Kolesa氏は、豆類も高齢者にとって良いタンパク源であると指摘している。
 
@@ -85,7 +85,7 @@ Dixon氏は豆類が高齢者にとって良い栄養源であることに賛成
 
 ### 3 - 葉物野菜
 
-![](/images/blog/2024/savoy-cabbage-7102903_1920.jpg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/savoy-cabbage-7102903_1920.jpg)
 
 Dixon氏は高齢者にほうれん草やケールなどの緑黄色野菜を多く摂取することも勧めている。「緑黄色野菜には目の健康のために、そして加齢による視力低下の予防するために重要なビタミンAとCが多く含まれています。また感染症を予防したり健康的な肌を作るなどといった炎症を抑える抗酸化物質も含まれています」。
 
@@ -97,7 +97,7 @@ Dixon氏は高齢者にほうれん草やケールなどの緑黄色野菜を多
 
 ### 4 - 全粒穀物
 
-![](/images/blog/2024/breads-1417868_1920.jpg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/breads-1417868_1920.jpg)
 
 玄米、ワイルドライス、オーツ麦、大麦、デュラム小麦、ライ麦などといった全粒穀物もまたバランスのとれた植物性食生活には欠かせないものだ。
 
@@ -107,7 +107,7 @@ Dixon氏は高齢者にほうれん草やケールなどの緑黄色野菜を多
 
 ### 5 - カラフルな野菜と果物
 
-![](/images/blog/2024/vegetables-3695807_1920.jpg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/vegetables-3695807_1920.jpg)
 
 健康的なホールフードとして植物性の食事を構成するその他の食品には、ビタミンB6やビタミンCが豊富なバナナやイチゴなどのベリー類、ピーマン、サツマイモ、バターナッツスクワッシュ、ビートルート、カボチャ、ニンジンなどのカラフルな野菜がある。
 

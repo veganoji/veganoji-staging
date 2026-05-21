@@ -3,14 +3,14 @@ title:    "【原宿】おすすめビーガンカフェ・レストラン ❘ 5
 date:     2022-01-06
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
-hero:     "/images/blog/2022/vegan-vegetarian-cafes-restaurants-recommended-harajuku.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/01/HARAJUKU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE.png"
 excerpt:  "ファッションストリートとして有名な原宿。渋谷や表参道からもアクセスがいいので立ち寄る機会も多いですよね。 今回はそんな原宿のビーガンスポットを厳選してご紹介いたします！！どれもとっても美味しいのでお楽しみに：） １．ヴィ…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-harajuku/"
 ---
 
 ファッションストリートとして有名な原宿。渋谷や表参道からもアクセスがいいので立ち寄る機会も多いですよね。
 
-![](/images/blog/2022/HARAJUKU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE-1.png)
+![](https://veganoji.jp/wp-content/uploads/2022/01/HARAJUKU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE-1.png)
 
 　今回はそんな原宿のビーガンスポットを厳選してご紹介いたします！！どれもとっても美味しいのでお楽しみに：）
 

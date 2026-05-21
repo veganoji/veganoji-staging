@@ -4,14 +4,14 @@ date:     2024-03-30
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2024/fruitariansm-analysis-benefits-and-dangers.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2024/03/8-1.png"
 excerpt:  "食のスタイルには雑食から菜食、ヴィーガンまで様々な選択肢があります。その選択肢の一つにフルータリアニズムというのがあります。フルータリアニズムとは種子やナッツを含める場合もありますが、主に果物のみを摂取する食事スタイルで…"
 source:   "https://veganoji.jp/fruitariansm-analysis-benefits-and-dangers/"
 ---
 
 食のスタイルには雑食から菜食、ヴィーガンまで様々な選択肢があります。その選択肢の一つにフルータリアニズムというのがあります。フルータリアニズムとは種子やナッツを含める場合もありますが、**主に果物のみを摂取する食事スタイル**です。フルータリアニズムを支持する人はこのライフスタイルが自然と調和し、最適な健康をもたらすと信じています。この記事ではフルータリアニズムについて考察し、その潜在的なメリットとリスクを検討し、よりバランスの取れたヴィーガン食事を選択する理由を探求します。
 
-![](/images/blog/2024/fruitariansm-analysis-benefits-and-dangers.png)
+![](https://veganoji.jp/wp-content/uploads/2024/03/8-1.png)
 
 ## フルータリアニズムとは何か？
 
@@ -39,7 +39,7 @@ source:   "https://veganoji.jp/fruitariansm-analysis-benefits-and-dangers/"
 
 フルータリアニズムの生活は自然との強いつながりをより強く感じ、**地球環境及びその健全な循環の重要性を実感**できます。
 
-![](/images/blog/2024/oranges-fruit.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/oranges-fruit.jpeg)
 
 ## フルータリアニズムがもたらす危険性:
 
@@ -63,7 +63,7 @@ source:   "https://veganoji.jp/fruitariansm-analysis-benefits-and-dangers/"
 
 果物のみを摂取することにこだわりすぎると、非常にかたよった食事になってしまい、摂食障害のリスクが高まります。。
 
-![](/images/blog/2024/apple-fruit.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/apple-fruit.jpeg)
 
 ## バランスの取れたヴィーガン食とフルータリアニズム:
 
@@ -85,7 +85,7 @@ source:   "https://veganoji.jp/fruitariansm-analysis-benefits-and-dangers/"
 
 バランスの取れたヴィーガン食では様々な食事を柔軟に選択できるので、**個々の健康ニーズに適応した食事が可能**になります。
 
-![](/images/blog/2024/grapes-fruit.jpeg)
+![](https://veganoji.jp/wp-content/uploads/2024/03/grapes-fruit.jpeg)
 
 ## まとめ
 

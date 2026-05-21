@@ -3,14 +3,14 @@ title:    "豪v2foodが米国市場に本格参入：味の素とDaring Foodsと
 date:     2025-08-19
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "/images/blog/2025/v2food-enters-us-market-partners-daring-foods-ajinomoto.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2025/08/BLOG-POST-COVER-IMAGES-3.png"
 excerpt:  "オーストラリアの植物性肉企業v2foodが、グローバル食品企業の味の素株式会社との戦略的パートナーシップと、米国の代表的な植物性チキンブランドDaring Foodsの買収を発表しました。この動きは、v2foodの国際市…"
 source:   "https://veganoji.jp/v2food-enters-us-market-partners-daring-foods-ajinomoto/"
 ---
 
 オーストラリアの植物性肉企業v2foodが、グローバル食品企業の味の素株式会社との戦略的パートナーシップと、米国の代表的な植物性チキンブランドDaring Foodsの買収を発表しました。この動きは、v2foodの国際市場展開戦略の一環として、持続可能な食品システムの発展を推進することを目的としています。
 
-![](/images/blog/2025/v2food-enters-us-market-partners-daring-foods-ajinomoto.png)
+![](https://veganoji.jp/wp-content/uploads/2025/08/BLOG-POST-COVER-IMAGES-3.png)
 
 ## **戦略的パートナーシップの意義**
 

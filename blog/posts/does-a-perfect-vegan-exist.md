@@ -4,7 +4,7 @@ date:     2023-02-16
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "/images/blog/2023/does-a-perfect-vegan-exist.png"
+hero:     "https://veganoji.jp/wp-content/uploads/2023/02/does_a_perfect_vegan_exist_BANNER-1.png"
 excerpt:  "ビーガンやってみたいけど、自分には無理そうだなとか、ビーガン生活ちょっとやってみたけど、日本では続けるのが難しくて結局諦めた、というようなことをよく耳にします。でも、ビーガン生活をするかしないか、必ずどちらかに決めてずっ…"
 source:   "https://veganoji.jp/does-a-perfect-vegan-exist/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/does-a-perfect-vegan-exist/"
 
 でもそもそも**「完璧なビーガン」ってなんでしょうか？**
 
-![](/images/blog/2023/does-a-perfect-vegan-exist.png)
+![](https://veganoji.jp/wp-content/uploads/2023/02/does_a_perfect_vegan_exist_BANNER-1.png)
 
 実は、
 
