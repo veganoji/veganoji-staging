@@ -4,7 +4,7 @@ date:     2022-10-20
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/10/should-i-add-vegan-menu-to-restaurant_BANNER.png"
+hero:     "/images/blog/2022/should-i-add-vegan-menu-to-restaurant.png"
 excerpt:  "簡単に言うと、「はい」です。そうです。 その理由は、次のとおりです。 ビーガンは、単なる食の流行りではなく、今や世界的なムーブメントになっています。そして、このライフスタイルを選択する人は、日本も含めて世界中で増えていま…"
 source:   "https://veganoji.jp/should-i-add-vegan-menu-to-restaurant/"
 ---
@@ -29,7 +29,7 @@ source:   "https://veganoji.jp/should-i-add-vegan-menu-to-restaurant/"
 
 この記事で、その理由を明かしていきます。
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/should-i-add-vegan-menu-to-restaurant_BANNER.png)
+![](/images/blog/2022/should-i-add-vegan-menu-to-restaurant.png)
 
 ## **ヴィーガン料理の人気上昇中**
 
@@ -93,7 +93,7 @@ source:   "https://veganoji.jp/should-i-add-vegan-menu-to-restaurant/"
 
 お客様も同じです。様々な種類のヴィーガン料理を用意することで、**大人数の予約を獲得できる可能性が高くなり、ヴィーガンの人たち以上のものを失う**こともなくなるのです。
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/japanese-people-eating.jpg)
+![](/images/blog/2022/japanese-people-eating.jpg)
 
 ## **ヴィーガンやベジタリアンのメニューを追加するための7つの重要なヒント**
 

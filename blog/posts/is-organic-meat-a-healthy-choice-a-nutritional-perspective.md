@@ -3,12 +3,12 @@ title:    "オーガニック肉は健康的な選択肢なのか？栄養学の
 date:     2025-09-30
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/09/is-organic-meat-a-healthy-choice-a-nutritional-perspective.png"
+hero:     "/images/blog/2025/is-organic-meat-a-healthy-choice-a-nutritional-perspective.png"
 excerpt:  "オーガニック肉は従来の肉よりも健康的だと考える人が多いですが、実際のところはどうなのでしょうか。栄養学の専門家による最新の研究結果を基に、オーガニック肉の真実について詳しく解説します。 オーガニック肉とは何か オーガニッ…"
 source:   "https://veganoji.jp/is-organic-meat-a-healthy-choice-a-nutritional-perspective/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/09/is-organic-meat-a-healthy-choice-a-nutritional-perspective.png)
+![](/images/blog/2025/is-organic-meat-a-healthy-choice-a-nutritional-perspective.png)
 
 オーガニック肉は従来の肉よりも健康的だと考える人が多いですが、実際のところはどうなのでしょうか。栄養学の専門家による最新の研究結果を基に、オーガニック肉の真実について詳しく解説します。
 

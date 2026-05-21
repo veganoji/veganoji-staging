@@ -4,7 +4,7 @@ date:     2022-08-08
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/08/can-plant-based-diets-help-prevent-the-next-pandemic-BANNER.png"
+hero:     "/images/blog/2022/can-plant-based-diets-help-prevent-the-next-pandemic.png"
 excerpt:  "動物性タンパク質の摂取を控えることで、将来の人獣共通感染症ウイルスのリスクを低減できる可能性がある 新型コロナウイルス、SARS、牛海綿状脳症、豚インフルエンザ、鳥インフルエンザなどのウイルスには共通点がある：それらはす…"
 source:   "https://veganoji.jp/can-plant-based-diets-help-prevent-the-next-pandemic/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/can-plant-based-diets-help-prevent-the-next-pande
 
 しかし、これらの病気は実際には「動物由来」ではありません。動物が人間に新型コロナウイルスを投げ込んだようなことはもちろんありません。むしろこのパンデミックが「動物由来」であるということは、**社会が動物を飼育し、収穫し、食べることによって、これらの病気が発生する**ということを意味します。
 
-![](https://veganoji.jp/wp-content/uploads/2022/08/can-plant-based-diets-help-prevent-the-next-pandemic-BANNER.png)
+![](/images/blog/2022/can-plant-based-diets-help-prevent-the-next-pandemic.png)
 
 次のパンデミックを回避するための総合的な政策戦略には、**動物性食品の需要を減らすこと**が含まれるはずです。しかし幸いなことに、政府や世界保健機関が人々に何を食べるべきで、何を食べてはならないかを指示することもなく、もっと効果的な対策があります。
 
@@ -23,7 +23,7 @@ source:   "https://veganoji.jp/can-plant-based-diets-help-prevent-the-next-pande
 
 ## 「**ズーノーシス」と食品生産**
 
-![](https://veganoji.jp/wp-content/uploads/2022/08/animal-agriculture-vegan-pandemics-1.jpg)
+![](/images/blog/2022/animal-agriculture-vegan-pandemics-1.jpg)
 
 乳製品工場からの風景  
 動物衛生を強化し、食品生産における監視と規制を強化する政策は、人獣共通感染症のリスクを低減する可能性がある。
@@ -38,7 +38,7 @@ source:   "https://veganoji.jp/can-plant-based-diets-help-prevent-the-next-pande
 
 ## **パンデミックの起源**
 
-![](https://veganoji.jp/wp-content/uploads/2022/08/bat-zoonotic-diseases.jpg)
+![](/images/blog/2022/bat-zoonotic-diseases.jpg)
 
 逆さに吊るされたコウモリ  
 2020年8月、タイのサイヨーク国立公園で、コロナウイルス研究のために血液サンプルを採取した後、コウモリを放つ研究者。
@@ -57,7 +57,7 @@ source:   "https://veganoji.jp/can-plant-based-diets-help-prevent-the-next-pande
 
 これらのパンデミックの起源が、特定の国や「ウェット・マーケット」のような特定の慣習に限定されないことは明らかです。スウェーデンの主任医師で感染症学者のビョルン・オルセン教授を含む一部の研究者にとって、**肉や乳製品の需要の増加を食い止めることは、パンデミックに対するリスクを減らすために必要**なことなのです。
 
-![](https://veganoji.jp/wp-content/uploads/2022/08/caged-chickens-vegan-pandemic.jpg)
+![](/images/blog/2022/caged-chickens-vegan-pandemic.jpg)
 
 養鶏場のケージの中の白いニワトリ  
 1997年に発生したH5N1型鳥インフルエンザは、中国の鶏肉工場が原因であることが判明した。
@@ -70,7 +70,7 @@ source:   "https://veganoji.jp/can-plant-based-diets-help-prevent-the-next-pande
 
 ## 政策としての植物性食生活
 
-![](https://veganoji.jp/wp-content/uploads/2022/08/soy-plant-vegan-pandemics.jpg)
+![](/images/blog/2022/soy-plant-vegan-pandemics.jpg)
 
 イリノイ州で収穫される大豆。植物に起因するパンデミックウイルスは、これまで一度も確認されていない。
 
@@ -88,7 +88,7 @@ source:   "https://veganoji.jp/can-plant-based-diets-help-prevent-the-next-pande
 
 ## **食品ガイドの焦点**
 
-![](https://veganoji.jp/wp-content/uploads/2022/08/milk-jar-vegan-pandemics.jpg)
+![](/images/blog/2022/milk-jar-vegan-pandemics.jpg)
 
 牛乳でいっぱいの乳製品ビン  
 北部の十分な栄養を確保することを目的とした連邦政府のプログラムでは、新鮮な牛乳が今でも最高レベルの補助金を受け取っています。

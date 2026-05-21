@@ -3,14 +3,14 @@ title:    "【原宿】おすすめビーガンカフェ・レストラン ❘ 5
 date:     2022-01-06
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
-hero:     "https://veganoji.jp/wp-content/uploads/2022/01/HARAJUKU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE.png"
+hero:     "/images/blog/2022/vegan-vegetarian-cafes-restaurants-recommended-harajuku.png"
 excerpt:  "ファッションストリートとして有名な原宿。渋谷や表参道からもアクセスがいいので立ち寄る機会も多いですよね。 今回はそんな原宿のビーガンスポットを厳選してご紹介いたします！！どれもとっても美味しいのでお楽しみに：） １．ヴィ…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-harajuku/"
 ---
 
 ファッションストリートとして有名な原宿。渋谷や表参道からもアクセスがいいので立ち寄る機会も多いですよね。
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/HARAJUKU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE-1.png)
+![](/images/blog/2022/HARAJUKU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE-1.png)
 
 　今回はそんな原宿のビーガンスポットを厳選してご紹介いたします！！どれもとっても美味しいのでお楽しみに：）
 
@@ -20,25 +20,25 @@ source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-ha
   
 以前九州じゃながらという１９８６年から原宿駅の近くにある大人気ラーメン専門店の2階だったスペースをリニューアルビストロジャンがらというお店が２０２１年にできました。メニューも全てリニューアルし、幅広いメニューが魅力の一つです！僕のイチオシは、「ヴィーガンビストロジじゃんがら」です。代替え肉やベジミートと呼ばれる大豆由来の植物性ミートの鉄板焼きで、ご飯とスープがついて980円はとってもお手頃な値段ですよね！
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Jangara-1-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/Jangara-1.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Jangara-2-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/Jangara-2.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Jangara-3-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/Jangara-3.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Jangara-4-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/Jangara-4.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/Jangara-5-1024x1024.jpeg?ssl=1)![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Jangara-6-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/Jangara-5.jpeg)![](/images/blog/2022/Jangara-6.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/Jangara-7-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/Jangara-7.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Jangara-8-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/Jangara-8.jpeg)
 
 本物のお肉と勘違いしてしまうくらいジューシーで、熱々の鉄板でジュージューと音を立たせながらいただく大豆ミートがなんとも言えない美味しさです！大豆ミートは良質な栄養分が摂取できるほか、本物のお肉と比べてカロリーも低いので、「健康を気にしているけどボリューム感あるものが食べたい！」という方におすすめです！
 
 また、１階がまだラーメン屋さんになっていて、そこでいただく「濃い口醤油のヴィーガンらあめん」は絶品のひと品です！濃厚な濃い口醤油がスープにコクをもたらしてくれていて最高に美味しいです！
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Jangara-9-867x1024.jpeg?ssl=1)
+![](/images/blog/2022/Jangara-9.jpeg)
 
 ![](/images/blog/2021/Store-Information-Resized.png)
 
@@ -67,9 +67,9 @@ POINTS
 
 　その種類なんと17種類！！すごく多いですよね！
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Nataraj-1-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/Nataraj-1.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/Nataraj-2-1024x1024.jpeg?ssl=1)![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Nataraj-3-1024x1024.jpeg?ssl=1)![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Nataraj-4-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/Nataraj-2.jpeg)![](/images/blog/2022/Nataraj-3.jpeg)![](/images/blog/2022/Nataraj-4.jpeg)
 
 　僕が個人的におすすめなのはガーリックナンです。天然酵母の生地をベースにしていてもちもちでとても美味しい！ナン本来の甘味とガーリックのしょっぱさの相性がとても良いです！
 
@@ -102,9 +102,9 @@ POINTS
 
 　名前はグッドタウンドーナツ。
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/GoodTownDoughnuts-1-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/GoodTownDoughnuts-1.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/GoodTownDoughnuts-2-1024x768.jpeg?ssl=1)
+![](/images/blog/2022/GoodTownDoughnuts-2.jpeg)
 
 　見た目も食べるのがもったいないほど可愛く、今流行の「インスタ映え」にも最適です！中でも僕のイチオシは、甘酸っぱいラズベリーの果実を贅沢に使ったグレーズに粒状のサクサクとしたビスケット入りのホワイトチョコレートをトッピングした「ラズベリーホワイトチョコレート」です！甘いドーナツ生地と甘酸っぱいラズベリーソースの相性が抜群でとても美味しいです！
 
@@ -133,11 +133,11 @@ POINTS
 
 ここはビーガンヘアサロンとビーガンカフェが一体化したお店になっています！
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Whyte-1-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/Whyte-1.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/Whyte-2-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/Whyte-2.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Whyte-3-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/Whyte-3.jpeg)
 
 ビーガンヘアサロンではエシカル・サステナブルなど、ビーガン精神をコンセプトにしていて、動物性素材を一切使わずヘアケアをしてくれます！  
 ヘアケアをしてもらったあと、良い気分でビーガンランチをするのは最高です！中でもプリンが絶品で、とてもなめらかで美味しいです！
@@ -167,11 +167,11 @@ POINTS
 
 　最後にご紹介するのはビーガンヌードルやビーガンバーガーを提供しているチプーンさん。人気ナンバーワンの「ヴィーガンヌードル」は、野菜やきのこなど10種類以上の素材から抽出しスープがうまみのポイントです！さっぱりしているのにコクがあって麺の美味しさを引き立ててくれます！丁寧に抽出されて作られたコクのあるスープでいただくヴィーガンヌードルをぜひお楽しみください！
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Chipoon-1-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/Chipoon-1.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Chipoon-2-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/Chipoon-2.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Chipoon-3-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/Chipoon-3.jpeg)
 
 さらにスイーツもビーガン仕様になっっているんです！中でも僕のおすすめは「チュロス」です。外はカリッと中はふわっとしている食感がたまりません！
 

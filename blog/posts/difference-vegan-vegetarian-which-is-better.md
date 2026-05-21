@@ -4,7 +4,7 @@ date:     2022-09-17
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/09/vegan-vegetarian-difference-BANNER.png"
+hero:     "/images/blog/2022/difference-vegan-vegetarian-which-is-better.png"
 excerpt:  "ビーガンやベジタリアンは、肉を食べないことを選択します。ただし、ヴィーガンの方がより厳格で、乳製品、卵、蜂蜜、革や絹など動物製品に由来するものも禁止しています。 ヴィーガンとベジタリアンは、どちらも人気が高まっています。…"
 source:   "https://veganoji.jp/difference-vegan-vegetarian-which-is-better/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/difference-vegan-vegetarian-which-is-better/"
 
 この記事では、ヴィーガンとベジタリアンの類似点と相違点を探ります。また、**健康上の利点、どちらの食事がより健康的か、どちらがダイエットに適しているか、リスクと注意点**についても説明します。
 
-![](https://veganoji.jp/wp-content/uploads/2022/09/vegan-vegetarian-difference-BANNER.png)
+![](/images/blog/2022/difference-vegan-vegetarian-which-is-better.png)
 
 ## **ベジタリアニズムとは何ですか？**
 

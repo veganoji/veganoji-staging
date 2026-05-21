@@ -3,12 +3,12 @@ title:    "自己免疫疾患と食事の関係：プラントベース食品が
 date:     2025-11-10
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/10/autoimmune-disease-diet-plant-based-potential.png"
+hero:     "/images/blog/2025/autoimmune-disease-diet-plant-based-potential.png"
 excerpt:  "自己免疫疾患に悩む人が増える中、食事による改善の可能性が注目されています。最新の研究では、プラントベース（植物性）の食事が炎症を抑制し、免疫システムのバランスを整える効果があることが示されています。今回は、自己免疫疾患と…"
 source:   "https://veganoji.jp/autoimmune-disease-diet-plant-based-potential/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/10/autoimmune-disease-diet-plant-based-potential.png)
+![](/images/blog/2025/autoimmune-disease-diet-plant-based-potential.png)
 
 自己免疫疾患に悩む人が増える中、食事による改善の可能性が注目されています。最新の研究では、プラントベース（植物性）の食事が炎症を抑制し、免疫システムのバランスを整える効果があることが示されています。今回は、自己免疫疾患と食事の関係について、科学的根拠とともに詳しく解説します。
 

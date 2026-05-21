@@ -3,14 +3,14 @@ title:    "【渋谷】おすすめビーガンカフェ・レストラン ❘ 6
 date:     2022-01-06
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
-hero:     "https://veganoji.jp/wp-content/uploads/2022/01/SHIBUYA-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE.png"
+hero:     "/images/blog/2022/vegan-vegetarian-cafes-restaurants-recommended-shibuya.png"
 excerpt:  "東京の中心として人気の高い渋谷。世界中の人が集まる都市でもあるので、もちろんおいしいビーガンスポットもたくさんあります！ 今回は６つに絞ってご紹介しますが、紹介しきれなかった美味しいビーガンのお店もまだまだあるので、ぜひ…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-shibuya/"
 ---
 
 東京の中心として人気の高い渋谷。世界中の人が集まる都市でもあるので、もちろんおいしいビーガンスポットもたくさんあります！
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/SHIBUYA-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE.png)
+![](/images/blog/2022/vegan-vegetarian-cafes-restaurants-recommended-shibuya.png)
 
 　今回は６つに絞ってご紹介しますが、紹介しきれなかった美味しいビーガンのお店もまだまだあるので、[ぜひビーガンレストランの情報サイトで探して見てください！](https://veganoji.jp/2022/01/02/how-to-find-vegan-vegetarian-friendly-restaurants-cafes/)
 
@@ -22,9 +22,9 @@ source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-sh
 
 　たくさん賞も受賞している大人気のビーガンレストランがテイクアウト専門店として日本に上陸したんです。
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/Peace-Cafe-Hawaii-Picnic-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/Peace-Cafe-Hawaii-Picnic.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/Peace-Cafe-Hawaii-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/Peace-Cafe-Hawaii.jpeg)
 
 　スクランブルスクエアの中で座る場所が少ないですが、テイクアウトもできるので時間がないときなどにもおすすめです！
 
@@ -56,9 +56,9 @@ POINTS
 
 　このなぎ食堂のお気に入りポイントは、メニューが和食なところ！
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/NagiShokudo1-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/NagiShokudo1.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/NagiShokudo2-1024x768.jpeg?ssl=1)
+![](/images/blog/2022/NagiShokudo2.jpeg)
 
 　お弁当も販売していて、９種類のお惣菜弁当（玄米＋お味噌汁）が1300円で食べることができますよ！
 
@@ -91,13 +91,13 @@ POINTS
 
 すべてがビーガン料理ではないのですが、ビーガンメニューの提供も行っています！
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/ShibuyaHideout1-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/ShibuyaHideout1.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/ShibuyaHideout2-768x1024.jpg?ssl=1)
+![](/images/blog/2022/ShibuyaHideout2.jpg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/ShibuyaHideout3-768x1024.jpg?ssl=1)
+![](/images/blog/2022/ShibuyaHideout3.jpg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/ShibuyaHideout4-576x1024.jpg?ssl=1)
+![](/images/blog/2022/ShibuyaHideout4.jpg)
 
 　お店の雰囲気もアメリカンで海外に来た気分になれます：）
 
@@ -128,7 +128,7 @@ POINTS
 
 　続いて紹介するのは、原宿ビーガンおすすめスポットでも紹介したミラン・ナタラジ。ミラン・ナタラジの野菜のカレーがとにかく絶品でおすすめです。また、雑誌や企画本、テレビなどでも紹介されている大人気のお店なんです！
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/MilanNataraj1-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/MilanNataraj1.jpeg)
 
 　それにナタラジは、ビーガン・グルテンフリー・オリエンタルベジタリアンにも対応のメニューがあるんです。スパイスにもこだわりがあって一品一品調合しているんです！すごいですよね！！
 
@@ -157,17 +157,17 @@ POINTS
 
 　続いて紹介するのはファラエルブラザーズです。ファラフェルとは、潰したひよこ豆やそら豆に香辛料を混ぜ合わせて丸めて食用油で揚げた中東料理です！美味しいファラエルが食べたくなったらこのファラエルブラザーズをおすすめします！
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers1-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/FalafelBrothers1.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers2-768x1024.jpeg?ssl=1)
+![](/images/blog/2022/FalafelBrothers2.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers3-1024x1024.jpeg?ssl=1)
+![](/images/blog/2022/FalafelBrothers3.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers4-1024x1024.jpg?ssl=1)
+![](/images/blog/2022/FalafelBrothers4.jpg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers5-768x1024.jpg?ssl=1)
+![](/images/blog/2022/FalafelBrothers5.jpg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers6-1024x1024.jpg?ssl=1)
+![](/images/blog/2022/FalafelBrothers6.jpg)
 
 サラダ、トッピング、ソースをそれぞれ3種類から選ぶことができるので自分の好みに合わせたファラフェルを作ることができます
 
@@ -198,7 +198,7 @@ POINTS
 
 　ここはで人気なのはハンバーグです。
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/Peace-Table-Shibuya.jpeg)
+![](/images/blog/2022/Peace-Table-Shibuya.jpeg)
 
 　ハンバーグはもちろん、デミグラスソースも野菜のみで作られている絶品ビーガンハンバーグなんです。
 

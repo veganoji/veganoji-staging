@@ -4,7 +4,7 @@ date:     2022-07-24
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/07/Vegan-Longevity-New-Research-BANNER-1.png"
+hero:     "/images/blog/2022/vegan-longevity-new-research.png"
 excerpt:  "高齢者でも食生活を見直すことで、寿命に影響を与えることができる。 肉類、乳製品、甘いものをやめ、豆類、全粒粉、果物、野菜、ナッツ類を多く食べると、寿命が10年以上延びる可能性があることが、新しい研究で示唆された。 この研…"
 source:   "https://veganoji.jp/vegan-longevity-new-research/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/vegan-longevity-new-research/"
 
 肉類、乳製品、甘いものをやめ、豆類、全粒粉、果物、野菜、ナッツ類を多く食べると、**寿命が10年以上延びる**可能性があることが、新しい研究で示唆された。
 
-![](https://veganoji.jp/wp-content/uploads/2022/07/Vegan-Longevity-New-Research-BANNER-1.png)
+![](/images/blog/2022/vegan-longevity-new-research.png)
 
 この研究は、雑誌「PLOS Medicine」に掲載されました。研究者らは、米国の成人の平均寿命を調べ、人生の早い段階でより健康的な食事を選択することが、**大幅な寿命の延長につながる**と結論づけました。
 

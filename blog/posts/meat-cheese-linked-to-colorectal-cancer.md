@@ -4,7 +4,7 @@ date:     2023-03-06
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2023/03/meat-cheese-linked-to-colorectal-cancer_BANNER.png"
+hero:     "/images/blog/2023/meat-cheese-linked-to-colorectal-cancer.png"
 excerpt:  "牛肉や牛乳に含まれるDNAが大腸がんの発症に関連することが、新たな研究で示唆されました。 科学誌「Molecular Oncology」に掲載された新しい研究によると、牛肉や牛乳に含まれるDNA分子である「Bovine…"
 source:   "https://veganoji.jp/meat-cheese-linked-to-colorectal-cancer/"
 ---
@@ -15,13 +15,13 @@ source:   "https://veganoji.jp/meat-cheese-linked-to-colorectal-cancer/"
 
 大腸がんは、[公益財団法人日本対がん協会によると](https://www.jcancer.jp/about_cancer_and_knowledge/%E3%81%8C%E3%82%93%E3%81%AE%E9%83%A8%E4%BD%8D%E5%88%A5%E7%B5%B1%E8%A8%88#:~:text=%E5%8E%9A%E7%94%9F%E5%8A%B4%E5%83%8D%E7%9C%81%E3%81%8C2022%E5%B9%B4,%E9%A0%86%E3%81%A8%E3%81%AA%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82)、男女に関わらず**罹患数でも死亡数でも日本で2番目に多いがん**です。米国がん協会によると、**2023年には推定153,020人が大腸がんと診断される**という。大腸がんは、早期に発見されればされるほど、生存の可能性が高まります。
 
-![](https://veganoji.jp/wp-content/uploads/2023/03/meat-cheese-linked-to-colorectal-cancer_BANNER.png)
+![](/images/blog/2023/meat-cheese-linked-to-colorectal-cancer.png)
 
 大腸がんが体の他の部分に転移する前に発見された場合、5年生存率は90%に上昇する。今回の研究では、組織の炎症部位におけるBMMFコード化複製タンパク質の存在と発現率をモニタリングすることで、**大腸がんを発症するリスクのある人を特定できる可能性が示唆されました。**
 
 本研究では、大腸がんのある人とない人の組織におけるBMMFコード化タンパク質と特定の免疫細胞の存在を比較しました。その結果、これらのグループ間でタンパク質の発現に差があることが確認されたほか、前がん段階で炎症に関与する免疫細胞にこのタンパク質が確認されたことから、先行研究で発見された炎症に起因する間接発がんによる大腸がんへのBMMFの早期寄与が裏付けられました。
 
-![](https://veganoji.jp/wp-content/uploads/2023/03/milking-dairy-cow.jpeg)
+![](/images/blog/2023/milking-dairy-cow.jpeg)
 
 「さらなる研究により、**BMMF陽性炎症組織の特定が、大腸癌の早期リスクマーカー**として使用できるかどうかに取り組むことを目指します。」と、責任著者であるドイツ癌研究センターのTimo Bund博士は、声明の中で述べています。「したがって、生検におけるの発現と炎症の最初のモニタリングは、**BMMF特有の癌の誘導と予後をよりよく理解するために重要**です。」
 
@@ -35,7 +35,7 @@ source:   "https://veganoji.jp/meat-cheese-linked-to-colorectal-cancer/"
 
 昨年初めに医学雑誌「The BMJ」に掲載された研究では、**超加工食品の大量消費は、男性の大腸がんのリスクを29％増加させる**ことが判明しています。
 
-![](https://veganoji.jp/wp-content/uploads/2023/03/processed-meat-sausages.jpeg)
+![](/images/blog/2023/processed-meat-sausages.jpeg)
 
 タフツ大学とハーバード大学の研究では、**大腸がんと超加工食品との最も強い関連は、肉、鶏肉、魚製品にある**と指摘されています。
 
@@ -47,7 +47,7 @@ source:   "https://veganoji.jp/meat-cheese-linked-to-colorectal-cancer/"
 
 逆に、これまでの研究では、**植物性の食事が大腸がんなどのリスクを低減する**ことが示唆されています。BMC Medicineに掲載された研究では、植物性の食事をすることで、**男性の大腸がんのリスクを22％低下させる**ことができるとされています。
 
-![](https://veganoji.jp/wp-content/uploads/2023/03/delicious-vegan-sandwich.jpeg)
+![](/images/blog/2023/delicious-vegan-sandwich.jpeg)
 
 「これまでの研究で、**植物性の食事が大腸がんを予防する役割を果たす可能性**が示唆されていましたが、**植物食品の栄養的品質がこの関連性に与える影響は不明**でした。」と、この研究の著者の一人であるJihye Kimは声明で述べています。「我々の発見は、**健康的な植物性食品を食べることが、大腸癌のリスク低減と関連する**ことを示唆しています。」
 

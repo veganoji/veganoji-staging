@@ -4,7 +4,7 @@ date:     2023-08-07
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2023/08/BLOG-POST-COVER-IMAGES-1.jpg"
+hero:     "/images/blog/2023/g7summit-meat-free-menu.jpg"
 excerpt:  "2022年にドイツで開催されたG7サミットのケータリングでは、リクエストに応じて魚や肉を一切使用しないヴィーガン・ベジタリアンメニューが提供されたそうです。 ドイツ政府のこのような動向は、ドイツにとってサステナビリティが…"
 source:   "https://veganoji.jp/g7summit-meat-free-menu/"
 ---
@@ -18,7 +18,7 @@ source:   "https://veganoji.jp/g7summit-meat-free-menu/"
 このようなドイツ政府の方針は、ほとんど全ての会場において肉食が提供され、肉食が気候変動の環境要因の一つであることを無視したCOP26とは大きく異なっています。
 
 ![G7/vegan/summit/president
-](https://veganoji.jp/wp-content/uploads/2023/08/BLOG-POST-COVER-IMAGES-1.jpg)
+](/images/blog/2023/g7summit-meat-free-menu.jpg)
 
 ## 【G7サミットは植物由来】
 
@@ -34,7 +34,7 @@ source:   "https://veganoji.jp/g7summit-meat-free-menu/"
 
 ドイツ、アメリカ、イギリス、カナダ、フランス、イタリア、そして日本の指導者たちは、**「肉を食べない食生活」**が気候変動対策にどのように影響するのか、さらなる追及をはじめました。
 
-![](https://veganoji.jp/wp-content/uploads/2023/08/burger-gc2ba9afa9_1280.jpg)
+![](/images/blog/2023/burger-gc2ba9afa9_1280.jpg)
 
 ## 【ドイツ連邦保健省】
 
@@ -44,4 +44,4 @@ source:   "https://veganoji.jp/g7summit-meat-free-menu/"
 
 ドイツの消費者はこの呼びかけに応えているようで、2021年、動物性食品会社の老舗であるリューゲンヴァルダー・ミューレ社は**ヴィーガン・ベジタリアンの代替え肉の売上が初めて肉の売上を上回った**ことを明らかにしました。
 
-![](https://veganoji.jp/wp-content/uploads/2023/08/sandwich-5270231_1280-1.jpg)
+![](/images/blog/2023/sandwich-5270231_1280-1.jpg)

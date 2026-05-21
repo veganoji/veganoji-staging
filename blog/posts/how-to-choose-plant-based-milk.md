@@ -4,32 +4,32 @@ date:     2022-06-08
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/06/BLOG-POST-COVER-IMAGES-11.png"
+hero:     "/images/blog/2022/how-to-choose-plant-based-milk.png"
 excerpt:  "コーヒーやカレーにどのビーガンミルクが一番合うか、気になったことはありませんか？最近はスーパーで並んでいる植物性ミルクの種類が爆発的に増えていますよね。そこで何を買えばいいのかわからないという方、こちらの投稿をぜひ参考にして見てはどうでしょうか？ ここでは、植物由来のミルクをどの…"
 source:   "https://veganoji.jp/how-to-choose-plant-based-milk/"
 ---
 
 コーヒーやカレーにどのビーガンミルクが一番合うか、気になったことはありませんか？最近はスーパーで並んでいる植物性ミルクの種類が爆発的に増えていますよね。そこで何を買えばいいのかわからないという方、こちらの投稿をぜひ参考にして見てはどうでしょうか？ ここでは、植物由来のミルクをどの時に使えばいいのか、おすすめの方法をご紹介します。
 
-![](https://veganoji.jp/wp-content/uploads/2022/06/BLOG-POST-COVER-IMAGES-11.png)
+![](/images/blog/2022/how-to-choose-plant-based-milk.png)
 
 ## **オートミルク：コーヒー・紅茶**
 
-![](https://veganoji.jp/wp-content/uploads/2022/06/irene-kredenets-IoLIqE-63_c-unsplash.jpg)
+![](/images/blog/2022/irene-kredenets-IoLIqE-63_c-unsplash.jpg)
 
 オーツミルクはカフェで大きな反響を呼んでいますが、その理由は簡単です。他の植物性ミルクよりも泡立ちがよく、ホットドリンクに適した硬さを持っているからです。その汎用性、ほんのりとした自然な甘さ、ニュートラルな風味は、コーヒーや紅茶の味とシームレスに調和します。海外で大人気のオーツミルクブランドのOatlyはバリスタ版まで作っています。
 
-![](https://veganoji.jp/wp-content/uploads/2022/06/kaffee-meister-SAsyPsQAim8-unsplash.jpg)
+![](/images/blog/2022/kaffee-meister-SAsyPsQAim8-unsplash.jpg)
 
 ## **アーモンドミルク：シリアル**
 
-![](https://veganoji.jp/wp-content/uploads/2022/06/heather-barnes-U7NcygdW_dM-unsplash.jpg)
+![](/images/blog/2022/heather-barnes-U7NcygdW_dM-unsplash.jpg)
 
 アーモンドミルクは、朝のシリアルを引き立てるのに理想的な濃さを持っています。とても軽い口当たりで、ナッツのような香ばしさがあり、カルシウムやビタミンD、E、B12が強化されていることもあります。このビーガン朝ご飯は、一日の始まりにぴったりです。
 
 ## **ココナッツミルク：カレー**
 
-![](https://veganoji.jp/wp-content/uploads/2022/06/charlesdeluvio-PqsImnjuElM-unsplash.jpg)
+![](/images/blog/2022/charlesdeluvio-PqsImnjuElM-unsplash.jpg)
 
 缶詰のココナッツミルクは、コクと甘みと素晴らしい香りで、様々な料理に魔法をかけてくれますが、そのクリーミーな質感はカレーにぴったりです。鉄分、ビタミン、カルシウムなど、さまざまな栄養素が含まれています。レッドタイカレーやタイグリーンカレーのレシピを参考にしてみてください。さあ、お召し上がりください。
 
@@ -37,7 +37,7 @@ source:   "https://veganoji.jp/how-to-choose-plant-based-milk/"
 
 ## **豆乳：お菓子作り**
 
-![](https://veganoji.jp/wp-content/uploads/2022/06/didi-miam-klFddq7zA9I-unsplash.jpg)
+![](/images/blog/2022/didi-miam-klFddq7zA9I-unsplash.jpg)
 
 お菓子作りに情熱を注ぐなら、豆乳がおすすめです。豆乳はそのまま牛乳の代わりに使うことができるし、濃厚でクリーミーな豆乳はお菓子作りに必要な食感と粘りを与えてくれます。脂肪分は牛乳の約半分、カロリーは3分の1、そしてタンパク質がとても高いから一番よく飲んでいます！
 
@@ -45,7 +45,7 @@ source:   "https://veganoji.jp/how-to-choose-plant-based-milk/"
 
 ## **カシューナッツナッツミルク：アイスクリーム**
 
-![](https://veganoji.jp/wp-content/uploads/2022/06/towfiqu-barbhuiya-mpXLoq8OXLY-unsplash.jpg)
+![](/images/blog/2022/towfiqu-barbhuiya-mpXLoq8OXLY-unsplash.jpg)
 
 カシューミルクはクリーミーで満足感があり、冷凍して撹拌すると他のミルクにはない素晴らしい贅沢な口当たりになります。ネットで調べると簡単に家で作れるレシピがたくさんあるのでぜひお試しください。
 

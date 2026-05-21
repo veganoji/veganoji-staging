@@ -4,20 +4,20 @@ date:     2023-02-12
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2023/02/TAIWAN-VEGAN-LAW_BANNER.png"
+hero:     "/images/blog/2023/taiwan-vegan-law.png"
 excerpt:  "台湾は、政府に低炭素型食生活の推進を義務付ける画期的な気候変動法案を承認した。1月10日に第3読会が通過したこの法案では、特に植物性食品について言及されている。 法案の第8条では、農業委員会は廃棄物の削減と低炭素型食生活…"
 source:   "https://veganoji.jp/taiwan-vegan-law/"
 ---
 
 台湾は、政府に**低炭素型食生活の推進**を義務付ける画期的な気候変動法案を承認した。1月10日に第3読会が通過したこの法案では、**特に植物性食品について言及**されている。
 
-![](https://veganoji.jp/wp-content/uploads/2023/02/TAIWAN-VEGAN-LAW_BANNER.png)
+![](/images/blog/2023/taiwan-vegan-law.png)
 
 法案の第8条では、農業委員会は廃棄物の削減と低炭素型食生活を推進しなければならないとし、後者には**植物性食品や地元で生産された食品を含める**としている。第42条では、政府の全レベルがこれらの食品を推進すべきであるとし、低炭素型食生活を目指す市民社会組織の支援を義務付けている。
 
 この法律により、台湾は気候変動に関する法律で植物性食品に言及している数少ない地域のひとつとなった。また、**2050年までに排出量をゼロにする**という政府の目標に法的拘束力が与えられ、政府機関は排出量削減計画を実施することが義務づけられた。
 
-![](https://veganoji.jp/wp-content/uploads/2023/02/OmniPork-Dumplings.jpeg)
+![](/images/blog/2023/OmniPork-Dumplings.jpeg)
 
 ©Omnipork
 

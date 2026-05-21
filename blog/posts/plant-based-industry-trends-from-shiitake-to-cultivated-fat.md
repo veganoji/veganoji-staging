@@ -3,14 +3,14 @@ title:    "プラントベース業界の最新動向：シイタケ肉代替品
 date:     2025-08-12
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/08/107.png"
+hero:     "/images/blog/2025/plant-based-industry-trends-from-shiitake-to-cultivated-fat.png"
 excerpt:  "プラントベース・ヴィーガン業界は日々進化を続けており、革新的な技術と製品が次々と登場しています。今回は、2025年7月28日時点での最新ニュースをお届けします。 🚀 MUCHgroup、シイタケベース肉代替品で37.5万…"
 source:   "https://veganoji.jp/plant-based-industry-trends-from-shiitake-to-cultivated-fat/"
 ---
 
 # 
 
-![](https://veganoji.jp/wp-content/uploads/2025/08/107.png)
+![](/images/blog/2025/plant-based-industry-trends-from-shiitake-to-cultivated-fat.png)
 
 プラントベース・ヴィーガン業界は日々進化を続けており、革新的な技術と製品が次々と登場しています。今回は、2025年7月28日時点での最新ニュースをお届けします。
 

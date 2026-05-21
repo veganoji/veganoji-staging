@@ -3,14 +3,14 @@ title:    "ドイツで植物性ミルクの税率引き下げを求める動き
 date:     2025-08-04
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/08/104.png"
+hero:     "/images/blog/2025/germany-plant-milk-tax-cut.png"
 excerpt:  "ドイツでは現在、植物性ミルクに対して乳製品の約3倍の税率が課せられており、小売業者や製造業者が税率の平等化を求める請願を開始しました。 現在の税制格差 ヨーロッパ最大の経済大国であるドイツでは、従来の乳製品には7%の付加…"
 source:   "https://veganoji.jp/germany-plant-milk-tax-cut/"
 ---
 
 # 
 
-![](https://veganoji.jp/wp-content/uploads/2025/08/104.png)
+![](/images/blog/2025/germany-plant-milk-tax-cut.png)
 
 ドイツでは現在、植物性ミルクに対して乳製品の約3倍の税率が課せられており、小売業者や製造業者が税率の平等化を求める請願を開始しました。
 

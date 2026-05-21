@@ -4,7 +4,7 @@ date:     2022-12-14
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/12/veganism-cheapest-diet_BANNER.png"
+hero:     "/images/blog/2022/veganism-cheapest-diet.png"
 excerpt:  "アメリカ、イギリス、オーストラリア、西ヨーロッパなどの国々で、ヴィーガン、ベジタリアン、フレキシタリアンなどの食事を選択すると、食費を最大で3分の1まで削減できるという研究結果が発表されました。 Lancet Plane…"
 source:   "https://veganoji.jp/veganism-cheapest-diet/"
 ---
@@ -18,14 +18,14 @@ Lancet Planetary Health誌に掲載されたこの研究は、世界銀行の国
 - ■ 肉と乳製品の量が少ないフレキシタリアン食は、**コストを14%削減**した。
 - ■ 一方、ペスカタリアン・ダイエットでは、**最大で2％**のコスト増となった。
 
-![](https://veganoji.jp/wp-content/uploads/2022/12/veganism-cheapest-diet_BANNER.png)
+![](/images/blog/2022/veganism-cheapest-diet.png)
 > 「これらの食事は、あなたの預金残高だけでなく、あなたの健康や地球の健康にとってもより良いものである可能性があります。」
 
 これらの植物ベースの食事は、**心臓の健康、がんのリスク、その他**の食事に関連する健康への影響、および一般的な西洋の食事よりも大幅に低い二酸化炭素排出量に**非常に優れている**ことが認識されています。
 
 「ヴィーガン、ベジタリアン、フレキシタリアンの食事が**お金をたくさん節約できる**という事実は、人々を驚かせると思います」と、オックスフォード・マーティン食の未来プログラムの研究者であるマルコ・スプリングマン博士は言います。「私のような科学者が健康的で環境に優しい食生活を提唱すると、象牙の塔に座って、ほとんどの人にとって経済的に手の届かないものを推進していると言われることがよくあります。この研究は、**その逆であることを示しています。**これらの食事は、あなたの**銀行残高だけでなく、あなたの健康や地球の健康にも良い**可能性があります。"
 
-![](https://veganoji.jp/wp-content/uploads/2022/12/Ts-TanTan.jpg)
+![](/images/blog/2022/Ts-TanTan.jpg)
 
 Tsたんたん
 

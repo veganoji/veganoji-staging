@@ -3,12 +3,12 @@ title:    "最新研究：肉の消費削減で医療費数十億ドルの節約
 date:     2025-10-21
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/10/research-cutting-meat-lowers-health-cost.png"
+hero:     "/images/blog/2025/research-cutting-meat-lowers-health-cost.png"
 excerpt:  "医療費の高騰が世界中で深刻な問題となっている中、意外な解決策が注目を集めています。最新の研究によると、赤身肉や加工肉の消費を減らすだけで、医療システムは数十億ドルもの費用を節約できる可能性があるというのです。この発見は、…"
 source:   "https://veganoji.jp/research-cutting-meat-lowers-health-cost/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/10/research-cutting-meat-lowers-health-cost.png)
+![](/images/blog/2025/research-cutting-meat-lowers-health-cost.png)
 
 医療費の高騰が世界中で深刻な問題となっている中、意外な解決策が注目を集めています。最新の研究によると、赤身肉や加工肉の消費を減らすだけで、医療システムは数十億ドルもの費用を節約できる可能性があるというのです。この発見は、私たちの食生活が個人の健康だけでなく、社会全体の医療費にも大きな影響を与えることを示しています。
 

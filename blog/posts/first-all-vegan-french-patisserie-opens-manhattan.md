@@ -3,12 +3,12 @@ title:    "マンハッタンに初の完全ヴィーガン・フレンチパテ
 date:     2025-12-13
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/12/first-all-vegan-french-patisserie-opens-manhattan.png"
+hero:     "/images/blog/2025/first-all-vegan-french-patisserie-opens-manhattan.png"
 excerpt:  "はじめに ニューヨークのマンハッタンに、画期的な新店舗がオープンしました。完全にヴィーガンのフレンチパティスリーとして、伝統的なフランス菓子の世界に革新をもたらす「Délice de Bernay」です。この店舗の登場は…"
 source:   "https://veganoji.jp/first-all-vegan-french-patisserie-opens-manhattan/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/12/first-all-vegan-french-patisserie-opens-manhattan.png)
+![](/images/blog/2025/first-all-vegan-french-patisserie-opens-manhattan.png)
 
 # **はじめに**
 

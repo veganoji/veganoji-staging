@@ -4,7 +4,7 @@ date:     2022-10-08
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/10/famous-vegans-vegetarians-through-history_BANNER.png"
+hero:     "/images/blog/2022/famous-vegans-vegetarians-through-history.png"
 excerpt:  "ヴィーガンを実践する人が増えている一方で、動物性食品を食べないという選択は新しいものではありません。実際、歴史上多くの人々が、不必要な畜産業に貢献することはないと決めていたのです。 1944年以前には「ヴィーガン」という…"
 source:   "https://veganoji.jp/famous-vegans-vegetarians-through-history/"
 ---
@@ -15,11 +15,11 @@ source:   "https://veganoji.jp/famous-vegans-vegetarians-through-history/"
 
 ここでは、**ヴィーガンだったとは信じられないような歴史上の人物8人**をご紹介します。
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/famous-vegans-vegetarians-through-history_BANNER.png)
+![](/images/blog/2022/famous-vegans-vegetarians-through-history.png)
 
 ### **アルベルト・アインシュタイン（1879-1955）**
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/Einstein.jpeg)
+![](/images/blog/2022/Einstein.jpeg)
 
 [Photograph by Oren Jack Turner, Princeton, N.J.](https://commons.wikimedia.org/wiki/File:Albert_Einstein_1947.jpg), Public domain, via Wikimedia Commons
 
@@ -31,7 +31,7 @@ source:   "https://veganoji.jp/famous-vegans-vegetarians-through-history/"
 
 ### **ピタゴラス（紀元前570年頃〜紀元前495年頃）**
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/Pythagoras.jpeg)
+![](/images/blog/2022/Pythagoras.jpeg)
 
 [Raphael](https://commons.wikimedia.org/wiki/File:Pythagoras_with_tablet_of_ratios.jpg), Public domain, via Wikimedia Commons
 
@@ -41,7 +41,7 @@ source:   "https://veganoji.jp/famous-vegans-vegetarians-through-history/"
 
 ### **プラトン（紀元前428-7年～紀元前348-7年）**
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/Plato.jpeg)
+![](/images/blog/2022/Plato.jpeg)
 
 © Marie-Lan Nguyen, [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page)
 
@@ -49,7 +49,7 @@ source:   "https://veganoji.jp/famous-vegans-vegetarians-through-history/"
 
 ### **レオナルド・ダ・ヴィンチ（1452年-1519年）**
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/Da-Vinci.jpeg)
+![](/images/blog/2022/Da-Vinci.jpeg)
 
 [Leonardo da Vinci](https://commons.wikimedia.org/wiki/File:Da_Vinci_Vitruve_Luc_Viatour.jpg), Public domain, via Wikimedia Commons
 
@@ -57,7 +57,7 @@ source:   "https://veganoji.jp/famous-vegans-vegetarians-through-history/"
 
 ### **マハトマ・ガンジー (1869年-1948年)**
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/Gandhi.jpeg)
+![](/images/blog/2022/Gandhi.jpeg)
 
 [Elliott & Fry](https://commons.wikimedia.org/wiki/File:Mahatma-Gandhi,_studio,_1931.jpg), Public domain, via Wikimedia Commons
 
@@ -69,7 +69,7 @@ source:   "https://veganoji.jp/famous-vegans-vegetarians-through-history/"
 
 ### **ブッダ（前563/480頃〜前483/400頃）**
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/Buddha.jpeg)
+![](/images/blog/2022/Buddha.jpeg)
 
 [Dirk Beyer](https://commons.wikimedia.org/wiki/File:Kamakura_Budda_Daibutsu_front_1885.jpg), [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/), via Wikimedia Commons
 
@@ -77,7 +77,7 @@ source:   "https://veganoji.jp/famous-vegans-vegetarians-through-history/"
 
 ### **ヴォルテール (1694-1778)**
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/Voltaire.jpeg)
+![](/images/blog/2022/Voltaire.jpeg)
 
 [After Nicolas de Largillière](https://commons.wikimedia.org/wiki/File:D%27apr%C3%A8s_Nicolas_de_Largilli%C3%A8re,_portrait_de_Voltaire_(Institut_et_Mus%C3%A9e_Voltaire)_-001.jpg), Public domain, via Wikimedia Commons
 
@@ -85,7 +85,7 @@ source:   "https://veganoji.jp/famous-vegans-vegetarians-through-history/"
 
 ### **ベンジャミン・フランクリン（1706-1790）**
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/Benjamin-Franklin.jpeg)
+![](/images/blog/2022/Benjamin-Franklin.jpeg)
 
 [Joseph-Siffred Duplessis](https://commons.wikimedia.org/wiki/File:Joseph_Siffrein_Duplessis_-_Benjamin_Franklin_-_Google_Art_Project.jpg), Public domain, via Wikimedia Commons
 

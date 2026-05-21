@@ -4,14 +4,14 @@ date:     2024-04-17
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2024/03/3-1.png"
+hero:     "/images/blog/2024/different-types-of-miso-overview.png"
 excerpt:  "味噌は日本の料理の基本食材であり、豊かで複雑な風味はもちろん、古来より潜在的な健康効果をもつ食材として称賛されてきました。このブログでは味噌とはどのようなものなのか、どんな種類があるか、味噌に期待できる素晴らしい健康効果…"
 source:   "https://veganoji.jp/different-types-of-miso-overview/"
 ---
 
 味噌は日本の料理の基本食材であり、豊かで複雑な風味はもちろん、古来より潜在的な健康効果をもつ食材として称賛されてきました。このブログでは味噌とはどのようなものなのか、どんな種類があるか、味噌に期待できる素晴らしい健康効果について紹介します。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/3-1.png)
+![](/images/blog/2024/different-types-of-miso-overview.png)
 
 ## 味噌とは？
 
@@ -33,7 +33,7 @@ source:   "https://veganoji.jp/different-types-of-miso-overview/"
 
 信州味噌は白味噌と赤味噌の中間ぐらいの濃さの黄色い味噌で、バランスの取れた風味なので様々な料理に適しています。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/red-miso.jpeg)
+![](/images/blog/2024/red-miso.jpeg)
 
 ## 味噌の健康効果
 
@@ -57,7 +57,7 @@ source:   "https://veganoji.jp/different-types-of-miso-overview/"
 
 味噌は、骨の強度を保ちカルシウムの吸収を促す**ビタミンKの含有量が豊富**です。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/miso-meal.jpeg)
+![](/images/blog/2024/miso-meal.jpeg)
 
 ## 食事への味噌の取り入れ方
 

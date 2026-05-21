@@ -4,7 +4,7 @@ date:     2023-09-23
 category: katsudou
 category_display: "活動報告"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2023/09/5.jpg"
+hero:     "/images/blog/2023/ethical-fashion-show-report.jpg"
 excerpt:  "ヴィーガンに限らずSDGsのことを包括的に発信している”ビーガン王子“が8月26日（土）にヨーロッパに拠点を置き“エシカルモデル”として活動するKiko主催のブランド「PARIS KIKO」が開催したファッションショーに…"
 source:   "https://veganoji.jp/ethical-fashion-show-report/"
 ---

@@ -3,12 +3,12 @@ title:    "台湾の議員が学校給食への植物性肉導入を求める"
 date:     2025-12-15
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/12/taiwan-lawmakers-push-plant-based-meat-school-lunches.png"
+hero:     "/images/blog/2025/taiwan-lawmakers-push-plant-based-meat-school-lunches.png"
 excerpt:  "健康的で持続可能な食生活の推進に向けた政策提案 台湾の議員と市民社会団体が、政府に対して学校給食プログラムの改革を求めており、より多くの植物性肉オプションを含めることで、学生たちの健康的で持続可能な食習慣を促進することを…"
 source:   "https://veganoji.jp/taiwan-lawmakers-push-plant-based-meat-school-lunches/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/12/taiwan-lawmakers-push-plant-based-meat-school-lunches.png)
+![](/images/blog/2025/taiwan-lawmakers-push-plant-based-meat-school-lunches.png)
 
 ## **健康的で持続可能な食生活の推進に向けた政策提案**
 

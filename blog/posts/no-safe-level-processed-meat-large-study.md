@@ -3,12 +3,12 @@ title:    "加工肉に「安全な摂取量」は存在しない：大規模研
 date:     2025-11-03
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/10/no-safe-level-processed-meat-large-study.png"
+hero:     "/images/blog/2025/no-safe-level-processed-meat-large-study.png"
 excerpt:  "最新の大規模研究により、ホットドッグやベーコンなどの加工肉には「安全な摂取量」が存在しないことが明らかになりました。少量の摂取でも2型糖尿病、心疾患、がんのリスクが高まることが判明しています。 研究の概要 ワシントン大学…"
 source:   "https://veganoji.jp/no-safe-level-processed-meat-large-study/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/10/no-safe-level-processed-meat-large-study.png)
+![](/images/blog/2025/no-safe-level-processed-meat-large-study.png)
 
 最新の大規模研究により、ホットドッグやベーコンなどの加工肉には「安全な摂取量」が存在しないことが明らかになりました。少量の摂取でも2型糖尿病、心疾患、がんのリスクが高まることが判明しています。
 

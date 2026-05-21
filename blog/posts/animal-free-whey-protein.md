@@ -4,7 +4,7 @@ date:     2023-01-26
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2023/01/animal-free-whey-protein_BANNER.png"
+hero:     "/images/blog/2023/animal-free-whey-protein.png"
 excerpt:  "MyproteinのWhey Forwardは、Perfect Dayのアニマルフリーホエイを使用したビーガンプロテインパウダーで、スポーツ栄養業界の新たなトレンドの到来を示しています。 2022年7月22日、スポーツ栄…"
 source:   "https://veganoji.jp/animal-free-whey-protein/"
 ---
@@ -13,11 +13,11 @@ source:   "https://veganoji.jp/animal-free-whey-protein/"
 
 2022年7月22日、スポーツ栄養ブランドであるMyproteinは、**植物性のホエイプロテイン（乳清）**を使用した初の製品を発売しました。新商品「ホエイ・フォワード」は、クリーミーミントチョコチップ、リッチソルトキャラメル、デカデントチョコレートブラウニー味で、サンフランシスコのベイエリアに拠点を置くパーフェクトデイ社が開発した植物性のホエイを使用しています。パーフェクト・デイは、動物を使わずに乳清を作るために、**牛を方程式から外し、代わりに酵母ベースの微生物叢を使用**し、精密な発酵プロセスで**同じ乳タンパク質を生産しますが、畜産によるマイナス面は一切ありません。**
 
-![](https://veganoji.jp/wp-content/uploads/2023/01/animal-free-whey-protein_BANNER.png)
+![](/images/blog/2023/animal-free-whey-protein.png)
 
 マイプロテインの新しいホエイ・フォワードは、**1食あたり20グラムのタンパク質**を提供しますが、パーフェクト・デイの乳清は動物性ではないため、従来の製品よりもはるかに**二酸化炭素排出量が少なくなっています。**パーフェクト・デイのアニマルフリーホエイは、**従来のホエイ生産に比べ、水の使用量が99％少なく、温室効果ガスの排出量が97％少ない**からである。
 
-![](https://veganoji.jp/wp-content/uploads/2023/01/WheyForward_MyProtein.jpg)
+![](/images/blog/2023/WheyForward_MyProtein.jpg)
 
 Whey Forward Animal-Free Protein
 
@@ -31,7 +31,7 @@ Whey Forward Animal-Free Protein
 
 「ホエイ・フォワードをお客様にお届けすることは、私たちの**ライフスタイルの変化を考える上で重要**なことでした。**従来の形態のタンパク質を求める強い顧客がまだいる**一方で、**味、食感、性能を犠牲にすることなく**、動物性でない乳清タンパク質の代替品を求めていることに気づきました」と、Myprotein USの上級副社長兼マネージングディレクターのPallav Tamaskar氏は語っています。「私たちの目標は、**常に世界中の人々の野心を刺激すること**です。様々な食事のニーズに合った幅広い製品を含めることで、**最高のスポーツ栄養を、どんな目標でも、誰もが利用できるようにする**ことです。」
 
-![](https://veganoji.jp/wp-content/uploads/2023/01/MoolessAnimalFreeWhey_Natreve.jpg)
+![](/images/blog/2023/MoolessAnimalFreeWhey_Natreve.jpg)
 
 Mooless Animal-Free Whey Protein
 
@@ -43,7 +43,7 @@ Myproteinは、このようにPerfect Dayと提携した最新のスポーツ栄
 
 スポーツ栄養業界以外でも、パーフェクト・デイの**革新的なホエイプロテインは、他のカテゴリーでも従来の乳製品からのシフトを促しています。**発売以来、スウェーデンのNick's、アメリカ中西部のGraetersなど、数多くのアイスクリームブランドと協力し、**動物性食品を使わない製品ラインを立ち上げています。**
 
-![](https://veganoji.jp/wp-content/uploads/2023/01/BraveRobotxCoolhaus.jpg)
+![](/images/blog/2023/BraveRobotxCoolhaus.jpg)
 
 ブレイブ・ロボッツ・クールハウス・ザ・アージェント・カンパニー
 

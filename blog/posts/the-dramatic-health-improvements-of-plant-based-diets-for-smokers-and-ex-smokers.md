@@ -3,12 +3,12 @@ title:    "植物性食事が喫煙者と元喫煙者の健康を劇的に改善
 date:     2025-10-06
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/09/the-dramatic-health-improvements-of-plant-based-diets-for-smokers-and-ex-smokers.png"
+hero:     "/images/blog/2025/the-dramatic-health-improvements-of-plant-based-diets-for-smokers-and-ex-smokers.png"
 excerpt:  "喫煙は世界中で深刻な健康問題として知られていますが、最新の研究により、植物性食事が喫煙者や元喫煙者の健康回復に驚くべき効果をもたらすことが明らかになりました。専門家たちは、ヴィーガン食事が肺機能の改善から心血管系の健康ま…"
 source:   "https://veganoji.jp/the-dramatic-health-improvements-of-plant-based-diets-for-smokers-and-ex-smokers/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/09/the-dramatic-health-improvements-of-plant-based-diets-for-smokers-and-ex-smokers.png)
+![](/images/blog/2025/the-dramatic-health-improvements-of-plant-based-diets-for-smokers-and-ex-smokers.png)
 
 喫煙は世界中で深刻な健康問題として知られていますが、最新の研究により、植物性食事が喫煙者や元喫煙者の健康回復に驚くべき効果をもたらすことが明らかになりました。専門家たちは、ヴィーガン食事が肺機能の改善から心血管系の健康まで、幅広い健康効果を提供すると報告しています。
 

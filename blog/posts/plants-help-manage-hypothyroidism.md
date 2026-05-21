@@ -3,12 +3,12 @@ title:    "植物中心の食事が甲状腺機能低下症の管理に役立つ
 date:     2025-09-24
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/09/plants-help-manage-hypothyroidism_banner.png"
+hero:     "/images/blog/2025/plants-help-manage-hypothyroidism.png"
 excerpt:  "甲状腺機能低下症は、甲状腺ホルモンの分泌が不十分になる疾患で、多くの人が悩んでいる健康問題の一つです。最近の研究により、植物中心の食事が甲状腺機能低下症の管理に有効である可能性が示されています。今回は、その理由と具体的な…"
 source:   "https://veganoji.jp/plants-help-manage-hypothyroidism/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/09/plants-help-manage-hypothyroidism_banner.png)
+![](/images/blog/2025/plants-help-manage-hypothyroidism.png)
 
 # 
 

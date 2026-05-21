@@ -3,12 +3,12 @@ title:    "プレミアフーズが砂糖無添加のヴィーガンゼリーを
 date:     2025-08-08
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/08/106.png"
+hero:     "/images/blog/2025/premier-foods-sugar-free-vegan-jelly.png"
 excerpt:  "イギリスの大手食品メーカー、プレミアフーズ（Premier Foods）が、McDougallsブランドから砂糖無添加のヴィーガンゼリーの新シリーズを発売しました。この新製品は、学校給食における低糖質デザートの需要増加に…"
 source:   "https://veganoji.jp/premier-foods-sugar-free-vegan-jelly/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/08/106.png)
+![](/images/blog/2025/premier-foods-sugar-free-vegan-jelly.png)
 
 # 
 

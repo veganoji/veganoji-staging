@@ -3,12 +3,12 @@ title:    "ギリシャの植物性ホテル：新しいヴィーガン旅行の
 date:     2025-07-22
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/07/BLOG-POST-COVER-IMAGES-2.png"
+hero:     "/images/blog/2025/greek-plant-based-hotel-new-vegan-travel-paradise.png"
 excerpt:  "はじめに ヴィーガンライフスタイルが世界中で広がる中、旅行先でも植物性の食事や環境に配慮した宿泊施設を求める人々が増えています。そんな中、ギリシャに誕生した革新的な植物性ホテルが、ヴィーガン旅行者の新たな聖地として注目を…"
 source:   "https://veganoji.jp/greek-plant-based-hotel-new-vegan-travel-paradise/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/07/BLOG-POST-COVER-IMAGES-2.png)
+![](/images/blog/2025/greek-plant-based-hotel-new-vegan-travel-paradise.png)
 
 ## **はじめに**
 

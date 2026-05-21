@@ -3,12 +3,12 @@ title:    "ハルクくん新企画『マッチョハウス』出演｜真逆の
 date:     2025-12-14
 category: katsudou
 category_display: "活動報告"
-hero:     "https://veganoji.jp/wp-content/uploads/2026/04/Macho-House_FEATURED-IMAGE.jpg"
+hero:     "/images/blog/2026/hulk-macho-house-appearance-report.jpg"
 excerpt:  "【出演のご報告】 ハルクくんさんの新企画『マッチョハウス』に出演しています。 『マッチョハウス』は、「マッチョ」と「ヴィーガン」という、一見まったく異なる価値観を持つ人たちが、ひとつ屋根の下で共同生活を送るドキュメンタリ…"
 source:   "https://veganoji.jp/hulk-macho-house-appearance-report/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2026/04/MachoHouse.jpg)
+![](/images/blog/2026/MachoHouse.jpg)
 
 ### 【出演のご報告】
 

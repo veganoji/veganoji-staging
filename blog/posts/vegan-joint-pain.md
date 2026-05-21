@@ -4,7 +4,7 @@ date:     2022-07-19
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["オメガ３", "ガイド", "サプリメント", "ビタミンB12", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "recommended", "vegan", "vegan oji", "vegetarian", "vitamin b12", "摂取量", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/07/VEGAN-JOINT-PAIN-BANNER.png"
+hero:     "/images/blog/2022/vegan-joint-pain.png"
 excerpt:  "低脂肪の植物性食品は、関節の腫れや関節リウマチに関連する痛みを有意に減少させた 「American Journal of Lifestyle Medicine」からの新しい研究によると、完全に植物由来の食事が、関節リウマ…"
 source:   "https://veganoji.jp/vegan-joint-pain/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/vegan-joint-pain/"
 
 「American Journal of Lifestyle Medicine」からの新しい研究によると、完全に植物由来の食事が、関節リウマチという、自己免疫疾患の一つで、関節に炎症、痛み、腫れ、こわばりを引き起こし、最終的には関節に永久的な損傷を与える疾患の痛みや症状を軽減する鍵になるかもしれないそうです。
 
-![](https://veganoji.jp/wp-content/uploads/2022/07/VEGAN-JOINT-PAIN-BANNER.png)
+![](/images/blog/2022/vegan-joint-pain.png)
 
 ## **肉類、乳製品、関節リウマチ**
 
@@ -27,7 +27,7 @@ source:   "https://veganoji.jp/vegan-joint-pain/"
 
 また、関節リウマチの炎症活性を臨床データで測定する疼痛指標ツール「DAS28（Disease Activity Score-28）」を用いて関節痛を評価しました。その後、参加者を2つのグループに分け、16週間にわたって実施しました。
 
-![](https://veganoji.jp/wp-content/uploads/2022/07/towfiqu-barbhuiya-dNe6TyX_laM-unsplash.jpg)
+![](/images/blog/2022/towfiqu-barbhuiya-dNe6TyX_laM-unsplash.jpg)
 
 食べるものが、関節の痛みや腫れに影響を与える可能性があるのです。
 

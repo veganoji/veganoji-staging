@@ -4,14 +4,14 @@ date:     2021-12-31
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
 tags:     ["ビーガン", "ビーガン王子のおすすめ", "ベジタリアン", "ベジー", "自由が丘", "jiyugaoka", "recommended", "vegan", "vegan oji", "vegan spots", "vegetarian"]
-hero:     "https://veganoji.jp/wp-content/uploads/2021/12/JIYUGAOKA-BLOG-POST-COVER-IMAGE.png"
+hero:     "/images/blog/2021/vegan-vegetarian-cafes-restaurants-recommended-jiyugaoka.png"
 excerpt:  "自由が丘は程よい賑わいでとても心地いい街ですよね。街歩きを楽しみながらのんびりショッピングをしたり、乗換駅として使用される方も多いかと思います。 実はビーガン・ベジタリアンスポットが多い街としても有名なんですよ。今回は５…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-jiyugaoka/"
 ---
 
 自由が丘は程よい賑わいでとても心地いい街ですよね。街歩きを楽しみながらのんびりショッピングをしたり、乗換駅として使用される方も多いかと思います。
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/JIYUGAOKA-BLOG-POST-COVER-IMAGE.png)
+![](/images/blog/2021/vegan-vegetarian-cafes-restaurants-recommended-jiyugaoka.png)
 
 　実はビーガン・ベジタリアンスポットが多い街としても有名なんですよ。今回は５つに絞ってご紹介しますが、紹介しきれなかった美味しいビーガンのお店もまだまだあるので、[ぜひビーガンレストランの情報サイトで探して見てください！](https://docs.google.com/document/d/1c3sLW9NMQtUeILLvVLHl4hapr0A2VhhjsQpHHH1n5ms/edit?usp=sharing)
 
@@ -23,21 +23,21 @@ source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-ji
 
 　和食が中心の菜道ですが、その中にもグローバルな料理も多数あります。
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/Saido1.jpeg?ssl=1)
+![](/images/blog/2021/Saido1.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/Saido2.jpeg?ssl=1)
+![](/images/blog/2021/Saido2.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/Saido3.jpeg?ssl=1)
+![](/images/blog/2021/Saido3.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2021/12/Saido4.jpeg?ssl=1)
+![](/images/blog/2021/Saido4.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/Saido5.jpeg?ssl=1)
+![](/images/blog/2021/Saido5.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/Saido6.jpeg?ssl=1)
+![](/images/blog/2021/Saido6.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/Saido7.jpeg?ssl=1)
+![](/images/blog/2021/Saido7.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2021/12/Saido8.jpeg?ssl=1)
+![](/images/blog/2021/Saido8.jpeg)
 
 　そして食へのバリアフリーが充実していてビーガン・オリエンタルベジタリアン・ムスリムの対応店舗なんです。
 
@@ -70,17 +70,17 @@ POINTS
 
 　僕のお気に入りは、チーズケーキ：）
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/Rengetsutei1.jpeg?ssl=1)
+![](/images/blog/2021/Rengetsutei1.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2021/12/Rengetsutei2.jpeg?ssl=1)
+![](/images/blog/2021/Rengetsutei2.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2021/12/Rengetsutei3.jpeg?ssl=1)
+![](/images/blog/2021/Rengetsutei3.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2021/12/Rengetsutei4.jpeg?ssl=1)
+![](/images/blog/2021/Rengetsutei4.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/Rengetsutei5-1024x1024.jpg?ssl=1)
+![](/images/blog/2021/Rengetsutei5.jpg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/Rengetsutei6.jpeg?ssl=1)
+![](/images/blog/2021/Rengetsutei6.jpeg)
 
 　乳製品不使用のビーガンレモンチーズケーキは程よい酸味と甘味のハーモニーが癖になります！
 
@@ -119,15 +119,15 @@ POINTS
 
 　Shiro商品でよく使用される自然の素材の酒かすやごめ昆布を、パフェやパンケーキ、ハンバーガーなどに使っています！
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/ShiroCafe1-768x1024.jpg?ssl=1)
+![](/images/blog/2021/ShiroCafe1.jpg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/ShiroCafe2-1024x1024.jpeg?ssl=1)
+![](/images/blog/2021/ShiroCafe2.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/ShiroCafe3-768x1024.jpeg?ssl=1)
+![](/images/blog/2021/ShiroCafe3.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/ShiroCafe4-1024x1024.jpg?ssl=1)![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/ShiroCafe5-1024x1024.jpg?ssl=1)
+![](/images/blog/2021/ShiroCafe4.jpg)![](/images/blog/2021/ShiroCafe5.jpg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2021/12/ShiroCafe6-768x1024.jpeg?ssl=1)
+![](/images/blog/2021/ShiroCafe6.jpeg)
 
 　パフェには、豆乳やココナッツミルクを使用していてすべて植物素材のものになっています。
 
@@ -162,15 +162,15 @@ POINTS
 
 　基本の料理に使用している醤油は小麦の入っていないオーガニックたまり醤油を使用しています。
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/PlusVeganique1-1024x1024.jpeg?ssl=1)
+![](/images/blog/2021/PlusVeganique1.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/PlusVeganique2-768x1024.jpeg?ssl=1)
+![](/images/blog/2021/PlusVeganique2.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2021/12/PlusVeganique3-1024x1024.jpeg?ssl=1)
+![](/images/blog/2021/PlusVeganique3.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/PlusVeganique4-1024x1024.jpeg?ssl=1)![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/PlusVeganique5-1024x1024.jpeg?ssl=1)
+![](/images/blog/2021/PlusVeganique4.jpeg)![](/images/blog/2021/PlusVeganique5.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/PlusVeganique6-1024x1024.jpeg?ssl=1)
+![](/images/blog/2021/PlusVeganique6.jpeg)
 
 　事前に予約すると、グルテンフリーのメニューにも対応してくれるそうですよ！
 
@@ -203,25 +203,25 @@ POINTS
 
 　たくさんあるけど、T’s レストランはメニューが全部美味しい！
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant1-874x1024.jpg?ssl=1)
+![](/images/blog/2021/TsRestaurant1.jpg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant2-1024x1024.jpeg?ssl=1)
+![](/images/blog/2021/TsRestaurant2.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant3-768x1024.jpg?ssl=1)
+![](/images/blog/2021/TsRestaurant3.jpg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant4-1024x1024.jpeg?ssl=1)![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant5-1024x1024.jpeg?ssl=1)![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant6-1024x1007.jpeg?ssl=1)
+![](/images/blog/2021/TsRestaurant4.jpeg)![](/images/blog/2021/TsRestaurant5.jpeg)![](/images/blog/2021/TsRestaurant6.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant7-1024x1024.jpeg?ssl=1)![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant8-1024x1024.jpeg?ssl=1)![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant9-1024x1024.jpeg?ssl=1)
+![](/images/blog/2021/TsRestaurant7.jpeg)![](/images/blog/2021/TsRestaurant8.jpeg)![](/images/blog/2021/TsRestaurant9.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant10.jpeg?ssl=1)
+![](/images/blog/2021/TsRestaurant10.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant11.jpeg?ssl=1)
+![](/images/blog/2021/TsRestaurant11.jpeg)
 
-![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant12.jpeg?ssl=1)
+![](/images/blog/2021/TsRestaurant12.jpeg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant13-768x1024.jpg?ssl=1)
+![](/images/blog/2021/TsRestaurant13.jpg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/TsRestaurant14-768x1024.jpg?ssl=1)
+![](/images/blog/2021/TsRestaurant14.jpg)
 
 　ビーガンカップラーメンもとても安く購入できます！
 
@@ -252,9 +252,9 @@ POINTS
 
 「嵐にしやがれ」でも紹介された冷麺専門店！スープや麺など全て本場盛岡から直送した本物の「盛岡冷麺」を提供しています。全メニュー化学調味料不使用で素材にこだわり抜いた、身体に優しい冷麺です！
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/Tsurushiko1-768x1024.jpeg?ssl=1)
+![](/images/blog/2021/Tsurushiko1.jpeg)
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2021/12/Tsurushiko2-1024x1024.jpg?ssl=1)
+![](/images/blog/2021/Tsurushiko2.jpg)
 
 ベジタリアンやビーガンの方に対応しているメニューもあります。中でも僕のおすすめはトマトバジル冷麺です。トマトの甘味とバジルの爽やかさのマッチが冷麺の美味しさを引き立てます！
 

@@ -4,14 +4,14 @@ date:     2022-09-26
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/09/what-is-gelatin-made-from_BANNER-1.png"
+hero:     "/images/blog/2022/what-is-gelatin-made-from.png"
 excerpt:  "ゼラチンはビーガン、そして実はベジタリアンでもないので、ゼラチンが何からできているのか気になるところです。なぜ、ゼリーやマシュマロのような製品のヴィーガンバージョンが必要なのでしょうか？ ゼラチンとは何ですか？ ゼラチン…"
 source:   "https://veganoji.jp/what-is-gelatin-made-from/"
 ---
 
 ゼラチンは**ビーガン、そして実はベジタリアンでもない**ので、ゼラチンが**何からできている**のか気になるところです。なぜ、ゼリーやマシュマロのような製品のヴィーガンバージョンが必要なのでしょうか？
 
-![](https://veganoji.jp/wp-content/uploads/2022/09/what-is-gelatin-made-from_BANNER-1.png)
+![](/images/blog/2022/what-is-gelatin-made-from.png)
 
 ## **ゼラチンとは何ですか？**
 
@@ -61,7 +61,7 @@ source:   "https://veganoji.jp/what-is-gelatin-made-from/"
 
 ヴィーガンマシュマロとゼリーキャンディーを作っている会社は増えています。ここでは、ゼラチンのお菓子に代わる、私のお気に入りの植物性のお菓子をいくつか紹介します。
 
-![](https://veganoji.jp/wp-content/uploads/2022/09/ビーガン王子のおすすめなグミとマシュマロ.png)
+![](/images/blog/2022/ビーガン王子のおすすめなグミとマシュマロ.png)
 
 **■ Veggie Mallow（**ベジーマロー**）**
 

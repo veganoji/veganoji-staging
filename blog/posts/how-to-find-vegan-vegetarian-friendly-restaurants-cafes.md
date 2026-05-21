@@ -4,14 +4,14 @@ date:     2022-01-02
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
 tags:     ["カフェ", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "レストラン", "ヴィーガン", "見つける方法", "vegan", "vegan oji", "vegetarian", "探し方"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/01/BLOG-POST-COVER-IMAGES-10.png"
+hero:     "/images/blog/2022/how-to-find-vegan-vegetarian-friendly-restaurants-cafes.png"
 excerpt:  "日本でヴィーガンをやっていて何が大変かというと、ほとんどの人が「外で食事ができる場所が少ない」と答えます。しかし、ヴィーガン対応のレストランやヴィーガンメニューを提供するチェーン店が爆発的に増え、この状況は急速に変わりつ…"
 source:   "https://veganoji.jp/how-to-find-vegan-vegetarian-friendly-restaurants-cafes/"
 ---
 
 日本でヴィーガンをやっていて何が大変かというと、ほとんどの人が**「外で食事ができる場所が少ない」**と答えます。しかし、**ヴィーガン対応のレストランやヴィーガンメニューを提供するチェーン店**が爆発的に増え、この状況は急速に変わりつつあるのです! 今回の記事ではお近くの**美味しいヴィーガンレストランを見つける方法**をご紹介します。
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/BLOG-POST-COVER-IMAGES-10.png)
+![](/images/blog/2022/how-to-find-vegan-vegetarian-friendly-restaurants-cafes.png)
 
 　まず僕がいつも使っているビーガンレストランの探し方を紹介したいと思います。
 
@@ -21,7 +21,7 @@ source:   "https://veganoji.jp/how-to-find-vegan-vegetarian-friendly-restaurants
 
 ## [①ビーガン王子のマップ](https://veganoji.jp/japan-vegan-map/)
 
-[![](https://veganoji.jp/wp-content/uploads/2022/11/1-OJI-MAPS.png)](https://veganoji.jp/japan-vegan-map/)
+[![](/images/blog/2022/1-OJI-MAPS.png)](https://veganoji.jp/japan-vegan-map/)
 
 ビーガンのお店探しを楽しく、分かりやすくするため、ビーガン王子のマップを開発させていただきました。ビーガンが食べられるお店が見れるのだけではなく、カテゴリーや有名な方のおすすめなお店を見ることができます！そしてお店の写真をクリックすると、そのお店の詳細が見れるページまで飛びます！まだ完成していないところが多少ありますが、ぜひ使ってみてください！
 
@@ -61,9 +61,9 @@ source:   "https://veganoji.jp/how-to-find-vegan-vegetarian-friendly-restaurants
 
 **メキシコ、タイ、インド、地中海料理のお店**は特にビーガン料理が豊富だと思うので、その選択肢があれば、そういったお店を探すのもいいですね！困っている時は僕もよく**イタリア料理のお店**を探します！パスタだったら、バターの変わりにオリーブオイルにして、他の動物性のものを抜いてもらえれば、トマト系のパスタを食べることができます！
 
-![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/10/milan-nataraj-all-768x1024.jpg?ssl=1)
+![](/images/blog/2022/milan-nataraj-all.jpg)
 
-![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/GuzmanyGomez-1.jpeg?ssl=1)![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/ItalianTomatoPasta.jpeg?ssl=1)![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/VeganThaiCuisine.jpeg?ssl=1)
+![](/images/blog/2022/GuzmanyGomez-1.jpeg)![](/images/blog/2022/ItalianTomatoPasta.jpeg)![](/images/blog/2022/VeganThaiCuisine.jpeg)
 
 ベジタリアンの選択肢があれば、乳製品や卵を抜いてもらえるかどうかを**スタッフの方に聞く**こともできます！
 

@@ -4,14 +4,14 @@ date:     2024-04-06
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2024/03/6.png"
+hero:     "/images/blog/2024/seaweed-superfood-benefits-nutrition.png"
 excerpt:  "「海の野菜」とも呼ばれる食材である海藻は、様々なアジア料理で古来より愛されてきました。様々な料理に利用できることはもちろん、その栄養価の高さから、海藻は多くのヴィーガンたちの関心を集めています。このブログではヴィーガン食…"
 source:   "https://veganoji.jp/seaweed-superfood-benefits-nutrition/"
 ---
 
 「海の野菜」とも呼ばれる食材である海藻は、様々なアジア料理で古来より愛されてきました。様々な料理に利用できることはもちろん、その栄養価の高さから、海藻は多くのヴィーガンたちの関心を集めています。このブログでは**ヴィーガン食において海藻がもたらす効果**に注目し、**海藻がもつ豊かな栄養成分が健康にどのような良い効果を及ぼすか**を探求してみましょう。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/6.png)
+![](/images/blog/2024/seaweed-superfood-benefits-nutrition.png)
 
 ## 豊かな栄養素
 
@@ -29,7 +29,7 @@ source:   "https://veganoji.jp/seaweed-superfood-benefits-nutrition/"
 
 海藻はビタミンA、C、E、B群のビタミンやカルシウム、マグネシウム、鉄、カリウムなどのミネラルを豊富に含んでいます。これらの栄養素は**骨の健康や免疫力の向上、体の活力増進に効果的**です。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/sushi-vegan.jpeg)
+![](/images/blog/2024/sushi-vegan.jpeg)
 
 ### 腸内健康の保持
 
@@ -47,7 +47,7 @@ source:   "https://veganoji.jp/seaweed-superfood-benefits-nutrition/"
 
 海藻に豊富に含まれるヨウ素は甲状腺の健康に重要な役割を果たします。代謝機能のバランス調整や体内エネルギーの保持、認知機能の維持に係る甲状腺が適切に機能するためにはヨウ素は不可欠です。ヨウ素を含む食品をなかなか手に入れにくいヴィーガンたちにとって、ヨ**ウ素を豊富に含む海藻は食事に取り入れやすく、効果が期待できる**食品です。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/seaweed-noodles.jpeg)
+![](/images/blog/2024/seaweed-noodles.jpeg)
 
 ## 海藻を取り入れたヴィーガン食の例
 

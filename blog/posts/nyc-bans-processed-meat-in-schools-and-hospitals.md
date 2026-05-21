@@ -3,12 +3,12 @@ title:    "ニューヨーク市が公立学校と病院で加工肉を禁止、
 date:     2025-09-11
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/09/nyc-bans-processed-meat-in-schools-and-hospitals_banner.png"
+hero:     "/images/blog/2025/nyc-bans-processed-meat-in-schools-and-hospitals.png"
 excerpt:  "健康的な食事基準の更新で持続可能な食生活を促進 ニューヨーク市保健局と市長食品政策室（MOFP）が発表した更新された食品基準により、公立学校と病院での加工肉の提供が禁止されることになりました。この新しい基準は、高齢者、ホ…"
 source:   "https://veganoji.jp/nyc-bans-processed-meat-in-schools-and-hospitals/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/09/nyc-bans-processed-meat-in-schools-and-hospitals_banner.png)
+![](/images/blog/2025/nyc-bans-processed-meat-in-schools-and-hospitals.png)
 
 ## **健康的な食事基準の更新で持続可能な食生活を促進**
 
