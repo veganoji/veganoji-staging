@@ -397,11 +397,11 @@
         ゆっくり、いっしょに、かぞえてみよう。
       </p>
 
-      <!-- Prince — 考え中 pose, larger now to lead the question -->
+      <!-- Prince — curious / questioning pose specific to this page -->
       <div class="mt-10 sm:mt-12 flex justify-center">
         <img
-          src="/images/mascot/thinking.png"
-          alt="ビーガン王子 — 考え中"
+          src="/images/umi-wo-kazoeru/prince-questioning.png"
+          alt="ビーガン王子 — どう思う？"
           class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"
           loading="eager"
         />
@@ -429,15 +429,18 @@
 
       <!-- Counter overlay -->
       <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6">
-        <div class="counter-pill rounded-3xl px-8 py-7 sm:px-14 sm:py-10 text-center max-w-[94vw]">
-          <div class="font-cute-jp text-[17px] sm:text-[19px] tracking-[0.14em] text-gold/85 mb-5">
+        <div class="counter-pill rounded-3xl px-7 py-6 sm:px-12 sm:py-9 text-center max-w-[94vw]">
+          <div class="font-cute-jp text-[16px] sm:text-[18px] tracking-[0.14em] text-gold/85 mb-4">
             今年、世界で獲られた魚
           </div>
-          <div id="counter" class="ticker font-jp-display font-medium text-[48px] sm:text-[76px] lg:text-[96px] leading-none text-gold">
+          <!-- Primary: full digit count for visceral impact -->
+          <div id="counter" class="ticker font-jp-display font-medium text-[30px] sm:text-[50px] lg:text-[66px] leading-[1.05] text-gold tracking-tight">
             0 匹
           </div>
-          <div class="mt-5 text-[15px] sm:text-[17px] text-paper/65 font-jp">
-            <span id="counter-context">スクロールで進みます</span>
+          <!-- Secondary: friendlier Japanese-unit reading -->
+          <div id="counter-sub" class="mt-2 sm:mt-3 font-cute-jp text-[15px] sm:text-[18px] text-gold/75 min-h-[1.2em]"></div>
+          <div class="mt-3 text-[14px] sm:text-[16px] text-paper/65 font-jp">
+            <span id="counter-context">したにスクロールしてみてね</span>
           </div>
         </div>
 
@@ -853,6 +856,7 @@
       const countSection = document.getElementById('count-section');
       const countCanvas  = document.getElementById('count-canvas');
       const counter      = document.getElementById('counter');
+      const counterSub   = document.getElementById('counter-sub');
       const counterCtx   = document.getElementById('counter-context');
       const annotation   = document.getElementById('annotation');
       const pauseCta     = document.getElementById('pause-cta');
@@ -931,14 +935,16 @@
         if (!ctx) return;
         ctx.clearRect(0, 0, w, h);
 
-        // Aggressive ease-in matching the counter, so the fish "appear" slowly
-        // at the start of the scroll then accelerate.  Exponent 4:
-        //   10% scroll → 0.01% of fish (basically empty)
-        //    25% scroll → ~0.4% (a handful visible)
-        //    50% scroll → ~6%
-        //    75% scroll → ~32%
-        //   100% scroll → 100%
-        const eased = Math.pow(progress, 4);
+        // Quadratic ease-in (exp 2) — fish appear gently and continuously
+        // from the very first scroll, then accumulate faster as user keeps
+        // going.  At 7500 max fish:
+        //    1% scroll →   1 fish
+        //    5% scroll →  19 fish
+        //   10% scroll →  75 fish
+        //   25% scroll → 470 fish
+        //   50% scroll → 1875 fish
+        //  100% scroll → 7500 fish
+        const eased = Math.pow(progress, 2);
 
         const visible = Math.min(maxDots, Math.floor(eased * maxDots));
         const t = performance.now() / 1000;
@@ -974,23 +980,20 @@
         }
       }
 
-      // Counter formatting — Japanese units (万/億/兆) with comma separators
-      function formatFishCount(n) {
+      // Main counter: full digit count with thousands separators.
+      function formatFishMain(n) {
+        return n.toLocaleString('ja-JP') + ' 匹';
+      }
+
+      // Sub-counter: Japanese-unit reading (兆/億/万).  Empty under 10,000
+      // so it doesn't echo the main number redundantly at very small values.
+      function formatFishSub(n) {
         const oku = 100_000_000;
         const cho = 1_000_000_000_000;
-        if (n >= cho) {
-          const v = (n / cho).toFixed(2);
-          return `${v} 兆匹`;
-        }
-        if (n >= oku) {
-          const v = Math.floor(n / oku).toLocaleString('ja-JP');
-          return `${v} 億匹`;
-        }
-        if (n >= 10000) {
-          const v = Math.floor(n / 10000).toLocaleString('ja-JP');
-          return `${v} 万匹`;
-        }
-        return `${n.toLocaleString('ja-JP')} 匹`;
+        if (n >= cho) return '＝ およそ ' + (n / cho).toFixed(2) + ' 兆匹';
+        if (n >= oku) return '＝ およそ ' + Math.floor(n / oku).toLocaleString('ja-JP') + ' 億匹';
+        if (n >= 10000) return '＝ およそ ' + Math.floor(n / 10000).toLocaleString('ja-JP') + ' 万匹';
+        return '';
       }
 
       // Annotation milestones (progress, JP text)
@@ -1071,7 +1074,9 @@
         } else {
           displayedCount = targetCount;
         }
-        counter.textContent = formatFishCount(Math.floor(displayedCount));
+        const n = Math.floor(displayedCount);
+        counter.textContent = formatFishMain(n);
+        counterSub.textContent = formatFishSub(n);
         pauseCta.dataset.visible = pauseStrength > 0.5 ? 'true' : 'false';
         renderCountCanvas(lastProgress);
         drawHero(t);
