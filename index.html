@@ -40,7 +40,7 @@
       --font-hand: "Caveat", "Yusei Magic", "Hachi Maru Pop", "Noto Sans JP", cursive;
       --font-cute-jp: "Hachi Maru Pop", "Yusei Magic", "Kosugi Maru", "Noto Sans JP", sans-serif;
       --font-fun: "Lilita One", "Fraunces", "Noto Serif JP", sans-serif;
-      --font-fun-jp: "Reggae One", "Hachi Maru Pop", "Noto Sans JP", sans-serif;
+      --font-hand: "Reggae One", "Hachi Maru Pop", "Noto Sans JP", sans-serif;
     }
 
     html, body { background: var(--color-paper); color: var(--color-ink); }
@@ -71,7 +71,7 @@
     .font-jp-display  { font-family: var(--font-jp-display); }
     .font-jp          { font-family: var(--font-jp); }
     .font-fun         { font-family: var(--font-fun); }
-    .font-fun-jp      { font-family: var(--font-fun-jp); }
+    .font-hand      { font-family: var(--font-hand); }
     .font-round       { font-family: var(--font-round); }
     .font-hand        { font-family: var(--font-hand); }
     .font-cute-jp     { font-family: var(--font-cute-jp); }
@@ -313,7 +313,7 @@
       font-size: 11px; color: var(--color-muted);
       letter-spacing: 0.05em;
     }
-    .voice-name { font-family: var(--font-fun-jp); font-size: 13px; color: var(--color-ink); }
+    .voice-name { font-family: var(--font-hand); font-size: 13px; color: var(--color-ink); }
 
     /* Polaroid-style work cards */
     .work-card {
@@ -405,34 +405,22 @@
     }
     .social-rail::before { content: ""; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 1px; height: 16px; background: var(--color-line); }
     .social-rail::after  { content: ""; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 1px; height: 16px; background: var(--color-line); }
+    /* Social icons — sticker-style PNGs, no button background needed */
     .social-icon-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 40px; height: 40px; border-radius: 999px;
-      color: var(--color-ink-soft);
-      background: var(--color-paper);
-      border: 1.5px solid var(--color-line);
-      transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), filter 0.25s ease;
     }
-    .social-icon-btn:hover { transform: translateY(-2px) scale(1.08); }
-    .social-icon-btn[data-brand="ig"]:hover { background: linear-gradient(45deg, #fdf497 0%, #fd5949 50%, #d6249f 100%); color: white; border-color: transparent; }
-    .social-icon-btn[data-brand="x"]:hover  { background: #000; color: white; border-color: #000; }
-    .social-icon-btn[data-brand="yt"]:hover { background: #FF0000; color: white; border-color: #FF0000; }
-    .social-icon-btn[data-brand="tt"]:hover { background: #000; color: white; border-color: #000; }
-    .social-icon-btn[data-brand="li"]:hover { background: #0A66C2; color: white; border-color: #0A66C2; }
-
+    .social-icon-btn img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .social-icon-btn:hover { transform: translateY(-2px) scale(1.1) rotate(-3deg); filter: drop-shadow(0 6px 10px rgba(31,24,18,0.18)); }
     .social-icon-lg {
-      display: flex; align-items: center; justify-content: center;
-      width: 64px; height: 64px; border-radius: 18px;
-      border: 2px solid var(--color-line); background: var(--color-paper);
-      color: var(--color-ink-soft);
-      transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 72px; height: 72px;
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), filter 0.3s ease;
+      filter: drop-shadow(0 4px 8px rgba(31,24,18,0.10));
     }
-    .social-icon-lg:hover { transform: translateY(-4px) rotate(-3deg) scale(1.05); box-shadow: 0 14px 36px -10px rgba(31,24,18,0.25); }
-    .social-icon-lg[data-brand="ig"]:hover { background: linear-gradient(45deg, #fdf497 0%, #fd5949 50%, #d6249f 100%); color: white; border-color: transparent; }
-    .social-icon-lg[data-brand="x"]:hover  { background: #000; color: white; border-color: #000; }
-    .social-icon-lg[data-brand="yt"]:hover { background: #FF0000; color: white; border-color: #FF0000; }
-    .social-icon-lg[data-brand="tt"]:hover { background: #000; color: white; border-color: #000; }
-    .social-icon-lg[data-brand="li"]:hover { background: #0A66C2; color: white; border-color: #0A66C2; }
+    .social-icon-lg img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .social-icon-lg:hover { transform: translateY(-4px) rotate(-4deg) scale(1.08); filter: drop-shadow(0 14px 22px rgba(31,24,18,0.25)); }
 
     /* Language dropdown */
     .lang-menu { position: relative; }
@@ -811,11 +799,11 @@
 
   <!-- ─────────────  STICKY SOCIAL RAIL  ───────────── -->
   <aside class="social-rail">
-    <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-btn" data-brand="ig"><svg width="20" height="20"><use href="#ig"/></svg></a>
-    <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="social-icon-btn" data-brand="x"><svg width="18" height="18"><use href="#x"/></svg></a>
-    <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-btn" data-brand="yt"><svg width="20" height="20"><use href="#yt"/></svg></a>
-    <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon-btn" data-brand="tt"><svg width="20" height="20"><use href="#tt"/></svg></a>
-    <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon-btn" data-brand="li"><svg width="20" height="20"><use href="#li"/></svg></a>
+    <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-btn" data-brand="ig"><img src="/images/social/ig.png" alt=""/></a>
+    <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="social-icon-btn" data-brand="x"><img src="/images/social/x.png" alt=""/></a>
+    <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-btn" data-brand="yt"><img src="/images/social/yt.png" alt=""/></a>
+    <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon-btn" data-brand="tt"><img src="/images/social/tt.png" alt=""/></a>
+    <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon-btn" data-brand="li"><img src="/images/social/li.png" alt=""/></a>
   </aside>
 
   <!-- ─────────────  NAV  ───────────── -->
@@ -944,11 +932,11 @@
 
         <div class="lg:hidden mt-6 sm:mt-8 flex items-center gap-2.5 text-muted">
           <span class="text-[12px] tracking-[0.18em] uppercase font-jp">フォロー</span>
-          <a href="https://instagram.com/veganoji" aria-label="Instagram" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="ig"><svg width="16" height="16"><use href="#ig"/></svg></a>
-          <a href="https://x.com/VeganOji" aria-label="X" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="x"><svg width="14" height="14"><use href="#x"/></svg></a>
-          <a href="https://www.youtube.com/@veganoji" aria-label="YouTube" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="yt"><svg width="16" height="16"><use href="#yt"/></svg></a>
-          <a href="https://www.tiktok.com/@veganoji" aria-label="TikTok" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="tt"><svg width="16" height="16"><use href="#tt"/></svg></a>
-          <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" aria-label="LinkedIn" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="li"><svg width="16" height="16"><use href="#li"/></svg></a>
+          <a href="https://instagram.com/veganoji" aria-label="Instagram" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="ig"><img src="/images/social/ig.png" alt=""/></a>
+          <a href="https://x.com/VeganOji" aria-label="X" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="x"><img src="/images/social/x.png" alt=""/></a>
+          <a href="https://www.youtube.com/@veganoji" aria-label="YouTube" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="yt"><img src="/images/social/yt.png" alt=""/></a>
+          <a href="https://www.tiktok.com/@veganoji" aria-label="TikTok" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="tt"><img src="/images/social/tt.png" alt=""/></a>
+          <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" aria-label="LinkedIn" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="li"><img src="/images/social/li.png" alt=""/></a>
         </div>
       </div>
 
@@ -981,15 +969,15 @@
   <section class="bg-paper border-y border-line py-4 sm:py-5">
     <div class="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10">
       <div class="grid grid-cols-3 gap-2 sm:gap-3">
-        <a href="#booking" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-royal text-paper py-3 sm:py-3.5 px-2 sm:px-4 text-[12px] sm:text-[14px] font-jp hover:bg-royal-deep transition-colors text-center leading-tight">
+        <a href="#booking" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-royal text-paper py-3 sm:py-3.5 px-2 sm:px-4 text-[13px] sm:text-[14px] font-jp hover:bg-royal-deep transition-colors text-center leading-tight">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="flex-shrink-0 hidden sm:block"><path d="M3 7h18M5 7v12a2 2 0 002 2h10a2 2 0 002-2V7M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           仕事を依頼
         </a>
-        <a href="/tools/" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-paper border-2 border-leaf-deep/30 text-leaf-deep py-3 sm:py-3.5 px-2 sm:px-4 text-[12px] sm:text-[14px] font-jp hover:bg-leaf/10 transition-colors text-center leading-tight">
+        <a href="/tools/" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-paper border-2 border-leaf-deep/30 text-leaf-deep py-3 sm:py-3.5 px-2 sm:px-4 text-[13px] sm:text-[14px] font-jp hover:bg-leaf/10 transition-colors text-center leading-tight">
           <svg width="16" height="16" class="flex-shrink-0 hidden sm:block"><use href="#leaf"/></svg>
           王子のツール
         </a>
-        <a href="/blog/" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-paper border-2 border-gold/40 text-gold-deep py-3 sm:py-3.5 px-2 sm:px-4 text-[12px] sm:text-[14px] font-jp hover:bg-gold/10 transition-colors text-center leading-tight">
+        <a href="/blog/" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-paper border-2 border-gold/40 text-gold-deep py-3 sm:py-3.5 px-2 sm:px-4 text-[13px] sm:text-[14px] font-jp hover:bg-gold/10 transition-colors text-center leading-tight">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="flex-shrink-0 hidden sm:block"><path d="M4 4h12l4 4v12H4z M16 4v4h4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="none"/></svg>
           ブログを読む
         </a>
@@ -1087,23 +1075,23 @@
 
       <!-- PRESS strip -->
       <div class="press-strip">
-        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">フジテレビ</span></a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">TBSテレビ</span></a>
-        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">関西テレビ</span></a>
-        <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">中京テレビ</span></a>
-        <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[13px]">日経新聞</span></a>
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[14px]">フジテレビ</span></a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[14px]">TBSテレビ</span></a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[14px]">関西テレビ</span></a>
+        <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[14px]">中京テレビ</span></a>
+        <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[14px]">日経新聞</span></a>
         <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-plate"><span class="font-display italic text-[14px]">ELLE</span><span class="font-jp text-[11.5px]">スタイルインサイダー</span></a>
         <div class="press-plate"><span class="font-display italic text-[15px]">veggy</span></div>
         <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-display italic text-[15px]">Zakzak</span></a>
-        <div class="press-plate"><span class="font-jp-display text-[13px]">メトロポリターナ</span></div>
-        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[13px]">ネプリーグ</span></a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[13px]">モニタリング</span></a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[13px]">世界くらべてみたら</span></a>
-        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[13px]">池上彰の関西人が知らないKANSAI</span></a>
+        <div class="press-plate"><span class="font-jp-display text-[14px]">メトロポリターナ</span></div>
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[14px]">ネプリーグ</span></a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[14px]">モニタリング</span></a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[14px]">世界くらべてみたら</span></a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[14px]">池上彰の関西人が知らないKANSAI</span></a>
       </div>
 
       <div class="mt-5 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
-        <span class="font-jp text-[12px] text-muted">メディア関係者の方へ —</span>
+        <span class="font-jp text-[13px] sm:text-[14px] text-muted">メディア関係者の方へ —</span>
         <a href="https://drive.google.com/drive/folders/1iFVzYBwNPQh3hLUdvMHZUehJamtOTNJJ?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-royal text-[13px] font-jp border border-royal/30 rounded-full px-4 py-2 hover:bg-royal hover:text-paper transition-colors">
           <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           プレスキット（写真・プロフィール・ロゴ）をダウンロード
@@ -1193,7 +1181,7 @@
           </h2>
           <p class="font-jp-display text-[15px] sm:text-[18px] text-muted mt-2 sm:mt-3">王子の提供できること、いろいろ。<span class="md:hidden text-royal-soft">→ 横にスワイプ</span></p>
         </div>
-        <img src="/images/mascot/mc-mic.png" alt="ビーガン王子 - MC" class="block absolute right-1 sm:right-3 -top-10 sm:-top-12 lg:-top-16 w-14 sm:w-20 lg:w-28 anim-tilt drop-shadow-lg pointer-events-none z-10" loading="lazy"/>
+        <img src="/images/mascot/mc-mic.png" alt="ビーガン王子 - MC" class="block absolute right-1 sm:right-3 -top-14 sm:-top-16 lg:-top-20 w-24 sm:w-28 lg:w-32 anim-tilt drop-shadow-lg pointer-events-none -z-10 opacity-95" loading="lazy"/>
         <a href="https://drive.google.com/file/d/1ungEEVMORVgH8B9wZw9ifKS0JZ_8K9PT/view?usp=drive_link" target="_blank" rel="noopener" class="btn-ghost self-start lg:self-auto !text-[13px] !px-5 !py-2.5">
           <span class="font-jp">プロフィールをダウンロード</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -1214,7 +1202,7 @@
           <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
             国際カンファレンスからビーガンフェス、大学の特別講義まで。最大６言語で、通訳を挟まずに会場と直接つながります。
           </p>
-          <ul class="mt-auto text-[12px] text-muted space-y-1.5 font-jp">
+          <ul class="mt-auto text-[13px] sm:text-[13.5px] text-muted space-y-1.5 font-jp">
             <li>· 国際イベント司会（日英／日仏／日西）</li>
             <li>· パネルモデレーション</li>
             <li>· 大学・高校での特別講義</li>
@@ -1234,7 +1222,7 @@
           <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
             ファッション、コマーシャル、TV、Web、声優。<br/>外国人視点のキャスティング、特に得意です。
           </p>
-          <ul class="mt-auto text-[12px] text-muted space-y-1.5 font-jp">
+          <ul class="mt-auto text-[13px] sm:text-[13.5px] text-muted space-y-1.5 font-jp">
             <li>· テレビ・ウェブ番組出演</li>
             <li>· 広告・ブランドキャンペーン</li>
             <li>· 多言語ナレーション・声優</li>
@@ -1254,7 +1242,7 @@
           <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
             王子の衣装に身を包んで、日本に笑顔とポジティブな変化を届けるコンテンツを毎日発信。モットーは<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>。
           </p>
-          <ul class="mt-auto text-[12px] text-muted space-y-1.5 font-jp">
+          <ul class="mt-auto text-[13px] sm:text-[13.5px] text-muted space-y-1.5 font-jp">
             <li>· Instagram / TikTok / YouTube</li>
             <li>· ブランドコラボ動画</li>
             <li>· 多言語コンテンツ</li>
@@ -1274,7 +1262,7 @@
           <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
             複数のブランドで、国内外マーケティング・AI活用・モデル／アーティスト事務所運営など、「海外と日本」をつなぐ仕事をしています。
           </p>
-          <ul class="mt-auto text-[12px] text-muted space-y-1.5 font-jp">
+          <ul class="mt-auto text-[13px] sm:text-[13.5px] text-muted space-y-1.5 font-jp">
             <li>· <a href="https://www.researchsolutions.com" target="_blank" rel="noopener" class="text-royal hover:underline">Research Solutions</a> · Japan Territory Manager</li>
             <li>· <a href="https://handpanstudiotokyo.jp" target="_blank" rel="noopener" class="text-royal hover:underline">Handpan Studio Tokyo</a> · 共同創業</li>
             <li>· <a href="https://ojidigital.com" target="_blank" rel="noopener" class="text-royal hover:underline">OJI DIGITAL</a> · AI活用コンサル</li>
@@ -1292,7 +1280,7 @@
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
       <div class="text-center mb-6 sm:mb-8">
         <div class="ornament justify-center mb-3"><span style="color:#E8C76F">王子が手がけるもの</span></div>
-        <p class="font-jp text-[12px] sm:text-[13px] text-paper/75">モデル・タレント業とあわせて、こんなブランドを動かしています。<span class="md:hidden text-gold-soft">→ 横にスワイプ</span></p>
+        <p class="font-jp text-[13px] sm:text-[14px] text-paper/75">モデル・タレント業とあわせて、こんなブランドを動かしています。<span class="md:hidden text-gold-soft">→ 横にスワイプ</span></p>
       </div>
       <div class="logo-strip">
         <a href="https://www.researchsolutions.com" target="_blank" rel="noopener" class="logo-card">
@@ -1320,7 +1308,7 @@
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
       <div class="text-center mb-6 sm:mb-8">
         <div class="ornament justify-center mb-2.5"><span>王子のツール</span></div>
-        <p class="font-jp text-[12px] sm:text-[13px] text-muted">「で、実際どうすればいいの？」── そんな疑問に答える、無料の道具を２つ用意しました。</p>
+        <p class="font-jp text-[13px] sm:text-[14px] text-muted">「で、実際どうすればいいの？」── そんな疑問に答える、無料の道具を２つ用意しました。</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
 
@@ -1331,7 +1319,7 @@
           <div class="flex-1 min-w-0">
             <div class="eyebrow text-leaf-deep font-jp">道具その１</div>
             <h3 class="font-jp-display text-[18px] sm:text-[20px] font-medium text-ink leading-tight mt-1">ビーガン計算機</h3>
-            <p class="font-jp text-[12px] sm:text-[13px] text-muted mt-1.5 leading-relaxed">「もし◯年ビーガンを続けたら…」 水・穀物・森林・CO₂・動物のいのちで、地球への貢献度を計算。</p>
+            <p class="font-jp text-[13px] sm:text-[14px] text-muted mt-1.5 leading-relaxed">「もし◯年ビーガンを続けたら…」 水・穀物・森林・CO₂・動物のいのちで、地球への貢献度を計算。</p>
             <div class="mt-3 inline-flex items-center gap-1.5 text-royal text-[13px] font-jp">
               開く
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -1346,7 +1334,7 @@
           <div class="flex-1 min-w-0">
             <div class="eyebrow font-jp">道具その２</div>
             <h3 class="font-jp-display text-[18px] sm:text-[20px] font-medium text-ink leading-tight mt-1">ビーガンマップ</h3>
-            <p class="font-jp text-[12px] sm:text-[13px] text-muted mt-1.5 leading-relaxed">日本全国 3,200+ 店舗のビーガン・ベジ対応レストランを、王子が厳選してマップに。</p>
+            <p class="font-jp text-[13px] sm:text-[14px] text-muted mt-1.5 leading-relaxed">日本全国 3,200+ 店舗のビーガン・ベジ対応レストランを、王子が厳選してマップに。</p>
             <div class="mt-3 inline-flex items-center gap-1.5 text-royal text-[13px] font-jp">
               開く
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -1438,7 +1426,7 @@
           </h2>
           <p class="font-jp-display text-[18px] text-muted mt-3">最近の登壇・出演から、いくつか。<span class="text-royal-soft">→</span> 横にスワイプ</p>
         </div>
-        <img src="/images/mascot/running-carrot.png" alt="ビーガン王子 - ランニング" class="block absolute right-1 sm:right-3 -top-10 sm:-top-12 lg:-top-16 w-14 sm:w-20 lg:w-28 anim-bobble drop-shadow-lg pointer-events-none z-10" loading="lazy"/>
+        <img src="/images/mascot/running-carrot.png" alt="ビーガン王子 - ランニング" class="block absolute right-1 sm:right-3 -top-14 sm:-top-16 lg:-top-20 w-24 sm:w-28 lg:w-32 anim-bobble drop-shadow-lg pointer-events-none -z-10 opacity-95" loading="lazy"/>
         <a href="/activity/" class="text-ink-soft text-[13px] tracking-wider underline underline-offset-8 decoration-royal hover:text-royal transition-colors font-jp">
           活動アーカイブをすべて見る →
         </a>
@@ -1478,7 +1466,7 @@
           </div>
           <div class="flex-1 min-w-0">
             <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">SPARTAN スプリント</div>
-            <div class="font-jp text-[12px] text-muted mt-1 flex items-center gap-1.5">
+            <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-1 flex items-center gap-1.5">
               <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 千葉 · オブスタクルレース
             </div>
           </div>
@@ -1491,7 +1479,7 @@
           </div>
           <div class="flex-1 min-w-0">
             <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">あだち荒川マラソン大会2026</div>
-            <div class="font-jp text-[12px] text-muted mt-1 flex items-center gap-1.5">
+            <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-1 flex items-center gap-1.5">
               <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 東京 · マラソン
             </div>
           </div>
@@ -1504,7 +1492,7 @@
           </div>
           <div class="flex-1 min-w-0">
             <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">2026 函館マラソン</div>
-            <div class="font-jp text-[12px] text-muted mt-1 flex items-center gap-1.5">
+            <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-1 flex items-center gap-1.5">
               <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 函館 · マラソン
             </div>
           </div>
@@ -1517,7 +1505,7 @@
           </div>
           <div class="flex-1 min-w-0">
             <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">SPARTAN スーパー</div>
-            <div class="font-jp text-[12px] text-muted mt-1 flex items-center gap-1.5">
+            <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-1 flex items-center gap-1.5">
               <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 静岡・裾野（富士山近く）· オブスタクルレース
             </div>
           </div>
@@ -1652,11 +1640,11 @@
       </p>
 
       <div class="mt-8 sm:mt-10 flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-5">
-        <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="ig"><svg width="26" height="26"><use href="#ig"/></svg></a>
-        <a href="https://x.com/VeganOji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="x"><svg width="22" height="22"><use href="#x"/></svg></a>
-        <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="yt"><svg width="26" height="26"><use href="#yt"/></svg></a>
-        <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="tt"><svg width="26" height="26"><use href="#tt"/></svg></a>
-        <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" class="social-icon-lg" data-brand="li"><svg width="26" height="26"><use href="#li"/></svg></a>
+        <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="ig"><img src="/images/social/ig.png" alt=""/></a>
+        <a href="https://x.com/VeganOji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="x"><img src="/images/social/x.png" alt=""/></a>
+        <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="yt"><img src="/images/social/yt.png" alt=""/></a>
+        <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="tt"><img src="/images/social/tt.png" alt=""/></a>
+        <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" class="social-icon-lg" data-brand="li"><img src="/images/social/li.png" alt=""/></a>
       </div>
 
       <!-- Newsletter signup -->
@@ -1665,15 +1653,15 @@
           <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-royal text-paper flex items-center justify-center shadow rotate-[-8deg]">
             <svg width="18" height="18"><use href="#heart"/></svg>
           </div>
-          <div class="font-fun-jp text-[15px] sm:text-[17px] text-ink leading-tight">王子からの月刊だより</div>
+          <div class="font-hand text-[15px] sm:text-[17px] text-ink leading-tight">王子からの月刊だより</div>
           <div class="font-display italic text-[13px] text-muted mt-0.5">A monthly note from the prince</div>
-          <p class="font-jp text-[12px] sm:text-[13px] text-ink-soft mt-3 leading-relaxed">
+          <p class="font-jp text-[13px] sm:text-[14px] text-ink-soft mt-3 leading-relaxed">
             新しいレシピ、最近の活動、ここでしか言えない裏話。月に１回、王子から手紙が届きます。
           </p>
           <form id="newsletter-form" class="mt-4 flex flex-col sm:flex-row gap-2.5">
-            <input type="email" required placeholder="you@example.jp" class="flex-1 bg-paper border border-line rounded-full px-4 py-2.5 text-[13px] text-ink focus:outline-none focus:border-royal transition-colors font-jp"/>
-            <button type="submit" class="btn-primary !text-[13px] !px-5 !py-2.5 justify-center">
-              <span class="font-fun-jp">登録</span>
+            <input type="email" required placeholder="you@example.jp" class="flex-1 bg-paper border border-line rounded-full px-4 py-2.5 text-[14px] text-ink focus:outline-none focus:border-royal transition-colors font-jp"/>
+            <button type="submit" class="btn-primary !text-[14px] !px-5 !py-2.5 justify-center">
+              <span class="font-hand">登録</span>
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
           </form>
@@ -1690,7 +1678,7 @@
     <svg class="absolute top-12 right-[12%] w-12 h-12 text-gold opacity-40 anim-float"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-20 left-[8%] w-14 h-14 text-paper opacity-15 anim-float" style="animation-delay:1.2s"><use href="#heart"/></svg>
 
-    <div class="absolute top-6 right-2 sm:top-12 sm:right-6 lg:top-1/2 lg:-translate-y-1/2 lg:right-[4%] w-20 sm:w-32 lg:w-48 anim-bobble pointer-events-none z-10">
+    <div class="absolute top-6 right-2 sm:top-12 sm:right-6 lg:top-1/2 lg:-translate-y-1/2 lg:right-[4%] w-28 sm:w-40 lg:w-56 anim-bobble pointer-events-none z-10">
       <img src="/images/mascot/treasure-chest.png" alt="ビーガン王子 - サポーター" class="w-full h-auto drop-shadow-2xl" loading="lazy"/>
     </div>
 
@@ -1828,7 +1816,7 @@
             <div class="text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">活動形態</div>
             <div class="font-jp-display text-[17px] text-ink">ビーガン王子株式会社 · 代表取締役</div>
             <div class="font-display italic text-[13px] text-muted mt-0.5">CEO of Vegan Oji Inc.</div>
-            <div class="font-jp text-[12px] text-muted mt-2 leading-relaxed">事務所には専属せず、独立して活動しています。</div>
+            <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-2 leading-relaxed">事務所には専属せず、独立して活動しています。</div>
           </div>
           <div class="border-l-2 border-line pl-5">
             <div class="text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">対応言語</div>
@@ -1872,7 +1860,7 @@
     <img
       src="/images/mascot/sleeping-crown.png"
       alt="ビーガン王子 - おやすみ"
-      class="block absolute -bottom-2 right-2 sm:right-6 lg:right-16 w-24 sm:w-32 lg:w-52 anim-bobble pointer-events-none"
+      class="block absolute -bottom-2 right-2 sm:right-6 lg:right-16 w-32 sm:w-40 lg:w-56 anim-bobble pointer-events-none -z-10"
       style="animation-delay:0.6s"
       loading="lazy"
     />
@@ -1882,7 +1870,7 @@
       src="/images/mascot/polite-bow.png"
       alt=""
       aria-hidden="true"
-      class="hidden sm:block absolute -bottom-2 left-2 sm:left-6 lg:left-12 w-24 sm:w-28 lg:w-40 anim-bobble pointer-events-none drop-shadow-md"
+      class="block absolute -bottom-2 left-2 sm:left-6 lg:left-12 w-24 sm:w-32 lg:w-44 anim-bobble pointer-events-none drop-shadow-md -z-10"
       style="animation-delay:1.1s"
       loading="lazy"
     />
@@ -1913,9 +1901,9 @@
         <div class="lg:col-span-3">
           <div class="flex items-center gap-2 mb-4">
             <svg width="14" height="14" class="text-royal"><use href="#crown"/></svg>
-            <span class="font-fun-jp text-[14px] text-ink tracking-wider">ナビゲーション</span>
+            <span class="font-hand text-[14px] text-ink tracking-wider">ナビゲーション</span>
           </div>
-          <ul class="space-y-2 text-[13px] sm:text-[14px] text-ink-soft font-jp">
+          <ul class="space-y-2 text-[14px] sm:text-[15px] text-ink-soft font-jp">
             <li><a href="#about"     class="hover:text-royal transition-colors">王子について</a></li>
             <li><a href="#services"  class="hover:text-royal transition-colors">サービス</a></li>
             <li><a href="/tools/"    class="hover:text-royal transition-colors">王子のツール</a></li>
@@ -1932,14 +1920,14 @@
         <div class="lg:col-span-5">
           <div class="flex items-center gap-2 mb-4">
             <svg width="14" height="14" class="text-royal"><use href="#heart"/></svg>
-            <span class="font-fun-jp text-[14px] text-ink tracking-wider">王子に会える場所</span>
+            <span class="font-hand text-[14px] text-ink tracking-wider">王子に会える場所</span>
           </div>
-          <ul class="grid grid-cols-1 gap-2 text-[13px] sm:text-[14px] text-ink-soft font-jp">
-            <li class="flex items-center gap-2.5"><svg width="16" height="16" class="text-royal"><use href="#ig"/></svg><a href="https://instagram.com/veganoji" class="hover:text-royal transition-colors">Instagram · @veganoji</a></li>
-            <li class="flex items-center gap-2.5"><svg width="14" height="14" class="text-royal"><use href="#x"/></svg><a href="https://x.com/VeganOji" class="hover:text-royal transition-colors">X · @VeganOji</a></li>
-            <li class="flex items-center gap-2.5"><svg width="16" height="16" class="text-royal"><use href="#yt"/></svg><a href="https://www.youtube.com/@veganoji" class="hover:text-royal transition-colors">YouTube · ビーガン王子</a></li>
-            <li class="flex items-center gap-2.5"><svg width="16" height="16" class="text-royal"><use href="#tt"/></svg><a href="https://www.tiktok.com/@veganoji" class="hover:text-royal transition-colors">TikTok · @veganoji</a></li>
-            <li class="flex items-center gap-2.5"><svg width="16" height="16" class="text-royal"><use href="#li"/></svg><a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" class="hover:text-royal transition-colors">LinkedIn · Alex Derycz</a></li>
+          <ul class="grid grid-cols-1 gap-2 text-[14px] sm:text-[15px] text-ink-soft font-jp">
+            <li class="flex items-center gap-2.5"><img src="/images/social/ig.png" alt=""/><a href="https://instagram.com/veganoji" class="hover:text-royal transition-colors">Instagram · @veganoji</a></li>
+            <li class="flex items-center gap-2.5"><img src="/images/social/x.png" alt=""/><a href="https://x.com/VeganOji" class="hover:text-royal transition-colors">X · @VeganOji</a></li>
+            <li class="flex items-center gap-2.5"><img src="/images/social/yt.png" alt=""/><a href="https://www.youtube.com/@veganoji" class="hover:text-royal transition-colors">YouTube · ビーガン王子</a></li>
+            <li class="flex items-center gap-2.5"><img src="/images/social/tt.png" alt=""/><a href="https://www.tiktok.com/@veganoji" class="hover:text-royal transition-colors">TikTok · @veganoji</a></li>
+            <li class="flex items-center gap-2.5"><img src="/images/social/li.png" alt=""/><a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" class="hover:text-royal transition-colors">LinkedIn · Alex Derycz</a></li>
             <li class="flex items-center gap-2.5 pt-2 mt-1 border-t border-line/60"><svg width="16" height="16" class="text-line-stamp"><use href="#line-stamp"/></svg><a href="https://store.line.me/stickershop/author/veganoji" class="hover:text-royal transition-colors">LINEスタンプ · 発売中</a></li>
             <li class="pt-2 mt-1 border-t border-line/60"><a href="https://veganoji.jp" class="hover:text-royal transition-colors text-[12px] sm:text-[13px]">→ veganoji.jp（公式サイト）</a></li>
           </ul>
