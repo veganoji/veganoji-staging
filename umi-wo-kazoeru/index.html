@@ -73,6 +73,18 @@
         radial-gradient(ellipse at 70% 100%, rgba(11, 53, 83, 0.55), transparent 65%),
         linear-gradient(180deg, #020c14 0%, #031826 50%, #020c14 100%);
     }
+
+    /* Hero background — generated underwater painting beneath a soft tonal overlay */
+    .hero-bg-img {
+      background-image: url('/images/umi-wo-kazoeru/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-bg-overlay {
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(2, 12, 20, 0.20), rgba(2, 12, 20, 0.55) 70%),
+        linear-gradient(180deg, rgba(2, 12, 20, 0.20) 0%, rgba(2, 12, 20, 0.45) 60%, rgba(2, 12, 20, 0.85) 100%);
+    }
     .ocean-gradient-deeper {
       background:
         radial-gradient(ellipse at 50% 50%, rgba(11, 53, 83, 0.40), transparent 70%),
@@ -253,9 +265,25 @@
     <span class="hidden sm:inline font-cute-jp text-[13px] tracking-[0.14em] text-gold/80">海をかぞえる</span>
   </header>
 
-  <!-- ───────────────────── 1.  Hero  ───────────────────── -->
-  <section class="ocean-gradient relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden">
-    <canvas id="hero-stars" class="ocean-canvas" aria-hidden="true"></canvas>
+  <!-- ───────────────────── 1.  Hero  ─────────────────────
+       Layered background:
+         1) hero-bg.jpg full-bleed (warm-gold light rays + deep teal water)
+         2) tonal overlay so the centered question stays readable
+         3) starfield canvas at reduced opacity, layered as floating motes
+            on top of the painted scene                                   -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="hero-bg-img absolute inset-0" aria-hidden="true"></div>
+    <div class="hero-bg-overlay absolute inset-0" aria-hidden="true"></div>
+    <canvas id="hero-stars" class="ocean-canvas opacity-50" aria-hidden="true"></canvas>
+
+    <!-- Bottom-right bubble decoration: gentle floating accent -->
+    <img
+      src="/images/umi-wo-kazoeru/bubbles.png"
+      alt=""
+      class="hidden sm:block absolute bottom-6 right-6 w-16 lg:w-20 opacity-60 anim-drift pointer-events-none"
+      loading="eager"
+      aria-hidden="true"
+    />
 
     <div class="relative z-10 max-w-3xl mx-auto text-center pt-16 sm:pt-0">
       <div class="section-label mb-7 sm:mb-9">
@@ -395,6 +423,17 @@
   <!-- ───────────────────── 4.  Bycatch reveal  ───────────────────── -->
   <section class="relative ocean-gradient-deeper py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
+
+      <!-- Thoughtful prince — quiet character moment marking the tonal shift -->
+      <div class="flex justify-center mb-8 sm:mb-10">
+        <img
+          src="/images/umi-wo-kazoeru/prince-thoughtful.png"
+          alt="ビーガン王子 — 考え込む"
+          class="w-24 sm:w-32 anim-bobble drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)]"
+          loading="lazy"
+        />
+      </div>
+
       <div class="section-label mb-7 sm:mb-9">
         <span class="section-label__line"></span>
         <span class="section-label__text">混獲 (こんかく)</span>
@@ -607,6 +646,17 @@
       <p class="mt-16 font-cute-jp text-paper/45 text-[12px] sm:text-[13px]">
         最後まで、ありがとう。
       </p>
+
+      <!-- Closing wave decoration -->
+      <div class="mt-12 sm:mt-16 flex justify-center opacity-70">
+        <img
+          src="/images/umi-wo-kazoeru/wave-divider.png"
+          alt=""
+          class="w-64 sm:w-80 h-auto pointer-events-none"
+          loading="lazy"
+          aria-hidden="true"
+        />
+      </div>
     </div>
   </section>
 
