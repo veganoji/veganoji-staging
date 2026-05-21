@@ -825,16 +825,21 @@
 
       let countCanvasState = { ctx: null, w: 0, h: 0, dots: [], maxDots: 0 };
 
-      // Chibi fish sprites used to populate the count canvas.  Mixed for variety
-      // so each scroll reveals a teeming, characterful ocean instead of a uniform
-      // gold-dot field.  Silhouette fallback below keeps the canvas alive while
-      // these PNGs are still loading.
+      // Chibi fish sprites for the count canvas.  Mixed for variety, with the
+      // direction each sprite naturally faces tracked per-image so the canvas
+      // render can flip exactly the ones that need flipping.
+      //   facesRight=true  → head/eye on the right side of the sprite (a, b)
+      //   facesRight=false → head/eye on the left  side of the sprite (c, d)
       const fishSprites = [
-        '/images/umi-wo-kazoeru/fish-sprite-a.png',
-        '/images/umi-wo-kazoeru/fish-sprite-b.png',
-        '/images/umi-wo-kazoeru/fish-sprite-c.png',
-        '/images/umi-wo-kazoeru/fish-sprite-d.png',
-      ].map(src => { const img = new Image(); img.src = src; return img; });
+        { url: '/images/umi-wo-kazoeru/fish-sprite-a.png', facesRight: true  },
+        { url: '/images/umi-wo-kazoeru/fish-sprite-b.png', facesRight: true  },
+        { url: '/images/umi-wo-kazoeru/fish-sprite-c.png', facesRight: false },
+        { url: '/images/umi-wo-kazoeru/fish-sprite-d.png', facesRight: false },
+      ].map(s => {
+        const img = new Image();
+        img.src = s.url;
+        return { img, facesRight: s.facesRight };
+      });
 
       function rebuildCountCanvas() {
         const { ctx, w, h } = fitCanvas(countCanvas);
@@ -900,14 +905,16 @@
           const y = d.y + (prefersReduced ? 0 : Math.sin(t * d.wobFreq + d.phase) * d.wobAmp);
           const wob = prefersReduced ? 1 : (0.90 + 0.10 * Math.sin(t * 1.1 + d.phase));
 
-          const sprite = fishSprites[d.sprite];
+          const spec = fishSprites[d.sprite];
+          const sprite = spec && spec.img;
           if (sprite && sprite.complete && sprite.naturalWidth) {
             ctx.save();
             ctx.globalAlpha = d.a * wob;
-            // The generated sprites all face LEFT.  So:
-            //   dir = -1 (swimming left)  → draw as-is (head faces motion ✓)
-            //   dir = +1 (swimming right) → flip horizontally (head faces motion ✓)
-            if (d.dir === 1) {
+            // Each sprite has its own natural facing direction.  Flip the
+            // sprite only when its natural direction differs from the
+            // direction the fish is currently swimming.
+            const naturalDir = spec.facesRight ? 1 : -1;
+            if (d.dir !== naturalDir) {
               ctx.translate(x, y);
               ctx.scale(-1, 1);
               ctx.drawImage(sprite, -d.width / 2, -d.width / 2, d.width, d.width);
@@ -916,7 +923,6 @@
             }
             ctx.restore();
           } else {
-            // Fallback while PNGs still loading: simple silhouette
             drawFishSilhouette(ctx, x, y, d.width / 4, d.dir, d.a * wob);
           }
         }
@@ -987,10 +993,15 @@
         const countProgress = Math.min(rawProgress / COUNT_END, 1);
         const pauseProgress = Math.max(0, Math.min(1, (rawProgress - COUNT_END) / CTA_FADE));
 
-        // Ease-in on the counter: slow start, then accelerates.  Feels like
-        // the count is "waking up" as the user keeps scrolling.  Exponent
-        // 2.4 = ~1% at 20% scroll, ~25% at 60% scroll, ~100% at the end.
-        const easedCount = Math.pow(countProgress, 2.4);
+        // Aggressive ease-in — the counter creeps up barely-perceptibly at
+        // the start of the scroll, then accelerates as the user keeps going.
+        // Exponent 5 gives roughly:
+        //   10% scroll → 23 million fish ("2,300 万匹")
+        //   25% scroll → 2.2 billion    ("22 億匹")
+        //   50% scroll → 72 billion     ("720 億匹")
+        //   75% scroll → 545 billion    ("5,450 億匹")
+        //  100% scroll → 2.30 trillion  ("2.30 兆匹")
+        const easedCount = Math.pow(countProgress, 5);
 
         lastProgress  = countProgress;
         targetCount   = Math.floor(easedCount * TOTAL_FISH);
