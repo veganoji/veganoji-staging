@@ -17,6 +17,23 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style type="text/tailwindcss">
+    /* Ocean-page chibi-sticker buttons (V3 spec adapted for dark theme) */
+    .btn-ocean-primary, .btn-ocean-ghost {
+      font-family: var(--font-cute-jp); font-weight: 700;
+      border: 2.5px solid var(--color-abyss);
+      box-shadow: 4px 4px 0 var(--color-abyss);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+    .btn-ocean-ghost {
+      background: rgba(255,249,238,0.05);
+      border-color: var(--color-gold);
+      box-shadow: 4px 4px 0 var(--color-gold-deep);
+    }
+    .btn-ocean-primary:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-abyss); background: var(--color-gold-deep); }
+    .btn-ocean-primary:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-abyss); }
+    .btn-ocean-ghost:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-gold-deep); background: rgba(232,199,111,0.12); }
+    .btn-ocean-ghost:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-gold-deep); }
+
     @theme {
       /* Deep-ocean override of the Veganoji palette */
       --color-abyss:       #020c14;
@@ -263,7 +280,7 @@
     }
     .comp-human-dot {
       position: absolute;
-      left: 18%;
+      left: 13%;
       top: 50%;
       width: 16px;
       height: 16px;
@@ -276,24 +293,24 @@
     }
     .comp-fish-dot {
       position: absolute;
-      /* Diameter ~290× the human dot's 16 px.  Anchored so the LEFT edge
-         curves visibly into the frame — visual cue: "circle goes off forever". */
-      width: 4640px;
-      height: 4640px;
-      left: 52%;
+      /* Larger and pushed further left so the visible disc dominates the
+         stage and the dark label text sits comfortably in the bright surface. */
+      width: 5600px;
+      height: 5600px;
+      left: 30%;
       top: 50%;
-      margin: -2320px 0 0 0;
+      margin: -2800px 0 0 0;
       border-radius: 50%;
       background:
         radial-gradient(circle at 0% 50%,
-          rgba(232, 199, 111, 0.55) 0%,
-          rgba(232, 199, 111, 0.78) 4%,
-          rgba(232, 199, 111, 0.85) 12%,
-          rgba(232, 199, 111, 0.85) 100%);
+          rgba(232, 199, 111, 0.5) 0%,
+          rgba(232, 199, 111, 0.82) 3%,
+          rgba(232, 199, 111, 0.9) 10%,
+          rgba(232, 199, 111, 0.9) 100%);
       box-shadow:
-        0 0 60px rgba(232, 199, 111, 0.35),
-        inset 60px 0 0 -52px rgba(255, 240, 200, 0.7);
-      border-left: 4px solid rgba(232, 199, 111, 0.95);
+        0 0 80px rgba(232, 199, 111, 0.4),
+        inset 80px 0 0 -72px rgba(255, 240, 200, 0.7);
+      border-left: 5px solid rgba(232, 199, 111, 0.95);
     }
     /* Both labels share a vertical baseline (top:50%) + identical offset
        below their dots so the eye reads them as a matched pair. */
@@ -305,19 +322,19 @@
       white-space: nowrap;
     }
     .comp-human-label {
-      left: 18%;
+      left: 13%;
       transform: translate(-50%, 32px);
     }
     .comp-fish-label {
-      left: 68%;
+      left: 60%;
       transform: translate(-50%, 32px);
       color: var(--color-abyss);
     }
     @media (min-width: 640px) {
-      .comp-human-dot  { width: 22px; height: 22px; margin: -11px 0 0 -11px; left: 18%; }
-      .comp-fish-dot   { left: 55%; }
-      .comp-human-label{ left: 18%; transform: translate(-50%, 44px); }
-      .comp-fish-label { left: 72%; transform: translate(-50%, 44px); }
+      .comp-human-dot  { width: 22px; height: 22px; margin: -11px 0 0 -11px; left: 13%; }
+      .comp-fish-dot   { left: 33%; }
+      .comp-human-label{ left: 13%; transform: translate(-50%, 44px); }
+      .comp-fish-label { left: 62%; transform: translate(-50%, 44px); }
     }
 
     /* Pause-zone CTA at the end of the count section */
@@ -369,24 +386,22 @@
     />
 
     <div class="relative z-10 max-w-3xl mx-auto text-center pt-16 sm:pt-0">
-      <h1 class="font-jp-display font-light display-tight text-[40px] sm:text-[60px] lg:text-[76px] leading-[1.18] text-paper">
+      <h1 class="font-jp-display font-normal display-tight text-[46px] sm:text-[70px] lg:text-[92px] leading-[1.16] text-paper">
         今年、世界で<br/>
-        <span class="text-gold">何匹</span>の魚が、<br/>
-        獲られると<br/>
-        思いますか？
+        <span class="text-gold">何匹</span>の魚が獲られると思う？
       </h1>
 
-      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/70 font-jp text-[17px] sm:text-[19px] leading-[1.9]">
-        正解は、想像のずっと先にあります。<br/>
-        ゆっくり、いっしょに、かぞえてみましょう。
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[17px] sm:text-[19px] leading-[1.9]">
+        正解は、そうぞうのずっと先にあるよ。<br/>
+        ゆっくり、いっしょに、かぞえてみよう。
       </p>
 
-      <!-- Prince — 考え中 pose, floating gently -->
-      <div class="mt-12 sm:mt-16 flex justify-center">
+      <!-- Prince — 考え中 pose, larger now to lead the question -->
+      <div class="mt-10 sm:mt-12 flex justify-center">
         <img
           src="/images/mascot/thinking.png"
           alt="ビーガン王子 — 考え中"
-          class="w-28 sm:w-36 lg:w-44 anim-bobble drop-shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+          class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"
           loading="eager"
         />
       </div>
@@ -433,8 +448,8 @@
 
       <!-- Pause-zone CTA: fades in once counter reaches 2.30 兆匹 -->
       <div id="pause-cta" class="pause-cta absolute bottom-10 sm:bottom-14 left-0 right-0 flex flex-col items-center px-6">
-        <p class="font-cute-jp text-paper/70 text-[18px] sm:text-[20px] mb-4 text-center">これで、今年の一年分です。</p>
-        <a href="#after-count" class="inline-flex items-center gap-2 rounded-full bg-gold text-abyss px-7 py-3.5 text-[14px] font-medium tracking-wide hover:bg-paper transition-colors duration-300 shadow-lg shadow-abyss/60">
+        <p class="font-cute-jp text-paper/75 text-[18px] sm:text-[20px] mb-4 text-center">これで、今年の一年ぶん。</p>
+        <a href="#after-count" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[15px]">
           次へ進む
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M7 2 L7 11 M3 7 L7 11 L11 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
@@ -700,11 +715,11 @@
       </p>
 
       <div class="mt-14 flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="/blog/" class="inline-flex items-center gap-2 rounded-full bg-gold text-abyss px-7 py-3.5 text-[14px] font-medium tracking-wide hover:bg-paper transition-colors duration-300">
+        <a href="/blog/" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[15px]">
           ビーガンの記事を読む
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
         </a>
-        <a href="/tools/" class="inline-flex items-center gap-2 rounded-full border border-gold/40 text-gold px-7 py-3.5 text-[14px] font-medium tracking-wide hover:bg-gold/10 transition-colors duration-300">
+        <a href="/tools/" class="btn-ocean-ghost inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[15px] text-gold">
           影響を計算してみる
         </a>
       </div>
@@ -890,9 +905,14 @@
         if (!ctx) return;
         ctx.clearRect(0, 0, w, h);
 
-        const eased = progress < 0.05
-          ? progress * 8
-          : 0.4 + (progress - 0.05) * (0.6 / 0.95);
+        // Aggressive ease-in matching the counter, so the fish "appear" slowly
+        // at the start of the scroll then accelerate.  Exponent 4:
+        //   10% scroll → 0.01% of fish (basically empty)
+        //    25% scroll → ~0.4% (a handful visible)
+        //    50% scroll → ~6%
+        //    75% scroll → ~32%
+        //   100% scroll → 100%
+        const eased = Math.pow(progress, 4);
 
         const visible = Math.min(maxDots, Math.floor(eased * maxDots));
         const t = performance.now() / 1000;
@@ -949,12 +969,12 @@
 
       // Annotation milestones (progress, JP text)
       const milestones = [
-        { at: 0.02, text: '一秒で、およそ 4万匹。' },
-        { at: 0.10, text: '一日で、およそ 60億匹。世界人口とほぼ同じ数です。' },
-        { at: 0.25, text: '日本一年分のお米の重さ、ぜんぶ魚にすると…まだ、ぜんぜん足りません。' },
-        { at: 0.45, text: '想像が、ついていかなくなります。' },
-        { at: 0.70, text: 'もうすこし続きます。スクロール、ありがとう。' },
-        { at: 0.92, text: 'これで、ようやく今年の一年分。' },
+        { at: 0.02, text: '1びょうで、4まんびき…！' },
+        { at: 0.10, text: '1にちで、60おく匹。せかいじゅうの人とおなじくらい！' },
+        { at: 0.25, text: 'ぜんぶ重ねたら、お米一年分でも足りないくらい…' },
+        { at: 0.45, text: 'もう、そうぞうが追いつかなくなってくるね。' },
+        { at: 0.70, text: 'もうすこしだけ、いっしょにかぞえよう。' },
+        { at: 0.92, text: 'これで、やっと今年の一年ぶんだよ。' },
       ];
       let currentAnnotationIdx = -1;
 
@@ -1007,9 +1027,9 @@
         targetCount   = Math.floor(easedCount * TOTAL_FISH);
         pauseStrength = pauseProgress;
 
-        if (rawProgress < 0.001)         counterCtx.textContent = 'スクロールで進みます';
-        else if (countProgress < 0.999)  counterCtx.textContent = 'まだ、ぜんぜん途中です';
-        else                              counterCtx.textContent = '今年一年分（推計）';
+        if (rawProgress < 0.001)         counterCtx.textContent = 'したにスクロールしてみてね';
+        else if (countProgress < 0.999)  counterCtx.textContent = 'まだまだ、つづくよ…';
+        else                              counterCtx.textContent = 'これで、一年ぶん（だいたい）';
 
         updateAnnotation(countProgress);
       }
