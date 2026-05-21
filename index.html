@@ -86,13 +86,25 @@
       @apply inline-block w-1.5 h-1.5 rounded-full bg-gold align-middle;
     }
     @utility btn-primary {
-      @apply inline-flex items-center gap-2 rounded-full bg-royal text-paper px-6 py-3 text-[14px] font-medium tracking-wide hover:bg-royal-deep transition-colors duration-300;
+      @apply inline-flex items-center gap-2 rounded-2xl bg-royal text-paper px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
+      font-family: var(--font-cute-jp); font-weight: 700;
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
     }
     @utility btn-ghost {
-      @apply inline-flex items-center gap-2 rounded-full border border-royal/40 text-royal px-6 py-3 text-[14px] font-medium tracking-wide hover:bg-royal hover:text-paper transition-colors duration-300;
+      @apply inline-flex items-center gap-2 rounded-2xl bg-paper text-royal px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
+      font-family: var(--font-cute-jp); font-weight: 700;
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
     }
     @utility btn-gold {
-      @apply inline-flex items-center gap-2 rounded-full bg-gold text-ink px-6 py-3 text-[14px] font-medium tracking-wide hover:bg-gold-deep hover:text-paper transition-colors duration-300;
+      @apply inline-flex items-center gap-2 rounded-2xl bg-gold text-ink px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
+      font-family: var(--font-cute-jp); font-weight: 700;
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
     }
     @utility btn-line {
       @apply inline-flex items-center gap-2 rounded-full text-paper px-6 py-3 text-[14px] font-medium tracking-wide transition-all duration-300;
@@ -101,6 +113,24 @@
     @utility btn-line-hover {
       background: #058442;
     }
+
+    /* Chibi-sticker hover/active for all primary buttons (V3 spec) */
+    .btn-primary:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal-deep); }
+    .btn-primary:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .btn-ghost:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal); color: var(--color-paper); }
+    .btn-ghost:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .btn-gold:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-gold-deep); }
+    .btn-gold:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    /* Key-action rail (hero 3-button row) — apply same chibi treatment */
+    .key-action {
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      font-family: var(--font-cute-jp); font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+    .key-action:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); }
+    .key-action:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--color-ink); }
+
 
     /* Rotating roles */
     .lang-stack { display: grid; grid-template-areas: "stack"; align-items: center; justify-items: start; }
