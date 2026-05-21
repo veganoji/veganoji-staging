@@ -1,0 +1,16 @@
+# Files/directories Wrangler should NOT upload as static assets.
+# Without this, Wrangler tries to ship the entire repo — including .git —
+# and hits the 25 MiB per-file limit on the git packfile.
+
+.git/
+.github/
+.gitignore
+.DS_Store
+node_modules/
+.wrangler/
+wrangler.jsonc
+wrangler.toml
+*.log
+.env
+.env.*
+README.md
