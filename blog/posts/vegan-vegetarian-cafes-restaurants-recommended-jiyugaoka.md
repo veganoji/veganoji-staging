@@ -4,14 +4,14 @@ date:     2021-12-31
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
 tags:     ["ビーガン", "ビーガン王子のおすすめ", "ベジタリアン", "ベジー", "自由が丘", "jiyugaoka", "recommended", "vegan", "vegan oji", "vegan spots", "vegetarian"]
-hero:     "https://veganoji.jp/wp-content/uploads/2021/12/JIYUGAOKA-BLOG-POST-COVER-IMAGE.png"
+hero:     "/images/blog/2021/vegan-vegetarian-cafes-restaurants-recommended-jiyugaoka.png"
 excerpt:  "自由が丘は程よい賑わいでとても心地いい街ですよね。街歩きを楽しみながらのんびりショッピングをしたり、乗換駅として使用される方も多いかと思います。 実はビーガン・ベジタリアンスポットが多い街としても有名なんですよ。今回は５…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-jiyugaoka/"
 ---
 
 自由が丘は程よい賑わいでとても心地いい街ですよね。街歩きを楽しみながらのんびりショッピングをしたり、乗換駅として使用される方も多いかと思います。
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/JIYUGAOKA-BLOG-POST-COVER-IMAGE-1024x768.png)
+![](/images/blog/2021/vegan-vegetarian-cafes-restaurants-recommended-jiyugaoka.png)
 
 　実はビーガン・ベジタリアンスポットが多い街としても有名なんですよ。今回は５つに絞ってご紹介しますが、紹介しきれなかった美味しいビーガンのお店もまだまだあるので、[ぜひビーガンレストランの情報サイトで探して見てください！](https://docs.google.com/document/d/1c3sLW9NMQtUeILLvVLHl4hapr0A2VhhjsQpHHH1n5ms/edit?usp=sharing)
 
@@ -45,7 +45,7 @@ source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-ji
 
 人気のお店なので、事前に予約することをおすすめします。
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -92,7 +92,7 @@ POINTS
 
 　それに店員さんがとても優しくて居心地が良かったです！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -135,7 +135,7 @@ POINTS
 
 　店内もメニューもお洒落で、友達とゆっくりしたり落ち着いた場所で作業したいときなどに本当におすすめです！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -176,7 +176,7 @@ POINTS
 
 　動物性原料・食品添加物・白砂糖を一切使用していないランチプレートは絶品です！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -229,7 +229,7 @@ POINTS
 
 　東急東横線・大井町線から徒歩３分のところにあります。
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -258,7 +258,7 @@ POINTS
 
 ベジタリアンやビーガンの方に対応しているメニューもあります。中でも僕のおすすめはトマトバジル冷麺です。トマトの甘味とバジルの爽やかさのマッチが冷麺の美味しさを引き立てます！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 

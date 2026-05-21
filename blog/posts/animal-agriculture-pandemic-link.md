@@ -4,7 +4,7 @@ date:     2024-03-23
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2024/03/1.png"
+hero:     "/images/blog/2024/animal-agriculture-pandemic-link.png"
 excerpt:  "鳥インフルエンザと豚インフルエンザが各国で発生し、ある団体が \"迫り来るパンデミック \"と呼ぶものに対する工場畜産の役割を浮き彫りにしている。 世界各地で高病原性鳥インフルエンザや豚インフルエンザが多発したことを受け、世…"
 source:   "https://veganoji.jp/animal-agriculture-pandemic-link/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/animal-agriculture-pandemic-link/"
 
 韓国では最近、ソウルの保護施設で鳥インフルエンザが発生し、40匹近くの猫が死亡した。2016年以降、この地域で猫から鳥インフルエンザが検出されたのは初めてである。韓国当局は感染源が汚染されたキャットフードであることを突き止め、製造業者に全製品の回収と廃棄を命じた。政府は現在、全ての動物性食品メーカーに対して全国的な検査を実施している。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/1-1024x768.png)
+![](/images/blog/2024/animal-agriculture-pandemic-link.png)
 
 この事件に続き、イタリアでは犬5匹と猫1匹が鳥インフルエンザだと診断され、イギリスでは近隣の農場で鳥インフルエンザが検出された後、地元の海岸にカモメ330羽の死骸が打ち上げられるなど、ヨーロッパ各国で鳥類及び哺乳類の鳥インフルエンザ感染が相次いでいる。
 
@@ -29,7 +29,7 @@ source:   "https://veganoji.jp/animal-agriculture-pandemic-link/"
 
 鳥インフルエンザや豚インフルエンザの蔓延及びウイルスがヒトへ感染する可能性は**、新たな世界的健康危機への懸念**を高めている。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/factory-farming_1-1024x663.jpeg)
+![](/images/blog/2024/factory-farming_1.jpeg)
 
 ## 畜産業と迫り来るパンデミック
 
@@ -53,7 +53,7 @@ pdm09変異体についても同様の懸念が浮上している。アレクセ
 
 「ウイルスが変異を繰り返す中で、pdm09亜種は遺伝学的にヒトの季節性ワクチンには反応しなくなり、pdm09亜種がヒトに感染しやすい状態になっている可能性がある。ヒトにおけるA型インフルエンザウイルス感染を制御することは、ブタへのウイルスの流出を最小限に抑え、ブタに蔓延するウイルスの変異を減少させることができる。ブタにおけるウイルスの変異を制御することで、新型ウイルスの出現やA型インフルエンザウイルスのブタからヒトへの感染の可能性を最小限に抑えることができる。」
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/factory-farming_3-1024x683.jpg)
+![](/images/blog/2024/factory-farming_3.jpg)
 
 ## 次のパンデミックを防ぐ
 
@@ -69,7 +69,7 @@ pdm09変異体についても同様の懸念が浮上している。アレクセ
 
 「工業化された豚肉産業における多くの母豚は振り向くこともできないほど狭いケージに閉じ込められています。彼らはわずかなスペースで、食事や睡眠、排泄の全てをすることを余儀なくされるのです。多くの子も同じような運命をたどっています。この法案が可決されれば、家畜動物の悲惨な飼育現状と公衆衛生上のリスクは両方とも適切に対処することができます。」
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/factory-farming_2-1024x683.jpeg)
+![](/images/blog/2024/factory-farming_2.jpeg)
 
 しかし新たな法案である農産物貿易抑制法（EATS法）は、動物福祉と公衆衛生のために前進したこの動向を覆すことを目的としたものである。もしEATS法が可決されれば、**公衆衛生の保護に向けた動きは大きく損なわれてしまう可能性**がある。
 

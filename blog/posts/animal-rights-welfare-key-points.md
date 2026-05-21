@@ -4,14 +4,14 @@ date:     2024-04-10
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2024/03/5-1.png"
+hero:     "/images/blog/2024/animal-rights-welfare-key-points.png"
 excerpt:  "近年、西半球における動物福祉に対する意識と支援は驚くほど急速に盛り上がっています。この関心の高まりは、動物を幸福にしたいという多くの人々に共通する願いから生まれたもので、人類の価値観の向上により動物愛護が社会の優先事項と…"
 source:   "https://veganoji.jp/animal-rights-welfare-key-points/"
 ---
 
 近年、西半球における動物福祉に対する意識と支援は驚くほど急速に盛り上がっています。この関心の高まりは、**動物を幸福にしたいという多くの人々に共通する願い**から生まれたもので、人類の価値観の向上により**動物愛護が社会の優先事項となった**ことを反映しています。このブログでは動物福祉に対する意識向上の背後にある要因を探求し、動物福祉に対する共感や科学的理解、倫理的概念について焦点を当ててみましょう。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/5-1-1024x768.png)
+![](/images/blog/2024/animal-rights-welfare-key-points.png)
 
 ### 共感と思いやり
 
@@ -21,7 +21,7 @@ source:   "https://veganoji.jp/animal-rights-welfare-key-points/"
 
 科学的な解明が進んだことにより、動物の認知力や複雑な感情的が明らかにされてきています。研究によると動物の神経は驚くほど人間の神経と類似しており、痛みを感じたりや**様々な感情をもっていたり、社会的つながりに共有する能力を有している**ことが明らかです。この見解が広まるにつれて、様々な産業や概念の中で動物に対する評価が改めて見直されています。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/monkey-cage-1024x774.jpeg)
+![](/images/blog/2024/monkey-cage.jpeg)
 
 ### 倫理感に基づいた考え方
 
@@ -39,7 +39,7 @@ source:   "https://veganoji.jp/animal-rights-welfare-key-points/"
 
 動物福祉の高まりは様々な人々や機関が協力した結果です。動物福祉団体や研究者、公的機関、そして動物福祉に関心を持つ人々が協力することによって、動物福祉に対する意識は向上しています。この様々な**人や団体、機関の協働は、動物福祉に対する一体感と共有意識を育みます**。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/chicken-animal-768x1024.jpeg)
+![](/images/blog/2024/chicken-animal.jpeg)
 
 ## アニマルライツの先駆者
 

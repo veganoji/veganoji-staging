@@ -4,14 +4,14 @@ date:     2022-12-10
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/12/WORLD-VEGAN-CELEBRITIES-BANNER.png"
+hero:     "/images/blog/2022/world-vegan-celebrities.png"
 excerpt:  "ヴィーガンは、かつて宗教と同じように考えられていたが、ヴィーガンを実践している有名人の活躍もあり、今ではすっかり意識が高まりつつある。環境と倫理に関する懸念に触発され、あらゆる階層の人々が植物由来の食生活を実践しています…"
 source:   "https://veganoji.jp/world-vegan-celebrities/"
 ---
 
 ヴィーガンは、かつて宗教と同じように考えられていたが、ヴィーガンを実践している有名人の活躍もあり、今ではすっかり意識が高まりつつある。環境と倫理に関する懸念に触発され、あらゆる階層の人々が植物由来の食生活を実践しています。しかし、ヴィーガンの有名人が植物由来の食生活のポジティブな利点を共有したおかげで、何百万人ものファンがヴィーガンを試してみる気になった。SNSを通じて何百万人もの視聴者に届き、植物由来のセレブとヴィーガンの芸能人の増加は、これまでにないほど新しい視聴者にアプローチすることに役立っている。
 
-![](https://veganoji.jp/wp-content/uploads/2022/12/WORLD-VEGAN-CELEBRITIES-BANNER-1024x768.png)
+![](/images/blog/2022/world-vegan-celebrities.png)
 
 ## **菜食を実践する有名な日本人**
 

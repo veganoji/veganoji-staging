@@ -3,14 +3,14 @@ title:    "【原宿】おすすめビーガンカフェ・レストラン ❘ 5
 date:     2022-01-06
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
-hero:     "https://veganoji.jp/wp-content/uploads/2022/01/HARAJUKU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE.png"
+hero:     "/images/blog/2022/vegan-vegetarian-cafes-restaurants-recommended-harajuku.png"
 excerpt:  "ファッションストリートとして有名な原宿。渋谷や表参道からもアクセスがいいので立ち寄る機会も多いですよね。 今回はそんな原宿のビーガンスポットを厳選してご紹介いたします！！どれもとっても美味しいのでお楽しみに：） １．ヴィ…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-harajuku/"
 ---
 
 ファッションストリートとして有名な原宿。渋谷や表参道からもアクセスがいいので立ち寄る機会も多いですよね。
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/HARAJUKU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE-1-1024x768.png)
+![](/images/blog/2022/HARAJUKU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE-1.png)
 
 　今回はそんな原宿のビーガンスポットを厳選してご紹介いたします！！どれもとっても美味しいのでお楽しみに：）
 
@@ -40,7 +40,7 @@ source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-ha
 
 ![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Jangara-9-867x1024.jpeg?ssl=1)
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -77,7 +77,7 @@ POINTS
 
 　場所はJR原宿駅から徒歩6分のところにあります！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -110,7 +110,7 @@ POINTS
 
 　ビーガンでもドーナツが食べられるのは本当にうれしいですよね！ただ、グッドタウンドーナツはとても人気のお店で売り切れてしまうことがあるので事前に混み状況を確認してから行くことをおすすめします。
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -142,7 +142,7 @@ POINTS
 ビーガンヘアサロンではエシカル・サステナブルなど、ビーガン精神をコンセプトにしていて、動物性素材を一切使わずヘアケアをしてくれます！  
 ヘアケアをしてもらったあと、良い気分でビーガンランチをするのは最高です！中でもプリンが絶品で、とてもなめらかで美味しいです！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -175,7 +175,7 @@ POINTS
 
 さらにスイーツもビーガン仕様になっっているんです！中でも僕のおすすめは「チュロス」です。外はカリッと中はふわっとしている食感がたまりません！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 

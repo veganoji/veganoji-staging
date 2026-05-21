@@ -3,12 +3,12 @@ title:    "FDA承認の培養サーモンがサンフランシスコのレスト
 date:     2026-01-18
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2026/01/fda-approved-cultivated-salmon-hits-san-francisco-restaurant.png"
+hero:     "/images/blog/2026/fda-approved-cultivated-salmon-hits-san-francisco-restaurant.png"
 excerpt:  "食品技術の革新が新たな段階に入りました。Wildtype社が開発したFDA承認の培養サーモンが、2025年8月14日からサンフランシスコの高級レストラン「Robin」のメニューに登場します。これは、培養魚介類が実際のレス…"
 source:   "https://veganoji.jp/fda-approved-cultivated-salmon-hits-san-francisco-restaurant/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2026/01/fda-approved-cultivated-salmon-hits-san-francisco-restaurant-1024x768.png)
+![](/images/blog/2026/fda-approved-cultivated-salmon-hits-san-francisco-restaurant.png)
 
 食品技術の革新が新たな段階に入りました。Wildtype社が開発したFDA承認の培養サーモンが、2025年8月14日からサンフランシスコの高級レストラン「Robin」のメニューに登場します。これは、培養魚介類が実際のレストランで提供される画期的な出来事です。
 

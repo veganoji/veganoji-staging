@@ -4,12 +4,12 @@ date:     2022-01-01
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ココナッツ", "ココナッツオイル", "ビーガン王子のおすすめ", "美容", "recommended", "vegan", "vegan oji", "vegetarian", "使い方"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/01/20.png"
+hero:     "/images/blog/2022/coconut-oil-many-uses-hair-skin-food.png"
 excerpt:  "今回はココナッツオイルの使い方を紹介します。ココナッツオイルは海外セレブの間でも人気の商品で、美容や健康にとってもいい商品なんです。 最近では日本でも簡単に購入することが出来るようになってきました。まだ使ったことがない人…"
 source:   "https://veganoji.jp/coconut-oil-many-uses-hair-skin-food/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/20-1024x768.png)
+![](/images/blog/2022/coconut-oil-many-uses-hair-skin-food.png)
 
 　今回はココナッツオイルの使い方を紹介します。ココナッツオイルは海外セレブの間でも人気の商品で、美容や健康にとってもいい商品なんです。
 
@@ -23,7 +23,7 @@ source:   "https://veganoji.jp/coconut-oil-many-uses-hair-skin-food/"
 
 　ココナッツオイルとは、ココヤシからとれる油のことです。植物油には珍しく、飽和脂肪酸を多く含むオイルなので消化吸収がよいとされています。
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/CuteOpenCoconut.jpeg)
+![](/images/blog/2022/CuteOpenCoconut.jpeg)
 
 ## **ココナッツオイルの効果**
 
@@ -47,7 +47,7 @@ source:   "https://veganoji.jp/coconut-oil-many-uses-hair-skin-food/"
 
 　それでは実際に使用方法を紹介していきます！抗酸化作用や美白効果、保湿など沢山の効果があるためいろんな用途に使用することが出来ますよ！
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/delfina-cocciardi-1NzXE0E16yU-unsplash-683x1024.jpg)
+![](/images/blog/2022/delfina-cocciardi-1NzXE0E16yU-unsplash.jpg)
 
 しかし人によっては肌に合わず炎症を起こしてしまう可能性もあるため、不安な方はパッチテスト後に使用することをおすすめします。
 
@@ -106,7 +106,7 @@ source:   "https://veganoji.jp/coconut-oil-many-uses-hair-skin-food/"
 
 　ココナッツオイルを食事に取り入れることでさまざまな効果が期待できます。
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/shibi-zidhick-DES_XhqBU2E-unsplash-1024x829.jpg)
+![](/images/blog/2022/shibi-zidhick-DES_XhqBU2E-unsplash.jpg)
 
 ### ① **免疫力アップ**
 
@@ -122,7 +122,7 @@ source:   "https://veganoji.jp/coconut-oil-many-uses-hair-skin-food/"
 
 　ココナッツオイルを使用した人気の簡単レシピを紹介します！どれも簡単に取り入れることが出来るので気になる人はぜひお試しください：）
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/CoconutOilBaking-1.jpeg)
+![](/images/blog/2022/CoconutOilBaking-1.jpeg)
 
 ### ① **飲み物にプラス**
 

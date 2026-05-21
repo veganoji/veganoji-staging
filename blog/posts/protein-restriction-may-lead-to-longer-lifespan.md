@@ -3,12 +3,12 @@ title:    "タンパク質の摂取量を減らすことが長寿につながる
 date:     2025-10-17
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/10/protein-restriction-may-lead-to-longer-lifespan.png"
+hero:     "/images/blog/2025/protein-restriction-may-lead-to-longer-lifespan.png"
 excerpt:  "高タンパク質ダイエットが健康志向の人々の間で人気を集めていますが、最新の研究は意外な結論を示しています。タンパク質の摂取量を増やすのではなく、むしろ減らすことが長寿につながる可能性があるというのです。この発見は、私たちの…"
 source:   "https://veganoji.jp/protein-restriction-may-lead-to-longer-lifespan/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/10/protein-restriction-may-lead-to-longer-lifespan-1024x768.png)
+![](/images/blog/2025/protein-restriction-may-lead-to-longer-lifespan.png)
 
 高タンパク質ダイエットが健康志向の人々の間で人気を集めていますが、最新の研究は意外な結論を示しています。タンパク質の摂取量を増やすのではなく、むしろ減らすことが長寿につながる可能性があるというのです。この発見は、私たちの食生活に対する考え方を見直すきっかけとなるかもしれません。
 

@@ -4,7 +4,7 @@ date:     2022-07-20
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/07/BRAZIL-SCHOOL-VEGAN-LUNCHES-BANNER.png"
+hero:     "/images/blog/2022/brazil-school-vegan-lunches.png"
 excerpt:  "地球と学生の健康に貢献する新しい取り組みとして ブラジルの17万人以上の生徒が、植物性食品を使った健康的で持続可能な学校給食を受け取ることになります。 ブラジルのサルバドール市では、「Conscious Eating B…"
 source:   "https://veganoji.jp/brazil-school-vegan-lunches/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/brazil-school-vegan-lunches/"
 
 ブラジルのサルバドール市では、「Conscious Eating Brazil」、「Humane Society International」とサルバドール市役所が結んだ新しい協定により、**毎年1000万食以上**のサステナブルな食事が学生に提供されることになりました。
 
-![](https://veganoji.jp/wp-content/uploads/2022/07/BRAZIL-SCHOOL-VEGAN-LUNCHES-BANNER-1024x768.png)
+![](/images/blog/2022/brazil-school-vegan-lunches.png)
 
 この食事は、生徒のニーズや嗜好、食文化を考慮して開発されたものです。**野菜、豆類、穀物、果物など、植物由来の食材**を使用する予定です。
 

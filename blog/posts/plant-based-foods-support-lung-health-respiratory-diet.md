@@ -3,14 +3,14 @@ title:    "植物性食品で肺の健康をサポート：専門家が教える
 date:     2025-08-26
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/08/plant-based-foods-support-lung-health-respiratory-diet_banner.png"
+hero:     "/images/blog/2025/plant-based-foods-support-lung-health-respiratory-diet.png"
 excerpt:  "大気汚染や喫煙、感染症などによって肺の健康が脅かされる現代社会において、植物性食品が呼吸器系の健康維持に重要な役割を果たすことが専門家によって明らかにされています。 肺の健康をサポートする植物性食品 1. 抗酸化物質が豊…"
 source:   "https://veganoji.jp/plant-based-foods-support-lung-health-respiratory-diet/"
 ---
 
 大気汚染や喫煙、感染症などによって肺の健康が脅かされる現代社会において、植物性食品が呼吸器系の健康維持に重要な役割を果たすことが専門家によって明らかにされています。
 
-![](https://veganoji.jp/wp-content/uploads/2025/08/plant-based-foods-support-lung-health-respiratory-diet_banner-1024x768.png)
+![](/images/blog/2025/plant-based-foods-support-lung-health-respiratory-diet.png)
 
 ## **肺の健康をサポートする植物性食品**
 

@@ -4,14 +4,14 @@ date:     2024-04-20
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2024/03/2.png"
+hero:     "/images/blog/2024/vegan-fitness-training-tips.png"
 excerpt:  "ヴィーガンの食生活で体力をワンランクアップさせたいですか？熟練したアスリートもフィットネスのプログラムを始めたばかり人も、ヴィーガンダイエットと効果的なエクササイズを組み合わせることで素晴らしい結果を得ることができます。…"
 source:   "https://veganoji.jp/vegan-fitness-training-tips/"
 ---
 
 ヴィーガンの食生活で体力をワンランクアップさせたいですか？熟練したアスリートもフィットネスのプログラムを始めたばかり人も、ヴィーガンダイエットと効果的なエクササイズを組み合わせることで素晴らしい結果を得ることができます。このブログではいきいきとした**ヴィーガンのライフスタイルをおくりながらプロのアスリートのようなワークアウトを行うことができる非常に効果的な方法**を紹介します。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/2-1024x768.png)
+![](/images/blog/2024/vegan-fitness-training-tips.png)
 
 ### 1. 適切な燃料補給
 
@@ -29,7 +29,7 @@ source:   "https://veganoji.jp/vegan-fitness-training-tips/"
 
 ワークアウト後は**炭水化物と植物性タンパク質をバランス良く含む食事**を摂りましょう。運動後の食事は体内のグリコーゲンを補充し、筋肉の回復に効果的です。プロテインパウダーを加えた野菜や果物のスムージーも手早く美味しく栄養補給できる選択肢です。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/pad-thai-vegetarian-768x1024.jpeg)
+![](/images/blog/2024/pad-thai-vegetarian.jpeg)
 
 ### 5.バランスのよい食事
 
@@ -51,7 +51,7 @@ source:   "https://veganoji.jp/vegan-fitness-training-tips/"
 
 ワークアウトに前向きな考え方を保ち、できることが増えていくことを祝いましょう。**達成可能な目標を設定し、達成感を感じて下さい**。同じようにワークアウトに励む人をみつけ、お互いに摂取琢磨しましょう。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/training-fitness-1024x680.jpeg)
+![](/images/blog/2024/training-fitness.jpeg)
 
 ### 10. 休息や回復期間を設ける
 

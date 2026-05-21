@@ -4,7 +4,7 @@ date:     2022-09-30
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/09/new-york-hospitals-plant-based-meals_BANNER-1.png"
+hero:     "/images/blog/2022/new-york-hospitals-plant-based-meals.png"
 excerpt:  "Better Food Foundationは、「New York City Health + Hospitals」および市長室と協力し、ニューヨーク市の11の病院すべてで、通常のメニューを植物由来の食事にすることを決定…"
 source:   "https://veganoji.jp/new-york-hospitals-plant-based-meals/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/new-york-hospitals-plant-based-meals/"
 
 肉類を使ったメニューもありますが、毎日2回提供されるシェフのスペシャルは、**常に植物性の食材を使ったもの**となっています。これまでのところ、このプログラムは大きな成功を収めており、半数以上の患者さんが植物性食品を選択し、**95％がその選択に満足している**と答えています。
 
-![](https://veganoji.jp/wp-content/uploads/2022/09/new-york-hospitals-plant-based-meals_BANNER-1-1024x768.png)
+![](/images/blog/2022/new-york-hospitals-plant-based-meals.png)
 
 当初、植物性の食事はランチタイムにのみ提供されていたが、**好評につき、ディナータイムにも拡大**されることになった。**ベジタリアンやビーガンの患者は全体の1％に過ぎないにもかかわらず、だ。**
 

@@ -4,7 +4,7 @@ date:     2022-07-24
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/07/billy-eilish-vegan-sustainable-tour-BANNER.png"
+hero:     "/images/blog/2022/billy-eilish-vegan-sustainable-tour.png"
 excerpt:  "ヴィーガンのシンガーソングライターは、再び植物由来のメッセージを広めるために自身の影響力を利用しています。 ビリー・アイリッシュのコンサート来場者に、植物由来の食品をもっと食べるようにと、彼女の母親が公演前にメッセージを…"
 source:   "https://veganoji.jp/billy-eilish-vegan-sustainable-tour/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/billy-eilish-vegan-sustainable-tour/"
 
 ビリー・アイリッシュのコンサート来場者に、**植物由来の食品をもっと食べるように**と、彼女の母親が公演前にメッセージを送っているそうです。
 
-![](https://veganoji.jp/wp-content/uploads/2022/07/billy-eilish-vegan-sustainable-tour-BANNER-1024x768.png)
+![](/images/blog/2022/billy-eilish-vegan-sustainable-tour.png)
 
 4月16日、ビリーはHappier Than Everツアーのロサンゼルス公演で、大ヒット曲のメドレーを披露するため、ファンを集めました。
 

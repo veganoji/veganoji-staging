@@ -3,12 +3,12 @@ title:    "シングルファミリーの子どもたちに向けた英語デイ
 date:     2026-04-13
 category: katsudou
 category_display: "活動報告"
-hero:     "https://veganoji.jp/wp-content/uploads/2026/04/1.jpg"
+hero:     "/images/blog/2026/english-day-camp-for-children-report.jpg"
 excerpt:  "Japanese 昨年9月7日、シングルマザー家庭の子どもたちを対象とした英語イマージョン・デイキャンプに、講師として参加させていただきました。 普段は「ビーガン王子」として、ヴィーガンやサステナビリティの魅力を楽しく前…"
 source:   "https://veganoji.jp/english-day-camp-for-children-report/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2026/04/Single-Mother-English-Immersion-Camp-1024x683.jpg)
+![](/images/blog/2026/Single-Mother-English-Immersion-Camp.jpg)
 
 **Japanese**
 

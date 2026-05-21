@@ -4,7 +4,7 @@ date:     2022-09-12
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/09/BLOG-POST-COVER-IMAGES-10.png"
+hero:     "/images/blog/2022/mcdonalds-uk-ir-mcplant-launch-vegan-burger.png"
 excerpt:  "昨年末に250以上のレストランで行われた試みが成功し、マクドナルド初の植物性バーガーがついにイギリスとアイルランド全土で試食できるようになった。マクプラント・バーガーは、スパイシー・ベジ・ワン・ラップやベジ・ディッパーズ…"
 source:   "https://veganoji.jp/mcdonalds-uk-ir-mcplant-launch-vegan-burger/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/mcdonalds-uk-ir-mcplant-launch-vegan-burger/"
 
 植物由来の肉を生産するビヨンド・ミート社と共同開発したマックプラントバーガーは、3年の歳月をかけて作られたパティが特徴です。マクドナルドのミートパティの味と品質を維持するために開発・設計されたマックプラントバーガーは、ファーストフードチェーンによると「**究極のビーガン代替品」**であるという。
 
-![](https://veganoji.jp/wp-content/uploads/2022/09/BLOG-POST-COVER-IMAGES-10-1024x768.png)
+![](/images/blog/2022/mcdonalds-uk-ir-mcplant-launch-vegan-burger.png)
 
 このバーガーには、エンドウタンパク質の代用品を使った**スライスチーズ、新しいビーガン用サンドイッチソース、ビーガン用ゴマバンズ**も含まれている。また、他のハンバーガーやサンドイッチとは別に**「専用の調理器具を使って」**調理されると、マクドナルドは声明で説明している。
 
@@ -23,7 +23,7 @@ https://twitter.com/McDonaldsUK/status/1478767784117035011?s=20&t=w0mFLDU34v9zDz
 
 マクドナルドのマーケティング最高責任者であるミシェル・グラハム・クレアは、「私たちは、マクプラントバーガーが正式に "どこでも "食べられるようになり、より多くのお客様に味わっていただけることを大変うれしく思っています」と述べています。「10月に実施した試食会では**目覚ましい反響があり、マクドナルドからより多くのお客様においしい選択肢を提供できる**ことを改めて誇りに思います。**マクドナルドの象徴的な味はそのままに、植物由来の味を実現**しました。
 
-![](https://veganoji.jp/wp-content/uploads/2022/09/McDonalds-UK-IR-McPLant-872x1024.png)
+![](/images/blog/2022/McDonalds-UK-IR-McPLant.png)
 
 2022年8月に2日間ロンドンを訪れた際、私も新しいヴィーガンバーガーを食べる機会がありました 今では10年近くマクドナルドで食事をしていませんが、ヴィーガンバーガーの味はすぐにあのマクドナルドの**象徴的な味**の記憶を蘇らせたと自信を持って言うことができます。
 

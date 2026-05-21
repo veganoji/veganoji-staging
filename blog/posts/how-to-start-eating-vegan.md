@@ -4,7 +4,7 @@ date:     2022-11-04
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/11/how-to-start-eating-vegan_BANNER.png"
+hero:     "/images/blog/2022/how-to-start-eating-vegan.png"
 excerpt:  "ビーガンになるのは難しいですか？ これまで見てきたように、ビーガンのライフスタイルを採用することには多くの利点があります。しかし、食べるものや生活を大きく変えることは、当然ながら気が引けるものです。ありがたいことに、最近…"
 source:   "https://veganoji.jp/how-to-start-eating-vegan/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/how-to-start-eating-vegan/"
 
 これまで見てきたように、**ビーガンのライフスタイルを採用することには多くの利点があります。**しかし、食べるものや生活を大きく変えることは、当然ながら気が引けるものです。ありがたいことに、**最近、植物由来の製品の人気が爆発しているため、ビーガンを取り入れることは以前より簡単になりました。**さらに、あなたの旅に役立つヒント、トリック、ツールがたくさんあります。以下に、**始めるための6つのヒントを紹介します。**
 
-![](https://veganoji.jp/wp-content/uploads/2022/11/how-to-start-eating-vegan_BANNER-1024x768.png)
+![](/images/blog/2022/how-to-start-eating-vegan.png)
 
 ## ヴィーガンになるには
 

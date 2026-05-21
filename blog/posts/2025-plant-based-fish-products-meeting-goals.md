@@ -1,14 +1,14 @@
 ---
 title:    "2025年の植物性魚製品：目標を達成できているか？"
 date:     2025-12-23
-category: oji-no-kurashi
-category_display: "王子の暮らし"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/12/2025-plant-based-fish-products-meeting-goals.png"
+category: sekai-no-ugoki
+category_display: "世界のうごき"
+hero:     "/images/blog/2025/2025-plant-based-fish-products-meeting-goals.png"
 excerpt:  "過度な漁業、環境悪化、そして消費者価値観の変化が世界の水産物需要を再構築する中、植物性魚製品が本格的な注目を集めています。しかし、これらの製品は栄養面で何を提供しているのでしょうか？そして、メーカー、小売業者、政策立案者…"
 source:   "https://veganoji.jp/2025-plant-based-fish-products-meeting-goals/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/12/2025-plant-based-fish-products-meeting-goals-1024x768.png)
+![](/images/blog/2025/2025-plant-based-fish-products-meeting-goals.png)
 
 過度な漁業、環境悪化、そして消費者価値観の変化が世界の水産物需要を再構築する中、植物性魚製品が本格的な注目を集めています。しかし、これらの製品は栄養面で何を提供しているのでしょうか？そして、メーカー、小売業者、政策立案者はどのようにしてその潜在能力を実現させることができるのでしょうか？
 

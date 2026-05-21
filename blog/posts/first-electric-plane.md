@@ -4,7 +4,7 @@ date:     2023-09-16
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2023/09/first-electric-plane_BANNER.png"
+hero:     "/images/blog/2023/first-electric-plane.png"
 excerpt:  "イギリスの再生可能エネルギー企業エコトリシティの創業者デール・ヴィンス氏が、世界初の電気航空会社を立ち上げる計画を発表した。 エコジェットと呼ばれるこの航空会社は、水素電気パワートレインを搭載した従来型の飛行機を使用する…"
 source:   "https://veganoji.jp/first-electric-plane/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/first-electric-plane/"
 
 機内食はすべて植物性で、**使い捨てプラスチックは使用せず**、スタッフには環境に配慮した制服が支給される。
 
-![](https://veganoji.jp/wp-content/uploads/2023/09/first-electric-plane_BANNER-1024x768.png)
+![](/images/blog/2023/first-electric-plane.png)
 
 エコジェットの運航は来年、エジンバラとサウサンプトン間で開始される予定だが、当初は航路と民間航空局からの認可を確保するため、従来の燃料が使用される。英国内外のさらなる路線は、その後に続く予定である。新しい飛行機を作るのではなく、既存の飛行機を改造することで、技術が利用可能になる2025年に開始されるはずのこのプロセスでは、かなりのレベルの炭素が節約されることになる。
 

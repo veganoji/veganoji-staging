@@ -4,14 +4,14 @@ date:     2022-01-02
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/01/15.png"
+hero:     "/images/blog/2022/vegan-cooking-baking-product-substitutes.png"
 excerpt:  "ビーガンになるとお肉や牛乳などの動物由来の食品を食べなくなりますが、実際は、ただ栄養を摂取する材料をかえるだけで、ビーガンでない人と同様に我慢する必要もなく美味しく食べられます。アイスやケーキ、チーズなどの、一見、ビーガ…"
 source:   "https://veganoji.jp/vegan-cooking-baking-product-substitutes/"
 ---
 
 ビーガンになるとお肉や牛乳などの動物由来の食品を食べなくなりますが、実際は、ただ栄養を摂取する材料をかえるだけで、ビーガンでない人と同様に我慢する必要もなく美味しく食べられます。アイスやケーキ、チーズなどの、一見、ビーガンが食べないように思われるものでも、材料をかえて、美味しく食べることができます。
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/15-1024x768.png)
+![](/images/blog/2022/vegan-cooking-baking-product-substitutes.png)
 
 　ビーガン料理に初めて挑戦するなら、自分の好きな食べ物をビーガン料理にするのに、ガイドが必要だと思います。
 

@@ -3,12 +3,12 @@ title:    "元レインフォレスト・アライアンス代表ナイジェル
 date:     2026-01-15
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2026/01/former-rainforest-alliance-chief-nigel-sizer-appointed-ceo-of-good-food-institute.png"
+hero:     "/images/blog/2026/former-rainforest-alliance-chief-nigel-sizer-appointed-ceo-of-good-food-institute.png"
 excerpt:  "はじめに 代替タンパク質の発展に焦点を当てた非営利組織であるグッド・フード・インスティテュート（GFI）は、ナイジェル・サイザー氏が2025年8月26日にCEOに就任すると発表しました。自然保護、気候問題、公衆衛生の専門…"
 source:   "https://veganoji.jp/former-rainforest-alliance-chief-nigel-sizer-appointed-ceo-of-good-food-institute/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2026/01/former-rainforest-alliance-chief-nigel-sizer-appointed-ceo-of-good-food-institute-1024x768.png)
+![](/images/blog/2026/former-rainforest-alliance-chief-nigel-sizer-appointed-ceo-of-good-food-institute.png)
 
 ## **はじめに**
 

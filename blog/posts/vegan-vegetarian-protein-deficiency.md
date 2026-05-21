@@ -3,7 +3,7 @@ title:    "ヴィーガンやベジタリアンはタンパク質不足？栄養
 date:     2021-12-26
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "https://veganoji.jp/wp-content/uploads/2022/01/21.png"
+hero:     "/images/blog/2022/vegan-vegetarian-protein-deficiency.png"
 excerpt:  "ビーガンの方は、タンパク質不足？そんな疑問も持っている方も多いと思います！ビーガンは肉や魚、卵や乳製品などの動物性食品をとらない為、タンパク質が不足してしまうのではないかという疑問を今回は解説していきます！ 後半では、た…"
 source:   "https://veganoji.jp/vegan-vegetarian-protein-deficiency/"
 ---
@@ -12,11 +12,11 @@ source:   "https://veganoji.jp/vegan-vegetarian-protein-deficiency/"
 
 　後半では、たっぷりプロテインの摂れる食源も紹介するのでチェックしてみてくださいね！
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/21-1024x768.png)
+![](/images/blog/2022/vegan-vegetarian-protein-deficiency.png)
 
 ## **ビーガンはちょっとでも食事管理をすればタンパク質不足にはならない**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/Vegan-Protein-1024x723.jpg)
+![](/images/blog/2021/Vegan-Protein.jpg)
 
 　早速結論を言ってしまうと、ビーガンの方でもしっかりとした栄養バランスを意識した食生活を心がけることで**タンパク質不足には陥りません！**植物性食材からも十分なタンパク質を摂取することが出来るんです。
 
@@ -28,7 +28,7 @@ source:   "https://veganoji.jp/vegan-vegetarian-protein-deficiency/"
 
 　必須アミノ酸とは身体を構成するとても重要な役割をになっていますが、体内で生成することができない成分もあります。そのため食事によって摂取しなければならないんです；）
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/Vegan-Protein-Sources-1024x683.jpg)
+![](/images/blog/2021/Vegan-Protein-Sources.jpg)
 
 　植物性食材のように必須アミノ酸が欠けている物のことを不完全タンパク質と呼び、反対に多くの動物性食材のように必須アミノ酸の9種類が全て揃っているタンパク質を**完全なタンパク質**ということになります。
 
@@ -48,7 +48,7 @@ source:   "https://veganoji.jp/vegan-vegetarian-protein-deficiency/"
 
 ### 1**・豆腐・テンペ・枝豆**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/Tempeh-VeganProteinSources.jpeg)
+![](/images/blog/2021/Tempeh-VeganProteinSources.jpeg)
 
 お肉の代替品として優秀な植物性食材です。タンパク質と食物繊維が豊富。完全なタンパク質をとることが出来ますよ！
 
@@ -56,7 +56,7 @@ source:   "https://veganoji.jp/vegan-vegetarian-protein-deficiency/"
 
 ### 2**・レンズマメ**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/Lentils-VeganProteinSources-683x1024.jpeg)
+![](/images/blog/2021/Lentils-VeganProteinSources.jpeg)
 
 　レンズマメはととても小さな豆ですが、栄養価が高く人気の高い食品です！
 
@@ -66,19 +66,19 @@ source:   "https://veganoji.jp/vegan-vegetarian-protein-deficiency/"
 
 ### 3**・ひよこ豆**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/Chickpeas-VeganProteinSources.jpeg)
+![](/images/blog/2021/Chickpeas-VeganProteinSources.jpeg)
 
 高タンパクで低脂質のヒヨコ豆は、ビーガンにはもちろんアスリートからも人気の食材なんです。ビタミン、ミネラル、食物繊維も豊富に含まれていますよ！最近だと煮たヒヨコ豆をスパイスなどと混ぜてペーストにした「ムフス」が人気で、パンにつけて食べるのも美味しいです。
 
 ### 4**・ピーナッツ**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/Peanuts-VeganProteinSources.jpeg)
+![](/images/blog/2021/Peanuts-VeganProteinSources.jpeg)
 
 　ピーナツも良質なタンパク質を豊富に含んでる食材です。脂質が多い為避けている方も多いかもしれませんが、ピーナツの脂質は身体にとってもいいので安心して食べて大丈夫です。血中の中性脂肪や悪玉コレステロールなどを減らしてくれる働きもあるので健康に良いとされています！
 
 ### 5**・スピルリナ**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/Spirulina-VeganProteinSources.jpeg)
+![](/images/blog/2021/Spirulina-VeganProteinSources.jpeg)
 
 　スーパーフードの中でも栄養価の高いと言われているスピルリナ。藻の一種と呼ばれています。
 
@@ -86,7 +86,7 @@ source:   "https://veganoji.jp/vegan-vegetarian-protein-deficiency/"
 
 ### 6**・キヌア**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/Quinoa-VeganProteinSources-1-680x1024.jpeg)
+![](/images/blog/2021/Quinoa-VeganProteinSources-1.jpeg)
 
 　低GIで栄養価が高いキヌアという穀物もスーパーフードのひとつです。キヌアもタンパク質が豊富で、白米の2倍と言われています。
 
@@ -94,37 +94,37 @@ source:   "https://veganoji.jp/vegan-vegetarian-protein-deficiency/"
 
 ### 7**・チアシード**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/ChiaSeeds-VeganProteinSources.jpeg)
+![](/images/blog/2021/ChiaSeeds-VeganProteinSources.jpeg)
 
 　言わずと知れたスーパーフードのチアシード。タンパク質や食物繊維、ビタミンやミネラルなどさまざまな栄養を摂取することが出来ます。ヨーグルトやスムージーにうまく取り入れて食べることがおすすめです！
 
 ### 8**・ヘンプシード**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/HempSeeds-VeganProteinSources.jpeg)
+![](/images/blog/2021/HempSeeds-VeganProteinSources.jpeg)
 
 　9種類の必須アミノ酸がバランスよくとれるヘンプシードは完全タンパク質をとることが出来ます！サラダや炒め物のトッピングとして美味しく食べることが出来ます！
 
 ### 9**・米と豆**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/RiceBeans-VeganProteinSources.jpeg)
+![](/images/blog/2021/RiceBeans-VeganProteinSources.jpeg)
 
 　不足している必須アミノ酸をうまく補う為に、おすすめの食べ合わせが米と豆です。米のタンパク質にはリジンという必須アミノ酸が少ないですが大豆にはリジンが多く含まれています。また逆に大豆にはメチオニンというアミノ酸が不足していますが米には豊富に含まれています！
 
 ### 10**・いも**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/Potatoes-VeganProtein.jpeg)
+![](/images/blog/2021/Potatoes-VeganProtein.jpeg)
 
 　イモ類も比較的タンパク質をとることが出来ます。中でも長いもやジャガイモはタンパク質が多いです。スーパーなどでも手軽に手に入る食材なので日頃の食生活に取り入れやすいのではないでしょうか！
 
 ### 11**・高タンパク質野菜**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/Broccoli-VeganProtein.jpeg)
+![](/images/blog/2021/Broccoli-VeganProtein.jpeg)
 
 　ブロッコリーや芽キャベツアスパラガスは高タンパク野菜として知られています。やはり穀物豆類はタンパク質が豊富といえますが種類によっては野菜からもタンパク質を沢山取り入れることもできるので食事をとるときには意識してみるのもいいかもしれません！
 
 ### 12**・ビーガン肉**
 
-![](https://veganoji.jp/wp-content/uploads/2021/12/IMG_26881-1024x1024.jpeg)
+![](/images/blog/2021/IMG_26881.jpeg)
 
 　今はビーガン肉の種類も増えて味も美味しい商品がとっても増えています！僕のおすすめのソミートという商品はお肉より悪い脂質が低く、食物繊維とタンパク質が高いです。食べたことがない方はぜひ食べてみてほしいです！
 

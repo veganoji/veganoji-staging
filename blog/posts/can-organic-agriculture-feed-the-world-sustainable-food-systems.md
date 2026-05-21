@@ -3,12 +3,12 @@ title:    "オーガニック農業で世界を養えるか？持続可能な食
 date:     2026-01-10
 category: oji-no-kurashi
 category_display: "王子の暮らし"
-hero:     "https://veganoji.jp/wp-content/uploads/2026/01/can-organic-agriculture-feed-the-world-sustainable-food-systems.png"
+hero:     "/images/blog/2026/can-organic-agriculture-feed-the-world-sustainable-food-systems.png"
 excerpt:  "オーガニック農業の収穫量の現実 従来農業との収穫量比較 オーガニック農業の最大の課題は収穫量です。複数の研究によると、有機農業の収穫量は従来の慣行農業と比較して平均2025%低いことが明らかになっています。この収穫量の差…"
 source:   "https://veganoji.jp/can-organic-agriculture-feed-the-world-sustainable-food-systems/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2026/01/can-organic-agriculture-feed-the-world-sustainable-food-systems-1024x768.png)
+![](/images/blog/2026/can-organic-agriculture-feed-the-world-sustainable-food-systems.png)
 
 ## **オーガニック農業の収穫量の現実**
 

@@ -4,14 +4,14 @@ date:     2022-01-02
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["スイーツ", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "ヴィーガン", "通販", "recommended", "vegan", "vegan oji", "vegetarian"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/01/16.png"
+hero:     "/images/blog/2022/recommended-online-plantbased-sweets-desserts.png"
 excerpt:  "どんなに健康に心がけている方でも、たまにはスイーツを食べることは大事ですね！ビーガンスイーツは日本で段々手に入れやすくなっています！ 甘いものを食べたくない方はもうこれ以上読まないでください！！このリストに書いてあるスイ…"
 source:   "https://veganoji.jp/recommended-online-plantbased-sweets-desserts/"
 ---
 
 どんなに健康に心がけている方でも、たまにはスイーツを食べることは大事ですね！ビーガンスイーツは日本で段々手に入れやすくなっています！
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/16-1024x768.png)
+![](/images/blog/2022/recommended-online-plantbased-sweets-desserts.png)
 
 　甘いものを食べたくない方はもうこれ以上読まないでください！！このリストに書いてあるスイーツを見かけたら、買っちゃうしかないかもしれないから！ ;)
 
@@ -19,7 +19,7 @@ source:   "https://veganoji.jp/recommended-online-plantbased-sweets-desserts/"
 
 　アイスキャンディーやビーガン対応アイスなど、動物性のモノを含まないアイスは、すでにいろんな種類があります！メーカーによって、氷っぽくなってしまうことが多少ありますが、[MOONアイスクリームはとってもクリーミィな美味しさでおすすめです！](https://moonfoodjapan.com/)
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/Moon-Food-Ice-Cream-1024x682.jpeg)
+![](/images/blog/2022/Moon-Food-Ice-Cream.jpeg)
 
 引用先：HP
 
@@ -33,7 +33,7 @@ source:   "https://veganoji.jp/recommended-online-plantbased-sweets-desserts/"
 
 　オシャレなスイーツをお探しであれば、[ハレトケトのロービーガンチョコ](https://haretoketo.com/shop/)がおすすめです。
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/Hareto-Keto-Chocolate-1024x576.jpeg)
+![](/images/blog/2022/Hareto-Keto-Chocolate.jpeg)
 
 　商品一つ一つがとてもきれいで、一粒のチョコからケーキまで提供しているので、それぞれの機会に合った商品をきっと見つけられます！
 
@@ -41,7 +41,7 @@ source:   "https://veganoji.jp/recommended-online-plantbased-sweets-desserts/"
 
 　アインソフはとても人気なビーガンチェーン店です。店舗は東京を中心としてありますが、京都にも最近できました。その他の地域にお住まいの方はご心配なく！２０２０年から[アインソフのオンラインショップ](https://www.ain-soph.jp/shop)ができました！
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/Ain-Soph-Tiramisu-1024x1024.jpg)
+![](/images/blog/2022/Ain-Soph-Tiramisu.jpg)
 
 　個人的に大好きなティラミスも売っていますが、その他に色々な美味しいスイーツがたくさん揃っているので、ぜひ食べてみてください！
 
@@ -49,7 +49,7 @@ source:   "https://veganoji.jp/recommended-online-plantbased-sweets-desserts/"
 
 　次は[ラスオラスのオンラインショップ](https://gv-yokohama.co.jp/lasolas/)です！個人的に一番好きなのは抹茶クッキーですが、全部好きです！
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/cate-top-LasOlas-1024x414.jpeg)
+![](/images/blog/2022/cate-top-LasOlas.jpeg)
 
 引用先：HP
 
@@ -59,7 +59,7 @@ source:   "https://veganoji.jp/recommended-online-plantbased-sweets-desserts/"
 
 　僕が日本に来て最初の頃に訪ねたお店です！[チャヤ マクロビオティクス OFFICIAL ONLINE SHOP](https://chayamacrobi.official.ec/)では、様々な種類のスイーツがあるので、きっとお気に入りのものが見つかります！
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/Food-2-1024x941.jpg)
+![](/images/blog/2022/Food-2.jpg)
 
 ## エンディング
 

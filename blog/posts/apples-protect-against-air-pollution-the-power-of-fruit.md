@@ -3,12 +3,12 @@ title:    "りんごは大気汚染から身を守る？最新研究が明かす
 date:     2025-10-14
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/09/apples-protect-against-air-pollution-the-power-of-fruit.png"
+hero:     "/images/blog/2025/apples-protect-against-air-pollution-the-power-of-fruit.png"
 excerpt:  "りんごを毎日食べることで大気汚染の健康への悪影響を軽減できる可能性があることが、最新の研究で明らかになりました。果物の持つ抗酸化作用が、私たちの体を環境汚染から守る新たな手段として注目を集めています。 大気汚染と健康への…"
 source:   "https://veganoji.jp/apples-protect-against-air-pollution-the-power-of-fruit/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/09/apples-protect-against-air-pollution-the-power-of-fruit-1024x768.png)
+![](/images/blog/2025/apples-protect-against-air-pollution-the-power-of-fruit.png)
 
 りんごを毎日食べることで大気汚染の健康への悪影響を軽減できる可能性があることが、最新の研究で明らかになりました。果物の持つ抗酸化作用が、私たちの体を環境汚染から守る新たな手段として注目を集めています。
 

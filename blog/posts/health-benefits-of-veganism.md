@@ -4,7 +4,7 @@ date:     2022-11-02
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/11/health-benefits-veganism_BANNER.png"
+hero:     "/images/blog/2022/health-benefits-of-veganism.png"
 excerpt:  "目次 ■ より多くの栄養素を摂取する ■ 余分な体重を減らす ■ 糖尿病のリスクを軽減する ■ 癌を予防する ■ 心臓病のリスクを下げる ■ 関節炎の痛みを軽減する ■ 試してみたいレシピ ■ ビーガン ＶＳ．ベジタリア…"
 source:   "https://veganoji.jp/health-benefits-of-veganism/"
 ---
@@ -27,7 +27,7 @@ source:   "https://veganoji.jp/health-benefits-of-veganism/"
 
 この記事では、ビーガンの食事の潜在的な利点の背後にある科学的な検証を行います。また、植物性食品を使った多彩なレシピのアイデアも紹介します。また、ビーガン食はベジタリアン食とどう違うのか、気になる方もいらっしゃると思いますので、そちらもご紹介します。
 
-![](https://veganoji.jp/wp-content/uploads/2022/11/health-benefits-veganism_BANNER-1024x768.png)
+![](/images/blog/2022/health-benefits-of-veganism.png)
 
 ## ヴィーガン食は、特定の栄養素を豊富に含む
 

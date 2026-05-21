@@ -3,12 +3,12 @@ title:    "パンデミックと食事の関係：植物性食品が感染症リ
 date:     2025-10-03
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/09/pandemic-and-diet-the-reasons-plant-based-foods-reduce-infection-risk.png"
+hero:     "/images/blog/2025/pandemic-and-diet-the-reasons-plant-based-foods-reduce-infection-risk.png"
 excerpt:  "新型コロナウイルスをはじめとする感染症の世界的流行が続く中、私たちの食事選択が感染症リスクに与える影響について注目が集まっています。最新の研究では、植物性食品を中心とした食事が感染症予防に重要な役割を果たすことが明らかに…"
 source:   "https://veganoji.jp/pandemic-and-diet-the-reasons-plant-based-foods-reduce-infection-risk/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/09/pandemic-and-diet-the-reasons-plant-based-foods-reduce-infection-risk-1024x768.png)
+![](/images/blog/2025/pandemic-and-diet-the-reasons-plant-based-foods-reduce-infection-risk.png)
 
 新型コロナウイルスをはじめとする感染症の世界的流行が続く中、私たちの食事選択が感染症リスクに与える影響について注目が集まっています。最新の研究では、植物性食品を中心とした食事が感染症予防に重要な役割を果たすことが明らかになってきました。
 

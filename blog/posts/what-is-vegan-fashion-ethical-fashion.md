@@ -4,12 +4,12 @@ date:     2022-01-01
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["エシカル", "エシカルファッション", "ビーガンレザー", "ビーガン王子のおすすめ", "ヴィーガンレザー", "recommended", "vegan", "vegan oji", "vegetarian", "植物性レザー"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/01/19.png"
+hero:     "/images/blog/2022/what-is-vegan-fashion-ethical-fashion.png"
 excerpt:  "最近ニュースで注目されているビーガン（ヴィーガン、植物由来とも言われる）のキーワードが食の世界にどんどん浸透してきていますね。このように、ビーガンは料理に関連するイメージが多いですが、実はファッション業界でもビーガンファ…"
 source:   "https://veganoji.jp/what-is-vegan-fashion-ethical-fashion/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/19-1024x768.png)
+![](/images/blog/2022/what-is-vegan-fashion-ethical-fashion.png)
 
 最近ニュースで注目されている**ビーガン（ヴィーガン、植物由来と**も言われる）のキーワードが食の世界にどんどん浸透してきていますね。このように、ビーガンは料理に関連するイメージが多いですが、実はファッション業界でもビーガンファッションがとても盛り上がってきていて、これまで以上に手に入れやすくなっています。
 
@@ -25,7 +25,7 @@ source:   "https://veganoji.jp/what-is-vegan-fashion-ethical-fashion/"
 
 例えば、僕のお気に入りのベルトはこちらです！
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/IMG_0805-683x1024.jpg)
+![](/images/blog/2022/IMG_0805.jpg)
 
 革ではなく、コルクでできています！シャンパンのキャップができている材料と同じです！
 

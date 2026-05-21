@@ -4,14 +4,14 @@ date:     2024-04-13
 category: oji-no-kurashi
 category_display: "王子の暮らし"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2024/03/4-1.png"
+hero:     "/images/blog/2024/fairtrade-overview-benefits-why.png"
 excerpt:  "フェアトレードは開発途上国の生産者と意識の高い消費者の両方に利益をもたらす公正な世界的取引システムを構築するための力強い活動として注目されています。このブログではフェアトレードがどのようなものなのか、その様々な側面を紹介…"
 source:   "https://veganoji.jp/fairtrade-overview-benefits-why/"
 ---
 
 フェアトレードは**開発途上国の生産者と意識の高い消費者の両方に利益をもたらす公正な世界的取引システムを構築するための力強い活動**として注目されています。このブログではフェアトレードがどのようなものなのか、その様々な側面を紹介し、多くの人々がフェアトレード製品を選択する理由を紹介します。さらに日本におけるフェアトレード製品の現状にも触れましょう。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/4-1-1024x768.png)
+![](/images/blog/2024/fairtrade-overview-benefits-why.png)
 
 ## フェアトレードとは？
 
@@ -31,7 +31,7 @@ source:   "https://veganoji.jp/fairtrade-overview-benefits-why/"
 
 フェアトレードでは持続可能な農業方法が採用され、環境への影響の軽減を促進されるので、環境保護の取り組みを推進します。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/cacao-hands-1024x546.jpeg)
+![](/images/blog/2024/cacao-hands.jpeg)
 
 ### 性別の平等化を図ることができる
 
@@ -61,7 +61,7 @@ source:   "https://veganoji.jp/fairtrade-overview-benefits-why/"
 
 共有意識が高まりつつある社会で、消費者は世界的規模でのサプライチェーンについてより理解を深め、世界的な影響を及ぼすフェアトレードの活動を支えることに前向きです。
 
-![](https://veganoji.jp/wp-content/uploads/2024/03/farmland-fairtrade-1024x683.jpeg)
+![](/images/blog/2024/farmland-fairtrade.jpeg)
 
 ## 日本におけるフェアトレード
 

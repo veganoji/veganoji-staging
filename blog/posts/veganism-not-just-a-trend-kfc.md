@@ -4,7 +4,7 @@ date:     2022-10-20
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/10/veganism-not-just-a-trend-kfc_BANNER.png"
+hero:     "/images/blog/2022/veganism-not-just-a-trend-kfc.png"
 excerpt:  "植物性食品は食品業界を席巻しており、ファーストフードチェーンでもバーガーキングやマクドナルドが肉なし商品を発売するなど、流行の兆しを見せている。KFCも例外ではない。しかし、懐疑的な人々は、これはミレニアル世代やZ世代を…"
 source:   "https://veganoji.jp/veganism-not-just-a-trend-kfc/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/veganism-not-just-a-trend-kfc/"
 
 Fortune誌とBloomberg誌のインタビューで、社長兼最高コンセプト責任者としてKFC USを率いるホックマン氏は、同社が植物由来に大きく賭けているという見解を明らかにした。
 
-![](https://veganoji.jp/wp-content/uploads/2022/10/veganism-not-just-a-trend-kfc_BANNER-1024x768.png)
+![](/images/blog/2022/veganism-not-just-a-trend-kfc.png)
 
 ## **植物性には「かなり強気」です**
 

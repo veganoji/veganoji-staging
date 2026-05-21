@@ -3,12 +3,12 @@ title:    "スペインのVäckaが機能性植物性乳製品でリブランド
 date:     2025-12-26
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/12/vacka-rebrands-with-functional-plant-based-dairy-series.png"
+hero:     "/images/blog/2025/vacka-rebrands-with-functional-plant-based-dairy-series.png"
 excerpt:  "バルセロナを拠点とする植物性食品ブランドVäcka（ヴァッカ）が、機能性健康食品への新たな取り組みとして、栄養価の高い植物性乳製品4種類を発表し、ブランドの新しいアイデンティティを披露しました。 Väckaの新しいビジョ…"
 source:   "https://veganoji.jp/vacka-rebrands-with-functional-plant-based-dairy-series/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/12/vacka-rebrands-with-functional-plant-based-dairy-series-1024x768.png)
+![](/images/blog/2025/vacka-rebrands-with-functional-plant-based-dairy-series.png)
 
 バルセロナを拠点とする植物性食品ブランドVäcka（ヴァッカ）が、機能性健康食品への新たな取り組みとして、栄養価の高い植物性乳製品4種類を発表し、ブランドの新しいアイデンティティを披露しました。
 

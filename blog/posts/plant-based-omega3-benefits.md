@@ -4,7 +4,7 @@ date:     2022-06-08
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/06/plant-based-omega3-benefits.png"
+hero:     "/images/blog/2022/plant-based-omega3-benefits.png"
 excerpt:  "魚介類を食べなくてもオメガ3の推奨摂取量は確保できることを証明する研究成果 オメガ3脂肪は、心臓の健康に重要な不飽和脂肪酸の一種です。菜食主義者でない人は、イワシ、サケ、サバなどの脂の乗ってる青魚から摂取します。お魚は日…"
 source:   "https://veganoji.jp/plant-based-omega3-benefits/"
 ---
@@ -15,7 +15,7 @@ source:   "https://veganoji.jp/plant-based-omega3-benefits/"
 
 しかし、新しい研究によると、**植物性のオメガ3脂肪酸も同様に心臓の健康に有益**であり、魚介類を食べない人の心臓病のリスクを減らすことができることがわかりました。
 
-![](https://veganoji.jp/wp-content/uploads/2022/06/plant-based-omega3-benefits-1024x768.png)
+![](/images/blog/2022/plant-based-omega3-benefits.png)
 
 Advances in Nutrition誌に掲載され、Science Directが報告した研究によると、クルミや亜麻仁などの食品に含まれるα-リノレン酸（ALA）の摂取は、**心血管疾患のリスクを10％、致命的な冠動脈疾患のリスクを20％低下**させることと関連があることがわかりました。
 

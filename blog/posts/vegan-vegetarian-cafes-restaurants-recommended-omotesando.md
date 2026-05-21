@@ -4,14 +4,14 @@ date:     2021-11-29
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
 tags:     ["ビーガン王子のおすすめ", "表参道", "omotesando", "recommended", "vegan oji", "vegan spots"]
-hero:     "https://veganoji.jp/wp-content/uploads/2021/11/BLOG-POST-COVER-IMAGES.jpg"
+hero:     "/images/blog/2021/vegan-vegetarian-cafes-restaurants-recommended-omotesando.jpg"
 excerpt:  "この記事では、ビーガン王子がおすすめする表参道のビーガンスポットを紹介していきます。 渋谷や原宿にほど近く、ショッピングやランチで人気が高い表参道。ビーガンスポットも徐々に増えています！ それでは表参道のおすすめビーガン…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-omotesando/"
 ---
 
 この記事では、ビーガン王子がおすすめする表参道のビーガンスポットを紹介していきます。
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/BLOG-POST-COVER-IMAGES-A-1024x768.webp)
+![](/images/blog/2021/BLOG-POST-COVER-IMAGES-A.webp)
 
 　渋谷や原宿にほど近く、ショッピングやランチで人気が高い表参道。ビーガンスポットも徐々に増えています！
 
@@ -37,7 +37,7 @@ source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-om
 
 　場所は、表参道駅からすぐそばの所にあります！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -74,7 +74,7 @@ POINTS
 
 友達とゆっくりしたり、打ち合わせの場とするのに最適なスポットです！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -107,7 +107,7 @@ POINTS
 
 　おしゃれな空間でスイーツを食べたい時にイチオシ！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -148,7 +148,7 @@ POINTS
 
 　ケール・小松菜・キウイ・白ごまなどの入ったクレンズやアップルマンゴー・ココナッツミルク・シナモン・生姜を使ったアップリフトなどがあるよ！色んな味を頼んで友達とシェアしたくなっちゃう程、どれもおいしそう！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -179,7 +179,7 @@ POINTS
 
 　ビーガン料理でないものもあるのでビーガンの人もそうじゃない人もいっしょにご飯を楽しめるからいいですよね！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -212,7 +212,7 @@ POINTS
 
 ![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2021/12/Revive-6-768x1024.webp?ssl=1)
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 

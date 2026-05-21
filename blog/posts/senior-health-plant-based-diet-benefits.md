@@ -3,14 +3,14 @@ title:    "シニア世代の健康に最適な食事法：プラントベース
 date:     2025-08-14
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/08/108.png"
+hero:     "/images/blog/2025/senior-health-plant-based-diet-benefits.png"
 excerpt:  "年齢を重ねるにつれて、健康的な食生活の重要性はますます高まります。数多くの食事法が存在する中で、科学的研究により、プラントベース（植物性）食事がシニア世代の健康維持と長寿に最も効果的であることが明らかになっています。 プ…"
 source:   "https://veganoji.jp/senior-health-plant-based-diet-benefits/"
 ---
 
 年齢を重ねるにつれて、健康的な食生活の重要性はますます高まります。数多くの食事法が存在する中で、科学的研究により、プラントベース（植物性）食事がシニア世代の健康維持と長寿に最も効果的であることが明らかになっています。
 
-![](https://veganoji.jp/wp-content/uploads/2025/08/108-1024x768.png)
+![](/images/blog/2025/senior-health-plant-based-diet-benefits.png)
 
 ## **プラントベース食がシニア世代に最適な理由**
 

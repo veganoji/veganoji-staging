@@ -4,7 +4,7 @@ date:     2023-01-22
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2023/01/canada-seven-eleven-vegan-breakfast-burger_BANNER.png"
+hero:     "/images/blog/2023/canada-seven-eleven-vegan-breakfast-burger.png"
 excerpt:  "2023年に肉なしのオプションを増やすために、ビーガンの需要を測っているそうです。 セブンイレブン・カナダは、インポッシブル・ソーセージのパティ、「ヴィオライフ」チーズ、「ジャストエッグ」をイングリッシュマフィンに挟んだ…"
 source:   "https://veganoji.jp/canada-seven-eleven-vegan-breakfast-burger/"
 ---
@@ -17,7 +17,7 @@ source:   "https://veganoji.jp/canada-seven-eleven-vegan-breakfast-burger/"
 
 このブレックファスト・サンドイッチは、**550以上の店舗で提供される**ことが確認されています。アルバータ州、ブリティッシュコロンビア州、マニトバ州、オンタリオ州、サスカチュワン州で展開されています。
 
-![](https://veganoji.jp/wp-content/uploads/2023/01/canada-seven-eleven-vegan-breakfast-burger_BANNER-1024x768.png)
+![](/images/blog/2023/canada-seven-eleven-vegan-breakfast-burger.png)
 
 ## セブン-イレブン・カナダが植物性食品を強化
 

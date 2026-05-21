@@ -3,14 +3,14 @@ title:    "【渋谷】おすすめビーガンカフェ・レストラン ❘ 6
 date:     2022-01-06
 category: oji-no-tabearuki
 category_display: "王子の食べ歩き"
-hero:     "https://veganoji.jp/wp-content/uploads/2022/01/SHIBUYA-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE.png"
+hero:     "/images/blog/2022/vegan-vegetarian-cafes-restaurants-recommended-shibuya.png"
 excerpt:  "東京の中心として人気の高い渋谷。世界中の人が集まる都市でもあるので、もちろんおいしいビーガンスポットもたくさんあります！ 今回は６つに絞ってご紹介しますが、紹介しきれなかった美味しいビーガンのお店もまだまだあるので、ぜひ…"
 source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-shibuya/"
 ---
 
 東京の中心として人気の高い渋谷。世界中の人が集まる都市でもあるので、もちろんおいしいビーガンスポットもたくさんあります！
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/SHIBUYA-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE-1024x768.png)
+![](/images/blog/2022/vegan-vegetarian-cafes-restaurants-recommended-shibuya.png)
 
 　今回は６つに絞ってご紹介しますが、紹介しきれなかった美味しいビーガンのお店もまだまだあるので、[ぜひビーガンレストランの情報サイトで探して見てください！](https://veganoji.jp/2022/01/02/how-to-find-vegan-vegetarian-friendly-restaurants-cafes/)
 
@@ -30,7 +30,7 @@ source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-sh
 
 　ビーガン卵や揚げ物もあって種類が豊富で味もとっても美味しい；D
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -66,7 +66,7 @@ POINTS
 
 　Uber eats対応店でもあるので、ぜひチェックしてみてください！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -105,7 +105,7 @@ POINTS
 
 　ビーガン用と一般用の油を使い分けてくれているので安心して食べることができますよ！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -134,7 +134,7 @@ POINTS
 
 　ビーガンカレーの中では、野菜たっぷりのベジタブルカレーがおすすめです。野菜たっぷりなのであっさりしているけどコクのあるカレールー全体の美味しさを引き立ててくれます！
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -173,7 +173,7 @@ POINTS
 
 　とても人気のお店なので六本木と恵比寿にも店舗があり、渋谷のこの店舗が3店舗目になります。
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 
@@ -198,7 +198,7 @@ POINTS
 
 　ここはで人気なのはハンバーグです。
 
-![](https://veganoji.jp/wp-content/uploads/2022/01/Peace-Table-Shibuya-1024x1024.jpeg)
+![](/images/blog/2022/Peace-Table-Shibuya.jpeg)
 
 　ハンバーグはもちろん、デミグラスソースも野菜のみで作られている絶品ビーガンハンバーグなんです。
 
@@ -208,7 +208,7 @@ POINTS
 
 　第2・4土曜日、日曜日はおやすみなので、ご注意ください。
 
-![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+![](/images/blog/2021/Store-Information-Resized.png)
 
 ### お店の情報
 

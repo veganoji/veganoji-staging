@@ -3,12 +3,12 @@ title:    "2025年上半期に代替タンパク質業界への投資が4億4,34
 date:     2026-01-07
 category: sekai-no-ugoki
 category_display: "世界のうごき"
-hero:     "https://veganoji.jp/wp-content/uploads/2026/01/alt-protein-investment-hits-443-45m-h1-2025.png"
+hero:     "/images/blog/2026/alt-protein-investment-hits-443-45m-h1-2025.png"
 excerpt:  "代替タンパク質セクターは2025年上半期に注目すべき投資活動を見せ、54件の取引で総額4億4,345万ドルの投資を集めました。これらの投資は複数の技術と製品カテゴリーにわたり、業界全体への幅広い関心を反映しています。 投…"
 source:   "https://veganoji.jp/alt-protein-investment-hits-443-45m-h1-2025/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2026/01/alt-protein-investment-hits-443-45m-h1-2025-1024x768.png)
+![](/images/blog/2026/alt-protein-investment-hits-443-45m-h1-2025.png)
 
 代替タンパク質セクターは2025年上半期に注目すべき投資活動を見せ、54件の取引で総額4億4,345万ドルの投資を集めました。これらの投資は複数の技術と製品カテゴリーにわたり、業界全体への幅広い関心を反映しています。
 

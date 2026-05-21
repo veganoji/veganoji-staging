@@ -3,12 +3,12 @@ title:    "顔面採点も堂々挑戦。ビーガン王子、YouTube番組「ON
 date:     2025-12-19
 category: katsudou
 category_display: "活動報告"
-hero:     "https://veganoji.jp/wp-content/uploads/2026/04/OneTime_1_FEATURED-IMAGE.jpg"
+hero:     "/images/blog/2026/onetime-matching-youtube-appearance-report.jpg"
 excerpt:  "ビーガン王子が、YouTube番組「ONETIME」の新企画「マッチング」に出演しました。今回参加したのは、荒牧理沙さん回のエピソードで、目の前で男性出演者の“顔面点数”がつけられるという、緊張感も見どころもたっぷりの企…"
 source:   "https://veganoji.jp/onetime-matching-youtube-appearance-report/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2026/04/OneTime_1_FEATURED-IMAGE-1024x768.jpg)
+![](/images/blog/2026/onetime-matching-youtube-appearance-report.jpg)
 
 ビーガン王子が、YouTube番組「ONETIME」の新企画「マッチング」に出演しました。今回参加したのは、荒牧理沙さん回のエピソードで、目の前で男性出演者の“顔面点数”がつけられるという、緊張感も見どころもたっぷりの企画です。
 
@@ -26,13 +26,13 @@ https://www.instagram.com/p/DSfXMyDExvx/?utm\_source=ig\_web\_copy\_link&igsh=Mz
 YouTube動画はこちら：  
 https://youtu.be/cuOIgTFHcWY?si=r8DfdXrIqpvZ34aW
 
-![](https://veganoji.jp/wp-content/uploads/2025/12/veganoji_1766243936_3791851426164212580_7583054138-1024x577.jpg)
-![](https://veganoji.jp/wp-content/uploads/2025/12/veganoji_1766243936_3791851426164240058_7583054138-1024x577.jpg)
-![](https://veganoji.jp/wp-content/uploads/2025/12/veganoji_1766243936_3791851426239714838_7583054138-1024x577.jpg)
-![](https://veganoji.jp/wp-content/uploads/2025/12/veganoji_1766243936_3791851426273253687_7583054138-1024x577.jpg)
-![](https://veganoji.jp/wp-content/uploads/2025/12/veganoji_1766243936_3791851426290032480_7583054138-1024x577.jpg)
-![](https://veganoji.jp/wp-content/uploads/2025/12/veganoji_1766243936_3791851426466170164_7583054138-1024x577.jpg)
-![](https://veganoji.jp/wp-content/uploads/2025/12/veganoji_1766243936_3791851426474597475_7583054138-1024x577.jpg)
+![](/images/blog/2025/veganoji_1766243936_3791851426164212580_7583054138.jpg)
+![](/images/blog/2025/veganoji_1766243936_3791851426164240058_7583054138.jpg)
+![](/images/blog/2025/veganoji_1766243936_3791851426239714838_7583054138.jpg)
+![](/images/blog/2025/veganoji_1766243936_3791851426273253687_7583054138.jpg)
+![](/images/blog/2025/veganoji_1766243936_3791851426290032480_7583054138.jpg)
+![](/images/blog/2025/veganoji_1766243936_3791851426466170164_7583054138.jpg)
+![](/images/blog/2025/veganoji_1766243936_3791851426474597475_7583054138.jpg)
 
 ---
 

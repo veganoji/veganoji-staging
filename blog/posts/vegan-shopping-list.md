@@ -4,14 +4,14 @@ date:     2023-01-23
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2023/01/vegan-groceries-shopping-list_BANNER.png"
+hero:     "/images/blog/2023/vegan-shopping-list.png"
 excerpt:  "このヴィーガン食料品リストは、ヴィーガンまたは植物性の食事として買い物がどのようなものか、より良いアイデアを得るのに役立つので作りました。このリストは完全植物性であり、なるべくホールフードという、加工されていない健康的な…"
 source:   "https://veganoji.jp/vegan-shopping-list/"
 ---
 
 このヴィーガン食料品リストは、ヴィーガンまたは植物性の食事として買い物がどのようなものか、より良いアイデアを得るのに役立つので作りました。このリストは**完全植物性であり、なるべくホールフード**という、加工されていない健康的な植物性食品で揃えてみました。ご参考になれば嬉しいです！
 
-![](https://veganoji.jp/wp-content/uploads/2023/01/vegan-groceries-shopping-list_BANNER-1024x768.png)
+![](/images/blog/2023/vegan-shopping-list.png)
 
 食費で節約したい方、ビーガンの初心者、植物性食品を食べた経験がある人、どの食料品店でもこのリストが役に立つだろう。
 
@@ -89,7 +89,7 @@ https://www.instagram.com/p/Cnkswf-Pp9z/?utm\_source=ig\_web\_copy\_link
 
 ## フルーツ
 
-![](https://veganoji.jp/wp-content/uploads/2023/01/fruit-image-1024x683.jpeg)
+![](/images/blog/2023/fruit-image.jpeg)
 
 果物は、**栄養価の高い優れた植物性食品**として、日常的に楽しむことができます。果物は**食物繊維、抗酸化物質、自然なエネルギーを豊富に含み**、素晴らしいおやつ、デザート、朝食の食材になります。私はリンゴ、バナナ、ベリー類などの果物を毎週購入し、柿、キウイ、マンゴー、パイナップルなど、よりスペシャルな果物を特別な時に購入するのが好きです。
 
@@ -141,7 +141,7 @@ https://www.instagram.com/p/Cnkswf-Pp9z/?utm\_source=ig\_web\_copy\_link
 
 ## 野菜
 
-![](https://veganoji.jp/wp-content/uploads/2023/01/vegetables-image-1024x683.jpeg)
+![](/images/blog/2023/vegetables-image.jpeg)
 
 野菜は**栄養価が高く、予算も抑えられ、万能**です。
 
@@ -202,7 +202,7 @@ https://www.instagram.com/p/Cnkswf-Pp9z/?utm\_source=ig\_web\_copy\_link
 
 ## 豆類
 
-![](https://veganoji.jp/wp-content/uploads/2023/01/beans-image-1024x683.jpeg)
+![](/images/blog/2023/beans-image.jpeg)
 
 レンズ豆は、ヘルシーでおいしいスープやインド風カレーを作るのに最適な食材です。
 
@@ -314,7 +314,7 @@ https://www.instagram.com/p/Cnkswf-Pp9z/?utm\_source=ig\_web\_copy\_link
 
 乾燥したハーブやスパイスを食料庫にストックしておくと、**塩分を過剰に摂取することなく、風味豊かな食事を作ることができます。**とはいえ、野菜を多く食べていることですでに減塩ができているはずだから（過剰なナトリウムを含む加工食品とは対照的に）、料理の味付けに良質の塩を使っても問題はないでしょう。**ヒマラヤの塩には微量ミネラルが豊富**に含まれており、食生活に健康的なアクセントを加えることができます。
 
-![](https://veganoji.jp/wp-content/uploads/2023/01/spices-image-1024x683.jpeg)
+![](/images/blog/2023/spices-image.jpeg)
 
 **乾燥ハーブも生ハーブもスパイスも抗酸化物質が豊富で、多くの有益な効果や抗炎症作用があります。**私のお気に入りは、ニンニク、生姜、バジル、ロズマリー、クミン、カレーパウダー、シナモンとオレガノです。
 

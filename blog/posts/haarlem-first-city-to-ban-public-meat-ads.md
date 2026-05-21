@@ -4,7 +4,7 @@ date:     2022-09-08
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/09/haarlem-bans-public-meat-ads-BANNER.png"
+hero:     "/images/blog/2022/haarlem-first-city-to-ban-public-meat-ads.png"
 excerpt:  "ハーレム市は、地球への影響を考慮して、食肉の公共広告をすべて禁止しました。 オランダのある都市は、消費と温室効果ガスの排出を減らすために、公共スペースから肉の広告を禁止する世界初の取り組みに着手する。 アムステルダムの西…"
 source:   "https://veganoji.jp/haarlem-first-city-to-ban-public-meat-ads/"
 ---
@@ -17,7 +17,7 @@ source:   "https://veganoji.jp/haarlem-first-city-to-ban-public-meat-ads/"
 
 今後、バス、シェルター、公共スペースのスクリーンなどでの食肉広告が禁止される予定です。**すでに禁止されている飛行機、ガソリン車、化石燃料産業などの広告に加わる**ことになる。アムステルダム、ライデン、ハーグでも禁止されているが、ハールレムはこのリストに肉を加える**最初の都市**である。
 
-![](https://veganoji.jp/wp-content/uploads/2022/09/haarlem-bans-public-meat-ads-BANNER-1024x768.png)
+![](/images/blog/2022/haarlem-first-city-to-ban-public-meat-ads.png)
 
 肉の広告を禁止する動議を起草したGroenLinks党の議員、Ziggy Klazesは、この政策を提案したとき、この市が世界で初めてこのような政策を実施するとは知らなかったと語った。  
 「肉も環境には有害です」と彼女はオランダの出版社Trouwに語った。「**気候の危機があると言って、その原因の一部である製品を買うように勧めることはできません。」**

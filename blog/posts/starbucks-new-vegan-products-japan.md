@@ -4,7 +4,7 @@ date:     2022-08-01
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ガイド", "ビーガン", "ビーガン王子のおすすめ", "プラントベース", "牛乳の代わり", "recommended", "vegan", "vegan oji", "vegetarian", "植物性ミルク", "代わり", "代用", "代替え品"]
-hero:     "https://veganoji.jp/wp-content/uploads/2022/08/STARBUCKS-NEW-VEGAN-PRODUCTS-JAPAN-BANNER.png"
+hero:     "/images/blog/2022/starbucks-new-vegan-products-japan.png"
 excerpt:  "お肉やスイーツ好きでも大満足の新メニューが登場 2022年6月1日(水)から全国のスターバックス（一部店舗を除く）に「プラントベース」のフードメニューを発売します。「Yori Dori Midori（ヨリドリミドリ）」を…"
 source:   "https://veganoji.jp/starbucks-new-vegan-products-japan/"
 ---
@@ -13,7 +13,7 @@ source:   "https://veganoji.jp/starbucks-new-vegan-products-japan/"
 
 2022年6月1日(水)から**全国のスターバックス**（一部店舗を除く）に**「プラントベース」のフードメニューを発売**します。「Yori Dori Midori（ヨリドリミドリ）」をテーマに美味しい「ミドリ」、楽しい「ミドリ」、サステナブルな地球の未来に想いを込めた「ミドリ」を感じる商品やサービスを届けたいと発表しました。
 
-![](https://veganoji.jp/wp-content/uploads/2022/08/STARBUCKS-NEW-VEGAN-PRODUCTS-JAPAN-BANNER-1024x768.png)
+![](/images/blog/2022/starbucks-new-vegan-products-japan.png)
 
 日本全国のスターバックスでドリンクだけでなく、**豊かで美味しそうなビーガンフードが食べられる**日が来るなんて、僕はまだ信じられないです。
 

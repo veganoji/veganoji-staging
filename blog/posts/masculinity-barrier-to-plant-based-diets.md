@@ -3,12 +3,12 @@ title:    "男性の肉食離れを阻む「男らしさ」の壁：最新研究
 date:     2025-09-12
 category: kenkyushitsu-kara
 category_display: "研究室から"
-hero:     "https://veganoji.jp/wp-content/uploads/2025/09/masculinity-barrier-to-plant-based-diets.png"
+hero:     "/images/blog/2025/masculinity-barrier-to-plant-based-diets.png"
 excerpt:  "植物性食品の市場が急速に拡大する中、男性の肉食離れが他の層と比べて遅れていることが長年指摘されてきました。この度、バース大学、ブライアント・リサーチ、チューリッヒ大学の研究者らによる画期的な研究により、その背景にある心理…"
 source:   "https://veganoji.jp/masculinity-barrier-to-plant-based-diets/"
 ---
 
-![](https://veganoji.jp/wp-content/uploads/2025/09/masculinity-barrier-to-plant-based-diets-1024x768.png)
+![](/images/blog/2025/masculinity-barrier-to-plant-based-diets.png)
 
 ## 
 
