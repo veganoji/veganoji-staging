@@ -152,12 +152,13 @@
       pointer-events: none;
     }
 
-    /* Counter (sticky inside the count section) */
+    /* Counter (sticky inside the count section) — bolder framing now */
     .counter-pill {
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      background: rgba(2, 12, 20, 0.55);
-      border: 1px solid rgba(232, 199, 111, 0.25);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(2, 12, 20, 0.65);
+      border: 2px solid rgba(232, 199, 111, 0.55);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(232, 199, 111, 0.10);
     }
 
     /* Vignette card for Japan section */
@@ -256,6 +257,66 @@
       .card-label { font-size: 13px; }
     }
 
+    /* ─────────────── Comparison stage (人類 vs 魚) ─────────────── */
+    .comparison-stage {
+      /* Full-bleed container; child circles position absolutely against it. */
+    }
+    .comp-human-dot {
+      position: absolute;
+      left: 25%;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      margin: -6px 0 0 -6px;
+      border-radius: 50%;
+      background: rgba(248, 200, 210, 0.95);
+      box-shadow:
+        0 0 10px rgba(248, 200, 210, 0.55),
+        0 0 0 1.5px rgba(248, 200, 210, 0.4);
+    }
+    .comp-fish-dot {
+      position: absolute;
+      /* Diameter ~290× the human dot's 12px = 3480 px.  We anchor the centre
+         far off the right so only the left edge curves into view. */
+      width: 3480px;
+      height: 3480px;
+      right: -1900px;
+      top: 50%;
+      margin-top: -1740px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 50%,
+          rgba(232, 199, 111, 0.85) 0%,
+          rgba(232, 199, 111, 0.62) 35%,
+          rgba(232, 199, 111, 0.42) 65%,
+          rgba(232, 199, 111, 0.28) 90%,
+          rgba(232, 199, 111, 0.18) 100%);
+      box-shadow: inset 0 0 0 2px rgba(232, 199, 111, 0.45);
+    }
+    .comp-human-label {
+      position: absolute;
+      left: 25%;
+      top: 50%;
+      transform: translate(-50%, 28px);
+      text-align: center;
+      white-space: nowrap;
+    }
+    .comp-fish-label {
+      /* Label sits on the visible left edge of the fish dot, just inside frame */
+      position: absolute;
+      right: 28%;
+      top: 50%;
+      transform: translate(50%, -50%);
+      text-align: center;
+      white-space: nowrap;
+      text-shadow: 0 2px 12px rgba(2, 12, 20, 0.8);
+    }
+    @media (min-width: 640px) {
+      .comp-human-dot { width: 16px; height: 16px; margin: -8px 0 0 -8px; left: 22%; }
+      .comp-human-label { left: 22%; transform: translate(-50%, 36px); }
+      .comp-fish-dot { right: -2000px; }
+    }
+
     /* Pause-zone CTA at the end of the count section */
     .pause-cta {
       pointer-events: none;
@@ -305,12 +366,6 @@
     />
 
     <div class="relative z-10 max-w-3xl mx-auto text-center pt-16 sm:pt-0">
-      <div class="section-label mb-7 sm:mb-9">
-        <span class="section-label__line"></span>
-        <span class="section-label__text">海をかぞえる</span>
-        <span class="section-label__line section-label__line--right"></span>
-      </div>
-
       <h1 class="font-jp-display font-light display-tight text-[40px] sm:text-[60px] lg:text-[76px] leading-[1.18] text-paper">
         今年、世界で<br/>
         <span class="text-gold">何匹</span>の魚が、<br/>
@@ -355,16 +410,14 @@
 
       <!-- Counter overlay -->
       <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6">
-        <div class="counter-pill rounded-2xl px-6 py-5 sm:px-10 sm:py-7 text-center max-w-[92vw]">
-          <div class="flex items-center justify-center gap-3 mb-4">
-            <span class="block w-6 sm:w-8 h-px bg-gradient-to-r from-transparent to-gold/45"></span>
-            <span class="font-cute-jp text-[12px] sm:text-[13px] tracking-[0.14em] text-gold/85">今年、世界で獲られた魚</span>
-            <span class="block w-6 sm:w-8 h-px bg-gradient-to-l from-transparent to-gold/45"></span>
+        <div class="counter-pill rounded-3xl px-8 py-7 sm:px-14 sm:py-10 text-center max-w-[94vw]">
+          <div class="font-cute-jp text-[15px] sm:text-[17px] tracking-[0.14em] text-gold/85 mb-5">
+            今年、世界で獲られた魚
           </div>
-          <div id="counter" class="ticker font-jp-display text-[36px] sm:text-[56px] lg:text-[72px] leading-none text-gold">
+          <div id="counter" class="ticker font-jp-display font-medium text-[48px] sm:text-[76px] lg:text-[96px] leading-none text-gold">
             0 匹
           </div>
-          <div class="mt-4 text-[13px] sm:text-[14px] text-paper/55 font-jp">
+          <div class="mt-5 text-[14px] sm:text-[16px] text-paper/65 font-jp">
             <span id="counter-context">スクロールで進みます</span>
           </div>
         </div>
@@ -386,11 +439,11 @@
         </a>
       </div>
 
-      <!-- Prince — 読書中, drifting along the right side as a quiet companion -->
+      <!-- Prince — professor pose, calm companion guiding the user through the count -->
       <img
-        src="/images/mascot/mc-mic.png"
+        src="/images/umi-wo-kazoeru/prince-professor.png"
         alt="ビーガン王子"
-        class="hidden sm:block absolute bottom-10 right-6 w-24 lg:w-32 anim-drift opacity-80 pointer-events-none"
+        class="hidden sm:block absolute bottom-10 right-6 w-24 lg:w-32 anim-drift opacity-90 pointer-events-none"
         loading="lazy"
       />
     </div>
@@ -401,12 +454,6 @@
     <div class="count-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
     <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
-      <div class="section-label mb-7 sm:mb-9">
-        <span class="section-label__line"></span>
-        <span class="section-label__text">スケール</span>
-        <span class="section-label__line section-label__line--right"></span>
-      </div>
-
       <p class="font-jp-display text-[26px] sm:text-[40px] lg:text-[52px] leading-[1.5] text-paper">
         ちなみに、世界中の<br class="sm:hidden"/>
         <span class="text-gold gold-underline">人類は ８０億人</span>。
@@ -416,28 +463,29 @@
         — 食べない人も、赤ちゃんも、ぜんぶ含めて。<a href="#src-1" class="src">1</a>
       </p>
 
-      <div class="mt-16 sm:mt-20 flex justify-center">
-        <!-- Two visual clusters: humans (small dot) vs fish (huge field) -->
-        <div class="grid grid-cols-2 gap-6 sm:gap-10 max-w-2xl w-full">
-          <div class="text-center">
-            <div class="aspect-square bg-deep/60 rounded-2xl border border-line/60 flex items-center justify-center mb-3 overflow-hidden relative">
-              <canvas id="mini-humans" class="w-full h-full"></canvas>
-            </div>
-            <div class="card-label">人類</div>
-            <div class="font-jp-display text-[20px] sm:text-[26px] text-paper mt-1.5">80億</div>
-          </div>
-          <div class="text-center">
-            <div class="aspect-square bg-deep/60 rounded-2xl border border-line/60 flex items-center justify-center mb-3 overflow-hidden relative">
-              <canvas id="mini-fish" class="w-full h-full"></canvas>
-            </div>
-            <div class="card-label">魚 (一年)</div>
-            <div class="font-jp-display text-[20px] sm:text-[26px] text-gold mt-1.5">1〜3兆</div>
-          </div>
+      <!-- ─── Comparison stage: tiny human dot vs huge fish dot ─────────────────
+           Ratio 80 億 : 2.3 兆 ≈ 1 : 290, applied by diameter so the fish dot
+           extends far beyond the visible viewport on any screen.  Stage is
+           full-bleed and clips so the giant circle reads as "going off forever". -->
+      <div class="comparison-stage relative w-screen -mx-6 sm:-mx-10 mt-14 sm:mt-20 h-[420px] sm:h-[520px] overflow-hidden">
+        <!-- HUGE fish dot — partial circle, edge curves into frame from the right -->
+        <div class="comp-fish-dot"></div>
+        <!-- Tiny human dot -->
+        <div class="comp-human-dot"></div>
+
+        <!-- Labels -->
+        <div class="comp-human-label">
+          <div class="font-cute-jp text-[13px] sm:text-[14px] tracking-[0.14em] text-paper/65 mb-1">人類</div>
+          <div class="font-jp-display text-[22px] sm:text-[28px] text-paper leading-none">80億</div>
+        </div>
+        <div class="comp-fish-label">
+          <div class="font-cute-jp text-[13px] sm:text-[14px] tracking-[0.14em] text-gold/85 mb-1">魚（一年）</div>
+          <div class="font-jp-display text-[22px] sm:text-[28px] text-gold leading-none">1〜3兆</div>
         </div>
       </div>
 
-      <p class="mt-12 font-cute-jp text-paper/65 text-[15px] sm:text-[17px] leading-[2]">
-        魚の数は人類のおよそ <span class="text-gold">150〜375倍</span>。<br/>
+      <p class="mt-12 font-cute-jp text-paper/75 text-[16px] sm:text-[18px] leading-[2]">
+        魚の数は人類のおよそ <span class="text-gold">290倍</span>。<br/>
         一年で、です。
       </p>
     </div>
@@ -457,12 +505,6 @@
           class="w-24 sm:w-32 anim-bobble drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)]"
           loading="lazy"
         />
-      </div>
-
-      <div class="section-label mb-7 sm:mb-9">
-        <span class="section-label__line"></span>
-        <span class="section-label__text">混獲 (こんかく)</span>
-        <span class="section-label__line section-label__line--right"></span>
       </div>
 
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
@@ -512,11 +554,6 @@
     <div class="section-bg-overlay section-bg-overlay--warm absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-5xl mx-auto">
       <div class="text-center mb-16 sm:mb-24 reveal">
-        <div class="section-label mb-6 sm:mb-7 justify-center">
-          <span class="section-label__line"></span>
-          <span class="section-label__text">日本のはなし</span>
-          <span class="section-label__line section-label__line--right"></span>
-        </div>
         <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
           日本の食卓と、<br/>
           <span class="display-italic text-gold">海のこと。</span>
@@ -589,11 +626,6 @@
     <div class="trajectory-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
     <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
-      <div class="section-label mb-7 sm:mb-9">
-        <span class="section-label__line"></span>
-        <span class="section-label__text">これまでと、これから</span>
-        <span class="section-label__line section-label__line--right"></span>
-      </div>
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
         1950年と比べて、<br/>
         海の大きな魚は <span class="text-gold gold-underline">およそ ９０％</span> いなくなりました。<a href="#src-10" class="src">10</a>
@@ -677,28 +709,13 @@
       <p class="mt-16 font-cute-jp text-paper/45 text-[12px] sm:text-[13px]">
         最後まで、ありがとう。
       </p>
-
-      <!-- Closing wave decoration -->
-      <div class="mt-12 sm:mt-16 flex justify-center opacity-70">
-        <img
-          src="/images/umi-wo-kazoeru/wave-divider.png"
-          alt=""
-          class="w-64 sm:w-80 h-auto pointer-events-none"
-          loading="lazy"
-          aria-hidden="true"
-        />
-      </div>
     </div>
   </section>
 
   <!-- ───────────────────── 8.  Sources ───────────────────── -->
   <footer class="bg-abyss border-t border-line/40 py-16 sm:py-20 px-6 sm:px-10">
     <div class="max-w-3xl mx-auto">
-      <div class="section-label mb-7">
-        <span class="section-label__line"></span>
-        <span class="section-label__text">出典 ・ sources</span>
-        <span class="section-label__line section-label__line--right"></span>
-      </div>
+      <h2 class="font-cute-jp text-gold/80 text-[14px] tracking-[0.14em] mb-6">出典 ・ sources</h2>
       <ol class="space-y-3 text-paper/60 text-[12px] sm:text-[13px] leading-[1.8] font-jp ticker">
         <li id="src-1"><span class="text-gold/60">1.</span> 年間に獲られる魚の数の推定は <a href="http://fishcount.org.uk/fish-count-estimates-2" target="_blank" rel="noopener" class="underline hover:text-paper">fishcount.org.uk</a> による（0.79〜2.3兆匹）。一人あたりの内訳は世界人口80億人で割った値。</li>
         <li id="src-2"><span class="text-gold/60">2.</span> 混獲（bycatch）の割合は FAO 'Discards in the world's marine fisheries' (2005) ほか、後年の報告でもほぼ同水準。</li>
@@ -808,17 +825,20 @@
       function rebuildCountCanvas() {
         const { ctx, w, h } = fitCanvas(countCanvas);
         const rand = mulberry32(91);
-        // Tiny fish silhouettes — each "dot" in the old field is now a fish.
-        // Density tuned a bit lower than dots since fish are larger visually.
-        const target = Math.min(Math.floor((w * h) / 220), 4500);
+        // Tiny fish silhouettes — bigger now so they're clearly fish-shaped,
+        // and each carries its own horizontal drift speed for swimming motion.
+        const target = Math.min(Math.floor((w * h) / 480), 2400);
         const dots = new Array(target);
         for (let i = 0; i < target; i++) {
           dots[i] = {
             x:     rand() * w,
             y:     rand() * h,
-            size:  rand() * 2.2 + 1.6,        // body half-length, ~1.6–3.8 px
-            dir:   rand() < 0.5 ? -1 : 1,     // facing left or right
-            a:     0.45 + rand() * 0.45,
+            size:  rand() * 3.0 + 3.5,       // body half-length, ~3.5–6.5 px
+            dir:   rand() < 0.5 ? -1 : 1,
+            speed: rand() * 9 + 4,           // px/sec horizontal drift
+            wobAmp: rand() * 2 + 0.5,        // vertical wobble amplitude
+            wobFreq: rand() * 0.5 + 0.4,     // vertical wobble frequency
+            a:     0.55 + rand() * 0.40,
             phase: rand() * Math.PI * 2,
           };
         }
@@ -858,10 +878,17 @@
 
         const visible = Math.min(maxDots, Math.floor(eased * maxDots));
         const t = performance.now() / 1000;
+        // Wrap span gives the fish a bit of margin so they fade off + reappear
+        const span = w + 80;
         for (let i = 0; i < visible; i++) {
           const d = dots[i];
-          const twinkle = prefersReduced ? 1 : (0.78 + 0.22 * Math.sin(t * 1.1 + d.phase));
-          drawFishSilhouette(ctx, d.x, d.y, d.size, d.dir, d.a * twinkle);
+          // Horizontal drift, wrapping seamlessly across the canvas
+          let x = d.x + d.dir * d.speed * (prefersReduced ? 0 : t);
+          x = (((x + 40) % span) + span) % span - 40;
+          // Gentle vertical bobbing
+          const y = d.y + (prefersReduced ? 0 : Math.sin(t * d.wobFreq + d.phase) * d.wobAmp);
+          const twinkle = prefersReduced ? 1 : (0.82 + 0.18 * Math.sin(t * 1.1 + d.phase));
+          drawFishSilhouette(ctx, x, y, d.size, d.dir, d.a * twinkle);
         }
       }
 

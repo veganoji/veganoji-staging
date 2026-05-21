@@ -79,7 +79,7 @@
     .display-italic   { font-family: var(--font-display); font-style: italic; }
 
     @utility eyebrow {
-      @apply text-[11px] tracking-[0.32em] uppercase text-royal font-medium;
+      @apply text-[12px] tracking-[0.24em] uppercase text-royal font-medium;
     }
     @utility chip {
       @apply inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3.5 py-1.5 text-[12px] tracking-[0.18em] uppercase text-ink-soft font-medium;
@@ -824,17 +824,8 @@
       <a href="#top" class="flex items-center gap-2.5">
         <svg width="28" height="28" class="text-royal"><use href="#crown"/></svg>
         <span class="font-cute-jp text-[20px] tracking-wide text-ink">ビーガン王子</span>
-        <span class="hidden md:inline text-[11px] tracking-[0.22em] text-muted uppercase">Vegan Oji</span>
+        <span class="hidden md:inline text-[12px] tracking-[0.18em] text-muted uppercase">Vegan Oji</span>
       </a>
-
-      <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-[13px] tracking-wide text-ink-soft">
-        <a href="#about"     class="hover:text-royal transition-colors">王子について</a>
-        <a href="#services"  class="hover:text-royal transition-colors">サービス</a>
-        <a href="#work"      class="hover:text-royal transition-colors">活動</a>
-        <a href="#events"    class="hover:text-royal transition-colors">今後の予定</a>
-        <a href="/blog/"     class="hover:text-royal transition-colors">ブログ</a>
-        <a href="#donate"    class="hover:text-royal transition-colors">応援する</a>
-      </nav>
 
       <div class="flex items-center gap-3">
         <!-- Globe-crown language dropdown -->
@@ -846,11 +837,11 @@
           </button>
           <ul class="lang-dropdown" role="listbox">
             <li><button data-current="true"><span class="text-base">🇯🇵</span> <span>日本語</span><span class="ml-auto text-[11px] text-royal">●</span></button></li>
-            <li><button data-soon="true"><span class="text-base">🇺🇸</span> <span>English</span><span class="ml-auto text-[10px] uppercase">準備中</span></button></li>
-            <li><button data-soon="true"><span class="text-base">🇫🇷</span> <span>Français</span><span class="ml-auto text-[10px] uppercase">準備中</span></button></li>
-            <li><button data-soon="true"><span class="text-base">🇪🇸</span> <span>Español</span><span class="ml-auto text-[10px] uppercase">準備中</span></button></li>
-            <li><button data-soon="true"><span class="text-base">🇩🇪</span> <span>Deutsch</span><span class="ml-auto text-[10px] uppercase">準備中</span></button></li>
-            <li><button data-soon="true"><span class="text-base">🇨🇳</span> <span>中文</span><span class="ml-auto text-[10px] uppercase">準備中</span></button></li>
+            <li><button data-soon="true"><span class="text-base">🇺🇸</span> <span>English</span><span class="ml-auto text-[11.5px] uppercase">準備中</span></button></li>
+            <li><button data-soon="true"><span class="text-base">🇫🇷</span> <span>Français</span><span class="ml-auto text-[11.5px] uppercase">準備中</span></button></li>
+            <li><button data-soon="true"><span class="text-base">🇪🇸</span> <span>Español</span><span class="ml-auto text-[11.5px] uppercase">準備中</span></button></li>
+            <li><button data-soon="true"><span class="text-base">🇩🇪</span> <span>Deutsch</span><span class="ml-auto text-[11.5px] uppercase">準備中</span></button></li>
+            <li><button data-soon="true"><span class="text-base">🇨🇳</span> <span>中文</span><span class="ml-auto text-[11.5px] uppercase">準備中</span></button></li>
           </ul>
         </div>
 
@@ -862,23 +853,13 @@
     </div>
   </header>
 
-  <!-- ─────────────  MOBILE SECTION NAV (sticky, scrollable)  ───────────── -->
-  <nav class="md:hidden sticky top-[56px] z-40 bg-paper/95 backdrop-blur-md border-b border-line/60" aria-label="セクション">
-    <div class="mnav-scroll px-4 py-2">
-      <a href="#about"     class="mnav-chip">王子について</a>
-      <a href="#services"  class="mnav-chip">サービス</a>
-      <a href="/tools/"    class="mnav-chip">王子のツール</a>
-      <a href="#work"      class="mnav-chip">活動</a>
-      <a href="#events"    class="mnav-chip">今後の予定</a>
-      <a href="/blog/"     class="mnav-chip">ブログ</a>
-      <a href="#character" class="mnav-chip">プロフィール</a>
-      <a href="#donate"    class="mnav-chip">応援する</a>
-      <a href="#booking"   class="mnav-chip">お仕事相談</a>
-    </div>
-  </nav>
 
   <!-- ─────────────  HERO (mobile-first)  ───────────── -->
   <section id="top" class="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-6 sm:pt-10 lg:pt-14 pb-10 sm:pb-14 lg:pb-20 overflow-hidden">
+
+    <!-- Faint damask pattern overlay (very subtle, type-safe) -->
+    <div class="absolute inset-0 pointer-events-none opacity-30 -z-10"
+         style="background-image:url('/images/decorations/damask-tile.png');background-size:256px 256px;"></div>
 
     <svg class="absolute top-12 left-[5%] w-5 h-5 text-gold anim-sparkle" style="animation-delay:0.5s"><use href="#sparkle"/></svg>
     <svg class="absolute top-1/3 right-[6%] w-4 h-4 text-royal-soft anim-sparkle" style="animation-delay:1.1s"><use href="#sparkle"/></svg>
@@ -962,7 +943,7 @@
         </div>
 
         <div class="lg:hidden mt-6 sm:mt-8 flex items-center gap-2.5 text-muted">
-          <span class="text-[10px] tracking-[0.22em] uppercase font-jp">フォロー</span>
+          <span class="text-[12px] tracking-[0.18em] uppercase font-jp">フォロー</span>
           <a href="https://instagram.com/veganoji" aria-label="Instagram" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="ig"><svg width="16" height="16"><use href="#ig"/></svg></a>
           <a href="https://x.com/VeganOji" aria-label="X" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="x"><svg width="14" height="14"><use href="#x"/></svg></a>
           <a href="https://www.youtube.com/@veganoji" aria-label="YouTube" class="social-icon-btn !w-8 !h-8 !bg-cream" data-brand="yt"><svg width="16" height="16"><use href="#yt"/></svg></a>
@@ -976,22 +957,22 @@
         <div class="mt-8 grid grid-cols-3 gap-4 text-center">
           <div>
             <div class="font-display text-[28px] text-ink leading-none">'96</div>
-            <div class="text-[11px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">L.A.生まれ</div>
+            <div class="text-[12px] tracking-[0.16em] uppercase text-muted mt-1.5 font-jp">L.A.生まれ</div>
           </div>
           <div>
             <div class="font-display text-[28px] text-ink leading-none">5+1</div>
-            <div class="text-[11px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">言語</div>
+            <div class="text-[12px] tracking-[0.16em] uppercase text-muted mt-1.5 font-jp">言語</div>
           </div>
           <div>
             <div class="font-display text-[28px] text-ink leading-none">∞</div>
-            <div class="text-[11px] tracking-[0.18em] uppercase text-muted mt-1.5 font-jp">野菜LOVE</div>
+            <div class="text-[12px] tracking-[0.16em] uppercase text-muted mt-1.5 font-jp">野菜LOVE</div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="hidden lg:flex absolute bottom-2 left-1/2 -translate-x-1/2 items-center flex-col gap-2 text-muted">
-      <span class="text-[10px] tracking-[0.32em] uppercase font-jp">スクロール</span>
+      <span class="text-[12px] tracking-[0.22em] uppercase font-jp">スクロール</span>
       <div class="scroll-cue"></div>
     </div>
   </section>
@@ -1023,7 +1004,7 @@
       <!-- VOICES strip -->
       <div class="flex items-baseline gap-3 mb-4 sm:mb-6">
         <span class="font-hand text-[22px] sm:text-[26px] text-royal">王子の周りの声 ♡</span>
-        <span class="font-jp text-[11px] text-muted tracking-wider hidden sm:inline">— 一緒に働いた人、観た人、変わった人の声</span>
+        <span class="font-jp text-[12.5px] text-muted tracking-wider hidden sm:inline">— 一緒に働いた人、観た人、変わった人の声</span>
       </div>
       <div class="m-scroll">
 
@@ -1099,7 +1080,7 @@
       <div class="my-8 sm:my-10 lg:my-12 flex items-center gap-3 max-w-[680px] mx-auto">
         <hr class="flex-1 border-t border-line"/>
         <img src="/images/decorations/fleur-de-lis-divider.png" alt="" class="h-5 sm:h-6 w-auto opacity-90 pointer-events-none -mx-1" loading="lazy"/>
-        <span class="font-jp text-[10.5px] tracking-[0.22em] uppercase text-muted whitespace-nowrap">メディア掲載・出演</span>
+        <span class="font-jp text-[12px] tracking-[0.18em] uppercase text-muted whitespace-nowrap">メディア掲載・出演</span>
         <img src="/images/decorations/fleur-de-lis-divider.png" alt="" class="h-5 sm:h-6 w-auto opacity-90 pointer-events-none -mx-1 -scale-x-100" loading="lazy"/>
         <hr class="flex-1 border-t border-line"/>
       </div>
@@ -1151,40 +1132,40 @@
           </p>
 
           <div class="mt-6 sm:mt-8 flex flex-wrap gap-1.5 sm:gap-2" id="lang-chips">
-            <button data-lang-idx="0" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">English · ネイティブ</button>
-            <button data-lang-idx="1" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">Français · ネイティブ</button>
-            <button data-lang-idx="3" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">日本語 · 流暢</button>
-            <button data-lang-idx="2" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">Español · 流暢</button>
-            <button data-lang-idx="4" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">Deutsch · 中級</button>
-            <button data-lang-idx="5" class="lang-chip chip !text-[10px] sm:!text-[12px] !px-2.5 sm:!px-3.5 text-gold-soft border-gold-soft/60 bg-transparent hover:bg-gold-soft/10 transition-colors">+ 中国語 · 勉強中</button>
+            <button data-lang-idx="0" class="lang-chip chip !text-[11.5px] sm:!text-[12.5px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">English · ネイティブ</button>
+            <button data-lang-idx="1" class="lang-chip chip !text-[11.5px] sm:!text-[12.5px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">Français · ネイティブ</button>
+            <button data-lang-idx="3" class="lang-chip chip !text-[11.5px] sm:!text-[12.5px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">日本語 · 流暢</button>
+            <button data-lang-idx="2" class="lang-chip chip !text-[11.5px] sm:!text-[12.5px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">Español · 流暢</button>
+            <button data-lang-idx="4" class="lang-chip chip !text-[11.5px] sm:!text-[12.5px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">Deutsch · 中級</button>
+            <button data-lang-idx="5" class="lang-chip chip !text-[11.5px] sm:!text-[12.5px] !px-2.5 sm:!px-3.5 text-gold-soft border-gold-soft/60 bg-transparent hover:bg-gold-soft/10 transition-colors">+ 中国語 · 勉強中</button>
           </div>
-          <div class="mt-3 text-[10px] tracking-[0.18em] text-paper/50 font-jp">タップで言語を切り替え</div>
+          <div class="mt-3 text-[11.5px] tracking-[0.16em] text-paper/50 font-jp">タップで言語を切り替え</div>
         </div>
 
         <div class="lg:col-span-7 relative min-h-[120px] sm:min-h-[200px] lg:min-h-[440px] flex items-center">
           <div id="lang-stack" class="lang-stack font-display display-tight text-[48px] sm:text-[80px] lg:text-[150px] font-medium leading-none text-paper w-full">
             <div class="lang-word" data-lang-slot="0">
-              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">EN · ENGLISH</div>
+              <div class="text-gold-soft text-[12px] sm:text-[13px] tracking-[0.22em] sm:tracking-[0.28em] mb-1.5 sm:mb-3">EN · ENGLISH</div>
               Hello.
             </div>
             <div class="lang-word" data-lang-slot="1">
-              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">FR · FRANÇAIS</div>
+              <div class="text-gold-soft text-[12px] sm:text-[13px] tracking-[0.22em] sm:tracking-[0.28em] mb-1.5 sm:mb-3">FR · FRANÇAIS</div>
               <span class="display-italic font-light">Bonjour.</span>
             </div>
             <div class="lang-word" data-lang-slot="2">
-              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">ES · ESPAÑOL</div>
+              <div class="text-gold-soft text-[12px] sm:text-[13px] tracking-[0.22em] sm:tracking-[0.28em] mb-1.5 sm:mb-3">ES · ESPAÑOL</div>
               ¡Hola!
             </div>
             <div class="lang-word" data-lang-slot="3">
-              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">JP · 日本語</div>
+              <div class="text-gold-soft text-[12px] sm:text-[13px] tracking-[0.22em] sm:tracking-[0.28em] mb-1.5 sm:mb-3">JP · 日本語</div>
               <span class="font-jp-display">こんにちは。</span>
             </div>
             <div class="lang-word" data-lang-slot="4">
-              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">DE · DEUTSCH</div>
+              <div class="text-gold-soft text-[12px] sm:text-[13px] tracking-[0.22em] sm:tracking-[0.28em] mb-1.5 sm:mb-3">DE · DEUTSCH</div>
               <span class="display-italic font-light">Hallo.</span>
             </div>
             <div class="lang-word" data-lang-slot="5">
-              <div class="text-gold-soft text-[10px] sm:text-[12px] tracking-[0.32em] sm:tracking-[0.4em] mb-1.5 sm:mb-3">中文 · 勉強中</div>
+              <div class="text-gold-soft text-[12px] sm:text-[13px] tracking-[0.22em] sm:tracking-[0.28em] mb-1.5 sm:mb-3">中文 · 勉強中</div>
               <span class="font-jp-display">你好。</span>
             </div>
           </div>
@@ -1655,7 +1636,7 @@
     <svg class="absolute top-1/2 right-[5%] w-8 h-8 text-gold-soft opacity-40 anim-float"><use href="#heart"/></svg>
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 text-center relative">
-      <div class="font-fun-jp text-[16px] sm:text-[18px] text-royal tracking-wider mb-3 inline-flex items-center gap-2">
+      <div class="font-hand text-[24px] sm:text-[28px] text-royal mb-3 inline-flex items-center gap-2">
         <svg width="16" height="16" class="text-royal"><use href="#crown"/></svg>
         フォローする
         <svg width="16" height="16" class="text-royal"><use href="#crown"/></svg>
@@ -1664,7 +1645,7 @@
       <h3 class="font-fun text-[56px] sm:text-[88px] lg:text-[140px] text-royal leading-[0.95]">
         @VEGANOJI
       </h3>
-      <p class="font-fun-jp text-[16px] sm:text-[20px] lg:text-[24px] text-muted mt-2">aka アレックス・デレチ</p>
+      <p class="font-cute-jp text-[15px] sm:text-[18px] lg:text-[22px] text-muted mt-2">aka アレックス・デレチ</p>
 
       <p class="font-cute-jp text-[14px] text-ink-soft mt-6 max-w-[480px] mx-auto leading-relaxed">
         ぜんぶのプラットフォームで、王子は活動中。<br/>お好きなところで会いに来てください ♡
@@ -1893,6 +1874,16 @@
       alt="ビーガン王子 - おやすみ"
       class="block absolute -bottom-2 right-2 sm:right-6 lg:right-16 w-24 sm:w-32 lg:w-52 anim-bobble pointer-events-none"
       style="animation-delay:0.6s"
+      loading="lazy"
+    />
+
+    <!-- mascot polite bow (left side, gratitude) -->
+    <img
+      src="/images/mascot/polite-bow.png"
+      alt=""
+      aria-hidden="true"
+      class="hidden sm:block absolute -bottom-2 left-2 sm:left-6 lg:left-12 w-24 sm:w-28 lg:w-40 anim-bobble pointer-events-none drop-shadow-md"
+      style="animation-delay:1.1s"
       loading="lazy"
     />
 
