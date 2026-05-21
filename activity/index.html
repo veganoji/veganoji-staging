@@ -40,7 +40,6 @@
       --font-hand: "Caveat", "Yusei Magic", "Hachi Maru Pop", "Noto Sans JP", cursive;
       --font-cute-jp: "Hachi Maru Pop", "Yusei Magic", "Kosugi Maru", "Noto Sans JP", sans-serif;
       --font-fun: "Lilita One", "Fraunces", "Noto Serif JP", sans-serif;
-      --font-hand: "Reggae One", "Hachi Maru Pop", "Noto Sans JP", sans-serif;
     }
 
     html, body { background: var(--color-paper); color: var(--color-ink); }
@@ -73,7 +72,6 @@
     .font-fun         { font-family: var(--font-fun); }
     .font-hand      { font-family: var(--font-hand); }
     .font-round       { font-family: var(--font-round); }
-    .font-hand        { font-family: var(--font-hand); }
     .font-cute-jp     { font-family: var(--font-cute-jp); }
     .display-tight    { letter-spacing: -0.035em; line-height: 0.92; }
     .display-italic   { font-family: var(--font-display); font-style: italic; }
@@ -313,7 +311,7 @@
       font-size: 11px; color: var(--color-muted);
       letter-spacing: 0.05em;
     }
-    .voice-name { font-family: var(--font-hand); font-size: 13px; color: var(--color-ink); }
+    .voice-name { font-family: var(--font-cute-jp); font-weight: 700; font-size: 14px; color: var(--color-ink); }
 
     /* Polaroid-style work cards */
     .work-card {
@@ -899,7 +897,7 @@
       <h1 class="font-display display-tight text-[40px] sm:text-[56px] lg:text-[72px] font-medium text-ink">
         Activity <span class="display-italic text-royal">log.</span>
       </h1>
-      <p class="font-jp text-[13px] sm:text-[14px] text-muted mt-3">テレビ、フェス、講演、コラボ──王子の歩み、ぜんぶ。</p>
+      <p class="font-jp text-[14px] sm:text-[15px] text-muted mt-3">テレビ、フェス、講演、コラボ──王子の歩み、ぜんぶ。</p>
       <div class="mt-4 inline-flex items-center gap-2 text-[11px] text-muted">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 10c0 5 6 5 6 0M9 14c1 1 5 1 6 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         <a href="/activity/feed.xml" class="font-jp underline underline-offset-2 hover:text-royal">RSSフィード</a>
@@ -1011,7 +1009,7 @@
                 <span class="font-jp text-[11px] text-muted">${fmtDate(p.date)}</span>
               </div>
               <h2 class="font-jp-display text-[16px] text-ink leading-snug line-clamp-3">${esc(p.title)}</h2>
-              ${p.excerpt ? `<p class="font-jp text-[13px] sm:text-[14px] text-muted mt-2 leading-relaxed line-clamp-2">${esc(p.excerpt)}</p>` : ''}
+              ${p.excerpt ? `<p class="font-jp text-[14px] sm:text-[15px] text-muted mt-2 leading-relaxed line-clamp-2">${esc(p.excerpt)}</p>` : ''}
             </div>
           </a>`).join('');
       }
@@ -1038,13 +1036,13 @@
           </a>
           <div class="flex items-center gap-2.5 mb-3 flex-wrap">
             <span class="chip !text-[10px] !px-2.5 !py-1 border-royal/30 text-royal bg-royal/5">活動</span>
-            <span class="font-jp text-[13px] sm:text-[14px] text-muted">${fmtDate(meta.date)}</span>
+            <span class="font-jp text-[14px] sm:text-[15px] text-muted">${fmtDate(meta.date)}</span>
           </div>
           <h1 class="font-jp-display text-[26px] sm:text-[36px] font-medium text-ink leading-[1.45]">${esc(meta.title)}</h1>
           ${meta.hero ? `<img src="${esc(meta.hero)}" alt="" class="w-full rounded-2xl mt-6 border border-line">` : ''}
 
           <div class="mt-7 pt-5 border-t border-line/60 flex items-center gap-3 flex-wrap">
-            <span class="font-jp text-[13px] sm:text-[14px] text-muted">この活動をシェア</span>
+            <span class="font-jp text-[14px] sm:text-[15px] text-muted">この活動をシェア</span>
             ${shareBarHTML(meta)}
           </div>
 

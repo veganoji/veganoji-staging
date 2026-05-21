@@ -40,7 +40,6 @@
       --font-hand: "Caveat", "Yusei Magic", "Hachi Maru Pop", "Noto Sans JP", cursive;
       --font-cute-jp: "Hachi Maru Pop", "Yusei Magic", "Kosugi Maru", "Noto Sans JP", sans-serif;
       --font-fun: "Lilita One", "Fraunces", "Noto Serif JP", sans-serif;
-      --font-hand: "Reggae One", "Hachi Maru Pop", "Noto Sans JP", sans-serif;
     }
 
     html, body { background: var(--color-paper); color: var(--color-ink); }
@@ -71,7 +70,6 @@
     .font-jp-display  { font-family: var(--font-jp-display); }
     .font-jp          { font-family: var(--font-jp); }
     .font-fun         { font-family: var(--font-fun); }
-    .font-hand      { font-family: var(--font-hand); }
     .font-round       { font-family: var(--font-round); }
     .font-hand        { font-family: var(--font-hand); }
     .font-cute-jp     { font-family: var(--font-cute-jp); }
@@ -313,7 +311,7 @@
       font-size: 11px; color: var(--color-muted);
       letter-spacing: 0.05em;
     }
-    .voice-name { font-family: var(--font-hand); font-size: 13px; color: var(--color-ink); }
+    .voice-name { font-family: var(--font-cute-jp); font-weight: 700; font-size: 14px; color: var(--color-ink); }
 
     /* Polaroid-style work cards */
     .work-card {
@@ -415,9 +413,12 @@
     .social-icon-btn:hover { transform: translateY(-2px) scale(1.1) rotate(-3deg); filter: drop-shadow(0 6px 10px rgba(31,24,18,0.18)); }
     .social-icon-lg {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 72px; height: 72px;
+      width: 52px; height: 52px;
       transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), filter 0.3s ease;
       filter: drop-shadow(0 4px 8px rgba(31,24,18,0.10));
+    }
+    @media (min-width: 640px) {
+      .social-icon-lg { width: 60px; height: 60px; }
     }
     .social-icon-lg img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .social-icon-lg:hover { transform: translateY(-4px) rotate(-4deg) scale(1.08); filter: drop-shadow(0 14px 22px rgba(31,24,18,0.25)); }
@@ -919,7 +920,7 @@
       <!-- TAGLINE + BUTTONS (mobile last for one-screen hero) -->
       <div class="lg:col-span-7 order-3 lg:order-3 mt-6 sm:mt-8 lg:mt-0">
         <div class="badge-ribbon mb-4 sm:mb-5 text-[12px] sm:text-[13px]">お笑いあり、涙あり、野菜あり</div>
-        <p class="font-jp text-[13px] sm:text-[15px] lg:text-[17px] leading-[1.85] sm:leading-[2] text-ink-soft max-w-[560px]">
+        <p class="font-jp text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.85] sm:leading-[2] text-ink-soft max-w-[560px]">
           国籍は三つ。操る言語は六つ。<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい<span class="text-royal">&ldquo;ディズニーみたいな世界&rdquo;</span>を現実にするため発信しています。
         </p>
         <div class="mt-5 sm:mt-7 flex flex-wrap items-center gap-3">
@@ -1091,7 +1092,7 @@
       </div>
 
       <div class="mt-5 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
-        <span class="font-jp text-[13px] sm:text-[14px] text-muted">メディア関係者の方へ —</span>
+        <span class="font-jp text-[14px] sm:text-[15px] text-muted">メディア関係者の方へ —</span>
         <a href="https://drive.google.com/drive/folders/1iFVzYBwNPQh3hLUdvMHZUehJamtOTNJJ?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-royal text-[13px] font-jp border border-royal/30 rounded-full px-4 py-2 hover:bg-royal hover:text-paper transition-colors">
           <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           プレスキット（写真・プロフィール・ロゴ）をダウンロード
@@ -1115,7 +1116,7 @@
             <span class="block text-paper/80 text-[24px] sm:text-[34px] lg:text-[50px] mt-1.5 sm:mt-2 font-jp-display font-light">挨拶は、世界中で。</span>
           </h2>
 
-          <p class="font-jp text-[13px] sm:text-[15px] lg:text-[16px] leading-[1.95] sm:leading-[2] text-paper/85 mt-5 sm:mt-7 max-w-[440px]">
+          <p class="font-jp text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.95] sm:leading-[2] text-paper/85 mt-5 sm:mt-7 max-w-[440px]">
             英語、フランス語、スペイン語、日本語、ドイツ語、そして現在は中国語を勉強中。UCLA一年早く卒業。<span class="text-gold-soft">国や言葉のちがいを越えて、笑いも想いも、まっすぐ届けます。</span>
           </p>
 
@@ -1191,7 +1192,7 @@
       <div class="m-scroll m-scroll-2">
 
         <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <div class="absolute top-4 right-4 w-14 h-14 text-royal opacity-20"><svg width="100%" height="100%"><use href="#note"/></svg></div>
+          <img src="/images/ui-icons/note.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none -rotate-6 drop-shadow-md"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">01</span>
             <span class="eyebrow font-jp">MC · 司会・講演</span>
@@ -1199,10 +1200,10 @@
           <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
             多言語MC・<br/>講演・大学授業
           </h3>
-          <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
+          <p class="font-jp text-[14.5px] sm:text-[15.5px] leading-[1.95] text-ink-soft">
             国際カンファレンスからビーガンフェス、大学の特別講義まで。最大６言語で、通訳を挟まずに会場と直接つながります。
           </p>
-          <ul class="mt-auto text-[13px] sm:text-[13.5px] text-muted space-y-1.5 font-jp">
+          <ul class="mt-auto text-[14px] sm:text-[14.5px] text-muted space-y-1.5 font-jp">
             <li>· 国際イベント司会（日英／日仏／日西）</li>
             <li>· パネルモデレーション</li>
             <li>· 大学・高校での特別講義</li>
@@ -1211,7 +1212,7 @@
         </article>
 
         <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <div class="absolute top-4 right-4 w-14 h-14 text-royal opacity-20"><svg width="100%" height="100%"><use href="#sparkle"/></svg></div>
+          <img src="/images/ui-icons/sparkle.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none rotate-6 drop-shadow-md"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">02</span>
             <span class="eyebrow font-jp">タレント・モデル</span>
@@ -1219,10 +1220,10 @@
           <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
             モデル・<br/>タレント出演
           </h3>
-          <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
+          <p class="font-jp text-[14.5px] sm:text-[15.5px] leading-[1.95] text-ink-soft">
             ファッション、コマーシャル、TV、Web、声優。<br/>外国人視点のキャスティング、特に得意です。
           </p>
-          <ul class="mt-auto text-[13px] sm:text-[13.5px] text-muted space-y-1.5 font-jp">
+          <ul class="mt-auto text-[14px] sm:text-[14.5px] text-muted space-y-1.5 font-jp">
             <li>· テレビ・ウェブ番組出演</li>
             <li>· 広告・ブランドキャンペーン</li>
             <li>· 多言語ナレーション・声優</li>
@@ -1231,7 +1232,7 @@
         </article>
 
         <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <div class="absolute top-4 right-4 w-14 h-14 text-royal opacity-20"><svg width="100%" height="100%"><use href="#heart"/></svg></div>
+          <img src="/images/ui-icons/heart.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none -rotate-6 drop-shadow-md"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">03</span>
             <span class="eyebrow font-jp">SNS・クリエイター</span>
@@ -1239,10 +1240,10 @@
           <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
             王子としての<br/>SNS活動
           </h3>
-          <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
+          <p class="font-jp text-[14.5px] sm:text-[15.5px] leading-[1.95] text-ink-soft">
             王子の衣装に身を包んで、日本に笑顔とポジティブな変化を届けるコンテンツを毎日発信。モットーは<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>。
           </p>
-          <ul class="mt-auto text-[13px] sm:text-[13.5px] text-muted space-y-1.5 font-jp">
+          <ul class="mt-auto text-[14px] sm:text-[14.5px] text-muted space-y-1.5 font-jp">
             <li>· Instagram / TikTok / YouTube</li>
             <li>· ブランドコラボ動画</li>
             <li>· 多言語コンテンツ</li>
@@ -1251,7 +1252,7 @@
         </article>
 
         <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <div class="absolute top-4 right-4 w-14 h-14 text-royal opacity-20"><svg width="100%" height="100%"><use href="#crown"/></svg></div>
+          <img src="/images/ui-icons/crown.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none rotate-3 drop-shadow-md"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">04</span>
             <span class="eyebrow font-jp">海外の架け橋</span>
@@ -1259,10 +1260,10 @@
           <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
             国際ビジネス・<br/>マーケティング
           </h3>
-          <p class="font-jp text-[14px] leading-[1.95] text-ink-soft">
+          <p class="font-jp text-[14.5px] sm:text-[15.5px] leading-[1.95] text-ink-soft">
             複数のブランドで、国内外マーケティング・AI活用・モデル／アーティスト事務所運営など、「海外と日本」をつなぐ仕事をしています。
           </p>
-          <ul class="mt-auto text-[13px] sm:text-[13.5px] text-muted space-y-1.5 font-jp">
+          <ul class="mt-auto text-[14px] sm:text-[14.5px] text-muted space-y-1.5 font-jp">
             <li>· <a href="https://www.researchsolutions.com" target="_blank" rel="noopener" class="text-royal hover:underline">Research Solutions</a> · Japan Territory Manager</li>
             <li>· <a href="https://handpanstudiotokyo.jp" target="_blank" rel="noopener" class="text-royal hover:underline">Handpan Studio Tokyo</a> · 共同創業</li>
             <li>· <a href="https://ojidigital.com" target="_blank" rel="noopener" class="text-royal hover:underline">OJI DIGITAL</a> · AI活用コンサル</li>
@@ -1280,7 +1281,7 @@
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
       <div class="text-center mb-6 sm:mb-8">
         <div class="ornament justify-center mb-3"><span style="color:#E8C76F">王子が手がけるもの</span></div>
-        <p class="font-jp text-[13px] sm:text-[14px] text-paper/75">モデル・タレント業とあわせて、こんなブランドを動かしています。<span class="md:hidden text-gold-soft">→ 横にスワイプ</span></p>
+        <p class="font-jp text-[14px] sm:text-[15px] text-paper/75">モデル・タレント業とあわせて、こんなブランドを動かしています。<span class="md:hidden text-gold-soft">→ 横にスワイプ</span></p>
       </div>
       <div class="logo-strip">
         <a href="https://www.researchsolutions.com" target="_blank" rel="noopener" class="logo-card">
@@ -1308,7 +1309,7 @@
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
       <div class="text-center mb-6 sm:mb-8">
         <div class="ornament justify-center mb-2.5"><span>王子のツール</span></div>
-        <p class="font-jp text-[13px] sm:text-[14px] text-muted">「で、実際どうすればいいの？」── そんな疑問に答える、無料の道具を２つ用意しました。</p>
+        <p class="font-jp text-[14px] sm:text-[15px] text-muted">「で、実際どうすればいいの？」── そんな疑問に答える、無料の道具を２つ用意しました。</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
 
@@ -1319,7 +1320,7 @@
           <div class="flex-1 min-w-0">
             <div class="eyebrow text-leaf-deep font-jp">道具その１</div>
             <h3 class="font-jp-display text-[18px] sm:text-[20px] font-medium text-ink leading-tight mt-1">ビーガン計算機</h3>
-            <p class="font-jp text-[13px] sm:text-[14px] text-muted mt-1.5 leading-relaxed">「もし◯年ビーガンを続けたら…」 水・穀物・森林・CO₂・動物のいのちで、地球への貢献度を計算。</p>
+            <p class="font-jp text-[14px] sm:text-[15px] text-muted mt-1.5 leading-relaxed">「もし◯年ビーガンを続けたら…」 水・穀物・森林・CO₂・動物のいのちで、地球への貢献度を計算。</p>
             <div class="mt-3 inline-flex items-center gap-1.5 text-royal text-[13px] font-jp">
               開く
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -1334,7 +1335,7 @@
           <div class="flex-1 min-w-0">
             <div class="eyebrow font-jp">道具その２</div>
             <h3 class="font-jp-display text-[18px] sm:text-[20px] font-medium text-ink leading-tight mt-1">ビーガンマップ</h3>
-            <p class="font-jp text-[13px] sm:text-[14px] text-muted mt-1.5 leading-relaxed">日本全国 3,200+ 店舗のビーガン・ベジ対応レストランを、王子が厳選してマップに。</p>
+            <p class="font-jp text-[14px] sm:text-[15px] text-muted mt-1.5 leading-relaxed">日本全国 3,200+ 店舗のビーガン・ベジ対応レストランを、王子が厳選してマップに。</p>
             <div class="mt-3 inline-flex items-center gap-1.5 text-royal text-[13px] font-jp">
               開く
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -1466,7 +1467,7 @@
           </div>
           <div class="flex-1 min-w-0">
             <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">SPARTAN スプリント</div>
-            <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-1 flex items-center gap-1.5">
+            <div class="font-jp text-[14px] sm:text-[15px] text-muted mt-1 flex items-center gap-1.5">
               <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 千葉 · オブスタクルレース
             </div>
           </div>
@@ -1479,7 +1480,7 @@
           </div>
           <div class="flex-1 min-w-0">
             <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">あだち荒川マラソン大会2026</div>
-            <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-1 flex items-center gap-1.5">
+            <div class="font-jp text-[14px] sm:text-[15px] text-muted mt-1 flex items-center gap-1.5">
               <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 東京 · マラソン
             </div>
           </div>
@@ -1492,7 +1493,7 @@
           </div>
           <div class="flex-1 min-w-0">
             <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">2026 函館マラソン</div>
-            <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-1 flex items-center gap-1.5">
+            <div class="font-jp text-[14px] sm:text-[15px] text-muted mt-1 flex items-center gap-1.5">
               <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 函館 · マラソン
             </div>
           </div>
@@ -1505,7 +1506,7 @@
           </div>
           <div class="flex-1 min-w-0">
             <div class="font-jp-display text-[15px] sm:text-[17px] text-ink leading-tight">SPARTAN スーパー</div>
-            <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-1 flex items-center gap-1.5">
+            <div class="font-jp text-[14px] sm:text-[15px] text-muted mt-1 flex items-center gap-1.5">
               <svg width="11" height="14" class="text-royal flex-shrink-0"><use href="#pin"/></svg> 静岡・裾野（富士山近く）· オブスタクルレース
             </div>
           </div>
@@ -1653,15 +1654,15 @@
           <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-royal text-paper flex items-center justify-center shadow rotate-[-8deg]">
             <svg width="18" height="18"><use href="#heart"/></svg>
           </div>
-          <div class="font-hand text-[15px] sm:text-[17px] text-ink leading-tight">王子からの月刊だより</div>
+          <div class="font-cute-jp text-[16px] sm:text-[18px] text-ink leading-tight" style="font-weight:700">王子からの月刊だより</div>
           <div class="font-display italic text-[13px] text-muted mt-0.5">A monthly note from the prince</div>
-          <p class="font-jp text-[13px] sm:text-[14px] text-ink-soft mt-3 leading-relaxed">
+          <p class="font-jp text-[14px] sm:text-[15px] text-ink-soft mt-3 leading-relaxed">
             新しいレシピ、最近の活動、ここでしか言えない裏話。月に１回、王子から手紙が届きます。
           </p>
           <form id="newsletter-form" class="mt-4 flex flex-col sm:flex-row gap-2.5">
             <input type="email" required placeholder="you@example.jp" class="flex-1 bg-paper border border-line rounded-full px-4 py-2.5 text-[14px] text-ink focus:outline-none focus:border-royal transition-colors font-jp"/>
             <button type="submit" class="btn-primary !text-[14px] !px-5 !py-2.5 justify-center">
-              <span class="font-hand">登録</span>
+              <span class="font-cute-jp" style="font-weight:700">登録</span>
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
           </form>
@@ -1816,7 +1817,7 @@
             <div class="text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">活動形態</div>
             <div class="font-jp-display text-[17px] text-ink">ビーガン王子株式会社 · 代表取締役</div>
             <div class="font-display italic text-[13px] text-muted mt-0.5">CEO of Vegan Oji Inc.</div>
-            <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-2 leading-relaxed">事務所には専属せず、独立して活動しています。</div>
+            <div class="font-jp text-[14px] sm:text-[15px] text-muted mt-2 leading-relaxed">事務所には専属せず、独立して活動しています。</div>
           </div>
           <div class="border-l-2 border-line pl-5">
             <div class="text-[11px] tracking-[0.22em] uppercase text-muted mb-2 font-jp">対応言語</div>
@@ -1901,7 +1902,7 @@
         <div class="lg:col-span-3">
           <div class="flex items-center gap-2 mb-4">
             <svg width="14" height="14" class="text-royal"><use href="#crown"/></svg>
-            <span class="font-hand text-[14px] text-ink tracking-wider">ナビゲーション</span>
+            <span class="font-cute-jp text-[15px] text-ink" style="font-weight:700">ナビゲーション</span>
           </div>
           <ul class="space-y-2 text-[14px] sm:text-[15px] text-ink-soft font-jp">
             <li><a href="#about"     class="hover:text-royal transition-colors">王子について</a></li>
@@ -1920,7 +1921,7 @@
         <div class="lg:col-span-5">
           <div class="flex items-center gap-2 mb-4">
             <svg width="14" height="14" class="text-royal"><use href="#heart"/></svg>
-            <span class="font-hand text-[14px] text-ink tracking-wider">王子に会える場所</span>
+            <span class="font-cute-jp text-[15px] text-ink" style="font-weight:700">王子に会える場所</span>
           </div>
           <ul class="grid grid-cols-1 gap-2 text-[14px] sm:text-[15px] text-ink-soft font-jp">
             <li class="flex items-center gap-2.5"><img src="/images/social/ig.png" alt=""/><a href="https://instagram.com/veganoji" class="hover:text-royal transition-colors">Instagram · @veganoji</a></li>

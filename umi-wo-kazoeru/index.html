@@ -265,25 +265,24 @@
       position: absolute;
       left: 18%;
       top: 50%;
-      width: 14px;
-      height: 14px;
-      margin: -7px 0 0 -7px;
+      width: 16px;
+      height: 16px;
+      margin: -8px 0 0 -8px;
       border-radius: 50%;
-      background: rgba(248, 200, 210, 0.98);
+      background: rgba(232, 199, 111, 0.98);   /* gold — same hue as the giant fish disc */
       box-shadow:
-        0 0 12px rgba(248, 200, 210, 0.6),
-        0 0 0 2px rgba(248, 200, 210, 0.35);
+        0 0 14px rgba(232, 199, 111, 0.6),
+        0 0 0 2px rgba(232, 199, 111, 0.4);
     }
     .comp-fish-dot {
       position: absolute;
-      /* Diameter ~290× the human dot's 14 px = ~4060 px.  Anchored so the LEFT
-         edge is visible inside the viewport — that's the visual cue saying
-         "this is a circle that goes way off to the right". */
-      width: 4000px;
-      height: 4000px;
+      /* Diameter ~290× the human dot's 16 px.  Anchored so the LEFT edge
+         curves visibly into the frame — visual cue: "circle goes off forever". */
+      width: 4640px;
+      height: 4640px;
       left: 52%;
       top: 50%;
-      margin: -2000px 0 0 0;
+      margin: -2320px 0 0 0;
       border-radius: 50%;
       background:
         radial-gradient(circle at 0% 50%,
@@ -294,30 +293,31 @@
       box-shadow:
         0 0 60px rgba(232, 199, 111, 0.35),
         inset 60px 0 0 -52px rgba(255, 240, 200, 0.7);
-      border-left: 4px solid rgba(232, 199, 111, 0.85);
+      border-left: 4px solid rgba(232, 199, 111, 0.95);
+    }
+    /* Both labels share a vertical baseline (top:50%) + identical offset
+       below their dots so the eye reads them as a matched pair. */
+    .comp-human-label,
+    .comp-fish-label {
+      position: absolute;
+      top: 50%;
+      text-align: center;
+      white-space: nowrap;
     }
     .comp-human-label {
-      position: absolute;
       left: 18%;
-      top: 50%;
-      transform: translate(-50%, 26px);
-      text-align: center;
-      white-space: nowrap;
+      transform: translate(-50%, 32px);
     }
     .comp-fish-label {
-      /* Label sits in the upper portion of the visible fish-disc */
-      position: absolute;
       left: 68%;
-      top: 28%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      white-space: nowrap;
+      transform: translate(-50%, 32px);
       color: var(--color-abyss);
     }
     @media (min-width: 640px) {
-      .comp-human-dot { width: 18px; height: 18px; margin: -9px 0 0 -9px; left: 18%; }
-      .comp-fish-dot  { left: 55%; }
-      .comp-fish-label { left: 72%; top: 26%; }
+      .comp-human-dot  { width: 22px; height: 22px; margin: -11px 0 0 -11px; left: 18%; }
+      .comp-fish-dot   { left: 55%; }
+      .comp-human-label{ left: 18%; transform: translate(-50%, 44px); }
+      .comp-fish-label { left: 72%; transform: translate(-50%, 44px); }
     }
 
     /* Pause-zone CTA at the end of the count section */
@@ -476,14 +476,14 @@
         <!-- Tiny human dot -->
         <div class="comp-human-dot"></div>
 
-        <!-- Labels -->
+        <!-- Labels — aligned at the same vertical baseline, bold emphasis -->
         <div class="comp-human-label">
-          <div class="font-cute-jp text-[13px] sm:text-[14px] tracking-[0.14em] text-paper/65 mb-1">人類</div>
-          <div class="font-jp-display text-[22px] sm:text-[28px] text-paper leading-none">80億</div>
+          <div class="font-cute-jp text-[16px] sm:text-[19px] tracking-[0.16em] text-paper/75 mb-2">人類</div>
+          <div class="font-jp-display font-medium text-[38px] sm:text-[54px] text-paper leading-none">80億</div>
         </div>
         <div class="comp-fish-label">
-          <div class="font-cute-jp text-[13px] sm:text-[14px] tracking-[0.14em] text-abyss/75 mb-1">魚（一年）</div>
-          <div class="font-jp-display text-[24px] sm:text-[32px] text-abyss leading-none">1〜3兆</div>
+          <div class="font-cute-jp text-[16px] sm:text-[19px] tracking-[0.16em] text-abyss/80 mb-2">魚（一年）</div>
+          <div class="font-jp-display font-medium text-[38px] sm:text-[54px] text-abyss leading-none">1〜3兆</div>
         </div>
       </div>
 
@@ -839,8 +839,8 @@
       function rebuildCountCanvas() {
         const { ctx, w, h } = fitCanvas(countCanvas);
         const rand = mulberry32(91);
-        // Restored density (overcrowded ocean) with doubled visual size.
-        const target = Math.min(Math.floor((w * h) / 220), 4500);
+        // Even denser — fits the "everywhere all at once" theme.
+        const target = Math.min(Math.floor((w * h) / 140), 7500);
         const dots = new Array(target);
         for (let i = 0; i < target; i++) {
           dots[i] = {
@@ -904,7 +904,10 @@
           if (sprite && sprite.complete && sprite.naturalWidth) {
             ctx.save();
             ctx.globalAlpha = d.a * wob;
-            if (d.dir === -1) {
+            // The generated sprites all face LEFT.  So:
+            //   dir = -1 (swimming left)  → draw as-is (head faces motion ✓)
+            //   dir = +1 (swimming right) → flip horizontally (head faces motion ✓)
+            if (d.dir === 1) {
               ctx.translate(x, y);
               ctx.scale(-1, 1);
               ctx.drawImage(sprite, -d.width / 2, -d.width / 2, d.width, d.width);
@@ -984,8 +987,13 @@
         const countProgress = Math.min(rawProgress / COUNT_END, 1);
         const pauseProgress = Math.max(0, Math.min(1, (rawProgress - COUNT_END) / CTA_FADE));
 
+        // Ease-in on the counter: slow start, then accelerates.  Feels like
+        // the count is "waking up" as the user keeps scrolling.  Exponent
+        // 2.4 = ~1% at 20% scroll, ~25% at 60% scroll, ~100% at the end.
+        const easedCount = Math.pow(countProgress, 2.4);
+
         lastProgress  = countProgress;
-        targetCount   = Math.floor(countProgress * TOTAL_FISH);
+        targetCount   = Math.floor(easedCount * TOTAL_FISH);
         pauseStrength = pauseProgress;
 
         if (rawProgress < 0.001)         counterCtx.textContent = 'スクロールで進みます';

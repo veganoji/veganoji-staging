@@ -40,7 +40,6 @@
       --font-hand: "Caveat", "Yusei Magic", "Hachi Maru Pop", "Noto Sans JP", cursive;
       --font-cute-jp: "Hachi Maru Pop", "Yusei Magic", "Kosugi Maru", "Noto Sans JP", sans-serif;
       --font-fun: "Lilita One", "Fraunces", "Noto Serif JP", sans-serif;
-      --font-hand: "Reggae One", "Hachi Maru Pop", "Noto Sans JP", sans-serif;
     }
 
     html, body { background: var(--color-paper); color: var(--color-ink); }
@@ -73,7 +72,6 @@
     .font-fun         { font-family: var(--font-fun); }
     .font-hand      { font-family: var(--font-hand); }
     .font-round       { font-family: var(--font-round); }
-    .font-hand        { font-family: var(--font-hand); }
     .font-cute-jp     { font-family: var(--font-cute-jp); }
     .display-tight    { letter-spacing: -0.035em; line-height: 0.92; }
     .display-italic   { font-family: var(--font-display); font-style: italic; }
@@ -313,7 +311,7 @@
       font-size: 11px; color: var(--color-muted);
       letter-spacing: 0.05em;
     }
-    .voice-name { font-family: var(--font-hand); font-size: 13px; color: var(--color-ink); }
+    .voice-name { font-family: var(--font-cute-jp); font-weight: 700; font-size: 14px; color: var(--color-ink); }
 
     /* Polaroid-style work cards */
     .work-card {
@@ -859,12 +857,12 @@
     }
     .filter-card > * { position: relative; z-index: 1; }
     .filter-mascot {
-      position: absolute; right: 12px; top: -38px;
-      width: 84px; height: auto; pointer-events: none;
+      position: absolute; right: 8px; top: -54px;
+      width: 124px; height: auto; pointer-events: none;
       filter: drop-shadow(0 10px 18px rgba(31,24,18,.22));
       transform-origin: center bottom;
     }
-    @media (min-width: 640px) { .filter-mascot { width: 108px; top: -48px; right: 24px; } }
+    @media (min-width: 640px) { .filter-mascot { width: 156px; top: -64px; right: 24px; } }
     .filter-chips {
       display: flex; gap: 8px; overflow-x: auto; overscroll-behavior-x: contain;
       padding: 6px 2px 4px;
@@ -982,7 +980,7 @@
       <h1 class="font-display display-tight text-[44px] sm:text-[60px] lg:text-[80px] font-medium text-ink">
         Oji <span class="display-italic text-royal">Media.</span>
       </h1>
-      <p class="font-jp text-[13px] sm:text-[14px] text-muted mt-3">お笑いあり、涙あり、野菜あり ── 王子の日々のことば。</p>
+      <p class="font-jp text-[14px] sm:text-[15px] text-muted mt-3">お笑いあり、涙あり、野菜あり ── 王子の日々のことば。</p>
     </div>
   </section>
 
@@ -1327,14 +1325,14 @@
           </a>
           <div class="flex items-center gap-2.5 mb-3 flex-wrap">
             <span class="cat-chip cat-${esc(meta.category)}">${esc(meta.category_display || CAT_LABELS[meta.category] || 'ブログ')}</span>
-            <span class="font-jp text-[13px] sm:text-[14px] text-muted">${fmtDate(meta.date)}</span>
+            <span class="font-jp text-[14px] sm:text-[15px] text-muted">${fmtDate(meta.date)}</span>
           </div>
           <h1 class="font-jp-display text-[26px] sm:text-[36px] font-medium text-ink leading-[1.45]">${esc(meta.title)}</h1>
           ${meta.hero ? `<img src="${esc(meta.hero)}" alt="" class="w-full rounded-2xl mt-6 border border-line">` : ''}
 
           <!-- Top share bar -->
           <div class="mt-7 pt-5 border-t border-line/60 flex items-center gap-3 flex-wrap">
-            <span class="font-jp text-[13px] sm:text-[14px] text-muted">この記事をシェア</span>
+            <span class="font-jp text-[14px] sm:text-[15px] text-muted">この記事をシェア</span>
             ${shareBarHTML(meta)}
           </div>
 
@@ -1355,7 +1353,7 @@
               </div>
               <div class="flex-1 min-w-0">
                 <div class="font-jp-display text-[15px] text-ink leading-tight">シェア画像をダウンロード</div>
-                <div class="font-jp text-[13px] sm:text-[14px] text-muted mt-0.5 leading-relaxed">王子ブランドの画像でInstagramやXに投稿しよう。<span class="text-royal">@veganoji</span> をタグ付けして！</div>
+                <div class="font-jp text-[14px] sm:text-[15px] text-muted mt-0.5 leading-relaxed">王子ブランドの画像でInstagramやXに投稿しよう。<span class="text-royal">@veganoji</span> をタグ付けして！</div>
               </div>
               <span id="share-card-status" class="hidden font-jp text-[11px] text-leaf-deep flex-shrink-0">準備中…</span>
               <svg width="16" height="16" viewBox="0 0 14 14" fill="none" class="text-royal flex-shrink-0"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>

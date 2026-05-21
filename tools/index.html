@@ -40,7 +40,6 @@
       --font-hand: "Caveat", "Yusei Magic", "Hachi Maru Pop", "Noto Sans JP", cursive;
       --font-cute-jp: "Hachi Maru Pop", "Yusei Magic", "Kosugi Maru", "Noto Sans JP", sans-serif;
       --font-fun: "Lilita One", "Fraunces", "Noto Serif JP", sans-serif;
-      --font-hand: "Reggae One", "Hachi Maru Pop", "Noto Sans JP", sans-serif;
     }
 
     html, body { background: var(--color-paper); color: var(--color-ink); }
@@ -73,7 +72,6 @@
     .font-fun         { font-family: var(--font-fun); }
     .font-hand      { font-family: var(--font-hand); }
     .font-round       { font-family: var(--font-round); }
-    .font-hand        { font-family: var(--font-hand); }
     .font-cute-jp     { font-family: var(--font-cute-jp); }
     .display-tight    { letter-spacing: -0.035em; line-height: 0.92; }
     .display-italic   { font-family: var(--font-display); font-style: italic; }
@@ -313,7 +311,7 @@
       font-size: 11px; color: var(--color-muted);
       letter-spacing: 0.05em;
     }
-    .voice-name { font-family: var(--font-hand); font-size: 13px; color: var(--color-ink); }
+    .voice-name { font-family: var(--font-cute-jp); font-weight: 700; font-size: 14px; color: var(--color-ink); }
 
     /* Polaroid-style work cards */
     .work-card {
@@ -930,7 +928,7 @@
               <button class="calc-preset" data-years="10" data-months="0">１０年</button>
             </div>
             <div class="flex items-center justify-center gap-3 flex-wrap">
-              <span class="font-jp text-[13px] sm:text-[14px] text-muted">じぶんで入力 —</span>
+              <span class="font-jp text-[14px] sm:text-[15px] text-muted">じぶんで入力 —</span>
               <div class="flex items-center gap-1.5">
                 <input id="calc-years" type="number" min="0" max="99" value="1" class="calc-num"/>
                 <span class="font-jp text-[14px] text-ink-soft">年</span>
