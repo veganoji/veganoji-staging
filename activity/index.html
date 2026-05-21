@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>王子通信 · Oji Media — ビーガン王子のブログ</title>
-  <meta name="description" content="ビーガン王子（アレックス・デレチ）のブログ「王子通信」。世界のうごき、研究室から、王子の暮らし、王子の食べ歩き。" />
+  <title>活動アーカイブ · ビーガン王子</title>
+  <meta name="description" content="ビーガン王子の活動アーカイブ。テレビ、フェス、講演、コラボ──歩んだ道を時系列で。RSSフィード配信中。" />
   <meta name="robots" content="noindex,nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -819,53 +819,15 @@
   </aside>
 
 
-  <!-- ─────────────  BLOG-SPECIFIC STYLES  ───────────── -->
+  <!-- ─────────────  ACTIVITY-SPECIFIC STYLES  ───────────── -->
   <style>
-    .post-card { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease; }
-    .post-card:hover { transform: translateY(-4px); border-color: var(--color-royal); box-shadow: 0 18px 40px -16px rgba(156,20,40,.28); }
-    .post-card:hover .post-card-img img { transform: scale(1.05); }
-    .post-card-img { overflow: hidden; aspect-ratio: 16/10; background: var(--color-cream); }
-    .post-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.22,1,.36,1); }
+    .act-card { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease; }
+    .act-card:hover { transform: translateY(-4px); border-color: var(--color-royal); box-shadow: 0 18px 40px -16px rgba(156,20,40,.28); }
+    .act-card:hover .act-card-img img { transform: scale(1.05); }
+    .act-card-img { overflow: hidden; aspect-ratio: 4/3; background: var(--color-cream); }
+    .act-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.22,1,.36,1); }
 
-    /* category color tokens */
-    .cat-sekai-no-ugoki   { --cat: #C9223A; --cat-soft:#F8DDE2; }
-    .cat-kenkyushitsu-kara{ --cat: #3F6A3A; --cat-soft:#E0EDDC; }
-    .cat-oji-no-kurashi   { --cat: #9C7E2A; --cat-soft:#F6E9C6; }
-    .cat-oji-no-tabearuki { --cat: #E55063; --cat-soft:#FBDEE3; }
-    .cat-chip {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-family: var(--font-jp-display); font-size: 11px;
-      padding: 3px 9px; border-radius: 999px;
-      color: var(--cat, var(--color-royal));
-      background: var(--cat-soft, rgba(201,34,58,.08));
-      border: 1px solid color-mix(in srgb, var(--cat, var(--color-royal)) 40%, transparent);
-    }
-    .cat-chip::before { content: ""; width:5px; height:5px; border-radius:999px; background:var(--cat, var(--color-royal)); }
-
-    /* Filter chips bar */
-    .filter-chips {
-      display: flex; gap: 8px; overflow-x: auto; overscroll-behavior-x: contain;
-      padding: 4px 0 14px;
-      scroll-snap-type: x proximity;
-    }
-    .filter-chips::-webkit-scrollbar { display:none; }
-    .filter-chip {
-      display: inline-flex; align-items: center; gap: 5px;
-      flex-shrink: 0; scroll-snap-align: start;
-      padding: 8px 16px; border-radius: 999px;
-      font-family: var(--font-jp-display); font-size: 13px;
-      color: var(--color-ink-soft); border: 1px solid var(--color-line);
-      background: var(--color-paper); cursor: pointer;
-      transition: all .2s ease;
-      white-space: nowrap;
-    }
-    .filter-chip:hover { border-color: var(--color-royal); color: var(--color-royal); }
-    .filter-chip[data-active="true"] {
-      background: var(--color-royal); color: var(--color-paper); border-color: var(--color-royal);
-    }
-    .filter-chip .count { font-family: var(--font-display); font-size: 11px; opacity: .75; }
-
-    /* Share toolkit */
+    /* Share toolkit (same as blog) */
     .share-bar { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
     .share-btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 6px;
@@ -888,20 +850,9 @@
     }
     .share-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    /* Share card CTA (canvas download) */
-    .share-card-cta {
-      display: flex; align-items: center; gap: 14px;
-      padding: 16px 18px;
-      background: linear-gradient(135deg, var(--color-cream), var(--color-paper));
-      border: 1px solid var(--color-gold); border-radius: 16px;
-      transition: all .25s ease;
-    }
-    .share-card-cta:hover { border-color: var(--color-royal); transform: translateY(-2px); box-shadow: 0 12px 28px -12px rgba(156,20,40,.25); }
-
-    /* rendered markdown */
     .prose { font-family: var(--font-jp); color: var(--color-ink-soft); line-height: 2.05; font-size: 15.5px; }
     .prose > * + * { margin-top: 1.3rem; }
-    .prose h2 { font-family: var(--font-jp-display); font-size: 24px; color: var(--color-ink); margin-top: 2.6rem; line-height: 1.55; }
+    .prose h2 { font-family: var(--font-jp-display); font-size: 24px; color: var(--color-ink); margin-top: 2.6rem; }
     .prose h3 { font-family: var(--font-jp-display); font-size: 19px; color: var(--color-ink); margin-top: 2rem; }
     .prose a { color: var(--color-royal); text-decoration: underline; text-underline-offset: 3px; word-break: break-word; }
     .prose img { border-radius: 14px; width: 100%; height: auto; margin: 1.6rem 0; }
@@ -909,17 +860,11 @@
     .prose li { margin-top: .5rem; }
     .prose ul li { list-style: disc; }
     .prose ol li { list-style: decimal; }
-    .prose blockquote { border-left: 3px solid var(--color-gold); padding: .2rem 0 .2rem 1.2rem; color: var(--color-muted); font-family: var(--font-jp-display); }
     .prose strong { color: var(--color-ink); font-weight: 600; }
-    .prose em { font-style: italic; }
-    .prose hr { border: none; border-top: 1px dashed var(--color-line); margin: 2.6rem 0; }
-    .prose code { background: var(--color-cream); border-radius: 5px; padding: 1px 6px; font-size: .92em; }
-    .prose figure { margin: 1.6rem 0; }
-    .prose figcaption { font-size: 12px; color: var(--color-muted); text-align: center; margin-top: .4rem; }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
 
-  <!-- ─────────────  BLOG HEADER  ───────────── -->
+  <!-- ─────────────  HEADER  ───────────── -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-paper/90 border-b border-line/60">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2.5">
@@ -930,8 +875,8 @@
       <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-[13px] tracking-wide text-ink-soft">
         <a href="/#about"    class="hover:text-royal transition-colors">王子について</a>
         <a href="/#services" class="hover:text-royal transition-colors">サービス</a>
-        <a href="/#work"     class="hover:text-royal transition-colors">活動</a>
-        <a href="/blog/"     class="text-royal font-medium">ブログ</a>
+        <a href="/#work"     class="text-royal font-medium">活動</a>
+        <a href="/blog/"     class="hover:text-royal transition-colors">ブログ</a>
         <a href="/#donate"   class="hover:text-royal transition-colors">応援する</a>
       </nav>
       <a href="/#booking" class="btn-primary text-[12px] px-4 py-2">
@@ -941,42 +886,39 @@
     </div>
   </header>
 
-  <!-- ─────────────  BLOG HERO  ───────────── -->
+  <!-- ─────────────  HERO  ───────────── -->
   <section class="bg-cream border-b border-line py-10 sm:py-14 lg:py-18 relative overflow-hidden">
     <svg class="absolute top-10 left-[8%] w-7 h-7 text-gold opacity-50 anim-sparkle"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-10 right-[10%] w-9 h-9 text-royal-soft opacity-40 anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 text-center relative">
-      <div class="ornament justify-center mb-3"><span>王子通信</span></div>
-      <h1 class="font-display display-tight text-[44px] sm:text-[60px] lg:text-[80px] font-medium text-ink">
-        Oji <span class="display-italic text-royal">Media.</span>
+      <a href="/#work" class="inline-flex items-center gap-1.5 text-royal text-[12px] font-jp hover:gap-2.5 transition-all mb-4">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2m0 0l3.5-3.5M2 7l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        ホームへ
+      </a>
+      <div class="ornament justify-center mb-3"><span>活動アーカイブ</span></div>
+      <h1 class="font-display display-tight text-[40px] sm:text-[56px] lg:text-[72px] font-medium text-ink">
+        Activity <span class="display-italic text-royal">log.</span>
       </h1>
-      <p class="font-jp text-[13px] sm:text-[14px] text-muted mt-3">お笑いあり、涙あり、野菜あり ── 王子の日々のことば。</p>
+      <p class="font-jp text-[13px] sm:text-[14px] text-muted mt-3">テレビ、フェス、講演、コラボ──王子の歩み、ぜんぶ。</p>
+      <div class="mt-4 inline-flex items-center gap-2 text-[11px] text-muted">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 10c0 5 6 5 6 0M9 14c1 1 5 1 6 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <a href="/activity/feed.xml" class="font-jp underline underline-offset-2 hover:text-royal">RSSフィード</a>
+        <span>·</span>
+        <span class="font-jp"><span id="act-count">—</span> 件</span>
+      </div>
     </div>
   </section>
 
-  <!-- ─────────────  BLOG MAIN  ───────────── -->
+  <!-- ─────────────  MAIN  ───────────── -->
   <main class="max-w-[1100px] mx-auto px-6 lg:px-10 pt-8 sm:pt-10 pb-12 sm:pb-16 lg:pb-20 min-h-[40vh]">
-
-    <!-- FILTER CHIPS (only shown on list view) -->
-    <div id="filter-bar" class="mb-6 sm:mb-8">
-      <div class="filter-chips" id="filter-chips" role="tablist" aria-label="カテゴリーフィルター">
-        <button class="filter-chip" data-cat="all" data-active="true" role="tab">全て <span class="count" id="count-all"></span></button>
-        <button class="filter-chip" data-cat="sekai-no-ugoki"    role="tab">世界のうごき <span class="count" id="count-sekai-no-ugoki"></span></button>
-        <button class="filter-chip" data-cat="kenkyushitsu-kara" role="tab">研究室から <span class="count" id="count-kenkyushitsu-kara"></span></button>
-        <button class="filter-chip" data-cat="oji-no-kurashi"    role="tab">王子の暮らし <span class="count" id="count-oji-no-kurashi"></span></button>
-        <button class="filter-chip" data-cat="oji-no-tabearuki"  role="tab">王子の食べ歩き <span class="count" id="count-oji-no-tabearuki"></span></button>
-      </div>
+    <div id="act-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"></div>
+    <div id="act-empty" class="hidden text-center py-20">
+      <p class="font-jp-display text-[16px] text-muted">記事を準備中です。</p>
     </div>
-
-    <div id="blog-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"></div>
-    <div id="blog-empty" class="hidden text-center py-20">
-      <svg class="w-12 h-12 text-gold opacity-50 mx-auto mb-4"><use href="#sparkle"/></svg>
-      <p class="font-jp-display text-[16px] text-muted">該当する記事がありません。</p>
-    </div>
-    <article id="blog-post" class="hidden max-w-[760px] mx-auto"></article>
+    <article id="act-item" class="hidden max-w-[760px] mx-auto"></article>
   </main>
 
-  <!-- ─────────────  BLOG FOOTER  ───────────── -->
+  <!-- ─────────────  FOOTER  ───────────── -->
   <footer class="bg-cream border-t border-line py-10">
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-5">
       <a href="/" class="flex items-center gap-2.5">
@@ -994,89 +936,32 @@
     </div>
   </footer>
 
-  <!-- Share toast + hidden share-card canvas -->
   <div id="share-toast" class="share-toast" role="status"></div>
-  <canvas id="share-canvas" width="1080" height="1080" class="hidden"></canvas>
 
-  <!-- ─────────────  BLOG SCRIPT  ───────────── -->
+  <!-- ─────────────  SCRIPT  ───────────── -->
   <script>
     (function () {
-      const listEl    = document.getElementById('blog-list');
-      const postEl    = document.getElementById('blog-post');
-      const emptyEl   = document.getElementById('blog-empty');
-      const filterEl  = document.getElementById('filter-bar');
-      const chipsEl   = document.getElementById('filter-chips');
-      const toastEl   = document.getElementById('share-toast');
-      const baseTitle = '王子通信 · ビーガン王子';
+      const listEl   = document.getElementById('act-list');
+      const itemEl   = document.getElementById('act-item');
+      const emptyEl  = document.getElementById('act-empty');
+      const toastEl  = document.getElementById('share-toast');
+      const baseTitle = '活動アーカイブ · ビーガン王子';
       const siteOrigin = location.origin;
-      const CAT_LABELS = {
-        'sekai-no-ugoki': '世界のうごき',
-        'kenkyushitsu-kara': '研究室から',
-        'oji-no-kurashi': '王子の暮らし',
-        'oji-no-tabearuki': '王子の食べ歩き',
-      };
-
-      let allPosts = [];
+      let allItems = [];
 
       function fmtDate(s) {
-        const d = new Date(s);
-        if (isNaN(d)) return s || '';
-        return d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日';
+        const d = new Date(s); if (isNaN(d)) return s || '';
+        return d.getFullYear() + '年' + (d.getMonth()+1) + '月' + d.getDate() + '日';
       }
-      function esc(s) {
-        return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-      }
-      function postURL(slug) { return `${siteOrigin}/blog/?post=${encodeURIComponent(slug)}`; }
+      function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+      function itemURL(slug) { return `${siteOrigin}/activity/?item=${encodeURIComponent(slug)}`; }
       function toast(msg) {
-        toastEl.textContent = msg;
-        toastEl.classList.add('show');
-        clearTimeout(toastEl._t);
-        toastEl._t = setTimeout(() => toastEl.classList.remove('show'), 2100);
-      }
-
-      function renderCounts() {
-        const counts = {all: allPosts.length, 'sekai-no-ugoki':0,'kenkyushitsu-kara':0,'oji-no-kurashi':0,'oji-no-tabearuki':0};
-        allPosts.forEach(p => { if (counts[p.category] != null) counts[p.category]++; });
-        Object.entries(counts).forEach(([k,v]) => {
-          const el = document.getElementById('count-' + k);
-          if (el) el.textContent = `(${v})`;
-        });
-      }
-
-      function renderList(category) {
-        postEl.classList.add('hidden');
-        listEl.classList.remove('hidden');
-        filterEl.classList.remove('hidden');
-        const filtered = category === 'all' ? allPosts : allPosts.filter(p => p.category === category);
-        document.title = (category === 'all' ? baseTitle : `${CAT_LABELS[category]} · ${baseTitle}`);
-
-        // update chip active states
-        chipsEl.querySelectorAll('.filter-chip').forEach(c => {
-          c.dataset.active = (c.dataset.cat === category) ? 'true' : 'false';
-        });
-
-        if (!filtered.length) {
-          listEl.innerHTML = '';
-          emptyEl.classList.remove('hidden');
-          return;
-        }
-        emptyEl.classList.add('hidden');
-        listEl.innerHTML = filtered.map(p => `
-          <a href="?post=${encodeURIComponent(p.slug)}" class="post-card block bg-paper border border-line rounded-2xl overflow-hidden">
-            <div class="post-card-img">${p.hero ? `<img src="${esc(p.hero)}" alt="" loading="lazy">` : ''}</div>
-            <div class="p-5">
-              <div class="flex items-center gap-2 mb-2.5 flex-wrap">
-                <span class="cat-chip cat-${esc(p.category)}">${esc(p.category_display || CAT_LABELS[p.category] || 'ブログ')}</span>
-                <span class="font-jp text-[11px] text-muted">${fmtDate(p.date)}</span>
-              </div>
-              <h2 class="font-jp-display text-[17px] text-ink leading-snug line-clamp-3">${esc(p.title)}</h2>
-              <p class="font-jp text-[13px] text-muted mt-2 leading-relaxed line-clamp-3">${esc(p.excerpt || '')}</p>
-            </div>
-          </a>`).join('');
+        toastEl.textContent = msg; toastEl.classList.add('show');
+        clearTimeout(toastEl._t); toastEl._t = setTimeout(() => toastEl.classList.remove('show'), 2100);
       }
 
       function shareBarHTML(meta) {
-        const url = postURL(meta.slug);
+        const url = itemURL(meta.slug);
         const text = meta.title;
         const lineHref   = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`;
         const xHref      = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&via=VeganOji`;
@@ -1090,284 +975,95 @@
             <a class="share-btn" data-brand="hatena" href="${hatenaHref}" target="_blank" rel="noopener" aria-label="はてなブックマーク"><span style="font-family:serif;font-weight:700;font-size:14px;">B!</span></a>
           </div>`;
       }
-
       function bindShare(rootEl, meta) {
-        const url = postURL(meta.slug);
-        const text = meta.title;
+        const url = itemURL(meta.slug); const text = meta.title;
         rootEl.querySelectorAll('[data-share-bar] [data-share-action="native"]').forEach(btn => {
           if (!navigator.share) { btn.classList.add('hidden'); return; }
-          btn.addEventListener('click', () => navigator.share({title: text, text: text, url: url}).catch(()=>{}));
+          btn.addEventListener('click', () => navigator.share({title:text, text:text, url:url}).catch(()=>{}));
         });
         rootEl.querySelectorAll('[data-share-bar] [data-share-action="copy"]').forEach(btn => {
           btn.addEventListener('click', async () => {
-            try {
-              await navigator.clipboard.writeText(url);
-              btn.classList.add('copied');
-              toast('リンクをコピーしました ✓');
-              setTimeout(() => btn.classList.remove('copied'), 1800);
-            } catch { toast('コピーに失敗しました'); }
+            try { await navigator.clipboard.writeText(url); btn.classList.add('copied'); toast('リンクをコピーしました ✓'); setTimeout(()=>btn.classList.remove('copied'),1800); }
+            catch { toast('コピーに失敗しました'); }
           });
         });
       }
 
-      // ── Canvas share-card generator (1080x1080 Instagram square) ──
-      const mascot = new Image();
-      mascot.crossOrigin = 'anonymous';
-      let mascotReady = false;
-      mascot.addEventListener('load', () => { mascotReady = true; });
-      mascot.src = '/images/voji-logos/calc-mascot.png';
-
-      function wrapJP(ctx, text, maxWidth) {
-        const lines = [];
-        let cur = '';
-        for (const ch of text) {
-          const test = cur + ch;
-          if (ctx.measureText(test).width > maxWidth && cur) {
-            lines.push(cur); cur = ch;
-          } else { cur = test; }
-        }
-        if (cur) lines.push(cur);
-        return lines;
+      function renderList() {
+        itemEl.classList.add('hidden');
+        listEl.classList.remove('hidden');
+        document.title = baseTitle;
+        document.getElementById('act-count').textContent = allItems.length;
+        if (!allItems.length) { emptyEl.classList.remove('hidden'); return; }
+        emptyEl.classList.add('hidden');
+        listEl.innerHTML = allItems.map(p => `
+          <a href="?item=${encodeURIComponent(p.slug)}" class="act-card block bg-paper border border-line rounded-2xl overflow-hidden">
+            <div class="act-card-img">${p.hero ? `<img src="${esc(p.hero)}" alt="" loading="lazy">` : ''}</div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="chip !text-[10px] !px-2.5 !py-1 border-royal/30 text-royal bg-royal/5">活動</span>
+                <span class="font-jp text-[11px] text-muted">${fmtDate(p.date)}</span>
+              </div>
+              <h2 class="font-jp-display text-[16px] text-ink leading-snug line-clamp-3">${esc(p.title)}</h2>
+              ${p.excerpt ? `<p class="font-jp text-[12px] text-muted mt-2 leading-relaxed line-clamp-2">${esc(p.excerpt)}</p>` : ''}
+            </div>
+          </a>`).join('');
       }
 
-      async function buildShareCard(meta) {
-        const c = document.getElementById('share-canvas');
-        const ctx = c.getContext('2d');
-        const W = 1080, H = 1080;
-        ctx.clearRect(0,0,W,H);
-
-        // background: cream
-        ctx.fillStyle = '#FFF9EE'; ctx.fillRect(0,0,W,H);
-
-        // Hero image area (top 60%)
-        const heroH = 620;
-        ctx.fillStyle = '#F4EDDD'; ctx.fillRect(0, 0, W, heroH);
-        if (meta.hero) {
-          const heroImg = new Image();
-          heroImg.crossOrigin = 'anonymous';
-          await new Promise((res) => {
-            heroImg.addEventListener('load', res, {once:true});
-            heroImg.addEventListener('error', res, {once:true});
-            heroImg.src = meta.hero;
-          });
-          if (heroImg.naturalWidth) {
-            // cover-fit
-            const iw = heroImg.naturalWidth, ih = heroImg.naturalHeight;
-            const s = Math.max(W / iw, heroH / ih);
-            const dw = iw * s, dh = ih * s;
-            const dx = (W - dw) / 2, dy = (heroH - dh) / 2;
-            try { ctx.drawImage(heroImg, dx, dy, dw, dh); }
-            catch (e) {
-              // CORS-tainted; fallback to cream
-              ctx.fillStyle = '#F4EDDD'; ctx.fillRect(0, 0, W, heroH);
-            }
-          }
-        }
-
-        // Royal red gradient overlay at the bottom of hero for legibility (none needed - title is below)
-
-        // Bottom band: category chip + title + date
-        const padX = 64;
-        let y = heroH + 70;
-
-        // Category chip
-        const catLabel = meta.category_display || CAT_LABELS[meta.category] || 'ブログ';
-        const CAT_COLORS = {
-          'sekai-no-ugoki':    ['#C9223A','#F8DDE2'],
-          'kenkyushitsu-kara': ['#3F6A3A','#E0EDDC'],
-          'oji-no-kurashi':    ['#9C7E2A','#F6E9C6'],
-          'oji-no-tabearuki':  ['#E55063','#FBDEE3'],
-        };
-        const [catFg, catBg] = CAT_COLORS[meta.category] || ['#C9223A','#F8DDE2'];
-        ctx.font = '600 26px "Noto Sans JP", sans-serif';
-        const chipText = catLabel;
-        const chipW = ctx.measureText(chipText).width + 44;
-        const chipH = 44;
-        ctx.fillStyle = catBg;
-        ctx.beginPath(); ctx.roundRect(padX, y - chipH/2 - 12, chipW, chipH, 22); ctx.fill();
-        ctx.fillStyle = catFg;
-        ctx.textBaseline = 'middle';
-        ctx.fillText(chipText, padX + 22, y + 10);
-        y += 50;
-
-        // Title (wrapped)
-        ctx.fillStyle = '#1F1812';
-        ctx.font = '700 52px "Noto Serif JP", serif';
-        ctx.textBaseline = 'top';
-        const titleLines = wrapJP(ctx, meta.title, W - padX*2);
-        const maxLines = 4;
-        const showLines = titleLines.slice(0, maxLines);
-        if (titleLines.length > maxLines) {
-          // add ellipsis to last shown line
-          let last = showLines[maxLines-1];
-          while (ctx.measureText(last + '…').width > W - padX*2 && last.length > 1) last = last.slice(0, -1);
-          showLines[maxLines-1] = last + '…';
-        }
-        showLines.forEach((line, i) => {
-          ctx.fillText(line, padX, y + i * 64);
-        });
-        y += showLines.length * 64 + 18;
-
-        // Date
-        ctx.font = '500 22px "Noto Sans JP", sans-serif';
-        ctx.fillStyle = '#786148';
-        ctx.fillText(fmtDate(meta.date), padX, y);
-
-        // Footer bar
-        const footY = H - 110;
-        ctx.fillStyle = '#C9223A';
-        ctx.fillRect(0, footY, W, 110);
-
-        // Mascot (small, left of footer)
-        if (mascotReady && mascot.naturalWidth) {
-          const mw = 110, mh = mw * (mascot.naturalHeight / mascot.naturalWidth);
-          ctx.drawImage(mascot, padX - 10, footY - mh + 28, mw, mh);
-        }
-
-        // Footer text (right side)
-        ctx.fillStyle = '#FFF9EE';
-        ctx.textBaseline = 'middle';
-        ctx.font = '700 30px "Noto Serif JP", serif';
-        ctx.textAlign = 'right';
-        ctx.fillText('王子通信', W - padX, footY + 38);
-        ctx.font = '500 22px "Noto Sans JP", sans-serif';
-        ctx.fillStyle = '#F4EDDD';
-        ctx.fillText('veganoji.jp · @veganoji', W - padX, footY + 76);
-        ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-        return c;
-      }
-
-      async function renderPost(slug) {
+      async function renderItem(slug) {
         listEl.classList.add('hidden');
         emptyEl.classList.add('hidden');
-        filterEl.classList.add('hidden');
-        postEl.classList.remove('hidden');
-        const meta = allPosts.find(p => p.slug === slug);
+        itemEl.classList.remove('hidden');
+        const meta = allItems.find(p => p.slug === slug);
         if (!meta) {
-          postEl.innerHTML = '<p class="font-jp text-center text-muted py-20">記事が見つかりませんでした。<br/><a href="/blog/" class="text-royal underline">ブログ一覧へ戻る</a></p>';
+          itemEl.innerHTML = '<p class="font-jp text-center text-muted py-20">記事が見つかりませんでした。<br/><a href="/activity/" class="text-royal underline">活動一覧へ</a></p>';
           return;
         }
         document.title = meta.title + ' · ' + baseTitle;
-
         let md = '';
-        try {
-          md = await fetch('/blog/posts/' + slug + '.md', {cache:'no-cache'}).then(r => r.ok ? r.text() : '');
-        } catch (e) {}
-        // Strip YAML frontmatter before rendering
+        try { md = await fetch('/activity/items/' + slug + '.md', {cache:'no-cache'}).then(r => r.ok ? r.text() : ''); } catch(e){}
         md = md.replace(/^---\n[\s\S]*?\n---\n*/, '');
         const body = (window.marked && md) ? marked.parse(md) : '<p class="text-muted font-jp">本文を読み込めませんでした。</p>';
 
-        postEl.innerHTML = `
-          <a href="/blog/" class="inline-flex items-center gap-1.5 text-royal text-[13px] font-jp hover:gap-2.5 transition-all mb-6">
+        itemEl.innerHTML = `
+          <a href="/activity/" class="inline-flex items-center gap-1.5 text-royal text-[13px] font-jp hover:gap-2.5 transition-all mb-6">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2m0 0l3.5-3.5M2 7l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            王子通信へ
+            活動一覧へ
           </a>
           <div class="flex items-center gap-2.5 mb-3 flex-wrap">
-            <span class="cat-chip cat-${esc(meta.category)}">${esc(meta.category_display || CAT_LABELS[meta.category] || 'ブログ')}</span>
+            <span class="chip !text-[10px] !px-2.5 !py-1 border-royal/30 text-royal bg-royal/5">活動</span>
             <span class="font-jp text-[12px] text-muted">${fmtDate(meta.date)}</span>
           </div>
           <h1 class="font-jp-display text-[26px] sm:text-[36px] font-medium text-ink leading-[1.45]">${esc(meta.title)}</h1>
           ${meta.hero ? `<img src="${esc(meta.hero)}" alt="" class="w-full rounded-2xl mt-6 border border-line">` : ''}
 
-          <!-- Top share bar -->
           <div class="mt-7 pt-5 border-t border-line/60 flex items-center gap-3 flex-wrap">
-            <span class="font-jp text-[12px] text-muted">この記事をシェア</span>
+            <span class="font-jp text-[12px] text-muted">この活動をシェア</span>
             ${shareBarHTML(meta)}
           </div>
 
-          <!-- Body -->
           <div class="prose mt-8">${body}</div>
 
-          <!-- End-of-post share section -->
-          <div class="mt-12 pt-8 border-t border-line">
-            <div class="font-jp-display text-[16px] text-ink mb-4 flex items-center gap-2">
-              <svg width="16" height="16" class="text-royal"><use href="#sparkle"/></svg>
-              この記事が役に立ったら、シェアしてね
-            </div>
-            ${shareBarHTML(meta)}
-
-            <button id="share-card-btn" class="share-card-cta mt-5 w-full text-left">
-              <div class="w-12 h-12 rounded-2xl bg-royal/10 text-royal flex items-center justify-center flex-shrink-0">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H4z M2 20h20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="font-jp-display text-[15px] text-ink leading-tight">シェア画像をダウンロード</div>
-                <div class="font-jp text-[12px] text-muted mt-0.5 leading-relaxed">王子ブランドの画像でInstagramやXに投稿しよう。<span class="text-royal">@veganoji</span> をタグ付けして！</div>
-              </div>
-              <span id="share-card-status" class="hidden font-jp text-[11px] text-leaf-deep flex-shrink-0">準備中…</span>
-              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" class="text-royal flex-shrink-0"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </button>
-          </div>
-
-          <div class="mt-10 text-center">
-            <a href="/blog/" class="btn-ghost !text-[13px] !px-5 !py-2.5"><span class="font-jp">ほかの記事を読む</span></a>
+          <div class="mt-12 pt-8 border-t border-line text-center">
+            <a href="/activity/" class="btn-ghost !text-[13px] !px-5 !py-2.5"><span class="font-jp">ほかの活動も見る</span></a>
           </div>`;
-        bindShare(postEl, meta);
-
-        // Wire share-card download
-        const cardBtn = document.getElementById('share-card-btn');
-        const statusEl = document.getElementById('share-card-status');
-        if (cardBtn) {
-          cardBtn.addEventListener('click', async () => {
-            statusEl.classList.remove('hidden'); statusEl.textContent = '準備中…';
-            try {
-              const whenFonts = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
-              await whenFonts;
-              const canvas = await buildShareCard(meta);
-              await new Promise((res, rej) => canvas.toBlob(blob => {
-                if (!blob) return rej('blob failed');
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url; a.download = `veganoji-${meta.slug}.png`;
-                document.body.appendChild(a); a.click(); a.remove();
-                URL.revokeObjectURL(url);
-                res();
-              }, 'image/png'));
-              statusEl.textContent = '保存しました ✓';
-              setTimeout(() => statusEl.classList.add('hidden'), 1800);
-            } catch (e) {
-              statusEl.textContent = '保存できませんでした';
-              setTimeout(() => statusEl.classList.add('hidden'), 2000);
-            }
-          });
-        }
-
+        bindShare(itemEl, meta);
         window.scrollTo(0, 0);
       }
 
-      // Filter chip clicks → update URL + re-render
-      chipsEl.addEventListener('click', (e) => {
-        const btn = e.target.closest('.filter-chip');
-        if (!btn) return;
-        const cat = btn.dataset.cat;
-        const url = new URL(location.href);
-        url.searchParams.delete('post');
-        if (cat === 'all') url.searchParams.delete('cat');
-        else url.searchParams.set('cat', cat);
-        history.pushState(null, '', url);
-        renderList(cat);
-      });
-
       window.addEventListener('popstate', () => {
-        const params = new URLSearchParams(location.search);
-        const slug = params.get('post');
-        const cat = params.get('cat') || 'all';
-        if (slug) renderPost(slug);
-        else renderList(cat);
+        const slug = new URLSearchParams(location.search).get('item');
+        if (slug) renderItem(slug); else renderList();
       });
 
       async function init() {
         try {
-          const r = await fetch('/blog/posts.json', {cache:'no-cache'});
-          if (r.ok) allPosts = await r.json();
-        } catch (e) {}
-        allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        renderCounts();
-        const params = new URLSearchParams(location.search);
-        const slug = params.get('post');
-        const cat = params.get('cat') || 'all';
-        if (slug) renderPost(slug);
-        else renderList(cat);
+          const r = await fetch('/activity/items.json', {cache:'no-cache'});
+          if (r.ok) allItems = await r.json();
+        } catch(e){}
+        allItems.sort((a,b) => new Date(b.date) - new Date(a.date));
+        const slug = new URLSearchParams(location.search).get('item');
+        if (slug) renderItem(slug); else renderList();
       }
       init();
     })();

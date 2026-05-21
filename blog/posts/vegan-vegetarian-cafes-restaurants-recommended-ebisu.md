@@ -1,0 +1,292 @@
+---
+title:    "【恵比寿】おすすめビーガンカフェ・レストラン ❘ 7選"
+date:     2022-01-06
+category: oji-no-tabearuki
+category_display: "王子の食べ歩き"
+hero:     "https://veganoji.jp/wp-content/uploads/2022/07/EBISU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE.webp"
+excerpt:  "お洒落なショップやレストランが集まる恵比寿。 実はここでお洒落でおいしいビーガン料理を食べることができるカフェやレストランがたくさん存在しているんです。 僕がおすすめする恵比寿のビーガンスポットを厳選してみたので足を運ん…"
+source:   "https://veganoji.jp/vegan-vegetarian-cafes-restaurants-recommended-ebisu/"
+---
+
+お洒落なショップやレストランが集まる恵比寿。
+
+　実はここでお洒落でおいしいビーガン料理を食べることができるカフェやレストランがたくさん存在しているんです。
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/07/EBISU-RECOMMENDED-VEGAN-SPOTS-BLOG-POST-COVER-IMAGE-1.webp?ssl=1)
+
+　僕がおすすめする恵比寿のビーガンスポットを厳選してみたので足を運んでみてください！
+
+　それでは、恵比寿のおすすめビーガンスポットをご紹介していきます！
+
+## **1. 恵比寿のヘンプ料理専門ダイニング　(Hemp Cafe Tokyo)**
+
+　初めにご紹介するこちらのカフェ、HEMP CAFE TOKYOは**１００%VEGAN（動物性食品不使用）のモノ**になります。
+
+　　このお店の特徴はなんといっても**HEMP（大麻）**になります。
+
+　HEMP（大麻）はスーパーフードの一つでとても栄養価が高いのですがそれがなんと**すべての料理に使われています！**
+
+![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/Hemp-Cafe-4-768x1024.jpeg?ssl=1)
+
+![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/Hemp-Cafe-5-768x1024.jpeg?ssl=1)
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Hemp-Cafe-1-1024x1024.jpeg?ssl=1)
+
+![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Hemp-Cafe-2-1024x1024.jpeg?ssl=1)![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Hemp-Cafe-3-1024x1024.jpeg?ssl=1)
+
+　そのほかグルテンフリーや糖質制限など健康にこだわり抜いたメニューが揃っているんです！！
+
+　中でもおすすめなのは「**こだわりのヴィーガンカレー**」です。コクのあるスパイシーな味わいがたまりません！！
+
+　ほかにもサラダや加熱料理が美味しくてローフードやベジタリアンの方はもちろん、一般の方も十分楽しめるメニューや味になっています！
+
+　デザートにHEMP（大麻）を使用したアイスもおすすめですよ：）
+
+　アクセスはJR恵比寿駅西口徒歩３分・日比谷線恵比寿駅徒歩２分ととってもいいのでぜひ足を運んでみてください！
+
+![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+
+### お店の情報
+
+ADDRESS
+
+〒150-0011  
+渋谷区東3-17-14
+
+LINKS
+
+[サイト](http://hempcafetokyo.com/)
+
+POINTS
+
+・ビーガンチーズがとても美味しい  
+・ビビンバが食べられる  
+・ロースイーツあり
+
+## **2. ファラフェルブラザーズ (Falafel Brothers)**
+
+**ファラフェル**って皆さんご存じですか？
+
+　ファラフェルとはイスラエルで生まれたひよこ豆のコロッケのことを言うんです！
+
+![](https://i0.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers1-1-768x1024.jpeg?ssl=1)
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers2-1-768x1024.jpeg?ssl=1)
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers3-1-1024x1024.jpeg?ssl=1)
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers4-1-1024x1024.jpg?ssl=1)
+
+![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers5-1-768x1024.jpg?ssl=1)
+
+![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/FalafelBrothers6-1-1024x1024.jpg?ssl=1)
+
+このコロッケ、ファラフェルを専門にしたお店が今回紹介するファラエルブラザーズ。  
+揚げたてでサクサクのファラフェルと自分の好きな野菜とソースを選んで作るファラフェルサンドは絶品です！
+
+　恵比寿駅から徒歩5分と好立地なのもうれしいポイントとなってます！
+
+![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+
+### お店の情報
+
+ADDRESS
+
+〒150-0012  
+東京都 渋谷区 広尾 1-1-36
+
+LINKS
+
+[サイト](https://www.falafelbrothers.jp/)
+
+POINTS
+
+・満足度が高い  
+・好きなトッピングを選べる  
+・日本で珍しいフムス、ファラフェルをいただける
+
+## **3. マルゴデリ恵比寿 (Marugo Deli Ebisu)**
+
+　こちらのマルゴデリ恵比寿はすべてがビーガンメニューではないのですが、ビーガンのためのメニューも多く存在しています。
+
+![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Marugo-Deli-Ebisu-1-1024x1024.jpeg?ssl=1)
+
+**HEMPおにぎり**や**玄米おにぎり**、**テンペカツサンド**など種類も豊富！
+
+**テンペは「エンドネシアの納豆」**とも言われていて、大豆をテンペ菌で発酵させて作ったものをいいます。
+
+　デザートには絶品のバナナマフィンや甘酒ココナッツマフィンが食べられちゃいます。
+
+　ちなみにこのマフィンは**グルテンフリー**のモノになっていますよ：）
+
+　それにマルゴデリ恵比寿は**細部にもすごくこだわっていているお店**なんです。
+
+　以前は紙のストローを使用していたマルゴデリ恵比寿。紙ストローは、特有の飲みにくさや耐久性の弱さが気になりますよね、、、そんな悩みを解決してくれるのが新しいストロー「**草ストロー**」！！
+
+紙に比べて飲み心地が良く、耐久性もあります！
+
+　地球への配慮を細部にまで忘れない素敵なお店です。
+
+![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+
+### お店の情報
+
+ADDRESS
+
+〒150-0021  
+東京都渋谷区恵比寿西１丁目１７ 恵比寿西1−17−1
+
+LINKS
+
+[サイト](http://www.maru5ebisu.jp/)
+
+POINTS
+
+・スムージーボウルがとても美味しい  
+・スムージの種類が多い  
+・席が限られている
+
+## **4. コウソカフェビオライズ (Ko-So Cafe)**
+
+　こちらのコウソカフェビオライズは**ALL　Veganのメニューになっています！**
+
+　でも一つ特徴が！すべてのメニューに動物性食品・乳製品・卵・化学調味料が使用されていませんが、お肉好きを満足させる料理がしっかり用意されているんです！
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Ko-so-Cafe-1-1024x1024.jpeg?ssl=1)
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Ko-so-Cafe-2-1024x1024.jpeg?ssl=1)![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Ko-so-Cafe-3-1024x1024.jpeg?ssl=1)
+
+　じゅわっとジューシー鶏肉風のやみつきユーリンチープレートや噛むほど味が出る豚肉風のホイコーロープレートが大人気：）とってもおいしい！
+
+　最近ビーガンになった方や、健康を気にしている方にはピッタリのお店なんですよ
+
+　JR恵比寿駅から徒歩2分のところにありますよ！
+
+![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+
+### お店の情報
+
+ADDRESS
+
+〒150-0011  
+東京都渋谷区東３丁目２５−3 ライオンズプラザ恵比寿 1F
+
+LINKS
+
+[サイト](https://www.ko-so-cafe.jp/)
+
+POINTS
+
+・メニューが多い  
+・酵素がテーマ  
+・ロースイーツあり
+
+## **5. たいやきひいらぎ (Taiyaki Hiiragi)**
+
+　最後に紹介するのはたいやきひいらぎ。
+
+とっても美味しいたい焼き屋さんです！
+
+![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Taiyaki-Hiiragi-1-768x1024.jpeg?ssl=1)
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Taiyaki-Hiiragi-2-1024x1024.jpeg?ssl=1)
+
+　1つ1つとっても丁寧に作られているのも特徴で、その焼き時間なんと１つあたり30分なんです！！
+
+　時間をかけてじっくり焼いているので外はパリパリ、中がもっちりの最高の食感です！！
+
+　もちろん中までずっしり、ぎっちりとすみずみまであんこが詰まっています
+
+　ぜひ訪れてほしいです！
+
+![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+
+### お店の情報
+
+ADDRESS
+
+〒150-0013  
+東京都渋谷区恵比寿１丁目４−1 恵比寿アーバンハウス
+
+LINKS
+
+[ツイッター](https://twitter.com/taiyaki_hiiragi)
+
+POINTS
+
+・食べ歩きにおすすめ  
+・駅から近い  
+・とても人気なので並ぶことがある
+
+## **6. コスメキッチン アダプテーション アトレ恵比寿店 (Cosme Kitchen Adaptation - Ebisu Store)**
+
+「おいしく食べて、心も体も美しくなる」Clean Eating（クリーンイーティング）をコンセプトとしたレストランです！
+
+全てのメニューがビーガン対応ではないのですが、ビーガンメニューも増えてきています！
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Cosme-Kitchen-2-1024x1024.jpeg?ssl=1)
+
+![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Cosme-Kitchen-1-1024x1024.jpeg?ssl=1)
+
+特に有機栽培、自然栽培、特別栽培など自然に近い環境で育てられた野菜を使ったクリーンイーティングサラダが大人気で、ヘルシーなのにしっかりとボリュームもあってとても満足感があります！中でも僕のおすすめは、ジューシーソイミートの油淋鶏風VEGE唐揚げ丼です。ソイミートからあげに玄米黒酢と油淋鶏風香味ダレをかけて食べるのはとても贅沢で最高に美味しいです！
+
+![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+
+### お店の情報
+
+ADDRESS
+
+〒150-0022  
+東京都渋谷区恵比寿南１丁目６−1 アトレ恵比寿 西館 ２階
+
+LINKS
+
+[サイト](http://ck-adaptation.com/)
+
+POINTS
+
+・ヘルシーで美味しく満足感もある  
+・メニューが多い  
+・駅から歩いてすぐ
+
+## **7. fruits and season(フルーツアンドシーズン)**
+
+日本初のビーガンフルーツサンド専門店！！  
+フルーツは愛知県岡崎市の八百屋ダイワスーパーが厳選した最高に美味しい旬のものを使用しています。乳、卵不使用とは思えないほど濃厚で美味しい生クリームはフルーツの美味しさをさらに引き立ててくれます！
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Fruits-Season-3-768x1024.jpeg?ssl=1)
+
+![](https://i2.wp.com/veganoji.jp/wp-content/uploads/2022/01/Fruits-Season-2-768x1024.jpeg?ssl=1)
+
+![](https://i1.wp.com/veganoji.jp/wp-content/uploads/2022/01/Fruits-Season-1-768x1024.jpeg?ssl=1)
+
+テイクアウトのみの提供になっているので、家でゆっくりティータイムを楽しみたいときなどにおすすめです！
+
+![](https://veganoji.jp/wp-content/uploads/2021/11/Store-Information-Resized.png)
+
+### お店の情報
+
+ADDRESS
+
+〒150-0021  
+東京都渋谷区恵比寿西１丁目１０−1 クリーンパレス 1F
+
+LINKS
+
+[サイト](http://fruitsandseason.com/)
+
+POINTS
+
+・手土産としておすすめ  
+・旬の果物を楽しめます  
+・ネット注文も可能
+
+## **エンディング**
+
+　いかがでしたか？？恵比寿はお洒落なカフェや美味しいレストランが多いイメージですがそれはビーガンスポットも同じ！
+
+　今回紹介しきれなかったものもまだまだありますよ！
+
+　皆さんのおすすめ恵比寿のビーガンスポットもコメントで紹介してくれるととっても嬉しいです！
+
+　ぜひ恵比寿に立ち寄った際には行ってみてください！
