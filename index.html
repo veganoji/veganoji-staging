@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex,nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Yusei+Magic&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style type="text/tailwindcss">
@@ -32,20 +32,17 @@
       --color-line-stamp: #06C755;
       --color-line: #E9D9B5;
 
-      /* Standardized two-font system across the site:
-         - Noto Sans JP for everything (body + headers + buttons),
-           heavy weight (900) for display, regular for body
-         - Yusei Magic reserved for rare cute moments only */
+      /* Single-font system across the site: Noto Sans JP for everything.
+         Body = regular (400), headers + buttons = 900. */
       --font-noto-sans-jp: "Noto Sans JP", sans-serif;
-      --font-yusei-magic:  "Yusei Magic", "Noto Sans JP", sans-serif;
       /* Legacy aliases — every old class falls back to Noto Sans JP. */
       --font-display:    var(--font-noto-sans-jp);
       --font-jp-display: var(--font-noto-sans-jp);
       --font-sans:       var(--font-noto-sans-jp);
       --font-jp:         var(--font-noto-sans-jp);
       --font-round:      var(--font-noto-sans-jp);
-      --font-hand:       var(--font-yusei-magic);
-      --font-cute-jp:    var(--font-yusei-magic);
+      --font-hand:       var(--font-noto-sans-jp);
+      --font-cute-jp:    var(--font-noto-sans-jp);
       --font-fun:        var(--font-noto-sans-jp);
     }
 
@@ -59,8 +56,8 @@
     .font-jp          { font-family: var(--font-noto-sans-jp); }
     .font-fun         { font-family: var(--font-noto-sans-jp); font-weight: 900; }
     .font-round       { font-family: var(--font-noto-sans-jp); }
-    .font-hand        { font-family: var(--font-yusei-magic); }
-    .font-cute-jp     { font-family: var(--font-yusei-magic); }
+    .font-hand        { font-family: var(--font-noto-sans-jp); }
+    .font-cute-jp     { font-family: var(--font-noto-sans-jp); }
     .display-tight    { letter-spacing: -0.035em; line-height: 0.92; }
     .display-italic   { font-family: var(--font-noto-sans-jp); font-weight: 700; font-style: italic; }
 
