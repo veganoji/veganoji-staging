@@ -51,12 +51,16 @@
       --color-blush:       #F8C8D2;
       --color-line:        #1a3a52;
 
-      --font-display:      "Fraunces", "Noto Serif JP", Georgia, serif;
-      --font-jp-display:   "Noto Serif JP", "Fraunces", serif;
-      --font-sans:         "Inter", "Noto Sans JP", system-ui, sans-serif;
-      --font-jp:           "Noto Sans JP", "Inter", sans-serif;
-      --font-round:        "Kosugi Maru", "Noto Sans JP", sans-serif;
-      --font-cute-jp:      "Hachi Maru Pop", "Yusei Magic", "Kosugi Maru", "Noto Sans JP", sans-serif;
+      /* One font per var — no fallback stacks, so it's always clear which
+         typeface a class is actually rendering.  Generic family appended as
+         a last-ditch fallback for missing glyphs. */
+      --font-fraunces:        "Fraunces", serif;
+      --font-noto-serif-jp:   "Noto Serif JP", serif;
+      --font-inter:           "Inter", sans-serif;
+      --font-noto-sans-jp:    "Noto Sans JP", sans-serif;
+      --font-kosugi-maru:     "Kosugi Maru", sans-serif;
+      --font-hachi-maru-pop:  "Hachi Maru Pop", sans-serif;
+      --font-yusei-magic:     "Yusei Magic", sans-serif;
     }
 
     html, body {
@@ -69,19 +73,28 @@
       .anim-bobble, .anim-drift, .anim-twinkle { animation: none !important; }
     }
     body {
-      font-family: var(--font-jp);
+      font-family: var(--font-noto-sans-jp);
       font-feature-settings: "palt";
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
-    .font-display    { font-family: var(--font-display); font-optical-sizing: auto; }
-    .font-jp-display { font-family: var(--font-jp-display); }
-    .font-jp         { font-family: var(--font-jp); }
-    .font-round      { font-family: var(--font-round); }
-    .font-cute-jp    { font-family: var(--font-cute-jp); }
-    .display-italic  { font-family: var(--font-display); font-style: italic; }
+    /* Each font-* class maps to exactly one typeface — no shared aliases. */
+    .font-display    { font-family: var(--font-fraunces); font-optical-sizing: auto; }
+    .font-jp-display { font-family: var(--font-noto-serif-jp); }
+    .font-jp         { font-family: var(--font-noto-sans-jp); }
+    .font-round      { font-family: var(--font-kosugi-maru); }
+    .font-cute-jp    { font-family: var(--font-hachi-maru-pop); }
+    .display-italic  { font-family: var(--font-fraunces); font-style: italic; }
     .display-tight   { letter-spacing: -0.035em; line-height: 0.94; }
+
+    /* Site-wide buttons render in Noto Sans JP per design decision */
+    button,
+    .btn-primary, .btn-secondary, .btn-ghost, .btn-line, .btn-gold,
+    .btn-ocean-primary, .btn-ocean-ghost,
+    [class*="btn-"] {
+      font-family: var(--font-noto-sans-jp) !important;
+    }
 
     /* Subtle ocean gradient that bleeds across the page */
     .ocean-gradient {
