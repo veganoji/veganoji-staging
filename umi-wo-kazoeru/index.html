@@ -85,12 +85,13 @@
     .display-italic  { font-family: var(--font-noto-sans-jp); font-weight: 700; font-style: italic; }
     .display-tight   { letter-spacing: -0.035em; line-height: 0.94; }
 
-    /* Site-wide buttons render in Noto Sans JP per design decision */
+    /* Site-wide buttons render in Noto Sans JP heavy per design decision */
     button,
     .btn-primary, .btn-secondary, .btn-ghost, .btn-line, .btn-gold,
     .btn-ocean-primary, .btn-ocean-ghost,
     [class*="btn-"] {
       font-family: var(--font-noto-sans-jp) !important;
+      font-weight: 700 !important;
     }
 
     /* Subtle ocean gradient that bleeds across the page */
@@ -370,9 +371,9 @@
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="flex-shrink-0">
         <path d="M9 2 L4 7 L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
       </svg>
-      <span class="font-cute-jp text-[20px] tracking-wide">ビーガン王子</span>
+      <span class="font-jp text-[20px] tracking-wide">ビーガン王子</span>
     </a>
-    <span class="hidden sm:inline font-cute-jp text-[20px] tracking-[0.14em] text-gold/80">海をかぞえる</span>
+    <span class="hidden sm:inline font-jp text-[20px] tracking-[0.14em] text-gold/80">海をかぞえる</span>
   </header>
 
   <!-- ───────────────────── 1.  Hero  ─────────────────────
@@ -418,7 +419,7 @@
       </div>
 
       <div class="mt-10 sm:mt-12 inline-flex flex-col items-center gap-2 text-paper/50">
-        <span class="font-cute-jp text-[20px]">下にスクロール</span>
+        <span class="font-jp text-[20px]">下にスクロール</span>
         <svg width="16" height="22" viewBox="0 0 16 22" fill="none" class="animate-bounce">
           <path d="M8 2 L8 18 M3 13 L8 18 L13 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
         </svg>
@@ -440,7 +441,7 @@
       <!-- Counter overlay -->
       <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6">
         <div class="counter-pill rounded-3xl px-7 py-6 sm:px-12 sm:py-9 text-center max-w-[94vw]">
-          <div class="font-cute-jp text-[20px] sm:text-[20px] tracking-[0.14em] text-gold/85 mb-4">
+          <div class="font-jp text-[20px] sm:text-[20px] tracking-[0.14em] text-gold/85 mb-4">
             今年、世界で獲られた魚
           </div>
           <!-- Primary: full digit count for visceral impact -->
@@ -448,11 +449,11 @@
             0 匹
           </div>
           <!-- Secondary: friendlier Japanese-unit reading -->
-          <div id="counter-sub" class="mt-2 sm:mt-3 font-cute-jp text-[20px] sm:text-[20px] text-gold/75 min-h-[1.2em]"></div>
+          <div id="counter-sub" class="mt-2 sm:mt-3 font-jp text-[20px] sm:text-[20px] text-gold/75 min-h-[1.2em]"></div>
           <!-- Single message line — replaces the old context + floating
                annotation strip.  Content swaps as the user scrolls. -->
           <div class="mt-4 sm:mt-5 min-h-[2.2em] flex items-center justify-center px-2">
-            <span id="counter-context" class="font-cute-jp text-[20px] sm:text-[20px] leading-[1.5] text-paper/75 transition-opacity duration-500">
+            <span id="counter-context" class="font-jp text-[20px] sm:text-[20px] leading-[1.5] text-paper/75 transition-opacity duration-500">
               したにスクロールしてみてね
             </span>
           </div>
@@ -461,7 +462,6 @@
 
       <!-- Pause-zone CTA: fades in once counter reaches 2.30 兆匹 -->
       <div id="pause-cta" class="pause-cta absolute bottom-10 sm:bottom-14 left-0 right-0 flex flex-col items-center px-6">
-        <p class="font-cute-jp text-paper/75 text-[20px] sm:text-[20px] mb-4 text-center">これで、今年の一年ぶん。</p>
         <a href="#after-count" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[20px]">
           次へ進む
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -506,16 +506,16 @@
 
         <!-- Labels — aligned at the same vertical baseline, bold emphasis -->
         <div class="comp-human-label">
-          <div class="font-cute-jp text-[20px] sm:text-[20px] tracking-[0.16em] text-paper/75 mb-2">人類</div>
+          <div class="font-jp text-[20px] sm:text-[20px] tracking-[0.16em] text-paper/75 mb-2">人類</div>
           <div class="font-jp-display font-medium text-[38px] sm:text-[54px] text-paper leading-none">80億</div>
         </div>
         <div class="comp-fish-label">
-          <div class="font-cute-jp text-[20px] sm:text-[20px] tracking-[0.16em] text-abyss/80 mb-2">魚（一年）</div>
+          <div class="font-jp text-[20px] sm:text-[20px] tracking-[0.16em] text-abyss/80 mb-2">魚（一年）</div>
           <div class="font-jp-display font-medium text-[38px] sm:text-[54px] text-abyss leading-none">1〜3兆</div>
         </div>
       </div>
 
-      <p class="mt-12 font-cute-jp text-paper/75 text-[20px] sm:text-[20px] leading-[2]">
+      <p class="mt-12 font-jp text-paper/75 text-[20px] sm:text-[20px] leading-[2]">
         魚の数は人類のおよそ <span class="text-gold">290倍</span>。<br/>
         一年で、です。
       </p>
@@ -553,26 +553,26 @@
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/umigame.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4" loading="lazy" />
           <div class="font-jp-display text-paper text-[20px]">ウミガメ</div>
-          <div class="text-paper/60 font-cute-jp text-[20px] sm:text-[20px] mt-1.5">年に 数十万匹<a href="#src-3" class="src">3</a></div>
+          <div class="text-paper/60 font-jp text-[20px] sm:text-[20px] mt-1.5">年に 数十万匹<a href="#src-3" class="src">3</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/iruka.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4" loading="lazy" />
           <div class="font-jp-display text-paper text-[20px]">イルカ</div>
-          <div class="text-paper/60 font-cute-jp text-[20px] sm:text-[20px] mt-1.5">年に 約30万頭<a href="#src-3" class="src">3</a></div>
+          <div class="text-paper/60 font-jp text-[20px] sm:text-[20px] mt-1.5">年に 約30万頭<a href="#src-3" class="src">3</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/same.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4" loading="lazy" />
           <div class="font-jp-display text-paper text-[20px]">サメ</div>
-          <div class="text-paper/60 font-cute-jp text-[20px] sm:text-[20px] mt-1.5">年に 約1億匹<a href="#src-3a" class="src">3a</a></div>
+          <div class="text-paper/60 font-jp text-[20px] sm:text-[20px] mt-1.5">年に 約1億匹<a href="#src-3a" class="src">3a</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/chiisana-sakana.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4" loading="lazy" />
           <div class="font-jp-display text-paper text-[20px]">小さな魚</div>
-          <div class="text-paper/60 font-cute-jp text-[20px] sm:text-[20px] mt-1.5">数えきれないほど</div>
+          <div class="text-paper/60 font-jp text-[20px] sm:text-[20px] mt-1.5">数えきれないほど</div>
         </div>
       </div>
 
-      <p class="mt-12 font-cute-jp text-paper/65 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[2]">
+      <p class="mt-12 font-jp text-paper/65 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[2]">
         海底をひきずる漁は、一年で日本の国土の<br/>
         <span class="text-gold">およそ 14倍</span> の海底をならしています。<a href="#src-4" class="src">4</a>
       </p>
@@ -691,7 +691,7 @@
         </div>
       </div>
 
-      <p class="mt-12 font-cute-jp text-paper/65 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[2]">
+      <p class="mt-12 font-jp text-paper/65 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[2]">
         マグロ・カジキ・タラのような大きな魚ほど、<br/>
         早くいなくなっています。
       </p>
@@ -734,7 +734,7 @@
         </a>
       </div>
 
-      <p class="mt-16 font-cute-jp text-paper/45 text-[20px] sm:text-[20px]">
+      <p class="mt-16 font-jp text-paper/45 text-[20px] sm:text-[20px]">
         最後まで、ありがとう。
       </p>
     </div>
@@ -743,7 +743,7 @@
   <!-- ───────────────────── 8.  Sources ───────────────────── -->
   <footer class="bg-abyss border-t border-line/40 py-16 sm:py-20 px-6 sm:px-10">
     <div class="max-w-3xl mx-auto">
-      <h2 class="font-cute-jp text-gold/80 text-[20px] tracking-[0.14em] mb-6">出典 ・ sources</h2>
+      <h2 class="font-jp text-gold/80 text-[20px] tracking-[0.14em] mb-6">出典 ・ sources</h2>
       <ol class="space-y-3 text-paper/60 text-[20px] sm:text-[20px] leading-[1.8] font-jp ticker">
         <li id="src-1"><span class="text-gold/60">1.</span> 年間に獲られる魚の数の推定は <a href="http://fishcount.org.uk/fish-count-estimates-2" target="_blank" rel="noopener" class="underline hover:text-paper">fishcount.org.uk</a> による（0.79〜2.3兆匹）。一人あたりの内訳は世界人口80億人で割った値。</li>
         <li id="src-2"><span class="text-gold/60">2.</span> 混獲（bycatch）の割合は FAO 'Discards in the world's marine fisheries' (2005) ほか、後年の報告でもほぼ同水準。</li>
@@ -760,7 +760,7 @@
 
       <div class="mt-12 pt-8 border-t border-line/30 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center text-paper/40 text-[20px] tracking-wider">
         <a href="/" class="hover:text-paper transition-colors">← ビーガン王子へ戻る</a>
-        <span class="font-cute-jp text-[20px]">© ビーガン王子</span>
+        <span class="font-jp text-[20px]">© ビーガン王子</span>
       </div>
     </div>
   </footer>

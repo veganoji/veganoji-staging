@@ -181,6 +181,13 @@
       font-size: 13px;
       letter-spacing: 0.08em;
     }
+  
+    /* Force button weight 700 (mobile webfont sometimes falls short) */
+    button,
+    .btn-primary, .btn-secondary, .btn-ghost, .btn-gold, .btn-line,
+    [class*="btn-"] {
+      font-weight: 700 !important;
+    }
   </style>
 </head>
 <body class="px-6 lg:px-10 py-12">

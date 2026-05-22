@@ -669,6 +669,13 @@
       .pose-cycle > img:not(:first-of-type) { display: none; }
     }
     @media (max-width: 1100px) { .social-rail { display: none; } }
+  
+    /* Force button weight 700 (mobile webfont sometimes falls short) */
+    button,
+    .btn-primary, .btn-secondary, .btn-ghost, .btn-gold, .btn-line,
+    [class*="btn-"] {
+      font-weight: 700 !important;
+    }
   </style>
 </head>
 <body class="font-sans">
@@ -809,7 +816,7 @@
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2.5">
         <svg width="28" height="28" class="text-royal"><use href="#crown"/></svg>
-        <span class="font-cute-jp text-[20px] tracking-wide text-ink">ビーガン王子</span>
+        <span class="font-jp text-[20px] tracking-wide text-ink">ビーガン王子</span>
         <span class="hidden md:inline text-[11px] tracking-[0.22em] text-muted uppercase">Vegan Oji</span>
       </a>
       <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-[13px] tracking-wide text-ink-soft">
@@ -853,14 +860,14 @@
       <div class="text-center mb-10 sm:mb-14 lg:mb-20 max-w-[820px] mx-auto relative">
         <div class="flex items-center justify-center gap-2 mb-4 sm:mb-5">
           <img src="/images/ui-icons/crown.png" alt="" class="w-7 h-7 sm:w-9 sm:h-9" loading="eager"/>
-          <span class="font-cute-jp text-[14px] sm:text-[16px] text-royal" style="font-weight:700; letter-spacing:0.08em">王子のツール v2</span>
+          <span class="font-jp text-[14px] sm:text-[16px] text-royal" style="font-weight:700; letter-spacing:0.08em">王子のツール v2</span>
           <img src="/images/ui-icons/crown.png" alt="" class="w-7 h-7 sm:w-9 sm:h-9" loading="eager"/>
         </div>
-        <h2 class="font-cute-jp text-[36px] sm:text-[56px] lg:text-[72px] leading-[1.05] text-ink" style="font-weight:700">
+        <h2 class="font-jp text-[36px] sm:text-[56px] lg:text-[72px] leading-[1.05] text-ink" style="font-weight:700">
           王子と一緒に、<br/>
           <span class="text-royal">調べてみよう。</span>
         </h2>
-        <p class="font-cute-jp text-[15px] sm:text-[18px] lg:text-[20px] text-ink-soft mt-5 sm:mt-6 leading-relaxed" style="font-weight:500">
+        <p class="font-jp text-[15px] sm:text-[18px] lg:text-[20px] text-ink-soft mt-5 sm:mt-6 leading-relaxed" style="font-weight:500">
           「で、実際どうすればいいの？」<br/>
           そんな疑問に、王子が２つの道具で答えます ✨
         </p>
@@ -872,8 +879,8 @@
 
         <!-- Mobile toggle — chibi stamp style -->
         <div class="md:hidden mt-7 inline-flex bg-paper rounded-2xl p-1.5 gap-1 relative" style="border: 2.5px solid var(--color-ink); box-shadow: 4px 4px 0 var(--color-ink)" id="tool-toggle">
-          <button class="px-4 py-2 rounded-xl text-[14px] font-cute-jp transition-colors" style="font-weight:700" data-tool="calc" data-active="true">計算機</button>
-          <button class="px-4 py-2 rounded-xl text-[14px] font-cute-jp transition-colors" style="font-weight:700" data-tool="map">マップ</button>
+          <button class="px-4 py-2 rounded-xl text-[14px] font-jp transition-colors" style="font-weight:700" data-tool="calc" data-active="true">計算機</button>
+          <button class="px-4 py-2 rounded-xl text-[14px] font-jp transition-colors" style="font-weight:700" data-tool="map">マップ</button>
         </div>
       </div>
 
@@ -881,7 +888,7 @@
 
         <!-- ── CALCULATOR ── -->
         <article data-tool-panel="calc" data-active="true" class="bg-paper rounded-3xl p-5 sm:p-7 lg:p-9 relative overflow-hidden" style="border: 3px solid var(--color-ink); box-shadow: 6px 6px 0 var(--color-ink)">
-          <div class="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 bg-gold text-ink rounded-full px-3 py-1 text-[11.5px] font-cute-jp" style="font-weight:700; border:2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink)">無料 ✨</div>
+          <div class="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 bg-gold text-ink rounded-full px-3 py-1 text-[11.5px] font-jp" style="font-weight:700; border:2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink)">無料 ✨</div>
           <img src="/images/mascot/calculator.png" alt="ビーガン王子 - 計算機" class="block absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-28 sm:w-32 lg:w-36 anim-bobble drop-shadow-lg pointer-events-none z-0" loading="lazy"/>
 
           <div class="flex items-start gap-4 mb-6">
@@ -1023,7 +1030,7 @@
 
         <!-- ── MAP ── -->
         <article data-tool-panel="map" class="bg-paper rounded-3xl p-5 sm:p-7 lg:p-9 relative overflow-hidden" style="border: 3px solid var(--color-ink); box-shadow: 6px 6px 0 var(--color-ink)">
-          <div class="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 bg-gold text-ink rounded-full px-3 py-1 text-[11.5px] font-cute-jp" style="font-weight:700; border:2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink)">無料 ✨</div>
+          <div class="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 bg-gold text-ink rounded-full px-3 py-1 text-[11.5px] font-jp" style="font-weight:700; border:2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink)">無料 ✨</div>
           <img src="/images/mascot/map-japan.png" alt="ビーガン王子 - マップ" class="block absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-28 sm:w-32 lg:w-36 anim-bobble drop-shadow-lg pointer-events-none z-0" style="animation-delay:0.4s" loading="lazy"/>
           <div class="flex items-start gap-4 mb-6">
             <div class="w-14 h-14 rounded-2xl bg-royal/10 text-royal flex items-center justify-center">
@@ -1118,7 +1125,7 @@
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-5">
       <a href="/" class="flex items-center gap-2.5">
         <svg width="24" height="24" class="text-royal"><use href="#crown"/></svg>
-        <span class="font-cute-jp text-[18px] text-ink">ビーガン王子</span>
+        <span class="font-jp text-[18px] text-ink">ビーガン王子</span>
       </a>
       <div class="flex items-center gap-2.5">
         <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-btn" data-brand="ig"><img src="/images/social/ig.png" alt=""/></a>
