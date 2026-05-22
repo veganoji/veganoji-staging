@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,400..700&family=Hachi+Maru+Pop&family=Inter:wght@300..700&family=Lilita+One&family=Noto+Sans+JP:wght@400..700&family=Noto+Serif+JP:wght@400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Yusei+Magic&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -48,12 +48,16 @@
       --color-line: #E5DAC0;
       --color-muted: #6B6055;
 
-      --font-display: "Fraunces", "Noto Serif JP", serif;
-      --font-jp-display: "Noto Serif JP", "Fraunces", serif;
-      --font-jp: "Noto Sans JP", "Inter", sans-serif;
-      --font-hand: "Caveat", "Hachi Maru Pop", "Noto Sans JP", cursive;
-      --font-cute-jp: "Hachi Maru Pop", "Noto Sans JP", sans-serif;
-      --font-fun: "Lilita One", "Fraunces", serif;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+      --font-yusei-magic:  "Yusei Magic", "Noto Sans JP", sans-serif;
+      --font-display:    var(--font-noto-sans-jp);
+      --font-jp-display: var(--font-noto-sans-jp);
+      --font-sans:       var(--font-noto-sans-jp);
+      --font-jp:         var(--font-noto-sans-jp);
+      --font-round:      var(--font-noto-sans-jp);
+      --font-hand:       var(--font-yusei-magic);
+      --font-cute-jp:    var(--font-yusei-magic);
+      --font-fun:        var(--font-noto-sans-jp);
     }
     body { font-family: var(--font-jp); background: var(--color-paper); color: var(--color-ink); }
     .font-jp { font-family: var(--font-jp); }

@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600;1,9..144,900&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@200;300;400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Kosugi+Maru&family=Hachi+Maru+Pop&family=Yusei+Magic&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Yusei+Magic&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style type="text/tailwindcss">
@@ -51,16 +51,12 @@
       --color-blush:       #F8C8D2;
       --color-line:        #1a3a52;
 
-      /* One font per var — no fallback stacks, so it's always clear which
-         typeface a class is actually rendering.  Generic family appended as
-         a last-ditch fallback for missing glyphs. */
-      --font-fraunces:        "Fraunces", serif;
-      --font-noto-serif-jp:   "Noto Serif JP", serif;
-      --font-inter:           "Inter", sans-serif;
+      /* Standardized two-font system:
+         - Noto Sans JP for everything (body + headers + buttons), with
+           heavy weight for headers/buttons and regular for body
+         - Yusei Magic reserved for rare cute moments only */
       --font-noto-sans-jp:    "Noto Sans JP", sans-serif;
-      --font-kosugi-maru:     "Kosugi Maru", sans-serif;
-      --font-hachi-maru-pop:  "Hachi Maru Pop", sans-serif;
-      --font-yusei-magic:     "Yusei Magic", sans-serif;
+      --font-yusei-magic:     "Yusei Magic", "Noto Sans JP", sans-serif;
     }
 
     html, body {
@@ -79,13 +75,14 @@
       text-rendering: optimizeLegibility;
     }
 
-    /* Each font-* class maps to exactly one typeface — no shared aliases. */
-    .font-display    { font-family: var(--font-fraunces); font-optical-sizing: auto; }
-    .font-jp-display { font-family: var(--font-noto-serif-jp); }
+    /* Two-font system — every class falls back to Noto Sans JP, only
+       .font-cute-jp uses Yusei Magic (and only sparingly). */
+    .font-display    { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+    .font-jp-display { font-family: var(--font-noto-sans-jp); font-weight: 900; }
     .font-jp         { font-family: var(--font-noto-sans-jp); }
-    .font-round      { font-family: var(--font-kosugi-maru); }
-    .font-cute-jp    { font-family: var(--font-hachi-maru-pop); }
-    .display-italic  { font-family: var(--font-fraunces); font-style: italic; }
+    .font-round      { font-family: var(--font-noto-sans-jp); }
+    .font-cute-jp    { font-family: var(--font-yusei-magic); }
+    .display-italic  { font-family: var(--font-noto-sans-jp); font-weight: 700; font-style: italic; }
     .display-tight   { letter-spacing: -0.035em; line-height: 0.94; }
 
     /* Site-wide buttons render in Noto Sans JP per design decision */
@@ -373,9 +370,9 @@
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="flex-shrink-0">
         <path d="M9 2 L4 7 L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
       </svg>
-      <span class="font-cute-jp text-[14px] tracking-wide">ビーガン王子</span>
+      <span class="font-cute-jp text-[20px] tracking-wide">ビーガン王子</span>
     </a>
-    <span class="hidden sm:inline font-cute-jp text-[13px] tracking-[0.14em] text-gold/80">海をかぞえる</span>
+    <span class="hidden sm:inline font-cute-jp text-[20px] tracking-[0.14em] text-gold/80">海をかぞえる</span>
   </header>
 
   <!-- ───────────────────── 1.  Hero  ─────────────────────
@@ -405,7 +402,7 @@
         獲られると思う？
       </h1>
 
-      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[17px] sm:text-[19px] leading-[1.9]">
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] sm:text-[20px] leading-[1.9]">
         正解は、そうぞうのずっと先にあるよ。<br/>
         ゆっくり、いっしょに、かぞえてみよう。
       </p>
@@ -421,7 +418,7 @@
       </div>
 
       <div class="mt-10 sm:mt-12 inline-flex flex-col items-center gap-2 text-paper/50">
-        <span class="font-cute-jp text-[13px]">下にスクロール</span>
+        <span class="font-cute-jp text-[20px]">下にスクロール</span>
         <svg width="16" height="22" viewBox="0 0 16 22" fill="none" class="animate-bounce">
           <path d="M8 2 L8 18 M3 13 L8 18 L13 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
         </svg>
@@ -443,7 +440,7 @@
       <!-- Counter overlay -->
       <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6">
         <div class="counter-pill rounded-3xl px-7 py-6 sm:px-12 sm:py-9 text-center max-w-[94vw]">
-          <div class="font-cute-jp text-[16px] sm:text-[18px] tracking-[0.14em] text-gold/85 mb-4">
+          <div class="font-cute-jp text-[20px] sm:text-[20px] tracking-[0.14em] text-gold/85 mb-4">
             今年、世界で獲られた魚
           </div>
           <!-- Primary: full digit count for visceral impact -->
@@ -451,11 +448,11 @@
             0 匹
           </div>
           <!-- Secondary: friendlier Japanese-unit reading -->
-          <div id="counter-sub" class="mt-2 sm:mt-3 font-cute-jp text-[15px] sm:text-[18px] text-gold/75 min-h-[1.2em]"></div>
+          <div id="counter-sub" class="mt-2 sm:mt-3 font-cute-jp text-[20px] sm:text-[20px] text-gold/75 min-h-[1.2em]"></div>
           <!-- Single message line — replaces the old context + floating
                annotation strip.  Content swaps as the user scrolls. -->
           <div class="mt-4 sm:mt-5 min-h-[2.2em] flex items-center justify-center px-2">
-            <span id="counter-context" class="font-cute-jp text-[14px] sm:text-[16px] leading-[1.5] text-paper/75 transition-opacity duration-500">
+            <span id="counter-context" class="font-cute-jp text-[20px] sm:text-[20px] leading-[1.5] text-paper/75 transition-opacity duration-500">
               したにスクロールしてみてね
             </span>
           </div>
@@ -464,8 +461,8 @@
 
       <!-- Pause-zone CTA: fades in once counter reaches 2.30 兆匹 -->
       <div id="pause-cta" class="pause-cta absolute bottom-10 sm:bottom-14 left-0 right-0 flex flex-col items-center px-6">
-        <p class="font-cute-jp text-paper/75 text-[18px] sm:text-[20px] mb-4 text-center">これで、今年の一年ぶん。</p>
-        <a href="#after-count" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[15px]">
+        <p class="font-cute-jp text-paper/75 text-[20px] sm:text-[20px] mb-4 text-center">これで、今年の一年ぶん。</p>
+        <a href="#after-count" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[20px]">
           次へ進む
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M7 2 L7 11 M3 7 L7 11 L11 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
@@ -492,7 +489,7 @@
         ちなみに、世界中の<br class="sm:hidden"/>
         <span class="text-gold gold-underline">人類は ８０億人</span>。
       </p>
-      <p class="mt-10 sm:mt-12 font-jp text-paper/70 text-[17px] sm:text-[20px] leading-[2]">
+      <p class="mt-10 sm:mt-12 font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[2]">
         ひとり一年で <span class="text-paper">137匹</span> 食べる計算になる
         — 食べない人も、赤ちゃんも、ぜんぶ含めて。<a href="#src-1" class="src">1</a>
       </p>
@@ -509,16 +506,16 @@
 
         <!-- Labels — aligned at the same vertical baseline, bold emphasis -->
         <div class="comp-human-label">
-          <div class="font-cute-jp text-[16px] sm:text-[19px] tracking-[0.16em] text-paper/75 mb-2">人類</div>
+          <div class="font-cute-jp text-[20px] sm:text-[20px] tracking-[0.16em] text-paper/75 mb-2">人類</div>
           <div class="font-jp-display font-medium text-[38px] sm:text-[54px] text-paper leading-none">80億</div>
         </div>
         <div class="comp-fish-label">
-          <div class="font-cute-jp text-[16px] sm:text-[19px] tracking-[0.16em] text-abyss/80 mb-2">魚（一年）</div>
+          <div class="font-cute-jp text-[20px] sm:text-[20px] tracking-[0.16em] text-abyss/80 mb-2">魚（一年）</div>
           <div class="font-jp-display font-medium text-[38px] sm:text-[54px] text-abyss leading-none">1〜3兆</div>
         </div>
       </div>
 
-      <p class="mt-12 font-cute-jp text-paper/75 text-[18px] sm:text-[20px] leading-[2]">
+      <p class="mt-12 font-cute-jp text-paper/75 text-[20px] sm:text-[20px] leading-[2]">
         魚の数は人類のおよそ <span class="text-gold">290倍</span>。<br/>
         一年で、です。
       </p>
@@ -545,7 +542,7 @@
         獲られた<span class="text-gold">４割</span>は、<br/>
         食卓のためでもない。
       </h2>
-      <p class="mt-8 font-jp text-paper/70 text-[17px] sm:text-[19px] leading-[1.95] max-w-2xl mx-auto">
+      <p class="mt-8 font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[1.95] max-w-2xl mx-auto">
         ねらった魚ではなく、いっしょに網にかかった命。
         ウミガメ、イルカ、サメ、まだ小さな魚たち。
         ほとんどは海に戻されますが、もう動きません。<a href="#src-2" class="src">2</a>
@@ -554,28 +551,28 @@
       <!-- Bycatch icon grid -->
       <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto">
         <div class="vignette rounded-2xl p-5 sm:p-6">
-          <img src="/images/umi-wo-kazoeru/umigame.png" alt="" class="block mx-auto h-16 sm:h-20 w-auto mb-3" loading="lazy" />
-          <div class="font-jp-display text-paper text-[15px]">ウミガメ</div>
-          <div class="text-paper/60 font-cute-jp text-[13px] sm:text-[15px] mt-1.5">年に 数十万匹<a href="#src-3" class="src">3</a></div>
+          <img src="/images/umi-wo-kazoeru/umigame.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4" loading="lazy" />
+          <div class="font-jp-display text-paper text-[20px]">ウミガメ</div>
+          <div class="text-paper/60 font-cute-jp text-[20px] sm:text-[20px] mt-1.5">年に 数十万匹<a href="#src-3" class="src">3</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
-          <img src="/images/umi-wo-kazoeru/iruka.png" alt="" class="block mx-auto h-16 sm:h-20 w-auto mb-3" loading="lazy" />
-          <div class="font-jp-display text-paper text-[15px]">イルカ</div>
-          <div class="text-paper/60 font-cute-jp text-[13px] sm:text-[15px] mt-1.5">年に 約30万頭<a href="#src-3" class="src">3</a></div>
+          <img src="/images/umi-wo-kazoeru/iruka.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4" loading="lazy" />
+          <div class="font-jp-display text-paper text-[20px]">イルカ</div>
+          <div class="text-paper/60 font-cute-jp text-[20px] sm:text-[20px] mt-1.5">年に 約30万頭<a href="#src-3" class="src">3</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
-          <img src="/images/umi-wo-kazoeru/same.png" alt="" class="block mx-auto h-16 sm:h-20 w-auto mb-3" loading="lazy" />
-          <div class="font-jp-display text-paper text-[15px]">サメ</div>
-          <div class="text-paper/60 font-cute-jp text-[13px] sm:text-[15px] mt-1.5">年に 約1億匹<a href="#src-3a" class="src">3a</a></div>
+          <img src="/images/umi-wo-kazoeru/same.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4" loading="lazy" />
+          <div class="font-jp-display text-paper text-[20px]">サメ</div>
+          <div class="text-paper/60 font-cute-jp text-[20px] sm:text-[20px] mt-1.5">年に 約1億匹<a href="#src-3a" class="src">3a</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
-          <img src="/images/umi-wo-kazoeru/chiisana-sakana.png" alt="" class="block mx-auto h-16 sm:h-20 w-auto mb-3" loading="lazy" />
-          <div class="font-jp-display text-paper text-[15px]">小さな魚</div>
-          <div class="text-paper/60 font-cute-jp text-[13px] sm:text-[15px] mt-1.5">数えきれないほど</div>
+          <img src="/images/umi-wo-kazoeru/chiisana-sakana.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4" loading="lazy" />
+          <div class="font-jp-display text-paper text-[20px]">小さな魚</div>
+          <div class="text-paper/60 font-cute-jp text-[20px] sm:text-[20px] mt-1.5">数えきれないほど</div>
         </div>
       </div>
 
-      <p class="mt-12 font-cute-jp text-paper/65 text-[17px] sm:text-[19px] max-w-xl mx-auto leading-[2]">
+      <p class="mt-12 font-cute-jp text-paper/65 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[2]">
         海底をひきずる漁は、一年で日本の国土の<br/>
         <span class="text-gold">およそ 14倍</span> の海底をならしています。<a href="#src-4" class="src">4</a>
       </p>
@@ -592,7 +589,7 @@
           日本の食卓と、<br/>
           <span class="display-italic text-gold">海のこと。</span>
         </h2>
-        <p class="mt-6 font-jp text-paper/65 text-[17px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
+        <p class="mt-6 font-jp text-paper/65 text-[20px] sm:text-[20px] leading-[1.95] max-w-xl mx-auto">
           わたしたちの暮らしと、深くつながっている三つのいきもの。
         </p>
       </div>
@@ -601,12 +598,11 @@
       <article class="vignette rounded-3xl p-8 sm:p-12 mb-10 sm:mb-14 reveal">
         <div class="grid sm:grid-cols-[1fr,auto] gap-8 items-start">
           <div>
-            <div class="card-label mb-3">クロマグロ</div>
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
               世界のクロマグロの <span class="text-gold">およそ ８割</span> を、<br class="hidden sm:block"/>
               日本が食べています。<a href="#src-5" class="src">5</a>
             </h3>
-            <p class="font-jp text-paper/70 text-[18px] sm:text-[20px] leading-[2]">
+            <p class="font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[2]">
               太平洋のクロマグロは、昔とくらべて
               <span class="text-paper">およそ ９６％ いなくなりました</span>。<a href="#src-6" class="src">6</a><br/>
               2019年、豊洲では一匹が <span class="text-gold">３億3,360万円</span> で取引されています。
@@ -621,12 +617,11 @@
         <div class="grid sm:grid-cols-[auto,1fr] gap-8 items-start">
           <img src="/images/umi-wo-kazoeru/nihonunagi.png" alt="" class="block mx-auto h-24 sm:h-32 w-auto anim-drift order-2 sm:order-1" loading="lazy" />
           <div class="order-1 sm:order-2">
-            <div class="card-label mb-3">ニホンウナギ</div>
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
               夏に食べる、あの一匹は <br class="hidden sm:block"/>
               <span class="text-gold">絶滅危惧種</span> です。<a href="#src-7" class="src">7</a>
             </h3>
-            <p class="font-jp text-paper/70 text-[18px] sm:text-[20px] leading-[2]">
+            <p class="font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[2]">
               ニホンウナギは2014年に IUCN レッドリストに載りました。
               天然ものはほぼ姿を消し、養殖の稚魚（シラスウナギ）も激減しています。
               土用の丑の日に売れ残ったうなぎの多くは、最終的に廃棄されることもわかっています。<a href="#src-8" class="src">8</a>
@@ -639,12 +634,11 @@
       <article class="vignette rounded-3xl p-8 sm:p-12 reveal">
         <div class="grid sm:grid-cols-[1fr,auto] gap-8 items-start">
           <div>
-            <div class="card-label mb-3">クジラ</div>
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
               日本では今も、毎年 <span class="text-gold">およそ ３００頭</span> の<br class="hidden sm:block"/>
               クジラが捕鯨の対象になっています。<a href="#src-9" class="src">9</a>
             </h3>
-            <p class="font-jp text-paper/70 text-[18px] sm:text-[20px] leading-[2]">
+            <p class="font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[2]">
               2019年に商業捕鯨が再開されて以降、ミンククジラ・イワシクジラ・ニタリクジラの三種が対象。
               一方で、消費量は年々減り、在庫の多くは政府の支援で維持されています。
             </p>
@@ -672,32 +666,32 @@
           <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
             <div class="h-full bg-gold rounded-full" style="width:100%"></div>
           </div>
-          <div class="w-14 sm:w-16 text-left text-paper/70 text-[18px] sm:text-[22px] font-jp-display ticker">100</div>
+          <div class="w-14 sm:w-16 text-left text-paper/70 text-[20px] sm:text-[22px] font-jp-display ticker">100</div>
         </div>
         <div class="flex items-center gap-5">
           <div class="w-20 sm:w-24 text-right font-jp-display text-paper/85 text-[20px] sm:text-[24px]">1980</div>
           <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
             <div class="h-full bg-gold/80 rounded-full" style="width:55%"></div>
           </div>
-          <div class="w-14 sm:w-16 text-left text-paper/70 text-[18px] sm:text-[22px] font-jp-display ticker">55</div>
+          <div class="w-14 sm:w-16 text-left text-paper/70 text-[20px] sm:text-[22px] font-jp-display ticker">55</div>
         </div>
         <div class="flex items-center gap-5">
           <div class="w-20 sm:w-24 text-right font-jp-display text-paper/85 text-[20px] sm:text-[24px]">2010</div>
           <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
             <div class="h-full bg-gold/60 rounded-full" style="width:18%"></div>
           </div>
-          <div class="w-14 sm:w-16 text-left text-paper/70 text-[18px] sm:text-[22px] font-jp-display ticker">18</div>
+          <div class="w-14 sm:w-16 text-left text-paper/70 text-[20px] sm:text-[22px] font-jp-display ticker">18</div>
         </div>
         <div class="flex items-center gap-5">
           <div class="w-20 sm:w-24 text-right font-jp-display text-gold text-[22px] sm:text-[26px]">今</div>
           <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
             <div class="h-full bg-gold rounded-full" style="width:10%"></div>
           </div>
-          <div class="w-14 sm:w-16 text-left text-gold text-[18px] sm:text-[22px] font-jp-display ticker">10</div>
+          <div class="w-14 sm:w-16 text-left text-gold text-[20px] sm:text-[22px] font-jp-display ticker">10</div>
         </div>
       </div>
 
-      <p class="mt-12 font-cute-jp text-paper/65 text-[17px] sm:text-[19px] max-w-xl mx-auto leading-[2]">
+      <p class="mt-12 font-cute-jp text-paper/65 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[2]">
         マグロ・カジキ・タラのような大きな魚ほど、<br/>
         早くいなくなっています。
       </p>
@@ -724,23 +718,23 @@
         <span class="text-gold display-italic">海はすこし休めます。</span>
       </h2>
 
-      <p class="mt-10 max-w-xl mx-auto font-jp text-paper/75 text-[17px] sm:text-[19px] leading-[2]">
+      <p class="mt-10 max-w-xl mx-auto font-jp text-paper/75 text-[20px] sm:text-[20px] leading-[2]">
         毎食ぜんぶ変えなくても大丈夫。<br/>
         一週間に一食、お刺身の代わりに別のものを。<br/>
         それだけで、海はすこしだけ、息をつけます。
       </p>
 
       <div class="mt-14 flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="/blog/" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[15px]">
+        <a href="/blog/" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[20px]">
           ビーガンの記事を読む
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
         </a>
-        <a href="/tools/" class="btn-ocean-ghost inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[15px] text-gold">
+        <a href="/tools/" class="btn-ocean-ghost inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[20px] text-gold">
           影響を計算してみる
         </a>
       </div>
 
-      <p class="mt-16 font-cute-jp text-paper/45 text-[13px] sm:text-[15px]">
+      <p class="mt-16 font-cute-jp text-paper/45 text-[20px] sm:text-[20px]">
         最後まで、ありがとう。
       </p>
     </div>
@@ -749,8 +743,8 @@
   <!-- ───────────────────── 8.  Sources ───────────────────── -->
   <footer class="bg-abyss border-t border-line/40 py-16 sm:py-20 px-6 sm:px-10">
     <div class="max-w-3xl mx-auto">
-      <h2 class="font-cute-jp text-gold/80 text-[14px] tracking-[0.14em] mb-6">出典 ・ sources</h2>
-      <ol class="space-y-3 text-paper/60 text-[13px] sm:text-[15px] leading-[1.8] font-jp ticker">
+      <h2 class="font-cute-jp text-gold/80 text-[20px] tracking-[0.14em] mb-6">出典 ・ sources</h2>
+      <ol class="space-y-3 text-paper/60 text-[20px] sm:text-[20px] leading-[1.8] font-jp ticker">
         <li id="src-1"><span class="text-gold/60">1.</span> 年間に獲られる魚の数の推定は <a href="http://fishcount.org.uk/fish-count-estimates-2" target="_blank" rel="noopener" class="underline hover:text-paper">fishcount.org.uk</a> による（0.79〜2.3兆匹）。一人あたりの内訳は世界人口80億人で割った値。</li>
         <li id="src-2"><span class="text-gold/60">2.</span> 混獲（bycatch）の割合は FAO 'Discards in the world's marine fisheries' (2005) ほか、後年の報告でもほぼ同水準。</li>
         <li id="src-3"><span class="text-gold/60">3.</span> ウミガメの混獲は <a href="https://doi.org/10.1111/j.1461-0248.2004.00573.x" target="_blank" rel="noopener" class="underline hover:text-paper">Lewison et al., Ecology Letters (2004)</a> ほかにより年に数十万匹規模。イルカ等の鯨類混獲は <a href="https://doi.org/10.1111/j.1523-1739.2006.00338.x" target="_blank" rel="noopener" class="underline hover:text-paper">Read et al., Conservation Biology (2006)</a> による全世界で年間約 30万頭 の推計。</li>
@@ -764,9 +758,9 @@
         <li id="src-10"><span class="text-gold/60">10.</span> <a href="https://www.nature.com/articles/nature01610" target="_blank" rel="noopener" class="underline hover:text-paper">Myers &amp; Worm, Nature (2003)</a> — 大型捕食魚の生物量は約 90% 減少。</li>
       </ol>
 
-      <div class="mt-12 pt-8 border-t border-line/30 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center text-paper/40 text-[11px] tracking-wider">
+      <div class="mt-12 pt-8 border-t border-line/30 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center text-paper/40 text-[20px] tracking-wider">
         <a href="/" class="hover:text-paper transition-colors">← ビーガン王子へ戻る</a>
-        <span class="font-cute-jp text-[12px]">© ビーガン王子</span>
+        <span class="font-cute-jp text-[20px]">© ビーガン王子</span>
       </div>
     </div>
   </footer>

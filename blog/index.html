@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex,nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600;1,9..144,900&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&family=Noto+Serif+JP:wght@200;300;400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Kosugi+Maru&family=Yusei+Magic&family=Hachi+Maru+Pop&family=Lilita+One&family=Reggae+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Yusei+Magic&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style type="text/tailwindcss">
@@ -32,30 +32,32 @@
       --color-line-stamp: #06C755;
       --color-line: #E9D9B5;
 
-      --font-display: "Fraunces", "Noto Serif JP", Georgia, serif;
-      --font-jp-display: "Noto Serif JP", "Fraunces", serif;
-      --font-sans: "Inter", "Noto Sans JP", system-ui, sans-serif;
-      --font-jp: "Noto Sans JP", "Inter", sans-serif;
-      --font-round: "Kosugi Maru", "Noto Sans JP", sans-serif;
-      --font-hand: "Caveat", "Yusei Magic", "Hachi Maru Pop", "Noto Sans JP", cursive;
-      --font-cute-jp: "Hachi Maru Pop", "Yusei Magic", "Kosugi Maru", "Noto Sans JP", sans-serif;
-      --font-fun: "Lilita One", "Fraunces", "Noto Serif JP", sans-serif;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+      --font-yusei-magic:  "Yusei Magic", "Noto Sans JP", sans-serif;
+      --font-display:    var(--font-noto-sans-jp);
+      --font-jp-display: var(--font-noto-sans-jp);
+      --font-sans:       var(--font-noto-sans-jp);
+      --font-jp:         var(--font-noto-sans-jp);
+      --font-round:      var(--font-noto-sans-jp);
+      --font-hand:       var(--font-yusei-magic);
+      --font-cute-jp:    var(--font-yusei-magic);
+      --font-fun:        var(--font-noto-sans-jp);
     }
 
     html, body { background: var(--color-paper); color: var(--color-ink); }
     html { scroll-behavior: smooth; scroll-padding-top: 84px; }
     @media (max-width: 767px) { html { scroll-padding-top: 116px; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }    body { font-family: var(--font-sans); font-feature-settings: "ss01", "ss02", "cv11"; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }    body { font-family: var(--font-noto-sans-jp); }
 
-    .font-display     { font-family: var(--font-display); font-optical-sizing: auto; }
-    .font-jp-display  { font-family: var(--font-jp-display); }
-    .font-jp          { font-family: var(--font-jp); }
-    .font-fun         { font-family: var(--font-fun); }
-    .font-hand      { font-family: var(--font-hand); }
-    .font-round       { font-family: var(--font-round); }
-    .font-cute-jp     { font-family: var(--font-cute-jp); }
+    .font-display     { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+    .font-jp-display  { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+    .font-jp          { font-family: var(--font-noto-sans-jp); }
+    .font-fun         { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+    .font-hand        { font-family: var(--font-yusei-magic); }
+    .font-round       { font-family: var(--font-noto-sans-jp); }
+    .font-cute-jp     { font-family: var(--font-yusei-magic); }
     .display-tight    { letter-spacing: -0.035em; line-height: 0.92; }
-    .display-italic   { font-family: var(--font-display); font-style: italic; }
+    .display-italic   { font-family: var(--font-noto-sans-jp); font-weight: 700; font-style: italic; }
 
     @utility eyebrow {
       @apply text-[11px] tracking-[0.32em] uppercase text-royal font-medium;
