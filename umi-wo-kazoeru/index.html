@@ -106,28 +106,41 @@
       background-size: cover;
       background-position: center;
     }
-    .hero-bg-img      { background-image: url('/images/umi-wo-kazoeru/hero-bg.jpg'); }
-    .count-bg-img     { background-image: url('/images/umi-wo-kazoeru/count-bg.jpg'); }
-    .bycatch-bg-img   { background-image: url('/images/umi-wo-kazoeru/bycatch-bg.jpg'); }
-    .japan-bg-img     { background-image: url('/images/umi-wo-kazoeru/japan-bg.jpg'); }
-    .trajectory-bg-img{ background-image: url('/images/umi-wo-kazoeru/trajectory-bg.jpg'); }
-    .close-bg-img     { background-image: url('/images/umi-wo-kazoeru/close-bg.jpg'); }
+    .hero-bg-img       { background-image: url('/images/umi-wo-kazoeru/hero-bg.jpg'); }
+    .count-bg-img      { background-image: url('/images/umi-wo-kazoeru/count-bg.jpg'); }
+    .comparison-bg-img { background-image: url('/images/umi-wo-kazoeru/comparison-bg.jpg'); }
+    .bycatch-bg-img    { background-image: url('/images/umi-wo-kazoeru/bycatch-bg.jpg'); }
+    .japan-bg-img      { background-image: url('/images/umi-wo-kazoeru/japan-bg.jpg'); }
+    .youshoku-bg-img   { background-image: url('/images/umi-wo-kazoeru/youshoku-bg.jpg'); }
+    .trajectory-bg-img { background-image: url('/images/umi-wo-kazoeru/trajectory-bg.jpg'); }
+    .close-bg-img      { background-image: url('/images/umi-wo-kazoeru/close-bg.jpg'); }
 
-    /* Soft darken so headings stay legible on top of the painted scene */
+    /* ─── Section overlays ──────────────────────────────────────
+       Hero starts ABOVE water (bright golden hour) — needs a heavier
+       darken under the centered text but stays light enough to let
+       the warm sky bleed through.  Each section's overlay also fades
+       darker toward the bottom so the transition into the next
+       (deeper) section feels seamless. */
     .hero-bg-overlay {
       background:
-        radial-gradient(ellipse at 50% 30%, rgba(2, 12, 20, 0.20), rgba(2, 12, 20, 0.55) 70%),
-        linear-gradient(180deg, rgba(2, 12, 20, 0.20) 0%, rgba(2, 12, 20, 0.45) 60%, rgba(2, 12, 20, 0.85) 100%);
+        radial-gradient(ellipse at 50% 50%, rgba(2, 12, 20, 0.55), rgba(2, 12, 20, 0.25) 75%),
+        linear-gradient(180deg, rgba(2, 12, 20, 0.10) 0%, rgba(2, 12, 20, 0.45) 55%, rgba(2, 12, 20, 0.88) 100%);
     }
+    /* Default for descending underwater sections */
     .section-bg-overlay {
       background:
         radial-gradient(ellipse at 50% 50%, rgba(2, 12, 20, 0.15), rgba(2, 12, 20, 0.40) 75%),
         linear-gradient(180deg, rgba(2, 12, 20, 0.45) 0%, rgba(2, 12, 20, 0.55) 50%, rgba(2, 12, 20, 0.75) 100%);
     }
-    /* Warm sections need lighter overlay so colour doesn't get muddied */
+    /* Warm sections (japan with warm rays, close with dawn light) — lighter overlay so the warmth survives */
     .section-bg-overlay--warm {
       background:
         linear-gradient(180deg, rgba(2, 12, 20, 0.30) 0%, rgba(2, 12, 20, 0.45) 100%);
+    }
+    /* Deepest sections (trajectory abyss + youshoku) — minimal overlay since bg is already near-black */
+    .section-bg-overlay--abyss {
+      background:
+        linear-gradient(180deg, rgba(2, 12, 20, 0.20) 0%, rgba(2, 12, 20, 0.45) 100%);
     }
     .ocean-gradient-deeper {
       background:
@@ -493,7 +506,7 @@
 
   <!-- ───────────────────── 3.  Human comparison reveal  ───────────────────── -->
   <section id="after-count" class="relative bg-abyss melt-up py-16 sm:py-24 px-6 sm:px-10 overflow-hidden scroll-mt-12">
-    <div class="count-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
+    <div class="comparison-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
     <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
       <p class="font-jp-display text-[26px] sm:text-[40px] lg:text-[52px] leading-[1.5] text-paper">
@@ -686,7 +699,7 @@
 
   <!-- ───────────────────── 5b.  養殖もまた、答えじゃない  ───────────────────── -->
   <section class="relative bg-abyss py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
-    <div class="bycatch-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
+    <div class="youshoku-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
     <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
@@ -754,7 +767,7 @@
   <!-- ───────────────────── 6.  Trajectory  ───────────────────── -->
   <section class="relative bg-abyss py-28 sm:py-40 px-6 sm:px-10 overflow-hidden">
     <div class="trajectory-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
-    <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
+    <div class="section-bg-overlay section-bg-overlay--abyss absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
         1950年と比べて、<br/>
