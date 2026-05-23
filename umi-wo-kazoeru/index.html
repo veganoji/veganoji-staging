@@ -401,20 +401,11 @@
     <div class="hero-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <canvas id="hero-stars" class="ocean-canvas opacity-50" aria-hidden="true"></canvas>
 
-    <!-- Bottom-right bubble decoration: gentle floating accent -->
-    <img
-      src="/images/umi-wo-kazoeru/bubbles.png"
-      alt=""
-      class="hidden sm:block absolute bottom-6 right-6 w-16 lg:w-20 opacity-60 anim-drift pointer-events-none"
-      loading="eager"
-      aria-hidden="true"
-    />
-
     <div class="relative z-10 max-w-3xl mx-auto text-center pt-16 sm:pt-0">
-      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-7">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3 lg:mb-3">
         今年、世界で獲られる魚 ——
       </div>
-      <h1 class="font-jp-display font-black display-tight text-[60px] sm:text-[108px] lg:text-[136px] leading-[1.05] text-paper">
+      <h1 class="font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
         <span class="text-gold">何匹</span>だと思う？
       </h1>
 
@@ -459,16 +450,19 @@
           <div class="font-jp text-[20px] sm:text-[20px] tracking-[0.14em] text-gold/85 mb-4">
             今年、世界で獲られている魚
           </div>
-          <!-- Primary: full digit count for visceral impact -->
-          <div id="counter" class="ticker font-jp-display font-medium text-[30px] sm:text-[50px] lg:text-[66px] leading-[1.05] text-gold tracking-tight">
-            0 匹
+          <!-- Primary: full digit count.  匹 is a small suffix that stays
+               glued to the right of the number, regardless of how huge the
+               number gets — for effect. -->
+          <div class="ticker font-jp-display font-medium leading-[1.05] text-gold tracking-tight flex items-baseline justify-center gap-2 sm:gap-3 whitespace-nowrap">
+            <span id="counter" class="text-[30px] sm:text-[50px] lg:text-[66px]">0</span>
+            <span class="text-[18px] sm:text-[28px] lg:text-[36px] text-gold/85">匹</span>
           </div>
           <!-- Secondary: friendlier Japanese-unit reading -->
           <div id="counter-sub" class="mt-2 sm:mt-3 font-jp text-[20px] sm:text-[20px] text-gold/75 min-h-[1.2em]"></div>
-          <!-- Single message line — replaces the old context + floating
-               annotation strip.  Content swaps as the user scrolls. -->
-          <div class="mt-4 sm:mt-5 min-h-[2.2em] flex items-center justify-center px-2">
-            <span id="counter-context" class="font-jp text-[22px] sm:text-[24px] font-semibold leading-[1.45] text-paper/90 transition-opacity duration-500">
+          <!-- Single message line.  Fixed min-height keeps the pill from
+               jumping between 1- and 2-line messages. -->
+          <div class="mt-4 sm:mt-5 min-h-[3.2em] sm:min-h-[2.6em] flex items-center justify-center px-2">
+            <span id="counter-context" class="font-jp text-[22px] sm:text-[24px] font-semibold leading-[1.4] text-paper/90 transition-opacity duration-300 whitespace-pre-line">
               下にスクロールしてみてね
             </span>
           </div>
@@ -496,7 +490,7 @@
   </section>
 
   <!-- ───────────────────── 3.  Human comparison reveal  ───────────────────── -->
-  <section id="after-count" class="relative bg-abyss melt-up py-32 sm:py-48 px-6 sm:px-10 overflow-hidden scroll-mt-12">
+  <section id="after-count" class="relative bg-abyss melt-up py-16 sm:py-24 px-6 sm:px-10 overflow-hidden scroll-mt-12">
     <div class="count-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
     <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
@@ -504,16 +498,13 @@
         世界中の人類は、<br class="sm:hidden"/>
         いま <span class="text-gold gold-underline">８０億人</span>。
       </p>
-      <p class="mt-10 sm:mt-12 font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[2]">
+      <p class="mt-6 sm:mt-8 font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[1.9]">
         一人あたり、一年で <span class="text-paper">137匹</span> を食べている計算になる
         ― 食べない人も、赤ちゃんも、すべて含めて。<a href="#src-1" class="src">1</a>
       </p>
 
-      <!-- ─── Comparison stage: tiny human dot vs huge fish dot ─────────────────
-           Ratio 80 億 : 2.3 兆 ≈ 1 : 290, applied by diameter so the fish dot
-           extends far beyond the visible viewport on any screen.  Stage is
-           full-bleed and clips so the giant circle reads as "going off forever". -->
-      <div class="comparison-stage relative w-screen -mx-6 sm:-mx-10 mt-14 sm:mt-20 h-[420px] sm:h-[520px] overflow-hidden">
+      <!-- ─── Comparison stage: tiny human dot vs huge fish dot ───────────────── -->
+      <div class="comparison-stage relative w-screen -mx-6 sm:-mx-10 mt-10 sm:mt-14 h-[380px] sm:h-[460px] overflow-hidden">
         <!-- HUGE fish dot — partial circle, edge curves into frame from the right -->
         <div class="comp-fish-dot"></div>
         <!-- Tiny human dot -->
@@ -530,7 +521,7 @@
         </div>
       </div>
 
-      <p class="mt-12 font-jp text-paper/75 text-[20px] sm:text-[20px] leading-[2]">
+      <p class="mt-8 font-jp text-paper/75 text-[20px] sm:text-[20px] leading-[1.8]">
         魚の数は人類のおよそ <span class="text-gold">290倍</span>。<br/>
         それも、たった一年で。
       </p>
@@ -567,30 +558,43 @@
       <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto">
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/umigame.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4 anim-bobble" style="animation-delay: 0s;" loading="lazy" />
-          <div class="font-jp-display text-paper text-[20px]">ウミガメ</div>
-          <div class="text-paper/60 font-jp text-[20px] sm:text-[20px] mt-1.5">年に 数十万匹<a href="#src-3" class="src">3</a></div>
+          <div class="font-jp-display text-paper text-[22px] sm:text-[24px] font-semibold">ウミガメ</div>
+          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap">年に 数十万匹<a href="#src-3" class="src">3</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/iruka.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4 anim-bobble" style="animation-delay: -1.3s;" loading="lazy" />
-          <div class="font-jp-display text-paper text-[20px]">イルカ</div>
-          <div class="text-paper/60 font-jp text-[20px] sm:text-[20px] mt-1.5">年に 約30万頭<a href="#src-3" class="src">3</a></div>
+          <div class="font-jp-display text-paper text-[22px] sm:text-[24px] font-semibold">イルカ</div>
+          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap">年に 約30万頭<a href="#src-3" class="src">3</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/same.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4 anim-bobble" style="animation-delay: -2.6s;" loading="lazy" />
-          <div class="font-jp-display text-paper text-[20px]">サメ</div>
-          <div class="text-paper/60 font-jp text-[20px] sm:text-[20px] mt-1.5">年に 約1億匹<a href="#src-3a" class="src">3a</a></div>
+          <div class="font-jp-display text-paper text-[22px] sm:text-[24px] font-semibold">サメ</div>
+          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap">年に 約1億匹<a href="#src-3a" class="src">3a</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/chiisana-sakana.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4 anim-bobble" style="animation-delay: -3.9s;" loading="lazy" />
-          <div class="font-jp-display text-paper text-[20px]">小さな魚</div>
-          <div class="text-paper/60 font-jp text-[20px] sm:text-[20px] mt-1.5">数えきれないほど</div>
+          <div class="font-jp-display text-paper text-[22px] sm:text-[24px] font-semibold">小さな魚</div>
+          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap">数えきれないほど</div>
         </div>
       </div>
 
-      <p class="mt-12 font-jp text-paper/65 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[2]">
-        海の底をひきずる漁（底引き網）は、一年で日本の国土の<br/>
-        <span class="text-gold">およそ 14倍</span> の海底を削っています。<a href="#src-4" class="src">4</a>
+      <p class="mt-12 font-jp text-paper/70 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[1.8]">
+        底引き網は、一年で日本の国土の<br/>
+        <span class="text-gold">およそ 14倍</span> もの海底を削ってしまう。<a href="#src-4" class="src">4</a>
       </p>
+
+      <!-- Video play link — placeholder for /videos/sokobiki-ami.mp4 -->
+      <div class="mt-6 flex justify-center">
+        <button
+          type="button"
+          class="inline-flex items-center gap-2 rounded-full bg-gold/15 hover:bg-gold/25 text-gold px-5 py-2.5 text-[18px] font-medium transition-colors duration-200 border border-gold/40"
+          data-video-trigger="sokobiki-ami">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+            <path d="M3.5 2.5 L11 7 L3.5 11.5 Z"/>
+          </svg>
+          底引き網の様子を見る
+        </button>
+      </div>
     </div>
   </section>
 
@@ -611,7 +615,7 @@
 
       <!-- Vignette 1: Bluefin tuna -->
       <article class="vignette rounded-3xl p-8 sm:p-12 mb-10 sm:mb-14 reveal">
-        <div class="grid sm:grid-cols-[1fr,auto] gap-8 items-start">
+        <div class="grid sm:grid-cols-[1fr,auto] gap-8 items-center">
           <div>
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
               世界のクロマグロの <span class="text-gold">およそ ８割</span> を、<br class="hidden sm:block"/>
@@ -629,7 +633,7 @@
 
       <!-- Vignette 2: Eel -->
       <article class="vignette rounded-3xl p-8 sm:p-12 mb-10 sm:mb-14 reveal">
-        <div class="grid sm:grid-cols-[auto,1fr] gap-8 items-start">
+        <div class="grid sm:grid-cols-[auto,1fr] gap-8 items-center">
           <img src="/images/umi-wo-kazoeru/nihonunagi.png" alt="" class="block mx-auto h-32 sm:h-44 w-auto anim-drift order-2 sm:order-1" loading="lazy" />
           <div class="order-1 sm:order-2">
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
@@ -647,7 +651,7 @@
 
       <!-- Vignette 3: Whales -->
       <article class="vignette rounded-3xl p-8 sm:p-12 reveal">
-        <div class="grid sm:grid-cols-[1fr,auto] gap-8 items-start">
+        <div class="grid sm:grid-cols-[1fr,auto] gap-8 items-center">
           <div>
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
               日本では今も、毎年 <span class="text-gold">およそ ３００頭</span> の<br class="hidden sm:block"/>
@@ -681,7 +685,7 @@
       <!-- 3-card grid: the three big reasons -->
       <div class="mt-14 grid sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto text-left">
         <div class="vignette rounded-2xl p-6 sm:p-7">
-          <img src="/images/umi-wo-kazoeru/youshoku-feed.png" alt="" class="block h-20 sm:h-24 w-auto mb-3 anim-bobble" style="animation-delay: 0s;" loading="lazy" />
+          <img src="/images/umi-wo-kazoeru/youshoku-feed.png" alt="" class="block mx-auto h-24 sm:h-28 w-auto mb-4 anim-bobble" style="animation-delay: 0s;" loading="lazy" />
           <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">ごはんは、野生の魚</h3>
           <p class="font-jp text-paper/75 text-[20px] leading-[1.7]">
             養殖サーモン 1キロを育てるのに、野生の魚が <span class="text-gold">1〜3キロ</span> 必要。クロマグロの養殖はもっと多くて、<span class="text-gold">10〜15キロ</span> もかかるんだ。<a href="#src-11" class="src">11</a>
@@ -698,14 +702,14 @@
           </button>
         </div>
         <div class="vignette rounded-2xl p-6 sm:p-7">
-          <img src="/images/umi-wo-kazoeru/youshoku-disease.png" alt="" class="block h-20 sm:h-24 w-auto mb-3 anim-bobble" style="animation-delay: -1.3s;" loading="lazy" />
+          <img src="/images/umi-wo-kazoeru/youshoku-disease.png" alt="" class="block mx-auto h-24 sm:h-28 w-auto mb-4 anim-bobble" style="animation-delay: -1.3s;" loading="lazy" />
           <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">病気が広がりやすい</h3>
           <p class="font-jp text-paper/75 text-[20px] leading-[1.7]">
             狭い場所にたくさんの魚がいるから、ウイルスや寄生虫がすぐに広がる。だから抗生物質や薬が、たくさん使われている。<a href="#src-12" class="src">12</a>
           </p>
         </div>
         <div class="vignette rounded-2xl p-6 sm:p-7">
-          <img src="/images/umi-wo-kazoeru/youshoku-pollution.png" alt="" class="block h-20 sm:h-24 w-auto mb-3 anim-bobble" style="animation-delay: -2.6s;" loading="lazy" />
+          <img src="/images/umi-wo-kazoeru/youshoku-pollution.png" alt="" class="block mx-auto h-24 sm:h-28 w-auto mb-4 anim-bobble" style="animation-delay: -2.6s;" loading="lazy" />
           <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">周りの海を汚す</h3>
           <p class="font-jp text-paper/75 text-[20px] leading-[1.7]">
             食べ残し、ふん、薬がそのまま海に流れて、近くの生き物や、海の底の生態系を崩してしまうこともあるんだ。
@@ -727,7 +731,8 @@
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
         1950年と比べて、<br/>
-        海の大きな魚は <span class="text-gold gold-underline">およそ ９０％</span> いなくなりました。<a href="#src-10" class="src">10</a>
+        海の大きな魚は<br class="sm:hidden"/>
+        <span class="text-gold gold-underline">およそ ９０％</span> いなくなりました。<a href="#src-10" class="src">10</a>
       </h2>
 
       <!-- Timeline bars — fuller and more prominent -->
@@ -763,14 +768,14 @@
       </div>
 
       <p class="mt-12 font-jp text-paper/65 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[2]">
-        マグロ・カジキ・タラのような大きな魚ほど、<br/>
+        マグロやカジキのような大きな魚ほど、<br/>
         先にいなくなっています。
       </p>
     </div>
   </section>
 
   <!-- ───────────────────── 7.  Soft close ───────────────────── -->
-  <section class="relative bg-abyss py-32 sm:py-48 px-6 sm:px-10 overflow-hidden">
+  <section class="relative bg-abyss py-16 sm:py-24 px-6 sm:px-10 overflow-hidden">
     <div class="close-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
     <div class="section-bg-overlay section-bg-overlay--warm absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
@@ -789,10 +794,10 @@
         <span class="text-gold display-italic">海は少し休めるんだ。</span>
       </h2>
 
-      <p class="mt-10 max-w-xl mx-auto font-jp text-paper/75 text-[20px] sm:text-[20px] leading-[2]">
+      <p class="mt-8 sm:mt-10 max-w-xl mx-auto font-jp text-paper/80 text-[20px] sm:text-[20px] leading-[1.85]">
         毎食、全部変えなくても大丈夫。<br/>
-        一週間に一食、お刺身の代わりに別のものを。<br/>
-        それだけで、海は少しだけ、息をつけるんだ。
+        一週間に一食、<br class="sm:hidden"/>お刺身の代わりに別のものを。<br/>
+        それだけで、<br class="sm:hidden"/>海は少しだけ、息をつけるんだ。
       </p>
 
       <div class="mt-14 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -817,9 +822,6 @@
         </div>
       </div>
 
-      <p class="mt-16 font-jp text-paper/45 text-[20px] sm:text-[20px]">
-        最後まで、ありがとう。
-      </p>
     </div>
   </section>
 
@@ -1083,8 +1085,10 @@
       }
 
       // Main counter: full digit count with thousands separators.
+      // The "匹" suffix lives in markup as a smaller permanent span next to
+      // this number, so we don't append it here.
       function formatFishMain(n) {
-        return n.toLocaleString('ja-JP') + ' 匹';
+        return n.toLocaleString('ja-JP');
       }
 
       // Sub-counter: Japanese-unit reading (兆/億/万).  Empty under 10,000
@@ -1100,17 +1104,22 @@
 
       // Single message stream for the in-box context line.  Each entry
        // takes effect when scroll progress crosses its `at` threshold.
+      // Two-line versions of long milestones for mobile.  '\n' is rendered
+      // because .counter-context uses white-space: pre-line.  Desktop CSS
+      // overrides nowrap if you want — but the line break at this point
+      // reads naturally on both.
       const milestones = [
         { at: 0.000, text: '下にスクロールしてみてね' },
         { at: 0.02,  text: '1秒で、4万匹…！' },
-        { at: 0.10,  text: '1日で、60億匹。世界中の人と同じくらいの数なんだ。' },
-        { at: 0.25,  text: 'もう、東京ドーム何個でも入りきらない数になってるよ…' },
-        { at: 0.45,  text: 'もう、想像が追いつかなくなってくるね。' },
-        { at: 0.70,  text: 'もう少しだけ、一緒に数えよう。' },
-        { at: 0.92,  text: 'これで、やっと今年の一年分だよ。' },
+        { at: 0.10,  text: '1日で、60億匹。\n世界中の人と同じくらいの数なんだ。' },
+        { at: 0.25,  text: 'もう、東京ドーム何個でも\n入りきらない数になってるよ…' },
+        { at: 0.45,  text: 'もう、想像が\n追いつかなくなってくるね。' },
+        { at: 0.70,  text: 'もう少しだけ、\n一緒に数えよう。' },
+        { at: 0.92,  text: 'これで、やっと\n今年の一年分だよ。' },
         { at: 0.999, text: 'これで、一年分（だいたい）' },
       ];
       let currentCtxIdx = -2;
+      let ctxTimer = null;
 
       function updateContextMessage(progress) {
         let idx = 0;
@@ -1119,11 +1128,16 @@
         }
         if (idx === currentCtxIdx) return;
         currentCtxIdx = idx;
+        // Cancel any in-flight swap so messages don't double up on fast scrolls.
+        if (ctxTimer) clearTimeout(ctxTimer);
         counterCtx.style.opacity = '0';
-        setTimeout(() => {
+        // Match the CSS .transition-opacity duration (300ms) — text is
+        // swapped only AFTER the old text has fully faded out.
+        ctxTimer = setTimeout(() => {
           counterCtx.textContent = milestones[idx].text;
           counterCtx.style.opacity = '1';
-        }, 200);
+          ctxTimer = null;
+        }, 300);
       }
 
       // Scroll-progress driver for the count section
