@@ -379,16 +379,8 @@
 
 <body class="font-jp text-paper antialiased">
 
-  <!-- ───────────────────── Top bar (minimal, back-link only) ───────────────────── -->
-  <header class="fixed top-0 left-0 right-0 z-50 px-5 sm:px-8 py-4 sm:py-5 flex items-center justify-between">
-    <a href="/" class="inline-flex items-center gap-2 text-paper/70 hover:text-paper transition-colors">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="flex-shrink-0">
-        <path d="M9 2 L4 7 L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
-      </svg>
-      <span class="font-jp text-[20px] tracking-wide">ビーガン王子</span>
-    </a>
-    <span class="hidden sm:inline font-jp text-[20px] tracking-[0.14em] text-gold/80">海をかぞえる</span>
-  </header>
+  <!-- Header intentionally omitted — this page stands by itself.
+       Homepage link lives at the bottom of the sources footer. -->
 
   <!-- ───────────────────── 1.  Hero  ─────────────────────
        Layered background:
@@ -401,7 +393,7 @@
     <div class="hero-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <canvas id="hero-stars" class="ocean-canvas opacity-50" aria-hidden="true"></canvas>
 
-    <div class="relative z-10 max-w-3xl mx-auto text-center pt-16 sm:pt-0">
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
       <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3 lg:mb-3">
         今年、世界で獲られる魚 ——
       </div>
@@ -417,7 +409,7 @@
       <!-- Prince — curious / questioning pose specific to this page -->
       <div class="mt-10 sm:mt-12 flex justify-center">
         <img
-          src="/images/umi-wo-kazoeru/prince-questioning.png"
+          src="/images/oji/oji_questioning.png"
           alt="ビーガン王子 — どう思う？"
           class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"
           loading="eager"
@@ -481,8 +473,8 @@
 
       <!-- Prince — professor pose, calm companion guiding the user through the count -->
       <img
-        src="/images/umi-wo-kazoeru/prince-professor.png"
-        alt="ビーガン王子"
+        src="/images/oji/oji_teaching.png"
+        alt="ビーガン王子 — 解説中"
         class="hidden sm:block absolute bottom-10 right-6 w-24 lg:w-32 anim-drift opacity-90 pointer-events-none"
         loading="lazy"
       />
@@ -537,7 +529,7 @@
       <!-- Thoughtful prince — quiet character moment marking the tonal shift -->
       <div class="flex justify-center mb-8 sm:mb-10">
         <img
-          src="/images/umi-wo-kazoeru/prince-thoughtful.png"
+          src="/images/oji/oji_worried.png"
           alt="ビーガン王子 — 考え込む"
           class="w-24 sm:w-32 anim-bobble drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)]"
           loading="lazy"
@@ -782,8 +774,8 @@
 
       <div class="flex justify-center mb-10">
         <img
-          src="/images/mascot/eating-vegan.png"
-          alt="ビーガン王子 — サポーター"
+          src="/images/oji/oji_happy.png"
+          alt="ビーガン王子 — 笑顔"
           class="w-32 sm:w-44 anim-bobble drop-shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
           loading="lazy"
         />
@@ -859,6 +851,20 @@
       </div>
     </div>
   </footer>
+
+  <!-- ───────────────────── Video modal ─────────────────────
+       Hidden until a [data-video-trigger] button is clicked.  Two video
+       sources are registered in JS by slug:
+         youshoku-feed  → local /videos/youshoku-feed.mp4
+         sokobiki-ami   → YouTube embed                                  -->
+  <div id="video-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-abyss/90 backdrop-blur-sm p-4 sm:p-8">
+    <button
+      type="button"
+      class="absolute top-4 right-4 sm:top-6 sm:right-6 w-12 h-12 flex items-center justify-center rounded-full bg-paper/10 hover:bg-paper/20 text-paper text-[28px] leading-none transition-colors"
+      data-video-close
+      aria-label="閉じる">×</button>
+    <div id="video-modal-stage" class="w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"></div>
+  </div>
 
   <!-- ───────────────────── Scripts ───────────────────── -->
   <script>
@@ -1247,6 +1253,51 @@
       function drawMinis() { drawMiniHumans(); drawMiniFish(); }
       drawMinis();
       window.addEventListener('resize', drawMinis);
+    })();
+  </script>
+
+  <!-- ───────────────────── Video modal wiring ───────────────────── -->
+  <script>
+    (function () {
+      'use strict';
+      const VIDEOS = {
+        'youshoku-feed': { type: 'mp4',     src: '/videos/youshoku-feed.mp4' },
+        'sokobiki-ami':  { type: 'youtube', id: 'IzG9AwlypaY' },
+      };
+
+      const modal = document.getElementById('video-modal');
+      const stage = document.getElementById('video-modal-stage');
+      if (!modal || !stage) return;
+
+      function open(key) {
+        const v = VIDEOS[key];
+        if (!v) return;
+        if (v.type === 'mp4') {
+          stage.innerHTML = `<video class="w-full h-full object-contain bg-black" controls autoplay playsinline src="${v.src}"></video>`;
+        } else if (v.type === 'youtube') {
+          stage.innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+        }
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        stage.innerHTML = ''; // stop playback / detach iframe
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-video-trigger]').forEach(btn => {
+        btn.addEventListener('click', () => open(btn.dataset.videoTrigger));
+      });
+      document.querySelectorAll('[data-video-close]').forEach(btn => {
+        btn.addEventListener('click', close);
+      });
+      // Close on backdrop click + ESC
+      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) close(); });
     })();
   </script>
 
