@@ -158,14 +158,68 @@
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .reveal {
+    /* ─── Scroll-triggered reveals ─────────────────────────────────────
+       .reveal              — fade + slide up (default)
+       .reveal-up           — alias of default
+       .reveal-fade         — fade only (no slide)
+       .reveal-from-left    — fade + slide in from the left
+       .reveal-from-right   — fade + slide in from the right
+       .reveal-stagger > *  — children of this container reveal in sequence
+                              with a CSS-variable-driven 80ms stagger.       */
+    .reveal,
+    .reveal-up,
+    .reveal-fade,
+    .reveal-from-left,
+    .reveal-from-right {
       opacity: 0;
-      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
-      transform: translateY(20px);
+      transition:
+        opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition-delay: var(--reveal-delay, 0s);
+      will-change: opacity, transform;
     }
-    .reveal.is-visible {
+    .reveal,
+    .reveal-up        { transform: translateY(28px); }
+    .reveal-fade      { transform: none; }
+    .reveal-from-left { transform: translateX(-32px); }
+    .reveal-from-right{ transform: translateX( 32px); }
+
+    .reveal.is-visible,
+    .reveal-up.is-visible,
+    .reveal-fade.is-visible,
+    .reveal-from-left.is-visible,
+    .reveal-from-right.is-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
+    }
+
+    /* Stagger children of a .reveal-stagger container — each child reveals
+       80ms after the previous one.  Children inherit the fade+slide style. */
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-stagger.is-visible > * { opacity: 1; transform: none; }
+    .reveal-stagger > *:nth-child(1)  { transition-delay: 0.00s; }
+    .reveal-stagger > *:nth-child(2)  { transition-delay: 0.08s; }
+    .reveal-stagger > *:nth-child(3)  { transition-delay: 0.16s; }
+    .reveal-stagger > *:nth-child(4)  { transition-delay: 0.24s; }
+    .reveal-stagger > *:nth-child(5)  { transition-delay: 0.32s; }
+    .reveal-stagger > *:nth-child(6)  { transition-delay: 0.40s; }
+    .reveal-stagger > *:nth-child(7)  { transition-delay: 0.48s; }
+    .reveal-stagger > *:nth-child(8)  { transition-delay: 0.56s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-up, .reveal-fade,
+      .reveal-from-left, .reveal-from-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
     }
 
     /* The sticky dot field canvas — fixed to viewport during the counting section */
@@ -282,67 +336,20 @@
       .card-label { font-size: 13px; }
     }
 
-    /* ─────────────── Comparison stage (人類 vs 魚) ─────────────── */
-    .comparison-stage {
-      /* Full-bleed container; child circles position absolutely against it. */
-    }
-    .comp-human-dot {
-      position: absolute;
-      left: 13%;
-      top: 50%;
-      width: 16px;
-      height: 16px;
-      margin: -8px 0 0 -8px;
-      border-radius: 50%;
-      background: rgba(232, 199, 111, 0.98);   /* gold — same hue as the giant fish disc */
-      box-shadow:
-        0 0 14px rgba(232, 199, 111, 0.6),
-        0 0 0 2px rgba(232, 199, 111, 0.4);
-    }
-    .comp-fish-dot {
-      position: absolute;
-      /* Larger and pushed further left so the visible disc dominates the
-         stage and the dark label text sits comfortably in the bright surface. */
-      width: 5600px;
-      height: 5600px;
-      left: 30%;
-      top: 50%;
-      margin: -2800px 0 0 0;
-      border-radius: 50%;
+    /* ─────────────── Comparison stage (人類 vs 魚) ───────────────
+       1-pixel human dot (with label / arrow) vs a fish circle sized at
+       diameter ratio ~290× — visceral but contained within the viewport. */
+    .comp-fish-disc {
+      width: 220px; height: 220px; border-radius: 50%;
       background:
-        radial-gradient(circle at 0% 50%,
-          rgba(232, 199, 111, 0.5) 0%,
-          rgba(232, 199, 111, 0.82) 3%,
-          rgba(232, 199, 111, 0.9) 10%,
-          rgba(232, 199, 111, 0.9) 100%);
+        radial-gradient(circle at 30% 35%, rgba(255, 240, 200, 0.95) 0%, rgba(232, 199, 111, 0.92) 35%, rgba(212, 168, 71, 0.92) 100%);
+      border: 3px solid rgba(232, 199, 111, 0.95);
       box-shadow:
-        0 0 80px rgba(232, 199, 111, 0.4),
-        inset 80px 0 0 -72px rgba(255, 240, 200, 0.7);
-      border-left: 5px solid rgba(232, 199, 111, 0.95);
-    }
-    /* Both labels share a vertical baseline (top:50%) + identical offset
-       below their dots so the eye reads them as a matched pair. */
-    .comp-human-label,
-    .comp-fish-label {
-      position: absolute;
-      top: 50%;
-      text-align: center;
-      white-space: nowrap;
-    }
-    .comp-human-label {
-      left: 13%;
-      transform: translate(-50%, 32px);
-    }
-    .comp-fish-label {
-      left: 60%;
-      transform: translate(-50%, 32px);
-      color: var(--color-abyss);
+        0 0 60px rgba(232, 199, 111, 0.45),
+        inset -10px -14px 0 -6px rgba(212, 168, 71, 0.5);
     }
     @media (min-width: 640px) {
-      .comp-human-dot  { width: 22px; height: 22px; margin: -11px 0 0 -11px; left: 13%; }
-      .comp-fish-dot   { left: 33%; }
-      .comp-human-label{ left: 13%; transform: translate(-50%, 44px); }
-      .comp-fish-label { left: 62%; transform: translate(-50%, 44px); }
+      .comp-fish-disc { width: 280px; height: 280px; }
     }
 
     /* Social rail — same chibi-sticker style as homepage social icons */
@@ -450,7 +457,6 @@
             <span class="text-[18px] sm:text-[28px] lg:text-[36px] text-gold/85">匹</span>
           </div>
           <!-- Secondary: friendlier Japanese-unit reading -->
-          <div id="counter-sub" class="mt-2 sm:mt-3 font-jp text-[20px] sm:text-[20px] text-gold/75 min-h-[1.2em]"></div>
           <!-- Single message line.  Fixed min-height keeps the pill from
                jumping between 1- and 2-line messages. -->
           <div class="mt-4 sm:mt-5 min-h-[3.2em] sm:min-h-[2.6em] flex items-center justify-center px-2">
@@ -496,20 +502,30 @@
       </p>
 
       <!-- ─── Comparison stage: tiny human dot vs huge fish dot ───────────────── -->
-      <div class="comparison-stage relative w-screen -mx-6 sm:-mx-10 mt-10 sm:mt-14 h-[380px] sm:h-[460px] overflow-hidden">
-        <!-- HUGE fish dot — partial circle, edge curves into frame from the right -->
-        <div class="comp-fish-dot"></div>
-        <!-- Tiny human dot -->
-        <div class="comp-human-dot"></div>
+      <!-- ─── New comparison stage: literal 1-pixel human dot vs a gold fish
+           circle sized ~290× by diameter (matching humans alive : fish caught
+           per year).  Both with labels above and below.                       -->
+      <div class="comparison-stage reveal-up w-full mt-12 sm:mt-16 flex items-end justify-center gap-10 sm:gap-20">
 
-        <!-- Labels — aligned at the same vertical baseline, bold emphasis -->
-        <div class="comp-human-label">
-          <div class="font-jp text-[20px] sm:text-[20px] tracking-[0.16em] text-paper/75 mb-2">人類</div>
-          <div class="font-jp-display font-medium text-[38px] sm:text-[54px] text-paper leading-none">80億</div>
+        <!-- Human side -->
+        <div class="flex flex-col items-center text-center whitespace-nowrap">
+          <div class="font-jp text-[18px] sm:text-[20px] text-paper/70 mb-1">これ↓</div>
+          <div class="font-jp text-[15px] sm:text-[16px] text-paper/55 mb-6 sm:mb-8">1 ピクセル</div>
+          <!-- The literal pixel-sized dot (2x2 for HiDPI visibility) -->
+          <div class="bg-blush rounded-full" style="width: 2px; height: 2px; box-shadow: 0 0 8px rgba(248,200,210,0.85), 0 0 0 1px rgba(248,200,210,0.45);"></div>
+          <div class="mt-6 sm:mt-7">
+            <div class="font-jp text-[18px] sm:text-[20px] text-paper/75">人類</div>
+            <div class="font-jp-display font-medium text-[28px] sm:text-[36px] text-paper leading-none mt-1">80億</div>
+          </div>
         </div>
-        <div class="comp-fish-label">
-          <div class="font-jp text-[20px] sm:text-[20px] tracking-[0.16em] text-abyss/80 mb-2">魚（一年）</div>
-          <div class="font-jp-display font-medium text-[38px] sm:text-[54px] text-abyss leading-none">1〜3兆</div>
+
+        <!-- Fish side -->
+        <div class="flex flex-col items-center text-center">
+          <div class="comp-fish-disc"></div>
+          <div class="mt-6 sm:mt-7">
+            <div class="font-jp text-[18px] sm:text-[20px] text-paper/75">魚（一年）</div>
+            <div class="font-jp-display font-medium text-[28px] sm:text-[36px] text-paper leading-none mt-1">1〜3兆</div>
+          </div>
         </div>
       </div>
 
@@ -536,7 +552,7 @@
         />
       </div>
 
-      <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
+      <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
         獲られた<span class="text-gold">４割</span>は、<br/>
         食卓のためでもない。
       </h2>
@@ -547,7 +563,7 @@
       </p>
 
       <!-- Bycatch icon grid -->
-      <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto">
+      <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto reveal-stagger">
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/umigame.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4 anim-bobble" style="animation-delay: 0s;" loading="lazy" />
           <div class="font-jp-display text-paper text-[22px] sm:text-[24px] font-semibold">ウミガメ</div>
@@ -596,7 +612,7 @@
     <div class="section-bg-overlay section-bg-overlay--warm absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-5xl mx-auto">
       <div class="text-center mb-16 sm:mb-24 reveal">
-        <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
+        <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
           日本の食卓と、<br/>
           <span class="display-italic text-gold">海のこと。</span>
         </h2>
@@ -666,7 +682,7 @@
     <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
-      <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
+      <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
         じゃあ、<span class="text-gold">養殖</span>なら<br/>
         大丈夫…？
       </h2>
@@ -675,7 +691,7 @@
       </p>
 
       <!-- 3-card grid: the three big reasons -->
-      <div class="mt-14 grid sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto text-left">
+      <div class="mt-14 grid sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto text-left reveal-stagger">
         <div class="vignette rounded-2xl p-6 sm:p-7">
           <img src="/images/umi-wo-kazoeru/youshoku-feed.png" alt="" class="block mx-auto h-24 sm:h-28 w-auto mb-4 anim-bobble" style="animation-delay: 0s;" loading="lazy" />
           <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">ごはんは、野生の魚</h3>
@@ -721,14 +737,14 @@
     <div class="trajectory-bg-img section-bg-img absolute inset-0" aria-hidden="true"></div>
     <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
-      <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper">
+      <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
         1950年と比べて、<br/>
         海の大きな魚は<br class="sm:hidden"/>
         <span class="text-gold gold-underline">およそ ９０％</span> いなくなりました。<a href="#src-10" class="src">10</a>
       </h2>
 
       <!-- Timeline bars — fuller and more prominent -->
-      <div class="mt-16 sm:mt-20 max-w-2xl mx-auto space-y-6 sm:space-y-7">
+      <div class="mt-16 sm:mt-20 max-w-2xl mx-auto space-y-6 sm:space-y-7 reveal-stagger">
         <div class="flex items-center gap-5">
           <div class="w-20 sm:w-24 text-right font-jp-display text-paper/85 text-[20px] sm:text-[24px]">1950</div>
           <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
@@ -781,7 +797,7 @@
         />
       </div>
 
-      <h2 class="font-jp-display text-[32px] sm:text-[52px] lg:text-[64px] leading-[1.3] text-paper">
+      <h2 class="font-jp-display text-[32px] sm:text-[52px] lg:text-[64px] leading-[1.3] text-paper reveal-up">
         一食からでも、<br/>
         <span class="text-gold display-italic">海は少し休めるんだ。</span>
       </h2>
@@ -877,7 +893,9 @@
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       // ─────────────── Reveal-on-scroll ───────────────
-      const reveals = document.querySelectorAll('.reveal');
+      const reveals = document.querySelectorAll(
+        '.reveal, .reveal-up, .reveal-fade, .reveal-from-left, .reveal-from-right, .reveal-stagger'
+      );
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries) => {
           for (const e of entries) {
@@ -963,7 +981,6 @@
       const countSection = document.getElementById('count-section');
       const countCanvas  = document.getElementById('count-canvas');
       const counter      = document.getElementById('counter');
-      const counterSub   = document.getElementById('counter-sub');
       const counterCtx   = document.getElementById('counter-context');
       const pauseCta     = document.getElementById('pause-cta');
 
@@ -1193,7 +1210,6 @@
         }
         const n = Math.floor(displayedCount);
         counter.textContent = formatFishMain(n);
-        counterSub.textContent = formatFishSub(n);
         pauseCta.dataset.visible = pauseStrength > 0.5 ? 'true' : 'false';
         renderCountCanvas(lastProgress);
         drawHero(t);
