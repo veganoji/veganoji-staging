@@ -340,7 +340,11 @@
        1-pixel human dot (with label / arrow) vs a fish circle sized at
        diameter ratio ~290× — visceral but contained within the viewport. */
     .comp-fish-disc {
-      width: 220px; height: 220px; border-radius: 50%;
+      /* Diameter exactly 290 × the 1-pixel human dot — the real ratio of
+         fish caught per year (≈2.3 兆) to humans alive (≈8 億).  Slightly
+         smaller on mobile so the layout doesn't overflow on iPhone-class
+         viewports; desktop gets the full 290 px. */
+      width: 240px; height: 240px; border-radius: 50%;
       background:
         radial-gradient(circle at 30% 35%, rgba(255, 240, 200, 0.95) 0%, rgba(232, 199, 111, 0.92) 35%, rgba(212, 168, 71, 0.92) 100%);
       border: 3px solid rgba(232, 199, 111, 0.95);
@@ -349,7 +353,7 @@
         inset -10px -14px 0 -6px rgba(212, 168, 71, 0.5);
     }
     @media (min-width: 640px) {
-      .comp-fish-disc { width: 280px; height: 280px; }
+      .comp-fish-disc { width: 290px; height: 290px; }
     }
 
     /* Social rail — same chibi-sticker style as homepage social icons */
@@ -497,29 +501,33 @@
         いま <span class="text-gold gold-underline">８０億人</span>。
       </p>
       <p class="mt-6 sm:mt-8 font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[1.9]">
-        一人あたり、一年で <span class="text-paper">137匹</span> を食べている計算になる
-        ― 食べない人も、赤ちゃんも、すべて含めて。<a href="#src-1" class="src">1</a>
+        平均すると、一人あたり 年に <span class="text-paper">137匹</span>。<a href="#src-1" class="src">1</a><br/>
+        赤ちゃんも、食べない人も含めての話。
       </p>
 
       <!-- ─── Comparison stage: tiny human dot vs huge fish dot ───────────────── -->
-      <!-- ─── New comparison stage: literal 1-pixel human dot vs a gold fish
-           circle sized ~290× by diameter (matching humans alive : fish caught
-           per year).  Both with labels above and below.                       -->
-      <div class="comparison-stage reveal-up w-full mt-12 sm:mt-16 flex items-end justify-center gap-10 sm:gap-20">
+      <!-- ─── Comparison stage: a literal 1-pixel human dot vs a gold fish
+           circle sized 290× by diameter (the exact ratio of fish caught per
+           year : humans alive).  Both columns share a flat baseline.        -->
+      <div class="comparison-stage reveal-up w-full mt-12 sm:mt-16 flex items-end justify-center gap-8 sm:gap-16">
 
-        <!-- Human side -->
+        <!-- Human side — label, down-arrow, then the literal 1-pixel dot -->
         <div class="flex flex-col items-center text-center whitespace-nowrap">
-          <div class="font-jp text-[18px] sm:text-[20px] text-paper/70 mb-1">これ↓</div>
-          <div class="font-jp text-[15px] sm:text-[16px] text-paper/55 mb-6 sm:mb-8">1 ピクセル</div>
-          <!-- The literal pixel-sized dot (2x2 for HiDPI visibility) -->
-          <div class="bg-blush rounded-full" style="width: 2px; height: 2px; box-shadow: 0 0 8px rgba(248,200,210,0.85), 0 0 0 1px rgba(248,200,210,0.45);"></div>
-          <div class="mt-6 sm:mt-7">
+          <div class="font-jp text-[16px] sm:text-[18px] text-paper/70 mb-1">1 ピクセル</div>
+          <!-- Down-arrow pointing straight at the dot -->
+          <svg width="14" height="40" viewBox="0 0 14 40" fill="none" class="text-paper/55 mb-3">
+            <line x1="7" y1="0" x2="7" y2="32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M3 28 L7 34 L11 28" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <!-- THE LITERAL 1-pixel dot.  Yes, exactly 1 × 1.  This is the joke. -->
+          <div class="bg-blush" style="width: 1px; height: 1px;"></div>
+          <div class="mt-8 sm:mt-10">
             <div class="font-jp text-[18px] sm:text-[20px] text-paper/75">人類</div>
             <div class="font-jp-display font-medium text-[28px] sm:text-[36px] text-paper leading-none mt-1">80億</div>
           </div>
         </div>
 
-        <!-- Fish side -->
+        <!-- Fish side — 290 px circle (= 1 × 290 ratio with the human pixel) -->
         <div class="flex flex-col items-center text-center">
           <div class="comp-fish-disc"></div>
           <div class="mt-6 sm:mt-7">
@@ -557,9 +565,9 @@
         食卓のためでもない。
       </h2>
       <p class="mt-8 font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[1.95] max-w-2xl mx-auto">
-        狙った魚ではなく、一緒に網にかかった命。
-        ウミガメ、イルカ、サメ、まだ小さな魚たち。
-        ほとんどは海に戻されますが、もう動きません。<a href="#src-2" class="src">2</a>
+        狙った魚ではなく、巻きこまれた命。
+        ウミガメ、イルカ、サメ、小さな魚たち。
+        海に戻されても、もう、動かない。<a href="#src-2" class="src">2</a>
       </p>
 
       <!-- Bycatch icon grid -->
@@ -617,7 +625,7 @@
           <span class="display-italic text-gold">海のこと。</span>
         </h2>
         <p class="mt-6 font-jp text-paper/65 text-[20px] sm:text-[20px] leading-[1.95] max-w-xl mx-auto">
-          私たちの暮らしと、深くつながっている三つの生き物。
+          日本の食卓をずっと支えてきた三つの生き物。
         </p>
       </div>
 
@@ -682,6 +690,17 @@
     <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
+
+      <!-- Curious prince posing the question -->
+      <div class="flex justify-center mb-6 sm:mb-8 reveal-up">
+        <img
+          src="/images/oji/oji_curious_2.png"
+          alt="ビーガン王子 — 興味津々"
+          class="w-28 sm:w-36 anim-bobble drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)]"
+          loading="lazy"
+        />
+      </div>
+
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
         じゃあ、<span class="text-gold">養殖</span>なら<br/>
         大丈夫…？
@@ -739,8 +758,7 @@
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
         1950年と比べて、<br/>
-        海の大きな魚は<br class="sm:hidden"/>
-        <span class="text-gold gold-underline">およそ ９０％</span> いなくなりました。<a href="#src-10" class="src">10</a>
+        海の大きな魚は<span class="text-gold gold-underline">およそ90％</span>いなくなりました。<a href="#src-10" class="src">10</a>
       </h2>
 
       <!-- Timeline bars — fuller and more prominent -->
@@ -802,10 +820,10 @@
         <span class="text-gold display-italic">海は少し休めるんだ。</span>
       </h2>
 
-      <p class="mt-8 sm:mt-10 max-w-xl mx-auto font-jp text-paper/80 text-[20px] sm:text-[20px] leading-[1.85]">
+      <p class="mt-8 sm:mt-10 max-w-xl mx-auto font-jp text-paper/80 text-[17px] sm:text-[20px] leading-[1.85]">
         毎食、全部変えなくても大丈夫。<br/>
-        一週間に一食、<br class="sm:hidden"/>お刺身の代わりに別のものを。<br/>
-        それだけで、<br class="sm:hidden"/>海は少しだけ、息をつけるんだ。
+        一週間に一食、お刺身の代わりに別のものを。<br/>
+        それだけで、海は少しだけ、息をつけるんだ。
       </p>
 
       <div class="mt-14 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -1135,7 +1153,7 @@
         { at: 0.000, text: '下にスクロールしてみてね' },
         { at: 0.02,  text: '1秒で、4万匹…！' },
         { at: 0.10,  text: '1日で、60億匹。\n世界中の人と同じくらいの数なんだ。' },
-        { at: 0.25,  text: 'もう、東京ドーム何個でも\n入りきらない数になってるよ…' },
+        { at: 0.25,  text: 'もう、東京ドームにも\n入りきらない数になってるよ…' },
         { at: 0.45,  text: 'もう、想像が\n追いつかなくなってくるね。' },
         { at: 0.70,  text: 'もう少しだけ、\n一緒に数えよう。' },
         { at: 0.92,  text: 'これで、やっと\n今年の一年分だよ。' },
