@@ -450,7 +450,7 @@
           <!-- Single message line — replaces the old context + floating
                annotation strip.  Content swaps as the user scrolls. -->
           <div class="mt-4 sm:mt-5 min-h-[2.2em] flex items-center justify-center px-2">
-            <span id="counter-context" class="font-jp text-[20px] sm:text-[20px] leading-[1.5] text-paper/75 transition-opacity duration-500">
+            <span id="counter-context" class="font-jp text-[22px] sm:text-[24px] font-semibold leading-[1.45] text-paper/90 transition-opacity duration-500">
               したにスクロールしてみてね
             </span>
           </div>
@@ -663,21 +663,31 @@
       <!-- 3-card grid: the three big reasons -->
       <div class="mt-14 grid sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto text-left">
         <div class="vignette rounded-2xl p-6 sm:p-7">
-          <div class="text-[44px] mb-3" aria-hidden="true">🐟</div>
+          <img src="/images/umi-wo-kazoeru/youshoku-feed.png" alt="" class="block h-20 sm:h-24 w-auto mb-3 anim-bobble" style="animation-delay: 0s;" loading="lazy" />
           <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">ごはんは、野生の魚</h3>
           <p class="font-jp text-paper/75 text-[20px] leading-[1.7]">
             養殖サーモン 1キロを育てるのに、野生の魚が <span class="text-gold">1〜3キロ</span> 必要。クロマグロの養殖はもっと多くて、<span class="text-gold">10〜15キロ</span> もかかる。<a href="#src-11" class="src">11</a>
           </p>
+          <!-- Video play link — populated once /videos/youshoku-feed.mp4 is added -->
+          <button
+            type="button"
+            class="mt-5 inline-flex items-center gap-2 rounded-full bg-gold/15 hover:bg-gold/25 text-gold px-4 py-2 text-[16px] font-medium transition-colors duration-200 border border-gold/40"
+            data-video-trigger="youshoku-feed">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+              <path d="M3.5 2.5 L11 7 L3.5 11.5 Z"/>
+            </svg>
+            ようすを見る
+          </button>
         </div>
         <div class="vignette rounded-2xl p-6 sm:p-7">
-          <div class="text-[44px] mb-3" aria-hidden="true">💊</div>
+          <img src="/images/umi-wo-kazoeru/youshoku-disease.png" alt="" class="block h-20 sm:h-24 w-auto mb-3 anim-bobble" style="animation-delay: -1.3s;" loading="lazy" />
           <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">病気が広がりやすい</h3>
           <p class="font-jp text-paper/75 text-[20px] leading-[1.7]">
             せまい場所にたくさんの魚がいるから、ウイルスや寄生虫がすぐに広がる。だから抗生物質や薬が、たくさん使われている。<a href="#src-12" class="src">12</a>
           </p>
         </div>
         <div class="vignette rounded-2xl p-6 sm:p-7">
-          <div class="text-[44px] mb-3" aria-hidden="true">🌊</div>
+          <img src="/images/umi-wo-kazoeru/youshoku-pollution.png" alt="" class="block h-20 sm:h-24 w-auto mb-3 anim-bobble" style="animation-delay: -2.6s;" loading="lazy" />
           <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">まわりの海をよごす</h3>
           <p class="font-jp text-paper/75 text-[20px] leading-[1.7]">
             食べ残し、ふん、薬がそのまま海に流れて、近くの生きものや海の底の生たいけいをくずしてしまうこともある。

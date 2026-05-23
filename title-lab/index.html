@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Title Lab · 海をかぞえる</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --color-abyss:       #020c14;
+      --color-deep:        #062338;
+      --color-paper:       #FFF9EE;
+      --color-gold:        #E8C76F;
+      --color-gold-deep:   #D4A847;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+      --font-noto-serif-jp:"Noto Serif JP", serif;
+    }
+    html, body { background: var(--color-abyss); color: var(--color-paper); font-family: var(--font-noto-sans-jp); }
+    .stage {
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(26,91,133,0.35), transparent 55%),
+        linear-gradient(180deg, #020c14, #031826 50%, #020c14);
+      border-radius: 1rem;
+      padding: 4rem 2rem;
+      min-height: 360px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+    }
+    .display-tight { letter-spacing: -0.035em; line-height: 0.94; }
+
+    /* ── V1: Current heavy sans (baseline) ── */
+    .v1 { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+
+    /* ── V2: Same with subtle gold glow ── */
+    .v2 {
+      font-family: var(--font-noto-sans-jp); font-weight: 900;
+      text-shadow:
+        0 0 24px rgba(232, 199, 111, 0.45),
+        0 0 60px rgba(232, 199, 111, 0.25);
+    }
+
+    /* ── V3: Outlined characters with paper fill on gold ── */
+    .v3 {
+      font-family: var(--font-noto-sans-jp); font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--color-gold);
+    }
+    .v3 .filled {
+      color: var(--color-gold);
+      -webkit-text-stroke: 0;
+    }
+
+    /* ── V4: Serif display in Noto Serif JP ── */
+    .v4 {
+      font-family: var(--font-noto-serif-jp); font-weight: 900;
+    }
+
+    /* ── V5: Mixed weight — body normal, key word heavy + huge gold ── */
+    .v5 { font-family: var(--font-noto-sans-jp); font-weight: 400; }
+    .v5 .accent {
+      font-weight: 900; color: var(--color-gold);
+      font-size: 1.45em; letter-spacing: -0.03em;
+    }
+
+    /* ── V6: Diagonal handwritten-ish look (slight skew + tracking) ── */
+    .v6 {
+      font-family: var(--font-noto-sans-jp); font-weight: 800;
+      letter-spacing: 0.04em; transform: skew(-3deg);
+      display: inline-block;
+    }
+
+    /* ── V7: Stacked / vertical-rhythm with dividers ── */
+    .v7 { font-family: var(--font-noto-sans-jp); font-weight: 900; line-height: 1.4; }
+    .v7 .divider {
+      display: inline-block; height: 2px; width: 60%;
+      background: linear-gradient(90deg, transparent, rgba(232,199,111,0.5), transparent);
+      vertical-align: middle; margin: 0.6em auto;
+    }
+
+    .label {
+      font-size: 13px; letter-spacing: 0.16em;
+      color: rgba(232, 199, 111, 0.7);
+      margin-bottom: 0.5rem; text-transform: uppercase;
+    }
+    .notes { font-size: 13px; color: rgba(255, 249, 238, 0.5); margin-top: 0.75rem; }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <header class="px-6 py-10 max-w-6xl mx-auto">
+    <a href="/umi-wo-kazoeru/" class="text-gold/70 hover:text-gold text-[14px]">← 海をかぞえる</a>
+    <h1 class="mt-4 text-[36px] sm:text-[44px] font-bold">Title Lab</h1>
+    <p class="mt-2 text-paper/65 text-[15px] max-w-2xl">
+      Pick a styling for the hero title「今年、世界で何匹の魚が獲られると思う？」.
+      Variants 1–7 are CSS-only (instant, scales perfectly). Variants 8–9 are
+      generated images via gpt-image-1 (note quality issues).
+    </p>
+  </header>
+
+  <main class="px-6 max-w-6xl mx-auto space-y-8 pb-24">
+
+    <!-- V1 -->
+    <section>
+      <div class="label">v1 · Current — heavy Noto Sans JP (baseline)</div>
+      <div class="stage">
+        <h2 class="v1 display-tight text-[38px] sm:text-[68px] lg:text-[88px] text-paper">
+          今年、世界で<br/>
+          <span class="text-gold">何匹</span>の魚が<br/>
+          獲られると思う？
+        </h2>
+      </div>
+    </section>
+
+    <!-- V2 -->
+    <section>
+      <div class="label">v2 · Same with soft gold glow halo</div>
+      <div class="stage">
+        <h2 class="v2 display-tight text-[38px] sm:text-[68px] lg:text-[88px] text-paper">
+          今年、世界で<br/>
+          <span class="text-gold">何匹</span>の魚が<br/>
+          獲られると思う？
+        </h2>
+      </div>
+    </section>
+
+    <!-- V3 -->
+    <section>
+      <div class="label">v3 · Outlined characters · gold accent fill</div>
+      <div class="stage">
+        <h2 class="v3 display-tight text-[38px] sm:text-[68px] lg:text-[88px]">
+          今年、世界で<br/>
+          <span class="filled">何匹</span>の魚が<br/>
+          獲られると思う？
+        </h2>
+      </div>
+    </section>
+
+    <!-- V4 -->
+    <section>
+      <div class="label">v4 · Noto Serif JP heavy (elegant, more editorial)</div>
+      <div class="stage">
+        <h2 class="v4 display-tight text-[38px] sm:text-[68px] lg:text-[88px] text-paper">
+          今年、世界で<br/>
+          <span class="text-gold">何匹</span>の魚が<br/>
+          獲られると思う？
+        </h2>
+      </div>
+    </section>
+
+    <!-- V5 -->
+    <section>
+      <div class="label">v5 · Mixed weight — 何匹 oversized + gold</div>
+      <div class="stage">
+        <h2 class="v5 display-tight text-[32px] sm:text-[56px] lg:text-[72px] text-paper">
+          今年、世界で<br/>
+          <span class="accent">何匹</span>の魚が<br/>
+          獲られると思う？
+        </h2>
+      </div>
+    </section>
+
+    <!-- V6 -->
+    <section>
+      <div class="label">v6 · Slight diagonal skew (energetic, casual)</div>
+      <div class="stage">
+        <h2 class="display-tight text-[36px] sm:text-[60px] lg:text-[80px] text-paper">
+          <span class="v6">今年、世界で<br/>
+          <span class="text-gold">何匹</span>の魚が<br/>
+          獲られると思う？</span>
+        </h2>
+      </div>
+    </section>
+
+    <!-- V7 -->
+    <section>
+      <div class="label">v7 · Centered rhythm with gold divider lines</div>
+      <div class="stage">
+        <h2 class="v7 text-[36px] sm:text-[60px] lg:text-[80px] text-paper">
+          今年、世界で<br/>
+          <span class="divider"></span><br/>
+          <span class="text-gold">何匹</span>の魚が<br/>
+          <span class="divider"></span><br/>
+          獲られると思う？
+        </h2>
+      </div>
+    </section>
+
+    <!-- V8 — generated watercolor -->
+    <section>
+      <div class="label">v8 · Generated · hand-painted watercolor (gpt-image-1)</div>
+      <div class="stage" style="padding: 1rem;">
+        <img src="/images/umi-wo-kazoeru/title-watercolor.png"
+             alt="今年、世界で何匹の魚が獲られると思う？"
+             class="max-w-full h-auto" />
+      </div>
+      <p class="notes">Blurry / glow artifacts and color is off. Would need regen.</p>
+    </section>
+
+    <!-- V9 — generated waves -->
+    <section>
+      <div class="label">v9 · Generated · wave-style text (gpt-image-1)</div>
+      <div class="stage" style="padding: 1rem;">
+        <img src="/images/umi-wo-kazoeru/title-waves.png"
+             alt="今年、世界で何匹の魚が獲られると思う？"
+             class="max-w-full h-auto" />
+      </div>
+      <p class="notes">Model inserted a stray chibi character on the right despite "no characters" instructions. Text is mostly legible.</p>
+    </section>
+
+    <section class="border-t border-gold/20 pt-12">
+      <h2 class="text-[20px] font-bold text-gold">どれにする？ / Which one?</h2>
+      <p class="mt-3 text-paper/65 text-[14px]">
+        My pick: <strong class="text-gold">v2 (gold glow)</strong> — it keeps the existing layout / readability,
+        adds a touch of warmth without losing legibility, and survives at any size since it's CSS.
+        v4 (serif) is a strong second if you want a more editorial feel.
+        v8/v9 are easy to swap if we regen them with better prompts.
+      </p>
+    </section>
+
+  </main>
+
+</body>
+</html>
