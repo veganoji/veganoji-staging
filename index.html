@@ -99,6 +99,38 @@
       background: #058442;
     }
 
+    /* Press marquee — auto-scrolling chibi pills */
+    .press-marquee {
+      overflow: hidden;
+      position: relative;
+      /* Fade edges so the loop isn't jarring */
+      -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+              mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+    }
+    .press-marquee-track {
+      display: flex; gap: 14px; width: max-content;
+      animation: pressScroll 55s linear infinite;
+      padding: 4px 0;
+    }
+    .press-marquee:hover .press-marquee-track { animation-play-state: paused; }
+    @keyframes pressScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .press-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 18px;
+      background: var(--color-paper); color: var(--color-ink);
+      border: 2.5px solid var(--color-ink);
+      border-radius: 14px;
+      box-shadow: 3px 3px 0 var(--color-ink);
+      font-family: var(--font-cute-jp); font-weight: 700;
+      font-size: 14px; line-height: 1;
+      white-space: nowrap; flex-shrink: 0;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    a.press-pill:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--color-ink); }
+
     /* Chibi-sticker hover/active for all primary buttons (V3 spec) */
     .btn-primary:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal-deep); }
     .btn-primary:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--color-ink); }
@@ -286,47 +318,10 @@
     }
 
     /* Voices band — testimonial speech-bubble cards */
-    .voice-card {
-      position: relative; width: 260px;
-      background: var(--color-paper);
-      border: 1.5px solid var(--color-line);
-      border-radius: 18px;
-      padding: 18px 18px 16px;
-      box-shadow: 0 8px 24px -10px rgba(31,24,18,0.15);
-      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-    @media (min-width: 768px) { .voice-card { width: 300px; } }
-    .voice-card:hover {
-      transform: translateY(-4px) rotate(-0.5deg);
-      box-shadow: 0 16px 36px -14px rgba(156,20,40,0.22);
-      border-color: var(--color-royal-soft);
-    }
-    .voice-card::after {
-      content: ""; position: absolute; bottom: -10px; left: 32px;
-      width: 16px; height: 16px;
-      background: var(--color-paper);
-      border-right: 1.5px solid var(--color-line);
-      border-bottom: 1.5px solid var(--color-line);
-      transform: rotate(45deg);
-      border-bottom-right-radius: 4px;
-    }
-    .voice-card:nth-child(even) { background: linear-gradient(180deg, var(--color-paper), var(--color-cream)); }
-    .voice-avatar {
-      width: 38px; height: 38px; border-radius: 999px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-fun); font-size: 16px; color: var(--color-paper);
-      flex-shrink: 0;
-    }
     .voice-quote {
       font-family: var(--font-jp-display);
       font-size: 14px; line-height: 1.75; color: var(--color-ink);
     }
-    .voice-meta {
-      font-family: var(--font-jp);
-      font-size: 11px; color: var(--color-muted);
-      letter-spacing: 0.05em;
-    }
-    .voice-name { font-family: var(--font-cute-jp); font-weight: 700; font-size: 14px; color: var(--color-ink); }
 
     /* Polaroid-style work cards */
     .work-card {
@@ -590,57 +585,9 @@
     .char-tab[data-active="true"] svg { color: var(--color-gold-soft); }
 
     /* Logo wall (company portfolio + press) */
-    .logo-card {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 8px; padding: 18px 14px;
-      background: var(--color-paper);
-      border: 1px solid var(--color-line); border-radius: 14px;
-      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .logo-card:hover { transform: translateY(-3px); border-color: var(--color-royal); box-shadow: 0 14px 30px -14px rgba(156,20,40,0.3); }
-    .logo-img {
-      height: 44px; width: auto; max-width: 100%; object-fit: contain;
-      transition: transform 0.3s ease;
-    }
-    .logo-card:hover .logo-img { transform: scale(1.05); }
-    @media (min-width: 640px) { .logo-img { height: 52px; } }
-    .logo-strip {
-      display: flex; gap: 0.75rem;
-      overflow-x: auto; overscroll-behavior-x: contain;
-      padding-bottom: 8px;
-      scrollbar-width: thin; scrollbar-color: var(--color-line) transparent;
-    }
-    .logo-strip > * { flex: 0 0 76%; max-width: 300px; }
     @media (min-width: 768px) {
-      .logo-strip { display: grid; grid-template-columns: repeat(4,1fr); overflow: visible; padding-bottom: 0; }
-      .logo-strip > * { flex: none; max-width: none; }
     }
-    .press-strip {
-      display: flex; gap: 0.55rem;
-      overflow-x: auto; overscroll-behavior-x: contain;
-      padding: 2px 0 10px;
-      scrollbar-width: thin; scrollbar-color: var(--color-line) transparent;
-    }
-    .press-strip::-webkit-scrollbar { height: 6px; }
-    .press-strip::-webkit-scrollbar-track { background: transparent; }
-    .press-strip::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 6px; }
     @media (min-width: 1024px) {
-      .press-strip { flex-wrap: wrap; justify-content: center; overflow: visible; }
-    }
-    .press-plate {
-      flex: 0 0 auto;
-      display: flex; align-items: center; justify-content: center; gap: 7px;
-      padding: 11px 16px; min-height: 52px; white-space: nowrap;
-      background: var(--color-paper);
-      border: 1px solid var(--color-line); border-radius: 999px;
-      color: var(--color-muted);
-      transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-    }
-    .press-plate:hover { color: var(--color-royal); border-color: var(--color-royal); transform: translateY(-2px); }
-    .press-tag {
-      font-family: var(--font-jp); font-size: 8.5px; letter-spacing: 0.1em;
-      padding: 2px 6px; border-radius: 999px;
-      background: var(--color-cream-2); color: var(--color-gold-deep);
     }
     .char-panel { display: none; }
     .char-panel[data-active="true"] { display: block; }
@@ -982,118 +929,46 @@
     </div>
   </section>
 
-  <!-- ─────────────  SOCIAL PROOF: VOICES + PRESS (merged)  ───────────── -->
-  <section class="bg-cream border-y border-line py-10 sm:py-14">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
-
-      <!-- VOICES strip -->
-      <div class="flex items-baseline gap-3 mb-4 sm:mb-6">
-        <span class="font-hand text-[22px] sm:text-[26px] text-royal">王子の周りの声 ♡</span>
-        <span class="font-jp text-[12.5px] text-muted tracking-wider hidden sm:inline">— 一緒に働いた人、観た人、変わった人の声</span>
+  <!-- ─────────────  PRESS MARQUEE (auto-scrolling chibi pills)  ───────────── -->
+  <section class="bg-cream border-y border-line py-8 sm:py-10 overflow-hidden">
+    <div class="press-marquee" aria-label="メディア掲載・出演">
+      <div class="press-marquee-track">
+        <!-- First copy of the press items -->
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-pill">フジテレビ</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill">TBSテレビ</a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-pill">関西テレビ</a>
+        <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-pill">中京テレビ</a>
+        <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-pill">日経新聞</a>
+        <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-pill">ELLE スタイルインサイダー</a>
+        <span class="press-pill">veggy</span>
+        <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-pill">Zakzak</a>
+        <span class="press-pill">メトロポリターナ</span>
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-pill">ネプリーグ</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill">モニタリング</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill">世界くらべてみたら</a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-pill">池上彰の関西人が知らないKANSAI</a>
+        <!-- Duplicate copy for seamless scroll -->
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">フジテレビ</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">TBSテレビ</a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">関西テレビ</a>
+        <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">中京テレビ</a>
+        <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">日経新聞</a>
+        <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">ELLE スタイルインサイダー</a>
+        <span class="press-pill" aria-hidden="true">veggy</span>
+        <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">Zakzak</a>
+        <span class="press-pill" aria-hidden="true">メトロポリターナ</span>
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">ネプリーグ</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">モニタリング</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">世界くらべてみたら</a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">池上彰の関西人が知らないKANSAI</a>
       </div>
-      <div class="m-scroll">
-
-        <article class="voice-card">
-          <p class="voice-quote">ヴィーガンを「制限」じゃなくて「おしゃれな選択肢」として伝えてくれる、稀有な存在。<span class="text-royal">本当に伝え方がうまい。</span></p>
-          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
-            <div class="voice-avatar" style="background: linear-gradient(135deg, #E55063, #C9223A);">K</div>
-            <div>
-              <div class="voice-name">加藤さん</div>
-              <div class="voice-meta">イベント制作 · 東京</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="voice-card">
-          <p class="voice-quote">大学の特別講義で、初めてヴィーガンの話を「楽しい」と思いました。<span class="text-royal">考え方が変わりました。</span></p>
-          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
-            <div class="voice-avatar" style="background: linear-gradient(135deg, #D4A847, #9C7E2A);">Y</div>
-            <div>
-              <div class="voice-name">Y.M.さん</div>
-              <div class="voice-meta">学生 · 早稲田大学</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="voice-card">
-          <p class="voice-quote">外国人視点と日本理解、両方を持っているのが彼の強み。<span class="text-royal">海外向けPRはアレックスさんで決まり。</span></p>
-          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
-            <div class="voice-avatar" style="background: linear-gradient(135deg, #6C9560, #3F6A3A);">C</div>
-            <div>
-              <div class="voice-name">Catherine さん</div>
-              <div class="voice-meta">仏ブランド広報 · パリ</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="voice-card">
-          <p class="voice-quote">彼の動画を見て、週１回だけ野菜中心の日を作るように。<span class="text-royal">なんだか元気になった気がします！</span></p>
-          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
-            <div class="voice-avatar" style="background: linear-gradient(135deg, #F8C8D2, #E55063);">M</div>
-            <div>
-              <div class="voice-name">三浦さん</div>
-              <div class="voice-meta">SNSフォロワー · 大阪</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="voice-card">
-          <p class="voice-quote">現場の温度を一瞬で変えられるMC。お客さん、アレックスさんと話して帰っていきます。<span class="text-royal">一緒に仕事できて嬉しい。</span></p>
-          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
-            <div class="voice-avatar" style="background: linear-gradient(135deg, #B5D5E8, #58835A);">T</div>
-            <div>
-              <div class="voice-name">田中さん</div>
-              <div class="voice-meta">ヴィーガンフェス主催</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="voice-card">
-          <p class="voice-quote">ビジネスでも普段でも、いつも前向き。<span class="text-royal">一緒にいると元気をもらえる人</span>です。</p>
-          <div class="mt-4 pt-4 border-t border-line/60 flex items-center gap-3">
-            <div class="voice-avatar" style="background: linear-gradient(135deg, #C8A557, #9C7E2A);">S</div>
-            <div>
-              <div class="voice-name">山本さん</div>
-              <div class="voice-meta">コラボ企業 · プロデューサー</div>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- DIVIDER -->
-      <div class="my-8 sm:my-10 lg:my-12 flex items-center gap-3 max-w-[680px] mx-auto">
-        <hr class="flex-1 border-t border-line"/>
-        <img src="/images/decorations/fleur-de-lis-divider.png" alt="" class="h-5 sm:h-6 w-auto opacity-90 pointer-events-none -mx-1" loading="lazy"/>
-        <span class="font-jp text-[12px] tracking-[0.18em] uppercase text-muted whitespace-nowrap">メディア掲載・出演</span>
-        <img src="/images/decorations/fleur-de-lis-divider.png" alt="" class="h-5 sm:h-6 w-auto opacity-90 pointer-events-none -mx-1 -scale-x-100" loading="lazy"/>
-        <hr class="flex-1 border-t border-line"/>
-      </div>
-
-      <!-- PRESS strip -->
-      <div class="press-strip">
-        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[14px]">フジテレビ</span></a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[14px]">TBSテレビ</span></a>
-        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[14px]">関西テレビ</span></a>
-        <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[14px]">中京テレビ</span></a>
-        <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-plate"><span class="font-jp-display text-[14px]">日経新聞</span></a>
-        <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-plate"><span class="font-display italic text-[14px]">ELLE</span><span class="font-jp text-[11.5px]">スタイルインサイダー</span></a>
-        <div class="press-plate"><span class="font-display italic text-[15px]">veggy</span></div>
-        <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="font-display italic text-[15px]">Zakzak</span></a>
-        <div class="press-plate"><span class="font-jp-display text-[14px]">メトロポリターナ</span></div>
-        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[14px]">ネプリーグ</span></a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[14px]">モニタリング</span></a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[14px]">世界くらべてみたら</span></a>
-        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-plate"><span class="press-tag">出演</span><span class="font-jp-display text-[14px]">池上彰の関西人が知らないKANSAI</span></a>
-      </div>
-
-      <div class="mt-5 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
-        <span class="font-jp text-[14px] sm:text-[15px] text-muted">メディア関係者の方へ —</span>
-        <a href="https://drive.google.com/drive/folders/1iFVzYBwNPQh3hLUdvMHZUehJamtOTNJJ?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-royal text-[13px] font-jp border border-royal/30 rounded-full px-4 py-2 hover:bg-royal hover:text-paper transition-colors">
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          プレスキット（写真・プロフィール・ロゴ）をダウンロード
-        </a>
-      </div>
+    </div>
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 mt-6 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+      <span class="font-jp text-[14px] sm:text-[15px] text-muted">メディア関係者の方へ —</span>
+      <a href="https://drive.google.com/drive/folders/1iFVzYBwNPQh3hLUdvMHZUehJamtOTNJJ?usp=sharing" target="_blank" rel="noopener" class="btn-ghost !text-[13px] !px-4 !py-2">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>プレスキット</span>
+      </a>
     </div>
   </section>
 
@@ -1191,7 +1066,6 @@
           <img src="/images/ui-icons/note.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none -rotate-6 drop-shadow-md"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">01</span>
-            <span class="eyebrow font-jp">MC · 司会・講演</span>
           </div>
           <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
             多言語MC・<br/>講演・大学授業
@@ -1211,7 +1085,6 @@
           <img src="/images/ui-icons/sparkle.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none rotate-6 drop-shadow-md"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">02</span>
-            <span class="eyebrow font-jp">タレント・モデル</span>
           </div>
           <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
             モデル・<br/>タレント出演
@@ -1231,7 +1104,6 @@
           <img src="/images/ui-icons/heart.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none -rotate-6 drop-shadow-md"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">03</span>
-            <span class="eyebrow font-jp">SNS・クリエイター</span>
           </div>
           <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
             王子としての<br/>SNS活動
@@ -1251,7 +1123,6 @@
           <img src="/images/ui-icons/crown.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none rotate-3 drop-shadow-md"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">04</span>
-            <span class="eyebrow font-jp">海外の架け橋</span>
           </div>
           <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
             国際ビジネス・<br/>マーケティング
@@ -1266,78 +1137,6 @@
             <li>· アーティスト・モデル事務所</li>
           </ul>
         </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────────────  COMPANY PORTFOLIO BAND  ───────────── -->
-  <section class="bg-royal text-paper py-10 sm:py-14 relative overflow-hidden">
-    <div class="absolute inset-0 stars-bg opacity-25 pointer-events-none"></div>
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
-      <div class="text-center mb-6 sm:mb-8">
-        <div class="ornament justify-center mb-3"><span style="color:#E8C76F">王子が手がけるもの</span></div>
-        <p class="font-jp text-[14px] sm:text-[15px] text-paper/75">モデル・タレント業とあわせて、こんなブランドを動かしています。<span class="md:hidden text-gold-soft">→ 横にスワイプ</span></p>
-      </div>
-      <div class="logo-strip">
-        <a href="https://www.researchsolutions.com" target="_blank" rel="noopener" class="logo-card">
-          <img src="/images/voji-logos/research-solutions.svg" alt="Research Solutions" class="logo-img" loading="lazy"/>
-          <span class="font-jp text-[11px] text-muted text-center leading-tight">Japan Territory Manager</span>
-        </a>
-        <a href="https://ojidigital.com" target="_blank" rel="noopener" class="logo-card">
-          <img src="/images/voji-logos/oji-digital.webp" alt="OJI DIGITAL" class="logo-img" loading="lazy"/>
-          <span class="font-jp text-[11px] text-muted text-center leading-tight">創業者 · AIマーケティング</span>
-        </a>
-        <a href="https://handpanstudiotokyo.jp" target="_blank" rel="noopener" class="logo-card">
-          <img src="/images/voji-logos/handpan-studio-tokyo.webp" alt="Handpan Studio Tokyo" class="logo-img" loading="lazy"/>
-          <span class="font-jp text-[11px] text-muted text-center leading-tight">共同創業者</span>
-        </a>
-        <a href="https://veganoji.jp" target="_blank" rel="noopener" class="logo-card">
-          <img src="/images/voji-logos/vegan-oji.png" alt="ビーガン王子株式会社" class="logo-img" loading="lazy"/>
-          <span class="font-jp text-[11px] text-muted text-center leading-tight">代表取締役 CEO</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────────────  TOOLS TEASER (full tools at /tools/)  ───────────── -->
-  <section id="tools" class="bg-cream border-y border-line py-10 sm:py-14">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
-      <div class="text-center mb-6 sm:mb-8">
-        <div class="ornament justify-center mb-2.5"><span>王子のツール</span></div>
-        <p class="font-jp text-[14px] sm:text-[15px] text-muted">「で、実際どうすればいいの？」── そんな疑問に答える、無料の道具を２つ用意しました。</p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
-
-        <a href="/tools/" class="bg-paper border border-line rounded-2xl p-5 sm:p-6 flex items-start gap-4 hover:border-leaf-deep hover:shadow-lg hover:-translate-y-0.5 transition-all">
-          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-leaf/15 text-leaf-deep flex items-center justify-center flex-shrink-0">
-            <svg width="22" height="22"><use href="#leaf"/></svg>
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="eyebrow text-leaf-deep font-jp">道具その１</div>
-            <h3 class="font-jp-display text-[18px] sm:text-[20px] font-medium text-ink leading-tight mt-1">ビーガン計算機</h3>
-            <p class="font-jp text-[14px] sm:text-[15px] text-muted mt-1.5 leading-relaxed">「もし◯年ビーガンを続けたら…」 水・穀物・森林・CO₂・動物のいのちで、地球への貢献度を計算。</p>
-            <div class="mt-3 inline-flex items-center gap-1.5 text-royal text-[13px] font-jp">
-              開く
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </div>
-          </div>
-        </a>
-
-        <a href="/tools/" class="bg-paper border border-line rounded-2xl p-5 sm:p-6 flex items-start gap-4 hover:border-royal hover:shadow-lg hover:-translate-y-0.5 transition-all">
-          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-royal/10 text-royal flex items-center justify-center flex-shrink-0">
-            <svg width="20" height="22"><use href="#pin"/></svg>
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="eyebrow font-jp">道具その２</div>
-            <h3 class="font-jp-display text-[18px] sm:text-[20px] font-medium text-ink leading-tight mt-1">ビーガンマップ</h3>
-            <p class="font-jp text-[14px] sm:text-[15px] text-muted mt-1.5 leading-relaxed">日本全国 3,200+ 店舗のビーガン・ベジ対応レストランを、王子が厳選してマップに。</p>
-            <div class="mt-3 inline-flex items-center gap-1.5 text-royal text-[13px] font-jp">
-              開く
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </div>
-          </div>
-        </a>
 
       </div>
     </div>
