@@ -83,6 +83,45 @@
       vertical-align: middle; margin: 0.6em auto;
     }
 
+    /* ── V10: Chibi-sticker badge (matches the homepage social-icon language)
+           — thick ink border + 6px offset shadow + slight rotation        ── */
+    .v10-sticker {
+      display: inline-block;
+      background: var(--color-gold);
+      color: var(--color-abyss);
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 900;
+      padding: 1.25rem 2rem;
+      border: 3px solid var(--color-abyss);
+      box-shadow: 7px 7px 0 var(--color-abyss);
+      border-radius: 1.25rem;
+      transform: rotate(-1.5deg);
+      letter-spacing: -0.02em;
+    }
+    .v10-eyebrow {
+      display: inline-block;
+      background: var(--color-paper);
+      color: var(--color-abyss);
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 700;
+      padding: 0.4rem 1rem;
+      border: 2.5px solid var(--color-abyss);
+      box-shadow: 4px 4px 0 var(--color-abyss);
+      border-radius: 999px;
+      transform: rotate(1.5deg);
+    }
+
+    /* ── V11: Context line + big short question (no sticker)              ── */
+    .v11-context {
+      font-family: var(--font-noto-sans-jp); font-weight: 600;
+      color: rgba(232, 199, 111, 0.85);
+      letter-spacing: 0.06em;
+    }
+    .v11-q { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+
+    /* ── V12: Combined — chibi-eyebrow + chibi-sticker for the short Q    ── */
+    .v12-stage { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+
     .label {
       font-size: 13px; letter-spacing: 0.16em;
       color: rgba(232, 199, 111, 0.7);
@@ -214,13 +253,77 @@
       <p class="notes">Model inserted a stray chibi character on the right despite "no characters" instructions. Text is mostly legible.</p>
     </section>
 
+    <!-- ────────── NEW: chibi-sticker style + structure variants ────────── -->
+    <section class="border-t border-gold/20 pt-10">
+      <h2 class="text-[22px] font-bold text-gold">Chibi-sticker style (matches social icons)</h2>
+      <p class="text-paper/60 text-[14px] mt-2">
+        These use the thick-ink-border + offset-shadow language from the homepage social icons.
+        They also try a <em>shorter question</em> structure — small context line above, big short Q below.
+      </p>
+    </section>
+
+    <!-- V10 — chibi sticker, full title -->
+    <section>
+      <div class="label">v10 · Chibi sticker badge — full title</div>
+      <div class="stage">
+        <h2 class="v10-sticker text-[28px] sm:text-[40px] lg:text-[52px]">
+          今年、世界で何匹の魚が獲られると思う？
+        </h2>
+      </div>
+      <p class="notes">Full text on one sticker. Compact, badge-y, matches the social-icon visual language. Question feels like a label.</p>
+    </section>
+
+    <!-- V11 — context line + big short Q -->
+    <section>
+      <div class="label">v11 · Eyebrow context · big short question</div>
+      <div class="stage">
+        <div>
+          <div class="v11-context text-[16px] sm:text-[20px] lg:text-[22px] mb-4 sm:mb-6">
+            今年、世界で獲られる魚 ——
+          </div>
+          <h2 class="v11-q display-tight text-[60px] sm:text-[100px] lg:text-[128px] text-paper">
+            <span class="text-gold">何匹</span>だと思う？
+          </h2>
+        </div>
+      </div>
+      <p class="notes">Drops 「と」「の魚が獲られる」 from the big line — the context already established it. Visual centerpiece is the short question, much more impactful.</p>
+    </section>
+
+    <!-- V12 — chibi-eyebrow + chibi-sticker for short Q -->
+    <section>
+      <div class="label">v12 · Chibi eyebrow + chibi-sticker Q (both badged)</div>
+      <div class="stage">
+        <div class="v12-stage">
+          <span class="v10-eyebrow text-[14px] sm:text-[16px]">今年、世界で獲られる魚</span>
+          <span class="v10-sticker text-[40px] sm:text-[64px] lg:text-[80px]">
+            何匹だと思う？
+          </span>
+        </div>
+      </div>
+      <p class="notes">Both pieces wear the chibi-sticker uniform — most cohesive with the homepage social-icon language. The eyebrow is a tiny "tag" stuck on top; the question is the main sticker. Slight opposing rotations sell the "stickers placed by hand" feel.</p>
+    </section>
+
+    <!-- V13 — short Q only, chibi sticker (most extreme) -->
+    <section>
+      <div class="label">v13 · Just the short Q on a sticker (most minimal)</div>
+      <div class="stage">
+        <span class="v10-sticker text-[48px] sm:text-[76px] lg:text-[96px]">
+          何匹だと思う？
+        </span>
+      </div>
+      <p class="notes">Drops the context entirely. The subtitle below the title would carry "今年、世界で獲られる魚..." instead. Maximum punch, requires the surrounding copy to introduce the topic.</p>
+    </section>
+
     <section class="border-t border-gold/20 pt-12">
       <h2 class="text-[20px] font-bold text-gold">どれにする？ / Which one?</h2>
       <p class="mt-3 text-paper/65 text-[14px]">
-        My pick: <strong class="text-gold">v2 (gold glow)</strong> — it keeps the existing layout / readability,
-        adds a touch of warmth without losing legibility, and survives at any size since it's CSS.
-        v4 (serif) is a strong second if you want a more editorial feel.
-        v8/v9 are easy to swap if we regen them with better prompts.
+        For the chibi-sticker direction: <strong class="text-gold">v11 or v12</strong> are my picks.
+        v11 has the most cinematic structure — small "tagline" feel followed by a huge short question.
+        v12 doubles down on the sticker language (both elements badged), which feels most aligned with the homepage social icons.
+        v13 is the most minimal and high-impact but relies on surrounding copy to carry the context.
+        <br/><br/>
+        Among the earlier set: v2 (gold glow) and v4 (serif) were the strongest pure-CSS options.
+        The generated v8/v9 had issues; can regen if needed.
       </p>
     </section>
 

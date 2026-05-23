@@ -345,6 +345,23 @@
       .comp-fish-label { left: 62%; transform: translate(-50%, 44px); }
     }
 
+    /* Social rail — same chibi-sticker style as homepage social icons */
+    .umi-social {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 52px; height: 52px;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), filter 0.25s ease;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+    }
+    .umi-social img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .umi-social:hover { transform: translateY(-3px) rotate(-4deg) scale(1.08); filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5)); }
+    @media (min-width: 640px) {
+      .umi-social { width: 60px; height: 60px; }
+    }
+    .umi-social--sm { width: 36px; height: 36px; }
+    @media (min-width: 640px) {
+      .umi-social--sm { width: 40px; height: 40px; }
+    }
+
     /* Pause-zone CTA at the end of the count section */
     .pause-cta {
       pointer-events: none;
@@ -787,6 +804,18 @@
         </a>
       </div>
 
+      <!-- Social rail — chibi-sticker icons, same set as homepage -->
+      <div class="mt-14 sm:mt-16 flex flex-col items-center gap-4">
+        <span class="text-paper/55 text-[16px] sm:text-[18px] font-jp">王子のうごき、こちらでも</span>
+        <div class="flex items-center gap-3 sm:gap-4">
+          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="umi-social"><img src="/images/social/ig.png" alt=""/></a>
+          <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="umi-social"><img src="/images/social/x.png" alt=""/></a>
+          <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="umi-social"><img src="/images/social/yt.png" alt=""/></a>
+          <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="umi-social"><img src="/images/social/tt.png" alt=""/></a>
+          <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="umi-social"><img src="/images/social/li.png" alt=""/></a>
+        </div>
+      </div>
+
       <p class="mt-16 font-jp text-paper/45 text-[20px] sm:text-[20px]">
         最後まで、ありがとう。
       </p>
@@ -813,8 +842,16 @@
         <li id="src-12"><span class="text-gold/60">12.</span> 養殖場での抗生物質・薬剤使用については <a href="https://doi.org/10.1126/science.aax4593" target="_blank" rel="noopener" class="underline hover:text-paper">Schar et al., Science (2020)</a> ほかが概観。魚病による損失と密度の関係も同様に多数の研究あり。</li>
       </ol>
 
-      <div class="mt-12 pt-8 border-t border-line/30 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center text-paper/40 text-[20px] tracking-wider">
+      <div class="mt-12 pt-8 border-t border-line/30 flex flex-col gap-6 sm:flex-row sm:gap-4 sm:justify-between sm:items-center text-paper/40 text-[20px] tracking-wider">
         <a href="/" class="hover:text-paper transition-colors">← ビーガン王子へ戻る</a>
+        <!-- Compact social rail in the footer (smaller variant) -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="umi-social umi-social--sm"><img src="/images/social/ig.png" alt=""/></a>
+          <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="umi-social umi-social--sm"><img src="/images/social/x.png" alt=""/></a>
+          <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="umi-social umi-social--sm"><img src="/images/social/yt.png" alt=""/></a>
+          <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="umi-social umi-social--sm"><img src="/images/social/tt.png" alt=""/></a>
+          <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="umi-social umi-social--sm"><img src="/images/social/li.png" alt=""/></a>
+        </div>
         <span class="font-jp text-[20px]">© ビーガン王子</span>
       </div>
     </div>
