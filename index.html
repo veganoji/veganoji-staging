@@ -138,6 +138,31 @@
       content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
       background: linear-gradient(90deg, var(--color-royal) 0%, var(--color-gold) 50%, var(--color-royal) 100%);
     }
+
+    /* ─── Crown-pattern watermark (mask-based, recolorable per section) ─── */
+    .crown-bg {
+      position: relative;
+    }
+    .crown-bg > * { position: relative; z-index: 1; }
+    .crown-bg::before {
+      content: ""; position: absolute; inset: 0;
+      -webkit-mask-image: url('/images/decorations/crown-pattern.svg');
+              mask-image: url('/images/decorations/crown-pattern.svg');
+      -webkit-mask-repeat: repeat;
+              mask-repeat: repeat;
+      -webkit-mask-size: 120px 120px;
+              mask-size: 120px 120px;
+      background: var(--crown-color, var(--color-royal));
+      opacity: var(--crown-opacity, 0.055);
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Variants by tone */
+    .crown-bg-light { --crown-color: var(--color-paper); --crown-opacity: 0.07; }
+    .crown-bg-gold  { --crown-color: var(--color-gold);  --crown-opacity: 0.10; }
+    .crown-bg-tight::before { -webkit-mask-size: 80px 80px; mask-size: 80px 80px; }
+    .crown-bg-wide::before  { -webkit-mask-size: 180px 180px; mask-size: 180px 180px; }
+
     .hug-inner {
       max-width: 880px; margin: 0 auto; position: relative; z-index: 2;
       display: flex; flex-direction: column; align-items: center; text-align: center;
@@ -1134,7 +1159,7 @@
   </section>
 
   <!-- ─────────────  KEY ACTIONS RAIL (right under hero)  ───────────── -->
-  <section class="bg-paper border-y border-line py-4 sm:py-5">
+  <section class="bg-paper crown-bg crown-bg-tight border-y border-line py-4 sm:py-5">
     <div class="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10">
       <div class="grid grid-cols-3 gap-2 sm:gap-3">
         <a href="#booking" class="key-action flex items-center justify-center gap-2 sm:gap-3 rounded-2xl bg-royal text-paper py-2.5 sm:py-3 px-2 sm:px-4 text-[13px] sm:text-[14px] font-jp hover:bg-royal-deep transition-colors text-center leading-tight">
@@ -1154,7 +1179,7 @@
   </section>
 
   <!-- ─────────────  PRESS MARQUEE (auto-scrolling chibi pills)  ───────────── -->
-  <section class="bg-cream border-y border-line py-8 sm:py-10 overflow-hidden">
+  <section class="bg-cream crown-bg border-y border-line py-8 sm:py-10 overflow-hidden">
     <div class="press-marquee" aria-label="メディア掲載・出演">
       <div class="press-marquee-track">
         <!-- First copy of the press items -->
@@ -1197,7 +1222,7 @@
   </section>
 
   <!-- ─────────────  ABOUT / SIX LANGUAGES  ───────────── -->
-  <section id="about" class="bg-royal text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+  <section id="about" class="bg-royal crown-bg crown-bg-light text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
     <div class="absolute inset-0 stars-bg opacity-50 pointer-events-none"></div>
     <svg class="absolute top-16 left-[8%] w-12 h-12 text-gold opacity-30 anim-float"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-24 right-[12%] w-10 h-10 text-paper opacity-20 anim-float" style="animation-delay:1.4s"><use href="#sparkle"/></svg>
@@ -1262,7 +1287,7 @@
   </section>
 
   <!-- ─────────────  SERVICES  ───────────── -->
-  <section id="services" class="bg-paper py-14 sm:py-20 lg:py-32 relative">
+  <section id="services" class="bg-paper crown-bg crown-bg-wide py-14 sm:py-20 lg:py-32 relative">
     <svg class="absolute top-20 right-[6%] w-8 h-8 text-royal-soft opacity-60 anim-sparkle"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-32 left-[4%] w-6 h-6 text-gold anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
 
@@ -1436,7 +1461,7 @@
   </section>
 
   <!-- ─────────────  SELECTED WORK (horizontal scroll)  ───────────── -->
-  <section id="work" class="bg-paper py-14 sm:py-20 lg:py-32 relative">
+  <section id="work" class="bg-paper crown-bg py-14 sm:py-20 lg:py-32 relative">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
 
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 relative">
@@ -1459,7 +1484,7 @@
   </section>
 
   <!-- ─────────────  UPCOMING EVENTS  ───────────── -->
-  <section id="events" class="bg-royal text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+  <section id="events" class="bg-royal crown-bg crown-bg-light text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
     <div class="absolute inset-0 stars-bg opacity-30 pointer-events-none"></div>
     <svg class="absolute top-12 right-[10%] w-12 h-12 text-gold opacity-40 anim-float"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-16 left-[8%] w-10 h-10 text-paper opacity-15 anim-float" style="animation-delay:1.1s"><use href="#sparkle"/></svg>
@@ -1787,7 +1812,7 @@
   </section>
 
   <!-- ─────────────  BOOKING  ───────────── -->
-  <section id="booking" class="bg-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+  <section id="booking" class="bg-paper crown-bg crown-bg-wide py-14 sm:py-20 lg:py-32 relative overflow-hidden">
     <svg class="absolute -left-32 top-20 w-[460px] h-[460px] text-gold opacity-[0.08]"><use href="#crown"/></svg>
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
