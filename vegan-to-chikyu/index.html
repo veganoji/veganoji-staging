@@ -801,26 +801,31 @@
       </div>
 
       <!-- Back nav — visible only on Q2+. "Next" is implicit (auto-advance on pick). -->
-      <div id="quiz-nav" class="mt-5 flex items-center justify-between max-w-md mx-auto" style="min-height: 44px;">
+      <div id="quiz-nav" class="mt-5 flex items-center justify-start max-w-md mx-auto" style="min-height: 44px;">
         <button id="quiz-back" type="button" class="btn-base btn-ghost" style="display:none; padding: 8px 16px; font-size: 13px;">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 2 L4 6 L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
           前の問題
         </button>
-        <span class="font-jp text-[12px] sm:text-[13px] text-ink/55"><span id="quiz-curr">1</span> / 4</span>
       </div>
 
       <!-- Completion banner — hidden until all 4 answered -->
       <div id="quiz-complete" class="mt-12 sm:mt-16 text-center" style="opacity: 0; transform: translateY(10px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; pointer-events: none;">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-paper text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-4"
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-paper text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-5"
              style="background: #3F6A3A; border: 2px solid var(--color-ink); box-shadow: 3px 3px 0 var(--color-ink);">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L6 10 L11 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-          ALL ANSWERED
+          全問 こたえ済み
         </div>
         <p class="font-jp-display text-[20px] sm:text-[26px] text-ink leading-[1.5]">
           おつかれさま！<br/>
           このあとの4つの章を読むと、<span style="color: #3F6A3A;">答えが見えてくる</span>よ。
         </p>
-        <div class="mt-6 inline-flex flex-col items-center gap-1 text-ink/65">
+        <div class="mt-7 sm:mt-9 flex justify-center">
+          <img src="/images/oji/oji_teaching.png"
+               alt="ビーガン王子 — 教える"
+               class="w-32 sm:w-40 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.18)]"
+               loading="lazy"/>
+        </div>
+        <div class="mt-5 inline-flex flex-col items-center gap-1 text-ink/65">
           <span class="font-jp text-[14px] tracking-[0.06em] font-bold">下にスクロール</span>
           <svg width="14" height="20" viewBox="0 0 14 20" fill="none" class="animate-bounce">
             <path d="M7 2 L7 16 M2 11 L7 16 L12 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
@@ -887,26 +892,59 @@
           <span class="font-jp-display text-[28px] sm:text-[40px] text-ink">多い。<a href="#src-1-1" class="src">1</a></span>
         </div>
 
-        <!-- Scroll-driven size swap: both visuals start at parity; as the user
-             scrolls, the 畜産 side grows huge while 全交通機関 stays compact.
-             No grid columns — flex with items free to grow to their own width. -->
-        <div id="ch1-swap-stage" class="mt-10 sm:mt-12 flex items-end justify-around gap-4 min-h-[260px]">
-          <div class="flex flex-col items-center gap-3">
-            <img id="ch1-livestock" src="/images/vegan-to-chikyu/icon-livestock-group.png" alt="畜産"
-                 class="ch1-swap-img anim-bobble drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]"
-                 style="width: 80px;"
-                 loading="lazy"/>
-            <span class="font-jp text-[13px] sm:text-[15px] text-ink font-bold">畜産</span>
+        <!-- Balance scale — beam tilts; items + plates move up/down
+             independently (positions driven by JS so they stay upright).
+             Smoke clouds behind items scale with each side's "weight".  -->
+        <div id="ch1-scale-stage" class="mt-10 sm:mt-12 relative" style="height: 360px;">
+
+          <!-- Tilting beam (single line through center pivot) -->
+          <div id="ch1-scale-beam"
+               style="position: absolute; left: 12%; right: 12%; top: 240px; height: 6px; background: var(--color-ink); border-radius: 3px; transform-origin: center; transform: rotate(-15deg); transition: transform 1.1s cubic-bezier(0.22,1,0.36,1);"></div>
+
+          <!-- Fulcrum (triangle + base below the pivot) -->
+          <div class="absolute left-1/2 -translate-x-1/2" style="top: 240px;">
+            <div style="width: 0; height: 0; margin: 0 auto; border-left: 22px solid transparent; border-right: 22px solid transparent; border-bottom: 32px solid var(--color-ink);"></div>
+            <div class="absolute left-1/2 -translate-x-1/2" style="top: 32px; width: 80px; height: 8px; background: var(--color-ink); border-radius: 4px;"></div>
           </div>
-          <div class="flex flex-col items-center gap-3">
-            <img id="ch1-transport" src="/images/vegan-to-chikyu/icon-transport-mix.png" alt="全交通機関"
-                 class="ch1-swap-img anim-bobble drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]"
-                 style="width: 80px; animation-delay:-1.5s;"
+
+          <!-- LEFT plate: livestock (positioned by JS) -->
+          <div id="ch1-plate-livestock" class="absolute flex flex-col items-center"
+               style="left: 18%; transform: translate(-50%, -100%); top: 240px; transition: top 1.1s cubic-bezier(0.22,1,0.36,1);">
+            <!-- Smoke cloud BEHIND the item -->
+            <img id="ch1-cloud-livestock" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""
+                 class="absolute anim-twinkle"
+                 style="bottom: 38px; left: 50%; transform: translateX(-55%); width: 60px; opacity: 0.5; transition: width 0.9s ease-out, opacity 0.9s ease-out; z-index: 0;"
                  loading="lazy"/>
-            <span class="font-jp text-[13px] sm:text-[15px] text-ink font-bold">全交通機関</span>
+            <!-- Item -->
+            <img src="/images/vegan-to-chikyu/icon-livestock-group.png" alt="畜産"
+                 class="anim-bobble drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]"
+                 style="width: 96px; position: relative; z-index: 1;"
+                 loading="lazy"/>
+            <!-- Hanging string -->
+            <div style="width: 2px; height: 14px; background: var(--color-ink); margin-top: 2px;"></div>
+            <!-- Plate -->
+            <div style="width: 110px; height: 12px; background: var(--color-ink); border-radius: 6px;"></div>
+            <!-- Label -->
+            <div class="font-jp font-bold text-ink text-[13px] sm:text-[15px] mt-2 whitespace-nowrap">畜産</div>
+          </div>
+
+          <!-- RIGHT plate: transport (positioned by JS) -->
+          <div id="ch1-plate-transport" class="absolute flex flex-col items-center"
+               style="right: 18%; transform: translate(50%, -100%); top: 240px; transition: top 1.1s cubic-bezier(0.22,1,0.36,1);">
+            <img id="ch1-cloud-transport" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""
+                 class="absolute anim-twinkle"
+                 style="bottom: 38px; left: 50%; transform: translateX(-55%); width: 100px; opacity: 0.7; transition: width 0.9s ease-out, opacity 0.9s ease-out; z-index: 0; animation-delay:-2s;"
+                 loading="lazy"/>
+            <img src="/images/vegan-to-chikyu/icon-transport-mix.png" alt="全交通機関"
+                 class="anim-bobble drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]"
+                 style="width: 96px; position: relative; z-index: 1; animation-delay:-1.5s;"
+                 loading="lazy"/>
+            <div style="width: 2px; height: 14px; background: var(--color-ink); margin-top: 2px;"></div>
+            <div style="width: 110px; height: 12px; background: var(--color-ink); border-radius: 6px;"></div>
+            <div class="font-jp font-bold text-ink text-[13px] sm:text-[15px] mt-2 whitespace-nowrap">全交通機関</div>
           </div>
         </div>
-        <p class="mt-4 font-jp text-ink/55 text-[12px] sm:text-[13px] text-center">下にスクロールして、ふくらませてみよう</p>
+        <p class="mt-3 font-jp text-ink/55 text-[12px] sm:text-[13px] text-center">下にスクロールして、てんびんを動かしてみよう</p>
       </div>
 
       <!-- Methane 28x + N2O 265x: the multiplier shocker -->
@@ -1065,58 +1103,42 @@
           <span class="font-jp-display text-[32px] sm:text-[48px] text-ink">L<a href="#src-2-1" class="src">7</a></span>
         </div>
 
-        <!-- お風呂 (Japanese ofuro ≈ 180L) comparison — meat 1kg = ~85 baths.
-             Wheat 1kg = ~8 baths, veggies 1kg = ~2 baths. -->
-        <div class="mt-8 sm:mt-10">
-          <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.8] text-center mb-6">
-            お風呂(<span class="font-bold">180L</span>)に置き換えると——
+        <!-- お風呂 (Japanese ofuro, low-end ≈ 154L) comparison.
+             Meat 1kg = 15,400L ÷ 154L ≈ 100 baths; wheat 1kg ≈ 10 baths;
+             veg 1kg ≈ 2 baths. Rounder, more memorable, and reflects a
+             typical Japanese household fill (the deep ~180L estimate is
+             closer to commercial sentou volumes). -->
+        <div class="mt-10 sm:mt-12">
+          <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.8] text-center mb-7">
+            お風呂(<span class="font-bold">約154L</span>)に置き換えると——
           </p>
-          <div class="grid grid-cols-3 gap-3 sm:gap-5">
-            <!-- Meat: huge stack -->
+          <div class="grid grid-cols-3 gap-3 sm:gap-5 items-end">
+            <!-- Meat: 100 baths -->
             <div class="flex flex-col items-center">
-              <div class="relative" style="height: 170px;">
-                <div class="absolute inset-x-0 bottom-0 flex flex-col items-center" style="gap: 1px;">
-                  <!-- 12 stacked bathtub icons to represent ~85 baths visually -->
-                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12" loading="lazy"/>
-                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
-                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
-                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
-                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
-                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
-                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
-                </div>
-              </div>
-              <div class="mt-3 text-center">
-                <div class="font-jp-display text-[16px] sm:text-[20px] ticker" style="color: #2B7AB0;">約85回</div>
-                <div class="font-jp text-[12px] sm:text-[13px] text-ink/65">お肉 1kg</div>
+              <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-20 sm:w-28 anim-bobble" loading="lazy"/>
+              <div class="mt-2 sm:mt-3 text-center">
+                <div class="font-jp-display ticker text-[36px] sm:text-[48px] leading-none" style="color: #2B7AB0;">×100</div>
+                <div class="font-jp text-[13px] sm:text-[14px] text-ink font-bold mt-1">お肉 1kg</div>
               </div>
             </div>
-            <!-- Wheat: small stack -->
+            <!-- Wheat: 10 baths -->
             <div class="flex flex-col items-center">
-              <div class="relative" style="height: 170px;">
-                <div class="absolute inset-x-0 bottom-0 flex flex-col items-center" style="gap: 1px;">
-                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 opacity-70" loading="lazy"/>
-                </div>
-              </div>
-              <div class="mt-3 text-center">
-                <div class="font-jp-display text-[16px] sm:text-[20px] ticker text-ink/80">約8回</div>
-                <div class="font-jp text-[12px] sm:text-[13px] text-ink/65">小麦 1kg</div>
+              <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-16 sm:w-20 anim-bobble" style="animation-delay:-1.5s;" loading="lazy"/>
+              <div class="mt-2 sm:mt-3 text-center">
+                <div class="font-jp-display ticker text-[28px] sm:text-[40px] leading-none text-ink/80">×10</div>
+                <div class="font-jp text-[13px] sm:text-[14px] text-ink/80 font-bold mt-1">小麦 1kg</div>
               </div>
             </div>
-            <!-- Veg: half tub -->
+            <!-- Veg: 2 baths -->
             <div class="flex flex-col items-center">
-              <div class="relative" style="height: 170px;">
-                <div class="absolute inset-x-0 bottom-0 flex flex-col items-center" style="gap: 1px;">
-                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-7 sm:w-9 opacity-60" loading="lazy"/>
-                </div>
-              </div>
-              <div class="mt-3 text-center">
-                <div class="font-jp-display text-[16px] sm:text-[20px] ticker text-ink/70">約2回</div>
-                <div class="font-jp text-[12px] sm:text-[13px] text-ink/65">野菜 1kg</div>
+              <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-12 sm:w-16 anim-bobble" style="animation-delay:-2.8s;" loading="lazy"/>
+              <div class="mt-2 sm:mt-3 text-center">
+                <div class="font-jp-display ticker text-[24px] sm:text-[34px] leading-none text-ink/70">×2</div>
+                <div class="font-jp text-[13px] sm:text-[14px] text-ink/70 font-bold mt-1">野菜 1kg</div>
               </div>
             </div>
           </div>
-          <p class="mt-6 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.75] text-center">
+          <p class="mt-7 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.75] text-center">
             同じ1キロでも、これだけ違う。<a href="#src-2-2" class="src">8</a>
           </p>
         </div>
@@ -1206,24 +1228,28 @@
           </h3>
         </div>
 
-        <!-- Poo stage — image grows from tiny to huge as user scrolls; counter
-             counts up live (40,000 kg per second of viewing time). -->
-        <div id="poo-stage" class="relative flex flex-col items-center justify-end" style="min-height: 320px;">
-          <img id="poo-img" src="/images/vegan-to-chikyu/icon-poo.png"
-               alt="動物畜産の排泄物" loading="lazy"
-               style="width: 90px; transition: width 0.6s ease-out;"
-               class="drop-shadow-[0_6px_14px_rgba(31,24,18,0.18)]"/>
-
-          <div class="mt-4 sm:mt-6 text-center">
-            <div class="font-jp text-ink-soft text-[12px] sm:text-[13px] tracking-[0.12em]">このページを見ているあいだに……</div>
-            <div class="mt-2 flex items-baseline justify-center gap-2">
-              <span id="poo-counter" class="big-number ticker text-[40px] sm:text-[60px]" style="color: #2B7AB0;">0</span>
-              <span class="font-jp-display text-[18px] sm:text-[24px] text-ink">kg の排泄物</span>
-            </div>
-            <p class="mt-2 font-jp text-ink-soft text-[12px] sm:text-[13px] leading-[1.7]">
-              世界の動物畜産は、<span class="font-bold">1秒で約40,000kg</span>の排泄物を出している。<a href="#src-2-6" class="src">12</a>
-            </p>
+        <!-- Poo stage — image grows from tiny and KEEPS growing past the
+             stage box, clipped by the section's overflow. The image is
+             absolutely-positioned bottom-center so it doesn't displace the
+             counter/text below as it inflates. -->
+        <div id="poo-stage" class="relative" style="height: 280px;">
+          <div class="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none" style="overflow: visible;">
+            <img id="poo-img" src="/images/vegan-to-chikyu/icon-poo.png"
+                 alt="動物畜産の排泄物" loading="lazy"
+                 style="width: 90px; transition: width 0.6s ease-out; transform-origin: bottom center;"
+                 class="drop-shadow-[0_6px_14px_rgba(31,24,18,0.18)]"/>
           </div>
+        </div>
+
+        <div class="mt-4 sm:mt-6 text-center relative z-10">
+          <div class="font-jp text-ink-soft text-[12px] sm:text-[13px] tracking-[0.12em]">このページを見ているあいだに……</div>
+          <div class="mt-2 flex items-baseline justify-center gap-2">
+            <span id="poo-counter" class="big-number ticker text-[40px] sm:text-[60px]" style="color: #2B7AB0;">0</span>
+            <span class="font-jp-display text-[18px] sm:text-[24px] text-ink">kg の排泄物</span>
+          </div>
+          <p class="mt-2 font-jp text-ink-soft text-[12px] sm:text-[13px] leading-[1.7]">
+            世界の動物畜産は、<span class="font-bold">1秒で約40,000kg</span>の排泄物を出している。<a href="#src-2-6" class="src">12</a>
+          </p>
         </div>
 
         <!-- Supporting facts -->
@@ -2295,10 +2321,13 @@
         const elapsedSec = (performance.now() - pooStart) / 1000;
         const kg = Math.floor(elapsedSec * 40000);
         pooCounter.textContent = kg.toLocaleString('ja-JP');
-        // Grow the poo: 90 → 280 px over the first 25 seconds, then hold
-        const grow = Math.min(1, elapsedSec / 25);
-        const eased = grow * grow * (3 - 2 * grow);
-        const w = 90 + (280 - 90) * eased;
+        // Grow the poo FOREVER: starts at 90 px, grows ~60 px per second
+        // linearly. We hard-cap at 4000 px (way past any viewport) purely so
+        // the layout computation can't go runaway after very long sessions.
+        // The image is absolutely-positioned so it doesn't push siblings,
+        // and the parent section clips overflow — past ~600 px it spills
+        // out of view in any direction, which is the desired comic effect.
+        const w = Math.min(4000, 90 + elapsedSec * 60);
         pooImg.style.width = w + 'px';
         requestAnimationFrame(pooTick);
       }
@@ -2316,31 +2345,49 @@
         pooIO.observe(pooStage);
       }
 
-      // ───────── CH1 livestock vs transport size swap ─────────
-      //   While the user scrolls through the KEY FACT card, the 畜産 visual
-      //   grows from the same size as 全交通機関 to ~3× larger. Driven by
-      //   the stage's getBoundingClientRect.top crossing the viewport.
-      const swapStage     = document.getElementById('ch1-swap-stage');
-      const swapLivestock = document.getElementById('ch1-livestock');
-      const swapTransport = document.getElementById('ch1-transport');
-      function onSwapScroll() {
-        if (!swapStage || !swapLivestock) return;
-        const rect = swapStage.getBoundingClientRect();
+      // ───────── CH1 balance scale: tilt + plate heights + cloud sizes ─
+      //   Drives three things from one scroll progress value (0..1):
+      //   - Beam rotation: -15° (transport-heavy) → +15° (livestock-heavy)
+      //   - Plate "top" positions: livestock plate sinks (top increases),
+      //     transport plate rises (top decreases), and vice versa as
+      //     progress grows. Plates use top:Npx with transition.
+      //   - Smoke cloud sizes: grow with that side's "weight".
+      const scaleStage   = document.getElementById('ch1-scale-stage');
+      const scaleBeam    = document.getElementById('ch1-scale-beam');
+      const plateLv      = document.getElementById('ch1-plate-livestock');
+      const plateTx      = document.getElementById('ch1-plate-transport');
+      const cloudLv      = document.getElementById('ch1-cloud-livestock');
+      const cloudTx      = document.getElementById('ch1-cloud-transport');
+      const PIVOT_Y      = 240; // beam y-position in px from stage top
+      const LIFT         = 36;  // how far each plate moves above/below pivot
+      function onScaleScroll() {
+        if (!scaleStage || !scaleBeam) return;
+        const rect = scaleStage.getBoundingClientRect();
         const vh = window.innerHeight || 800;
-        // progress: 0 when stage's bottom hits the viewport bottom, 1 when its top hits 20% of viewport.
-        const raw = (vh - rect.top) / (vh * 0.65);
+        const raw = (vh - rect.top) / (vh * 0.7);
         const t = Math.max(0, Math.min(1, raw));
-        // Eased grow: livestock 80→220px (mobile) / 100→260px (sm+), transport stays ~80px.
-        const eased = t * t * (3 - 2 * t); // smoothstep
-        const isSm = window.matchMedia('(min-width: 640px)').matches;
-        const lvMin = isSm ? 100 : 80;
-        const lvMax = isSm ? 260 : 200;
-        swapLivestock.style.width = (lvMin + (lvMax - lvMin) * eased) + 'px';
-        swapTransport.style.width = (isSm ? 100 : 80) + 'px';
+        const eased = t * t * (3 - 2 * t);
+        // -1 (transport-heavy) → +1 (livestock-heavy)
+        const tilt = -1 + 2 * eased;
+        // Beam rotation maps tilt → ±15°
+        scaleBeam.style.transform = 'rotate(' + (tilt * 15) + 'deg)';
+        // Livestock plate: at tilt=-1 (right side heavy), livestock is UP
+        // (top = PIVOT_Y - LIFT). At tilt=+1, livestock is DOWN (top = PIVOT_Y + LIFT).
+        if (plateLv) plateLv.style.top = (PIVOT_Y + LIFT * tilt) + 'px';
+        if (plateTx) plateTx.style.top = (PIVOT_Y - LIFT * tilt) + 'px';
+        // Smoke clouds (weight metaphor)
+        if (cloudLv) {
+          cloudLv.style.width   = (50 + 110 * eased) + 'px';
+          cloudLv.style.opacity = (0.4 + 0.5 * eased);
+        }
+        if (cloudTx) {
+          cloudTx.style.width   = (130 - 80 * eased) + 'px';
+          cloudTx.style.opacity = (0.7 - 0.4 * eased);
+        }
       }
-      window.addEventListener('scroll', onSwapScroll, { passive: true });
-      window.addEventListener('resize', onSwapScroll);
-      onSwapScroll();
+      window.addEventListener('scroll', onScaleScroll, { passive: true });
+      window.addEventListener('resize', onScaleScroll);
+      onScaleScroll();
 
       // ───────── Top progress bar ─────────
       const progressBar = document.getElementById('chapter-progress-bar');
@@ -2360,7 +2407,6 @@
       const QUIZ = window.QUIZ = { picks: [null, null, null, null], correct: [3, 3, 0, 2] };
       const quizCards    = document.querySelectorAll('.quiz-card');
       const quizDots     = document.querySelectorAll('.quiz-dot');
-      const quizCurr     = document.getElementById('quiz-curr');
       const quizBack     = document.getElementById('quiz-back');
       const quizComplete = document.getElementById('quiz-complete');
       const quizSection  = document.getElementById('quiz');
@@ -2407,20 +2453,27 @@
             const i = parseInt(opt.dataset.i, 10);
             QUIZ.picks[qIdx] = i;
             // Visual: only the pressed state changes — no right/wrong tint here.
+            // Crucially we DO NOT call renderAnswerKey() here, because that
+            // would mark data-state=correct/wrong on the cards and reveal
+            // the answer during the quiz. The answer key fires from its own
+            // IO observer when the 答え合わせ section enters view.
             card.querySelectorAll('.quiz-opt').forEach(o => o.setAttribute('aria-pressed', o === opt ? 'true' : 'false'));
-            // Auto-advance after a short pause; on Q4, just stay and trigger complete.
             const allAnswered = QUIZ.picks.every(p => p !== null);
             if (qIdx < 3) {
               setTimeout(() => showQuestion(qIdx + 1), 380);
             } else if (allAnswered) {
-              setTimeout(markComplete, 350);
+              // Q4 + all answered → fade in banner, then smooth-scroll to it.
+              setTimeout(() => {
+                markComplete();
+                const banner = document.getElementById('quiz-complete');
+                if (banner) banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }, 350);
             } else {
               // Q4 picked but earlier questions still null — jump back to the first null.
               const next = QUIZ.picks.findIndex(p => p === null);
               if (next !== -1) setTimeout(() => showQuestion(next), 380);
             }
             markComplete();
-            if (typeof window.renderAnswerKey === 'function') window.renderAnswerKey();
           });
         });
       });
