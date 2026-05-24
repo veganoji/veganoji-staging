@@ -414,8 +414,36 @@
     }
 
     .svc-tile { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; }
-    .svc-tile:hover { transform: translateY(-6px); border-color: var(--color-royal); box-shadow: 0 20px 40px -20px rgba(156,20,40,0.25); }
-    .svc-tile:hover .svc-num { color: var(--color-royal); }
+    /* Service-tile color tints (4 variants — one per service) */
+    .svc-tint-1 {
+      background: linear-gradient(160deg, #FFF4D8 0%, #FBE9B8 100%);
+      border-color: var(--color-gold);
+    }
+    .svc-tint-1:hover { border-color: var(--color-gold-deep); box-shadow: 0 20px 40px -20px rgba(212,168,71,0.40); }
+    .svc-tint-2 {
+      background: linear-gradient(160deg, #FCE4E8 0%, #F8C9D2 100%);
+      border-color: var(--color-royal-soft);
+    }
+    .svc-tint-2:hover { border-color: var(--color-royal); box-shadow: 0 20px 40px -20px rgba(201,34,58,0.30); }
+    .svc-tint-3 {
+      background: linear-gradient(160deg, #E6EEF7 0%, #C8DBED 100%);
+      border-color: #6B96B8;
+    }
+    .svc-tint-3:hover { border-color: #4E78A0; box-shadow: 0 20px 40px -20px rgba(78,120,160,0.30); }
+    .svc-tint-4 {
+      background: linear-gradient(160deg, #E8F0DC 0%, #C9DCB3 100%);
+      border-color: var(--color-leaf);
+    }
+    .svc-tint-4:hover { border-color: var(--color-leaf-deep); box-shadow: 0 20px 40px -20px rgba(108,149,96,0.35); }
+    /* Numeric "01-04" uses tile accent on hover instead of generic royal */
+    .svc-tint-1:hover .svc-num { color: var(--color-gold-deep); }
+    .svc-tint-2:hover .svc-num { color: var(--color-royal); }
+    .svc-tint-3:hover .svc-num { color: #4E78A0; }
+    .svc-tint-4:hover .svc-num { color: var(--color-leaf-deep); }
+
+
+    .svc-tile:hover { transform: translateY(-6px); }
+
 
     /* Horizontal-scroll rows for Work + Press */
     .h-scroll {
@@ -1060,9 +1088,9 @@
         <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-name">中京テレビ</a>
         <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-name">日経新聞</a>
         <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-name">ELLE スタイルインサイダー</a>
-        <span class="press-name">veggy</span>
+        <a href="https://www.instagram.com/veggy_jp/" target="_blank" rel="noopener" class="press-name">veggy</a>
         <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-name">Zakzak</a>
-        <span class="press-name">メトロポリターナ</span>
+        <a href="https://metropolitana.tokyo/ja" target="_blank" rel="noopener" class="press-name">メトロポリターナ</a>
         <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-name">ネプリーグ</a>
         <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-name">モニタリング</a>
         <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-name">世界くらべてみたら</a>
@@ -1074,9 +1102,9 @@
         <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">中京テレビ</a>
         <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-name" aria-hidden="true">日経新聞</a>
         <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-name" aria-hidden="true">ELLE スタイルインサイダー</a>
-        <span class="press-name" aria-hidden="true">veggy</span>
+        <a href="https://www.instagram.com/veggy_jp/" target="_blank" rel="noopener" class="press-name" aria-hidden="true">veggy</a>
         <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">Zakzak</a>
-        <span class="press-name" aria-hidden="true">メトロポリターナ</span>
+        <a href="https://metropolitana.tokyo/ja" target="_blank" rel="noopener" class="press-name" aria-hidden="true">メトロポリターナ</a>
         <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">ネプリーグ</a>
         <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">モニタリング</a>
         <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">世界くらべてみたら</a>
@@ -1167,11 +1195,10 @@
 
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 lg:mb-16 relative">
         <div>
-          <div class="ornament mb-4 sm:mb-6"><span>サービス</span></div>
-          <h2 class="font-display display-tight text-[42px] sm:text-[64px] lg:text-[88px] font-medium text-ink">
+              <h2 class="font-display display-tight text-[42px] sm:text-[64px] lg:text-[88px] font-medium text-ink">
             What the prince <span class="display-italic text-royal">does.</span>
           </h2>
-          <p class="font-jp-display text-[15px] sm:text-[18px] text-muted mt-2 sm:mt-3">王子の提供できること、いろいろ。<span class="md:hidden text-royal-soft">→ 横にスワイプ</span></p>
+          <p class="font-jp-display text-[15px] sm:text-[18px] text-muted mt-2 sm:mt-3">王子の提供できること、いろいろ。</p>
         </div>
         <img src="/images/mascot/mc-mic.png" alt="ビーガン王子 - MC" class="block absolute right-1 sm:right-3 -top-14 sm:-top-16 lg:-top-20 w-24 sm:w-28 lg:w-32 anim-tilt drop-shadow-lg pointer-events-none -z-10 opacity-95" loading="lazy"/>
         <a href="https://drive.google.com/file/d/1ungEEVMORVgH8B9wZw9ifKS0JZ_8K9PT/view?usp=drive_link" target="_blank" rel="noopener" class="btn-ghost self-start lg:self-auto !text-[13px] !px-5 !py-2.5">
@@ -1182,8 +1209,8 @@
 
       <div class="m-scroll m-scroll-2">
 
-        <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <img src="/images/ui-icons/note.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none -rotate-6 drop-shadow-md"/>
+        <article class="svc-tile svc-tint-1 rounded-2xl p-6 sm:p-8 lg:p-10 border-2 border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
+          <img src="/images/oji/oji_teaching.png" alt="" class="absolute -bottom-4 -right-2 sm:-right-3 w-28 h-28 sm:w-36 sm:h-36 opacity-95 pointer-events-none drop-shadow-lg"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">01</span>
           </div>
@@ -1201,8 +1228,8 @@
           </ul>
         </article>
 
-        <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <img src="/images/ui-icons/sparkle.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none rotate-6 drop-shadow-md"/>
+        <article class="svc-tile svc-tint-2 rounded-2xl p-6 sm:p-8 lg:p-10 border-2 border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
+          <img src="/images/oji/oji_confident.png" alt="" class="absolute -bottom-4 -right-2 sm:-right-3 w-28 h-28 sm:w-36 sm:h-36 opacity-95 pointer-events-none drop-shadow-lg"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">02</span>
           </div>
@@ -1220,8 +1247,8 @@
           </ul>
         </article>
 
-        <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <img src="/images/ui-icons/heart.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none -rotate-6 drop-shadow-md"/>
+        <article class="svc-tile svc-tint-3 rounded-2xl p-6 sm:p-8 lg:p-10 border-2 border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
+          <img src="/images/oji/oji_winking.png" alt="" class="absolute -bottom-4 -right-2 sm:-right-3 w-28 h-28 sm:w-36 sm:h-36 opacity-95 pointer-events-none drop-shadow-lg"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">03</span>
           </div>
@@ -1239,8 +1266,8 @@
           </ul>
         </article>
 
-        <article class="svc-tile bg-cream rounded-lg p-6 sm:p-8 lg:p-10 border border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <img src="/images/ui-icons/crown.png" alt="" class="absolute top-3 right-3 w-16 h-16 sm:w-20 sm:h-20 opacity-90 pointer-events-none rotate-3 drop-shadow-md"/>
+        <article class="svc-tile svc-tint-4 rounded-2xl p-6 sm:p-8 lg:p-10 border-2 border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
+          <img src="/images/oji/oji_presenting.png" alt="" class="absolute -bottom-4 -right-2 sm:-right-3 w-28 h-28 sm:w-36 sm:h-36 opacity-95 pointer-events-none drop-shadow-lg"/>
           <div class="flex items-start justify-between">
             <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">04</span>
           </div>
@@ -1270,7 +1297,6 @@
     <svg class="absolute bottom-32 right-[20%] w-6 h-6 text-gold-soft opacity-50 anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
-      <div class="ornament mb-8"><span style="color:#E8C76F">ミッション</span></div>
 
       <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] text-paper leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
         「やさしさと行動こそ、本当の<span class="text-gold-soft display-italic font-display font-medium">王子様</span>らしさ」
@@ -1336,11 +1362,10 @@
 
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 relative">
         <div>
-          <div class="ornament mb-6"><span>最近の活動</span></div>
           <h2 class="font-display display-tight text-[52px] lg:text-[88px] font-medium text-ink">
             Recent <span class="display-italic text-royal">moments.</span>
           </h2>
-          <p class="font-jp-display text-[18px] text-muted mt-3">最近の登壇・出演から、いくつか。<span class="text-royal-soft">→</span> 横にスワイプ</p>
+          <p class="font-jp-display text-[18px] text-muted mt-3">最近の登壇・出演から、いくつか。</p>
         </div>
         <img src="/images/mascot/running-carrot.png" alt="ビーガン王子 - ランニング" class="block absolute right-1 sm:right-3 -top-14 sm:-top-16 lg:-top-20 w-24 sm:w-28 lg:w-32 anim-bobble drop-shadow-lg pointer-events-none -z-10 opacity-95" loading="lazy"/>
         <a href="/activity/" class="text-ink-soft text-[13px] tracking-wider underline underline-offset-8 decoration-royal hover:text-royal transition-colors font-jp">
@@ -1364,7 +1389,6 @@
 
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
         <div>
-          <div class="ornament mb-4 sm:mb-6"><span style="color:#E8C76F">今後の予定</span></div>
           <h2 class="font-display display-tight text-[40px] sm:text-[60px] lg:text-[84px] font-medium">
             Catch the <span class="display-italic text-gold-soft">prince.</span>
           </h2>
@@ -1448,7 +1472,6 @@
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
 
       <div class="text-center mb-10">
-        <div class="ornament mb-6 justify-center"><span>プロフィール</span></div>
         <h2 class="font-display display-tight text-[44px] lg:text-[68px] font-medium text-ink">
           Meet the <span class="display-italic text-royal">prince.</span>
         </h2>
@@ -1585,7 +1608,6 @@
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
 
       <div class="max-w-[680px]">
-        <div class="ornament mb-6"><span style="color:#E8C76F">応援する</span></div>
         <h2 class="font-display display-tight text-[52px] lg:text-[80px] font-medium leading-[0.95]">
           Support the <span class="display-italic text-gold-soft">cause.</span>
         </h2>
@@ -1663,7 +1685,6 @@
     <svg class="absolute -left-32 top-20 w-[460px] h-[460px] text-gold opacity-[0.08]"><use href="#crown"/></svg>
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
-      <div class="ornament mb-4 sm:mb-6"><span>お仕事のご相談</span></div>
       <h2 class="font-display display-tight text-[40px] sm:text-[64px] lg:text-[88px] font-medium leading-[0.95] text-ink">
         Talk to <span class="display-italic text-royal">the prince.</span>
       </h2>
@@ -1770,11 +1791,10 @@
 
       <div class="hug-extra">
         <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener">LINEスタンプ発売中</a>
-        ・公式サイト <a href="https://veganoji.jp" target="_blank" rel="noopener">veganoji.jp</a>
       </div>
 
       <div class="hug-credit">
-        © 2026 ビーガン王子株式会社 / アレックス・デレチ · Made with ♡ in Tokyo
+        © 2026 ビーガン王子株式会社
       </div>
     </div>
   </footer>
