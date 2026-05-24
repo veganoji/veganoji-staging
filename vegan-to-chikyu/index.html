@@ -2205,13 +2205,8 @@
         });
       });
 
-      // Initialize with the pre-pressed option
-      window.__tracer = window.__tracer || []; window.__tracer.push('before-initial-update');
-      const initiallyPressed = document.querySelector('.diet-opt[aria-pressed="true"]');
-      if (initiallyPressed) updateShare(initiallyPressed.dataset.diet);
-      window.__tracer.push('after-initial-update');
-
-      // ───────── Share buttons ─────────
+      // ───────── Share buttons (declared BEFORE initial updateShare so
+      // that updateShareLinks doesn't TDZ on shareX/shareLine) ─────────
       const pageUrl = window.location.href.split('#')[0];
       const shareNative = document.getElementById('share-native');
       const shareX = document.getElementById('share-x');
@@ -2240,6 +2235,10 @@
         shareToast.style.opacity = '1';
         setTimeout(() => { shareToast.style.opacity = '0'; }, 2200);
       }
+
+      // Now that updateShareLinks' dependencies exist, do the initial run.
+      const initiallyPressed = document.querySelector('.diet-opt[aria-pressed="true"]');
+      if (initiallyPressed) updateShare(initiallyPressed.dataset.diet);
 
       if (shareNative) {
         if (navigator.share) {
@@ -2272,7 +2271,6 @@
       }
 
       // ───────── Answer reveal (答え合わせ) ─────────
-      window.__tracer = window.__tracer || []; window.__tracer.push('ans-start');
       const scoreNum = document.getElementById('score-num');
       const scoreMsg = document.getElementById('score-message');
       const scoreSub = document.getElementById('score-sub');
@@ -2386,9 +2384,7 @@
         quizShareX.href    = 'https://x.com/intent/tweet?text=' + encodeURIComponent(txt) + '&url=' + encodeURIComponent(pageUrl);
         quizShareLine.href = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(txt);
       }
-      window.__tracer.push('before-expose');
       window.renderAnswerKey = renderAnswerKey;
-      window.__tracer.push('after-expose');
 
       // Native share for the quiz card
       function showQuizToast(msg) {
