@@ -675,6 +675,64 @@
     [class*="btn-"] {
       font-weight: 700 !important;
     }
+    /* ─── Footer (Variation B — "Big Hug Goodbye") ─── */
+    .footer-hug {
+      position: relative; overflow: hidden;
+      background: linear-gradient(180deg, var(--color-paper) 0%, var(--color-cream-2) 100%);
+      padding: 56px 24px 32px;
+    }
+    .footer-hug::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 18px;
+      background-image: radial-gradient(circle at 12px 0, var(--color-cream) 12px, transparent 13px);
+      background-size: 24px 18px; background-repeat: repeat-x; pointer-events: none;
+    }
+    .footer-hug::after {
+      content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
+      background: linear-gradient(90deg, var(--color-royal) 0%, var(--color-gold) 50%, var(--color-royal) 100%);
+    }
+    .hug-inner {
+      max-width: 880px; margin: 0 auto; position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      gap: 24px;
+    }
+    .hug-prince {
+      width: 200px; height: auto;
+      filter: drop-shadow(0 14px 26px rgba(31,24,18,.18));
+      animation: hug-bobble 4s ease-in-out infinite;
+    }
+    @media (max-width: 640px) { .hug-prince { width: 150px; } }
+    @keyframes hug-bobble {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50%      { transform: translateY(-6px) rotate(-2deg); }
+    }
+    .hug-mata {
+      font-size: 110px; font-weight: 900; color: var(--color-royal);
+      line-height: 0.9; letter-spacing: -0.04em;
+      font-family: var(--font-cute-jp);
+    }
+    @media (max-width: 640px) { .hug-mata { font-size: 78px; } }
+    .hug-thanks { font-size: 16.5px; color: var(--color-ink-soft); margin-top: 8px; font-weight: 500; }
+    .hug-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 4px; }
+    .hug-social { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hug-social a {
+      display: inline-flex; width: 56px; height: 56px;
+      transition: transform .25s ease, filter .25s ease;
+      filter: drop-shadow(0 4px 8px rgba(31,24,18,.10));
+    }
+    .hug-social a:hover { transform: translateY(-3px) rotate(-4deg) scale(1.08); }
+    .hug-social img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .hug-nav {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 8px 22px; margin-top: 8px;
+      font-size: 14.5px; font-weight: 700; color: var(--color-ink-soft);
+    }
+    .hug-nav a { color: inherit; text-decoration: none; transition: color .18s ease; }
+    .hug-nav a:hover { color: var(--color-royal); }
+    .hug-extra { font-size: 13.5px; color: var(--color-muted); margin-top: -4px; }
+    .hug-extra a { color: var(--color-royal); text-decoration: none; font-weight: 600; }
+    .hug-extra a:hover { text-decoration: underline; }
+    .hug-credit { font-size: 12.5px; color: var(--color-muted); margin-top: 18px; letter-spacing: 0.04em; }
+
   </style>
 </head>
 <body class="font-sans">
@@ -1023,21 +1081,49 @@
     <article id="blog-post" class="hidden max-w-[760px] mx-auto"></article>
   </main>
 
-  <!-- ─────────────  BLOG FOOTER  ───────────── -->
-  <footer class="bg-cream border-t border-line py-10">
-    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-5">
-      <a href="/" class="flex items-center gap-2.5">
-        <svg width="24" height="24" class="text-royal"><use href="#crown"/></svg>
-        <span class="font-jp text-[18px] text-ink">ビーガン王子</span>
-      </a>
-      <div class="flex items-center gap-2.5">
-        <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-btn" data-brand="ig"><img src="/images/social/ig.png" alt=""/></a>
-        <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="social-icon-btn" data-brand="x"><img src="/images/social/x.png" alt=""/></a>
-        <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-btn" data-brand="yt"><img src="/images/social/yt.png" alt=""/></a>
-        <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon-btn" data-brand="tt"><img src="/images/social/tt.png" alt=""/></a>
-        <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon-btn" data-brand="li"><img src="/images/social/li.png" alt=""/></a>
+  <!-- ─────────────  FOOTER (Variation B — Big Hug Goodbye)  ───────────── -->
+  <footer class="footer-hug">
+    <div class="hug-inner">
+
+      <img class="hug-prince" src="/images/oji/oji_greeting.png" alt="ビーガン王子" loading="lazy" />
+
+      <div>
+        <div class="hug-mata">またね！</div>
+        <div class="hug-thanks">最後まで読んでくれて、ありがとう ♡</div>
       </div>
-      <span class="font-jp text-[11px] tracking-wider text-muted">© 2026 ビーガン王子株式会社</span>
+
+      <div class="hug-actions">
+        <a href="/#donate" class="btn-primary !text-[15px]">応援する</a>
+        <a href="/#booking" class="btn-ghost !text-[15px]">お仕事相談</a>
+      </div>
+
+      <div class="hug-social" aria-label="王子に会える場所">
+        <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram"><img src="/images/social/ig.png" alt=""/></a>
+        <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X"><img src="/images/social/x.png" alt=""/></a>
+        <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube"><img src="/images/social/yt.png" alt=""/></a>
+        <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok"><img src="/images/social/tt.png" alt=""/></a>
+        <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/images/social/li.png" alt=""/></a>
+      </div>
+
+      <nav class="hug-nav" aria-label="フッターナビゲーション">
+        <a href="/#about">王子について</a>
+        <a href="/#services">サービス</a>
+        <a href="/tools/">王子のツール</a>
+        <a href="/vegan-to-chikyu/">ビーガンと地球</a>
+        <a href="/umi-wo-kazoeru/">海をかぞえる</a>
+        <a href="/#work">活動</a>
+        <a href="/blog/">ブログ</a>
+        <a href="/#character">プロフィール</a>
+      </nav>
+
+      <div class="hug-extra">
+        <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener">LINEスタンプ発売中</a>
+        ・公式サイト <a href="https://veganoji.jp" target="_blank" rel="noopener">veganoji.jp</a>
+      </div>
+
+      <div class="hug-credit">
+        © 2026 ビーガン王子株式会社 / アレックス・デレチ · Made with ♡ in Tokyo
+      </div>
     </div>
   </footer>
 
