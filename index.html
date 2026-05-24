@@ -134,11 +134,6 @@
       background: linear-gradient(180deg, var(--color-paper) 0%, var(--color-cream-2) 100%);
       padding: 56px 24px 32px;
     }
-    .footer-hug::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 18px;
-      background-image: radial-gradient(circle at 12px 0, var(--color-cream) 12px, transparent 13px);
-      background-size: 24px 18px; background-repeat: repeat-x; pointer-events: none;
-    }
     .footer-hug::after {
       content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
       background: linear-gradient(90deg, var(--color-royal) 0%, var(--color-gold) 50%, var(--color-royal) 100%);
@@ -239,34 +234,62 @@
       box-shadow: 2px 2px 0 var(--color-ink);
     }
 
-    /* ─── Meet the Prince — pure CSS tabs ─── */
+    /* ─── Meet the Prince — separate chibi-pill tabs, auto-rotating ─── */
     .prince-tab-input { position: absolute; opacity: 0; pointer-events: none; }
-    .prince-tabs {
-      display: inline-flex; gap: 6px;
-      padding: 6px; margin: 0 auto 32px;
-      background: var(--color-paper);
-      border: 2px solid var(--color-ink);
-      border-radius: 999px;
+    .prince-tabs-row {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 14px sm:gap-18px;
+      margin: 0 auto 36px;
+    }
+    .prince-tab-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px;
+      background: var(--color-paper); color: var(--color-ink-soft);
+      border: 2.5px solid var(--color-ink);
+      border-radius: 16px;
       box-shadow: 4px 4px 0 var(--color-ink);
+      font-family: var(--font-cute-jp); font-weight: 700; font-size: 14.5px;
+      cursor: pointer; white-space: nowrap;
+      transition: transform 0.18s ease, box-shadow 0.18s ease,
+                  background 0.25s ease, color 0.25s ease;
     }
-    .prince-tabs-wrap { text-align: center; }
-    .prince-tab {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 9px 18px; border-radius: 999px;
-      font-family: var(--font-cute-jp); font-weight: 700; font-size: 14px;
-      color: var(--color-ink-soft); cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
-      white-space: nowrap;
+    @media (min-width: 640px) { .prince-tab-pill { padding: 13px 26px; font-size: 16px; gap: 10px; } }
+    .prince-tab-pill::before {
+      content: ""; width: 10px; height: 10px; border-radius: 999px;
+      background: var(--color-line); transition: background 0.25s ease, transform 0.25s ease;
+      flex-shrink: 0;
     }
-    .prince-tab:hover { color: var(--color-royal); }
-    @media (min-width: 640px) { .prince-tab { padding: 10px 22px; font-size: 15px; } }
-    #prince-tab-mascot:checked ~ .prince-tabs .prince-tab[data-tab="mascot"],
-    #prince-tab-alex:checked   ~ .prince-tabs .prince-tab[data-tab="alex"] {
+    .prince-tab-pill:hover {
+      transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink);
+      color: var(--color-royal);
+    }
+    /* Active state — checked input flips the matching pill */
+    #prince-tab-mascot:checked ~ .prince-tabs-row .prince-tab-pill[data-tab="mascot"],
+    #prince-tab-alex:checked   ~ .prince-tabs-row .prince-tab-pill[data-tab="alex"] {
       background: var(--color-royal); color: var(--color-paper);
+    }
+    #prince-tab-mascot:checked ~ .prince-tabs-row .prince-tab-pill[data-tab="mascot"]::before,
+    #prince-tab-alex:checked   ~ .prince-tabs-row .prince-tab-pill[data-tab="alex"]::before {
+      background: var(--color-gold-soft); transform: scale(1.2);
+    }
+    /* Auto-rotate hint: the inactive pill pulses gently so user knows it's clickable.
+       Once user clicks any pill, JS sets data-user-interacted on the row, halting the pulse. */
+    .prince-tabs-row:not([data-user-interacted]) .prince-tab-pill:not([data-tab="alex"]):not([data-tab="mascot"]),
+    .prince-tabs-row:not([data-user-interacted]) #prince-tab-alex:not(:checked) ~ .prince-tabs-row .prince-tab-pill[data-tab="alex"] { }
+    .prince-tabs-row:not([data-user-interacted]) .prince-tab-pill {
+      animation: pillPulse 2.4s ease-in-out infinite;
+    }
+    .prince-tabs-row:not([data-user-interacted]) .prince-tab-pill:nth-child(2) {
+      animation-delay: 1.2s;
+    }
+    @keyframes pillPulse {
+      0%, 100% { transform: translate(0,0); box-shadow: 4px 4px 0 var(--color-ink); }
+      48%, 52% { transform: translate(1px, 1px); box-shadow: 3px 3px 0 var(--color-ink); }
     }
     .prince-panel { display: none; }
     #prince-tab-mascot:checked ~ .prince-panel-mascot,
     #prince-tab-alex:checked   ~ .prince-panel-alex { display: block; }
+
 
 
 
@@ -473,10 +496,11 @@
     }
     .svc-header { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
     .svc-pose {
-      width: 88px; height: auto; flex-shrink: 0;
+      width: 96px; height: 96px;
+      flex-shrink: 0; object-fit: contain; object-position: center bottom;
       filter: drop-shadow(0 4px 8px rgba(31,24,18,0.14));
     }
-    @media (min-width: 768px) { .svc-pose { width: 104px; } }
+    @media (min-width: 768px) { .svc-pose { width: 112px; height: 112px; } }
     .svc-title {
       font-family: var(--font-jp-display);
       font-size: 20px; font-weight: 800;
@@ -1101,23 +1125,6 @@
         </div>
       </div>
 
-      <!-- DESKTOP quick facts (hidden on mobile to save space) -->
-      <div class="hidden lg:block lg:col-span-5 order-4 lg:order-4">
-        <div class="mt-8 grid grid-cols-3 gap-4 text-center">
-          <div>
-            <div class="font-display text-[28px] text-ink leading-none">'96</div>
-            <div class="text-[12px] tracking-[0.16em] uppercase text-muted mt-1.5 font-jp">L.A.生まれ</div>
-          </div>
-          <div>
-            <div class="font-display text-[28px] text-ink leading-none">5+1</div>
-            <div class="text-[12px] tracking-[0.16em] uppercase text-muted mt-1.5 font-jp">言語</div>
-          </div>
-          <div>
-            <div class="font-display text-[28px] text-ink leading-none">∞</div>
-            <div class="text-[12px] tracking-[0.16em] uppercase text-muted mt-1.5 font-jp">野菜LOVE</div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="hidden lg:flex absolute bottom-2 left-1/2 -translate-x-1/2 items-center flex-col gap-2 text-muted">
@@ -1130,17 +1137,17 @@
   <section class="bg-paper border-y border-line py-4 sm:py-5">
     <div class="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10">
       <div class="grid grid-cols-3 gap-2 sm:gap-3">
-        <a href="#booking" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-royal text-paper py-3 sm:py-3.5 px-2 sm:px-4 text-[13px] sm:text-[14px] font-jp hover:bg-royal-deep transition-colors text-center leading-tight">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="flex-shrink-0 hidden sm:block"><path d="M3 7h18M5 7v12a2 2 0 002 2h10a2 2 0 002-2V7M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          仕事を依頼
+        <a href="#booking" class="key-action flex items-center justify-center gap-2 sm:gap-3 rounded-2xl bg-royal text-paper py-2.5 sm:py-3 px-2 sm:px-4 text-[13px] sm:text-[14px] font-jp hover:bg-royal-deep transition-colors text-center leading-tight">
+          <img src="/images/ui-icons/briefcase.png" alt="" class="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 -my-1"/>
+          <span>仕事を依頼</span>
         </a>
-        <a href="/tools/" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-paper border-2 border-leaf-deep/30 text-leaf-deep py-3 sm:py-3.5 px-2 sm:px-4 text-[13px] sm:text-[14px] font-jp hover:bg-leaf/10 transition-colors text-center leading-tight">
-          <svg width="16" height="16" class="flex-shrink-0 hidden sm:block"><use href="#leaf"/></svg>
-          王子のツール
+        <a href="/tools/" class="key-action flex items-center justify-center gap-2 sm:gap-3 rounded-2xl bg-paper border-2 border-leaf-deep/30 text-leaf-deep py-2.5 sm:py-3 px-2 sm:px-4 text-[13px] sm:text-[14px] font-jp hover:bg-leaf/10 transition-colors text-center leading-tight">
+          <img src="/images/ui-icons/toolbox.png" alt="" class="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 -my-1"/>
+          <span>王子のツール</span>
         </a>
-        <a href="/blog/" class="key-action flex items-center justify-center gap-2 rounded-2xl bg-paper border-2 border-gold/40 text-gold-deep py-3 sm:py-3.5 px-2 sm:px-4 text-[13px] sm:text-[14px] font-jp hover:bg-gold/10 transition-colors text-center leading-tight">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="flex-shrink-0 hidden sm:block"><path d="M4 4h12l4 4v12H4z M16 4v4h4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="none"/></svg>
-          ブログを読む
+        <a href="/blog/" class="key-action flex items-center justify-center gap-2 sm:gap-3 rounded-2xl bg-paper border-2 border-gold/40 text-gold-deep py-2.5 sm:py-3 px-2 sm:px-4 text-[13px] sm:text-[14px] font-jp hover:bg-gold/10 transition-colors text-center leading-tight">
+          <img src="/images/ui-icons/book.png" alt="" class="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 -my-1"/>
+          <span>ブログを読む</span>
         </a>
       </div>
     </div>
@@ -1552,13 +1559,13 @@
         </p>
       </div>
 
-      <!-- Pure-CSS tabs: ビーガン王子 (mascot) / アレックス・デレチ (model) -->
-      <input type="radio" name="prince-tab" id="prince-tab-mascot" class="prince-tab-input" checked>
-      <input type="radio" name="prince-tab" id="prince-tab-alex" class="prince-tab-input">
-      <div style="text-align:center"><div class="prince-tabs" role="tablist">
-        <label for="prince-tab-mascot" class="prince-tab" data-tab="mascot">ビーガン王子</label>
-        <label for="prince-tab-alex"   class="prince-tab" data-tab="alex">アレックス・デレチ</label>
-      </div></div>
+      <!-- Pure-CSS tabs: タレント・モデル (alex, default) / ゆるキャラ (mascot) -->
+      <input type="radio" name="prince-tab" id="prince-tab-alex" class="prince-tab-input" checked>
+      <input type="radio" name="prince-tab" id="prince-tab-mascot" class="prince-tab-input">
+      <div class="prince-tabs-row" role="tablist">
+        <label for="prince-tab-alex"   class="prince-tab-pill" data-tab="alex" id="prince-tab-label-alex">タレント・モデル</label>
+        <label for="prince-tab-mascot" class="prince-tab-pill" data-tab="mascot" id="prince-tab-label-mascot">ゆるキャラ</label>
+      </div>
 
       <!-- Panel: Mascot -->
       <div class="prince-panel prince-panel-mascot">
@@ -1580,7 +1587,7 @@
 
             <!-- LINE Stamps CTA -->
             <div class="mt-6 max-w-[360px] mx-auto bg-paper border border-line rounded-2xl p-4 flex items-center gap-3 shadow-sm">
-              <svg width="36" height="36" class="text-line-stamp flex-shrink-0"><use href="#line-stamp"/></svg>
+              <img src="/images/social/line.png" alt="" class="w-10 h-10 flex-shrink-0"/>
               <div class="flex-1">
                 <div class="font-jp-display text-[14px] text-ink leading-tight">LINEスタンプ発売中！</div>
                 <div class="font-jp text-[11px] text-muted leading-relaxed">毎日の会話に、王子を。</div>
@@ -1592,7 +1599,7 @@
             </div>
           </div>
 
-          <div class="lg:col-span-7">
+          <div class="lg:col-span-7 space-y-5">
             <div class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-10 border-2 border-line shadow-sm relative">
               <div class="absolute -top-5 -left-5 w-14 h-14 rounded-full bg-royal text-paper flex items-center justify-center shadow-md rotate-[-8deg]">
                 <svg width="22" height="22"><use href="#crown"/></svg>
@@ -1627,7 +1634,6 @@
             <div class="absolute -top-3 -right-3 w-[103%] h-[103%] -z-10 rounded-3xl bg-paper border border-line"></div>
             <div class="relative bg-paper border border-line rounded-2xl overflow-hidden shadow-sm">
               <img src="https://veganoji.jp/wp-content/uploads/2026/03/Vegan-Oji_Profile-Picture.jpg" alt="アレックス・デレチ モデル写真" class="w-full block aspect-[4/5] object-cover" loading="lazy"/>
-              <div class="absolute top-4 left-4 chip border-royal/40 text-paper bg-royal/85">モデル・コンプカード</div>
             </div>
             <div class="text-center mt-6">
               <div class="font-jp-display text-[22px] text-ink" style="font-weight:900">Alex Derycz</div>
@@ -1635,7 +1641,7 @@
             </div>
           </div>
 
-          <div class="lg:col-span-7">
+          <div class="lg:col-span-7 space-y-5">
             <div class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-10 border-2 border-line shadow-sm relative">
               <div class="absolute -top-5 -left-5 w-14 h-14 rounded-full bg-gold text-ink flex items-center justify-center shadow-md rotate-[-8deg]">
                 <svg width="22" height="22"><use href="#sparkle"/></svg>
@@ -1645,7 +1651,6 @@
                   <h3 class="font-jp-display text-[26px] lg:text-[32px] text-ink font-medium leading-none">モデルプロフィール</h3>
                   <div class="font-jp italic text-[15px] text-muted mt-1">Comp Card</div>
                 </div>
-                <span class="chip border-gold/50 text-gold-deep bg-gold/10">非専属登録あり</span>
               </div>
 
               <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mb-5">
@@ -1664,6 +1669,19 @@
                 <div class="profile-row" data-row-open="false"><div class="profile-label">言語</div><div class="profile-value">英・仏・西・日・独・中国語（学習中）</div></div>
                 <div class="profile-row" data-row-open="false"><div class="profile-label">活動形態</div><div class="profile-value">ビーガン王子株式会社 代表取締役</div></div>
               </div>
+            </div>
+
+            <!-- LINE Stamps CTA on Alex tab too (王子 と alex は同一人物) -->
+            <div class="max-w-full bg-paper border border-line rounded-2xl p-4 flex items-center gap-3 shadow-sm">
+              <img src="/images/social/line.png" alt="" class="w-10 h-10 flex-shrink-0"/>
+              <div class="flex-1">
+                <div class="font-jp-display text-[14px] text-ink leading-tight" style="font-weight:800">LINEスタンプ発売中！</div>
+                <div class="font-jp text-[12px] text-muted leading-relaxed">毎日の会話に、王子を。</div>
+              </div>
+              <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener" class="btn-line !text-[12px] !px-4 !py-2">
+                <span class="font-jp">ゲット</span>
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -2029,5 +2047,31 @@
   </script>
 
   <script src="/js/draggable-mascots.js" defer></script>
+
+  <script>
+    // Auto-rotate Meet the Prince tabs every 5 seconds until user clicks/keys
+    (function () {
+      const inputs = [
+        document.getElementById('prince-tab-alex'),
+        document.getElementById('prince-tab-mascot')
+      ].filter(Boolean);
+      const row = document.querySelector('.prince-tabs-row');
+      if (inputs.length !== 2 || !row) return;
+      let idx = 0;
+      let timer = setInterval(rotate, 5000);
+      function rotate() {
+        idx = (idx + 1) % inputs.length;
+        inputs[idx].checked = true;
+      }
+      function stop() {
+        clearInterval(timer);
+        row.setAttribute('data-user-interacted', 'true');
+        inputs.forEach(i => i.removeEventListener('change', stop));
+        row.removeEventListener('click', stop);
+      }
+      inputs.forEach(i => i.addEventListener('change', stop));
+      row.addEventListener('click', stop);
+    })();
+  </script>
 </body>
 </html>
