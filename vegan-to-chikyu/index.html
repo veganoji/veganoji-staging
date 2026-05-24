@@ -246,6 +246,14 @@
       [data-pop="1"] { transform: scale(1); opacity: 1; transition: none; }
     }
 
+    /* CH1 size-swap stage — livestock grows huge while transport stays small */
+    .ch1-swap-img {
+      transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ch1-swap-img { transition: none; }
+    }
+
     /* ── Sticky chapter header ─────────────────────────────────────────
        Pins to the top of the viewport while you're inside the chapter
        section, unsticks when the section scrolls off, and the next
@@ -319,6 +327,84 @@
       border-bottom: 1px dotted var(--color-muted);
     }
     .src:hover { color: var(--color-ink); }
+
+    /* ── Quiz section background (red while answering, green when done) ─ */
+    .quiz-bg {
+      background:
+        radial-gradient(ellipse at 100% 0%, #F7CCB3, transparent 55%),
+        radial-gradient(ellipse at 0% 100%, #FCE4D9, transparent 60%),
+        #FCE4D9;
+      transition: background 1.4s ease-out;
+    }
+    .quiz-bg.is-complete {
+      background:
+        radial-gradient(ellipse at 100% 0%, #C7E2B8, transparent 55%),
+        radial-gradient(ellipse at 0% 100%, #E0F0D6, transparent 60%),
+        #E0F0D6;
+    }
+
+    /* Progress dots */
+    .quiz-dot {
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: rgba(31,24,18,0.18);
+      border: 2px solid rgba(31,24,18,0.35);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .quiz-dot.is-active {
+      background: var(--color-ink);
+      transform: scale(1.25);
+    }
+    .quiz-dot.is-done {
+      background: #3F6A3A;
+      border-color: #3F6A3A;
+    }
+    @media (min-width: 640px) {
+      .quiz-dot { width: 12px; height: 12px; }
+    }
+
+    /* Quiz card active/inactive — only one shown at a time */
+    .quiz-card { display: none; animation: quiz-fade-in 0.4s ease-out; }
+    .quiz-card[data-active="true"] { display: block; }
+    @keyframes quiz-fade-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .quiz-card { animation: none; }
+    }
+
+    /* ── Inline mini-quiz buttons (CH3 calorie guess) ───────────────── */
+    .ch3-cq-opt {
+      padding: 12px 10px;
+      background: var(--color-paper);
+      border: 2px solid var(--color-ink);
+      border-radius: 14px;
+      box-shadow: 3px 3px 0 var(--color-ink);
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 900;
+      font-size: 17px;
+      line-height: 1;
+      color: var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+    }
+    .ch3-cq-opt:hover { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .ch3-cq-opt[data-state="wrong"] {
+      background: #F8DCDC; color: #9C1428; border-color: #9C1428; box-shadow: 3px 3px 0 #9C1428;
+      animation: shake 0.4s;
+    }
+    .ch3-cq-opt[data-state="right"] {
+      background: #DCEFD8; color: var(--color-leaf-deep); border-color: var(--color-leaf-deep); box-shadow: 3px 3px 0 var(--color-leaf-deep);
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ch3-cq-opt[data-state="wrong"] { animation: none; }
+    }
 
     /* ── Quiz cards ─────────────────────────────────────────────────── */
     .quiz-q-num {
@@ -610,20 +696,17 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════════
-       ░  QUIZ INTRO — 4 questions, one per upcoming chapter.
-       ░  Answers stored in JS state; reveal happens at 答え合わせ section below.
+       ░  QUIZ INTRO — 4 questions, one at a time, with back nav.
+       ░  Answers are NOT revealed here; they show in 答え合わせ at the bottom.
+       ░  Section background transitions from red (active) to green (complete).
        ═══════════════════════════════════════════════════════════════════════ -->
-  <section id="quiz" class="chapter px-6 sm:px-10 relative"
-           data-chapter-num="00" data-chapter-label="クイズ"
-           style="background:
-             radial-gradient(ellipse at 0% 0%, rgba(232,199,111,0.35), transparent 55%),
-             radial-gradient(ellipse at 100% 100%, rgba(108,149,96,0.22), transparent 60%),
-             #FDF1DA;">
+  <section id="quiz" class="chapter px-6 sm:px-10 relative quiz-bg"
+           data-chapter-num="00" data-chapter-label="知識クイズ">
 
     <div class="sticky-head">
       <div class="sticky-head__pill">
         <span class="sticky-head__num" style="background: #D4A847;">？</span>
-        まずはクイズ
+        知識クイズ
       </div>
     </div>
 
@@ -631,8 +714,8 @@
 
       <div class="reveal text-center">
         <h2 class="font-jp-display display-tight text-[36px] sm:text-[60px] lg:text-[72px] text-ink leading-[1.05]">
-          でも、まずは<br/>
-          <span style="color: #9C7E2A;">クイズ！</span>
+          さて、ここで<br/>
+          <span style="color: #9C1428;">クイズです！</span>
         </h2>
         <p class="mt-6 font-jp text-ink-soft text-[15px] sm:text-[18px] leading-[1.95] max-w-xl mx-auto">
           先に4問だけ、考えてみて。<br/>
@@ -646,8 +729,17 @@
         </div>
       </div>
 
-      <div id="quiz-list" class="mt-12 sm:mt-16 space-y-7 sm:space-y-9">
-        <article class="reveal quiz-card sticker p-6 sm:p-8" data-q="0" data-correct="3">
+      <!-- Progress strip — small dots above the active card -->
+      <div class="reveal mt-10 sm:mt-12 flex items-center justify-center gap-2">
+        <span class="quiz-dot is-active" data-dot="0"></span>
+        <span class="quiz-dot" data-dot="1"></span>
+        <span class="quiz-dot" data-dot="2"></span>
+        <span class="quiz-dot" data-dot="3"></span>
+      </div>
+
+      <!-- One question at a time. All cards in the DOM; only one visible. -->
+      <div id="quiz-stage" class="mt-5 sm:mt-7 relative" style="min-height: 380px;">
+        <article class="quiz-card sticker p-6 sm:p-8" data-q="0" data-correct="3" data-active="true">
           <div class="flex items-baseline gap-3 mb-4">
             <span class="quiz-q-num" style="background: #C9223A;">Q1</span>
             <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
@@ -662,7 +754,7 @@
           </div>
         </article>
 
-        <article class="reveal quiz-card sticker p-6 sm:p-8" data-q="1" data-correct="3">
+        <article class="quiz-card sticker p-6 sm:p-8" data-q="1" data-correct="3">
           <div class="flex items-baseline gap-3 mb-4">
             <span class="quiz-q-num" style="background: #2B7AB0;">Q2</span>
             <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
@@ -677,7 +769,7 @@
           </div>
         </article>
 
-        <article class="reveal quiz-card sticker p-6 sm:p-8" data-q="2" data-correct="0">
+        <article class="quiz-card sticker p-6 sm:p-8" data-q="2" data-correct="0">
           <div class="flex items-baseline gap-3 mb-4">
             <span class="quiz-q-num" style="background: #C9532C;">Q3</span>
             <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
@@ -692,7 +784,7 @@
           </div>
         </article>
 
-        <article class="reveal quiz-card sticker p-6 sm:p-8" data-q="3" data-correct="2">
+        <article class="quiz-card sticker p-6 sm:p-8" data-q="3" data-correct="2">
           <div class="flex items-baseline gap-3 mb-4">
             <span class="quiz-q-num" style="background: #6B4E8C;">Q4</span>
             <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
@@ -708,12 +800,28 @@
         </article>
       </div>
 
-      <div class="reveal mt-12 sm:mt-16 text-center">
-        <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85]">
-          <span id="quiz-progress" class="font-bold">0 / 4</span> 問 答えた。<br/>
-          下に読み進めると、答えが見えてくるよ。
+      <!-- Back nav — visible only on Q2+. "Next" is implicit (auto-advance on pick). -->
+      <div id="quiz-nav" class="mt-5 flex items-center justify-between max-w-md mx-auto" style="min-height: 44px;">
+        <button id="quiz-back" type="button" class="btn-base btn-ghost" style="display:none; padding: 8px 16px; font-size: 13px;">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 2 L4 6 L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+          前の問題
+        </button>
+        <span class="font-jp text-[12px] sm:text-[13px] text-ink/55"><span id="quiz-curr">1</span> / 4</span>
+      </div>
+
+      <!-- Completion banner — hidden until all 4 answered -->
+      <div id="quiz-complete" class="mt-12 sm:mt-16 text-center" style="opacity: 0; transform: translateY(10px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; pointer-events: none;">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-paper text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-4"
+             style="background: #3F6A3A; border: 2px solid var(--color-ink); box-shadow: 3px 3px 0 var(--color-ink);">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L6 10 L11 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          ALL ANSWERED
+        </div>
+        <p class="font-jp-display text-[20px] sm:text-[26px] text-ink leading-[1.5]">
+          おつかれさま！<br/>
+          このあとの4つの章を読むと、<span style="color: #3F6A3A;">答えが見えてくる</span>よ。
         </p>
-        <div class="mt-4 inline-flex flex-col items-center gap-1 text-ink/45">
+        <div class="mt-6 inline-flex flex-col items-center gap-1 text-ink/65">
+          <span class="font-jp text-[14px] tracking-[0.06em] font-bold">下にスクロール</span>
           <svg width="14" height="20" viewBox="0 0 14 20" fill="none" class="animate-bounce">
             <path d="M7 2 L7 16 M2 11 L7 16 L12 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
           </svg>
@@ -774,38 +882,31 @@
           動物畜産による温室効果ガスは、<br/>
           世界の<span class="font-bold">飛行機・船・車・電車</span>、全部を合わせたよりも——
         </p>
-        <div class="mt-6 sm:mt-8 flex items-baseline gap-3 sm:gap-4 flex-wrap">
-          <span class="big-number ticker text-[64px] sm:text-[120px]" style="color: #C9223A;">もっと</span>
+        <div class="mt-6 sm:mt-8 flex items-baseline justify-center gap-3 sm:gap-4 flex-wrap">
+          <span data-pop="1" class="big-number ticker text-[96px] sm:text-[160px] inline-block" style="color: #C9223A;">もっと</span>
           <span class="font-jp-display text-[28px] sm:text-[40px] text-ink">多い。<a href="#src-1-1" class="src">1</a></span>
         </div>
 
-        <!-- Mini visual: transport icons vs animal-ag CO2 -->
-        <div class="mt-8 grid grid-cols-2 gap-4 items-center">
-          <!-- LHS: CO2 cloud + factory chibi icons -->
-          <div class="flex flex-col items-center gap-3 p-4 rounded-xl border-2 border-ink/15"
-               style="background: rgba(255,249,238,0.6);">
-            <div class="flex items-center -space-x-3">
-              <img src="/images/vegan-to-chikyu/icon-co2-cloud.png" alt="" class="w-14 sm:w-16 anim-bobble" loading="lazy"/>
-              <img src="/images/vegan-to-chikyu/icon-factory.png"  alt="" class="w-14 sm:w-16 anim-bobble" style="animation-delay:-1.5s;" loading="lazy"/>
-            </div>
-            <span class="font-jp text-[12px] sm:text-[13px] text-ink/70 text-center">畜産</span>
+        <!-- Scroll-driven size swap: both visuals start at parity; as the user
+             scrolls, the 畜産 side grows huge while 全交通機関 stays compact.
+             No grid columns — flex with items free to grow to their own width. -->
+        <div id="ch1-swap-stage" class="mt-10 sm:mt-12 flex items-end justify-around gap-4 min-h-[260px]">
+          <div class="flex flex-col items-center gap-3">
+            <img id="ch1-livestock" src="/images/vegan-to-chikyu/icon-livestock-group.png" alt="畜産"
+                 class="ch1-swap-img anim-bobble drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]"
+                 style="width: 80px;"
+                 loading="lazy"/>
+            <span class="font-jp text-[13px] sm:text-[15px] text-ink font-bold">畜産</span>
           </div>
-          <!-- RHS: all transport types -->
-          <div class="flex flex-col items-center gap-3 p-4 rounded-xl border-2 border-ink/15"
-               style="background: rgba(255,249,238,0.6);">
-            <div class="flex items-end gap-1.5 flex-wrap justify-center">
-              <!-- car -->
-              <svg viewBox="0 0 32 20" class="w-7 sm:w-8 h-auto"><path d="M3 14 L6 7 L26 7 L29 14 L29 17 L3 17 Z" fill="#1F1812"/><circle cx="9" cy="17" r="2.5" fill="#FFF9EE" stroke="#1F1812" stroke-width="1"/><circle cx="23" cy="17" r="2.5" fill="#FFF9EE" stroke="#1F1812" stroke-width="1"/></svg>
-              <!-- plane -->
-              <svg viewBox="0 0 32 20" class="w-7 sm:w-8 h-auto"><path d="M3 11 L13 9 L18 3 L22 3 L20 10 L29 9 L29 12 L20 13 L22 19 L18 19 L13 13 L3 13 Z" fill="#1F1812"/></svg>
-              <!-- ship -->
-              <svg viewBox="0 0 32 20" class="w-7 sm:w-8 h-auto"><path d="M3 13 L29 13 L26 17 L6 17 Z" fill="#1F1812"/><rect x="11" y="6" width="14" height="7" fill="#1F1812"/><rect x="15" y="2" width="3" height="6" fill="#1F1812"/></svg>
-              <!-- train -->
-              <svg viewBox="0 0 32 20" class="w-7 sm:w-8 h-auto"><rect x="5" y="4" width="22" height="11" rx="2" fill="#1F1812"/><circle cx="10" cy="17" r="1.6" fill="#1F1812"/><circle cx="22" cy="17" r="1.6" fill="#1F1812"/><rect x="8" y="7" width="4" height="4" fill="#FFF9EE"/><rect x="14" y="7" width="4" height="4" fill="#FFF9EE"/><rect x="20" y="7" width="4" height="4" fill="#FFF9EE"/></svg>
-            </div>
-            <span class="font-jp text-[12px] sm:text-[13px] text-ink/70 text-center">全交通機関</span>
+          <div class="flex flex-col items-center gap-3">
+            <img id="ch1-transport" src="/images/vegan-to-chikyu/icon-transport-mix.png" alt="全交通機関"
+                 class="ch1-swap-img anim-bobble drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]"
+                 style="width: 80px; animation-delay:-1.5s;"
+                 loading="lazy"/>
+            <span class="font-jp text-[13px] sm:text-[15px] text-ink font-bold">全交通機関</span>
           </div>
         </div>
+        <p class="mt-4 font-jp text-ink/55 text-[12px] sm:text-[13px] text-center">下にスクロールして、ふくらませてみよう</p>
       </div>
 
       <!-- Methane 28x + N2O 265x: the multiplier shocker -->
@@ -959,70 +1060,81 @@
         <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9]">
           お肉<span class="font-bold">1キロ</span>を作るのに必要なお水は——
         </p>
-        <div class="mt-6 sm:mt-8 flex items-baseline gap-2 flex-wrap">
-          <div data-count-target="15400" class="big-number ticker text-[64px] sm:text-[110px]" style="color: #2B7AB0;">0</div>
-          <span class="font-jp-display text-[28px] sm:text-[44px] text-ink">L<a href="#src-2-1" class="src">7</a></span>
+        <div class="mt-6 sm:mt-8 flex items-baseline justify-center gap-2 flex-wrap">
+          <div data-count-target="15400" data-pop="1" class="big-number ticker text-[80px] sm:text-[140px] inline-block" style="color: #2B7AB0;">0</div>
+          <span class="font-jp-display text-[32px] sm:text-[48px] text-ink">L<a href="#src-2-1" class="src">7</a></span>
         </div>
 
-        <!-- Bottle visual: meat vs wheat vs veg -->
+        <!-- お風呂 (Japanese ofuro ≈ 180L) comparison — meat 1kg = ~85 baths.
+             Wheat 1kg = ~8 baths, veggies 1kg = ~2 baths. -->
         <div class="mt-8 sm:mt-10">
-          <div class="grid grid-cols-3 gap-2 sm:gap-4">
-            <!-- Meat: tall bottle -->
+          <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.8] text-center mb-6">
+            お風呂(<span class="font-bold">180L</span>)に置き換えると——
+          </p>
+          <div class="grid grid-cols-3 gap-3 sm:gap-5">
+            <!-- Meat: huge stack -->
             <div class="flex flex-col items-center">
-              <div class="relative w-full max-w-[90px]" style="height: 160px;">
-                <div class="absolute inset-0 mx-auto rounded-b-2xl rounded-t-md border-2 border-ink overflow-hidden"
-                     style="background: rgba(255,249,238,0.7);">
-                  <div class="absolute inset-x-0 bottom-0 transition-all duration-1000"
-                       data-bottle-fill="100"
-                       style="background: linear-gradient(180deg, #5BA0CE, #2B7AB0); height: 0%;"></div>
+              <div class="relative" style="height: 170px;">
+                <div class="absolute inset-x-0 bottom-0 flex flex-col items-center" style="gap: 1px;">
+                  <!-- 12 stacked bathtub icons to represent ~85 baths visually -->
+                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12" loading="lazy"/>
+                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
+                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
+                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
+                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
+                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
+                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 -mt-3" loading="lazy"/>
                 </div>
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-3 border-2 border-ink rounded"
-                     style="background: var(--color-paper);"></div>
               </div>
               <div class="mt-3 text-center">
-                <div class="font-jp-display text-[14px] sm:text-[18px] text-ink ticker">15,400 L</div>
+                <div class="font-jp-display text-[16px] sm:text-[20px] ticker" style="color: #2B7AB0;">約85回</div>
                 <div class="font-jp text-[12px] sm:text-[13px] text-ink/65">お肉 1kg</div>
               </div>
             </div>
-            <!-- Wheat: medium bottle -->
+            <!-- Wheat: small stack -->
             <div class="flex flex-col items-center">
-              <div class="relative w-full max-w-[90px]" style="height: 160px;">
-                <div class="absolute inset-0 mx-auto rounded-b-2xl rounded-t-md border-2 border-ink overflow-hidden"
-                     style="background: rgba(255,249,238,0.7);">
-                  <div class="absolute inset-x-0 bottom-0 transition-all duration-1000"
-                       data-bottle-fill="10"
-                       style="background: linear-gradient(180deg, #5BA0CE, #2B7AB0); height: 0%;"></div>
+              <div class="relative" style="height: 170px;">
+                <div class="absolute inset-x-0 bottom-0 flex flex-col items-center" style="gap: 1px;">
+                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-10 sm:w-12 opacity-70" loading="lazy"/>
                 </div>
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-3 border-2 border-ink rounded"
-                     style="background: var(--color-paper);"></div>
               </div>
               <div class="mt-3 text-center">
-                <div class="font-jp-display text-[14px] sm:text-[18px] text-ink ticker">1,500 L</div>
+                <div class="font-jp-display text-[16px] sm:text-[20px] ticker text-ink/80">約8回</div>
                 <div class="font-jp text-[12px] sm:text-[13px] text-ink/65">小麦 1kg</div>
               </div>
             </div>
-            <!-- Veg: tiny bottle -->
+            <!-- Veg: half tub -->
             <div class="flex flex-col items-center">
-              <div class="relative w-full max-w-[90px]" style="height: 160px;">
-                <div class="absolute inset-0 mx-auto rounded-b-2xl rounded-t-md border-2 border-ink overflow-hidden"
-                     style="background: rgba(255,249,238,0.7);">
-                  <div class="absolute inset-x-0 bottom-0 transition-all duration-1000"
-                       data-bottle-fill="2"
-                       style="background: linear-gradient(180deg, #5BA0CE, #2B7AB0); height: 0%;"></div>
+              <div class="relative" style="height: 170px;">
+                <div class="absolute inset-x-0 bottom-0 flex flex-col items-center" style="gap: 1px;">
+                  <img src="/images/vegan-to-chikyu/icon-bathtub.png" alt="" class="w-7 sm:w-9 opacity-60" loading="lazy"/>
                 </div>
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-3 border-2 border-ink rounded"
-                     style="background: var(--color-paper);"></div>
               </div>
               <div class="mt-3 text-center">
-                <div class="font-jp-display text-[14px] sm:text-[18px] text-ink ticker">300 L</div>
+                <div class="font-jp-display text-[16px] sm:text-[20px] ticker text-ink/70">約2回</div>
                 <div class="font-jp text-[12px] sm:text-[13px] text-ink/65">野菜 1kg</div>
               </div>
             </div>
           </div>
           <p class="mt-6 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.75] text-center">
-            同じ1キロでも、こんなに違う。<a href="#src-2-2" class="src">8</a><br/>
-            アメリカでは使われるお水の<span class="font-bold">約半分</span>が動物畜産。住宅はわずか5%。<a href="#src-2-3" class="src">9</a>
+            同じ1キロでも、これだけ違う。<a href="#src-2-2" class="src">8</a>
           </p>
+        </div>
+
+        <!-- Japan-specific virtual-water fact -->
+        <div class="mt-8 sm:mt-10 p-5 sm:p-6 rounded-2xl border-2 border-ink/15"
+             style="background: rgba(220,238,248,0.6);">
+          <div class="flex items-start gap-4">
+            <img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0" loading="lazy"/>
+            <div>
+              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] font-bold mb-1" style="color: #1B5C8B;">日本のケース</div>
+              <p class="font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.8]">
+                日本が海外から「持ち込んでいる水」は年間<span class="font-bold">約800億m³</span>。<br/>
+                そのほとんどが食料、特に肉類のために使われている。<a href="#src-2-3" class="src">9</a>
+                <span class="text-ink/55">（日本国内で使うお水の量とほぼ同じ）</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1082,52 +1194,75 @@
         </p>
       </div>
 
-      <!-- Animal waste + ocean trash strip -->
-      <div class="reveal mt-12 sm:mt-16">
-        <div class="factstrip">
-          <div class="factstrip__cell">
-            <div class="factstrip__icon" style="padding:0; background:transparent; border:none; box-shadow:none;">
-              <img src="/images/vegan-to-chikyu/icon-waste.png" alt="" class="w-12 h-12" loading="lazy"/>
+      <!-- WASTE — combined section. A poo grows uncontrollably as the user
+           scrolls into view, with a live counter calculating cumulative
+           livestock waste produced since the user opened the page. -->
+      <div class="reveal mt-14 sm:mt-20 sticker p-6 sm:p-10 relative overflow-hidden">
+        <div class="text-center mb-4 sm:mb-6">
+          <div class="text-[11px] sm:text-[12px] tracking-[0.18em] font-bold mb-2" style="color: #1B5C8B;">そして、出るのは……</div>
+          <h3 class="font-jp-display text-[24px] sm:text-[36px] leading-[1.35] text-ink">
+            水だけじゃない。<br/>
+            <span style="color: #2B7AB0;">大量の "排泄物"</span>。
+          </h3>
+        </div>
+
+        <!-- Poo stage — image grows from tiny to huge as user scrolls; counter
+             counts up live (40,000 kg per second of viewing time). -->
+        <div id="poo-stage" class="relative flex flex-col items-center justify-end" style="min-height: 320px;">
+          <img id="poo-img" src="/images/vegan-to-chikyu/icon-poo.png"
+               alt="動物畜産の排泄物" loading="lazy"
+               style="width: 90px; transition: width 0.6s ease-out;"
+               class="drop-shadow-[0_6px_14px_rgba(31,24,18,0.18)]"/>
+
+          <div class="mt-4 sm:mt-6 text-center">
+            <div class="font-jp text-ink-soft text-[12px] sm:text-[13px] tracking-[0.12em]">このページを見ているあいだに……</div>
+            <div class="mt-2 flex items-baseline justify-center gap-2">
+              <span id="poo-counter" class="big-number ticker text-[40px] sm:text-[60px]" style="color: #2B7AB0;">0</span>
+              <span class="font-jp-display text-[18px] sm:text-[24px] text-ink">kg の排泄物</span>
             </div>
-            <div>
-              <div class="font-jp-display text-[18px] sm:text-[22px] text-ink ticker" style="color: #2B7AB0;">40,000 kg / 秒</div>
-              <p class="font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.7] mt-1">
-                動物畜産から1秒ごとに発生する排泄物。 処理施設を通らずに流れ、地下水汚染の原因に。<a href="#src-2-6" class="src">12</a>
-              </p>
-            </div>
+            <p class="mt-2 font-jp text-ink-soft text-[12px] sm:text-[13px] leading-[1.7]">
+              世界の動物畜産は、<span class="font-bold">1秒で約40,000kg</span>の排泄物を出している。<a href="#src-2-6" class="src">12</a>
+            </p>
           </div>
-          <div class="factstrip__cell">
-            <div class="factstrip__icon" style="padding:0; background:transparent; border:none; box-shadow:none;">
-              <img src="/images/vegan-to-chikyu/icon-ocean-trash.png" alt="" class="w-12 h-12" loading="lazy"/>
-            </div>
-            <div>
-              <div class="font-jp-display text-[18px] sm:text-[22px] text-ink ticker" style="color: #2B7AB0;">海ごみの 45%</div>
-              <p class="font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.7] mt-1">
-                太平洋ごみベルトの<span class="font-bold">およそ45%</span>は捨てられた漁網や漁具。プラスチックストローは0.03%。<a href="#src-2-7" class="src">13</a>
-              </p>
-            </div>
+        </div>
+
+        <!-- Supporting facts -->
+        <div class="mt-8 sm:mt-10 grid sm:grid-cols-2 gap-4">
+          <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink/15" style="background: rgba(255,249,238,0.6);">
+            <div class="font-jp-display text-[18px] sm:text-[22px] ticker" style="color: #2B7AB0;">40億トン / 年</div>
+            <p class="mt-1 font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.7]">
+              2030年までに動物畜産が出す排泄物の予測。<a href="#src-2-8" class="src">14</a>
+            </p>
           </div>
-          <div class="factstrip__cell">
-            <div class="factstrip__icon" style="padding:0; background:transparent; border:none; box-shadow:none;">
-              <img src="/images/vegan-to-chikyu/icon-water-drop.png" alt="" class="w-12 h-12" loading="lazy"/>
-            </div>
-            <div>
-              <div class="font-jp-display text-[18px] sm:text-[22px] text-ink ticker" style="color: #2B7AB0;">40億トン / 年</div>
-              <p class="font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.7] mt-1">
-                2030年までに、動物畜産による排泄物が毎年達する量の予測。川を汚し、病気の原因に。<a href="#src-2-8" class="src">14</a>
-              </p>
-            </div>
+          <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink/15" style="background: rgba(255,249,238,0.6);">
+            <div class="font-jp-display text-[18px] sm:text-[22px] ticker" style="color: #2B7AB0;">8,545 万トン</div>
+            <p class="mt-1 font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.7]">
+              日本で1996年時点の、動物からの排泄物。<a href="#src-2-9" class="src">15</a>
+            </p>
           </div>
-          <div class="factstrip__cell">
-            <div class="factstrip__icon" style="padding:0; background:transparent; border:none; box-shadow:none;">
-              <img src="/images/vegan-to-chikyu/icon-grazing-cow.png" alt="" class="w-12 h-12" loading="lazy"/>
-            </div>
-            <div>
-              <div class="font-jp-display text-[18px] sm:text-[22px] text-ink ticker" style="color: #2B7AB0;">8,545 万トン</div>
-              <p class="font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.7] mt-1">
-                日本では1996年の時点で、動物からの排泄物がこの量にのぼっていた。<a href="#src-2-9" class="src">15</a>
-              </p>
-            </div>
+        </div>
+
+        <p class="mt-6 font-jp text-ink-soft text-[12px] sm:text-[13px] leading-[1.7] text-center">
+          これらは処理施設を通らず、地下水や川を汚す原因にもなる。
+        </p>
+      </div>
+
+      <!-- Ocean trash — its own card with CTA to umi-wo-kazoeru -->
+      <div class="reveal mt-10 sm:mt-12 sticker-soft p-6 sm:p-9">
+        <div class="grid sm:grid-cols-[auto_1fr] gap-5 sm:gap-7 items-center">
+          <img src="/images/vegan-to-chikyu/icon-fishing-net.png" alt="" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto sm:mx-0 flex-shrink-0 anim-bobble" loading="lazy"/>
+          <div class="text-center sm:text-left">
+            <div class="text-[11px] sm:text-[12px] tracking-[0.18em] font-bold mb-1" style="color: #1B5C8B;">海のこと</div>
+            <h3 class="font-jp-display text-[20px] sm:text-[26px] leading-[1.4] text-ink mb-2">
+              海ごみの<span style="color: #2B7AB0;"> およそ45% </span>は、捨てられた漁網や漁具。
+            </h3>
+            <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.75] mb-4">
+              プラスチックのストローはわずか0.03%。海洋汚染の本当の出所はもっと深いところに。<a href="#src-2-7" class="src">13</a>
+            </p>
+            <a href="/umi-wo-kazoeru/" class="btn-base inline-flex" style="background: #2B7AB0; color: var(--color-paper); padding: 8px 18px; font-size: 13px;">
+              海についても学ぼう
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6 L10 6 M6 2 L10 6 L6 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -1183,22 +1318,28 @@
           動物畜産が使っている、地球の土地。
         </p>
         <div class="mt-6 sm:mt-8 flex items-baseline gap-2 flex-wrap">
-          <div data-count-target="30" data-count-suffix="%" class="big-number ticker text-[80px] sm:text-[140px]" style="color: #C9532C;">0%</div>
+          <div data-count-target="30" data-count-suffix="%" data-pop="1" class="big-number ticker text-[96px] sm:text-[170px] inline-block" style="color: #C9532C;">0%</div>
           <span class="font-jp-display text-[24px] sm:text-[36px] text-ink/80 ml-2">の土地。<a href="#src-3-1" class="src">16</a></span>
         </div>
 
         <!-- Globe stage: pie + Asia + moon -->
         <div class="mt-8 sm:mt-12">
           <div class="grid sm:grid-cols-3 gap-6 items-center">
-            <!-- Pie 30% -->
+            <!-- Earth — chibi globe with a 30% wedge inset overlay -->
             <div class="flex flex-col items-center">
-              <div class="pie anim-spin-slow" style="
-                background: conic-gradient(
-                  #C9532C 0deg 108deg,
-                  #FDF1DA 108deg 360deg
-                );">
+              <div class="relative anim-bobble">
+                <img src="/images/vegan-to-chikyu/icon-earth-detailed.png" alt="" class="w-36 sm:w-44" loading="lazy"/>
+                <!-- Coral wedge overlay covering 30% of the globe -->
+                <div class="absolute pointer-events-none" style="
+                  inset: 8%;
+                  border-radius: 50%;
+                  background: conic-gradient(
+                    rgba(201,83,44,0.55) 0deg 108deg,
+                    transparent 108deg 360deg);
+                  mix-blend-mode: multiply;
+                "></div>
               </div>
-              <div class="mt-3 text-center font-jp text-[13px] sm:text-[14px] text-ink/70">地球の30%</div>
+              <div class="mt-3 text-center font-jp text-[13px] sm:text-[14px] text-ink/70">地球の<span class="font-bold" style="color: #C9532C;">30%</span></div>
             </div>
             <!-- equals -->
             <div class="flex flex-col items-center text-center">
@@ -1213,43 +1354,49 @@
             </div>
             <!-- Moon comparison -->
             <div class="flex flex-col items-center">
-              <img src="/images/vegan-to-chikyu/icon-moon.png" alt="" class="w-36 sm:w-44 anim-bobble" loading="lazy"/>
+              <img src="/images/vegan-to-chikyu/icon-moon.png" alt="" class="w-36 sm:w-44 anim-bobble" loading="lazy" style="animation-delay:-2s;"/>
               <div class="mt-3 text-center font-jp text-[13px] sm:text-[14px] text-ink/70">月</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 8:2 farmland vs calories -->
-      <div class="reveal mt-12 sm:mt-16 sticker-soft p-6 sm:p-9">
+      <!-- 8:2 farmland vs calories — interactive guess -->
+      <div id="ch3-calorie-quiz" class="reveal mt-12 sm:mt-16 sticker-soft p-6 sm:p-9" data-correct="20">
+        <div class="text-[11px] sm:text-[12px] tracking-[0.18em] font-bold mb-2" style="color: #8E3A1B;">クイズ</div>
         <h3 class="font-jp-display text-[20px] sm:text-[28px] leading-[1.4] text-ink">
-          そして、地球の<span style="color: #C9532C;">農地の8割</span>を使って——
+          地球の<span style="color: #C9532C;">農地の8割</span>を畜産が使っている。<br/>
+          じゃあ、世界のカロリーの何%を生み出してる？
         </h3>
 
-        <div class="mt-6 grid sm:grid-cols-2 gap-5 sm:gap-7">
+        <div id="ch3-cq-options" class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+          <button type="button" class="ch3-cq-opt" data-val="20">20%</button>
+          <button type="button" class="ch3-cq-opt" data-val="50">50%</button>
+          <button type="button" class="ch3-cq-opt" data-val="80">80%</button>
+          <button type="button" class="ch3-cq-opt" data-val="100">100%</button>
+        </div>
+
+        <div id="ch3-cq-feedback" class="mt-5" style="min-height: 24px;">
+          <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] text-center leading-[1.7]">直感で選んでみて。</p>
+        </div>
+
+        <!-- Reveal block — shown after correct answer -->
+        <div id="ch3-cq-reveal" class="mt-6 grid sm:grid-cols-2 gap-5 sm:gap-7" style="display: none;">
           <div>
             <div class="text-[11px] sm:text-[12px] tracking-[0.18em] text-ink/55 mb-2">畜産が使っている農地</div>
-            <div class="flex items-baseline gap-2">
-              <div class="big-number ticker text-[58px] sm:text-[80px]" style="color: #C9532C;">80%</div>
-            </div>
-            <div class="bar-track mt-3">
-              <div class="bar-fill" data-bar-target="80" style="background: #C9532C;"></div>
-            </div>
+            <div class="big-number ticker text-[58px] sm:text-[80px]" style="color: #C9532C;">80%</div>
+            <div class="bar-track mt-3"><div class="bar-fill" style="width: 80%; background: #C9532C;"></div></div>
           </div>
           <div>
             <div class="text-[11px] sm:text-[12px] tracking-[0.18em] text-ink/55 mb-2">産み出されるカロリー</div>
-            <div class="flex items-baseline gap-2">
-              <div class="big-number ticker text-[58px] sm:text-[80px] text-ink/70">20%</div>
-            </div>
-            <div class="bar-track mt-3">
-              <div class="bar-fill" data-bar-target="20" style="background: var(--color-leaf);"></div>
-            </div>
+            <div class="big-number ticker text-[58px] sm:text-[80px] text-ink/70">20%</div>
+            <div class="bar-track mt-3"><div class="bar-fill" style="width: 20%; background: var(--color-leaf);"></div></div>
           </div>
+          <p class="sm:col-span-2 mt-2 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85]">
+            こんな大きな土地を使っているのに、世界のカロリーの<span class="font-bold">2割</span>しか産まない。<a href="#src-3-2" class="src">17</a><br/>
+            余った土地は、砂漠化や干ばつにもつながっていく。<a href="#src-3-3" class="src">18</a>
+          </p>
         </div>
-        <p class="mt-6 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85]">
-          こんな大きな土地を使っているのに、世界のカロリーの<span class="font-bold">2割</span>しか産まない。<a href="#src-3-2" class="src">17</a><br/>
-          余った土地は、砂漠化や干ばつにもつながっていく。<a href="#src-3-3" class="src">18</a>
-        </p>
       </div>
 
       <!-- 96% mammals pie chart -->
@@ -1926,7 +2073,7 @@
             <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker" start="7">
               <li id="src-2-1"><span class="font-bold">7.</span> Mekonnen, M.M. & Hoekstra, A.Y. (2010). The green, blue and grey water footprint of farm animals and animal products. Value of Water Research Report Series No. 48, UNESCO-IHE, Delft, the Netherlands.</li>
               <li id="src-2-2"><span class="font-bold">8.</span> Gerbens-Leenes, P.W., Mekonnen, M.M., Hoekstra, A.Y. (2013). The water footprint of poultry, pork and beef: A comparative study in different countries and production systems. Water Resources and Industry, 1–2: 25–36.</li>
-              <li id="src-2-3"><span class="font-bold">9.</span> Jacobson, M.F. Six Arguments For a Greener Diet: How a More Plant-based Diet Could Save Your Health and the Environment. Ch. 4: More and Cleaner Water. Center for Science in the Public Interest.</li>
+              <li id="src-2-3"><span class="font-bold">9.</span> 環境省「virtual water」ポータル — 沖大幹（東京大学生産技術研究所）監修。2005年の日本のバーチャルウォーター総輸入量は約800億m³（うちほとんどが食料由来）。<a href="https://www.env.go.jp/water/virtual_water/" target="_blank" rel="noopener" class="underline hover:text-paper">env.go.jp/water/virtual_water</a></li>
               <li id="src-2-4"><span class="font-bold">10.</span> Robbins, J. The Food Revolution: How Your Diet Can Help Save Your Life and Our World. Conari Press.</li>
               <li id="src-2-5"><span class="font-bold">11.</span> Robbins, J. Diet for a New America: How Your Food Choices Affect Your Health, Your Happiness, and the Future of Life on Earth. H J Kramer, 1987.</li>
               <li id="src-2-6"><span class="font-bold">12.</span> Literature Review of Contaminants in Livestock and Poultry Manure and Implications for Water Quality. United States Environmental Protection Agency, Office of Water, 2013.</li>
@@ -2103,6 +2250,98 @@
         pops.forEach(p => p.classList.add('is-popped'));
       }
 
+      // ───────── CH3 calorie-guess inline quiz ─────────
+      //   Player picks 20/50/80/100 for "% of world calories from 80% of farmland."
+      //   Wrong → shake + try again; correct (20) → reveal explanation block.
+      const cq = document.getElementById('ch3-calorie-quiz');
+      if (cq) {
+        const correct = parseInt(cq.dataset.correct, 10);
+        const feedback = document.getElementById('ch3-cq-feedback');
+        const reveal = document.getElementById('ch3-cq-reveal');
+        cq.querySelectorAll('.ch3-cq-opt').forEach(opt => {
+          opt.addEventListener('click', () => {
+            const val = parseInt(opt.dataset.val, 10);
+            if (val === correct) {
+              opt.dataset.state = 'right';
+              feedback.innerHTML = '<p class="font-jp text-[15px] sm:text-[17px] font-bold leading-[1.6] text-center" style="color: #3F6A3A;">🎉 やった、正解！ なんと、たったの2割。</p>';
+              reveal.style.display = '';
+              // Disable other buttons.
+              cq.querySelectorAll('.ch3-cq-opt').forEach(o => { if (o !== opt) o.disabled = true; });
+            } else {
+              opt.dataset.state = 'wrong';
+              feedback.innerHTML = '<p class="font-jp text-[14px] sm:text-[15px] text-center" style="color: #9C1428;">もう一度トライ！ ヒント：思っているより、ずっと少ないかも……</p>';
+              setTimeout(() => {
+                opt.removeAttribute('data-state');
+                opt.disabled = false;
+              }, 1200);
+              opt.disabled = true;
+            }
+          });
+        });
+      }
+
+      // ───────── CH2 waste section: growing poo + live counter ─────────
+      //   When the poo stage enters view, start counting up at the rate of
+      //   40,000 kg of livestock waste per second (real-world figure). The
+      //   poo image grows alongside, capped at ~280px so it doesn't overrun
+      //   the whole viewport on big screens.
+      const pooStage   = document.getElementById('poo-stage');
+      const pooImg     = document.getElementById('poo-img');
+      const pooCounter = document.getElementById('poo-counter');
+      let   pooStart   = null;
+      let   pooRunning = false;
+      function pooTick() {
+        if (!pooRunning) return;
+        const elapsedSec = (performance.now() - pooStart) / 1000;
+        const kg = Math.floor(elapsedSec * 40000);
+        pooCounter.textContent = kg.toLocaleString('ja-JP');
+        // Grow the poo: 90 → 280 px over the first 25 seconds, then hold
+        const grow = Math.min(1, elapsedSec / 25);
+        const eased = grow * grow * (3 - 2 * grow);
+        const w = 90 + (280 - 90) * eased;
+        pooImg.style.width = w + 'px';
+        requestAnimationFrame(pooTick);
+      }
+      if (pooStage && 'IntersectionObserver' in window) {
+        const pooIO = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting && !pooRunning) {
+              pooRunning = true;
+              pooStart = performance.now();
+              requestAnimationFrame(pooTick);
+              pooIO.unobserve(pooStage);
+            }
+          }
+        }, { threshold: 0.3 });
+        pooIO.observe(pooStage);
+      }
+
+      // ───────── CH1 livestock vs transport size swap ─────────
+      //   While the user scrolls through the KEY FACT card, the 畜産 visual
+      //   grows from the same size as 全交通機関 to ~3× larger. Driven by
+      //   the stage's getBoundingClientRect.top crossing the viewport.
+      const swapStage     = document.getElementById('ch1-swap-stage');
+      const swapLivestock = document.getElementById('ch1-livestock');
+      const swapTransport = document.getElementById('ch1-transport');
+      function onSwapScroll() {
+        if (!swapStage || !swapLivestock) return;
+        const rect = swapStage.getBoundingClientRect();
+        const vh = window.innerHeight || 800;
+        // progress: 0 when stage's bottom hits the viewport bottom, 1 when its top hits 20% of viewport.
+        const raw = (vh - rect.top) / (vh * 0.65);
+        const t = Math.max(0, Math.min(1, raw));
+        // Eased grow: livestock 80→220px (mobile) / 100→260px (sm+), transport stays ~80px.
+        const eased = t * t * (3 - 2 * t); // smoothstep
+        const isSm = window.matchMedia('(min-width: 640px)').matches;
+        const lvMin = isSm ? 100 : 80;
+        const lvMax = isSm ? 260 : 200;
+        swapLivestock.style.width = (lvMin + (lvMax - lvMin) * eased) + 'px';
+        swapTransport.style.width = (isSm ? 100 : 80) + 'px';
+      }
+      window.addEventListener('scroll', onSwapScroll, { passive: true });
+      window.addEventListener('resize', onSwapScroll);
+      onSwapScroll();
+
       // ───────── Top progress bar ─────────
       const progressBar = document.getElementById('chapter-progress-bar');
       function onScrollProgress() {
@@ -2114,13 +2353,52 @@
       window.addEventListener('resize', onScrollProgress);
       onScrollProgress();
 
-      // ───────── Quiz state ─────────
-      //   Each quiz card has data-q (index 0..3) and data-correct (the
-      //   correct option's data-i).  Picks are stored in window.QUIZ.picks
-      //   and surfaced later in the 答え合わせ section.
+      // ───────── Quiz state — one card at a time, back nav, no reveal ─────────
+      //   Picks stored in window.QUIZ.picks. Right/wrong only surfaces in the
+      //   答え合わせ section at the bottom. Auto-advances on pick; back button
+      //   on Q2+ to fix a previous answer. Background flips to green when all 4.
       const QUIZ = window.QUIZ = { picks: [null, null, null, null], correct: [3, 3, 0, 2] };
-      const quizCards = document.querySelectorAll('.quiz-card');
-      const quizProgress = document.getElementById('quiz-progress');
+      const quizCards    = document.querySelectorAll('.quiz-card');
+      const quizDots     = document.querySelectorAll('.quiz-dot');
+      const quizCurr     = document.getElementById('quiz-curr');
+      const quizBack     = document.getElementById('quiz-back');
+      const quizComplete = document.getElementById('quiz-complete');
+      const quizSection  = document.getElementById('quiz');
+      let   quizActive   = 0;
+
+      function showQuestion(idx) {
+        quizActive = Math.max(0, Math.min(3, idx));
+        quizCards.forEach((c, i) => c.dataset.active = (i === quizActive) ? 'true' : 'false');
+        quizDots.forEach((d, i) => {
+          d.classList.toggle('is-active', i === quizActive);
+          d.classList.toggle('is-done', QUIZ.picks[i] !== null && i !== quizActive);
+        });
+        if (quizCurr) quizCurr.textContent = String(quizActive + 1);
+        if (quizBack) quizBack.style.display = quizActive === 0 ? 'none' : 'inline-flex';
+        // Re-apply each card's stored pick so going back shows the previous selection.
+        const card = quizCards[quizActive];
+        const stored = QUIZ.picks[quizActive];
+        card.querySelectorAll('.quiz-opt').forEach(o => {
+          o.setAttribute('aria-pressed', (stored !== null && parseInt(o.dataset.i, 10) === stored) ? 'true' : 'false');
+        });
+      }
+      function markComplete() {
+        const answered = QUIZ.picks.filter(p => p !== null).length;
+        if (answered === 4) {
+          quizSection.classList.add('is-complete');
+          quizComplete.style.opacity = '1';
+          quizComplete.style.transform = 'translateY(0)';
+          quizComplete.style.pointerEvents = 'auto';
+          // Mark all dots done.
+          quizDots.forEach(d => { d.classList.remove('is-active'); d.classList.add('is-done'); });
+        } else {
+          quizSection.classList.remove('is-complete');
+          quizComplete.style.opacity = '0';
+          quizComplete.style.transform = 'translateY(10px)';
+          quizComplete.style.pointerEvents = 'none';
+        }
+      }
+
       quizCards.forEach(card => {
         const qIdx = parseInt(card.dataset.q, 10);
         QUIZ.correct[qIdx] = parseInt(card.dataset.correct, 10);
@@ -2128,16 +2406,28 @@
           opt.addEventListener('click', () => {
             const i = parseInt(opt.dataset.i, 10);
             QUIZ.picks[qIdx] = i;
+            // Visual: only the pressed state changes — no right/wrong tint here.
             card.querySelectorAll('.quiz-opt').forEach(o => o.setAttribute('aria-pressed', o === opt ? 'true' : 'false'));
-            if (quizProgress) {
-              const answered = QUIZ.picks.filter(p => p !== null).length;
-              quizProgress.textContent = answered + ' / 4';
+            // Auto-advance after a short pause; on Q4, just stay and trigger complete.
+            const allAnswered = QUIZ.picks.every(p => p !== null);
+            if (qIdx < 3) {
+              setTimeout(() => showQuestion(qIdx + 1), 380);
+            } else if (allAnswered) {
+              setTimeout(markComplete, 350);
+            } else {
+              // Q4 picked but earlier questions still null — jump back to the first null.
+              const next = QUIZ.picks.findIndex(p => p === null);
+              if (next !== -1) setTimeout(() => showQuestion(next), 380);
             }
-            // If the 答え合わせ section is already visible, update it live too.
+            markComplete();
             if (typeof window.renderAnswerKey === 'function') window.renderAnswerKey();
           });
         });
       });
+
+      if (quizBack) quizBack.addEventListener('click', () => showQuestion(quizActive - 1));
+      showQuestion(0);
+      markComplete();
 
       // ───────── Diet calculator ─────────
       //   All "saved per year vs typical 毎食お肉 diet."  Numbers are
