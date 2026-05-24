@@ -239,6 +239,37 @@
       box-shadow: 2px 2px 0 var(--color-ink);
     }
 
+    /* ─── Meet the Prince — pure CSS tabs ─── */
+    .prince-tab-input { position: absolute; opacity: 0; pointer-events: none; }
+    .prince-tabs {
+      display: inline-flex; gap: 6px;
+      padding: 6px; margin: 0 auto 32px;
+      background: var(--color-paper);
+      border: 2px solid var(--color-ink);
+      border-radius: 999px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+    }
+    .prince-tabs-wrap { text-align: center; }
+    .prince-tab {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px; border-radius: 999px;
+      font-family: var(--font-cute-jp); font-weight: 700; font-size: 14px;
+      color: var(--color-ink-soft); cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+    .prince-tab:hover { color: var(--color-royal); }
+    @media (min-width: 640px) { .prince-tab { padding: 10px 22px; font-size: 15px; } }
+    #prince-tab-mascot:checked ~ .prince-tabs .prince-tab[data-tab="mascot"],
+    #prince-tab-alex:checked   ~ .prince-tabs .prince-tab[data-tab="alex"] {
+      background: var(--color-royal); color: var(--color-paper);
+    }
+    .prince-panel { display: none; }
+    #prince-tab-mascot:checked ~ .prince-panel-mascot,
+    #prince-tab-alex:checked   ~ .prince-panel-alex { display: block; }
+
+
+
     /* Sparkle divider between every press item — pure decoration, no link */
     .press-marquee-track > .press-name + .press-name::before,
     .press-marquee-track > .press-name:not(:first-child)::before {
@@ -994,17 +1025,12 @@
 
       <!-- TEXT — order swapped on mobile so name+role+photo are tight -->
       <div class="lg:col-span-7 relative order-1">
-        <div class="ornament mb-3 sm:mb-5"><span>東京 · 2017年から活動中</span></div>
-
-        <h1 class="font-display display-tight text-[17vw] sm:text-[72px] lg:text-[124px] font-medium text-ink whitespace-nowrap">
-          <span class="font-fun text-ink">Vegan</span> <span class="font-fun text-royal">Oji.</span>
-        </h1>
-
-        <div class="mt-2.5 lg:mt-3 flex items-center gap-3 flex-wrap">
-          <p class="font-jp text-[26px] sm:text-[30px] lg:text-[38px] text-ink leading-none">ビーガン<span class="text-royal">王子</span></p>
-          <span class="text-muted">·</span>
-          <p class="font-display italic text-[15px] sm:text-[18px] lg:text-[22px] text-muted">Alex Derycz</p>
+        <div class="font-jp font-semibold text-royal/85 text-[15px] sm:text-[17px] lg:text-[19px] tracking-[0.04em] mb-3 sm:mb-4">
+          アレックス・デレチ ——
         </div>
+        <h1 class="font-jp-display font-black display-tight text-[15vw] sm:text-[88px] lg:text-[124px] leading-[1.02] text-ink">
+          ビーガン<span class="text-royal">王子</span>
+        </h1>
 
         <div class="mt-4 sm:mt-6 flex items-baseline gap-3">
           <span class="eyebrow font-jp">現在 —</span>
@@ -1054,7 +1080,7 @@
 
       <!-- TAGLINE + BUTTONS (mobile last for one-screen hero) -->
       <div class="lg:col-span-7 order-3 lg:order-3 mt-6 sm:mt-8 lg:mt-0">
-        <div class="badge-ribbon mb-4 sm:mb-5 text-[12px] sm:text-[13px]">お笑いあり、涙あり、野菜あり</div>
+        <div class="badge-ribbon mb-4 sm:mb-5 text-[13.5px] sm:text-[15px]" style="font-weight:900">お笑いあり、涙あり、野菜あり</div>
         <p class="font-jp text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.85] sm:leading-[2] text-ink-soft max-w-[560px]">
           国籍は三つ。操る言語は六つ。<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい<span class="text-royal">&ldquo;ディズニーみたいな世界&rdquo;</span>を現実にするため発信しています。
         </p>
@@ -1066,8 +1092,7 @@
           <a href="#about" class="btn-ghost !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">王子を知る</span></a>
         </div>
 
-        <div class="lg:hidden mt-8 sm:mt-10 flex items-center justify-center gap-3 sm:gap-4 text-muted">
-          <span class="text-[13px] tracking-[0.16em] uppercase font-jp">フォロー</span>
+        <div class="lg:hidden mt-8 sm:mt-10 flex items-center justify-center gap-3 sm:gap-4">
           <a href="https://instagram.com/veganoji" aria-label="Instagram" class="social-icon-btn !w-12 !h-12" data-brand="ig"><img src="/images/social/ig.png" alt=""/></a>
           <a href="https://x.com/VeganOji" aria-label="X" class="social-icon-btn !w-12 !h-12" data-brand="x"><img src="/images/social/x.png" alt=""/></a>
           <a href="https://www.youtube.com/@veganoji" aria-label="YouTube" class="social-icon-btn !w-12 !h-12" data-brand="yt"><img src="/images/social/yt.png" alt=""/></a>
@@ -1191,7 +1216,6 @@
             <button data-lang-idx="4" class="lang-chip chip !text-[11.5px] sm:!text-[12.5px] !px-2.5 sm:!px-3.5 text-paper/90 border-paper/30 bg-transparent hover:bg-paper/10 hover:border-paper/60 transition-colors">Deutsch · 中級</button>
             <button data-lang-idx="5" class="lang-chip chip !text-[11.5px] sm:!text-[12.5px] !px-2.5 sm:!px-3.5 text-gold-soft border-gold-soft/60 bg-transparent hover:bg-gold-soft/10 transition-colors">+ 中国語 · 勉強中</button>
           </div>
-          <div class="mt-3 text-[11.5px] tracking-[0.16em] text-paper/50 font-jp">タップで言語を切り替え</div>
         </div>
 
         <div class="lg:col-span-7 relative min-h-[120px] sm:min-h-[200px] lg:min-h-[440px] flex items-center">
@@ -1528,8 +1552,16 @@
         </p>
       </div>
 
-      <!-- MASCOT PANEL (only panel — model card moved to /profile/) -->
-      <div>
+      <!-- Pure-CSS tabs: ビーガン王子 (mascot) / アレックス・デレチ (model) -->
+      <input type="radio" name="prince-tab" id="prince-tab-mascot" class="prince-tab-input" checked>
+      <input type="radio" name="prince-tab" id="prince-tab-alex" class="prince-tab-input">
+      <div style="text-align:center"><div class="prince-tabs" role="tablist">
+        <label for="prince-tab-mascot" class="prince-tab" data-tab="mascot">ビーガン王子</label>
+        <label for="prince-tab-alex"   class="prince-tab" data-tab="alex">アレックス・デレチ</label>
+      </div></div>
+
+      <!-- Panel: Mascot -->
+      <div class="prince-panel prince-panel-mascot">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
           <div class="lg:col-span-5 relative">
@@ -1587,58 +1619,66 @@
         </div>
       </div>
 
-      <!-- Model profile CTA — full comp card moved to /profile/ -->
-      <div class="mt-10 sm:mt-12 max-w-[640px] mx-auto bg-paper border border-line rounded-2xl p-5 sm:p-7 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 shadow-sm">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gold/15 text-gold-deep flex items-center justify-center flex-shrink-0">
-          <svg width="28" height="28"><use href="#sparkle"/></svg>
+
+      <!-- Panel: Alex (model comp card) -->
+      <div class="prince-panel prince-panel-alex">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-5 relative">
+            <div class="absolute -top-3 -right-3 w-[103%] h-[103%] -z-10 rounded-3xl bg-paper border border-line"></div>
+            <div class="relative bg-paper border border-line rounded-2xl overflow-hidden shadow-sm">
+              <img src="https://veganoji.jp/wp-content/uploads/2026/03/Vegan-Oji_Profile-Picture.jpg" alt="アレックス・デレチ モデル写真" class="w-full block aspect-[4/5] object-cover" loading="lazy"/>
+              <div class="absolute top-4 left-4 chip border-royal/40 text-paper bg-royal/85">モデル・コンプカード</div>
+            </div>
+            <div class="text-center mt-6">
+              <div class="font-jp-display text-[22px] text-ink" style="font-weight:900">Alex Derycz</div>
+              <div class="font-jp text-[14px] text-muted mt-1">アレックス・デレチ</div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-10 border-2 border-line shadow-sm relative">
+              <div class="absolute -top-5 -left-5 w-14 h-14 rounded-full bg-gold text-ink flex items-center justify-center shadow-md rotate-[-8deg]">
+                <svg width="22" height="22"><use href="#sparkle"/></svg>
+              </div>
+              <div class="flex items-baseline justify-between mb-4 sm:mb-5 flex-wrap gap-2">
+                <div>
+                  <h3 class="font-jp-display text-[26px] lg:text-[32px] text-ink font-medium leading-none">モデルプロフィール</h3>
+                  <div class="font-jp italic text-[15px] text-muted mt-1">Comp Card</div>
+                </div>
+                <span class="chip border-gold/50 text-gold-deep bg-gold/10">非専属登録あり</span>
+              </div>
+
+              <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mb-5">
+                国内外の大手企業やラグジュアリーブランドで、幅広い現場で８年以上にわたり活動しています。
+              </p>
+
+              <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+                <div class="profile-row" data-row-open="false"><div class="profile-label">身長</div><div class="profile-value">180 cm</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">３サイズ</div><div class="profile-value">92 / 72 / 80</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">靴のサイズ</div><div class="profile-value">27 cm</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">目の色</div><div class="profile-value">ブルー</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">髪の色</div><div class="profile-value">ブラウン</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">誕生日</div><div class="profile-value">1996年4月15日</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">出身地</div><div class="profile-value">カリフォルニア州ロサンゼルス</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">国籍</div><div class="profile-value">アメリカ／フランス</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">言語</div><div class="profile-value">英・仏・西・日・独・中国語（学習中）</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">活動形態</div><div class="profile-value">ビーガン王子株式会社 代表取締役</div></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flex-1 text-center sm:text-left">
-          <h3 class="font-jp-display text-[18px] sm:text-[20px] text-ink leading-tight">モデル業のキャスティングをご検討の方へ</h3>
-          <p class="font-jp text-[12.5px] sm:text-[13px] text-muted mt-1.5 leading-relaxed">身長、サイズ、出身、言語、特技などの詳細プロフィールはこちら。</p>
+      </div>
+
+      <!-- BIG SOCIAL ROW — moved here from old @VEGANOJI section -->
+      <div class="mt-12 sm:mt-16 text-center">
+        <div class="font-jp text-[14px] sm:text-[15px] text-muted mb-5">王子に、お好きなところで会いに来てね ♡</div>
+        <div class="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-5">
+          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="ig"><img src="/images/social/ig.png" alt="Instagram"/></a>
+          <a href="https://x.com/VeganOji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="x"><img src="/images/social/x.png" alt="X"/></a>
+          <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="yt"><img src="/images/social/yt.png" alt="YouTube"/></a>
+          <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="tt"><img src="/images/social/tt.png" alt="TikTok"/></a>
+          <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" class="social-icon-lg" data-brand="li"><img src="/images/social/li.png" alt="LinkedIn"/></a>
         </div>
-        <a href="/profile/" class="btn-ghost !text-[13px] !px-5 !py-2.5 flex-shrink-0">
-          <span class="font-jp">モデル・スペックを見る</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────────────  FOLLOW THE PRINCE — Mega Handle  ───────────── -->
-  <section class="bg-paper py-12 sm:py-16 lg:py-24 border-b border-line relative overflow-hidden">
-    <svg class="absolute top-12 left-[8%] w-10 h-10 text-gold opacity-40 anim-sparkle"><use href="#sparkle"/></svg>
-    <svg class="absolute bottom-16 right-[10%] w-12 h-12 text-royal-soft opacity-30 anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
-    <svg class="absolute top-1/2 right-[5%] w-8 h-8 text-gold-soft opacity-40 anim-float"><use href="#heart"/></svg>
-
-    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 text-center relative">
-      <h3 class="font-fun text-[56px] sm:text-[88px] lg:text-[140px] text-royal leading-[0.95]">
-        @VEGANOJI
-      </h3>
-      <p class="font-jp text-[15px] sm:text-[18px] lg:text-[22px] text-muted mt-2">aka アレックス・デレチ</p>
-
-      <p class="font-jp text-[14px] text-ink-soft mt-6 max-w-[480px] mx-auto leading-relaxed">
-        ぜんぶのプラットフォームで、王子は活動中。<br/>お好きなところで会いに来てください ♡
-      </p>
-
-      <div class="mt-8 sm:mt-10 flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-5">
-        <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="ig"><img src="/images/social/ig.png" alt=""/></a>
-        <a href="https://x.com/VeganOji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="x"><img src="/images/social/x.png" alt=""/></a>
-        <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="yt"><img src="/images/social/yt.png" alt=""/></a>
-        <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" class="social-icon-lg" data-brand="tt"><img src="/images/social/tt.png" alt=""/></a>
-        <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" class="social-icon-lg" data-brand="li"><img src="/images/social/li.png" alt=""/></a>
-      </div>
-
-      <!-- Newsletter signup (slim) -->
-      <div class="newsletter-slim">
-        <div class="newsletter-label">📬 月１で王子からお手紙、届く？</div>
-        <form id="newsletter-form">
-          <input type="email" required placeholder="you@example.jp" />
-          <button type="submit" class="btn-primary !text-[14px] !px-5 !py-3 justify-center">
-            <span>登録</span>
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </button>
-        </form>
-        <div id="newsletter-msg" class="hidden font-jp text-[14px] text-royal mt-3" style="font-weight:700">ありがとう ♡ 届くのを楽しみにしててね</div>
       </div>
     </div>
   </section>
