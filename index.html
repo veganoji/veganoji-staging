@@ -203,8 +203,20 @@
       text-align: center;
     }
     .newsletter-label {
-      font-size: 15.5px; color: var(--color-ink-soft); font-weight: 700;
-      margin-bottom: 12px;
+      display: inline-block; position: relative;
+      font-size: 17.5px; color: var(--color-royal); font-weight: 900;
+      letter-spacing: 0.01em; line-height: 1.3;
+      padding: 0 4px;
+      margin-bottom: 16px;
+    }
+    .newsletter-label::before {
+      content: ""; position: absolute;
+      left: -2px; right: -2px; bottom: 2px; height: 8px; z-index: -1;
+      background: var(--color-gold-soft); opacity: 0.55; border-radius: 6px;
+      transform: rotate(-0.6deg);
+    }
+    @media (min-width: 480px) {
+      .newsletter-label { font-size: 19px; margin-bottom: 18px; }
     }
     .newsletter-slim form {
       display: flex; flex-direction: column; gap: 10px;
@@ -1528,12 +1540,6 @@
     <svg class="absolute top-1/2 right-[5%] w-8 h-8 text-gold-soft opacity-40 anim-float"><use href="#heart"/></svg>
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 text-center relative">
-      <div class="font-hand text-[24px] sm:text-[28px] text-royal mb-3 inline-flex items-center gap-2">
-        <svg width="16" height="16" class="text-royal"><use href="#crown"/></svg>
-        フォローする
-        <svg width="16" height="16" class="text-royal"><use href="#crown"/></svg>
-      </div>
-
       <h3 class="font-fun text-[56px] sm:text-[88px] lg:text-[140px] text-royal leading-[0.95]">
         @VEGANOJI
       </h3>
@@ -1601,8 +1607,9 @@
             <li class="flex gap-2"><span class="text-royal">♥</span> 王子からの月１動画メッセージ</li>
             <li class="flex gap-2"><span class="text-royal">♥</span> 早期イベント情報</li>
           </ul>
-          <a href="#" class="mt-7 inline-flex items-center gap-2 text-royal text-[13px] font-medium hover:gap-3 transition-all font-jp">
-            <span>支援する</span> →
+          <a href="#" class="btn-ghost mt-7 !text-[13px] !px-5 !py-2.5">
+            <span>支援する</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
           </a>
         </div>
 
@@ -1633,8 +1640,9 @@
             <li class="flex gap-2"><span class="text-royal">♥</span> ホームページに名前掲載</li>
             <li class="flex gap-2"><span class="text-royal">♥</span> 個別相談チケット（年２回）</li>
           </ul>
-          <a href="#" class="mt-7 inline-flex items-center gap-2 text-royal text-[13px] font-medium hover:gap-3 transition-all font-jp">
-            <span>宮廷に入る</span> →
+          <a href="#" class="btn-ghost mt-7 !text-[13px] !px-5 !py-2.5">
+            <span>宮廷に入る</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
           </a>
         </div>
       </div>
