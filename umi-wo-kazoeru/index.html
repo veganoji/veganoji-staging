@@ -274,6 +274,30 @@
       }
     }
 
+    /* ─── Trajectory bar fills ─────────────────────────────────────
+       Each bar starts collapsed (width 0) and fills to its target
+       width — encoded via --bar-width — when the parent reveal-stagger
+       gets .is-visible.  Each bar's fill is delayed to match its row's
+       stagger appearance, so the bar starts filling as the row lands. */
+    .bar-fill {
+      width: 0;
+      transition: width 1.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transform-origin: left center;
+    }
+    .reveal-stagger.is-visible .bar-fill {
+      width: var(--bar-width, 100%);
+    }
+    .reveal-stagger.is-visible > *:nth-child(1) .bar-fill { transition-delay: 0.05s; }
+    .reveal-stagger.is-visible > *:nth-child(2) .bar-fill { transition-delay: 0.22s; }
+    .reveal-stagger.is-visible > *:nth-child(3) .bar-fill { transition-delay: 0.39s; }
+    .reveal-stagger.is-visible > *:nth-child(4) .bar-fill { transition-delay: 0.56s; }
+    @media (prefers-reduced-motion: reduce) {
+      .bar-fill {
+        width: var(--bar-width, 100%) !important;
+        transition: none !important;
+      }
+    }
+
     /* The sticky dot field canvas — fixed to viewport during the counting section */
     .ocean-canvas {
       position: absolute;
@@ -814,35 +838,36 @@
         海の大きな魚は<span class="text-gold gold-underline">およそ90％</span>いなくなりました。<a href="#src-10" class="src">10</a>
       </h2>
 
-      <!-- Timeline bars — fuller and more prominent -->
-      <div class="mt-16 sm:mt-20 max-w-2xl mx-auto space-y-6 sm:space-y-7 reveal-stagger">
+      <!-- Timeline bars — fill animates from 0 → target width on scroll-in,
+           numbers count up in sync (see .trajectory-bars JS + .bar-fill CSS).  -->
+      <div class="trajectory-bars mt-16 sm:mt-20 max-w-2xl mx-auto space-y-6 sm:space-y-7 reveal-stagger">
         <div class="flex items-center gap-5">
           <div class="w-20 sm:w-24 text-right font-jp-display text-paper/85 text-[20px] sm:text-[24px]">1950</div>
           <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
-            <div class="h-full bg-gold rounded-full" style="width:100%"></div>
+            <div class="bar-fill h-full bg-gold rounded-full" style="--bar-width:100%"></div>
           </div>
-          <div class="w-14 sm:w-16 text-left text-paper/70 text-[20px] sm:text-[22px] font-jp-display ticker">100</div>
+          <div class="w-14 sm:w-16 text-left text-paper/70 text-[20px] sm:text-[22px] font-jp-display ticker" data-target="100">0</div>
         </div>
         <div class="flex items-center gap-5">
           <div class="w-20 sm:w-24 text-right font-jp-display text-paper/85 text-[20px] sm:text-[24px]">1980</div>
           <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
-            <div class="h-full bg-gold/80 rounded-full" style="width:55%"></div>
+            <div class="bar-fill h-full bg-gold/80 rounded-full" style="--bar-width:55%"></div>
           </div>
-          <div class="w-14 sm:w-16 text-left text-paper/70 text-[20px] sm:text-[22px] font-jp-display ticker">55</div>
+          <div class="w-14 sm:w-16 text-left text-paper/70 text-[20px] sm:text-[22px] font-jp-display ticker" data-target="55">0</div>
         </div>
         <div class="flex items-center gap-5">
           <div class="w-20 sm:w-24 text-right font-jp-display text-paper/85 text-[20px] sm:text-[24px]">2010</div>
           <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
-            <div class="h-full bg-gold/60 rounded-full" style="width:18%"></div>
+            <div class="bar-fill h-full bg-gold/60 rounded-full" style="--bar-width:18%"></div>
           </div>
-          <div class="w-14 sm:w-16 text-left text-paper/70 text-[20px] sm:text-[22px] font-jp-display ticker">18</div>
+          <div class="w-14 sm:w-16 text-left text-paper/70 text-[20px] sm:text-[22px] font-jp-display ticker" data-target="18">0</div>
         </div>
         <div class="flex items-center gap-5">
           <div class="w-20 sm:w-24 text-right font-jp-display text-gold text-[22px] sm:text-[26px]">今</div>
           <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
-            <div class="h-full bg-gold rounded-full" style="width:10%"></div>
+            <div class="bar-fill h-full bg-gold rounded-full" style="--bar-width:10%"></div>
           </div>
-          <div class="w-14 sm:w-16 text-left text-gold text-[20px] sm:text-[22px] font-jp-display ticker">10</div>
+          <div class="w-14 sm:w-16 text-left text-gold text-[20px] sm:text-[22px] font-jp-display ticker" data-target="10">0</div>
         </div>
       </div>
 
@@ -981,6 +1006,52 @@
         reveals.forEach(r => io.observe(r));
       } else {
         reveals.forEach(r => r.classList.add('is-visible'));
+      }
+
+      // ─────────────── Trajectory numbers count-up ───────────────
+      // Each [data-target] inside .trajectory-bars counts from 0 → its target
+      // value, timed to land roughly when the matching bar finishes filling.
+      const trajBars = document.querySelector('.trajectory-bars');
+      if (trajBars) {
+        const tickers = trajBars.querySelectorAll('[data-target]');
+        const animateTickers = () => {
+          if (prefersReduced) {
+            tickers.forEach(t => { t.textContent = t.dataset.target; });
+            return;
+          }
+          // Stagger offsets match the .bar-fill transition-delay rules above
+          // (0.05s / 0.22s / 0.39s / 0.56s).  Bar transition is 1.3s.
+          const staggerStart = [50, 220, 390, 560];   // ms
+          const duration     = 1300;                   // ms (matches bar fill)
+          tickers.forEach((el, idx) => {
+            const target = +el.dataset.target || 0;
+            const startAt = staggerStart[idx] ?? (50 + idx * 170);
+            setTimeout(() => {
+              const t0 = performance.now();
+              const tick = (now) => {
+                const t = Math.min(1, (now - t0) / duration);
+                const eased = 1 - Math.pow(1 - t, 3);    // ease-out cubic
+                el.textContent = Math.round(target * eased);
+                if (t < 1) requestAnimationFrame(tick);
+                else el.textContent = target;
+              };
+              requestAnimationFrame(tick);
+            }, startAt);
+          });
+        };
+        if ('IntersectionObserver' in window) {
+          const tio = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                animateTickers();
+                tio.unobserve(e.target);
+              }
+            }
+          }, { threshold: 0.25 });
+          tio.observe(trajBars);
+        } else {
+          animateTickers();
+        }
       }
 
       // ─────────────── Canvas helpers ───────────────
