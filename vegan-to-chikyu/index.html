@@ -374,6 +374,22 @@
       .quiz-card { animation: none; }
     }
 
+    /* ── Ofuro bath sequence animation ──────────────────────────────
+       Each bath icon starts hidden + slightly smaller; .is-in pops it
+       into place. JS adds .is-in with a stagger on IntersectionObserver. */
+    .ofuro-row img {
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.32s ease-out, transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .ofuro-row img.is-in {
+      opacity: 1;
+      transform: scale(1);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ofuro-row img { opacity: 1; transform: none; transition: none; }
+    }
+
     /* ── Inline mini-quiz buttons (CH3 calorie guess) ───────────────── */
     .ch3-cq-opt {
       padding: 12px 10px;
@@ -1113,8 +1129,32 @@
             お風呂(<span class="font-bold">約154L</span>)に置き換えると——
           </p>
 
-          <!-- Meat: 100 baths -->
+          <!-- Veg: 2 baths (smallest → builds dramatic contrast) -->
           <div class="ofuro-row p-4 sm:p-5 rounded-2xl border-2 border-ink/15 mb-4 sm:mb-5"
+               style="background: rgba(255,249,238,0.55);">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="font-jp text-[14px] sm:text-[15px] text-ink/70 font-bold">野菜 1kg</span>
+              <span class="font-jp-display ticker text-[24px] sm:text-[32px] leading-none text-ink/70">×2</span>
+            </div>
+            <div id="ofuro-grid-veg" class="flex gap-3">
+              <!-- populated by JS: 2 tubs -->
+            </div>
+          </div>
+
+          <!-- Wheat: 10 baths -->
+          <div class="ofuro-row p-4 sm:p-5 rounded-2xl border-2 border-ink/15 mb-4 sm:mb-5"
+               style="background: rgba(255,249,238,0.55);">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="font-jp text-[14px] sm:text-[15px] text-ink/85 font-bold">小麦 1kg</span>
+              <span class="font-jp-display ticker text-[28px] sm:text-[36px] leading-none text-ink/85">×10</span>
+            </div>
+            <div id="ofuro-grid-wheat" class="flex flex-wrap gap-1.5 sm:gap-2">
+              <!-- populated by JS: 10 tubs -->
+            </div>
+          </div>
+
+          <!-- Meat: 100 baths (climax) -->
+          <div class="ofuro-row p-4 sm:p-5 rounded-2xl border-2 border-ink/15"
                style="background: rgba(255,249,238,0.55);">
             <div class="flex items-baseline justify-between mb-3">
               <span class="font-jp text-[14px] sm:text-[15px] text-ink font-bold">お肉 1kg</span>
@@ -1123,30 +1163,6 @@
             <div id="ofuro-grid-meat" class="ofuro-grid"
                  style="display: grid; grid-template-columns: repeat(20, 1fr); gap: 2px; max-width: 100%;">
               <!-- populated by JS: 100 tubs -->
-            </div>
-          </div>
-
-          <!-- Wheat: 10 baths -->
-          <div class="ofuro-row p-4 sm:p-5 rounded-2xl border-2 border-ink/15 mb-4 sm:mb-5"
-               style="background: rgba(255,249,238,0.55);">
-            <div class="flex items-baseline justify-between mb-3">
-              <span class="font-jp text-[14px] sm:text-[15px] text-ink font-bold">小麦 1kg</span>
-              <span class="font-jp-display ticker text-[28px] sm:text-[36px] leading-none text-ink/80">×10</span>
-            </div>
-            <div id="ofuro-grid-wheat" class="flex flex-wrap gap-1.5 sm:gap-2">
-              <!-- populated by JS: 10 tubs -->
-            </div>
-          </div>
-
-          <!-- Veg: 2 baths -->
-          <div class="ofuro-row p-4 sm:p-5 rounded-2xl border-2 border-ink/15"
-               style="background: rgba(255,249,238,0.55);">
-            <div class="flex items-baseline justify-between mb-3">
-              <span class="font-jp text-[14px] sm:text-[15px] text-ink font-bold">野菜 1kg</span>
-              <span class="font-jp-display ticker text-[24px] sm:text-[32px] leading-none text-ink/70">×2</span>
-            </div>
-            <div id="ofuro-grid-veg" class="flex gap-3">
-              <!-- populated by JS: 2 tubs -->
             </div>
           </div>
 
@@ -1505,30 +1521,52 @@
         </p>
       </div>
 
-      <!-- Amazon + per-minute forest loss -->
-      <div class="reveal mt-12 sm:mt-16">
-        <div class="factstrip">
-          <div class="factstrip__cell">
-            <div class="factstrip__icon" style="padding:0; background:transparent; border:none; box-shadow:none;">
-              <img src="/images/vegan-to-chikyu/icon-tree.png" alt="" class="w-12 h-12" loading="lazy"/>
+      <!-- Amazon — interactive guess, then live forest-loss counter -->
+      <div id="ch3-amazon-quiz" class="reveal mt-12 sm:mt-16 sticker-soft p-6 sm:p-9" data-correct="2">
+        <div class="text-[11px] sm:text-[12px] tracking-[0.18em] font-bold mb-2" style="color: #8E3A1B;">クイズ</div>
+        <h3 class="font-jp-display text-[20px] sm:text-[28px] leading-[1.4] text-ink">
+          アマゾン熱帯雨林の伐採の<br/>
+          いちばん大きな原因は？
+        </h3>
+
+        <div id="ch3-aq-options" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+          <button type="button" class="ch3-cq-opt" data-val="0">紙の生産</button>
+          <button type="button" class="ch3-cq-opt" data-val="1">住宅・都市開発</button>
+          <button type="button" class="ch3-cq-opt" data-val="2">家畜のための農地拡張</button>
+          <button type="button" class="ch3-cq-opt" data-val="3">木材として加工するため</button>
+        </div>
+
+        <div id="ch3-aq-feedback" class="mt-5" style="min-height: 24px;">
+          <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] text-center leading-[1.7]">どれが原因だと思う？</p>
+        </div>
+
+        <!-- Reveal block — appears after the correct answer is picked -->
+        <div id="ch3-aq-reveal" style="display: none;">
+          <div class="mt-6 p-5 sm:p-6 rounded-2xl border-2 border-ink/15"
+               style="background: rgba(220,239,216,0.55);">
+            <div class="flex items-center gap-4 mb-3">
+              <img src="/images/vegan-to-chikyu/icon-tree.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0" loading="lazy"/>
+              <div>
+                <div class="font-jp-display text-[24px] sm:text-[32px] ticker" style="color: #C9532C;">およそ 9割</div>
+                <div class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.5]">が、家畜のための農地拡張。<a href="#src-3-4" class="src">21</a></div>
+              </div>
             </div>
-            <div>
-              <div class="font-jp-display text-[22px] sm:text-[26px] text-ink ticker" style="color: #C9532C;">9割</div>
-              <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7] mt-1">
-                アマゾン熱帯雨林の伐採の<span class="font-bold">9割</span>が、畜産物が原因。<a href="#src-3-4" class="src">21</a>
-              </p>
-            </div>
+            <p class="font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.75]">
+              森林は1分のあいだに<span class="font-bold" style="color: #C9532C;">4,000〜8,000 m²</span>のスピードで消えていく。<a href="#src-3-5" class="src">22</a>
+            </p>
           </div>
-          <div class="factstrip__cell">
-            <div class="factstrip__icon" style="padding:0; background:transparent; border:none; box-shadow:none;">
-              <img src="/images/vegan-to-chikyu/icon-forest.png" alt="" class="w-12 h-12" loading="lazy"/>
+
+          <!-- Live forest-destroyed counter — starts once the reveal opens -->
+          <div id="forest-counter-stage" class="mt-5 p-5 sm:p-6 rounded-2xl border-2 border-ink"
+               style="background: rgba(255,249,238,0.85); box-shadow: 4px 4px 0 var(--color-ink);">
+            <div class="font-jp text-ink-soft text-[12px] sm:text-[13px] tracking-[0.12em] text-center mb-2">あなたがこのクイズを解いてから……</div>
+            <div class="flex items-baseline justify-center gap-2 flex-wrap">
+              <span id="forest-counter" class="big-number ticker text-[40px] sm:text-[56px] leading-none" style="color: #C9532C;">0</span>
+              <span class="font-jp-display text-[18px] sm:text-[24px] text-ink">m² の森が、消えた。</span>
             </div>
-            <div>
-              <div class="font-jp-display text-[18px] sm:text-[22px] text-ink ticker" style="color: #C9532C;">4,000〜8,000 m²<span class="text-[13px] sm:text-[15px]"> / 分</span></div>
-              <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7] mt-1">
-                たった1分の間に伐採されている森林の面積。<a href="#src-3-5" class="src">22</a>
-              </p>
-            </div>
+            <p class="mt-3 font-jp text-ink-soft text-[12px] sm:text-[13px] leading-[1.7] text-center">
+              （世界全体の毎分の伐採量を基準に計算しています）
+            </p>
           </div>
         </div>
       </div>
@@ -2310,10 +2348,14 @@
         pops.forEach(p => p.classList.add('is-popped'));
       }
 
-      // ───────── CH2 ofuro grids — render N actual bath icons ─────────
+      // ───────── CH2 ofuro grids — render N icons + staggered reveal ─────
+      //   When the OFURO area enters view, baths animate in sequence:
+      //   veg first (2 baths), then wheat (10), then meat (100). Within
+      //   each row, baths pop in one by one ~28-40 ms apart for a
+      //   satisfying "filling up" feel that mirrors the ×100 number.
       (function buildOfuroGrids() {
         const make = (n, classes) => {
-          const frag = document.createDocumentFragment();
+          const imgs = [];
           for (let i = 0; i < n; i++) {
             const img = document.createElement('img');
             img.src = '/images/vegan-to-chikyu/icon-bathtub.png';
@@ -2321,17 +2363,100 @@
             img.loading = 'lazy';
             img.className = classes;
             img.style.display = 'block';
-            frag.appendChild(img);
+            imgs.push(img);
           }
-          return frag;
+          return imgs;
         };
         const meatGrid  = document.getElementById('ofuro-grid-meat');
         const wheatGrid = document.getElementById('ofuro-grid-wheat');
         const vegGrid   = document.getElementById('ofuro-grid-veg');
-        if (meatGrid)  meatGrid.appendChild(make(100, 'w-full h-auto'));
-        if (wheatGrid) wheatGrid.appendChild(make(10,  'w-7 h-7 sm:w-9 sm:h-9'));
-        if (vegGrid)   vegGrid.appendChild(make(2,    'w-14 h-14 sm:w-16 sm:h-16'));
+        const vegImgs   = vegGrid   ? make(2,   'w-14 h-14 sm:w-16 sm:h-16') : [];
+        const wheatImgs = wheatGrid ? make(10,  'w-7 h-7 sm:w-9 sm:h-9')     : [];
+        const meatImgs  = meatGrid  ? make(100, 'w-full h-auto')             : [];
+        vegImgs.forEach(i => vegGrid.appendChild(i));
+        wheatImgs.forEach(i => wheatGrid.appendChild(i));
+        meatImgs.forEach(i => meatGrid.appendChild(i));
+
+        // Stagger reveal once the ofuro KEY FACT card enters view.
+        const ofuroAnchor = vegGrid || wheatGrid || meatGrid;
+        if (!ofuroAnchor) return;
+        const prefersReducedM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const stagger = (imgs, perItem, startDelay) => {
+          imgs.forEach((img, i) => {
+            setTimeout(() => img.classList.add('is-in'), startDelay + i * perItem);
+          });
+        };
+        const revealAll = () => {
+          if (prefersReducedM) {
+            [...vegImgs, ...wheatImgs, ...meatImgs].forEach(img => img.classList.add('is-in'));
+            return;
+          }
+          // Veg: pop both at ~80ms each, starting at 0ms
+          stagger(vegImgs, 160, 0);
+          // Wheat: starts after veg done (≈450ms), 60ms each
+          stagger(wheatImgs, 70, 450);
+          // Meat: starts after wheat done (≈1200ms), 28ms each (100 × 28 = 2.8s)
+          stagger(meatImgs, 28, 1200);
+        };
+        if ('IntersectionObserver' in window) {
+          const ofuroIO = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                revealAll();
+                ofuroIO.unobserve(ofuroAnchor);
+              }
+            }
+          }, { threshold: 0.25 });
+          ofuroIO.observe(ofuroAnchor);
+        } else {
+          revealAll();
+        }
       })();
+
+      // ───────── CH3 Amazon-deforestation quiz + live counter ─────────
+      //   Correct answer reveals the 9割 fact AND starts a counter that
+      //   ticks "how much forest has been razed since you picked the right
+      //   answer". Rate: 4,000–8,000 m²/min → use ~6,000 m²/min ≈ 100 m²/s.
+      const aq = document.getElementById('ch3-amazon-quiz');
+      if (aq) {
+        const correct = parseInt(aq.dataset.correct, 10);
+        const fb      = document.getElementById('ch3-aq-feedback');
+        const reveal  = document.getElementById('ch3-aq-reveal');
+        const fCount  = document.getElementById('forest-counter');
+        let   fStart  = null;
+        let   fRunning = false;
+        function forestTick() {
+          if (!fRunning) return;
+          const elapsedSec = (performance.now() - fStart) / 1000;
+          const m2 = Math.floor(elapsedSec * 100); // 100 m² per second
+          if (fCount) fCount.textContent = m2.toLocaleString('ja-JP');
+          requestAnimationFrame(forestTick);
+        }
+        aq.querySelectorAll('.ch3-cq-opt').forEach(opt => {
+          opt.addEventListener('click', () => {
+            const val = parseInt(opt.dataset.val, 10);
+            if (val === correct) {
+              opt.dataset.state = 'right';
+              fb.innerHTML = '<p class="font-jp text-[15px] sm:text-[17px] font-bold leading-[1.6] text-center" style="color: #3F6A3A;">🎉 やった、正解！</p>';
+              reveal.style.display = '';
+              aq.querySelectorAll('.ch3-cq-opt').forEach(o => { if (o !== opt) o.disabled = true; });
+              if (!fRunning) {
+                fRunning = true;
+                fStart = performance.now();
+                requestAnimationFrame(forestTick);
+              }
+            } else {
+              opt.dataset.state = 'wrong';
+              fb.innerHTML = '<p class="font-jp text-[14px] sm:text-[15px] text-center" style="color: #9C1428;">もう一度トライ！ ヒント：森を切ったあと、そこで何が育っているか考えてみて。</p>';
+              setTimeout(() => {
+                opt.removeAttribute('data-state');
+                opt.disabled = false;
+              }, 1400);
+              opt.disabled = true;
+            }
+          });
+        });
+      }
 
       // ───────── CH3 calorie-guess inline quiz ─────────
       //   Player picks 20/50/80/100 for "% of world calories from 80% of farmland."
@@ -2475,7 +2600,6 @@
           d.classList.toggle('is-active', i === quizActive);
           d.classList.toggle('is-done', QUIZ.picks[i] !== null && i !== quizActive);
         });
-        if (quizCurr) quizCurr.textContent = String(quizActive + 1);
         if (quizBack) quizBack.style.display = quizActive === 0 ? 'none' : 'inline-flex';
         // Re-apply each card's stored pick so going back shows the previous selection.
         const card = quizCards[quizActive];
