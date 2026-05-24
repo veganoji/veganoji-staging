@@ -846,13 +846,14 @@
     .profile-label {
       grid-column: 1; grid-row: 1;
       font-family: var(--font-jp-display);
-      font-size: 11px; color: var(--color-royal); letter-spacing: 0.16em;
+      font-size: 13px; color: var(--color-royal); letter-spacing: 0.12em;
+      font-weight: 800;
       align-self: center;
     }
     .profile-value {
       grid-column: 1 / -1; grid-row: 2;
       font-family: var(--font-jp);
-      font-size: 13px; color: var(--color-ink); line-height: 1.65;
+      font-size: 14.5px; color: var(--color-ink); line-height: 1.7;
       max-height: 0; overflow: hidden; opacity: 0;
       transition: max-height 0.3s ease, opacity 0.2s ease, padding-top 0.2s ease;
     }
@@ -866,7 +867,7 @@
       }
       .profile-row:hover { background: transparent; }
       .profile-row::after { display: none; }
-      .profile-label { grid-column: 1; grid-row: 1; font-size: 12px; letter-spacing: 0.18em; }
+      .profile-label { grid-column: 1; grid-row: 1; font-size: 14px; letter-spacing: 0.14em; }
       .profile-value {
         grid-column: 2; grid-row: 1;
         max-height: none !important; opacity: 1 !important; padding-top: 0 !important;
@@ -1281,7 +1282,7 @@
   </section>
 
   <!-- ─────────────  ABOUT / SIX LANGUAGES  ───────────── -->
-  <section id="about" class="bg-royal crown-bg crown-bg-light text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+  <section id="about" class="bg-royal crown-bg crown-bg-light text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
     <div class="absolute inset-0 stars-bg opacity-50 pointer-events-none"></div>
     <svg class="absolute top-16 left-[8%] w-12 h-12 text-gold opacity-30 anim-float"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-24 right-[12%] w-10 h-10 text-paper opacity-20 anim-float" style="animation-delay:1.4s"><use href="#sparkle"/></svg>
@@ -1346,7 +1347,7 @@
   </section>
 
   <!-- ─────────────  SERVICES  ───────────── -->
-  <section id="services" class="bg-paper crown-bg crown-bg-wide py-14 sm:py-20 lg:py-32 relative">
+  <section id="services" class="bg-paper crown-bg crown-bg-wide py-12 sm:py-16 lg:py-24 relative">
     <svg class="absolute top-20 right-[6%] w-8 h-8 text-royal-soft opacity-60 anim-sparkle"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-32 left-[4%] w-6 h-6 text-gold anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
 
@@ -1453,7 +1454,7 @@
   </section>
 
   <!-- ─────────────  MISSION  ───────────── -->
-  <section class="bg-royal crown-bg crown-bg-light text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+  <section class="bg-royal crown-bg crown-bg-light text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
     <div class="absolute inset-0 stars-bg opacity-20 pointer-events-none"></div>
     <svg class="absolute top-20 left-[8%] w-8 h-8 text-gold opacity-60 anim-sparkle"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-32 right-[20%] w-6 h-6 text-gold-soft opacity-50 anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
@@ -1464,7 +1465,7 @@
         「やさしさと行動こそ、本当の<span class="text-gold-soft display-italic font-display font-medium">王子様</span>らしさ」
       </blockquote>
 
-      <div class="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div class="mt-8 sm:mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div class="lg:col-span-7">
           <button class="mission-toggle md:hidden inline-flex items-center gap-2 text-paper/90 border border-paper/30 rounded-full px-4 py-2 text-[12px] font-jp hover:bg-paper/10 transition-colors">
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none" class="mission-toggle-chev transition-transform"><path d="M3 5 L7 9 L11 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
@@ -1477,35 +1478,35 @@
             <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85 mt-6">
               ２０１７年、UCLAを卒業して日本へ。アメリカではすでに浸透しているけれど、日本にはまだ<span class="text-gold-soft font-medium">「僕が貢献できる余地」</span>があると思いました。それから９年。テレビ、フェス、大学講義、企業コンサル、商品開発──野菜とユーモアと涙を持って、走り続けています。
             </p>
-            <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85 mt-6">
+            <p class="font-jp text-[15px] lg:text-[16px] leading-[2.1] text-paper/85 mt-5">
               目標はひとつ。<span class="text-gold-soft font-medium">日本を、世界で一番ビーガンフレンドリーな国にすること。</span>
             </p>
           </div>
         </div>
 
         <div class="lg:col-span-5 relative">
-          <div class="bg-paper rounded-lg p-8 border border-line shadow-sm">
-            <div class="eyebrow mb-4 font-jp">王子の信条</div>
+          <div class="bg-paper rounded-2xl p-6 sm:p-7 border border-line shadow-sm">
+            <div class="font-jp text-[14px] sm:text-[15.5px] text-royal tracking-[0.12em] uppercase mb-5" style="font-weight:800">王子の信条</div>
             <ul class="space-y-5">
               <li class="flex gap-4">
                 <span class="font-display text-[22px] text-royal leading-none">→</span>
                 <div>
-                  <div class="font-jp-display text-[17px] text-ink mb-1">美味しく、楽しく、健康に</div>
-                  <div class="font-jp text-[13px] text-muted leading-relaxed">伝え方こそが、ムーブメントを左右する。</div>
+                  <div class="font-jp-display text-[19px] sm:text-[20px] text-ink mb-1.5" style="font-weight:700">美味しく、楽しく、健康に</div>
+                  <div class="font-jp text-[14.5px] text-ink-soft leading-relaxed">伝え方こそが、ムーブメントを左右する。</div>
                 </div>
               </li>
               <li class="flex gap-4">
                 <span class="font-display text-[22px] text-royal leading-none">→</span>
                 <div>
-                  <div class="font-jp-display text-[17px] text-ink mb-1">制限ではなく、拡張</div>
-                  <div class="font-jp text-[13px] text-muted leading-relaxed">選択肢が増える生き方として、ビーガンを語る。</div>
+                  <div class="font-jp-display text-[19px] sm:text-[20px] text-ink mb-1.5" style="font-weight:700">制限ではなく、拡張</div>
+                  <div class="font-jp text-[14.5px] text-ink-soft leading-relaxed">選択肢が増える生き方として、ビーガンを語る。</div>
                 </div>
               </li>
               <li class="flex gap-4">
                 <span class="font-display text-[22px] text-royal leading-none">→</span>
                 <div>
-                  <div class="font-jp-display text-[17px] text-ink mb-1">行動こそが王子様</div>
-                  <div class="font-jp text-[13px] text-muted leading-relaxed">立派な言葉より、小さな行動を重ねる。</div>
+                  <div class="font-jp-display text-[19px] sm:text-[20px] text-ink mb-1.5" style="font-weight:700">行動こそが王子様</div>
+                  <div class="font-jp text-[14.5px] text-ink-soft leading-relaxed">立派な言葉より、小さな行動を重ねる。</div>
                 </div>
               </li>
             </ul>
@@ -1519,7 +1520,7 @@
   </section>
 
   <!-- ─────────────  SELECTED WORK (horizontal scroll)  ───────────── -->
-  <section id="work" class="bg-paper crown-bg py-14 sm:py-20 lg:py-32 relative">
+  <section id="work" class="bg-paper crown-bg py-12 sm:py-16 lg:py-24 relative">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
 
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 relative">
@@ -1542,7 +1543,7 @@
   </section>
 
   <!-- ─────────────  UPCOMING EVENTS  ───────────── -->
-  <section id="events" class="bg-royal crown-bg crown-bg-light text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+  <section id="events" class="bg-royal crown-bg crown-bg-light text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
     <div class="absolute inset-0 stars-bg opacity-30 pointer-events-none"></div>
     <svg class="absolute top-12 right-[10%] w-12 h-12 text-gold opacity-40 anim-float"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-16 left-[8%] w-10 h-10 text-paper opacity-15 anim-float" style="animation-delay:1.1s"><use href="#sparkle"/></svg>
@@ -1624,7 +1625,7 @@
   </section>
 
   <!-- ─────────────  CHARACTER + ALEX PROFILE TABS  ───────────── -->
-  <section id="character" class="bg-cream py-14 sm:py-20 lg:py-32 border-y border-line relative overflow-hidden">
+  <section id="character" class="bg-cream py-12 sm:py-16 lg:py-24 border-y border-line relative overflow-hidden">
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
 
@@ -1697,7 +1698,7 @@
                 <div class="profile-row" data-row-open="false"><div class="profile-label">とくいわざ</div><div class="profile-value">６カ国語をあやつる ✦ ヴァイオリン ✦ レシピ開発 ✦ どこでも誰とでも話せる</div></div>
                 <div class="profile-row" data-row-open="false"><div class="profile-label">すきなもの</div><div class="profile-value">野菜全般 ✦ 王子の衣装 ✦ お笑い ✦ フランス映画 ✦ 日本のお祭り</div></div>
                 <div class="profile-row" data-row-open="false"><div class="profile-label">にがてなもの</div><div class="profile-value">嘘 ✦ ものすごい早起き（がんばる）</div></div>
-                <div class="profile-row" data-row-open="false"><div class="profile-label">くちぐせ</div><div class="profile-value font-jp-display text-[17px] text-royal">「やさしさと行動こそ、本当の王子様らしさ」</div></div>
+                <div class="profile-row" data-row-open="false"><div class="profile-label">くちぐせ</div><div class="profile-value font-jp-display text-[18.5px] text-royal" style="font-weight:600">「やさしさと行動こそ、本当の王子様らしさ」</div></div>
               </div>
             </div>
           </div>
@@ -1709,17 +1710,30 @@
       <div class="prince-panel prince-panel-alex">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div class="lg:col-span-5 relative">
-            <div class="absolute -top-3 -right-3 w-[103%] h-[103%] -z-10 rounded-3xl bg-paper border border-line"></div>
-            <div class="relative bg-paper border border-line rounded-2xl overflow-hidden shadow-sm">
+            <!-- Photo with name overlay on bottom (gradient bar) -->
+            <div class="relative w-full max-w-[360px] mx-auto bg-paper border border-line rounded-2xl overflow-hidden shadow-sm">
               <img src="https://veganoji.jp/wp-content/uploads/2026/03/Vegan-Oji_Profile-Picture.jpg" alt="アレックス・デレチ モデル写真" class="w-full block aspect-[4/5] object-cover" loading="lazy"/>
+              <div class="absolute bottom-0 left-0 right-0 px-5 py-4 sm:px-6 sm:py-5" style="background:linear-gradient(to top, rgba(31,24,18,0.88) 0%, rgba(31,24,18,0.55) 60%, transparent 100%);">
+                <div class="font-jp-display text-paper leading-none" style="font-weight:900; font-size:clamp(22px, 4.5vw, 30px);">Alex Derycz</div>
+                <div class="font-jp text-paper/85 mt-1" style="font-size:14px;">アレックス・デレチ</div>
+              </div>
             </div>
-            <div class="text-center mt-6">
-              <div class="font-jp-display text-[22px] text-ink" style="font-weight:900">Alex Derycz</div>
-              <div class="font-jp text-[14px] text-muted mt-1">アレックス・デレチ</div>
+
+            <!-- LINE Stamps CTA below image, matching mascot tab layout -->
+            <div class="mt-6 max-w-[360px] mx-auto bg-paper border border-line rounded-2xl p-4 flex items-center gap-3 shadow-sm">
+              <img src="/images/social/line.png" alt="" class="w-10 h-10 flex-shrink-0"/>
+              <div class="flex-1">
+                <div class="font-jp-display text-[14px] text-ink leading-tight" style="font-weight:800">LINEスタンプ発売中！</div>
+                <div class="font-jp text-[12px] text-muted leading-relaxed">毎日の会話に、王子を。</div>
+              </div>
+              <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener" class="btn-line !text-[12px] !px-4 !py-2">
+                <span class="font-jp">ゲット</span>
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </a>
             </div>
           </div>
 
-          <div class="lg:col-span-7 space-y-5">
+          <div class="lg:col-span-7">
             <div class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-10 border-2 border-line shadow-sm relative">
               <div class="absolute -top-5 -left-5 w-14 h-14 rounded-full bg-gold text-ink flex items-center justify-center shadow-md rotate-[-8deg]">
                 <svg width="22" height="22"><use href="#sparkle"/></svg>
@@ -1731,7 +1745,7 @@
                 </div>
               </div>
 
-              <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mb-5">
+              <p class="font-jp text-[15px] sm:text-[15.5px] text-ink-soft leading-relaxed mb-5">
                 国内外の大手企業やラグジュアリーブランドで、幅広い現場で８年以上にわたり活動しています。
               </p>
 
@@ -1749,18 +1763,6 @@
               </div>
             </div>
 
-            <!-- LINE Stamps CTA on Alex tab too (王子 と alex は同一人物) -->
-            <div class="max-w-full bg-paper border border-line rounded-2xl p-4 flex items-center gap-3 shadow-sm">
-              <img src="/images/social/line.png" alt="" class="w-10 h-10 flex-shrink-0"/>
-              <div class="flex-1">
-                <div class="font-jp-display text-[14px] text-ink leading-tight" style="font-weight:800">LINEスタンプ発売中！</div>
-                <div class="font-jp text-[12px] text-muted leading-relaxed">毎日の会話に、王子を。</div>
-              </div>
-              <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener" class="btn-line !text-[12px] !px-4 !py-2">
-                <span class="font-jp">ゲット</span>
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -1780,7 +1782,7 @@
   </section>
 
   <!-- ─────────────  DONATE  ───────────── -->
-  <section id="donate" class="bg-royal heart-bg heart-bg-light text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+  <section id="donate" class="bg-royal heart-bg heart-bg-light text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
 
     <div class="absolute top-6 right-2 sm:top-12 sm:right-6 lg:top-1/2 lg:-translate-y-1/2 lg:right-[4%] w-28 sm:w-40 lg:w-56 anim-bobble pointer-events-none z-10">
       <img src="/images/mascot/treasure-chest.png" alt="ビーガン王子 - サポーター" class="w-full h-auto drop-shadow-2xl" loading="lazy"/>
@@ -1862,7 +1864,7 @@
   </section>
 
   <!-- ─────────────  BOOKING  ───────────── -->
-  <section id="booking" class="bg-paper crown-bg crown-bg-wide py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+  <section id="booking" class="bg-paper crown-bg crown-bg-wide py-12 sm:py-16 lg:py-24 relative overflow-hidden">
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
       <h2 class="font-display display-tight text-[40px] sm:text-[64px] lg:text-[88px] font-medium leading-[0.95] text-ink">
