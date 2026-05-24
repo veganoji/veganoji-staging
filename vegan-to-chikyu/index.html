@@ -236,7 +236,7 @@
       transform: scale(0.35);
       transform-origin: center;
       opacity: 0.5;
-      transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease-out;
+      transition: transform 2.2s cubic-bezier(0.34, 1.42, 0.64, 1), opacity 1.4s ease-out;
     }
     [data-pop="1"].is-popped {
       transform: scale(1);
@@ -309,7 +309,7 @@
     .bar-fill {
       height: 100%;
       border-right: 2px solid var(--color-ink);
-      transition: width 1.3s cubic-bezier(0.22,1,0.36,1);
+      transition: width 2.8s cubic-bezier(0.22,1,0.36,1);
       width: 0%;
     }
     @media (min-width: 640px) {
@@ -373,6 +373,55 @@
     @media (prefers-reduced-motion: reduce) {
       .quiz-card { animation: none; }
     }
+
+    /* ── Food-picker buttons (CH2 interactive water explorer) ──────── */
+    .food-btn {
+      position: relative;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 4px;
+      padding: 10px 8px;
+      background: var(--color-paper);
+      border: 2.5px solid var(--color-ink);
+      border-radius: 18px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+      cursor: pointer;
+      font-family: var(--font-noto-sans-jp);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.2s ease;
+    }
+    .food-btn:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); }
+    .food-btn:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .food-btn[aria-pressed="true"] {
+      background: #DDEEF8;
+      box-shadow: 4px 4px 0 #1B5C8B;
+      border-color: #1B5C8B;
+    }
+    .food-btn img {
+      width: 64px; height: 64px;
+      object-fit: contain;
+      pointer-events: none;
+    }
+    @media (min-width: 640px) {
+      .food-btn img { width: 80px; height: 80px; }
+    }
+    .food-btn__label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-ink);
+      line-height: 1.25;
+      text-align: center;
+    }
+    @media (min-width: 640px) {
+      .food-btn__label { font-size: 12px; }
+    }
+    .food-btn__kind {
+      position: absolute;
+      top: 5px; right: 5px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid var(--color-ink);
+    }
+    .food-btn[data-kind="animal"] .food-btn__kind { background: #E55063; }
+    .food-btn[data-kind="plant"]  .food-btn__kind { background: #6C9560; }
 
     /* ── Ofuro bath sequence animation ──────────────────────────────
        Each bath icon starts hidden + slightly smaller; .is-in pops it
@@ -1034,34 +1083,42 @@
           <span class="font-bold" style="color: #C9223A;">毎年1.5トン</span> の温室効果ガスが減らせる。<a href="#src-1-4" class="src">4</a><br/>
           ハイブリッド車に乗り換えるより、ちょっと多いんだ。
         </p>
-      </div>
 
-      <!-- Supporting facts strip -->
-      <div class="reveal mt-12 sm:mt-16">
-        <div class="factstrip">
-          <div class="factstrip__cell">
-            <div class="factstrip__icon" style="padding:0; background:transparent; border:none; box-shadow:none;">
-              <img src="/images/vegan-to-chikyu/icon-fossil-fuel.png" alt="" class="w-12 h-12" loading="lazy"/>
+        <!-- Optional deeper facts — collapsed by default so the section
+             doesn't keep climbing vertically for readers who don't want
+             more numbers. -->
+        <details class="group mt-6 sm:mt-7 -mx-6 sm:-mx-10 px-6 sm:px-10 pt-5 border-t border-ink/10">
+          <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+            <span class="font-jp text-[13px] sm:text-[14px] text-ink-soft font-bold">もう少しだけ、深く。</span>
+            <span class="flex items-center gap-1 text-ink/55 text-[12px]">
+              <span class="group-open:hidden">ひらく</span>
+              <span class="hidden group-open:inline">閉じる</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" class="transition-transform group-open:rotate-180"><path d="M3 5 L6 8 L9 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+            </span>
+          </summary>
+          <div class="mt-5 grid sm:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 p-4 rounded-2xl border-2 border-ink/15"
+                 style="background: rgba(255,249,238,0.6);">
+              <img src="/images/vegan-to-chikyu/icon-fossil-fuel.png" alt="" class="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0" loading="lazy"/>
+              <div>
+                <div class="font-jp-display text-[20px] sm:text-[24px] ticker leading-none" style="color: #C9223A;">10倍</div>
+                <p class="font-jp text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] mt-1">
+                  動物性タンパク質1カロリーを作るのに、植物性の<span class="font-bold">10倍</span>の化石燃料が必要。<a href="#src-1-5" class="src">5</a>
+                </p>
+              </div>
             </div>
-            <div>
-              <div class="font-jp-display text-[22px] sm:text-[26px] text-ink ticker" style="color: #C9223A;">10倍</div>
-              <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7] mt-1">
-                動物性タンパク質1カロリーを作るのに、植物性の<span class="font-bold">10倍</span>の化石燃料が必要。<a href="#src-1-5" class="src">5</a>
-              </p>
+            <div class="flex items-start gap-3 p-4 rounded-2xl border-2 border-ink/15"
+                 style="background: rgba(255,249,238,0.6);">
+              <img src="/images/vegan-to-chikyu/icon-co2-cloud.png" alt="" class="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0" loading="lazy"/>
+              <div>
+                <div class="font-jp-display text-[20px] sm:text-[24px] ticker leading-none" style="color: #C9223A;">2.5倍</div>
+                <p class="font-jp text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] mt-1">
+                  雑食は菜食より温室効果ガス排出の<span class="font-bold">2.5倍</span>の原因になる。<a href="#src-1-6" class="src">6</a>
+                </p>
+              </div>
             </div>
           </div>
-          <div class="factstrip__cell">
-            <div class="factstrip__icon" style="padding:0; background:transparent; border:none; box-shadow:none;">
-              <img src="/images/vegan-to-chikyu/icon-co2-cloud.png" alt="" class="w-12 h-12" loading="lazy"/>
-            </div>
-            <div>
-              <div class="font-jp-display text-[22px] sm:text-[26px] text-ink ticker" style="color: #C9223A;">2.5倍</div>
-              <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7] mt-1">
-                雑食は菜食より温室効果ガス排出の<span class="font-bold">2.5倍</span>の原因になる。<a href="#src-1-6" class="src">6</a>
-              </p>
-            </div>
-          </div>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -1129,12 +1186,15 @@
             お風呂(<span class="font-bold">約154L</span>)に置き換えると——
           </p>
 
-          <!-- Veg: 2 baths (smallest → builds dramatic contrast) -->
+          <!-- Veg: 2 baths -->
           <div class="ofuro-row p-4 sm:p-5 rounded-2xl border-2 border-ink/15 mb-4 sm:mb-5"
                style="background: rgba(255,249,238,0.55);">
-            <div class="flex items-baseline justify-between mb-3">
-              <span class="font-jp text-[14px] sm:text-[15px] text-ink/70 font-bold">野菜 1kg</span>
-              <span class="font-jp-display ticker text-[24px] sm:text-[32px] leading-none text-ink/70">×2</span>
+            <div class="flex items-center justify-between gap-3 mb-3">
+              <div class="flex items-center gap-3">
+                <img src="/images/vegan-to-chikyu/food-broccoli.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0" loading="lazy"/>
+                <span class="font-jp-display text-[18px] sm:text-[22px] text-ink leading-tight">野菜 1kg</span>
+              </div>
+              <span class="font-jp-display ticker text-[28px] sm:text-[36px] leading-none text-ink/75">×2</span>
             </div>
             <div id="ofuro-grid-veg" class="flex gap-3">
               <!-- populated by JS: 2 tubs -->
@@ -1144,9 +1204,12 @@
           <!-- Wheat: 10 baths -->
           <div class="ofuro-row p-4 sm:p-5 rounded-2xl border-2 border-ink/15 mb-4 sm:mb-5"
                style="background: rgba(255,249,238,0.55);">
-            <div class="flex items-baseline justify-between mb-3">
-              <span class="font-jp text-[14px] sm:text-[15px] text-ink/85 font-bold">小麦 1kg</span>
-              <span class="font-jp-display ticker text-[28px] sm:text-[36px] leading-none text-ink/85">×10</span>
+            <div class="flex items-center justify-between gap-3 mb-3">
+              <div class="flex items-center gap-3">
+                <img src="/images/vegan-to-chikyu/food-onigiri.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0" loading="lazy"/>
+                <span class="font-jp-display text-[18px] sm:text-[22px] text-ink leading-tight">小麦 1kg</span>
+              </div>
+              <span class="font-jp-display ticker text-[32px] sm:text-[40px] leading-none text-ink/85">×10</span>
             </div>
             <div id="ofuro-grid-wheat" class="flex flex-wrap gap-1.5 sm:gap-2">
               <!-- populated by JS: 10 tubs -->
@@ -1156,9 +1219,12 @@
           <!-- Meat: 100 baths (climax) -->
           <div class="ofuro-row p-4 sm:p-5 rounded-2xl border-2 border-ink/15"
                style="background: rgba(255,249,238,0.55);">
-            <div class="flex items-baseline justify-between mb-3">
-              <span class="font-jp text-[14px] sm:text-[15px] text-ink font-bold">お肉 1kg</span>
-              <span class="font-jp-display ticker text-[32px] sm:text-[40px] leading-none" style="color: #2B7AB0;">×100</span>
+            <div class="flex items-center justify-between gap-3 mb-3">
+              <div class="flex items-center gap-3">
+                <img src="/images/vegan-to-chikyu/food-hamburger.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0" loading="lazy"/>
+                <span class="font-jp-display text-[18px] sm:text-[22px] text-ink leading-tight">お肉 1kg</span>
+              </div>
+              <span class="font-jp-display ticker text-[36px] sm:text-[44px] leading-none" style="color: #2B7AB0;">×100</span>
             </div>
             <div id="ofuro-grid-meat" class="ofuro-grid"
                  style="display: grid; grid-template-columns: repeat(20, 1fr); gap: 2px; max-width: 100%;">
@@ -1171,37 +1237,57 @@
           </p>
         </div>
 
-        <!-- Japan-specific virtual-water fact -->
-        <div class="mt-8 sm:mt-10 p-5 sm:p-6 rounded-2xl border-2 border-ink/15"
-             style="background: rgba(220,238,248,0.6);">
-          <div class="flex items-start gap-4">
-            <img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0" loading="lazy"/>
+        <!-- Japan-specific virtual-water fact — modernised card style -->
+        <div class="mt-10 sm:mt-14 sticker-soft p-7 sm:p-9"
+             style="background:
+               radial-gradient(ellipse at 100% 0%, rgba(181,213,232,0.55), transparent 55%),
+               radial-gradient(ellipse at 0% 100%, rgba(220,238,248,0.45), transparent 60%),
+               var(--color-paper);">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-paper text-[11px] sm:text-[12px] tracking-[0.18em] font-bold"
+                  style="background: #1B5C8B; border: 2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink);">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-paper);"></span>
+              日本でも
+            </span>
+          </div>
+
+          <div class="grid sm:grid-cols-[1fr_auto] gap-5 sm:gap-7 items-center">
             <div>
-              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] font-bold mb-1" style="color: #1B5C8B;">日本のケース</div>
-              <p class="font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.8]">
-                日本が海外から「持ち込んでいる水」は年間<span class="font-bold">約800億m³</span>。<br/>
-                そのほとんどが食料、特に肉類のために使われている。<a href="#src-2-3" class="src">9</a>
-                <span class="text-ink/55">（日本国内で使うお水の量とほぼ同じ）</span>
+              <h3 class="font-jp-display text-[22px] sm:text-[28px] leading-[1.4] text-ink mb-3">
+                海外から運ばれてくる「<span style="color: #2B7AB0;">見えない水</span>」が、<br class="hidden sm:block"/>
+                毎年 <span class="font-bold ticker" style="color: #1B5C8B;">約800億 m³</span>。
+              </h3>
+              <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85]">
+                そのほとんどが、お肉や乳製品の生産に使われる水。<a href="#src-2-3" class="src">9</a><br/>
+                <span class="text-ink/65">これは、日本中で1年間に使うお水の量とほぼ同じ。</span>
               </p>
             </div>
+            <img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt=""
+                 class="w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0 flex-shrink-0 anim-bobble"
+                 loading="lazy"/>
           </div>
         </div>
       </div>
 
-      <!-- Swap one burger = 3 months of showers -->
-      <div class="reveal mt-12 sm:mt-16 sticker-soft p-6 sm:p-9">
-        <div class="flex items-start gap-4 sm:gap-6">
-          <div class="flex-shrink-0">
-            <img src="/images/vegan-to-chikyu/icon-shower.png" alt="" class="w-20 h-20 sm:w-24 sm:h-24 anim-bobble" loading="lazy"/>
-          </div>
-          <div>
-            <h3 class="font-jp-display text-[20px] sm:text-[28px] leading-[1.4] text-ink">
-              動物性バーガーを植物性にかえる<br class="hidden sm:block"/>
-              ——たったそれだけで、
-            </h3>
-            <p class="mt-3 font-jp text-[15px] sm:text-[17px] leading-[1.85]" style="color: #1B5C8B;">
-              <span class="font-bold text-[20px] sm:text-[24px]">シャワー3ヶ月分</span> のお水が節約できる。<a href="#src-2-4" class="src">10</a>
-            </p>
+      <!-- INTERACTIVE FOOD PICKER — tap to see water footprint per item.
+           Animal items show the wow-factor in baths/showers; plant items
+           frame the savings relative to a comparable animal product. -->
+      <div class="reveal mt-12 sm:mt-16 sticker p-6 sm:p-10">
+        <h3 class="font-jp-display text-[22px] sm:text-[32px] leading-[1.35] text-ink text-center">
+          <span style="color: #2B7AB0;">タップして</span>、調べてみよう
+        </h3>
+        <p class="mt-2 font-jp text-ink-soft text-[13px] sm:text-[15px] text-center leading-[1.75]">
+          1つ作るのに、どれくらいの水が必要？
+        </p>
+
+        <!-- 12-item grid (3 per row mobile, 4 per row sm+) -->
+        <div id="food-grid" class="mt-7 sm:mt-9 grid grid-cols-3 sm:grid-cols-4 gap-2.5 sm:gap-3.5"></div>
+
+        <!-- Result panel — populated on click -->
+        <div id="food-result" class="mt-7 p-5 sm:p-7 rounded-2xl border-2 border-ink/15"
+             style="background: rgba(255,249,238,0.7); min-height: 130px;">
+          <div class="text-center text-ink-soft font-jp text-[13px] sm:text-[14px] leading-[1.7]">
+            ↑ 上の食べ物をタップして、お水の量を見てみよう。
           </div>
         </div>
       </div>
@@ -1849,17 +1935,19 @@
              loading="lazy" />
       </div>
 
-      <!-- Diet picker -->
+      <!-- Diet picker — meat selected by default so users see the HIGH
+           usage first, then watch numbers collapse as they click toward
+           ビーガン (especially 0匹 lives). -->
       <div class="reveal mt-10 sm:mt-12">
         <div class="font-jp text-ink-soft text-[14px] sm:text-[15px] mb-3 text-center">
           普段のお肉の頻度は？
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-          <button type="button" class="diet-opt" data-diet="meat" aria-pressed="false">
+          <button type="button" class="diet-opt" data-diet="meat" aria-pressed="true">
             <span class="diet-opt__emoji">🍖</span>
             <span class="diet-opt__label">毎食<br/>お肉</span>
           </button>
-          <button type="button" class="diet-opt" data-diet="mixed" aria-pressed="true">
+          <button type="button" class="diet-opt" data-diet="mixed" aria-pressed="false">
             <span class="diet-opt__emoji">🍱</span>
             <span class="diet-opt__label">週に<br/>数回</span>
           </button>
@@ -1879,12 +1967,12 @@
         <div id="share-card" class="share-card p-7 sm:p-10">
           <div class="relative z-10">
             <div class="flex items-center justify-between mb-5">
-              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] text-ink/55">あなたが1年で減らせる</div>
-              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] text-leaf-deep font-bold" id="result-diet-label">週に数回</div>
+              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] text-ink/55">あなたが1年で使う</div>
+              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] text-leaf-deep font-bold" id="result-diet-label">毎食お肉</div>
             </div>
 
             <h3 class="font-jp-display text-[22px] sm:text-[30px] leading-[1.35] text-ink mb-7">
-              一週間が、こんなに地球をかえる。
+              一週間で、これだけ地球を使ってる。
             </h3>
 
             <!-- 4 stat tiles -->
@@ -1916,11 +2004,11 @@
                 </div>
                 <div class="font-jp text-[12px] sm:text-[13px] text-ink/70 mt-2 leading-tight">≒ テニスコート <span class="font-bold" id="result-land-friend">2</span> 面</div>
               </div>
-              <!-- Animals -->
+              <!-- Animals lost -->
               <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink" style="background: #EADFF1;">
-                <div class="text-[11px] sm:text-[12px] tracking-[0.14em] text-ink/60 mb-1">救われる命</div>
+                <div class="text-[11px] sm:text-[12px] tracking-[0.14em] text-ink/60 mb-1">失われる命</div>
                 <div class="big-number ticker text-[32px] sm:text-[42px] leading-none" style="color: #6B4E8C;">
-                  <span id="result-animals">50</span>
+                  <span id="result-animals">200</span>
                   <span class="text-[16px] sm:text-[20px] font-bold ml-0.5">匹</span>
                 </div>
                 <div class="font-jp text-[12px] sm:text-[13px] text-ink/70 mt-2 leading-tight">魚・鳥・うし・ぶたなど</div>
@@ -2348,6 +2436,76 @@
         pops.forEach(p => p.classList.add('is-popped'));
       }
 
+      // ───────── CH2 interactive food-picker ─────────
+      //   12 foods (6 animal, 6 plant). Click reveals water L per typical
+      //   serving and a one-line message. Animal items frame the scale in
+      //   showers/baths; plant items frame the savings vs an animal
+      //   counterpart.  Numbers are rounded for memorability and based on
+      //   Mekonnen & Hoekstra water-footprint figures.
+      (function buildFoodPicker() {
+        const grid = document.getElementById('food-grid');
+        const result = document.getElementById('food-result');
+        if (!grid || !result) return;
+        const FOODS = [
+          { id: 'food-hamburger',     label: 'ハンバーガー', kind: 'animal', litres: 2400,
+            msg: '<strong>シャワー約3ヶ月分</strong>のお水。 牛肉のためにこれだけ必要。<a href="#src-2-4" class="src">10</a>' },
+          { id: 'food-veggie-burger', label: '植物性バーガー', kind: 'plant', litres: 250,
+            msg: '同じハンバーガーでも、<strong>約90%節約</strong>。 植物性なら大きく変わる。' },
+          { id: 'food-milk',          label: '牛乳 1L',     kind: 'animal', litres: 1020,
+            msg: 'コップ1杯(200ml)で<strong>約200L</strong>。 飲み終わるまでに、お風呂1回分。' },
+          { id: 'food-egg',           label: 'たまご 1個', kind: 'animal', litres: 200,
+            msg: 'たった1個でも、<strong>2Lペットボトル100本分</strong>のお水。' },
+          { id: 'food-cheese',        label: 'チーズ 100g', kind: 'animal', litres: 500,
+            msg: '一切れあたり<strong>お風呂3回分</strong>。 乳製品はとくに水を多く使う。' },
+          { id: 'food-chicken',       label: '鶏肉 100g',  kind: 'animal', litres: 430,
+            msg: '小さなとり胸肉でも<strong>お風呂約3回分</strong>のお水。' },
+          { id: 'food-tofu',          label: '豆腐 100g',  kind: 'plant',  litres: 25,
+            msg: '同じタンパク質でも、鶏肉の<strong>約95%節約</strong>。 完全に別世界。' },
+          { id: 'food-onigiri',       label: 'おにぎり 1個', kind: 'plant', litres: 225,
+            msg: 'お米は意外と水が要る。 でも牛肉1人前(150g)の<strong>約1/10</strong>。' },
+          { id: 'food-apple',         label: 'リンゴ 1個', kind: 'plant',  litres: 105,
+            msg: 'みずみずしいけど、お水は<strong>たった100Lくらい</strong>。 おやつとして優しい。' },
+          { id: 'food-tomato',        label: 'トマト 1個', kind: 'plant',  litres: 17,
+            msg: '<strong>たった17L</strong>。 お風呂1回分にも全然届かない。' },
+          { id: 'food-broccoli',      label: 'ブロッコリー 1株', kind: 'plant', litres: 85,
+            msg: '<strong>たった85L</strong>。 野菜は本当に少ないお水で育つんだ。' },
+          { id: 'food-banana',        label: 'バナナ 1本', kind: 'plant',  litres: 95,
+            msg: '<strong>たった100Lくらい</strong>。 牛乳1Lより少ないお水。' },
+        ];
+        FOODS.forEach(f => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'food-btn';
+          btn.dataset.id = f.id;
+          btn.dataset.kind = f.kind;
+          btn.setAttribute('aria-pressed', 'false');
+          btn.innerHTML =
+            '<span class="food-btn__kind" aria-hidden="true"></span>' +
+            '<img src="/images/vegan-to-chikyu/' + f.id + '.png" alt="" loading="lazy"/>' +
+            '<span class="food-btn__label">' + f.label + '</span>';
+          btn.addEventListener('click', () => {
+            grid.querySelectorAll('.food-btn').forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+            const accent = f.kind === 'animal' ? '#C9223A' : '#3F6A3A';
+            const accentBg = f.kind === 'animal' ? 'rgba(248,220,220,0.55)' : 'rgba(220,239,216,0.55)';
+            const litresStr = f.litres.toLocaleString('ja-JP') + ' L';
+            result.style.background = accentBg;
+            result.innerHTML =
+              '<div class="text-center">' +
+                '<div class="text-[11px] sm:text-[12px] tracking-[0.16em] font-bold mb-2" style="color:' + accent + ';">' +
+                  (f.kind === 'animal' ? 'ANIMAL' : 'PLANT') + ' ・ ' + f.label +
+                '</div>' +
+                '<div class="font-jp-display ticker text-[44px] sm:text-[60px] leading-none" style="color:' + accent + ';">' +
+                  litresStr +
+                '</div>' +
+                '<p class="mt-4 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.75]">' +
+                  f.msg +
+                '</p>' +
+              '</div>';
+          });
+          grid.appendChild(btn);
+        });
+      })();
+
       // ───────── CH2 ofuro grids — render N icons + staggered reveal ─────
       //   When the OFURO area enters view, baths animate in sequence:
       //   veg first (2 baths), then wheat (10), then meat (100). Within
@@ -2556,14 +2714,15 @@
         // (top = PIVOT_Y - LIFT). At tilt=+1, livestock is DOWN (top = PIVOT_Y + LIFT).
         if (plateLv) plateLv.style.top = (PIVOT_Y + LIFT * tilt) + 'px';
         if (plateTx) plateTx.style.top = (PIVOT_Y - LIFT * tilt) + 'px';
-        // Smoke clouds (weight metaphor)
+        // Smoke clouds (weight metaphor) — much wider range so the
+        // contrast is dramatic. Livestock starts tiny, fills the side.
         if (cloudLv) {
-          cloudLv.style.width   = (50 + 110 * eased) + 'px';
-          cloudLv.style.opacity = (0.4 + 0.5 * eased);
+          cloudLv.style.width   = (40 + 280 * eased) + 'px';
+          cloudLv.style.opacity = (0.35 + 0.55 * eased);
         }
         if (cloudTx) {
-          cloudTx.style.width   = (130 - 80 * eased) + 'px';
-          cloudTx.style.opacity = (0.7 - 0.4 * eased);
+          cloudTx.style.width   = (240 - 200 * eased) + 'px';
+          cloudTx.style.opacity = (0.75 - 0.5 * eased);
         }
       }
       window.addEventListener('scroll', onScaleScroll, { passive: true });
@@ -2663,29 +2822,31 @@
       markComplete();
 
       // ───────── Diet calculator ─────────
-      //   All "saved per year vs typical 毎食お肉 diet."  Numbers are
-      //   intentionally round and easy to read — built from the ranges in the
-      //   source infographic: 1.5t CO2 and ~5M L water for full vegan switch.
+      //   Numbers are USAGE per year (not savings). Meat-eater baseline
+      //   roughly: 2.5 t CO₂ + 5.5M L water + 3,000 m² land + 200 lives.
+      //   Each shift downward subtracts toward a vegan footprint of
+      //   ~1.0t / 0.5M L / 1,500 m² / 0 lives.  Animal lives flips to 0
+      //   for vegan — the emotional anchor of the visualization.
       const DIETS = {
         meat: {
           label: '毎食お肉',
-          co2: 0, water: 0, land: 0, animals: 0,
-          tagline: 'はじめは知ること、それも一歩。',
+          co2: 2.5, water: 5500000, land: 3000, animals: 200,
+          tagline: 'これが、毎日のごはんが地球に乗せている重さ。',
         },
         mixed: {
           label: '週に数回',
-          co2: 0.6, water: 1800000, land: 600, animals: 50,
-          tagline: '一週間の数日でも、ちゃんと意味がある。',
+          co2: 1.9, water: 3700000, land: 2400, animals: 150,
+          tagline: '少し控えるだけでも、こんなに変わる。',
         },
         veggie: {
           label: 'ほぼベジ',
-          co2: 1.2, water: 3600000, land: 1200, animals: 150,
+          co2: 1.3, water: 1900000, land: 1800, animals: 50,
           tagline: 'もう、地球がよろこんでるよ。',
         },
         vegan: {
           label: 'ビーガン',
-          co2: 1.5, water: 5000000, land: 1500, animals: 200,
-          tagline: 'うつくしい一年。ありがとう。',
+          co2: 1.0, water: 500000,  land: 1500, animals: 0,
+          tagline: '命を奪わない一年。 ありがとう。',
         },
       };
 
@@ -2749,7 +2910,7 @@
 
       function shareText(dietKey) {
         const d = DIETS[dietKey];
-        return `私が「${d.label}」を1年続けると——\nCO₂ ${d.co2}t / お水 ${fmt(d.water)}L / 動物 ${d.animals}匹 を節約。\n#ビーガン王子 #一食からはじめよう`;
+        return `私が「${d.label}」を1年続けると——\nCO₂ ${d.co2}t / お水 ${fmt(d.water)}L / 動物 ${d.animals}匹 を地球から借りる。\n#ビーガン王子 #一食からはじめよう`;
       }
 
       function currentDietKey() {
@@ -2851,17 +3012,19 @@
         };
       }
 
-      // Tiny mini-card for one question's result
+      // Tiny mini-card for one question's result — uses the social-style
+      // chibi check/X stickers so the answer key visually matches the rest
+      // of the brand.
       function rowHTML(qIdx, pickIdx, correctIdx) {
         const got = pickIdx === correctIdx;
-        const dot = got
-          ? '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#3F6A3A" stroke-width="2.2" fill="#DCEFD8"/><path d="M6 10 L9 13 L14 7" stroke="#3F6A3A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>'
+        const icon = got
+          ? '<img src="/images/vegan-to-chikyu/icon-check-social.png" alt="正解" class="w-12 h-12 sm:w-14 sm:h-14"/>'
           : (pickIdx === null
-              ? '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#786148" stroke-width="2" stroke-dasharray="3 2" fill="none"/></svg>'
-              : '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#9C1428" stroke-width="2.2" fill="#F8DCDC"/><path d="M7 7 L13 13 M13 7 L7 13" stroke="#9C1428" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>');
+              ? '<svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="#786148" stroke-width="2.5" stroke-dasharray="4 3" fill="none"/></svg>'
+              : '<img src="/images/vegan-to-chikyu/icon-x-social.png" alt="不正解" class="w-12 h-12 sm:w-14 sm:h-14"/>');
         return `<div class="flex flex-col items-center gap-1.5 p-3 rounded-2xl border-2 border-ink/15" style="background:rgba(255,249,238,0.6);">
           <div class="text-[11px] tracking-[0.16em] text-ink/55">Q${qIdx + 1}</div>
-          ${dot}
+          ${icon}
           <div class="text-[11px] sm:text-[12px] text-ink/65 text-center">${QUIZ_TITLES[qIdx]}</div>
         </div>`;
       }
