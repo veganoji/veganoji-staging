@@ -413,36 +413,80 @@
       border-radius: 4px;
     }
 
-    .svc-tile { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; }
-    /* Service-tile color tints (4 variants — one per service) */
-    .svc-tint-1 {
-      background: linear-gradient(160deg, #FFF4D8 0%, #FBE9B8 100%);
-      border-color: var(--color-gold);
+    /* Modern service cards — single accent stripe + collapsible details */
+    .svc-card {
+      background: var(--color-paper);
+      border: 1.5px solid var(--color-line);
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.3s ease, border-color 0.3s ease;
+      width: 280px; flex-shrink: 0;
     }
-    .svc-tint-1:hover { border-color: var(--color-gold-deep); box-shadow: 0 20px 40px -20px rgba(212,168,71,0.40); }
-    .svc-tint-2 {
-      background: linear-gradient(160deg, #FCE4E8 0%, #F8C9D2 100%);
-      border-color: var(--color-royal-soft);
+    @media (min-width: 768px) { .svc-card { width: auto; flex-shrink: 1; } }
+    .svc-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent, var(--color-royal));
+      box-shadow: 0 18px 36px -18px rgba(31,24,18,0.20);
     }
-    .svc-tint-2:hover { border-color: var(--color-royal); box-shadow: 0 20px 40px -20px rgba(201,34,58,0.30); }
-    .svc-tint-3 {
-      background: linear-gradient(160deg, #E6EEF7 0%, #C8DBED 100%);
-      border-color: #6B96B8;
+    .svc-stripe {
+      height: 5px;
+      background: var(--accent, var(--color-royal));
+      flex-shrink: 0;
     }
-    .svc-tint-3:hover { border-color: #4E78A0; box-shadow: 0 20px 40px -20px rgba(78,120,160,0.30); }
-    .svc-tint-4 {
-      background: linear-gradient(160deg, #E8F0DC 0%, #C9DCB3 100%);
-      border-color: var(--color-leaf);
+    .svc-card-inner {
+      padding: 22px 24px 20px;
+      display: flex; flex-direction: column;
+      flex: 1; min-height: 0;
     }
-    .svc-tint-4:hover { border-color: var(--color-leaf-deep); box-shadow: 0 20px 40px -20px rgba(108,149,96,0.35); }
-    /* Numeric "01-04" uses tile accent on hover instead of generic royal */
-    .svc-tint-1:hover .svc-num { color: var(--color-gold-deep); }
-    .svc-tint-2:hover .svc-num { color: var(--color-royal); }
-    .svc-tint-3:hover .svc-num { color: #4E78A0; }
-    .svc-tint-4:hover .svc-num { color: var(--color-leaf-deep); }
-
-
-    .svc-tile:hover { transform: translateY(-6px); }
+    .svc-header { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+    .svc-pose {
+      width: 88px; height: auto; flex-shrink: 0;
+      filter: drop-shadow(0 4px 8px rgba(31,24,18,0.14));
+    }
+    @media (min-width: 768px) { .svc-pose { width: 104px; } }
+    .svc-title {
+      font-family: var(--font-jp-display);
+      font-size: 20px; font-weight: 800;
+      color: var(--color-ink); line-height: 1.3;
+      letter-spacing: -0.005em;
+    }
+    @media (min-width: 768px) { .svc-title { font-size: 22px; } }
+    .svc-desc {
+      font-family: var(--font-jp);
+      font-size: 14.5px; color: var(--color-ink-soft);
+      line-height: 1.85; margin-bottom: 14px;
+    }
+    .svc-details {
+      margin-top: auto;
+      border-top: 1.5px solid rgba(31,24,18,0.08);
+    }
+    .svc-details > summary {
+      cursor: pointer; list-style: none;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0 6px;
+      font-size: 13.5px; font-weight: 700;
+      color: var(--accent, var(--color-royal));
+      font-family: var(--font-jp);
+      transition: color 0.2s ease;
+    }
+    .svc-details > summary::-webkit-details-marker,
+    .svc-details > summary::marker { display: none; content: ""; }
+    .svc-details > summary::after {
+      content: "+"; font-size: 22px; font-weight: 300;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1);
+      line-height: 1; margin-left: 12px;
+    }
+    .svc-details[open] > summary::after { transform: rotate(45deg); }
+    .svc-details ul {
+      list-style: none; padding: 6px 0 4px; margin: 0;
+      font-size: 13.5px; color: var(--color-ink-soft);
+      font-family: var(--font-jp);
+    }
+    .svc-details li { padding: 5px 0; line-height: 1.65; }
+    .svc-details a { color: var(--accent, var(--color-royal)); text-decoration: none; font-weight: 600; }
+    .svc-details a:hover { text-decoration: underline; }
 
 
     /* Horizontal-scroll rows for Work + Press */
@@ -1209,80 +1253,84 @@
 
       <div class="m-scroll m-scroll-2">
 
-        <article class="svc-tile svc-tint-1 rounded-2xl p-6 sm:p-8 lg:p-10 border-2 border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <img src="/images/oji/oji_teaching.png" alt="" class="absolute -bottom-4 -right-2 sm:-right-3 w-28 h-28 sm:w-36 sm:h-36 opacity-95 pointer-events-none drop-shadow-lg"/>
-          <div class="flex items-start justify-between">
-            <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">01</span>
+        <article class="svc-card" style="--accent: #D4A847;">
+          <div class="svc-stripe"></div>
+          <div class="svc-card-inner">
+            <div class="svc-header">
+              <img src="/images/oji/oji_teaching.png" alt="" class="svc-pose" loading="lazy"/>
+              <h3 class="svc-title">多言語MC・講演・大学授業</h3>
+            </div>
+            <p class="svc-desc">国際カンファレンスからビーガンフェス、大学の特別講義まで。最大６言語で、通訳を挟まずに会場と直接つながります。</p>
+            <details class="svc-details">
+              <summary>サービス内容を見る</summary>
+              <ul>
+              <li>· 国際イベント司会（日英／日仏／日西）</li>
+              <li>· パネルモデレーション</li>
+              <li>· 大学・高校での特別講義</li>
+              <li>· 企業向けサステナ研修</li>
+              </ul>
+            </details>
           </div>
-          <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
-            多言語MC・<br/>講演・大学授業
-          </h3>
-          <p class="font-jp text-[14.5px] sm:text-[15.5px] leading-[1.95] text-ink-soft">
-            国際カンファレンスからビーガンフェス、大学の特別講義まで。最大６言語で、通訳を挟まずに会場と直接つながります。
-          </p>
-          <ul class="mt-auto text-[14px] sm:text-[14.5px] text-muted space-y-1.5 font-jp">
-            <li>· 国際イベント司会（日英／日仏／日西）</li>
-            <li>· パネルモデレーション</li>
-            <li>· 大学・高校での特別講義</li>
-            <li>· 企業向けサステナ研修</li>
-          </ul>
         </article>
 
-        <article class="svc-tile svc-tint-2 rounded-2xl p-6 sm:p-8 lg:p-10 border-2 border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <img src="/images/oji/oji_confident.png" alt="" class="absolute -bottom-4 -right-2 sm:-right-3 w-28 h-28 sm:w-36 sm:h-36 opacity-95 pointer-events-none drop-shadow-lg"/>
-          <div class="flex items-start justify-between">
-            <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">02</span>
+        <article class="svc-card" style="--accent: #C9223A;">
+          <div class="svc-stripe"></div>
+          <div class="svc-card-inner">
+            <div class="svc-header">
+              <img src="/images/oji/oji_confident.png" alt="" class="svc-pose" loading="lazy"/>
+              <h3 class="svc-title">モデル・タレント出演</h3>
+            </div>
+            <p class="svc-desc">ファッション、コマーシャル、TV、Web、声優。外国人視点のキャスティング、特に得意です。</p>
+            <details class="svc-details">
+              <summary>サービス内容を見る</summary>
+              <ul>
+              <li>· テレビ・ウェブ番組出演</li>
+              <li>· 広告・ブランドキャンペーン</li>
+              <li>· 多言語ナレーション・声優</li>
+              <li>· ランウェイ・ファッション</li>
+              </ul>
+            </details>
           </div>
-          <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
-            モデル・<br/>タレント出演
-          </h3>
-          <p class="font-jp text-[14.5px] sm:text-[15.5px] leading-[1.95] text-ink-soft">
-            ファッション、コマーシャル、TV、Web、声優。<br/>外国人視点のキャスティング、特に得意です。
-          </p>
-          <ul class="mt-auto text-[14px] sm:text-[14.5px] text-muted space-y-1.5 font-jp">
-            <li>· テレビ・ウェブ番組出演</li>
-            <li>· 広告・ブランドキャンペーン</li>
-            <li>· 多言語ナレーション・声優</li>
-            <li>· ランウェイ・ファッション</li>
-          </ul>
         </article>
 
-        <article class="svc-tile svc-tint-3 rounded-2xl p-6 sm:p-8 lg:p-10 border-2 border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <img src="/images/oji/oji_winking.png" alt="" class="absolute -bottom-4 -right-2 sm:-right-3 w-28 h-28 sm:w-36 sm:h-36 opacity-95 pointer-events-none drop-shadow-lg"/>
-          <div class="flex items-start justify-between">
-            <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">03</span>
+        <article class="svc-card" style="--accent: #4E78A0;">
+          <div class="svc-stripe"></div>
+          <div class="svc-card-inner">
+            <div class="svc-header">
+              <img src="/images/oji/oji_winking.png" alt="" class="svc-pose" loading="lazy"/>
+              <h3 class="svc-title">王子としてのSNS活動</h3>
+            </div>
+            <p class="svc-desc">王子の衣装に身を包んで、日本に笑顔とポジティブな変化を届けるコンテンツを毎日発信。モットーは「お笑いあり、涙あり、野菜あり」。</p>
+            <details class="svc-details">
+              <summary>サービス内容を見る</summary>
+              <ul>
+              <li>· Instagram / TikTok / YouTube</li>
+              <li>· ブランドコラボ動画</li>
+              <li>· 多言語コンテンツ</li>
+              <li>· 社会派エンタメ企画</li>
+              </ul>
+            </details>
           </div>
-          <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
-            王子としての<br/>SNS活動
-          </h3>
-          <p class="font-jp text-[14.5px] sm:text-[15.5px] leading-[1.95] text-ink-soft">
-            王子の衣装に身を包んで、日本に笑顔とポジティブな変化を届けるコンテンツを毎日発信。モットーは<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>。
-          </p>
-          <ul class="mt-auto text-[14px] sm:text-[14.5px] text-muted space-y-1.5 font-jp">
-            <li>· Instagram / TikTok / YouTube</li>
-            <li>· ブランドコラボ動画</li>
-            <li>· 多言語コンテンツ</li>
-            <li>· 社会派エンタメ企画</li>
-          </ul>
         </article>
 
-        <article class="svc-tile svc-tint-4 rounded-2xl p-6 sm:p-8 lg:p-10 border-2 border-line flex flex-col gap-5 sm:gap-6 min-h-[340px] sm:min-h-[380px] relative overflow-hidden w-[280px] md:w-auto">
-          <img src="/images/oji/oji_presenting.png" alt="" class="absolute -bottom-4 -right-2 sm:-right-3 w-28 h-28 sm:w-36 sm:h-36 opacity-95 pointer-events-none drop-shadow-lg"/>
-          <div class="flex items-start justify-between">
-            <span class="svc-num font-display text-[44px] text-ink leading-none transition-colors">04</span>
+        <article class="svc-card" style="--accent: #6C9560;">
+          <div class="svc-stripe"></div>
+          <div class="svc-card-inner">
+            <div class="svc-header">
+              <img src="/images/oji/oji_presenting.png" alt="" class="svc-pose" loading="lazy"/>
+              <h3 class="svc-title">国際ビジネス・マーケティング</h3>
+            </div>
+            <p class="svc-desc">複数のブランドで、国内外マーケティング・AI活用・モデル／アーティスト事務所運営など、「海外と日本」をつなぐ仕事をしています。</p>
+            <details class="svc-details">
+              <summary>サービス内容を見る</summary>
+              <ul>
+              <li>· <a href="https://www.researchsolutions.com" target="_blank" rel="noopener">Research Solutions</a> · Japan Territory Manager</li>
+              <li>· <a href="https://handpanstudiotokyo.jp" target="_blank" rel="noopener">Handpan Studio Tokyo</a> · 共同創業</li>
+              <li>· <a href="https://ojidigital.com" target="_blank" rel="noopener">OJI DIGITAL</a> · AI活用コンサル</li>
+              <li>· アーティスト・モデル事務所</li>
+              </ul>
+            </details>
           </div>
-          <h3 class="font-jp-display text-[28px] lg:text-[34px] font-medium leading-tight text-ink">
-            国際ビジネス・<br/>マーケティング
-          </h3>
-          <p class="font-jp text-[14.5px] sm:text-[15.5px] leading-[1.95] text-ink-soft">
-            複数のブランドで、国内外マーケティング・AI活用・モデル／アーティスト事務所運営など、「海外と日本」をつなぐ仕事をしています。
-          </p>
-          <ul class="mt-auto text-[14px] sm:text-[14.5px] text-muted space-y-1.5 font-jp">
-            <li>· <a href="https://www.researchsolutions.com" target="_blank" rel="noopener" class="text-royal hover:underline">Research Solutions</a> · Japan Territory Manager</li>
-            <li>· <a href="https://handpanstudiotokyo.jp" target="_blank" rel="noopener" class="text-royal hover:underline">Handpan Studio Tokyo</a> · 共同創業</li>
-            <li>· <a href="https://ojidigital.com" target="_blank" rel="noopener" class="text-royal hover:underline">OJI DIGITAL</a> · AI活用コンサル</li>
-            <li>· アーティスト・モデル事務所</li>
-          </ul>
         </article>
 
       </div>
