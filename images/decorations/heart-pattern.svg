@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
+  <!-- Heart shape path (centered around 50,50, bounding box ~100x90) -->
+  <!-- Top-left heart (small) -->
+  <g transform="translate(150, 150) scale(1.45) translate(-50, -50)">
+    <path fill="#ffffff" d="M 50 88 C 50 88, 5 60, 5 30 C 5 13, 18 5, 30 5 C 40 5, 47 12, 50 22 C 53 12, 60 5, 70 5 C 82 5, 95 13, 95 30 C 95 60, 50 88, 50 88 Z"/>
+  </g>
+  <!-- Offset (bottom-right) heart — creates brick/diamond pattern when tiled -->
+  <g transform="translate(450, 450) scale(1.45) translate(-50, -50)">
+    <path fill="#ffffff" d="M 50 88 C 50 88, 5 60, 5 30 C 5 13, 18 5, 30 5 C 40 5, 47 12, 50 22 C 53 12, 60 5, 70 5 C 82 5, 95 13, 95 30 C 95 60, 50 88, 50 88 Z"/>
+  </g>
+</svg>

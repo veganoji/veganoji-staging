@@ -190,6 +190,32 @@
       .crown-bg::before { animation: none; }
     }
 
+    /* ─── Heart-pattern watermark (same system as crown, different SVG) ─── */
+    .heart-bg {
+      position: relative;
+      --crown-tile: 160px; /* re-uses --crown-tile (same animation keyframe) */
+    }
+    .heart-bg > * { position: relative; z-index: 1; }
+    .heart-bg::before {
+      content: ""; position: absolute; inset: 0;
+      -webkit-mask-image: url('/images/decorations/heart-pattern.svg');
+              mask-image: url('/images/decorations/heart-pattern.svg');
+      -webkit-mask-repeat: repeat;
+              mask-repeat: repeat;
+      -webkit-mask-size: var(--crown-tile) var(--crown-tile);
+              mask-size: var(--crown-tile) var(--crown-tile);
+      background: var(--crown-color, var(--color-royal));
+      opacity: var(--crown-opacity, 0.04);
+      pointer-events: none;
+      z-index: 0;
+      animation: crownDrift 75s linear infinite;
+    }
+    .heart-bg-light { --crown-color: var(--color-paper); --crown-opacity: 0.06; }
+    @media (prefers-reduced-motion: reduce) {
+      .heart-bg::before { animation: none; }
+    }
+
+
     .hug-inner {
       max-width: 880px; margin: 0 auto; position: relative; z-index: 2;
       display: flex; flex-direction: column; align-items: center; text-align: center;
@@ -1599,11 +1625,6 @@
 
   <!-- ─────────────  CHARACTER + ALEX PROFILE TABS  ───────────── -->
   <section id="character" class="bg-cream py-14 sm:py-20 lg:py-32 border-y border-line relative overflow-hidden">
-    <div class="absolute inset-0 dots-bg opacity-30 pointer-events-none"></div>
-    <svg class="absolute top-12 left-[10%] w-10 h-10 text-royal opacity-50 anim-sparkle"><use href="#sparkle"/></svg>
-    <svg class="absolute bottom-20 right-[12%] w-12 h-12 text-gold opacity-50 anim-sparkle" style="animation-delay:1.2s"><use href="#sparkle"/></svg>
-    <svg class="absolute top-1/2 right-[8%] w-8 h-8 text-royal-soft opacity-40 anim-float"><use href="#heart"/></svg>
-    <svg class="absolute bottom-12 left-[15%] w-9 h-9 text-gold-deep opacity-30 anim-float" style="animation-delay:0.8s"><use href="#note"/></svg>
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
 
@@ -1759,10 +1780,7 @@
   </section>
 
   <!-- ─────────────  DONATE  ───────────── -->
-  <section id="donate" class="bg-royal text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
-    <div class="absolute inset-0 stars-bg opacity-30 pointer-events-none"></div>
-    <svg class="absolute top-12 right-[12%] w-12 h-12 text-gold opacity-40 anim-float"><use href="#sparkle"/></svg>
-    <svg class="absolute bottom-20 left-[8%] w-14 h-14 text-paper opacity-15 anim-float" style="animation-delay:1.2s"><use href="#heart"/></svg>
+  <section id="donate" class="bg-royal heart-bg heart-bg-light text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
 
     <div class="absolute top-6 right-2 sm:top-12 sm:right-6 lg:top-1/2 lg:-translate-y-1/2 lg:right-[4%] w-28 sm:w-40 lg:w-56 anim-bobble pointer-events-none z-10">
       <img src="/images/mascot/treasure-chest.png" alt="ビーガン王子 - サポーター" class="w-full h-auto drop-shadow-2xl" loading="lazy"/>
