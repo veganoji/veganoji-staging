@@ -117,19 +117,28 @@
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
-    .press-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 10px 18px;
-      background: var(--color-paper); color: var(--color-ink);
-      border: 2.5px solid var(--color-ink);
-      border-radius: 14px;
-      box-shadow: 3px 3px 0 var(--color-ink);
+    .press-name {
+      display: inline-flex; align-items: center;
+      padding: 6px 4px;
+      color: var(--color-ink-soft);
       font-family: var(--font-cute-jp); font-weight: 700;
-      font-size: 14px; line-height: 1;
+      font-size: 15.5px; letter-spacing: 0.01em; line-height: 1;
       white-space: nowrap; flex-shrink: 0;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      transition: color 0.18s ease, transform 0.18s ease;
+      text-decoration: none;
     }
-    a.press-pill:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--color-ink); }
+    a.press-name:hover { color: var(--color-royal); transform: translateY(-1px); }
+    /* Sparkle divider between every press item — pure decoration, no link */
+    .press-marquee-track > .press-name + .press-name::before,
+    .press-marquee-track > .press-name:not(:first-child)::before {
+      content: ""; display: inline-block;
+      width: 14px; height: 14px;
+      margin: 0 22px;
+      background: url('/images/ui-icons/sparkle.png') center / contain no-repeat;
+      opacity: 0.55;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
 
     /* Chibi-sticker hover/active for all primary buttons (V3 spec) */
     .btn-primary:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal-deep); }
@@ -934,33 +943,33 @@
     <div class="press-marquee" aria-label="メディア掲載・出演">
       <div class="press-marquee-track">
         <!-- First copy of the press items -->
-        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-pill">フジテレビ</a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill">TBSテレビ</a>
-        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-pill">関西テレビ</a>
-        <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-pill">中京テレビ</a>
-        <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-pill">日経新聞</a>
-        <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-pill">ELLE スタイルインサイダー</a>
-        <span class="press-pill">veggy</span>
-        <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-pill">Zakzak</a>
-        <span class="press-pill">メトロポリターナ</span>
-        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-pill">ネプリーグ</a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill">モニタリング</a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill">世界くらべてみたら</a>
-        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-pill">池上彰の関西人が知らないKANSAI</a>
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-name">フジテレビ</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-name">TBSテレビ</a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-name">関西テレビ</a>
+        <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-name">中京テレビ</a>
+        <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-name">日経新聞</a>
+        <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-name">ELLE スタイルインサイダー</a>
+        <span class="press-name">veggy</span>
+        <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-name">Zakzak</a>
+        <span class="press-name">メトロポリターナ</span>
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-name">ネプリーグ</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-name">モニタリング</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-name">世界くらべてみたら</a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-name">池上彰の関西人が知らないKANSAI</a>
         <!-- Duplicate copy for seamless scroll -->
-        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">フジテレビ</a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">TBSテレビ</a>
-        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">関西テレビ</a>
-        <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">中京テレビ</a>
-        <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">日経新聞</a>
-        <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">ELLE スタイルインサイダー</a>
-        <span class="press-pill" aria-hidden="true">veggy</span>
-        <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">Zakzak</a>
-        <span class="press-pill" aria-hidden="true">メトロポリターナ</span>
-        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">ネプリーグ</a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">モニタリング</a>
-        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">世界くらべてみたら</a>
-        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-pill" aria-hidden="true">池上彰の関西人が知らないKANSAI</a>
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">フジテレビ</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">TBSテレビ</a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">関西テレビ</a>
+        <a href="https://www.ctv.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">中京テレビ</a>
+        <a href="https://www.nikkei.com" target="_blank" rel="noopener" class="press-name" aria-hidden="true">日経新聞</a>
+        <a href="https://www.elle.com/jp/" target="_blank" rel="noopener" class="press-name" aria-hidden="true">ELLE スタイルインサイダー</a>
+        <span class="press-name" aria-hidden="true">veggy</span>
+        <a href="https://www.zakzak.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">Zakzak</a>
+        <span class="press-name" aria-hidden="true">メトロポリターナ</span>
+        <a href="https://www.fujitv.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">ネプリーグ</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">モニタリング</a>
+        <a href="https://www.tbs.co.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">世界くらべてみたら</a>
+        <a href="https://www.ktv.jp" target="_blank" rel="noopener" class="press-name" aria-hidden="true">池上彰の関西人が知らないKANSAI</a>
       </div>
     </div>
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 mt-6 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
