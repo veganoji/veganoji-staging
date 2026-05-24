@@ -139,9 +139,11 @@
       background: linear-gradient(90deg, var(--color-royal) 0%, var(--color-gold) 50%, var(--color-royal) 100%);
     }
 
-    /* ─── Crown-pattern watermark (mask-based, recolorable per section) ─── */
+    /* ─── Crown-pattern watermark (mask-based, recolorable + animated) ─── */
     .crown-bg {
       position: relative;
+      /* Default tile size — overridden by .crown-bg-tight / -wide */
+      --crown-tile: 200px;
     }
     .crown-bg > * { position: relative; z-index: 1; }
     .crown-bg::before {
@@ -150,18 +152,31 @@
               mask-image: url('/images/decorations/crown-pattern.svg');
       -webkit-mask-repeat: repeat;
               mask-repeat: repeat;
-      -webkit-mask-size: 120px 120px;
-              mask-size: 120px 120px;
+      -webkit-mask-size: var(--crown-tile) var(--crown-tile);
+              mask-size: var(--crown-tile) var(--crown-tile);
       background: var(--crown-color, var(--color-royal));
-      opacity: var(--crown-opacity, 0.055);
+      opacity: var(--crown-opacity, 0.035);
       pointer-events: none;
       z-index: 0;
+      animation: crownDrift 75s linear infinite;
     }
-    /* Variants by tone */
-    .crown-bg-light { --crown-color: var(--color-paper); --crown-opacity: 0.07; }
-    .crown-bg-gold  { --crown-color: var(--color-gold);  --crown-opacity: 0.10; }
-    .crown-bg-tight::before { -webkit-mask-size: 80px 80px; mask-size: 80px 80px; }
-    .crown-bg-wide::before  { -webkit-mask-size: 180px 180px; mask-size: 180px 180px; }
+    /* Drift exactly ONE tile so the loop is seamless regardless of --crown-tile */
+    @keyframes crownDrift {
+      from { -webkit-mask-position: 0 0;
+                     mask-position: 0 0; }
+      to   { -webkit-mask-position: var(--crown-tile) var(--crown-tile);
+                     mask-position: var(--crown-tile) var(--crown-tile); }
+    }
+    /* Tone variants */
+    .crown-bg-light { --crown-color: var(--color-paper); --crown-opacity: 0.05; }
+    .crown-bg-gold  { --crown-color: var(--color-gold);  --crown-opacity: 0.07; }
+    /* Size variants */
+    .crown-bg-tight { --crown-tile: 140px; }
+    .crown-bg-wide  { --crown-tile: 300px; }
+    /* Respect reduced-motion users */
+    @media (prefers-reduced-motion: reduce) {
+      .crown-bg::before { animation: none; }
+    }
 
     .hug-inner {
       max-width: 880px; margin: 0 auto; position: relative; z-index: 2;
@@ -1394,8 +1409,8 @@
   </section>
 
   <!-- ─────────────  MISSION  ───────────── -->
-  <section class="bg-royal text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
-    <div class="absolute inset-0 stars-bg opacity-30 pointer-events-none"></div>
+  <section class="bg-royal crown-bg crown-bg-light text-paper py-14 sm:py-20 lg:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 stars-bg opacity-20 pointer-events-none"></div>
     <svg class="absolute -right-32 top-10 w-[480px] h-[480px] text-paper opacity-[0.07]"><use href="#crown"/></svg>
     <svg class="absolute top-20 left-[8%] w-8 h-8 text-gold opacity-60 anim-sparkle"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-32 right-[20%] w-6 h-6 text-gold-soft opacity-50 anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
