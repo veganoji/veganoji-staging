@@ -374,6 +374,24 @@
       .quiz-card { animation: none; }
     }
 
+    /* ── Ten-earths grid (CH4: 100億人分 visualization) ──────────────
+       Each earth starts hidden + small; .is-in pops it into place.
+       JS staggers them on IntersectionObserver entry. */
+    #ten-earths-grid img {
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      transform: scale(0.4);
+      transition: opacity 0.45s ease-out, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #ten-earths-grid img.is-in {
+      opacity: 1;
+      transform: scale(1);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #ten-earths-grid img { opacity: 1; transform: none; transition: none; }
+    }
+
     /* ── Food-picker buttons (CH2 interactive water explorer) ──────── */
     .food-btn {
       position: relative;
@@ -424,19 +442,21 @@
     .food-btn[data-kind="plant"]  .food-btn__kind { background: #6C9560; }
 
     /* ── Ofuro bath sequence animation ──────────────────────────────
-       Each bath icon starts hidden + slightly smaller; .is-in pops it
-       into place. JS adds .is-in with a stagger on IntersectionObserver. */
-    .ofuro-row img {
+       Each bath icon in the GRIDS starts hidden + slightly smaller;
+       .is-in pops it into place. JS adds .is-in with a stagger on
+       IntersectionObserver. Scoped to only grid imgs so it doesn't
+       silently hide the food label icons (broccoli/onigiri/burger). */
+    .ofuro-row [id^="ofuro-grid"] img {
       opacity: 0;
       transform: scale(0.6);
       transition: opacity 0.32s ease-out, transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .ofuro-row img.is-in {
+    .ofuro-row [id^="ofuro-grid"] img.is-in {
       opacity: 1;
       transform: scale(1);
     }
     @media (prefers-reduced-motion: reduce) {
-      .ofuro-row img { opacity: 1; transform: none; transition: none; }
+      .ofuro-row [id^="ofuro-grid"] img { opacity: 1; transform: none; transition: none; }
     }
 
     /* ── Inline mini-quiz buttons (CH3 calorie guess) ───────────────── */
@@ -1487,10 +1507,12 @@
         <!-- Globe stage: pie + Asia + moon -->
         <div class="mt-8 sm:mt-12">
           <div class="grid sm:grid-cols-3 gap-6 items-center">
-            <!-- Earth — chibi globe with a 30% wedge inset overlay -->
+            <!-- Earth — chibi globe with a 30% wedge inset overlay.
+                 Sized larger than the moon so the "Earth's 30% > Moon"
+                 claim is felt at a glance. -->
             <div class="flex flex-col items-center">
               <div class="relative anim-bobble">
-                <img src="/images/vegan-to-chikyu/icon-earth-detailed.png" alt="" class="w-36 sm:w-44" loading="lazy"/>
+                <img src="/images/vegan-to-chikyu/icon-earth-detailed.png" alt="" class="w-52 sm:w-64" loading="lazy"/>
                 <!-- Coral wedge overlay covering 30% of the globe -->
                 <div class="absolute pointer-events-none" style="
                   inset: 8%;
@@ -1505,18 +1527,18 @@
             </div>
             <!-- equals -->
             <div class="flex flex-col items-center text-center">
-              <div class="font-jp-display text-[28px] sm:text-[40px] text-ink mb-2">≒</div>
+              <div class="font-jp-display text-[28px] sm:text-[40px] text-ink mb-2">＞</div>
               <div class="font-jp-display text-[20px] sm:text-[26px] leading-[1.4]" style="color: #C9532C;">
                 約4,403万 km²
               </div>
               <div class="mt-2 font-jp text-[12px] sm:text-[14px] text-ink/65 leading-[1.7]">
                 アジア大陸とほぼ同じ。<br/>
-                <span class="font-bold">月（3,793万km²）</span>よりも、大きい。
+                <span class="font-bold">月(3,793万km²)</span>より、大きい。
               </div>
             </div>
-            <!-- Moon comparison -->
+            <!-- Moon comparison (intentionally smaller than the earth) -->
             <div class="flex flex-col items-center">
-              <img src="/images/vegan-to-chikyu/icon-moon.png" alt="" class="w-36 sm:w-44 anim-bobble" loading="lazy" style="animation-delay:-2s;"/>
+              <img src="/images/vegan-to-chikyu/icon-moon.png" alt="" class="w-24 sm:w-32 anim-bobble" loading="lazy" style="animation-delay:-2s;"/>
               <div class="mt-3 text-center font-jp text-[13px] sm:text-[14px] text-ink/70">月</div>
             </div>
           </div>
@@ -1561,50 +1583,56 @@
         </div>
       </div>
 
-      <!-- 96% mammals pie chart -->
-      <div class="reveal mt-12 sm:mt-16 sticker p-6 sm:p-10">
-        <h3 class="font-jp-display text-[22px] sm:text-[32px] leading-[1.4] text-ink text-center">
-          世界の<span style="color: #C9532C;">哺乳動物</span>のうち、<br/>
-          野生動物は——
+      <!-- 96% mammals — guess + 100-dot reveal -->
+      <div id="ch3-wild-quiz" class="reveal mt-12 sm:mt-16 sticker p-6 sm:p-9" data-correct="4">
+        <div class="text-[11px] sm:text-[12px] tracking-[0.18em] font-bold mb-2" style="color: #8E3A1B;">クイズ</div>
+        <h3 class="font-jp-display text-[20px] sm:text-[28px] leading-[1.4] text-ink">
+          世界の<span style="color: #C9532C;">哺乳動物</span> 100匹のうち、<br/>
+          野生動物は何匹だと思う？
         </h3>
 
-        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12">
-          <div class="relative">
-            <div class="pie" style="
-              background: conic-gradient(
-                #3C2E22 0deg 216deg,
-                #C9532C 216deg 345.6deg,
-                var(--color-leaf) 345.6deg 360deg
-              );
-            "></div>
-            <!-- Center hole for legibility -->
-            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div class="bg-paper border-2 border-ink rounded-full w-20 h-20 sm:w-24 sm:h-24 flex flex-col items-center justify-center">
-                <div class="big-number text-[26px] sm:text-[34px] ticker" style="color: var(--color-leaf-deep);">4%</div>
-                <div class="font-jp text-[10px] sm:text-[11px] text-ink/60">野生動物</div>
-              </div>
-            </div>
-          </div>
-          <div class="space-y-3 text-left">
-            <div class="flex items-center gap-3">
-              <div class="w-4 h-4 rounded-sm border-2 border-ink" style="background: #3C2E22;"></div>
-              <div class="font-jp text-[14px] sm:text-[16px] text-ink"><span class="font-bold">家畜</span>　60%</div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-4 h-4 rounded-sm border-2 border-ink" style="background: #C9532C;"></div>
-              <div class="font-jp text-[14px] sm:text-[16px] text-ink"><span class="font-bold">人間</span>　36%</div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-4 h-4 rounded-sm border-2 border-ink" style="background: var(--color-leaf);"></div>
-              <div class="font-jp text-[14px] sm:text-[16px] text-ink"><span class="font-bold">野生動物</span>　たったの 4%</div>
-            </div>
-          </div>
+        <div id="ch3-wq-options" class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+          <button type="button" class="ch3-cq-opt" data-val="50">50匹</button>
+          <button type="button" class="ch3-cq-opt" data-val="30">30匹</button>
+          <button type="button" class="ch3-cq-opt" data-val="10">10匹</button>
+          <button type="button" class="ch3-cq-opt" data-val="4">4匹</button>
         </div>
 
-        <p class="mt-8 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center">
-          地球の哺乳動物の<span class="font-bold">96%</span>は、人間と家畜。<a href="#src-3-6" class="src">19</a><br/>
-          家畜の放牧は、野生生物が絶滅する原因のひとつでもある。<a href="#src-3-7" class="src">20</a>
-        </p>
+        <div id="ch3-wq-feedback" class="mt-5" style="min-height: 24px;">
+          <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] text-center leading-[1.7]">直感でひとつ選んでみて。</p>
+        </div>
+
+        <!-- Reveal block — 100-dot grid + breakdown -->
+        <div id="ch3-wq-reveal" style="display: none;">
+          <div class="mt-6 p-5 sm:p-6 rounded-2xl border-2 border-ink/15"
+               style="background: rgba(255,249,238,0.6);">
+            <div class="font-jp-display text-[18px] sm:text-[22px] text-ink text-center leading-[1.4] mb-4">
+              実は……<span class="font-bold" style="color: #3F6A3A;">たったの 4匹</span>。
+            </div>
+            <!-- 100-dot grid (10×10) -->
+            <div id="ch3-wq-dots" class="grid mx-auto"
+                 style="grid-template-columns: repeat(10, 1fr); gap: 4px; max-width: 280px;"></div>
+            <!-- Legend -->
+            <div class="mt-5 grid grid-cols-3 gap-2 text-center text-[11px] sm:text-[12px]">
+              <div>
+                <div class="inline-block w-3.5 h-3.5 rounded-sm border-2 border-ink align-middle" style="background: #3C2E22;"></div>
+                <span class="font-jp text-ink ml-1.5"><span class="font-bold">家畜</span> 60匹</span>
+              </div>
+              <div>
+                <div class="inline-block w-3.5 h-3.5 rounded-sm border-2 border-ink align-middle" style="background: #C9532C;"></div>
+                <span class="font-jp text-ink ml-1.5"><span class="font-bold">人間</span> 36匹</span>
+              </div>
+              <div>
+                <div class="inline-block w-3.5 h-3.5 rounded-sm border-2 border-ink align-middle" style="background: #6C9560;"></div>
+                <span class="font-jp text-ink ml-1.5"><span class="font-bold">野生動物</span> 4匹</span>
+              </div>
+            </div>
+            <p class="mt-5 font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.8] text-center">
+              地球の哺乳動物の<span class="font-bold">96%</span>は、人間と家畜。<a href="#src-3-6" class="src">19</a><br/>
+              家畜の放牧は、野生生物が絶滅する原因のひとつでもある。<a href="#src-3-7" class="src">20</a>
+            </p>
+          </div>
+        </div>
       </div>
 
       <!-- Amazon — interactive guess, then live forest-loss counter -->
@@ -1847,23 +1875,29 @@
         </p>
       </div>
 
-      <!-- 10 billion people + 2 trillion fish bridge -->
+      <!-- 10 billion people — 10 earths appear one-by-one on scroll
+           (1 earth = 1 billion people). Builds the visual weight of
+           "10 earths' worth of food going to livestock feed." -->
       <div class="reveal mt-12 sm:mt-16 sticker-soft p-6 sm:p-9">
-        <div class="grid sm:grid-cols-[auto_1fr] gap-5 sm:gap-7 items-center">
-          <div class="flex-shrink-0 flex flex-col items-center">
-            <img src="/images/vegan-to-chikyu/icon-people-group.png" alt="" class="w-20 h-20 sm:w-24 sm:h-24 anim-bobble" loading="lazy"/>
-            <div class="font-jp-display text-[18px] sm:text-[22px] ticker mt-1" style="color: #4B3666;">100億</div>
+        <h3 class="font-jp-display text-[20px] sm:text-[26px] leading-[1.45] text-ink text-center">
+          畜産物のエサに使われている食料は——<br/>
+          <span class="font-bold" style="color: #6B4E8C;">人口100億人分</span> の食料に値する。<a href="#src-4-10" class="src">31</a>
+        </h3>
+
+        <!-- 10 earths grid (2 rows × 5) — each earth = 10億人 -->
+        <div id="ten-earths-stage" class="mt-7 sm:mt-9">
+          <div id="ten-earths-grid" class="grid grid-cols-5 gap-2 sm:gap-3 max-w-md mx-auto">
+            <!-- populated by JS: 10 earths, each fades+pops in with a stagger -->
           </div>
-          <div>
-            <h3 class="font-jp-display text-[18px] sm:text-[24px] leading-[1.45] text-ink">
-              畜産物のエサに使われている食料は、<br/>
-              <span class="font-bold" style="color: #6B4E8C;">人口100億人分</span>の食料に値する。<a href="#src-4-10" class="src">31</a>
-            </h3>
-            <p class="mt-2 font-jp text-[13px] sm:text-[14px] leading-[1.75] text-ink-soft">
-              今の世界人口は約80億人。 もう、全員に行き渡る量はある。
-            </p>
+          <div class="mt-3 text-center font-jp text-[11px] sm:text-[12px] text-ink/55 tracking-[0.12em]">
+            🌏 = 10億人分
           </div>
         </div>
+
+        <p class="mt-6 font-jp text-[13px] sm:text-[15px] leading-[1.85] text-ink-soft text-center">
+          今の世界人口は約80億人。<br/>
+          <span class="font-bold">もう、全員に行き渡る量はある。</span>
+        </p>
       </div>
 
       <!-- Bridge to umi-wo-kazoeru — character + button card -->
@@ -2436,6 +2470,36 @@
         pops.forEach(p => p.classList.add('is-popped'));
       }
 
+      // ───────── CH4 ten-earths reveal — 1 earth = 1 billion people ───
+      (function buildTenEarths() {
+        const grid = document.getElementById('ten-earths-grid');
+        if (!grid) return;
+        const earths = [];
+        for (let i = 0; i < 10; i++) {
+          const img = document.createElement('img');
+          img.src = '/images/vegan-to-chikyu/icon-earth-detailed.png';
+          img.alt = '10億人分';
+          img.loading = 'lazy';
+          grid.appendChild(img);
+          earths.push(img);
+        }
+        const prefersReducedM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reveal = () => {
+          if (prefersReducedM) { earths.forEach(e => e.classList.add('is-in')); return; }
+          earths.forEach((img, i) => setTimeout(() => img.classList.add('is-in'), 80 + i * 180));
+        };
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) { reveal(); io.unobserve(grid); }
+            }
+          }, { threshold: 0.35 });
+          io.observe(grid);
+        } else {
+          reveal();
+        }
+      })();
+
       // ───────── CH2 interactive food-picker ─────────
       //   12 foods (6 animal, 6 plant). Click reveals water L per typical
       //   serving and a one-line message. Animal items frame the scale in
@@ -2570,6 +2634,70 @@
           revealAll();
         }
       })();
+
+      // ───────── CH3 96%-mammals quiz + 100-dot reveal ─────────
+      const wq = document.getElementById('ch3-wild-quiz');
+      if (wq) {
+        const correct = parseInt(wq.dataset.correct, 10);
+        const fb = document.getElementById('ch3-wq-feedback');
+        const reveal = document.getElementById('ch3-wq-reveal');
+        const dots = document.getElementById('ch3-wq-dots');
+        // Render 100 dots: 60 livestock (dark brown), 36 humans (terracotta),
+        // 4 wild (sage). Shuffle once so the wild dots are scattered, not
+        // clumped — makes the "needle in haystack" feel land.
+        const palette = []
+          .concat(Array(60).fill('#3C2E22'))
+          .concat(Array(36).fill('#C9532C'))
+          .concat(Array(4).fill('#6C9560'));
+        // Deterministic shuffle so it's stable across reloads (small,
+        // it doesn't matter for analytics).
+        for (let i = palette.length - 1; i > 0; i--) {
+          const j = (i * 2654435761 ^ 12345) % (i + 1);
+          const t = palette[i]; palette[i] = palette[j]; palette[j] = t;
+        }
+        let dotsRendered = false;
+        function renderDots() {
+          if (dotsRendered) return;
+          dotsRendered = true;
+          const frag = document.createDocumentFragment();
+          palette.forEach((color, i) => {
+            const d = document.createElement('div');
+            d.style.aspectRatio = '1 / 1';
+            d.style.borderRadius = '50%';
+            d.style.border = '1.5px solid var(--color-ink)';
+            d.style.background = color;
+            d.style.opacity = '0';
+            d.style.transition = 'opacity 0.4s ease-out';
+            if (color === '#6C9560') {
+              // Wild dots get a subtle glow + extra pulse so they stand out.
+              d.style.boxShadow = '0 0 0 2px rgba(108,149,96,0.45)';
+            }
+            frag.appendChild(d);
+            setTimeout(() => { d.style.opacity = '1'; }, 50 + i * 9);
+          });
+          dots.appendChild(frag);
+        }
+        wq.querySelectorAll('.ch3-cq-opt').forEach(opt => {
+          opt.addEventListener('click', () => {
+            const val = parseInt(opt.dataset.val, 10);
+            if (val === correct) {
+              opt.dataset.state = 'right';
+              fb.innerHTML = '<p class="font-jp text-[15px] sm:text-[17px] font-bold leading-[1.6] text-center" style="color: #3F6A3A;">🎉 正解！ ほとんどが、人間と家畜なんだ。</p>';
+              reveal.style.display = '';
+              wq.querySelectorAll('.ch3-cq-opt').forEach(o => { if (o !== opt) o.disabled = true; });
+              setTimeout(renderDots, 200);
+            } else {
+              opt.dataset.state = 'wrong';
+              fb.innerHTML = '<p class="font-jp text-[14px] sm:text-[15px] text-center" style="color: #9C1428;">もう一度トライ！ ヒント：思っているより、ずっと少ないかも……</p>';
+              setTimeout(() => {
+                opt.removeAttribute('data-state');
+                opt.disabled = false;
+              }, 1400);
+              opt.disabled = true;
+            }
+          });
+        });
+      }
 
       // ───────── CH3 Amazon-deforestation quiz + live counter ─────────
       //   Correct answer reveals the 9割 fact AND starts a counter that
