@@ -449,6 +449,30 @@
       .umi-social--sm { width: 40px; height: 40px; }
     }
 
+    /* ─── Furigana (ruby) styling ──────────────────────────────────
+       Subtle, smaller, lighter than the base text so it sits as a
+       gentle reading aid above each kanji rather than competing for
+       attention.  Inherits the parent font (Noto Sans JP) so nothing
+       else changes visually. */
+    rt {
+      font-size: 0.5em;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      opacity: 0.7;
+      user-select: none;            /* ruby is skipped when copy-pasting */
+      line-height: 1.2;
+    }
+    ruby {
+      ruby-position: over;
+      ruby-align: center;
+    }
+
+    /* The big hero h1 uses leading-[1.05] (very tight) — bump it so the
+       furigana above 何匹 doesn't collide with the eyebrow text above. */
+    .hero-h1-with-ruby {
+      line-height: 1.5 !important;
+    }
+
     /* Pause-zone CTA at the end of the count section */
     .pause-cta {
       pointer-events: none;
@@ -481,16 +505,16 @@
     <canvas id="hero-stars" class="ocean-canvas opacity-50" aria-hidden="true"></canvas>
 
     <div class="relative z-10 max-w-3xl mx-auto text-center">
-      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3 lg:mb-3">
-        今年、世界で獲られる魚 ——
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-8 sm:mb-6 lg:mb-6">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
       </div>
-      <h1 class="font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
-        <span class="text-gold">何匹</span>だと思う？
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
       </h1>
 
       <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] sm:text-[20px] leading-[1.9]">
-        答えは、たぶん想像のずっと先。<br/>
-        ゆっくり、一緒に、数えてみよう。
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
       </p>
 
       <!-- Prince — curious / questioning pose specific to this page -->
@@ -504,7 +528,7 @@
       </div>
 
       <div class="mt-10 sm:mt-12 inline-flex flex-col items-center gap-2 text-paper/50">
-        <span class="font-jp text-[20px]">下にスクロール</span>
+        <span class="font-jp text-[20px]"><ruby>下<rt>した</rt></ruby>にスクロール</span>
         <svg width="16" height="22" viewBox="0 0 16 22" fill="none" class="animate-bounce">
           <path d="M8 2 L8 18 M3 13 L8 18 L13 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
         </svg>
@@ -527,21 +551,21 @@
       <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6">
         <div class="counter-pill rounded-3xl px-7 py-6 sm:px-12 sm:py-9 text-center max-w-[94vw]">
           <div class="font-jp text-[20px] sm:text-[20px] tracking-[0.14em] text-gold/85 mb-4">
-            今年、世界で獲られている魚
+            <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られている<ruby>魚<rt>さかな</rt></ruby>
           </div>
           <!-- Primary: full digit count.  匹 is a small suffix that stays
                glued to the right of the number, regardless of how huge the
                number gets — for effect. -->
           <div class="ticker font-jp-display font-medium leading-[1.05] text-gold tracking-tight flex items-baseline justify-center gap-2 sm:gap-3 whitespace-nowrap">
             <span id="counter" class="text-[30px] sm:text-[50px] lg:text-[66px]">0</span>
-            <span class="text-[18px] sm:text-[28px] lg:text-[36px] text-gold/85">匹</span>
+            <span class="text-[18px] sm:text-[28px] lg:text-[36px] text-gold/85"><ruby>匹<rt>ひき</rt></ruby></span>
           </div>
           <!-- Secondary: friendlier Japanese-unit reading -->
           <!-- Single message line.  Fixed min-height keeps the pill from
                jumping between 1- and 2-line messages. -->
           <div class="mt-4 sm:mt-5 min-h-[3.2em] sm:min-h-[2.6em] flex items-center justify-center px-2">
             <span id="counter-context" class="font-jp text-[22px] sm:text-[24px] font-semibold leading-[1.4] text-paper/90 transition-opacity duration-300 whitespace-pre-line">
-              下にスクロールしてみてね
+              <ruby>下<rt>した</rt></ruby>にスクロールしてみてね
             </span>
           </div>
         </div>
@@ -550,7 +574,7 @@
       <!-- Pause-zone CTA: fades in once counter reaches 2.30 兆匹 -->
       <div id="pause-cta" class="pause-cta absolute bottom-10 sm:bottom-14 left-0 right-0 flex flex-col items-center px-6">
         <a href="#after-count" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[20px]">
-          次へ進む
+          <ruby>次<rt>つぎ</rt></ruby>へ<ruby>進<rt>すす</rt></ruby>む
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M7 2 L7 11 M3 7 L7 11 L11 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
           </svg>
@@ -573,12 +597,12 @@
     <div class="section-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
       <p class="font-jp-display text-[26px] sm:text-[40px] lg:text-[52px] leading-[1.5] text-paper">
-        世界中の人類は、<br class="sm:hidden"/>
-        いま <span class="text-gold gold-underline">８０億人</span>。
+        <ruby>世界中<rt>せかいじゅう</rt></ruby>の<ruby>人類<rt>じんるい</rt></ruby>は、<br class="sm:hidden"/>
+        いま <span class="text-gold gold-underline">８０<ruby>億人<rt>おくにん</rt></ruby></span>。
       </p>
       <p class="mt-6 sm:mt-8 font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[1.9]">
-        平均すると、一人あたり 年に <span class="text-paper">137匹</span>。<a href="#src-1" class="src">1</a><br/>
-        赤ちゃんも、食べない人も含めての話。
+        <ruby>平均<rt>へいきん</rt></ruby>すると、<ruby>一人<rt>ひとり</rt></ruby>あたり <ruby>年<rt>ねん</rt></ruby>に <span class="text-paper">137<ruby>匹<rt>びき</rt></ruby></span>。<a href="#src-1" class="src">1</a><br/>
+        <ruby>赤<rt>あか</rt></ruby>ちゃんも、<ruby>食<rt>た</rt></ruby>べない<ruby>人<rt>ひと</rt></ruby>も<ruby>含<rt>ふく</rt></ruby>めての<ruby>話<rt>はなし</rt></ruby>。
       </p>
 
       <!-- ─── Comparison stage: tiny human dot vs huge fish dot ───────────────── -->
@@ -599,8 +623,8 @@
           <!-- THE LITERAL 1-pixel dot.  Yes, exactly 1 × 1.  This is the joke. -->
           <div class="bg-blush" style="width: 1px; height: 1px;"></div>
           <div class="mt-8 sm:mt-10">
-            <div class="font-jp text-[18px] sm:text-[20px] text-paper/75">人類</div>
-            <div class="font-jp-display font-medium text-[28px] sm:text-[36px] text-paper leading-none mt-1">80億</div>
+            <div class="font-jp text-[18px] sm:text-[20px] text-paper/75"><ruby>人類<rt>じんるい</rt></ruby></div>
+            <div class="font-jp-display font-medium text-[28px] sm:text-[36px] text-paper leading-none mt-1">80<ruby>億<rt>おく</rt></ruby></div>
           </div>
         </div>
 
@@ -608,15 +632,15 @@
         <div class="flex flex-col items-center text-center">
           <div class="comp-fish-disc"></div>
           <div class="mt-6 sm:mt-7">
-            <div class="font-jp text-[18px] sm:text-[20px] text-paper/75">魚（一年）</div>
-            <div class="font-jp-display font-medium text-[28px] sm:text-[36px] text-paper leading-none mt-1">1〜3兆</div>
+            <div class="font-jp text-[18px] sm:text-[20px] text-paper/75"><ruby>魚<rt>さかな</rt></ruby>（<ruby>一年<rt>いちねん</rt></ruby>）</div>
+            <div class="font-jp-display font-medium text-[28px] sm:text-[36px] text-paper leading-none mt-1">1〜3<ruby>兆<rt>ちょう</rt></ruby></div>
           </div>
         </div>
       </div>
 
       <p class="mt-8 font-jp text-paper/75 text-[20px] sm:text-[20px] leading-[1.8]">
-        魚の数は人類のおよそ <span class="text-gold">290倍</span>。<br/>
-        それも、たった一年で。
+        <ruby>魚<rt>さかな</rt></ruby>の<ruby>数<rt>かず</rt></ruby>は<ruby>人類<rt>じんるい</rt></ruby>のおよそ <span class="text-gold">290<ruby>倍<rt>ばい</rt></ruby></span>。<br/>
+        それも、たった<ruby>一年<rt>いちねん</rt></ruby>で。
       </p>
     </div>
   </section>
@@ -638,13 +662,13 @@
       </div>
 
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
-        獲られた<span class="text-gold">４割</span>は、<br/>
-        食卓のためでもない。
+        <ruby>獲<rt>と</rt></ruby>られた<span class="text-gold">４<ruby>割<rt>わり</rt></ruby></span>は、<br/>
+        <ruby>食卓<rt>しょくたく</rt></ruby>のためでもない。
       </h2>
       <p class="mt-8 font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[1.95] max-w-2xl mx-auto">
-        狙った魚ではなく、巻きこまれた命。
-        ウミガメ、イルカ、サメ、小さな魚たち。
-        海に戻されても、もう、動かない。<a href="#src-2" class="src">2</a>
+        <ruby>狙<rt>ねら</rt></ruby>った<ruby>魚<rt>さかな</rt></ruby>ではなく、<ruby>巻<rt>ま</rt></ruby>きこまれた<ruby>命<rt>いのち</rt></ruby>。
+        ウミガメ、イルカ、サメ、<ruby>小<rt>ちい</rt></ruby>さな<ruby>魚<rt>さかな</rt></ruby>たち。
+        <ruby>海<rt>うみ</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>されても、もう、<ruby>動<rt>うご</rt></ruby>かない。<a href="#src-2" class="src">2</a>
       </p>
 
       <!-- Bycatch icon grid -->
@@ -652,28 +676,28 @@
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/umigame.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4 anim-bobble" style="animation-delay: 0s;" loading="lazy" />
           <div class="font-jp-display text-paper text-[22px] sm:text-[24px] font-semibold">ウミガメ</div>
-          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap">年に 数十万匹<a href="#src-3" class="src">3</a></div>
+          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap"><ruby>年<rt>ねん</rt></ruby>に <ruby>数十万<rt>すうじゅうまん</rt>匹<rt>びき</rt></ruby><a href="#src-3" class="src">3</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/iruka.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4 anim-bobble" style="animation-delay: -1.3s;" loading="lazy" />
           <div class="font-jp-display text-paper text-[22px] sm:text-[24px] font-semibold">イルカ</div>
-          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap">年に 約30万頭<a href="#src-3" class="src">3</a></div>
+          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap"><ruby>年<rt>ねん</rt></ruby>に <ruby>約<rt>やく</rt></ruby>30<ruby>万<rt>まん</rt>頭<rt>とう</rt></ruby><a href="#src-3" class="src">3</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/same.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4 anim-bobble" style="animation-delay: -2.6s;" loading="lazy" />
           <div class="font-jp-display text-paper text-[22px] sm:text-[24px] font-semibold">サメ</div>
-          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap">年に 約1億匹<a href="#src-3a" class="src">3a</a></div>
+          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap"><ruby>年<rt>ねん</rt></ruby>に <ruby>約<rt>やく</rt></ruby>1<ruby>億<rt>おく</rt>匹<rt>びき</rt></ruby><a href="#src-3a" class="src">3a</a></div>
         </div>
         <div class="vignette rounded-2xl p-5 sm:p-6">
           <img src="/images/umi-wo-kazoeru/chiisana-sakana.png" alt="" class="block mx-auto h-28 sm:h-36 w-auto mb-4 anim-bobble" style="animation-delay: -3.9s;" loading="lazy" />
-          <div class="font-jp-display text-paper text-[22px] sm:text-[24px] font-semibold">小さな魚</div>
-          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap">数えきれないほど</div>
+          <div class="font-jp-display text-paper text-[22px] sm:text-[24px] font-semibold"><ruby>小<rt>ちい</rt></ruby>さな<ruby>魚<rt>さかな</rt></ruby></div>
+          <div class="text-paper/65 font-jp text-[17px] sm:text-[18px] mt-1.5 whitespace-nowrap"><ruby>数<rt>かぞ</rt></ruby>えきれないほど</div>
         </div>
       </div>
 
       <p class="mt-12 font-jp text-paper/70 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[1.8]">
-        底引き網は、一年で日本の国土の<br/>
-        <span class="text-gold">およそ 14倍</span> もの海底を削ってしまう。<a href="#src-4" class="src">4</a>
+        <ruby>底<rt>そこ</rt></ruby><ruby>引<rt>び</rt></ruby>き<ruby>網<rt>あみ</rt></ruby>は、<ruby>一年<rt>いちねん</rt></ruby>で<ruby>日本<rt>にほん</rt></ruby>の<ruby>国土<rt>こくど</rt></ruby>の<br/>
+        <span class="text-gold">およそ 14<ruby>倍<rt>ばい</rt></ruby></span> もの<ruby>海底<rt>かいてい</rt></ruby>を<ruby>削<rt>けず</rt></ruby>ってしまう。<a href="#src-4" class="src">4</a>
       </p>
 
       <!-- Video play link — placeholder for /videos/sokobiki-ami.mp4 -->
@@ -685,7 +709,7 @@
           <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
             <path d="M3.5 2.5 L11 7 L3.5 11.5 Z"/>
           </svg>
-          底引き網の様子を見る
+          <ruby>底<rt>そこ</rt></ruby><ruby>引<rt>び</rt></ruby>き<ruby>網<rt>あみ</rt></ruby>の<ruby>様子<rt>ようす</rt></ruby>を<ruby>見<rt>み</rt></ruby>る
         </button>
       </div>
     </div>
@@ -698,11 +722,11 @@
     <div class="relative z-10 max-w-5xl mx-auto">
       <div class="text-center mb-16 sm:mb-24 reveal">
         <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
-          日本の食卓と、<br/>
-          <span class="display-italic text-gold">海のこと。</span>
+          <ruby>日本<rt>にほん</rt></ruby>の<ruby>食卓<rt>しょくたく</rt></ruby>と、<br/>
+          <span class="display-italic text-gold"><ruby>海<rt>うみ</rt></ruby>のこと。</span>
         </h2>
         <p class="mt-6 font-jp text-paper/65 text-[20px] sm:text-[20px] leading-[1.95] max-w-xl mx-auto">
-          日本の食卓をずっと支えてきた三つの生き物。
+          <ruby>日本<rt>にほん</rt></ruby>の<ruby>食卓<rt>しょくたく</rt></ruby>をずっと<ruby>支<rt>ささ</rt></ruby>えてきた<ruby>三<rt>みっ</rt></ruby>つの<ruby>生<rt>い</rt></ruby>き<ruby>物<rt>もの</rt></ruby>。
         </p>
       </div>
 
@@ -711,13 +735,13 @@
         <div class="grid sm:grid-cols-[1fr,auto] gap-8 items-center">
           <div>
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
-              世界のクロマグロの <span class="text-gold">およそ ８割</span> を、<br class="hidden sm:block"/>
-              日本が食べています。<a href="#src-5" class="src">5</a>
+              <ruby>世界<rt>せかい</rt></ruby>のクロマグロの <span class="text-gold">およそ ８<ruby>割<rt>わり</rt></ruby></span> を、<br class="hidden sm:block"/>
+              <ruby>日本<rt>にほん</rt></ruby>が<ruby>食<rt>た</rt></ruby>べています。<a href="#src-5" class="src">5</a>
             </h3>
             <p class="font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[2]">
-              そして、獲られるクロマグロの多くは、まだ卵を産んだことのない
-              <span class="text-paper">子どもの魚</span> です。<a href="#src-6" class="src">6</a><br/>
-              クロマグロが大人になるには、<span class="text-gold">3〜5年</span> かかります。
+              そして、<ruby>獲<rt>と</rt></ruby>られるクロマグロの<ruby>多<rt>おお</rt></ruby>くは、まだ<ruby>卵<rt>たまご</rt></ruby>を<ruby>産<rt>う</rt></ruby>んだことのない
+              <span class="text-paper"><ruby>子<rt>こ</rt></ruby>どもの<ruby>魚<rt>さかな</rt></ruby></span> です。<a href="#src-6" class="src">6</a><br/>
+              クロマグロが<ruby>大人<rt>おとな</rt></ruby>になるには、<span class="text-gold">3〜5<ruby>年<rt>ねん</rt></ruby></span> かかります。
             </p>
           </div>
           <img src="/images/umi-wo-kazoeru/kuromaguro.png" alt="" class="block mx-auto h-32 sm:h-44 w-auto anim-drift" loading="lazy" />
@@ -730,13 +754,13 @@
           <img src="/images/umi-wo-kazoeru/nihonunagi.png" alt="" class="block mx-auto h-32 sm:h-44 w-auto anim-drift order-2 sm:order-1" loading="lazy" />
           <div class="order-1 sm:order-2">
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
-              夏に食べる、あの一匹は <br class="hidden sm:block"/>
-              <span class="text-gold">絶滅危惧種</span> です。<a href="#src-7" class="src">7</a>
+              <ruby>夏<rt>なつ</rt></ruby>に<ruby>食<rt>た</rt></ruby>べる、あの<ruby>一匹<rt>いっぴき</rt></ruby>は <br class="hidden sm:block"/>
+              <span class="text-gold"><ruby>絶滅<rt>ぜつめつ</rt>危惧<rt>きぐ</rt>種<rt>しゅ</rt></ruby></span> です。<a href="#src-7" class="src">7</a>
             </h3>
             <p class="font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[2]">
-              ニホンウナギは2014年に IUCN レッドリストに載りました。
-              天然ものはほぼ姿を消し、養殖の稚魚（シラスウナギ）も激減しています。
-              土用の丑の日に売れ残ったうなぎの多くが、最終的に捨てられていることも、わかっているんだ。<a href="#src-8" class="src">8</a>
+              ニホンウナギは2014<ruby>年<rt>ねん</rt></ruby>に IUCN レッドリストに<ruby>載<rt>の</rt></ruby>りました。
+              <ruby>天然<rt>てんねん</rt></ruby>ものはほぼ<ruby>姿<rt>すがた</rt></ruby>を<ruby>消<rt>け</rt></ruby>し、<ruby>養殖<rt>ようしょく</rt></ruby>の<ruby>稚魚<rt>ちぎょ</rt></ruby>（シラスウナギ）も<ruby>激減<rt>げきげん</rt></ruby>しています。
+              <ruby>土用<rt>どよう</rt></ruby>の<ruby>丑<rt>うし</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>に<ruby>売<rt>う</rt></ruby>れ<ruby>残<rt>のこ</rt></ruby>ったうなぎの<ruby>多<rt>おお</rt></ruby>くが、<ruby>最終的<rt>さいしゅうてき</rt></ruby>に<ruby>捨<rt>す</rt></ruby>てられていることも、わかっているんだ。<a href="#src-8" class="src">8</a>
             </p>
           </div>
         </div>
@@ -747,12 +771,12 @@
         <div class="grid sm:grid-cols-[1fr,auto] gap-8 items-center">
           <div>
             <h3 class="font-jp-display text-[26px] sm:text-[36px] leading-[1.4] text-paper mb-5">
-              日本では今も、毎年 <span class="text-gold">およそ ３００頭</span> の<br class="hidden sm:block"/>
-              クジラが捕られています。<a href="#src-9" class="src">9</a>
+              <ruby>日本<rt>にほん</rt></ruby>では<ruby>今<rt>いま</rt></ruby>も、<ruby>毎年<rt>まいとし</rt></ruby> <span class="text-gold">およそ ３００<ruby>頭<rt>とう</rt></ruby></span> の<br class="hidden sm:block"/>
+              クジラが<ruby>捕<rt>と</rt></ruby>られています。<a href="#src-9" class="src">9</a>
             </h3>
             <p class="font-jp text-paper/70 text-[20px] sm:text-[20px] leading-[2]">
-              2019年に商業捕鯨が再開されて以降、ミンククジラ・イワシクジラ・ニタリクジラの三種が対象。
-              一方で、消費量は年々減り、在庫の多くは政府の支援で維持されています。
+              2019<ruby>年<rt>ねん</rt></ruby>に<ruby>商業<rt>しょうぎょう</rt>捕鯨<rt>ほげい</rt></ruby>が<ruby>再開<rt>さいかい</rt></ruby>されて<ruby>以降<rt>いこう</rt></ruby>、ミンククジラ・イワシクジラ・ニタリクジラの<ruby>三<rt>さん</rt>種<rt>しゅ</rt></ruby>が<ruby>対象<rt>たいしょう</rt></ruby>。
+              <ruby>一方<rt>いっぽう</rt></ruby>で、<ruby>消費量<rt>しょうひりょう</rt></ruby>は<ruby>年々<rt>ねんねん</rt></ruby><ruby>減<rt>へ</rt></ruby>り、<ruby>在庫<rt>ざいこ</rt></ruby>の<ruby>多<rt>おお</rt></ruby>くは<ruby>政府<rt>せいふ</rt></ruby>の<ruby>支援<rt>しえん</rt></ruby>で<ruby>維持<rt>いじ</rt></ruby>されています。
             </p>
           </div>
           <img src="/images/umi-wo-kazoeru/kujira.png" alt="" class="block mx-auto h-32 sm:h-44 w-auto anim-drift" loading="lazy" />
@@ -779,20 +803,20 @@
       </div>
 
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
-        じゃあ、<span class="text-gold">養殖</span>なら<br/>
-        大丈夫…？
+        じゃあ、<span class="text-gold"><ruby>養殖<rt>ようしょく</rt></ruby></span>なら<br/>
+        <ruby>大丈夫<rt>だいじょうぶ</rt></ruby>…？
       </h2>
       <p class="mt-8 font-jp text-paper/75 text-[20px] leading-[1.95] max-w-2xl mx-auto">
-        実は、養殖の魚にも、知っておきたいことがあるんだ。
+        <ruby>実<rt>じつ</rt></ruby>は、<ruby>養殖<rt>ようしょく</rt></ruby>の<ruby>魚<rt>さかな</rt></ruby>にも、<ruby>知<rt>し</rt></ruby>っておきたいことがあるんだ。
       </p>
 
       <!-- 3-card grid: the three big reasons -->
       <div class="mt-14 grid sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto text-left reveal-stagger">
         <div class="vignette rounded-2xl p-6 sm:p-7">
           <img src="/images/umi-wo-kazoeru/youshoku-feed.png" alt="" class="block mx-auto h-24 sm:h-28 w-auto mb-4 anim-bobble" style="animation-delay: 0s;" loading="lazy" />
-          <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">ごはんは、野生の魚</h3>
+          <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">ごはんは、<ruby>野生<rt>やせい</rt></ruby>の<ruby>魚<rt>さかな</rt></ruby></h3>
           <p class="font-jp text-paper/75 text-[20px] leading-[1.7]">
-            養殖サーモン 1キロを育てるのに、野生の魚が <span class="text-gold">1〜3キロ</span> 必要。クロマグロの養殖はもっと多くて、<span class="text-gold">10〜15キロ</span> もかかるんだ。<a href="#src-11" class="src">11</a>
+            <ruby>養殖<rt>ようしょく</rt></ruby>サーモン 1キロを<ruby>育<rt>そだ</rt></ruby>てるのに、<ruby>野生<rt>やせい</rt></ruby>の<ruby>魚<rt>さかな</rt></ruby>が <span class="text-gold">1〜3キロ</span> <ruby>必要<rt>ひつよう</rt></ruby>。クロマグロの<ruby>養殖<rt>ようしょく</rt></ruby>はもっと<ruby>多<rt>おお</rt></ruby>くて、<span class="text-gold">10〜15キロ</span> もかかるんだ。<a href="#src-11" class="src">11</a>
           </p>
           <!-- Video play link — populated once /videos/youshoku-feed.mp4 is added -->
           <button
@@ -802,28 +826,28 @@
             <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
               <path d="M3.5 2.5 L11 7 L3.5 11.5 Z"/>
             </svg>
-            様子を見る
+            <ruby>様子<rt>ようす</rt></ruby>を<ruby>見<rt>み</rt></ruby>る
           </button>
         </div>
         <div class="vignette rounded-2xl p-6 sm:p-7">
           <img src="/images/umi-wo-kazoeru/youshoku-disease.png" alt="" class="block mx-auto h-24 sm:h-28 w-auto mb-4 anim-bobble" style="animation-delay: -1.3s;" loading="lazy" />
-          <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">病気が広がりやすい</h3>
+          <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium"><ruby>病気<rt>びょうき</rt></ruby>が<ruby>広<rt>ひろ</rt></ruby>がりやすい</h3>
           <p class="font-jp text-paper/75 text-[20px] leading-[1.7]">
-            狭い場所にたくさんの魚がいるから、ウイルスや寄生虫がすぐに広がる。だから抗生物質や薬が、たくさん使われている。<a href="#src-12" class="src">12</a>
+            <ruby>狭<rt>せま</rt></ruby>い<ruby>場所<rt>ばしょ</rt></ruby>にたくさんの<ruby>魚<rt>さかな</rt></ruby>がいるから、ウイルスや<ruby>寄生虫<rt>きせいちゅう</rt></ruby>がすぐに<ruby>広<rt>ひろ</rt></ruby>がる。だから<ruby>抗生物質<rt>こうせいぶっしつ</rt></ruby>や<ruby>薬<rt>くすり</rt></ruby>が、たくさん<ruby>使<rt>つか</rt></ruby>われている。<a href="#src-12" class="src">12</a>
           </p>
         </div>
         <div class="vignette rounded-2xl p-6 sm:p-7">
           <img src="/images/umi-wo-kazoeru/youshoku-pollution.png" alt="" class="block mx-auto h-24 sm:h-28 w-auto mb-4 anim-bobble" style="animation-delay: -2.6s;" loading="lazy" />
-          <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium">周りの海を汚す</h3>
+          <h3 class="font-jp-display text-paper text-[20px] mb-3 font-medium"><ruby>周<rt>まわ</rt></ruby>りの<ruby>海<rt>うみ</rt></ruby>を<ruby>汚<rt>よご</rt></ruby>す</h3>
           <p class="font-jp text-paper/75 text-[20px] leading-[1.7]">
-            食べ残し、ふん、薬がそのまま海に流れて、近くの生き物や、海の底の生態系を崩してしまうこともあるんだ。
+            <ruby>食<rt>た</rt></ruby>べ<ruby>残<rt>のこ</rt></ruby>し、ふん、<ruby>薬<rt>くすり</rt></ruby>がそのまま<ruby>海<rt>うみ</rt></ruby>に<ruby>流<rt>なが</rt></ruby>れて、<ruby>近<rt>ちか</rt></ruby>くの<ruby>生<rt>い</rt></ruby>き<ruby>物<rt>もの</rt></ruby>や、<ruby>海<rt>うみ</rt></ruby>の<ruby>底<rt>そこ</rt></ruby>の<ruby>生態系<rt>せいたいけい</rt></ruby>を<ruby>崩<rt>くず</rt></ruby>してしまうこともあるんだ。
           </p>
         </div>
       </div>
 
       <p class="mt-12 font-jp text-paper/65 text-[20px] max-w-xl mx-auto leading-[1.95]">
-        養殖は「答え」ではなくて、<br/>
-        野生の魚の問題と、つながっている。
+        <ruby>養殖<rt>ようしょく</rt></ruby>は「<ruby>答<rt>こた</rt></ruby>え」ではなくて、<br/>
+        <ruby>野生<rt>やせい</rt></ruby>の<ruby>魚<rt>さかな</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>と、つながっている。
       </p>
     </div>
   </section>
@@ -834,8 +858,8 @@
     <div class="section-bg-overlay section-bg-overlay--abyss absolute inset-0" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
       <h2 class="font-jp-display text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.35] text-paper reveal-up">
-        1950年と比べて、<br/>
-        海の大きな魚は<span class="text-gold gold-underline">およそ90％</span>いなくなりました。<a href="#src-10" class="src">10</a>
+        1950<ruby>年<rt>ねん</rt></ruby>と<ruby>比<rt>くら</rt></ruby>べて、<br/>
+        <ruby>海<rt>うみ</rt></ruby>の<ruby>大<rt>おお</rt></ruby>きな<ruby>魚<rt>さかな</rt></ruby>は<span class="text-gold gold-underline">およそ90％</span>いなくなりました。<a href="#src-10" class="src">10</a>
       </h2>
 
       <!-- Timeline bars — fill animates from 0 → target width on scroll-in,
@@ -863,7 +887,7 @@
           <div class="w-14 sm:w-16 text-left text-paper/70 text-[20px] sm:text-[22px] font-jp-display ticker" data-target="18">0</div>
         </div>
         <div class="flex items-center gap-5">
-          <div class="w-20 sm:w-24 text-right font-jp-display text-gold text-[22px] sm:text-[26px]">今</div>
+          <div class="w-20 sm:w-24 text-right font-jp-display text-gold text-[22px] sm:text-[26px]"><ruby>今<rt>いま</rt></ruby></div>
           <div class="flex-1 h-7 sm:h-9 bg-deep/60 rounded-full overflow-hidden">
             <div class="bar-fill h-full bg-gold rounded-full" style="--bar-width:10%"></div>
           </div>
@@ -872,8 +896,8 @@
       </div>
 
       <p class="mt-12 font-jp text-paper/65 text-[20px] sm:text-[20px] max-w-xl mx-auto leading-[2]">
-        マグロやカジキのような大きな魚ほど、<br/>
-        先にいなくなっています。
+        マグロやカジキのような<ruby>大<rt>おお</rt></ruby>きな<ruby>魚<rt>さかな</rt></ruby>ほど、<br/>
+        <ruby>先<rt>さき</rt></ruby>にいなくなっています。
       </p>
     </div>
   </section>
@@ -894,29 +918,29 @@
       </div>
 
       <h2 class="font-jp-display text-[32px] sm:text-[52px] lg:text-[64px] leading-[1.3] text-paper reveal-up">
-        一食からでも、<br/>
-        <span class="text-gold display-italic">海は少し休めるんだ。</span>
+        <ruby>一食<rt>いっしょく</rt></ruby>からでも、<br/>
+        <span class="text-gold display-italic"><ruby>海<rt>うみ</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>し<ruby>休<rt>やす</rt></ruby>めるんだ。</span>
       </h2>
 
       <p class="mt-8 sm:mt-10 max-w-xl mx-auto font-jp text-paper/80 text-[17px] sm:text-[20px] leading-[1.85]">
-        毎食、全部変えなくても大丈夫。<br/>
-        一週間に一食、お刺身の代わりに別のものを。<br/>
-        それだけで、海は少しだけ、息をつけるんだ。
+        <ruby>毎食<rt>まいしょく</rt></ruby>、<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>変<rt>か</rt></ruby>えなくても<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>。<br/>
+        <ruby>一週間<rt>いっしゅうかん</rt></ruby>に<ruby>一食<rt>いっしょく</rt></ruby>、お<ruby>刺身<rt>さしみ</rt></ruby>の<ruby>代<rt>か</rt></ruby>わりに<ruby>別<rt>べつ</rt></ruby>のものを。<br/>
+        それだけで、<ruby>海<rt>うみ</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>しだけ、<ruby>息<rt>いき</rt></ruby>をつけるんだ。
       </p>
 
       <div class="mt-14 flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a href="/blog/" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[20px]">
-          ビーガンの記事を読む
+          ビーガンの<ruby>記事<rt>きじ</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
         </a>
         <a href="/tools/" class="btn-ocean-ghost inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[20px] text-gold">
-          自分の影響を見てみる
+          <ruby>自分<rt>じぶん</rt></ruby>の<ruby>影響<rt>えいきょう</rt></ruby>を<ruby>見<rt>み</rt></ruby>てみる
         </a>
       </div>
 
       <!-- Social rail — chibi-sticker icons, same set as homepage -->
       <div class="mt-14 sm:mt-16 flex flex-col items-center gap-4">
-        <span class="text-paper/55 text-[20px] font-jp">王子の動き、こちらでも</span>
+        <span class="text-paper/55 text-[20px] font-jp"><ruby>王子<rt>おうじ</rt></ruby>の<ruby>動<rt>うご</rt></ruby>き、こちらでも</span>
         <div class="flex items-center gap-3 sm:gap-4">
           <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="umi-social"><img src="/images/social/ig.png" alt=""/></a>
           <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="umi-social"><img src="/images/social/x.png" alt=""/></a>
@@ -932,25 +956,25 @@
   <!-- ───────────────────── 8.  Sources ───────────────────── -->
   <footer class="bg-abyss border-t border-line/40 py-16 sm:py-20 px-6 sm:px-10">
     <div class="max-w-3xl mx-auto">
-      <h2 class="font-jp text-gold/80 text-[20px] tracking-[0.14em] mb-6">出典 ・ sources</h2>
+      <h2 class="font-jp text-gold/80 text-[20px] tracking-[0.14em] mb-6"><ruby>出典<rt>しゅってん</rt></ruby> ・ sources</h2>
       <ol class="space-y-3 text-paper/60 text-[14px] sm:text-[15px] leading-[1.7] font-jp ticker">
-        <li id="src-1"><span class="text-gold/60">1.</span> 年間に獲られる魚の数の推定は <a href="http://fishcount.org.uk/fish-count-estimates-2" target="_blank" rel="noopener" class="underline hover:text-paper">fishcount.org.uk</a> による（0.79〜2.3兆匹）。一人あたりの内訳は世界人口80億人で割った値。</li>
-        <li id="src-2"><span class="text-gold/60">2.</span> 混獲（bycatch）の割合は FAO 'Discards in the world's marine fisheries' (2005) ほか、後年の報告でもほぼ同水準。</li>
-        <li id="src-3"><span class="text-gold/60">3.</span> ウミガメの混獲は <a href="https://doi.org/10.1111/j.1461-0248.2004.00573.x" target="_blank" rel="noopener" class="underline hover:text-paper">Lewison et al., Ecology Letters (2004)</a> ほかにより年に数十万匹規模。イルカ等の鯨類混獲は <a href="https://doi.org/10.1111/j.1523-1739.2006.00338.x" target="_blank" rel="noopener" class="underline hover:text-paper">Read et al., Conservation Biology (2006)</a> による全世界で年間約 30万頭 の推計。</li>
-        <li id="src-3a"><span class="text-gold/60">3a.</span> サメの推計死亡数は <a href="https://doi.org/10.1016/j.marpol.2013.03.002" target="_blank" rel="noopener" class="underline hover:text-paper">Worm et al., Marine Policy (2013)</a> — 年間およそ 1億 匹。</li>
-        <li id="src-4"><span class="text-gold/60">4.</span> 底曳網による海底破壊面積は Halpern et al. および Sala et al. (Nature, 2021) の推計に基づく。日本国土面積（約37.8万 km²）との比較。</li>
-        <li id="src-5"><span class="text-gold/60">5.</span> WWF Japan・ISC（北太平洋マグロ類国際科学委員会）の長年の統計より。日本の消費比率は約 70〜80%。</li>
-        <li id="src-6"><span class="text-gold/60">6.</span> 太平洋クロマグロの資源量、初期資源量比は ISC 2016 評価で約 2.6%。</li>
-        <li id="src-7"><span class="text-gold/60">7.</span> <a href="https://www.iucnredlist.org/species/166184/1117791" target="_blank" rel="noopener" class="underline hover:text-paper">IUCN Red List (2014)</a> — Endangered（絶滅危惧IB類）に指定。</li>
-        <li id="src-8"><span class="text-gold/60">8.</span> 土用の丑の日のうなぎ廃棄については各種報道および環境省・水産庁の関連資料を参照。</li>
-        <li id="src-9"><span class="text-gold/60">9.</span> 水産庁の捕獲枠（2024年: ミンク・イワシ・ニタリ三種合計で約 379 頭）に基づく概数。</li>
-        <li id="src-10"><span class="text-gold/60">10.</span> <a href="https://www.nature.com/articles/nature01610" target="_blank" rel="noopener" class="underline hover:text-paper">Myers &amp; Worm, Nature (2003)</a> — 大型捕食魚の生物量は約 90% 減少。</li>
-        <li id="src-11"><span class="text-gold/60">11.</span> 養殖の Fish-In/Fish-Out 比率は <a href="https://doi.org/10.1073/pnas.0905235106" target="_blank" rel="noopener" class="underline hover:text-paper">Naylor et al., PNAS (2009)</a> および Tacon &amp; Metian (2008) より。サーモン約1.5–3、クロマグロ養殖は10–15倍以上。</li>
-        <li id="src-12"><span class="text-gold/60">12.</span> 養殖場での抗生物質・薬剤使用については <a href="https://doi.org/10.1126/science.aax4593" target="_blank" rel="noopener" class="underline hover:text-paper">Schar et al., Science (2020)</a> ほかが概観。魚病による損失と密度の関係も同様に多数の研究あり。</li>
+        <li id="src-1"><span class="text-gold/60">1.</span> <ruby>年間<rt>ねんかん</rt></ruby>に<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby>の<ruby>数<rt>かず</rt></ruby>の<ruby>推定<rt>すいてい</rt></ruby>は <a href="http://fishcount.org.uk/fish-count-estimates-2" target="_blank" rel="noopener" class="underline hover:text-paper">fishcount.org.uk</a> による（0.79〜2.3<ruby>兆<rt>ちょう</rt>匹<rt>びき</rt></ruby>）。<ruby>一人<rt>ひとり</rt></ruby>あたりの<ruby>内訳<rt>うちわけ</rt></ruby>は<ruby>世界人口<rt>せかいじんこう</rt></ruby>80<ruby>億人<rt>おくにん</rt></ruby>で<ruby>割<rt>わ</rt></ruby>った<ruby>値<rt>あたい</rt></ruby>。</li>
+        <li id="src-2"><span class="text-gold/60">2.</span> <ruby>混獲<rt>こんかく</rt></ruby>（bycatch）の<ruby>割合<rt>わりあい</rt></ruby>は FAO 'Discards in the world's marine fisheries' (2005) ほか、<ruby>後年<rt>こうねん</rt></ruby>の<ruby>報告<rt>ほうこく</rt></ruby>でもほぼ<ruby>同水準<rt>どうすいじゅん</rt></ruby>。</li>
+        <li id="src-3"><span class="text-gold/60">3.</span> ウミガメの<ruby>混獲<rt>こんかく</rt></ruby>は <a href="https://doi.org/10.1111/j.1461-0248.2004.00573.x" target="_blank" rel="noopener" class="underline hover:text-paper">Lewison et al., Ecology Letters (2004)</a> ほかにより<ruby>年<rt>ねん</rt></ruby>に<ruby>数十万<rt>すうじゅうまん</rt>匹<rt>びき</rt></ruby><ruby>規模<rt>きぼ</rt></ruby>。イルカ<ruby>等<rt>など</rt></ruby>の<ruby>鯨類<rt>げいるい</rt></ruby><ruby>混獲<rt>こんかく</rt></ruby>は <a href="https://doi.org/10.1111/j.1523-1739.2006.00338.x" target="_blank" rel="noopener" class="underline hover:text-paper">Read et al., Conservation Biology (2006)</a> による<ruby>全世界<rt>ぜんせかい</rt></ruby>で<ruby>年間<rt>ねんかん</rt></ruby><ruby>約<rt>やく</rt></ruby> 30<ruby>万<rt>まん</rt>頭<rt>とう</rt></ruby> の<ruby>推計<rt>すいけい</rt></ruby>。</li>
+        <li id="src-3a"><span class="text-gold/60">3a.</span> サメの<ruby>推計<rt>すいけい</rt></ruby><ruby>死亡数<rt>しぼうすう</rt></ruby>は <a href="https://doi.org/10.1016/j.marpol.2013.03.002" target="_blank" rel="noopener" class="underline hover:text-paper">Worm et al., Marine Policy (2013)</a> — <ruby>年間<rt>ねんかん</rt></ruby>およそ 1<ruby>億<rt>おく</rt></ruby> <ruby>匹<rt>ひき</rt></ruby>。</li>
+        <li id="src-4"><span class="text-gold/60">4.</span> <ruby>底曳網<rt>そこびきあみ</rt></ruby>による<ruby>海底<rt>かいてい</rt></ruby><ruby>破壊<rt>はかい</rt></ruby><ruby>面積<rt>めんせき</rt></ruby>は Halpern et al. および Sala et al. (Nature, 2021) の<ruby>推計<rt>すいけい</rt></ruby>に<ruby>基<rt>もと</rt></ruby>づく。<ruby>日本<rt>にほん</rt></ruby><ruby>国土<rt>こくど</rt></ruby><ruby>面積<rt>めんせき</rt></ruby>（<ruby>約<rt>やく</rt></ruby>37.8<ruby>万<rt>まん</rt></ruby> km²）との<ruby>比較<rt>ひかく</rt></ruby>。</li>
+        <li id="src-5"><span class="text-gold/60">5.</span> WWF Japan・ISC（<ruby>北太平洋<rt>きたたいへいよう</rt></ruby>マグロ<ruby>類<rt>るい</rt></ruby><ruby>国際科学委員会<rt>こくさいかがくいいんかい</rt></ruby>）の<ruby>長年<rt>ながねん</rt></ruby>の<ruby>統計<rt>とうけい</rt></ruby>より。<ruby>日本<rt>にほん</rt></ruby>の<ruby>消費比率<rt>しょうひひりつ</rt></ruby>は<ruby>約<rt>やく</rt></ruby> 70〜80%。</li>
+        <li id="src-6"><span class="text-gold/60">6.</span> <ruby>太平洋<rt>たいへいよう</rt></ruby>クロマグロの<ruby>資源量<rt>しげんりょう</rt></ruby>、<ruby>初期資源量比<rt>しょきしげんりょうひ</rt></ruby>は ISC 2016 <ruby>評価<rt>ひょうか</rt></ruby>で<ruby>約<rt>やく</rt></ruby> 2.6%。</li>
+        <li id="src-7"><span class="text-gold/60">7.</span> <a href="https://www.iucnredlist.org/species/166184/1117791" target="_blank" rel="noopener" class="underline hover:text-paper">IUCN Red List (2014)</a> — Endangered（<ruby>絶滅危惧<rt>ぜつめつきぐ</rt></ruby>IB<ruby>類<rt>るい</rt></ruby>）に<ruby>指定<rt>してい</rt></ruby>。</li>
+        <li id="src-8"><span class="text-gold/60">8.</span> <ruby>土用<rt>どよう</rt></ruby>の<ruby>丑<rt>うし</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>のうなぎ<ruby>廃棄<rt>はいき</rt></ruby>については<ruby>各種報道<rt>かくしゅほうどう</rt></ruby>および<ruby>環境省<rt>かんきょうしょう</rt></ruby>・<ruby>水産庁<rt>すいさんちょう</rt></ruby>の<ruby>関連資料<rt>かんれんしりょう</rt></ruby>を<ruby>参照<rt>さんしょう</rt></ruby>。</li>
+        <li id="src-9"><span class="text-gold/60">9.</span> <ruby>水産庁<rt>すいさんちょう</rt></ruby>の<ruby>捕獲枠<rt>ほかくわく</rt></ruby>（2024<ruby>年<rt>ねん</rt></ruby>: ミンク・イワシ・ニタリ<ruby>三種<rt>さんしゅ</rt></ruby><ruby>合計<rt>ごうけい</rt></ruby>で<ruby>約<rt>やく</rt></ruby> 379 <ruby>頭<rt>とう</rt></ruby>）に<ruby>基<rt>もと</rt></ruby>づく<ruby>概数<rt>がいすう</rt></ruby>。</li>
+        <li id="src-10"><span class="text-gold/60">10.</span> <a href="https://www.nature.com/articles/nature01610" target="_blank" rel="noopener" class="underline hover:text-paper">Myers &amp; Worm, Nature (2003)</a> — <ruby>大型捕食魚<rt>おおがたほしょくぎょ</rt></ruby>の<ruby>生物量<rt>せいぶつりょう</rt></ruby>は<ruby>約<rt>やく</rt></ruby> 90% <ruby>減少<rt>げんしょう</rt></ruby>。</li>
+        <li id="src-11"><span class="text-gold/60">11.</span> <ruby>養殖<rt>ようしょく</rt></ruby>の Fish-In/Fish-Out <ruby>比率<rt>ひりつ</rt></ruby>は <a href="https://doi.org/10.1073/pnas.0905235106" target="_blank" rel="noopener" class="underline hover:text-paper">Naylor et al., PNAS (2009)</a> および Tacon &amp; Metian (2008) より。サーモン<ruby>約<rt>やく</rt></ruby>1.5–3、クロマグロ<ruby>養殖<rt>ようしょく</rt></ruby>は10–15<ruby>倍<rt>ばい</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>。</li>
+        <li id="src-12"><span class="text-gold/60">12.</span> <ruby>養殖場<rt>ようしょくじょう</rt></ruby>での<ruby>抗生物質<rt>こうせいぶっしつ</rt></ruby>・<ruby>薬剤使用<rt>やくざいしよう</rt></ruby>については <a href="https://doi.org/10.1126/science.aax4593" target="_blank" rel="noopener" class="underline hover:text-paper">Schar et al., Science (2020)</a> ほかが<ruby>概観<rt>がいかん</rt></ruby>。<ruby>魚病<rt>ぎょびょう</rt></ruby>による<ruby>損失<rt>そんしつ</rt></ruby>と<ruby>密度<rt>みつど</rt></ruby>の<ruby>関係<rt>かんけい</rt></ruby>も<ruby>同様<rt>どうよう</rt></ruby>に<ruby>多数<rt>たすう</rt></ruby>の<ruby>研究<rt>けんきゅう</rt></ruby>あり。</li>
       </ol>
 
       <div class="mt-12 pt-8 border-t border-line/30 flex flex-col gap-6 sm:flex-row sm:gap-4 sm:justify-between sm:items-center text-paper/40 text-[20px] tracking-wider">
-        <a href="/" class="hover:text-paper transition-colors">← ビーガン王子へ戻る</a>
+        <a href="/" class="hover:text-paper transition-colors">← ビーガン<ruby>王子<rt>おうじ</rt></ruby>へ<ruby>戻<rt>もど</rt></ruby>る</a>
         <!-- Compact social rail in the footer (smaller variant) -->
         <div class="flex items-center gap-2 sm:gap-3">
           <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="umi-social umi-social--sm"><img src="/images/social/ig.png" alt=""/></a>
@@ -959,7 +983,7 @@
           <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="umi-social umi-social--sm"><img src="/images/social/tt.png" alt=""/></a>
           <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="umi-social umi-social--sm"><img src="/images/social/li.png" alt=""/></a>
         </div>
-        <span class="font-jp text-[20px]">© ビーガン王子</span>
+        <span class="font-jp text-[20px]">© ビーガン<ruby>王子<rt>おうじ</rt></ruby></span>
       </div>
     </div>
   </footer>
@@ -1275,15 +1299,16 @@
       // because .counter-context uses white-space: pre-line.  Desktop CSS
       // overrides nowrap if you want — but the line break at this point
       // reads naturally on both.
+      // Strings contain inline <ruby> tags for furigana — rendered via innerHTML below.
       const milestones = [
-        { at: 0.000, text: '下にスクロールしてみてね' },
-        { at: 0.02,  text: '1秒で、4万匹…！' },
-        { at: 0.10,  text: '1日で、60億匹。\n世界中の人と同じくらいの数なんだ。' },
-        { at: 0.25,  text: 'もう、東京ドームにも\n入りきらない数になってるよ…' },
-        { at: 0.45,  text: 'もう、想像が\n追いつかなくなってくるね。' },
-        { at: 0.70,  text: 'もう少しだけ、\n一緒に数えよう。' },
-        { at: 0.92,  text: 'これで、やっと\n今年の一年分だよ。' },
-        { at: 0.999, text: 'これで、一年分（だいたい）' },
+        { at: 0.000, text: '<ruby>下<rt>した</rt></ruby>にスクロールしてみてね' },
+        { at: 0.02,  text: '1<ruby>秒<rt>びょう</rt></ruby>で、4<ruby>万<rt>まん</rt>匹<rt>びき</rt></ruby>…！' },
+        { at: 0.10,  text: '1<ruby>日<rt>にち</rt></ruby>で、60<ruby>億<rt>おく</rt>匹<rt>びき</rt></ruby>。\n<ruby>世界中<rt>せかいじゅう</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>と<ruby>同<rt>おな</rt></ruby>じくらいの<ruby>数<rt>かず</rt></ruby>なんだ。' },
+        { at: 0.25,  text: 'もう、<ruby>東京<rt>とうきょう</rt></ruby>ドームにも\n<ruby>入<rt>はい</rt></ruby>りきらない<ruby>数<rt>かず</rt></ruby>になってるよ…' },
+        { at: 0.45,  text: 'もう、<ruby>想像<rt>そうぞう</rt></ruby>が\n<ruby>追<rt>お</rt></ruby>いつかなくなってくるね。' },
+        { at: 0.70,  text: 'もう<ruby>少<rt>すこ</rt></ruby>しだけ、\n<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>数<rt>かぞ</rt></ruby>えよう。' },
+        { at: 0.92,  text: 'これで、やっと\n<ruby>今年<rt>ことし</rt></ruby>の<ruby>一年分<rt>いちねんぶん</rt></ruby>だよ。' },
+        { at: 0.999, text: 'これで、<ruby>一年分<rt>いちねんぶん</rt></ruby>（だいたい）' },
       ];
       let currentCtxIdx = -2;
       let ctxTimer = null;
@@ -1301,7 +1326,9 @@
         // Match the CSS .transition-opacity duration (300ms) — text is
         // swapped only AFTER the old text has fully faded out.
         ctxTimer = setTimeout(() => {
-          counterCtx.textContent = milestones[idx].text;
+          // innerHTML (not textContent) so the <ruby> furigana tags render.
+          // Safe because milestones[].text is a static, in-file string.
+          counterCtx.innerHTML = milestones[idx].text;
           counterCtx.style.opacity = '1';
           ctxTimer = null;
         }, 300);
