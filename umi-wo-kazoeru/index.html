@@ -452,25 +452,33 @@
     /* ─── Furigana (ruby) styling ──────────────────────────────────
        Subtle, smaller, lighter than the base text so it sits as a
        gentle reading aid above each kanji rather than competing for
-       attention.  Inherits the parent font (Noto Sans JP) so nothing
-       else changes visually. */
+       attention.  Inherits the parent font (Noto Sans JP).
+
+       CRITICAL: the rt is positioned ABSOLUTELY above the ruby base
+       so it does NOT contribute to the line box height.  Line-heights
+       on every section (body 1.9–2.0, headlines 1.05–1.5) stay
+       exactly the same as before furigana was added — the annotation
+       just floats up into the existing inter-line gap. */
+    ruby {
+      position: relative;
+      display: inline;              /* keep ruby in the natural text flow */
+      white-space: nowrap;          /* don't break compound between base + rt */
+    }
     rt {
-      font-size: 0.5em;
+      position: absolute;
+      bottom: 100%;                 /* sit just above the kanji */
+      left: 50%;
+      transform: translateX(-50%);
+      /* clamp so big headlines don't get 60+px furigana — caps at 18px
+         while still scaling down for tiny source-footer text. */
+      font-size: clamp(7px, 0.5em, 18px);
       font-weight: 400;
+      line-height: 1;
       letter-spacing: 0.02em;
       opacity: 0.7;
-      user-select: none;            /* ruby is skipped when copy-pasting */
-      line-height: 1.2;
-    }
-    ruby {
-      ruby-position: over;
-      ruby-align: center;
-    }
-
-    /* The big hero h1 uses leading-[1.05] (very tight) — bump it so the
-       furigana above 何匹 doesn't collide with the eyebrow text above. */
-    .hero-h1-with-ruby {
-      line-height: 1.5 !important;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;            /* skipped when copy-pasting */
     }
 
     /* Pause-zone CTA at the end of the count section */
@@ -505,10 +513,10 @@
     <canvas id="hero-stars" class="ocean-canvas opacity-50" aria-hidden="true"></canvas>
 
     <div class="relative z-10 max-w-3xl mx-auto text-center">
-      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-8 sm:mb-6 lg:mb-6">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3 lg:mb-3">
         <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
       </div>
-      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] text-paper whitespace-nowrap">
+      <h1 class="font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
         <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
       </h1>
 
