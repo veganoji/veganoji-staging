@@ -467,14 +467,24 @@
       white-space: nowrap;          /* don't break compound between base + rt */
     }
     rt {
+      /* display:block overrides the browser-default `display: ruby-text` —
+         iOS Safari was leaving rt in the inline flow otherwise, which made
+         the readings render next to the kanji on a single line.            */
+      display: block;
       position: absolute;
-      bottom: 100%;
-      left: 50%;
-      /* translate-Y nudges rt down so its bottom edge sits flush against the
-         top of the kanji glyphs (the line box has ~10% padding above the cap). */
-      transform: translate(-50%, 35%);
+      /* Pull rt UP above the ruby box, leaving a visible gap between rt
+         bottom and the kanji top.  Note: rt's `em` is rt's own font-size
+         (≈half of the parent), so -1.5em ≈ -15 px on 20 px body text →
+         5 px breathing room above the kanji.  Scales proportionally with
+         the surrounding font, capped via the rt font-size clamp.          */
+      top: -1.5em;
+      /* left:0 + right:0 + text-align:center is more reliable across mobile
+         browsers than left:50% + translateX(-50%).                          */
+      left: 0;
+      right: 0;
+      text-align: center;
       /* clamp so big headlines don't get 60+px furigana — caps at 18px
-         while still scaling down for tiny footer text. */
+         while still scaling down for tiny footer text.                      */
       font-size: clamp(7px, 0.5em, 18px);
       font-weight: 400;
       line-height: 1;
