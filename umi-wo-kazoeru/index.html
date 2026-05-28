@@ -479,6 +479,11 @@
       letter-spacing: 0.02em;
       opacity: 0.7;
       user-select: none;
+      /* Pull the reading down toward its kanji so the gap is tight and
+         consistent (iOS native ruby renders a looser gap by default than
+         desktop — this is a flow-level lever it honours, unlike the
+         absolute-positioning approach that iOS ignored). */
+      margin-bottom: -0.25em;
     }
     /* Hero h1 uses leading-[1.05] (very tight) — bump it so the
        furigana above 何匹 doesn't get clipped or collide with the
@@ -588,7 +593,7 @@
       <!-- Pause-zone CTA: fades in once counter reaches 2.30 兆匹 -->
       <div id="pause-cta" class="pause-cta absolute bottom-10 sm:bottom-14 left-0 right-0 flex flex-col items-center px-6">
         <a href="#after-count" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[20px]">
-          <ruby>次<rt>つぎ</rt></ruby>へ<ruby>進<rt>すす</rt></ruby>む
+          次へ進む
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M7 2 L7 11 M3 7 L7 11 L11 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
           </svg>
@@ -723,7 +728,7 @@
           <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
             <path d="M3.5 2.5 L11 7 L3.5 11.5 Z"/>
           </svg>
-          <ruby>底<rt>そこ</rt></ruby><ruby>引<rt>び</rt></ruby>き<ruby>網<rt>あみ</rt></ruby>の<ruby>様子<rt>ようす</rt></ruby>を<ruby>見<rt>み</rt></ruby>る
+          底引き網の様子を見る
         </button>
       </div>
     </div>
@@ -840,7 +845,7 @@
             <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
               <path d="M3.5 2.5 L11 7 L3.5 11.5 Z"/>
             </svg>
-            <ruby>様子<rt>ようす</rt></ruby>を<ruby>見<rt>み</rt></ruby>る
+            様子を見る
           </button>
         </div>
         <div class="vignette rounded-2xl p-6 sm:p-7">
@@ -944,11 +949,11 @@
 
       <div class="mt-14 flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a href="/blog/" class="btn-ocean-primary inline-flex items-center gap-2 rounded-2xl bg-gold text-abyss px-6 py-3 text-[20px]">
-          ビーガンの<ruby>記事<rt>きじ</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む
+          ビーガンの記事を読む
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
         </a>
         <a href="/tools/" class="btn-ocean-ghost inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[20px] text-gold">
-          <ruby>自分<rt>じぶん</rt></ruby>の<ruby>影響<rt>えいきょう</rt></ruby>を<ruby>見<rt>み</rt></ruby>てみる
+          自分の影響を見てみる
         </a>
       </div>
 
