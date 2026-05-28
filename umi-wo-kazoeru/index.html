@@ -460,17 +460,21 @@
        exactly the same as before furigana was added — the annotation
        just floats up into the existing inter-line gap. */
     ruby {
+      display: inline-block;        /* establishes a clean positioning ctx for rt */
       position: relative;
-      display: inline;              /* keep ruby in the natural text flow */
+      line-height: 1;               /* ruby's own box hugs the kanji glyphs */
+      vertical-align: baseline;
       white-space: nowrap;          /* don't break compound between base + rt */
     }
     rt {
       position: absolute;
-      bottom: 100%;                 /* sit just above the kanji */
+      bottom: 100%;
       left: 50%;
-      transform: translateX(-50%);
+      /* translate-Y nudges rt down so its bottom edge sits flush against the
+         top of the kanji glyphs (the line box has ~10% padding above the cap). */
+      transform: translate(-50%, 35%);
       /* clamp so big headlines don't get 60+px furigana — caps at 18px
-         while still scaling down for tiny source-footer text. */
+         while still scaling down for tiny footer text. */
       font-size: clamp(7px, 0.5em, 18px);
       font-weight: 400;
       line-height: 1;
@@ -964,25 +968,25 @@
   <!-- ───────────────────── 8.  Sources ───────────────────── -->
   <footer class="bg-abyss border-t border-line/40 py-16 sm:py-20 px-6 sm:px-10">
     <div class="max-w-3xl mx-auto">
-      <h2 class="font-jp text-gold/80 text-[20px] tracking-[0.14em] mb-6"><ruby>出典<rt>しゅってん</rt></ruby> ・ sources</h2>
+      <h2 class="font-jp text-gold/80 text-[20px] tracking-[0.14em] mb-6">出典 ・ sources</h2>
       <ol class="space-y-3 text-paper/60 text-[14px] sm:text-[15px] leading-[1.7] font-jp ticker">
-        <li id="src-1"><span class="text-gold/60">1.</span> <ruby>年間<rt>ねんかん</rt></ruby>に<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby>の<ruby>数<rt>かず</rt></ruby>の<ruby>推定<rt>すいてい</rt></ruby>は <a href="http://fishcount.org.uk/fish-count-estimates-2" target="_blank" rel="noopener" class="underline hover:text-paper">fishcount.org.uk</a> による（0.79〜2.3<ruby>兆<rt>ちょう</rt>匹<rt>びき</rt></ruby>）。<ruby>一人<rt>ひとり</rt></ruby>あたりの<ruby>内訳<rt>うちわけ</rt></ruby>は<ruby>世界人口<rt>せかいじんこう</rt></ruby>80<ruby>億人<rt>おくにん</rt></ruby>で<ruby>割<rt>わ</rt></ruby>った<ruby>値<rt>あたい</rt></ruby>。</li>
-        <li id="src-2"><span class="text-gold/60">2.</span> <ruby>混獲<rt>こんかく</rt></ruby>（bycatch）の<ruby>割合<rt>わりあい</rt></ruby>は FAO 'Discards in the world's marine fisheries' (2005) ほか、<ruby>後年<rt>こうねん</rt></ruby>の<ruby>報告<rt>ほうこく</rt></ruby>でもほぼ<ruby>同水準<rt>どうすいじゅん</rt></ruby>。</li>
-        <li id="src-3"><span class="text-gold/60">3.</span> ウミガメの<ruby>混獲<rt>こんかく</rt></ruby>は <a href="https://doi.org/10.1111/j.1461-0248.2004.00573.x" target="_blank" rel="noopener" class="underline hover:text-paper">Lewison et al., Ecology Letters (2004)</a> ほかにより<ruby>年<rt>ねん</rt></ruby>に<ruby>数十万<rt>すうじゅうまん</rt>匹<rt>びき</rt></ruby><ruby>規模<rt>きぼ</rt></ruby>。イルカ<ruby>等<rt>など</rt></ruby>の<ruby>鯨類<rt>げいるい</rt></ruby><ruby>混獲<rt>こんかく</rt></ruby>は <a href="https://doi.org/10.1111/j.1523-1739.2006.00338.x" target="_blank" rel="noopener" class="underline hover:text-paper">Read et al., Conservation Biology (2006)</a> による<ruby>全世界<rt>ぜんせかい</rt></ruby>で<ruby>年間<rt>ねんかん</rt></ruby><ruby>約<rt>やく</rt></ruby> 30<ruby>万<rt>まん</rt>頭<rt>とう</rt></ruby> の<ruby>推計<rt>すいけい</rt></ruby>。</li>
-        <li id="src-3a"><span class="text-gold/60">3a.</span> サメの<ruby>推計<rt>すいけい</rt></ruby><ruby>死亡数<rt>しぼうすう</rt></ruby>は <a href="https://doi.org/10.1016/j.marpol.2013.03.002" target="_blank" rel="noopener" class="underline hover:text-paper">Worm et al., Marine Policy (2013)</a> — <ruby>年間<rt>ねんかん</rt></ruby>およそ 1<ruby>億<rt>おく</rt></ruby> <ruby>匹<rt>ひき</rt></ruby>。</li>
-        <li id="src-4"><span class="text-gold/60">4.</span> <ruby>底曳網<rt>そこびきあみ</rt></ruby>による<ruby>海底<rt>かいてい</rt></ruby><ruby>破壊<rt>はかい</rt></ruby><ruby>面積<rt>めんせき</rt></ruby>は Halpern et al. および Sala et al. (Nature, 2021) の<ruby>推計<rt>すいけい</rt></ruby>に<ruby>基<rt>もと</rt></ruby>づく。<ruby>日本<rt>にほん</rt></ruby><ruby>国土<rt>こくど</rt></ruby><ruby>面積<rt>めんせき</rt></ruby>（<ruby>約<rt>やく</rt></ruby>37.8<ruby>万<rt>まん</rt></ruby> km²）との<ruby>比較<rt>ひかく</rt></ruby>。</li>
-        <li id="src-5"><span class="text-gold/60">5.</span> WWF Japan・ISC（<ruby>北太平洋<rt>きたたいへいよう</rt></ruby>マグロ<ruby>類<rt>るい</rt></ruby><ruby>国際科学委員会<rt>こくさいかがくいいんかい</rt></ruby>）の<ruby>長年<rt>ながねん</rt></ruby>の<ruby>統計<rt>とうけい</rt></ruby>より。<ruby>日本<rt>にほん</rt></ruby>の<ruby>消費比率<rt>しょうひひりつ</rt></ruby>は<ruby>約<rt>やく</rt></ruby> 70〜80%。</li>
-        <li id="src-6"><span class="text-gold/60">6.</span> <ruby>太平洋<rt>たいへいよう</rt></ruby>クロマグロの<ruby>資源量<rt>しげんりょう</rt></ruby>、<ruby>初期資源量比<rt>しょきしげんりょうひ</rt></ruby>は ISC 2016 <ruby>評価<rt>ひょうか</rt></ruby>で<ruby>約<rt>やく</rt></ruby> 2.6%。</li>
-        <li id="src-7"><span class="text-gold/60">7.</span> <a href="https://www.iucnredlist.org/species/166184/1117791" target="_blank" rel="noopener" class="underline hover:text-paper">IUCN Red List (2014)</a> — Endangered（<ruby>絶滅危惧<rt>ぜつめつきぐ</rt></ruby>IB<ruby>類<rt>るい</rt></ruby>）に<ruby>指定<rt>してい</rt></ruby>。</li>
-        <li id="src-8"><span class="text-gold/60">8.</span> <ruby>土用<rt>どよう</rt></ruby>の<ruby>丑<rt>うし</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>のうなぎ<ruby>廃棄<rt>はいき</rt></ruby>については<ruby>各種報道<rt>かくしゅほうどう</rt></ruby>および<ruby>環境省<rt>かんきょうしょう</rt></ruby>・<ruby>水産庁<rt>すいさんちょう</rt></ruby>の<ruby>関連資料<rt>かんれんしりょう</rt></ruby>を<ruby>参照<rt>さんしょう</rt></ruby>。</li>
-        <li id="src-9"><span class="text-gold/60">9.</span> <ruby>水産庁<rt>すいさんちょう</rt></ruby>の<ruby>捕獲枠<rt>ほかくわく</rt></ruby>（2024<ruby>年<rt>ねん</rt></ruby>: ミンク・イワシ・ニタリ<ruby>三種<rt>さんしゅ</rt></ruby><ruby>合計<rt>ごうけい</rt></ruby>で<ruby>約<rt>やく</rt></ruby> 379 <ruby>頭<rt>とう</rt></ruby>）に<ruby>基<rt>もと</rt></ruby>づく<ruby>概数<rt>がいすう</rt></ruby>。</li>
-        <li id="src-10"><span class="text-gold/60">10.</span> <a href="https://www.nature.com/articles/nature01610" target="_blank" rel="noopener" class="underline hover:text-paper">Myers &amp; Worm, Nature (2003)</a> — <ruby>大型捕食魚<rt>おおがたほしょくぎょ</rt></ruby>の<ruby>生物量<rt>せいぶつりょう</rt></ruby>は<ruby>約<rt>やく</rt></ruby> 90% <ruby>減少<rt>げんしょう</rt></ruby>。</li>
-        <li id="src-11"><span class="text-gold/60">11.</span> <ruby>養殖<rt>ようしょく</rt></ruby>の Fish-In/Fish-Out <ruby>比率<rt>ひりつ</rt></ruby>は <a href="https://doi.org/10.1073/pnas.0905235106" target="_blank" rel="noopener" class="underline hover:text-paper">Naylor et al., PNAS (2009)</a> および Tacon &amp; Metian (2008) より。サーモン<ruby>約<rt>やく</rt></ruby>1.5–3、クロマグロ<ruby>養殖<rt>ようしょく</rt></ruby>は10–15<ruby>倍<rt>ばい</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>。</li>
-        <li id="src-12"><span class="text-gold/60">12.</span> <ruby>養殖場<rt>ようしょくじょう</rt></ruby>での<ruby>抗生物質<rt>こうせいぶっしつ</rt></ruby>・<ruby>薬剤使用<rt>やくざいしよう</rt></ruby>については <a href="https://doi.org/10.1126/science.aax4593" target="_blank" rel="noopener" class="underline hover:text-paper">Schar et al., Science (2020)</a> ほかが<ruby>概観<rt>がいかん</rt></ruby>。<ruby>魚病<rt>ぎょびょう</rt></ruby>による<ruby>損失<rt>そんしつ</rt></ruby>と<ruby>密度<rt>みつど</rt></ruby>の<ruby>関係<rt>かんけい</rt></ruby>も<ruby>同様<rt>どうよう</rt></ruby>に<ruby>多数<rt>たすう</rt></ruby>の<ruby>研究<rt>けんきゅう</rt></ruby>あり。</li>
+        <li id="src-1"><span class="text-gold/60">1.</span> 年間に獲られる魚の数の推定は <a href="http://fishcount.org.uk/fish-count-estimates-2" target="_blank" rel="noopener" class="underline hover:text-paper">fishcount.org.uk</a> による（0.79〜2.3兆匹）。一人あたりの内訳は世界人口80億人で割った値。</li>
+        <li id="src-2"><span class="text-gold/60">2.</span> 混獲（bycatch）の割合は FAO 'Discards in the world's marine fisheries' (2005) ほか、後年の報告でもほぼ同水準。</li>
+        <li id="src-3"><span class="text-gold/60">3.</span> ウミガメの混獲は <a href="https://doi.org/10.1111/j.1461-0248.2004.00573.x" target="_blank" rel="noopener" class="underline hover:text-paper">Lewison et al., Ecology Letters (2004)</a> ほかにより年に数十万匹規模。イルカ等の鯨類混獲は <a href="https://doi.org/10.1111/j.1523-1739.2006.00338.x" target="_blank" rel="noopener" class="underline hover:text-paper">Read et al., Conservation Biology (2006)</a> による全世界で年間約 30万頭 の推計。</li>
+        <li id="src-3a"><span class="text-gold/60">3a.</span> サメの推計死亡数は <a href="https://doi.org/10.1016/j.marpol.2013.03.002" target="_blank" rel="noopener" class="underline hover:text-paper">Worm et al., Marine Policy (2013)</a> — 年間およそ 1億 匹。</li>
+        <li id="src-4"><span class="text-gold/60">4.</span> 底曳網による海底破壊面積は Halpern et al. および Sala et al. (Nature, 2021) の推計に基づく。日本国土面積（約37.8万 km²）との比較。</li>
+        <li id="src-5"><span class="text-gold/60">5.</span> WWF Japan・ISC（北太平洋マグロ類国際科学委員会）の長年の統計より。日本の消費比率は約 70〜80%。</li>
+        <li id="src-6"><span class="text-gold/60">6.</span> 太平洋クロマグロの資源量、初期資源量比は ISC 2016 評価で約 2.6%。</li>
+        <li id="src-7"><span class="text-gold/60">7.</span> <a href="https://www.iucnredlist.org/species/166184/1117791" target="_blank" rel="noopener" class="underline hover:text-paper">IUCN Red List (2014)</a> — Endangered（絶滅危惧IB類）に指定。</li>
+        <li id="src-8"><span class="text-gold/60">8.</span> 土用の丑の日のうなぎ廃棄については各種報道および環境省・水産庁の関連資料を参照。</li>
+        <li id="src-9"><span class="text-gold/60">9.</span> 水産庁の捕獲枠（2024年: ミンク・イワシ・ニタリ三種合計で約 379 頭）に基づく概数。</li>
+        <li id="src-10"><span class="text-gold/60">10.</span> <a href="https://www.nature.com/articles/nature01610" target="_blank" rel="noopener" class="underline hover:text-paper">Myers &amp; Worm, Nature (2003)</a> — 大型捕食魚の生物量は約 90% 減少。</li>
+        <li id="src-11"><span class="text-gold/60">11.</span> 養殖の Fish-In/Fish-Out 比率は <a href="https://doi.org/10.1073/pnas.0905235106" target="_blank" rel="noopener" class="underline hover:text-paper">Naylor et al., PNAS (2009)</a> および Tacon &amp; Metian (2008) より。サーモン約1.5–3、クロマグロ養殖は10–15倍以上。</li>
+        <li id="src-12"><span class="text-gold/60">12.</span> 養殖場での抗生物質・薬剤使用については <a href="https://doi.org/10.1126/science.aax4593" target="_blank" rel="noopener" class="underline hover:text-paper">Schar et al., Science (2020)</a> ほかが概観。魚病による損失と密度の関係も同様に多数の研究あり。</li>
       </ol>
 
       <div class="mt-12 pt-8 border-t border-line/30 flex flex-col gap-6 sm:flex-row sm:gap-4 sm:justify-between sm:items-center text-paper/40 text-[20px] tracking-wider">
-        <a href="/" class="hover:text-paper transition-colors">← ビーガン<ruby>王子<rt>おうじ</rt></ruby>へ<ruby>戻<rt>もど</rt></ruby>る</a>
+        <a href="/" class="hover:text-paper transition-colors">← ビーガン王子へ戻る</a>
         <!-- Compact social rail in the footer (smaller variant) -->
         <div class="flex items-center gap-2 sm:gap-3">
           <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="umi-social umi-social--sm"><img src="/images/social/ig.png" alt=""/></a>
@@ -991,7 +995,7 @@
           <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="umi-social umi-social--sm"><img src="/images/social/tt.png" alt=""/></a>
           <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="umi-social umi-social--sm"><img src="/images/social/li.png" alt=""/></a>
         </div>
-        <span class="font-jp text-[20px]">© ビーガン<ruby>王子<rt>おうじ</rt></ruby></span>
+        <span class="font-jp text-[20px]">© ビーガン王子</span>
       </div>
     </div>
   </footer>
