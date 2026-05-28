@@ -472,20 +472,22 @@
          the readings render next to the kanji on a single line.            */
       display: block;
       position: absolute;
-      /* Pull rt UP above the ruby box, leaving a visible gap between rt
-         bottom and the kanji top.  Note: rt's `em` is rt's own font-size
-         (≈half of the parent), so -1.5em ≈ -15 px on 20 px body text →
-         5 px breathing room above the kanji.  Scales proportionally with
-         the surrounding font, capped via the rt font-size clamp.          */
-      top: -1.5em;
+      /* Pull rt UP exactly 1em (in rt's own font-size).  Combined with
+         the explicit height:1em below, rt's bottom sits flush at the
+         ruby's top edge.                                                   */
+      top: -1em;
+      /* Pin rt's box height to exactly its font-size — iOS Safari was
+         sometimes computing rt's box at the parent ruby's line-height,
+         which dropped rt BELOW the kanji on mobile.                        */
+      height: 1em;
       /* left:0 + right:0 + text-align:center is more reliable across mobile
          browsers than left:50% + translateX(-50%).                          */
       left: 0;
       right: 0;
       text-align: center;
-      /* clamp so big headlines don't get 60+px furigana — caps at 18px
-         while still scaling down for tiny footer text.                      */
-      font-size: clamp(7px, 0.5em, 18px);
+      /* clamp so big headlines don't get 60+px furigana — caps at 14px
+         while still scaling down for tiny text.                            */
+      font-size: clamp(7px, 0.5em, 14px);
       font-weight: 400;
       line-height: 1;
       letter-spacing: 0.02em;
