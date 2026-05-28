@@ -459,6 +459,9 @@
        on every section (body 1.9–2.0, headlines 1.05–1.5) stay
        exactly the same as before furigana was added — the annotation
        just floats up into the existing inter-line gap. */
+    /* ─── Desktop / pointing-device path ───────────────────────────────
+       Absolute-positioned rt above the ruby — keeps line-height tight on
+       desktop where this technique renders reliably.                    */
     ruby {
       display: inline-block;        /* establishes a clean positioning ctx for rt */
       position: relative;
@@ -467,26 +470,14 @@
       white-space: nowrap;          /* don't break compound between base + rt */
     }
     rt {
-      /* display:block overrides the browser-default `display: ruby-text` —
-         iOS Safari was leaving rt in the inline flow otherwise, which made
-         the readings render next to the kanji on a single line.            */
       display: block;
       position: absolute;
-      /* Pull rt UP exactly 1em (in rt's own font-size).  Combined with
-         the explicit height:1em below, rt's bottom sits flush at the
-         ruby's top edge.                                                   */
       top: -1em;
-      /* Pin rt's box height to exactly its font-size — iOS Safari was
-         sometimes computing rt's box at the parent ruby's line-height,
-         which dropped rt BELOW the kanji on mobile.                        */
-      height: 1em;
-      /* left:0 + right:0 + text-align:center is more reliable across mobile
-         browsers than left:50% + translateX(-50%).                          */
+      bottom: auto;
       left: 0;
       right: 0;
+      height: 1em;
       text-align: center;
-      /* clamp so big headlines don't get 60+px furigana — caps at 14px
-         while still scaling down for tiny text.                            */
       font-size: clamp(7px, 0.5em, 14px);
       font-weight: 400;
       line-height: 1;
@@ -495,6 +486,33 @@
       white-space: nowrap;
       pointer-events: none;
       user-select: none;            /* skipped when copy-pasting */
+    }
+
+    /* ─── Touch-device path (iOS Safari, etc.) ─────────────────────────
+       The absolute-positioning approach above doesn't work reliably on
+       iOS WebKit — rt was rendering below the kanji.  Switch to NATIVE
+       ruby layout on touch devices, with ruby-position:over explicitly
+       set so the reading lands above.  Line-height grows slightly here
+       to accommodate the rt, but that's the trade-off for correctness. */
+    @media (hover: none) {
+      ruby {
+        display: ruby;
+        position: static;
+        ruby-position: over;
+        -webkit-ruby-position: over;
+      }
+      rt {
+        display: ruby-text;
+        position: static;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        height: auto;
+        /* font-size + line-height + opacity carry over from above to
+           keep the readings small, light, and quiet — but native ruby
+           layout positions rt above its kanji. */
+      }
     }
 
     /* Pause-zone CTA at the end of the count section */
