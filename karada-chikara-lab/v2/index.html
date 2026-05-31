@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V2 栄養レントゲン — 力チャプター案</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+    @theme {
+      --color-paper: #FFF9EE; --color-ink: #1F1812; --color-ink-soft: #3C2E22; --color-muted: #786148;
+      --color-royal: #C9223A; --color-leaf: #6C9560; --color-leaf-deep: #3F6A3A; --color-gold-deep: #9C7E2A;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+    html, body { background: var(--color-paper); color: var(--color-ink); }
+    body { font-family: var(--font-noto-sans-jp); font-feature-settings: "palt"; -webkit-font-smoothing: antialiased; }
+    .font-jp-display { font-weight: 900; }
+    .display-tight { letter-spacing:-0.035em; line-height:0.96; }
+    button, [class*="btn-"] { font-family: var(--font-noto-sans-jp) !important; font-weight:700 !important; }
+    .ticker { font-variant-numeric: tabular-nums; }
+    .reveal { opacity:0; transform: translateY(18px); transition: opacity .9s ease-out, transform .9s ease-out; }
+    .reveal.is-visible { opacity:1; transform:none; }
+    .src { color: var(--color-muted); text-decoration:none; font-size:.62em; vertical-align:super; line-height:0; padding:0 2px; border-bottom:1px dotted var(--color-muted); }
+    .rule { height:1.5px; background: var(--color-ink); opacity:.12; }
+    .labtag { position:fixed; top:12px; left:12px; z-index:50; background: var(--color-ink); color: var(--color-paper); font-weight:900; font-size:12px; padding:8px 14px; border-radius:999px; box-shadow:3px 3px 0 var(--color-leaf-deep); }
+    .lb-track { height:10px; border-radius:999px; background: rgba(31,24,18,.08); overflow:hidden; }
+    .lb-fill { height:100%; width:0%; transition: width 1.4s cubic-bezier(.22,1,.36,1); background: var(--color-leaf); }
+
+    /* X-ray table */
+    .xr { border-top:1.5px solid rgba(31,24,18,.18); }
+    .xr-head { display:grid; grid-template-columns: 1fr 56px 56px 56px; gap:0; padding:10px 4px; font-size:10px; font-weight:700; color: var(--color-muted); text-align:center; letter-spacing:.04em; }
+    .xr-head > div:first-child { text-align:left; }
+    .xr-row { border-bottom:1.5px solid rgba(31,24,18,.1); }
+    .xr-main { display:grid; grid-template-columns: 1fr 56px 56px 56px; gap:0; align-items:center; padding:13px 4px; cursor:pointer; transition: background .2s ease; }
+    .xr-main:hover { background: rgba(31,24,18,.03); }
+    .xr-label { font-weight:700; font-size:14px; display:flex; align-items:center; gap:7px; }
+    .xr-label .info { font-size:10px; color: var(--color-muted); border:1.4px solid var(--color-muted); border-radius:50%; width:15px; height:15px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .xr-cell { display:flex; align-items:center; justify-content:center; }
+    .dot { width:15px; height:15px; border-radius:50%; border:1.5px solid rgba(31,24,18,.5); }
+    .dot.bad { background:#E0594F; } .dot.mid { background:#E3BE55; } .dot.good { background:#7FBF6A; } .dot.best { background:#3F8A33; }
+    .xr-num { font-weight:900; font-size:14px; text-align:center; }
+    .xr-detail { display:none; padding:0 4px 14px; font-size:12.5px; line-height:1.75; color: var(--color-ink-soft); }
+    .xr-row.is-open .xr-detail { display:block; }
+    .xr-row.is-open .xr-main { background: rgba(63,106,58,.06); }
+    @media (min-width:640px){ .xr-label{ font-size:15.5px; } .xr-num{ font-size:16px; } .xr-head{ font-size:11px; } }
+
+    /* athlete testimonial */
+    .quote-card { border:1.5px solid rgba(31,24,18,.16); border-radius:16px; padding:20px 22px; background: rgba(255,249,238,.6); cursor:pointer; transition: border-color .2s ease, background .2s ease; }
+    .quote-card:hover { border-color: rgba(31,24,18,.4); }
+    .quote-card .full { display:none; }
+    .quote-card.is-open .full { display:block; }
+    .quote-card.is-open .teaser { display:none; }
+  </style>
+</head>
+<body class="antialiased">
+  <a href="/karada-chikara-lab/" class="labtag">◂ V2 栄養レントゲン ・ 案を切り替え</a>
+
+  <section class="px-6 sm:px-10 pt-24 pb-24 sm:pt-28 sm:pb-32"
+           style="background: radial-gradient(ellipse at 92% 4%, rgba(108,149,96,.14), transparent 55%), radial-gradient(ellipse at 6% 96%, rgba(63,106,58,.08), transparent 60%), #F7F4EC;">
+    <div class="max-w-2xl mx-auto">
+
+      <!-- Quick myth kill -->
+      <div class="reveal">
+        <div class="text-[12px] tracking-[0.2em] font-bold text-ink/50">CHAPTER 01 ・ STRENGTH</div>
+        <h2 class="mt-4 font-jp-display display-tight text-[34px] sm:text-[56px] leading-[1.05]">
+          「お肉なしで、力は出ない」？
+        </h2>
+        <p class="mt-6 text-ink-soft text-[16px] sm:text-[19px] leading-[1.95]">
+          地球でいちばん大きく、力強い動物たち。 その食事は——ほとんど、植物だ。
+        </p>
+      </div>
+
+      <!-- horizontal animal strip -->
+      <div class="reveal mt-8 grid grid-cols-2 sm:grid-cols-5 gap-x-4 gap-y-5">
+        <div class="text-center"><div class="text-[34px]">🐘</div><div class="font-bold text-[13px] mt-1">ゾウ</div><div class="text-ink/55 text-[11px] leading-tight mt-0.5">鼻で350kg</div></div>
+        <div class="text-center"><div class="text-[34px]">🦍</div><div class="font-bold text-[13px] mt-1">ゴリラ</div><div class="text-ink/55 text-[11px] leading-tight mt-0.5">大人20人分</div></div>
+        <div class="text-center"><div class="text-[34px]">🦏</div><div class="font-bold text-[13px] mt-1">サイ</div><div class="text-ink/55 text-[11px] leading-tight mt-0.5">突進50km/h</div></div>
+        <div class="text-center"><div class="text-[34px]">🦛</div><div class="font-bold text-[13px] mt-1">カバ</div><div class="text-ink/55 text-[11px] leading-tight mt-0.5">最大4.5t</div></div>
+        <div class="text-center"><div class="text-[34px]">🐂</div><div class="font-bold text-[13px] mt-1">雄牛</div><div class="text-ink/55 text-[11px] leading-tight mt-0.5">あの筋肉</div></div>
+      </div>
+      <p class="reveal mt-7 text-ink-soft text-[14px] sm:text-[15px] leading-[1.85] border-l-2 pl-4" style="border-color:#3F6A3A;">
+        「最も強い動物は草食動物だ。 ゴリラ、牛、象——そして、私だ。」<br/>
+        <span class="text-ink/55 text-[12.5px]">— パトリック・バブミアン（ストロングマン世界記録保持者）</span>
+      </p>
+
+      <!-- Protein, secondary -->
+      <div class="reveal mt-14">
+        <h3 class="font-jp-display text-[20px] sm:text-[26px]">植物にも、タンパク質はちゃんとある。</h3>
+        <p class="mt-2 text-ink/55 text-[13px]">100gあたり／日本でおなじみの食材で<a href="#src1" class="src">3</a></p>
+        <div class="mt-5 space-y-3">
+          <div class="flex items-center gap-3"><div class="w-28 sm:w-36 text-[13px] sm:text-[14px] font-bold shrink-0">大豆ミート（乾）</div><div class="flex-1 lb-track"><div class="lb-fill" data-w="100"></div></div><div class="w-12 text-right ticker font-bold text-[13px]" style="color:#3F6A3A;">50g</div></div>
+          <div class="flex items-center gap-3"><div class="w-28 sm:w-36 text-[13px] sm:text-[14px] font-bold shrink-0">高野豆腐</div><div class="flex-1 lb-track"><div class="lb-fill" data-w="98"></div></div><div class="w-12 text-right ticker font-bold text-[13px]" style="color:#3F6A3A;">49g</div></div>
+          <div class="flex items-center gap-3"><div class="w-28 sm:w-36 text-[13px] sm:text-[14px] font-bold shrink-0">きなこ</div><div class="flex-1 lb-track"><div class="lb-fill" data-w="74"></div></div><div class="w-12 text-right ticker font-bold text-[13px]" style="color:#3F6A3A;">37g</div></div>
+          <div class="flex items-center gap-3"><div class="w-28 sm:w-36 text-[13px] sm:text-[14px] font-bold text-ink/50 shrink-0">鶏むね肉（参考）</div><div class="flex-1 lb-track"><div class="lb-fill" data-w="46" style="background:#C9B8A0;"></div></div><div class="w-12 text-right ticker font-bold text-[13px] text-ink/50">23g</div></div>
+          <div class="flex items-center gap-3"><div class="w-28 sm:w-36 text-[13px] sm:text-[14px] font-bold shrink-0">納豆</div><div class="flex-1 lb-track"><div class="lb-fill" data-w="33"></div></div><div class="w-12 text-right ticker font-bold text-[13px]" style="color:#3F6A3A;">16.5g</div></div>
+          <div class="flex items-center gap-3"><div class="w-28 sm:w-36 text-[13px] sm:text-[14px] font-bold shrink-0">木綿豆腐</div><div class="flex-1 lb-track"><div class="lb-fill" data-w="14"></div></div><div class="w-12 text-right ticker font-bold text-[13px]" style="color:#3F6A3A;">7g</div></div>
+        </div>
+        <p class="mt-3 text-ink/45 text-[11.5px]">※ 乾燥のものは乾燥重量。 大豆ミート・高野豆腐・きなこは、戻しても栄養はしっかり。</p>
+      </div>
+
+      <!-- The pivot — editorial centerpiece -->
+      <div class="reveal mt-20 sm:mt-28">
+        <div class="rule"></div>
+        <div class="mt-10 text-center">
+          <p class="text-ink/55 text-[13px] tracking-[0.18em] font-bold">THE REAL QUESTION</p>
+          <h3 class="mt-4 font-jp-display display-tight text-[30px] sm:text-[52px] leading-[1.08]">
+            私たちは、<br/>まちがった栄養を<br/><span style="color:#C9223A;">見ていた。</span>
+          </h3>
+        </div>
+        <div class="mt-12 grid grid-cols-2 gap-8 sm:gap-12">
+          <div class="text-center">
+            <div class="font-jp-display ticker text-[58px] sm:text-[92px] leading-none" style="color:#3F8A33;">7<span class="text-[26px] sm:text-[40px]">%</span></div>
+            <div class="mt-3 text-[13px] sm:text-[15px] font-bold">タンパク質が<br/>足りない人</div>
+            <div class="mt-1 text-ink/55 text-[12px]">＝ 9割以上は足りてる</div>
+          </div>
+          <div class="text-center">
+            <div class="font-jp-display ticker text-[58px] sm:text-[92px] leading-none" style="color:#C9223A;">94<span class="text-[26px] sm:text-[40px]">%</span></div>
+            <div class="mt-3 text-[13px] sm:text-[15px] font-bold">食物繊維が<br/>足りない人</div>
+            <div class="mt-1 text-ink/55 text-[12px]">＝ ほぼ全員、不足<a href="#src2" class="src">6</a></div>
+          </div>
+        </div>
+        <p class="mt-12 text-center font-jp-display text-[18px] sm:text-[24px] leading-[1.6]">
+          栄養は、<span style="color:#3F6A3A;">タンパク質だけ</span>じゃない。<br/>
+          <span class="text-ink-soft text-[15px] sm:text-[18px] font-bold">同じ「お肉のかわり」でも、こんなに違う。</span>
+        </p>
+      </div>
+
+      <!-- X-ray table -->
+      <div class="reveal mt-12 xr">
+        <div class="xr-head">
+          <div>項目（タップで詳しく）</div><div>お肉</div><div>代替肉</div><div>まるごと<br/>植物</div>
+        </div>
+
+        <div class="xr-row"><div class="xr-main"><div class="xr-label">食物繊維</div><div class="xr-cell xr-num" style="color:#C9223A;">0g</div><div class="xr-cell xr-num" style="color:#3F8A33;">5g</div><div class="xr-cell xr-num" style="color:#3F8A33;">9g</div></div></div>
+        <div class="xr-row"><div class="xr-main"><div class="xr-label">飽和脂肪</div><div class="xr-cell xr-num" style="color:#C9223A;">5.7g</div><div class="xr-cell xr-num" style="color:#3F8A33;">1.1g</div><div class="xr-cell xr-num" style="color:#3F8A33;">0.14g</div></div></div>
+        <div class="xr-row"><div class="xr-main"><div class="xr-label">トランス脂肪</div><div class="xr-cell xr-num" style="color:#C9223A;">5.9%</div><div class="xr-cell xr-num" style="color:#9C7E2A;">2.6%</div><div class="xr-cell xr-num" style="color:#3F8A33;">0%</div></div></div>
+
+        <div class="xr-row"><div class="xr-main"><div class="xr-label">コレステロール <span class="info">i</span></div><div class="xr-cell"><span class="dot bad"></span></div><div class="xr-cell"><span class="dot good"></span></div><div class="xr-cell"><span class="dot best"></span></div></div><div class="xr-detail">コレステロールは動物性食品だけに含まれる。 代替肉・まるごと植物には、ほぼゼロ〜ゼロ。</div></div>
+
+        <div class="xr-row"><div class="xr-main"><div class="xr-label">糞便汚染 <span class="info">i</span></div><div class="xr-cell"><span class="dot bad"></span></div><div class="xr-cell"><span class="dot good"></span></div><div class="xr-cell"><span class="dot best"></span></div></div><div class="xr-detail">牛・七面鳥ひき肉の<strong>85%</strong>、鶏肉の約1/3から腸内細菌（糞便指標）が検出される。<a href="#src3" class="src">8</a></div></div>
+
+        <div class="xr-row"><div class="xr-main"><div class="xr-label">サルモネラ／カンピロ <span class="info">i</span></div><div class="xr-cell"><span class="dot bad"></span></div><div class="xr-cell"><span class="dot good"></span></div><div class="xr-cell"><span class="dot best"></span></div></div><div class="xr-detail">米国では小売鶏肉の<strong>4個に1個</strong>からサルモネラ。 カンピロバクターは年間<strong>80万人</strong>を発症させる。</div></div>
+
+        <div class="xr-row"><div class="xr-main"><div class="xr-label">ホルモン剤 <span class="info">i</span></div><div class="xr-cell"><span class="dot bad"></span></div><div class="xr-cell"><span class="dot good"></span></div><div class="xr-cell"><span class="dot best"></span></div></div><div class="xr-detail">米国の食肉では<strong>7種</strong>のホルモン剤が認可。 EUでは公衆衛生上の理由から全面禁止されている。</div></div>
+
+        <div class="xr-row"><div class="xr-main"><div class="xr-label">発がん性分類 <span class="info">i</span></div><div class="xr-cell"><span class="dot bad"></span></div><div class="xr-cell"><span class="dot good"></span></div><div class="xr-cell"><span class="dot best"></span></div></div><div class="xr-detail">WHOは加工肉を<strong>グループ1（ヒトに発がん性あり）</strong>、赤身肉を2Aに分類。 加工肉50g/日で大腸がんリスク+18%。</div></div>
+
+        <div class="xr-row"><div class="xr-main"><div class="xr-label">TMAO（心血管） <span class="info">i</span></div><div class="xr-cell"><span class="dot bad"></span></div><div class="xr-cell"><span class="dot good"></span></div><div class="xr-cell"><span class="dot best"></span></div></div><div class="xr-detail">肉由来で増えやすいTMAOは、心血管疾患のリスクとの関連が報告されている。</div></div>
+
+        <div class="xr-row"><div class="xr-main"><div class="xr-label">乳化剤・カビ毒・アレルゲン <span class="info">i</span></div><div class="xr-cell"><span class="dot good"></span></div><div class="xr-cell"><span class="dot bad"></span></div><div class="xr-cell"><span class="dot best"></span></div></div><div class="xr-detail">正直に言うと、ここは<strong>代替肉（超加工）がお肉より劣る</strong>数少ない項目。 だからこそ、いちばんの正解は「まるごと植物」。</div></div>
+
+        <div class="xr-head" style="border-top:1.5px solid rgba(31,24,18,.1);"><div style="color:#3F6A3A;">緑＝良い　黄＝同じ　赤＝悪い</div><div></div><div></div><div></div></div>
+      </div>
+      <p class="reveal mt-3 text-ink/45 text-[11.5px]">出典：Greger 2025, Clinical Nutrition Open Science 61:241–252<a href="#src2" class="src">6</a></p>
+
+      <!-- Athletes — testimonials -->
+      <div class="reveal mt-20">
+        <div class="rule"></div>
+        <h3 class="mt-10 font-jp-display text-[24px] sm:text-[34px]">トップで戦う、植物性の人たち。</h3>
+        <p class="mt-2 text-ink/55 text-[13px]">カードをタップで、発言の全文。</p>
+        <div class="mt-7 grid sm:grid-cols-2 gap-4">
+          <div class="quote-card"><div class="text-[13px] font-bold">🎬 アーノルド・シュワルツェネッガー</div><div class="text-ink/50 text-[11.5px] mt-0.5">俳優・元ミスター・オリンピア</div><p class="teaser mt-3 text-ink-soft text-[13.5px] leading-[1.7]">「“男は肉を食え”って広告は、ただのマーケティング…」</p><p class="full mt-3 text-ink text-[13.5px] leading-[1.75] font-bold">「僕らは“本物の男は肉を食う”という広告を信じてた。 でも理解しないといけない——あれはマーケティングで、現実じゃないんだ。」<span class="block text-ink/50 text-[11px] font-normal mt-2">— The Game Changers（製作総指揮）</span></p></div>
+          <div class="quote-card"><div class="text-[13px] font-bold">🏆 ニマイ・デルガド</div><div class="text-ink/50 text-[11.5px] mt-0.5">IFBBプロ／生まれてから肉を食べたことがない</div><p class="teaser mt-3 text-ink-soft text-[13.5px] leading-[1.7]">「ビーガンにした瞬間、回復もエネルギーも…」</p><p class="full mt-3 text-ink text-[13.5px] leading-[1.75] font-bold">「ビーガンにした瞬間、回復のはやさもエネルギーも、はっきり違いを感じた。 いまは炎症も筋肉痛も減った。 もう戻る気はないよ。」<span class="block text-ink/50 text-[11px] font-normal mt-2">— Nimai Delgado</span></p></div>
+          <div class="quote-card"><div class="text-[13px] font-bold">💪 トーレ・ワシントン</div><div class="text-ink/50 text-[11.5px] mt-0.5">1998年からビーガン／オリンピア出場</div><p class="teaser mt-3 text-ink-soft text-[13.5px] leading-[1.7]">「“ダイエット”って言葉は使わない…」</p><p class="full mt-3 text-ink text-[13.5px] leading-[1.75] font-bold">「“ダイエット（diet）”って言葉は使わない。 死に（die）に来たんじゃない——よりよく生きに来たんだ。 これはライフスタイルだよ。」<span class="block text-ink/50 text-[11px] font-normal mt-2">— Torre Washington</span></p></div>
+          <div class="quote-card"><div class="text-[13px] font-bold">🥇 ジョーイ・ビロテック ＆ "Chuck" ・ジーグラー</div><div class="text-ink/50 text-[11.5px] mt-0.5">2026 OCB・別部門で優勝 → 舞台裏で発覚</div><p class="teaser mt-3 text-ink-soft text-[13.5px] leading-[1.7]">「同じ大会でビーガンが2人とも優勝…」</p><p class="full mt-3 text-ink text-[13.5px] leading-[1.75] font-bold">2人は別々の部門で優勝。 楽屋で連絡先を交換して、はじめておたがいビーガンだと判明した。 ビロテック：「同じ大会でビーガンが2人とも優勝するなんて、これ以上ない証拠だ——筋肉に、肉は要らないって。」<span class="block text-ink/50 text-[11px] font-normal mt-2">— Joey Bilotech / Charlie Ziegler</span></p></div>
+        </div>
+      </div>
+
+      <!-- Sources -->
+      <div class="mt-16 pt-8 border-t border-ink/15 text-ink-soft text-[11.5px] sm:text-[12.5px] leading-[1.7] space-y-1.5">
+        <p id="src1"><span class="font-bold">3.</span> 文部科学省『日本食品標準成分表（八訂）』各食品のたんぱく質量。</p>
+        <p id="src2"><span class="font-bold">6.</span> Greger, M. (2025). Are ultra-processed plant-based meats better than the alternative? <em>Clinical Nutrition Open Science</em>, 61: 241–252.</p>
+        <p id="src3"><span class="font-bold">8.</span> 同上（糞便汚染・サルモネラ・ホルモン剤・発がん性・TMAO・乳化剤等は本論文内の引用に基づく）。</p>
+        <p class="text-ink/45">アスリートの発言は各種公開インタビュー・The Game Changers より。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible'); io.unobserve(e.target);}});},{threshold:.14});
+      document.querySelectorAll('.reveal').forEach(function(r){io.observe(r);});
+      var io2 = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%'; io2.unobserve(e.target);}});},{threshold:.5});
+      document.querySelectorAll('.lb-fill').forEach(function(b){io2.observe(b);});
+      document.querySelectorAll('.xr-row').forEach(function(r){ var m=r.querySelector('.xr-main'); var d=r.querySelector('.xr-detail'); if(d){ m.addEventListener('click', function(){ r.classList.toggle('is-open'); }); } });
+      document.querySelectorAll('.quote-card').forEach(function(c){ c.addEventListener('click', function(){ c.classList.toggle('is-open'); }); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>力チャプター・ラボ — 3つの方向性</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+    @theme {
+      --color-paper: #FFF9EE; --color-ink: #1F1812; --color-ink-soft: #3C2E22;
+      --color-royal: #C9223A; --color-leaf-deep: #3F6A3A; --color-gold-deep: #9C7E2A;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+    html, body { background: var(--color-paper); color: var(--color-ink); font-family: var(--font-noto-sans-jp); font-feature-settings: "palt"; }
+    .card {
+      border: 2.5px solid var(--color-ink); border-radius: 20px; box-shadow: 6px 6px 0 var(--color-ink);
+      background: var(--color-paper); transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover { transform: translate(2px,2px); box-shadow: 3px 3px 0 var(--color-ink); }
+    .pill { display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:999px; border:2px solid var(--color-ink); font-weight:700; font-size:12px; }
+  </style>
+</head>
+<body class="antialiased">
+  <div class="max-w-4xl mx-auto px-6 sm:px-10 py-14 sm:py-20">
+    <div class="text-[12px] tracking-[0.2em] font-bold text-ink/55 mb-3">VEGANOJI ・ KARADA ・ CH1 LAB</div>
+    <h1 class="font-black text-[34px] sm:text-[52px] leading-[1.05] tracking-[-0.03em]">
+      「お肉なしで、力は出ない」？<br/>
+      <span class="text-royal">3つの方向性</span>
+    </h1>
+    <p class="mt-6 text-ink-soft text-[15px] sm:text-[17px] leading-[1.9] max-w-2xl">
+      力チャプターの作り直し案を3つ。 どれも内容（草食動物の強さ → 植物のタンパク質 → 「栄養はタンパク質だけじゃない」比較表 → アスリート5名）は同じで、<strong>見せ方とトーンが違います</strong>。 1つ選んでもらえれば、本ページ（/vegan-to-karada/）に組み込みます。
+    </p>
+
+    <div class="mt-12 grid gap-6 sm:gap-8">
+      <a href="/karada-chikara-lab/v1/" class="card p-7 sm:p-9 block">
+        <span class="pill" style="background:#FCEDEC; color:#C9223A;">VERSION 1</span>
+        <h2 class="mt-4 font-black text-[24px] sm:text-[32px]">強さ図鑑 — STRENGTH DEX</h2>
+        <p class="mt-3 text-ink-soft text-[14px] sm:text-[16px] leading-[1.85]">
+          ゲームの「図鑑／キャラ選択」みたいに、ノリよく派手に。 動物はステータス・カード（タップで「食べてるのは植物」を公開）、タンパク質はランキング・バー、比較表はスポーツの「スコアボード」風。 数字とインパクト重視。
+        </p>
+        <span class="mt-4 inline-block text-[14px] font-bold text-royal">プレビューを見る →</span>
+      </a>
+
+      <a href="/karada-chikara-lab/v2/" class="card p-7 sm:p-9 block">
+        <span class="pill" style="background:#EEF5E9; color:#3F6A3A;">VERSION 2</span>
+        <h2 class="mt-4 font-black text-[24px] sm:text-[32px]">栄養レントゲン — NUTRITION X-RAY</h2>
+        <p class="mt-3 text-ink-soft text-[14px] sm:text-[16px] leading-[1.85]">
+          落ち着いた、エディトリアル（雑誌）寄り。 タンパク質神話を素早く片づけて、本題へ：「足りてないのはタンパク質じゃなく、食物繊維（不足94%）」。 比較表は静かな"レントゲン"表で、行をタップすると隠れた事実が開く。 データで説得。
+        </p>
+        <span class="mt-4 inline-block text-[14px] font-bold text-leaf-deep">プレビューを見る →</span>
+      </a>
+
+      <a href="/karada-chikara-lab/v3/" class="card p-7 sm:p-9 block">
+        <span class="pill" style="background:#FBF3DF; color:#9C7E2A;">VERSION 3</span>
+        <h2 class="mt-4 font-black text-[24px] sm:text-[32px]">王子と歩く — OJI WALK-THROUGH</h2>
+        <p class="mt-3 text-ink-soft text-[14px] sm:text-[16px] leading-[1.85]">
+          いまの /vegan-to-karada/ といちばん地続きの、あたたかい王子ナビ型。 動物は「へぇ〜カード」、比較表は信号機（🟢🟡🔴）パネルで「王子のひとこと」が隠れた事実をやさしく開く。 アスリートはポラロイド風カード。 親しみ重視。
+        </p>
+        <span class="mt-4 inline-block text-[14px] font-bold text-gold-deep">プレビューを見る →</span>
+      </a>
+    </div>
+
+    <div class="mt-12 p-6 rounded-2xl border-2 border-dashed border-ink/30 text-ink-soft text-[13px] sm:text-[14px] leading-[1.85]">
+      <strong>反映済みのフィードバック：</strong> ①「もちろん、動物によって…」の注意書きは削除。 ②「植物にも、タンパク質はちゃんとある。」は維持＋大豆ミート・高野豆腐など日本でよく食べる食材を追加。 ③「栄養はタンパク質だけじゃない」比較表を新設（出典：Greger 2025, Clinical Nutrition Open Science）。 ④アスリートは実名＋実際の発言5名（クリックで引用が出ます）。
+    </div>
+
+    <a href="/vegan-to-karada/" class="mt-10 inline-block text-ink/55 hover:text-ink text-[14px]">← 本ページ（ビーガンと体）へ</a>
+  </div>
+</body>
+</html>
