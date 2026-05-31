@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ビーガンと体 — 植物の、ほんとうのチカラ</title>
+  <meta name="description" content="植物だけで、強く、美しく、健やかに。 タンパク質、お肌や髪、長生き、そしておいしさ。 ビーガン王子と4つのテーマをめぐる、スクロール型のミニジャーニー。" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta property="og:title" content="ビーガンと体 — 植物の、ほんとうのチカラ" />
+  <meta property="og:description" content="強さも、美しさも、長生きも。 植物には、ちゃんと理由がある。 ビーガン王子と4つのテーマを、一緒に歩いてみよう。" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#FFF9EE" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    /* Lead with a regular CSS rule before @theme — matches umi-wo-kazoeru's
+       structure, which Tailwind v4 (browser build) is happiest with. */
+    .__seed { color: inherit; }
+
+    @theme {
+      --color-paper:       #FFF9EE;
+      --color-paper-soft:  #FDF1DA;
+      --color-paper-dim:   #F6E4BD;
+      --color-ink:         #1F1812;
+      --color-ink-soft:    #3C2E22;
+      --color-muted:       #786148;
+      --color-line:        #E9D9B5;
+
+      --color-royal:       #C9223A;
+      --color-royal-soft:  #E55063;
+      --color-royal-deep:  #9C1428;
+      --color-gold:        #D4A847;
+      --color-gold-soft:   #E8C76F;
+      --color-gold-deep:   #9C7E2A;
+      --color-leaf:        #6C9560;
+      --color-leaf-deep:   #3F6A3A;
+      --color-leaf-soft:   #A3C49A;
+      --color-sky:         #B5D5E8;
+      --color-blush:       #F2A8C0;
+      --color-blush-deep:  #B8456A;
+
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+
+    html, body {
+      background: var(--color-paper);
+      color: var(--color-ink);
+    }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .anim-bobble, .anim-drift, .anim-twinkle, .anim-pulse, .anim-spin-slow,
+      .anim-float, .anim-wiggle, .anim-rise { animation: none !important; }
+    }
+    body {
+      font-family: var(--font-noto-sans-jp);
+      font-feature-settings: "palt";
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .font-display    { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+    .font-jp-display { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+    .font-jp         { font-family: var(--font-noto-sans-jp); }
+    .display-tight   { letter-spacing: -0.035em; line-height: 0.94; }
+    .display-italic  { font-family: var(--font-noto-sans-jp); font-weight: 700; font-style: italic; }
+
+    /* ── Chibi-sticker V3 buttons (chapter-tinted variants) ───────── */
+    button,
+    [class*="btn-"] {
+      font-family: var(--font-noto-sans-jp) !important;
+      font-weight: 700 !important;
+    }
+    .btn-base {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 22px;
+      border-radius: 16px;
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      font-size: 15px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .btn-base:hover  { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); }
+    .btn-base:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .btn-primary { background: var(--color-royal);     color: var(--color-paper); }
+    .btn-primary:hover { background: var(--color-royal-deep); }
+    .btn-ghost   { background: var(--color-paper);     color: var(--color-ink); }
+    .btn-leaf    { background: var(--color-leaf);      color: var(--color-paper); }
+    .btn-leaf:hover { background: var(--color-leaf-deep); }
+    .btn-gold    { background: var(--color-gold);      color: var(--color-ink); }
+    .btn-gold:hover { background: var(--color-gold-deep); color: var(--color-paper); }
+    .btn-rose    { background: var(--color-blush-deep); color: var(--color-paper); }
+    .btn-rose:hover { background: #93304F; }
+
+    /* ── Section base — each chapter sets its own --bg / --accent ──
+       Using `overflow: clip` instead of `hidden` so position:sticky
+       children (the chapter pill) can still pin to the viewport. */
+    .chapter {
+      position: relative;
+      overflow: clip;
+      padding-top: 80px;
+      padding-bottom: 100px;
+    }
+    @media (min-width: 640px) {
+      .chapter { padding-top: 120px; padding-bottom: 140px; }
+    }
+
+    /* ── Reveal-on-scroll ───────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+      transform: translateY(20px);
+    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal[data-delay="1"] { transition-delay: 0.10s; }
+    .reveal[data-delay="2"] { transition-delay: 0.22s; }
+    .reveal[data-delay="3"] { transition-delay: 0.36s; }
+    .reveal[data-delay="4"] { transition-delay: 0.50s; }
+
+    /* ── Floating character animations ──────────────────────────────── */
+    @keyframes bobble {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50%      { transform: translateY(-12px) rotate(1deg); }
+    }
+    .anim-bobble { animation: bobble 5s ease-in-out infinite; }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0); }
+      50%      { transform: translate(8px, -10px); }
+    }
+    .anim-drift { animation: drift 8s ease-in-out infinite; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.55; }
+      50%      { opacity: 1; }
+    }
+    .anim-twinkle { animation: twinkle 4s ease-in-out infinite; }
+
+    @keyframes pulse-soft {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.05); }
+    }
+    .anim-pulse { animation: pulse-soft 2.4s ease-in-out infinite; }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-2deg); }
+      50%      { transform: rotate(2deg); }
+    }
+    .anim-wiggle { animation: wiggle 1.8s ease-in-out infinite; }
+
+    /* ── Big counter ticker ─────────────────────────────────────────── */
+    .ticker {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum";
+    }
+
+    /* ── Eyebrow chip with bracket markings ─────────────────────────── */
+    .chapter-eyebrow__line {
+      flex: 1; height: 1.5px;
+      background: currentColor;
+      opacity: 0.45;
+      max-width: 80px;
+    }
+
+    /* ── Sticker card (general purpose, used everywhere) ────────────── */
+    .sticker {
+      background: var(--color-paper);
+      border: 2.5px solid var(--color-ink);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 var(--color-ink);
+    }
+    .sticker-soft {
+      background: var(--color-paper);
+      border: 2px solid var(--color-ink);
+      border-radius: 18px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+    }
+
+    /* ── Big-number block (the dramatic reveal) ─────────────────────── */
+    .big-number {
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+    /* Big number pop — starts tiny, blows up to full size when the
+       element scrolls into view (triggered by JS via data-pop="1"). */
+    [data-pop="1"] {
+      transform: scale(0.35);
+      transform-origin: center;
+      opacity: 0.5;
+      transition: transform 2.2s cubic-bezier(0.34, 1.42, 0.64, 1), opacity 1.4s ease-out;
+    }
+    [data-pop="1"].is-popped {
+      transform: scale(1);
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-pop="1"] { transform: scale(1); opacity: 1; transition: none; }
+    }
+
+    /* ── Sticky chapter header ───────────────────────────────────────── */
+    .sticky-head {
+      position: sticky;
+      top: 12px;
+      z-index: 40;
+      display: flex; justify-content: center;
+      pointer-events: none;
+      margin-bottom: 22px;
+    }
+    .sticky-head__pill {
+      pointer-events: auto;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px 8px 8px;
+      background: var(--color-paper);
+      border: 2.5px solid var(--color-ink);
+      border-radius: 999px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      color: var(--color-ink);
+    }
+    .sticky-head__num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      color: var(--color-paper);
+      font-size: 14px;
+      font-weight: 900;
+    }
+    @media (min-width: 640px) {
+      .sticky-head { top: 16px; margin-bottom: 28px; }
+      .sticky-head__pill { padding: 10px 20px 10px 10px; font-size: 16px; gap: 12px; }
+      .sticky-head__num  { width: 32px; height: 32px; font-size: 16px; }
+    }
+
+    /* ── Animated bar fill (for comparisons) ───────────────────────── */
+    .bar-track {
+      height: 28px;
+      border-radius: 999px;
+      border: 2px solid var(--color-ink);
+      background: var(--color-paper);
+      overflow: hidden;
+      box-shadow: 3px 3px 0 var(--color-ink);
+    }
+    .bar-fill {
+      height: 100%;
+      border-right: 2px solid var(--color-ink);
+      transition: width 2.8s cubic-bezier(0.22,1,0.36,1);
+      width: 0%;
+    }
+    @media (min-width: 640px) {
+      .bar-track { height: 36px; }
+    }
+
+    /* ── Inline source link ─────────────────────────────────────────── */
+    .src {
+      color: var(--color-muted);
+      text-decoration: none;
+      font-size: 0.62em;
+      vertical-align: super;
+      line-height: 0;
+      padding: 0 2px;
+      border-bottom: 1px dotted var(--color-muted);
+    }
+    .src:hover { color: var(--color-ink); }
+
+    /* ── Quiz section background (rose while answering, green when done) ─ */
+    .quiz-bg {
+      background:
+        radial-gradient(ellipse at 100% 0%, #F6D2DE, transparent 55%),
+        radial-gradient(ellipse at 0% 100%, #FBE4EC, transparent 60%),
+        #FBE7EE;
+      transition: background 1.4s ease-out;
+    }
+    .quiz-bg.is-complete {
+      background:
+        radial-gradient(ellipse at 100% 0%, #C7E2B8, transparent 55%),
+        radial-gradient(ellipse at 0% 100%, #E0F0D6, transparent 60%),
+        #E0F0D6;
+    }
+
+    /* Progress dots */
+    .quiz-dot {
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: rgba(31,24,18,0.18);
+      border: 2px solid rgba(31,24,18,0.35);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .quiz-dot.is-active {
+      background: var(--color-ink);
+      transform: scale(1.25);
+    }
+    .quiz-dot.is-done {
+      background: #3F6A3A;
+      border-color: #3F6A3A;
+    }
+    @media (min-width: 640px) {
+      .quiz-dot { width: 12px; height: 12px; }
+    }
+
+    /* Quiz card active/inactive — only one shown at a time */
+    .quiz-card { display: none; animation: quiz-fade-in 0.4s ease-out; }
+    .quiz-card[data-active="true"] { display: block; }
+    @keyframes quiz-fade-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .quiz-card { animation: none; }
+    }
+
+    /* ── Quiz cards ─────────────────────────────────────────────────── */
+    .quiz-q-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      width: 38px; height: 38px;
+      border-radius: 12px;
+      border: 2px solid var(--color-ink);
+      box-shadow: 2px 2px 0 var(--color-ink);
+      color: var(--color-paper);
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 900;
+      font-size: 14px;
+      line-height: 1;
+    }
+    @media (min-width: 640px) {
+      .quiz-q-num { width: 44px; height: 44px; font-size: 16px; }
+    }
+    .quiz-opt {
+      width: 100%;
+      text-align: left;
+      padding: 12px 16px;
+      background: #FDF1DA;
+      border: 2px solid var(--color-ink);
+      border-radius: 14px;
+      box-shadow: 3px 3px 0 var(--color-ink);
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.2s ease;
+      cursor: pointer;
+    }
+    @media (min-width: 640px) {
+      .quiz-opt { padding: 14px 18px; font-size: 15px; }
+    }
+    .quiz-opt:hover { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .quiz-opt[aria-pressed="true"] {
+      background: var(--color-ink);
+      color: var(--color-paper);
+    }
+    /* Reveal state — applied once the answer is shown at the bottom 答え合わせ. */
+    .quiz-opt[data-state="correct"] {
+      background: #DCEFD8;
+      color: var(--color-leaf-deep);
+      border-color: var(--color-leaf-deep);
+      box-shadow: 3px 3px 0 var(--color-leaf-deep);
+    }
+    .quiz-opt[data-state="wrong"] {
+      background: #F8DCDC;
+      color: #9C1428;
+      border-color: #9C1428;
+      box-shadow: 3px 3px 0 #9C1428;
+      opacity: 0.85;
+    }
+    .quiz-opt[data-state="missed"] {
+      background: #DCEFD8;
+      color: var(--color-leaf-deep);
+      border-color: var(--color-leaf-deep);
+      border-style: dashed;
+    }
+
+    /* ── Generic picker buttons (beauty parts + concern) ───────────── */
+    .pick-btn {
+      position: relative;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 6px;
+      padding: 16px 10px 14px;
+      background: var(--color-paper);
+      border: 2.5px solid var(--color-ink);
+      border-radius: 18px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+      cursor: pointer;
+      font-family: var(--font-noto-sans-jp);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.2s ease, color 0.2s ease;
+      text-align: center;
+      width: 100%;
+    }
+    .pick-btn:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); }
+    .pick-btn:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .pick-btn[aria-pressed="true"] {
+      background: var(--color-ink);
+      color: var(--color-paper);
+      box-shadow: 4px 4px 0 var(--color-leaf-deep);
+    }
+    .pick-btn__emoji { font-size: 30px; line-height: 1; display: block; }
+    .pick-btn__label { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; line-height: 1.3; }
+    @media (min-width: 640px) {
+      .pick-btn { padding: 20px 16px 18px; }
+      .pick-btn__emoji { font-size: 38px; }
+      .pick-btn__label { font-size: 15px; }
+    }
+
+    /* ── Flip cards (おいしさ — tap to reveal the plant-based version) ── */
+    .flip-card {
+      perspective: 1000px;
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      width: 100%;
+    }
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 230px;
+      transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+      transform-style: preserve-3d;
+    }
+    .flip-card.is-flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-face {
+      position: absolute; inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border: 2.5px solid var(--color-ink);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 var(--color-ink);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 22px; text-align: center;
+    }
+    .flip-front { background: var(--color-paper); }
+    .flip-back  { background: #E0F0D6; transform: rotateY(180deg); }
+    .flip-emoji { font-size: 56px; line-height: 1; }
+    .flip-tag {
+      position: absolute; top: 12px; right: 12px;
+      font-size: 10px; letter-spacing: 0.14em; font-weight: 700;
+      padding: 4px 8px; border-radius: 999px; border: 2px solid var(--color-ink);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .flip-inner { transition: none; }
+    }
+    @media (min-width: 640px) {
+      .flip-inner { height: 250px; }
+      .flip-emoji { font-size: 64px; }
+    }
+
+    /* ── Two-column before/after compare (Okinawa) ─────────────────── */
+    .compare-col {
+      border: 2.5px solid var(--color-ink);
+      border-radius: 20px;
+      box-shadow: 5px 5px 0 var(--color-ink);
+      padding: 22px 20px;
+      background: var(--color-paper);
+    }
+
+    /* ── Share card frame ───────────────────────────────────────────── */
+    .share-card {
+      position: relative;
+      background:
+        radial-gradient(ellipse at 90% 0%, rgba(232,199,111,0.30), transparent 50%),
+        radial-gradient(ellipse at 0% 100%, rgba(242,168,192,0.28), transparent 50%),
+        var(--color-paper);
+      border: 2.5px solid var(--color-ink);
+      border-radius: 24px;
+      box-shadow: 8px 8px 0 var(--color-ink);
+      overflow: hidden;
+    }
+    .share-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(108,149,96,0.10) 0%, transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(201,34,58,0.08) 0%, transparent 30%);
+      pointer-events: none;
+    }
+
+    /* ── Floating ambient particles ───────────────────────────────── */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* ── Disclaimer note ───────────────────────────────────────────── */
+    .note-box {
+      border: 2px dashed var(--color-muted);
+      border-radius: 16px;
+      background: rgba(255,249,238,0.6);
+      padding: 16px 18px;
+    }
+
+    /* ── Social rail (chibi-sticker, like umi-wo-kazoeru) ─────────── */
+    .social {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 50px; height: 50px;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), filter 0.25s ease;
+      filter: drop-shadow(0 4px 8px rgba(31,24,18,0.18));
+    }
+    .social img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .social:hover { transform: translateY(-3px) rotate(-4deg) scale(1.08); filter: drop-shadow(0 8px 14px rgba(31,24,18,0.28)); }
+    @media (min-width: 640px) {
+      .social { width: 58px; height: 58px; }
+    }
+
+    /* ── Sticky chapter indicator (top progress strip) ─────────────── */
+    .chapter-progress {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 4px;
+      z-index: 60;
+      background: rgba(31,24,18,0.06);
+      backdrop-filter: blur(8px);
+    }
+    .chapter-progress__bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg,
+        #C9223A 0%, #C9223A 25%,
+        #B8456A 25%, #B8456A 50%,
+        #3F6A3A 50%, #3F6A3A 75%,
+        #9C7E2A 75%, #9C7E2A 100%);
+      background-size: 400% 100%;
+      transition: width 0.2s linear;
+    }
+  </style>
+</head>
+
+<body class="font-jp antialiased">
+
+  <!-- Top progress bar -->
+  <div class="chapter-progress" aria-hidden="true">
+    <div id="chapter-progress-bar" class="chapter-progress__bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="hero" class="relative min-h-[100svh] flex items-center justify-center px-6 sm:px-10 overflow-hidden"
+           style="background:
+             radial-gradient(ellipse at 80% 10%, rgba(232,199,111,0.30), transparent 55%),
+             radial-gradient(ellipse at 20% 90%, rgba(242,168,192,0.24), transparent 60%),
+             var(--color-paper);">
+
+    <div id="hero-ambient" class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto text-center pt-12 sm:pt-0">
+      <div class="font-jp font-semibold text-ink/70 text-[18px] sm:text-[22px] tracking-[0.05em] mb-5 sm:mb-7">
+        ビーガン王子が教える ——
+      </div>
+
+      <h1 class="font-jp-display font-black display-tight text-[46px] sm:text-[84px] lg:text-[104px] leading-[1.02] text-ink">
+        植物の、<br/>
+        <span class="text-royal">ほんとうのチカラ。</span>
+      </h1>
+
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-ink-soft font-jp text-[17px] sm:text-[19px] leading-[1.95]">
+        強さも、美しさも、長生きも。<br/>
+        植物には、ちゃんと理由がある。<br/>
+        4つのテーマで、一緒に見てみよう。
+      </p>
+
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img
+          src="/images/oji/oji_greeting.png"
+          alt="ビーガン王子 — ようこそ"
+          class="w-44 sm:w-56 lg:w-64 anim-bobble drop-shadow-[0_10px_28px_rgba(31,24,18,0.18)]"
+          loading="eager"
+        />
+      </div>
+
+      <div class="mt-8 sm:mt-12 inline-flex flex-col items-center gap-2 text-ink/45">
+        <span class="font-jp text-[14px] tracking-[0.06em]">下にスクロール</span>
+        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" class="animate-bounce">
+          <path d="M7 2 L7 16 M2 11 L7 16 L12 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  QUIZ INTRO — 4 questions, one at a time, with back nav.
+       ░  Answers are NOT revealed here; they show in 答え合わせ at the bottom.
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="quiz" class="chapter px-6 sm:px-10 relative quiz-bg"
+           data-chapter-num="00" data-chapter-label="体クイズ">
+
+    <div class="sticky-head">
+      <div class="sticky-head__pill">
+        <span class="sticky-head__num" style="background: #D4A847;">？</span>
+        体クイズ
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+
+      <div class="reveal text-center">
+        <h2 class="font-jp-display display-tight text-[36px] sm:text-[60px] lg:text-[72px] text-ink leading-[1.05]">
+          さて、ここで<br/>
+          <span style="color: #B8456A;">クイズです！</span>
+        </h2>
+        <p class="mt-6 font-jp text-ink-soft text-[15px] sm:text-[18px] leading-[1.95] max-w-xl mx-auto">
+          先に4問だけ、考えてみて。<br/>
+          答え合わせは、最後にこの王子から。
+        </p>
+        <div class="mt-8 flex justify-center">
+          <img src="/images/oji/oji_questioning.png"
+               alt="ビーガン王子 — 問いかけ"
+               class="w-36 sm:w-44 anim-bobble drop-shadow-[0_10px_24px_rgba(31,24,18,0.18)]"
+               loading="lazy"/>
+        </div>
+      </div>
+
+      <!-- Progress strip -->
+      <div class="reveal mt-10 sm:mt-12 flex items-center justify-center gap-2">
+        <span class="quiz-dot is-active" data-dot="0"></span>
+        <span class="quiz-dot" data-dot="1"></span>
+        <span class="quiz-dot" data-dot="2"></span>
+        <span class="quiz-dot" data-dot="3"></span>
+      </div>
+
+      <!-- One question at a time. -->
+      <div id="quiz-stage" class="mt-5 sm:mt-7 relative" style="min-height: 380px;">
+        <article class="quiz-card sticker p-6 sm:p-8" data-q="0" data-correct="2" data-active="true">
+          <div class="flex items-baseline gap-3 mb-4">
+            <span class="quiz-q-num" style="background: #C9223A;">Q1</span>
+            <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
+              ゾウ・サイ・ゴリラ。 地球で最も力強い動物たちは、主に何を食べている？
+            </h3>
+          </div>
+          <div class="grid gap-2.5 sm:gap-3">
+            <button type="button" class="quiz-opt" data-i="0">お肉（他の動物）</button>
+            <button type="button" class="quiz-opt" data-i="1">お魚</button>
+            <button type="button" class="quiz-opt" data-i="2">植物（草・葉・果実）</button>
+            <button type="button" class="quiz-opt" data-i="3">昆虫</button>
+          </div>
+        </article>
+
+        <article class="quiz-card sticker p-6 sm:p-8" data-q="1" data-correct="3">
+          <div class="flex items-baseline gap-3 mb-4">
+            <span class="quiz-q-num" style="background: #B8456A;">Q2</span>
+            <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
+              肌のハリを支えるコラーゲン。 その材料づくりに欠かせない栄養を、最も多く含むのは？
+            </h3>
+          </div>
+          <div class="grid gap-2.5 sm:gap-3">
+            <button type="button" class="quiz-opt" data-i="0">牛肉</button>
+            <button type="button" class="quiz-opt" data-i="1">たまご</button>
+            <button type="button" class="quiz-opt" data-i="2">牛乳</button>
+            <button type="button" class="quiz-opt" data-i="3">野菜・果物（赤ピーマン・柑橘など）</button>
+          </div>
+        </article>
+
+        <article class="quiz-card sticker p-6 sm:p-8" data-q="2" data-correct="0">
+          <div class="flex items-baseline gap-3 mb-4">
+            <span class="quiz-q-num" style="background: #3F6A3A;">Q3</span>
+            <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
+              大豆にとくに多く含まれ、コレステロール対策などで注目される成分は？
+            </h3>
+          </div>
+          <div class="grid gap-2.5 sm:gap-3">
+            <button type="button" class="quiz-opt" data-i="0">イソフラボン</button>
+            <button type="button" class="quiz-opt" data-i="1">コラーゲン</button>
+            <button type="button" class="quiz-opt" data-i="2">乳酸菌</button>
+            <button type="button" class="quiz-opt" data-i="3">カフェイン</button>
+          </div>
+        </article>
+
+        <article class="quiz-card sticker p-6 sm:p-8" data-q="3" data-correct="1">
+          <div class="flex items-baseline gap-3 mb-4">
+            <span class="quiz-q-num" style="background: #9C7E2A;">Q4</span>
+            <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
+              かつて長寿日本一だった沖縄。 その後、順位が下がっていった大きな背景は？
+            </h3>
+          </div>
+          <div class="grid gap-2.5 sm:gap-3">
+            <button type="button" class="quiz-opt" data-i="0">気候が変わったから</button>
+            <button type="button" class="quiz-opt" data-i="1">食生活の変化（お肉・揚げ物・加工食品の増加）</button>
+            <button type="button" class="quiz-opt" data-i="2">運動量だけが原因</button>
+            <button type="button" class="quiz-opt" data-i="3">人口が増えたから</button>
+          </div>
+        </article>
+      </div>
+
+      <div id="quiz-nav" class="mt-5 flex items-center justify-start max-w-md mx-auto" style="min-height: 44px;">
+        <button id="quiz-back" type="button" class="btn-base btn-ghost" style="display:none; padding: 8px 16px; font-size: 13px;">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 2 L4 6 L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+          前の問題
+        </button>
+      </div>
+
+      <div id="quiz-complete" class="mt-12 sm:mt-16 text-center" style="opacity: 0; transform: translateY(10px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; pointer-events: none;">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-paper text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-5"
+             style="background: #3F6A3A; border: 2px solid var(--color-ink); box-shadow: 3px 3px 0 var(--color-ink);">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L6 10 L11 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          全問 こたえ済み
+        </div>
+        <p class="font-jp-display text-[20px] sm:text-[26px] text-ink leading-[1.5]">
+          おつかれさま！<br/>
+          このあとの4つの章を読むと、<span style="color: #3F6A3A;">答えが見えてくる</span>よ。
+        </p>
+        <div class="mt-7 sm:mt-9 flex justify-center">
+          <img src="/images/oji/oji_teaching.png"
+               alt="ビーガン王子 — 教える"
+               class="w-32 sm:w-40 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.18)]"
+               loading="lazy"/>
+        </div>
+        <div class="mt-5 inline-flex flex-col items-center gap-1 text-ink/65">
+          <span class="font-jp text-[14px] tracking-[0.06em] font-bold">下にスクロール</span>
+          <svg width="14" height="20" viewBox="0 0 14 20" fill="none" class="animate-bounce">
+            <path d="M7 2 L7 16 M2 11 L7 16 L12 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  CHAPTER 1  ░  力  ░  Protein / strength myth
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="ch1" class="chapter px-6 sm:px-10"
+           data-chapter-num="01" data-chapter-label="力"
+           style="background:
+             radial-gradient(ellipse at 90% 5%, rgba(229,80,99,0.16), transparent 55%),
+             radial-gradient(ellipse at 5% 95%, rgba(201,34,58,0.10), transparent 60%),
+             #FCEDEC;">
+
+    <div class="sticky-head">
+      <div class="sticky-head__pill">
+        <span class="sticky-head__num" style="background: #C9223A;">1</span>
+        力
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+
+      <div class="reveal text-center">
+        <div class="inline-flex items-center gap-3" style="color: #9C1428;">
+          <span class="chapter-eyebrow__line"></span>
+          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">CHAPTER 01 ・ PROTEIN</span>
+          <span class="chapter-eyebrow__line"></span>
+        </div>
+        <h2 class="mt-5 font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
+          「お肉なしで、<br/>
+          <span style="color: #C9223A;">力は出ない」</span>？
+        </h2>
+        <p class="mt-6 font-jp text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
+          そう思われがち。 でも——<br/>
+          地球でいちばん力強い動物たちを、見てみよう。
+        </p>
+      </div>
+
+      <!-- Herbivore strength reveal -->
+      <div class="reveal mt-12 sm:mt-16 sticker p-7 sm:p-10">
+        <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] text-center leading-[1.8]">
+          ゾウ。 サイ。 ゴリラ。 雄牛。 馬。<br/>
+          あの巨体と筋肉は、何を食べてできている？
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-7 text-[44px] sm:text-[60px] leading-none">
+          <span class="anim-bobble" style="animation-delay:-0.2s">🦍</span>
+          <span class="anim-bobble" style="animation-delay:-1.1s">🐘</span>
+          <span class="anim-bobble" style="animation-delay:-2.0s">🦏</span>
+          <span class="anim-bobble" style="animation-delay:-2.9s">🐂</span>
+          <span class="anim-bobble" style="animation-delay:-3.6s">🐎</span>
+        </div>
+        <div class="mt-7 text-center">
+          <div class="font-jp-display text-[26px] sm:text-[38px] leading-[1.3]" style="color:#C9223A;">
+            ほとんど、<span data-pop="1" class="inline-block">植物。</span>
+          </div>
+        </div>
+        <div class="mt-6 note-box">
+          <p class="font-jp text-ink-soft text-[12.5px] sm:text-[14px] leading-[1.8]">
+            もちろん、動物によって消化のしくみは違う（だから「ゴリラと同じ食事を」という話ではない）。 でも、「筋肉＝お肉から」という思い込みは、いちど横に置いてみよう。<a href="#src-1-1" class="src">1</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Protein bars -->
+      <div class="reveal mt-14 sm:mt-20 text-center">
+        <h3 class="font-jp-display text-[24px] sm:text-[34px] text-ink leading-[1.35]">
+          植物にも、<span style="color:#3F6A3A;">タンパク質</span>はちゃんとある。
+        </h3>
+        <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px]">100g あたりのタンパク質量<a href="#src-1-3" class="src">3</a></p>
+      </div>
+
+      <div class="mt-8 sm:mt-10 space-y-5 sm:space-y-6">
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">テンペ</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">19g</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-bar-target="76" style="background:#6C9560;"></div></div>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">納豆</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">16.5g</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-bar-target="66" style="background:#6C9560;"></div></div>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">枝豆</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">11.5g</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-bar-target="46" style="background:#6C9560;"></div></div>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">レンズ豆（ゆで）</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">9g</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-bar-target="36" style="background:#6C9560;"></div></div>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">木綿豆腐</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">7g</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-bar-target="28" style="background:#6C9560;"></div></div>
+        </div>
+        <div class="reveal pt-2">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px] text-ink/55">鶏むね肉（参考）</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px] text-ink/55">23g</span>
+          </div>
+          <div class="bar-track" style="border-color:rgba(31,24,18,0.4); box-shadow:3px 3px 0 rgba(31,24,18,0.4);"><div class="bar-fill" data-bar-target="92" style="background:#C9B8A0; border-right-color:rgba(31,24,18,0.4);"></div></div>
+        </div>
+      </div>
+
+      <p class="reveal mt-7 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center max-w-xl mx-auto">
+        大豆食品は、日本人がずっと食べてきた“タンパク質の宝庫”。 鶏肉と同じ土俵で、ちゃんと戦える。<a href="#src-1-1" class="src">1</a>
+      </p>
+
+      <!-- Athletes -->
+      <div class="reveal mt-14 sm:mt-20 sticker-soft p-6 sm:p-9">
+        <div class="flex items-start gap-4 sm:gap-6">
+          <img src="/images/mascot/running-carrot.png" alt="" class="w-20 sm:w-28 flex-shrink-0 drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]" loading="lazy"
+               onerror="this.style.display='none'"/>
+          <div>
+            <div class="text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-2" style="color:#C9223A;">TOP ATHLETES</div>
+            <h3 class="font-jp-display text-[20px] sm:text-[26px] text-ink leading-[1.4] mb-3">
+              トップで戦う、植物性の人たち。
+            </h3>
+            <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.9]">
+              重量挙げの世界記録ホルダー、IFBBのボディビルダー、テニスやF1の選手まで——植物性中心で結果を出すアスリートは、もう珍しくない。 ドキュメンタリー
+              <a href="https://gamechangersmovie.com/" target="_blank" rel="noopener" class="underline decoration-dotted font-bold" style="color:#C9223A;">『The Game Changers』</a>
+              は、その入り口にぴったり。<a href="#src-1-2" class="src">2</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  CHAPTER 2  ░  美  ░  Beauty
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="ch2" class="chapter px-6 sm:px-10"
+           data-chapter-num="02" data-chapter-label="美"
+           style="background:
+             radial-gradient(ellipse at 90% 5%, rgba(242,168,192,0.22), transparent 55%),
+             radial-gradient(ellipse at 5% 95%, rgba(184,69,106,0.10), transparent 60%),
+             #FBEFF3;">
+
+    <div class="sticky-head">
+      <div class="sticky-head__pill">
+        <span class="sticky-head__num" style="background: #B8456A;">2</span>
+        美
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+
+      <div class="reveal text-center">
+        <div class="inline-flex items-center gap-3" style="color: #B8456A;">
+          <span class="chapter-eyebrow__line"></span>
+          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">CHAPTER 02 ・ BEAUTY</span>
+          <span class="chapter-eyebrow__line"></span>
+        </div>
+        <h2 class="mt-5 font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
+          美しさは、<br/>
+          <span style="color: #B8456A;">内側から。</span>
+        </h2>
+        <p class="mt-6 font-jp text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
+          肌のハリ、髪のツヤ、爪の強さ。<br/>
+          その材料は、毎日の食事の中にある。
+        </p>
+      </div>
+
+      <div class="reveal mt-12 sm:mt-16 text-center">
+        <p class="font-jp font-bold text-ink text-[16px] sm:text-[18px]">気になるところを、選んでみて。</p>
+      </div>
+
+      <!-- Beauty parts picker -->
+      <div id="beauty-grid" class="mt-6 grid grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto"></div>
+
+      <div id="beauty-result" class="reveal mt-7 p-6 sm:p-8 rounded-2xl border-2 border-ink/15 min-h-[140px] flex items-center justify-center"
+           style="background: rgba(255,249,238,0.55);">
+        <p class="font-jp text-ink/55 text-[14px] sm:text-[15px] text-center">
+          ↑ 肌・髪・爪のどれかをタップしてみて。
+        </p>
+      </div>
+
+      <div class="reveal mt-10 note-box">
+        <p class="font-jp text-ink-soft text-[12.5px] sm:text-[14px] leading-[1.85]">
+          ビタミンCや抗酸化成分は、色の濃い野菜や果物にたっぷり。 こうした栄養が、肌や髪の<strong>調子・ハリ・ツヤ</strong>を支えると言われている。<a href="#src-2-1" class="src">4</a> （効果には個人差があり、特定の効能を保証するものではありません。）
+        </p>
+      </div>
+
+    </div>
+  </section>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  CHAPTER 3  ░  健やかさ  ░  Wellbeing + Okinawa
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="ch3" class="chapter px-6 sm:px-10"
+           data-chapter-num="03" data-chapter-label="健やかさ"
+           style="background:
+             radial-gradient(ellipse at 90% 5%, rgba(108,149,96,0.20), transparent 55%),
+             radial-gradient(ellipse at 5% 95%, rgba(63,106,58,0.10), transparent 60%),
+             #EEF5E9;">
+
+    <div class="sticky-head">
+      <div class="sticky-head__pill">
+        <span class="sticky-head__num" style="background: #3F6A3A;">3</span>
+        健やかさ
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+
+      <div class="reveal text-center">
+        <div class="inline-flex items-center gap-3" style="color: #3F6A3A;">
+          <span class="chapter-eyebrow__line"></span>
+          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">CHAPTER 03 ・ WELLBEING</span>
+          <span class="chapter-eyebrow__line"></span>
+        </div>
+        <h2 class="mt-5 font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
+          毎日を、<br/>
+          <span style="color: #3F6A3A;">軽やかに。</span>
+        </h2>
+        <p class="mt-6 font-jp text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
+          植物が得意なこと。 それは、体の調子を内側から整えること。
+        </p>
+      </div>
+
+      <!-- Soy isoflavone pop -->
+      <div class="reveal mt-12 sm:mt-16 sticker p-7 sm:p-10 text-center">
+        <div class="text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-3" style="color:#3F6A3A;">SOY ・ 大豆</div>
+        <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.85]">
+          大豆にとくに多い成分、<strong>イソフラボン</strong>。
+        </p>
+        <div class="mt-4 font-jp-display text-[30px] sm:text-[44px] leading-[1.25] text-ink">
+          大豆のタンパク質は、<br/>
+          <span data-pop="1" class="inline-block" style="color:#3F6A3A;">悪玉コレステロール</span>と<br/>
+          関連が報告されている。<a href="#src-3-1" class="src">6</a>
+        </div>
+        <p class="mt-5 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.8]">
+          豆腐・納豆・味噌・豆乳・枝豆——日本の食卓には、もともと大豆があふれてる。
+        </p>
+      </div>
+
+      <!-- Fiber -->
+      <div class="reveal mt-14 sm:mt-20 text-center">
+        <h3 class="font-jp-display text-[24px] sm:text-[34px] text-ink leading-[1.35]">
+          そして、<span style="color:#3F6A3A;">食物繊維</span>。
+        </h3>
+        <p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.85]">
+          お肉・お魚・卵・乳製品に含まれる食物繊維は——
+        </p>
+        <div class="mt-4 font-jp-display text-[64px] sm:text-[96px] leading-none" data-pop="1" style="color:#C9223A;">0g</div>
+        <p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.85]">
+          一方、植物にはたっぷり。 腸の調子を支えると言われている。<a href="#src-3-2" class="src">7</a>（100g あたりの食物繊維量）
+        </p>
+      </div>
+
+      <div class="mt-8 sm:mt-10 space-y-5 sm:space-y-6">
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">オートミール</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">9.4g</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-bar-target="94" style="background:#6C9560;"></div></div>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">大豆（ゆで）</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">8.5g</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-bar-target="85" style="background:#6C9560;"></div></div>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">ごぼう</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">5.7g</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-bar-target="57" style="background:#6C9560;"></div></div>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">アボカド</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">5.6g</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-bar-target="56" style="background:#6C9560;"></div></div>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">ブロッコリー</span>
+            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">5.1g</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-bar-target="51" style="background:#6C9560;"></div></div>
+        </div>
+      </div>
+
+      <!-- Okinawa rise & fall -->
+      <div class="reveal mt-16 sm:mt-24 text-center">
+        <div class="inline-flex items-center gap-3" style="color: #3F6A3A;">
+          <span class="chapter-eyebrow__line"></span>
+          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">OKINAWA ・ 何が変わった？</span>
+          <span class="chapter-eyebrow__line"></span>
+        </div>
+        <h3 class="mt-5 font-jp-display text-[26px] sm:text-[40px] text-ink leading-[1.3]">
+          かつて、<span style="color:#3F6A3A;">長寿日本一</span>だった島。
+        </h3>
+        <p class="mt-5 font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9] max-w-xl mx-auto">
+          沖縄の食卓は、もともと芋・大豆・野菜が中心。 世界の研究者が「長生きの秘密」を調べにきたほど。<a href="#src-3-5" class="src">10</a>
+        </p>
+      </div>
+
+      <div class="reveal mt-10 grid sm:grid-cols-2 gap-5 sm:gap-7 items-stretch">
+        <div class="compare-col" style="background:#F2F8EE;">
+          <div class="text-[12px] tracking-[0.16em] font-bold mb-3" style="color:#3F6A3A;">昔の沖縄</div>
+          <div class="text-[40px] mb-2">🍠</div>
+          <p class="font-jp text-ink-soft text-[14px] sm:text-[15px] leading-[1.85]">
+            芋・大豆・島野菜が中心の、軽やかな食事。 平均寿命は<strong>日本一</strong>。 百歳を超える人が、たくさんいた。
+          </p>
+        </div>
+        <div class="compare-col" style="background:#FCEFEC;">
+          <div class="text-[12px] tracking-[0.16em] font-bold mb-3" style="color:#C9223A;">今の沖縄</div>
+          <div class="text-[40px] mb-2">🍔</div>
+          <p class="font-jp text-ink-soft text-[14px] sm:text-[15px] leading-[1.85]">
+            お肉・揚げ物・加工食品が増え、食卓が大きく変化。 男性の平均寿命の<strong>順位は大きく低下</strong>した。<a href="#src-3-7" class="src">12</a>
+          </p>
+        </div>
+      </div>
+
+      <p class="reveal mt-8 font-jp-display text-[20px] sm:text-[26px] text-center text-ink leading-[1.5]">
+        変わったのは、遺伝でも気候でもない。<br/>
+        <span style="color:#3F6A3A;">毎日の、食卓。</span>
+      </p>
+
+      <!-- Disclaimer -->
+      <div class="reveal mt-12 note-box">
+        <p class="font-jp text-ink-soft text-[12px] sm:text-[13.5px] leading-[1.9]">
+          ※ このページは一般的な栄養の話題をまとめたもので、病気の診断・治療・予防を約束するものではありません。 持病のある方、妊娠・授乳中の方、お子さま・ご高齢の方の食事は、医師や管理栄養士にご相談ください。 植物性中心の食事では、ビタミン B12 などを意識して補うと安心です。<a href="#src-4-1" class="src">13</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  CHAPTER 4  ░  おいしさ  ░  "Not just grass" — flip cards
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="ch4" class="chapter px-6 sm:px-10"
+           data-chapter-num="04" data-chapter-label="おいしさ"
+           style="background:
+             radial-gradient(ellipse at 90% 5%, rgba(232,199,111,0.26), transparent 55%),
+             radial-gradient(ellipse at 5% 95%, rgba(156,126,42,0.10), transparent 60%),
+             #FBF3DF;">
+
+    <div class="sticky-head">
+      <div class="sticky-head__pill">
+        <span class="sticky-head__num" style="background: #9C7E2A;">4</span>
+        おいしさ
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+
+      <div class="reveal text-center">
+        <div class="inline-flex items-center gap-3" style="color: #9C7E2A;">
+          <span class="chapter-eyebrow__line"></span>
+          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">CHAPTER 04 ・ DELICIOUS</span>
+          <span class="chapter-eyebrow__line"></span>
+        </div>
+        <h2 class="mt-5 font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
+          ビーガン＝草、<br/>
+          <span style="color: #9C7E2A;">じゃない。</span>
+        </h2>
+        <p class="mt-6 font-jp text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
+          我慢でも、修行でもない。<br/>
+          好きなものは、たいてい植物性でつくれる。
+        </p>
+        <div class="mt-7 flex justify-center">
+          <img src="/images/mascot/chef-cooking.png" alt="ビーガン王子 — 料理" class="w-32 sm:w-44 anim-bobble drop-shadow-[0_10px_24px_rgba(31,24,18,0.16)]" loading="lazy"
+               onerror="this.src='/images/oji/oji_happy.png'"/>
+        </div>
+        <p class="mt-6 font-jp font-bold text-ink text-[15px] sm:text-[17px]">
+          カードをタップして、ひっくり返してみて。 👆
+        </p>
+      </div>
+
+      <!-- Flip card grid (built by JS) -->
+      <div id="oishisa-grid" class="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"></div>
+
+      <p class="reveal mt-10 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center max-w-xl mx-auto">
+        同じおいしさを、ちょっと違う——そしてたいてい、軽い——材料で。 がまんを足すんじゃなくて、選択肢を増やすだけ。
+      </p>
+
+    </div>
+  </section>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  PAYOFF  ░  Concern picker → personalised card + share
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="payoff" class="chapter px-6 sm:px-10 relative"
+           style="background:
+             radial-gradient(ellipse at 80% 5%, rgba(232,199,111,0.26), transparent 55%),
+             radial-gradient(ellipse at 20% 95%, rgba(108,149,96,0.18), transparent 60%),
+             #FDF1DA;">
+
+    <div class="max-w-3xl mx-auto">
+
+      <div class="reveal text-center">
+        <div class="inline-flex items-center gap-3 text-ink/55">
+          <span class="chapter-eyebrow__line"></span>
+          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">YOUR FIRST STEP</span>
+          <span class="chapter-eyebrow__line"></span>
+        </div>
+        <h2 class="mt-5 font-jp-display display-tight text-[34px] sm:text-[56px] lg:text-[64px] text-ink leading-[1.06]">
+          あなたは、<br/>
+          <span class="text-royal">何が気になる？</span>
+        </h2>
+        <p class="mt-6 font-jp text-ink-soft text-[15px] sm:text-[18px] leading-[1.9] max-w-xl mx-auto">
+          ひとつ選ぶと、王子から「今週の小さな一歩」を。
+        </p>
+      </div>
+
+      <!-- Concern picker -->
+      <div class="reveal mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        <button type="button" class="pick-btn" data-concern="power" aria-pressed="true">
+          <span class="pick-btn__emoji">💪</span>
+          <span class="pick-btn__label">力</span>
+        </button>
+        <button type="button" class="pick-btn" data-concern="beauty" aria-pressed="false">
+          <span class="pick-btn__emoji">✨</span>
+          <span class="pick-btn__label">美</span>
+        </button>
+        <button type="button" class="pick-btn" data-concern="health" aria-pressed="false">
+          <span class="pick-btn__emoji">🍃</span>
+          <span class="pick-btn__label">健やかさ</span>
+        </button>
+        <button type="button" class="pick-btn" data-concern="taste" aria-pressed="false">
+          <span class="pick-btn__emoji">🍜</span>
+          <span class="pick-btn__label">おいしさ</span>
+        </button>
+      </div>
+
+      <!-- Result share card -->
+      <div class="reveal mt-10 sm:mt-12">
+        <div id="karada-share-card" class="share-card p-7 sm:p-10">
+          <div class="relative z-10 text-center">
+            <div class="text-[40px] sm:text-[52px] leading-none mb-3" id="kshare-emoji">💪</div>
+            <div class="font-jp-display text-[24px] sm:text-[34px] leading-[1.3] text-ink mb-3" id="kshare-headline">植物のチカラで、動ける体に。</div>
+            <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.9] max-w-md mx-auto" id="kshare-body">タンパク質は、大豆や豆、全粒からしっかり摂れる。 強さは、お肉だけのものじゃない。</p>
+            <div class="mt-6 inline-flex flex-col items-start gap-1 px-5 py-4 rounded-2xl border-2 border-ink text-left" style="box-shadow:4px 4px 0 var(--color-ink); background:rgba(255,249,238,0.7);">
+              <span class="text-[11px] tracking-[0.16em] font-bold" id="kshare-step-label" style="color:#C9223A;">今週の小さな一歩</span>
+              <span class="font-jp font-bold text-[15px] sm:text-[17px] text-ink" id="kshare-step">今日のタンパク質を、豆腐か納豆に。</span>
+            </div>
+            <div class="mt-7 pt-5 border-t border-ink/15 flex items-center justify-between text-[11px] sm:text-[12px] text-ink/55">
+              <div class="flex items-center gap-2">
+                <img src="/images/voji-logos/vegan-oji.png" alt="" class="w-5 h-5 object-contain" onerror="this.style.display='none'"/>
+                <span class="tracking-[0.12em]">veganoji.jp / vegan-to-karada</span>
+              </div>
+              <div class="font-jp">ビーガンと体</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-col items-center gap-4">
+          <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] text-center">
+            一歩をシェアして、誰かの背中もそっと押そう。<br class="sm:hidden"/>
+            <span class="text-ink/55">スクリーンショットも OK！</span>
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <button type="button" id="share-native" class="btn-base btn-leaf">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2 L8 11 M5 5 L8 2 L11 5 M3 8 L3 14 L13 14 L13 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              シェアする
+            </button>
+            <a id="share-x" target="_blank" rel="noopener" class="btn-base btn-ghost" href="#">
+              <span class="font-bold">X</span>でつぶやく
+            </a>
+            <a id="share-line" target="_blank" rel="noopener" class="btn-base btn-ghost" href="#">
+              LINEで送る
+            </a>
+            <button type="button" id="share-copy" class="btn-base btn-ghost">
+              リンクをコピー
+            </button>
+          </div>
+          <div id="share-toast" class="mt-1 text-[12px] sm:text-[13px] text-leaf-deep opacity-0 transition-opacity duration-300">コピーしたよ！</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  ANSWER KEY  ░  答え合わせ
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="answer-key" class="chapter px-6 sm:px-10 relative"
+           data-chapter-num="05" data-chapter-label="答え合わせ"
+           style="background:
+             radial-gradient(ellipse at 100% 0%, rgba(212,168,71,0.25), transparent 55%),
+             radial-gradient(ellipse at 0% 100%, rgba(242,168,192,0.18), transparent 60%),
+             #FDF1DA;">
+
+    <div class="sticky-head">
+      <div class="sticky-head__pill">
+        <span class="sticky-head__num" style="background: #9C7E2A;">★</span>
+        答え合わせ
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+
+      <div class="reveal text-center">
+        <div class="inline-flex items-center gap-3" style="color: #9C7E2A;">
+          <span class="chapter-eyebrow__line"></span>
+          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">FINAL SCORE</span>
+          <span class="chapter-eyebrow__line"></span>
+        </div>
+        <h2 class="mt-5 font-jp-display display-tight text-[36px] sm:text-[60px] lg:text-[72px] text-ink leading-[1.05]">
+          さあ、<br/>
+          <span style="color: #9C7E2A;">何問わかった？</span>
+        </h2>
+        <p class="mt-5 font-jp text-ink-soft text-[15px] sm:text-[18px] leading-[1.9] max-w-xl mx-auto">
+          上で読んできた内容で、最初のクイズの答えが見えてきたはず。
+        </p>
+      </div>
+
+      <div class="reveal mt-8 sm:mt-10 flex justify-center">
+        <img id="grade-oji"
+             src="/images/oji/oji_presenting.png"
+             alt="ビーガン王子 — 結果発表"
+             class="w-32 sm:w-40 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.15)]"
+             loading="lazy"/>
+      </div>
+
+      <div class="reveal mt-10 sm:mt-12">
+        <div id="score-card" class="share-card p-7 sm:p-10">
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-5">
+              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] text-ink/55">あなたの正解数</div>
+              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] font-bold" style="color: #9C7E2A;">QUIZ RESULT</div>
+            </div>
+
+            <div class="flex items-baseline justify-center gap-2 mt-2 mb-5">
+              <span id="score-num" class="big-number ticker text-[88px] sm:text-[140px] leading-none" style="color: #C9223A;">—</span>
+              <span class="font-jp-display text-[36px] sm:text-[60px] text-ink/65"> / 4</span>
+            </div>
+
+            <div id="score-message" class="font-jp-display text-[20px] sm:text-[26px] text-ink leading-[1.4] text-center mb-2">
+              まずはクイズに答えてみて！
+            </div>
+            <div id="score-sub" class="font-jp text-ink-soft text-[14px] sm:text-[15px] leading-[1.7] text-center"></div>
+
+            <div id="score-rows" class="mt-7 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"></div>
+
+            <div class="mt-7 pt-5 border-t border-ink/15 flex items-center justify-between text-[11px] sm:text-[12px] text-ink/55">
+              <div class="flex items-center gap-2">
+                <img src="/images/voji-logos/vegan-oji.png" alt="" class="w-5 h-5 object-contain" onerror="this.style.display='none'"/>
+                <span class="tracking-[0.12em]">veganoji.jp / vegan-to-karada</span>
+              </div>
+              <div class="font-jp">ビーガンと体クイズ</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-col items-center gap-4">
+          <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] text-center">
+            結果をシェアして、友達も試してみよう。<br class="sm:hidden"/>
+            <span class="text-ink/55">スクリーンショットも OK！</span>
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <button type="button" id="quiz-share-native" class="btn-base btn-leaf">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2 L8 11 M5 5 L8 2 L11 5 M3 8 L3 14 L13 14 L13 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              結果をシェア
+            </button>
+            <a id="quiz-share-x" target="_blank" rel="noopener" class="btn-base btn-ghost" href="#">
+              <span class="font-bold">X</span>でつぶやく
+            </a>
+            <a id="quiz-share-line" target="_blank" rel="noopener" class="btn-base btn-ghost" href="#">
+              LINEで送る
+            </a>
+          </div>
+          <div id="quiz-share-toast" class="mt-1 text-[12px] sm:text-[13px] text-leaf-deep opacity-0 transition-opacity duration-300">コピーしたよ！</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  CLOSING CTA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="closing" class="chapter px-6 sm:px-10 relative"
+           data-chapter-num="06" data-chapter-label="一食からはじめよう"
+           style="background:
+             radial-gradient(ellipse at 20% 30%, rgba(232,199,111,0.30), transparent 55%),
+             radial-gradient(ellipse at 80% 70%, rgba(108,149,96,0.25), transparent 55%),
+             #FDF1DA;">
+
+    <div class="max-w-3xl mx-auto text-center">
+
+      <div class="reveal flex justify-center mb-8 sm:mb-10">
+        <img src="/images/oji/oji_winking.png"
+             alt="ビーガン王子 — ウインク"
+             class="w-36 sm:w-48 anim-bobble drop-shadow-[0_10px_28px_rgba(31,24,18,0.18)]"
+             loading="lazy" />
+      </div>
+
+      <h2 class="reveal font-jp-display display-tight text-[36px] sm:text-[60px] lg:text-[72px] text-ink leading-[1.05]">
+        全部変えなくて、<br/>
+        <span class="text-leaf-deep display-italic">いい。</span>
+      </h2>
+
+      <p class="reveal mt-8 sm:mt-10 max-w-xl mx-auto font-jp text-ink-soft text-[16px] sm:text-[18px] leading-[2]">
+        毎食ぜんぶビーガンにしなくて、大丈夫。<br/>
+        週に一食から。 いつもの一品を、植物性に。<br/>
+        体は、ちゃんと応えてくれる。
+      </p>
+
+      <div class="reveal mt-12 sm:mt-14 flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/blog/" class="btn-base btn-primary">
+          ビーガンの記事を読む
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+        </a>
+        <a href="/vegan-to-chikyu/" class="btn-base btn-ghost">
+          ビーガンと地球
+        </a>
+        <a href="/umi-wo-kazoeru/" class="btn-base btn-ghost">
+          海をかぞえる
+        </a>
+      </div>
+
+      <div class="reveal mt-14 sm:mt-16 flex flex-col items-center gap-4">
+        <span class="text-ink/55 text-[14px] sm:text-[16px] font-jp">王子の動き、こちらでも</span>
+        <div class="flex items-center gap-3 sm:gap-4">
+          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="social"><img src="/images/social/ig.png" alt=""/></a>
+          <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="social"><img src="/images/social/x.png" alt=""/></a>
+          <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="social"><img src="/images/social/yt.png" alt=""/></a>
+          <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="social"><img src="/images/social/tt.png" alt=""/></a>
+          <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social"><img src="/images/social/li.png" alt=""/></a>
+        </div>
+      </div>
+
+      <p class="reveal mt-14 font-jp text-ink/45 text-[14px] sm:text-[15px]">
+        最後まで、ありがとう。
+      </p>
+    </div>
+  </section>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  SOURCES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <footer class="bg-paper border-t-2 border-ink/15 py-14 sm:py-20 px-6 sm:px-10">
+    <div class="max-w-3xl mx-auto">
+
+      <details class="group">
+        <summary class="cursor-pointer flex items-center justify-between gap-4 list-none">
+          <h2 class="font-jp text-ink-soft text-[14px] sm:text-[16px] tracking-[0.16em] font-bold">
+            出典 ・ SOURCES
+          </h2>
+          <span class="flex items-center gap-2 text-ink/55 text-[12px] sm:text-[13px]">
+            <span class="group-open:hidden">開く</span>
+            <span class="hidden group-open:inline">閉じる</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" class="transition-transform group-open:rotate-180"><path d="M3 5 L6 8 L9 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+          </span>
+        </summary>
+
+        <div class="mt-8 space-y-10">
+          <div>
+            <h3 class="font-jp-display text-[14px] sm:text-[15px] mb-3" style="color: #C9223A;">力 ・ タンパク質とスポーツ</h3>
+            <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker">
+              <li id="src-1-1"><span class="font-bold">1.</span> Melina, V., Craig, W., Levin, S. (2016). Position of the Academy of Nutrition and Dietetics: Vegetarian Diets. Journal of the Academy of Nutrition and Dietetics, 116(12): 1970–1980.</li>
+              <li id="src-1-2"><span class="font-bold">2.</span> Rogerson, D. (2017). Vegan diets: practical advice for athletes and exercisers. Journal of the International Society of Sports Nutrition, 14: 36.</li>
+              <li id="src-1-3"><span class="font-bold">3.</span> 文部科学省『日本食品標準成分表（八訂）増補2023年』— 各食品のたんぱく質量。</li>
+            </ol>
+          </div>
+
+          <div>
+            <h3 class="font-jp-display text-[14px] sm:text-[15px] mb-3" style="color: #B8456A;">美 ・ 美容</h3>
+            <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker" start="4">
+              <li id="src-2-1"><span class="font-bold">4.</span> Pullar, J.M., Carr, A.C., Vissers, M.C.M. (2017). The Roles of Vitamin C in Skin Health. Nutrients, 9(8): 866.</li>
+              <li id="src-2-2"><span class="font-bold">5.</span> Park, K. (2015). Role of Micronutrients in Skin Health and Function. Biomolecules &amp; Therapeutics, 23(3): 207–217.</li>
+            </ol>
+          </div>
+
+          <div>
+            <h3 class="font-jp-display text-[14px] sm:text-[15px] mb-3" style="color: #3F6A3A;">健やかさ ・ 大豆・食物繊維・沖縄</h3>
+            <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker" start="6">
+              <li id="src-3-1"><span class="font-bold">6.</span> Blanco Mejia, S. et al. (2019). A Meta-Analysis of 46 Studies Identified by the FDA Demonstrates that Soy Protein Decreases Circulating LDL and Total Cholesterol Concentrations in Adults. The Journal of Nutrition, 149(6): 968–981.</li>
+              <li id="src-3-2"><span class="font-bold">7.</span> Reynolds, A. et al. (2019). Carbohydrate quality and human health: a series of systematic reviews and meta-analyses. The Lancet, 393(10170): 434–445.</li>
+              <li id="src-3-3"><span class="font-bold">8.</span> Dinu, M. et al. (2017). Vegetarian, vegan diets and multiple health outcomes: a systematic review with meta-analysis of observational studies. Critical Reviews in Food Science and Nutrition, 57(17): 3640–3649.</li>
+              <li id="src-3-4"><span class="font-bold">9.</span> Satija, A. et al. (2017). Healthful and Unhealthful Plant-Based Diets and the Risk of Coronary Heart Disease in U.S. Adults. Journal of the American College of Cardiology, 70(4): 411–422.</li>
+              <li id="src-3-5"><span class="font-bold">10.</span> Willcox, D.C., Willcox, B.J., Todoriki, H., Suzuki, M. (2009). The Okinawan Diet: Health Implications of a Low-Calorie, Nutrient-Dense, Antioxidant-Rich Dietary Pattern Low in Glycemic Load. Journal of the American College of Nutrition, 28 Suppl: 500S–516S.</li>
+              <li id="src-3-6"><span class="font-bold">11.</span> Willcox, B.J. et al. (2007). Caloric Restriction, the Traditional Okinawan Diet, and Healthy Aging. Annals of the New York Academy of Sciences, 1114: 434–455.</li>
+              <li id="src-3-7"><span class="font-bold">12.</span> 厚生労働省「都道府県別生命表」— 沖縄県の平均寿命順位の推移（男性順位の大幅な低下、いわゆる「26ショック」を含む）。</li>
+            </ol>
+          </div>
+
+          <div>
+            <h3 class="font-jp-display text-[14px] sm:text-[15px] mb-3" style="color: #9C7E2A;">全世代 ・ 注意点</h3>
+            <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker" start="13">
+              <li id="src-4-1"><span class="font-bold">13.</span> Pawlak, R. et al. (2013). How prevalent is vitamin B12 deficiency among vegetarians? Nutrition Reviews, 71(2): 110–117.</li>
+              <li id="src-4-2"><span class="font-bold">14.</span> 本ページの内容は一般的な栄養情報であり、医療上の助言ではありません。 体調や持病・ライフステージに応じて、医師・管理栄養士にご相談ください。</li>
+            </ol>
+          </div>
+        </div>
+      </details>
+
+      <div class="mt-14 pt-8 border-t border-ink/10 flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center text-ink/55 text-[13px]">
+        <a href="/" class="hover:text-ink transition-colors">← ビーガン王子へ戻る</a>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="social" style="width: 38px; height: 38px;"><img src="/images/social/ig.png" alt=""/></a>
+          <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="social" style="width: 38px; height: 38px;"><img src="/images/social/x.png" alt=""/></a>
+          <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="social" style="width: 38px; height: 38px;"><img src="/images/social/yt.png" alt=""/></a>
+          <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="social" style="width: 38px; height: 38px;"><img src="/images/social/tt.png" alt=""/></a>
+          <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social" style="width: 38px; height: 38px;"><img src="/images/social/li.png" alt=""/></a>
+        </div>
+        <span class="font-jp text-[13px]">© ビーガン王子</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  SCRIPT
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      'use strict';
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const pageUrl = window.location.href.split('#')[0];
+      const PAGE_TITLE = 'ビーガンと体 — 植物の、ほんとうのチカラ';
+
+      // ───────── Hero ambient particles ─────────
+      (function buildAmbient() {
+        const host = document.getElementById('hero-ambient');
+        if (!host) return;
+        const palette = ['rgba(212,168,71,0.45)', 'rgba(242,168,192,0.45)', 'rgba(108,149,96,0.40)', 'rgba(201,34,58,0.30)'];
+        for (let i = 0; i < 28; i++) {
+          const dot = document.createElement('span');
+          dot.className = 'particle anim-twinkle';
+          const size = 6 + Math.random() * 10;
+          dot.style.width = size + 'px';
+          dot.style.height = size + 'px';
+          dot.style.left = (Math.random() * 100) + '%';
+          dot.style.top = (Math.random() * 100) + '%';
+          dot.style.background = palette[i % palette.length];
+          dot.style.animationDelay = (-Math.random() * 4) + 's';
+          host.appendChild(dot);
+        }
+      })();
+
+      // ───────── Reveal-on-scroll + bars + pops ─────────
+      const reveals = document.querySelectorAll('.reveal');
+      const bars = document.querySelectorAll('[data-bar-target]');
+      const pops = document.querySelectorAll('[data-pop="1"]');
+      function fillBar(el) {
+        if (el.dataset.filled === '1') return;
+        el.dataset.filled = '1';
+        el.style.width = parseFloat(el.dataset.barTarget) + '%';
+      }
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            const el = e.target;
+            if (el.classList.contains('reveal')) el.classList.add('is-visible');
+            if (el.dataset.barTarget) fillBar(el);
+            if (el.dataset.pop === '1') el.classList.add('is-popped');
+            io.unobserve(el);
+          }
+        }, { threshold: 0.18 });
+        reveals.forEach(r => io.observe(r));
+        bars.forEach(b => io.observe(b));
+        pops.forEach(p => io.observe(p));
+      } else {
+        reveals.forEach(r => r.classList.add('is-visible'));
+        bars.forEach(fillBar);
+        pops.forEach(p => p.classList.add('is-popped'));
+      }
+
+      // ───────── CH2 beauty parts picker ─────────
+      (function buildBeauty() {
+        const grid = document.getElementById('beauty-grid');
+        const result = document.getElementById('beauty-result');
+        if (!grid || !result) return;
+        const BEAUTY = [
+          { id: 'skin', emoji: '🌸', label: '肌', accent: '#B8456A', bg: 'rgba(251,239,243,0.7)',
+            msg: 'ハリのもとになるコラーゲンづくりには<strong>ビタミンC</strong>。 赤ピーマン・ブロッコリー・キウイ・柑橘にたっぷり。 抗酸化成分の多い色の濃い野菜も、肌の調子を支えると言われている。<a href="#src-2-1" class="src">4</a>' },
+          { id: 'hair', emoji: '💇', label: '髪', accent: '#9C7E2A', bg: 'rgba(251,243,223,0.7)',
+            msg: '髪の材料は<strong>タンパク質</strong>、そして<strong>鉄・亜鉛</strong>。 大豆・レンズ豆・全粒・ナッツ・かぼちゃの種から、しっかり摂れる。<a href="#src-2-2" class="src">5</a>' },
+          { id: 'nail', emoji: '💅', label: '爪', accent: '#3F6A3A', bg: 'rgba(238,245,233,0.7)',
+            msg: '爪を支えるのも<strong>タンパク質とミネラル</strong>。 豆類・全粒・緑の野菜をふだんから。 不足しがちな<strong>ビタミンB群</strong>も意識して。' },
+        ];
+        BEAUTY.forEach(b => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'pick-btn';
+          btn.setAttribute('aria-pressed', 'false');
+          btn.innerHTML = '<span class="pick-btn__emoji">' + b.emoji + '</span><span class="pick-btn__label">' + b.label + '</span>';
+          btn.addEventListener('click', () => {
+            grid.querySelectorAll('.pick-btn').forEach(x => x.setAttribute('aria-pressed', x === btn ? 'true' : 'false'));
+            result.style.background = b.bg;
+            result.innerHTML =
+              '<div class="text-center">' +
+                '<div class="text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-2" style="color:' + b.accent + ';">' + b.emoji + ' ' + b.label + '</div>' +
+                '<p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] max-w-md mx-auto">' + b.msg + '</p>' +
+              '</div>';
+          });
+          grid.appendChild(btn);
+        });
+      })();
+
+      // ───────── CH4 おいしさ flip cards ─────────
+      (function buildFlips() {
+        const grid = document.getElementById('oishisa-grid');
+        if (!grid) return;
+        const DISHES = [
+          { emoji: '🍜', front: 'いつものラーメン', back: '植物性ラーメン', swap: '豆乳・味噌・きのこ出汁で、こっくり。' },
+          { emoji: '🍗', front: 'からあげ', back: '大豆ミートのからあげ', swap: '下味は同じ。 サクッとジューシー。' },
+          { emoji: '🥟', front: '餃子', back: '野菜と大豆ミートの餃子', swap: 'キャベツたっぷり、後味は軽め。' },
+          { emoji: '🍛', front: 'カレー', back: '野菜と豆のカレー', swap: 'ひよこ豆やレンズ豆で、食べごたえ◎。' },
+          { emoji: '🧀', front: 'チーズケーキ', back: '豆腐＆カシューのケーキ', swap: 'なめらかなのに、軽い後味。' },
+          { emoji: '🍔', front: 'ハンバーガー', back: '植物性パティのバーガー', swap: '大豆パティで、ガッツリそのまま。' },
+        ];
+        DISHES.forEach(d => {
+          const card = document.createElement('button');
+          card.type = 'button';
+          card.className = 'flip-card reveal';
+          card.setAttribute('aria-pressed', 'false');
+          card.innerHTML =
+            '<div class="flip-inner">' +
+              '<div class="flip-face flip-front">' +
+                '<span class="flip-tag" style="color:#9C7E2A; background:#FBF3DF;">いつもの</span>' +
+                '<div class="flip-emoji">' + d.emoji + '</div>' +
+                '<div class="font-jp-display text-[18px] sm:text-[20px] text-ink mt-3">' + d.front + '</div>' +
+                '<div class="font-jp text-ink/55 text-[12px] mt-2">タップで変身 →</div>' +
+              '</div>' +
+              '<div class="flip-face flip-back">' +
+                '<span class="flip-tag" style="color:#3F6A3A; background:#FFF9EE;">植物性</span>' +
+                '<div class="flip-emoji">🌱</div>' +
+                '<div class="font-jp-display text-[17px] sm:text-[19px] mt-3" style="color:#3F6A3A;">' + d.back + '</div>' +
+                '<p class="font-jp text-ink-soft text-[12.5px] sm:text-[13.5px] leading-[1.6] mt-2 px-2">' + d.swap + '</p>' +
+              '</div>' +
+            '</div>';
+          card.addEventListener('click', () => {
+            const flipped = card.classList.toggle('is-flipped');
+            card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+          });
+          grid.appendChild(card);
+        });
+        // Re-observe the freshly added .reveal cards.
+        if ('IntersectionObserver' in window) {
+          const io2 = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) { e.target.classList.add('is-visible'); io2.unobserve(e.target); }
+            }
+          }, { threshold: 0.15 });
+          grid.querySelectorAll('.reveal').forEach(r => io2.observe(r));
+        } else {
+          grid.querySelectorAll('.reveal').forEach(r => r.classList.add('is-visible'));
+        }
+      })();
+
+      // ───────── Top progress bar ─────────
+      const progressBar = document.getElementById('chapter-progress-bar');
+      function onScrollProgress() {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docH > 0 ? Math.min(100, (window.scrollY / docH) * 100) : 0;
+        if (progressBar) progressBar.style.width = pct + '%';
+      }
+      window.addEventListener('scroll', onScrollProgress, { passive: true });
+      window.addEventListener('resize', onScrollProgress);
+      onScrollProgress();
+
+      // ───────── Quiz state — one card at a time, back nav, no reveal ─────────
+      const QUIZ = window.QUIZ = { picks: [null, null, null, null], correct: [2, 3, 0, 1] };
+      const quizCards = document.querySelectorAll('.quiz-card');
+      const quizDots = document.querySelectorAll('.quiz-dot');
+      const quizBack = document.getElementById('quiz-back');
+      const quizComplete = document.getElementById('quiz-complete');
+      const quizSection = document.getElementById('quiz');
+      let quizActive = 0;
+
+      function showQuestion(idx) {
+        quizActive = Math.max(0, Math.min(3, idx));
+        quizCards.forEach((c, i) => c.dataset.active = (i === quizActive) ? 'true' : 'false');
+        quizDots.forEach((d, i) => {
+          d.classList.toggle('is-active', i === quizActive);
+          d.classList.toggle('is-done', QUIZ.picks[i] !== null && i !== quizActive);
+        });
+        if (quizBack) quizBack.style.display = quizActive === 0 ? 'none' : 'inline-flex';
+        const card = quizCards[quizActive];
+        const stored = QUIZ.picks[quizActive];
+        card.querySelectorAll('.quiz-opt').forEach(o => {
+          o.setAttribute('aria-pressed', (stored !== null && parseInt(o.dataset.i, 10) === stored) ? 'true' : 'false');
+        });
+      }
+      function markComplete() {
+        const answered = QUIZ.picks.filter(p => p !== null).length;
+        if (answered === 4) {
+          quizSection.classList.add('is-complete');
+          quizComplete.style.opacity = '1';
+          quizComplete.style.transform = 'translateY(0)';
+          quizComplete.style.pointerEvents = 'auto';
+          quizDots.forEach(d => { d.classList.remove('is-active'); d.classList.add('is-done'); });
+        } else {
+          quizSection.classList.remove('is-complete');
+          quizComplete.style.opacity = '0';
+          quizComplete.style.transform = 'translateY(10px)';
+          quizComplete.style.pointerEvents = 'none';
+        }
+      }
+      quizCards.forEach(card => {
+        const qIdx = parseInt(card.dataset.q, 10);
+        QUIZ.correct[qIdx] = parseInt(card.dataset.correct, 10);
+        card.querySelectorAll('.quiz-opt').forEach(opt => {
+          opt.addEventListener('click', () => {
+            QUIZ.picks[qIdx] = parseInt(opt.dataset.i, 10);
+            card.querySelectorAll('.quiz-opt').forEach(o => o.setAttribute('aria-pressed', o === opt ? 'true' : 'false'));
+            const allAnswered = QUIZ.picks.every(p => p !== null);
+            if (qIdx < 3) {
+              setTimeout(() => showQuestion(qIdx + 1), 380);
+            } else if (allAnswered) {
+              setTimeout(() => {
+                markComplete();
+                const banner = document.getElementById('quiz-complete');
+                if (banner) banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }, 350);
+            } else {
+              const next = QUIZ.picks.findIndex(p => p === null);
+              if (next !== -1) setTimeout(() => showQuestion(next), 380);
+            }
+            markComplete();
+          });
+        });
+      });
+      if (quizBack) quizBack.addEventListener('click', () => showQuestion(quizActive - 1));
+      showQuestion(0);
+      markComplete();
+
+      // ───────── Concern picker → personalised card + share ─────────
+      const CONCERNS = {
+        power:  { emoji: '💪', label: '力', accent: '#C9223A',
+          headline: '植物のチカラで、動ける体に。',
+          body: 'タンパク質は、大豆や豆、全粒からしっかり摂れる。 強さは、お肉だけのものじゃない。',
+          step: '今日のタンパク質を、豆腐か納豆に。' },
+        beauty: { emoji: '✨', label: '美', accent: '#B8456A',
+          headline: '内側から、ハリとツヤを。',
+          body: 'ビタミンCや抗酸化成分は、野菜と果物にたっぷり。 美しさは、毎日の一皿から。',
+          step: 'おやつを、果物かナッツに。' },
+        health: { emoji: '🍃', label: '健やかさ', accent: '#3F6A3A',
+          headline: '毎日を、軽やかに。',
+          body: '食物繊維も大豆も、植物の得意分野。 体の調子は、食卓から整っていく。',
+          step: 'ごはんに、野菜と豆をもう一品。' },
+        taste:  { emoji: '🍜', label: 'おいしさ', accent: '#9C7E2A',
+          headline: 'がまんじゃなくて、楽しみ。',
+          body: '好きなものは、たいてい植物性でつくれる。 おいしく続けるのが、いちばんの近道。',
+          step: '好きな一品を、植物性でつくってみる。' },
+      };
+      const kEmoji = document.getElementById('kshare-emoji');
+      const kHeadline = document.getElementById('kshare-headline');
+      const kBody = document.getElementById('kshare-body');
+      const kStep = document.getElementById('kshare-step');
+      const kStepLabel = document.getElementById('kshare-step-label');
+      const concernButtons = document.querySelectorAll('.pick-btn[data-concern]');
+      const shareX = document.getElementById('share-x');
+      const shareLine = document.getElementById('share-line');
+      const shareNative = document.getElementById('share-native');
+      const shareCopy = document.getElementById('share-copy');
+      const shareToast = document.getElementById('share-toast');
+
+      function concernText(key) {
+        const c = CONCERNS[key];
+        return `私が気にするのは「${c.label}」。\n${c.headline}\n今週の一歩 → ${c.step}\n#ビーガン王子 #一食からはじめよう`;
+      }
+      function currentConcern() {
+        const el = document.querySelector('.pick-btn[data-concern][aria-pressed="true"]');
+        return el ? el.dataset.concern : 'power';
+      }
+      function updateConcern(key) {
+        const c = CONCERNS[key];
+        if (!c) return;
+        if (kEmoji) kEmoji.textContent = c.emoji;
+        if (kHeadline) kHeadline.textContent = c.headline;
+        if (kBody) kBody.textContent = c.body;
+        if (kStep) kStep.textContent = c.step;
+        if (kStepLabel) kStepLabel.style.color = c.accent;
+        const txt = concernText(key);
+        if (shareX) shareX.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(txt) + '&url=' + encodeURIComponent(pageUrl);
+        if (shareLine) shareLine.href = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(txt);
+      }
+      concernButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          concernButtons.forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+          updateConcern(btn.dataset.concern);
+        });
+      });
+      function showToast(msg) {
+        if (!shareToast) return;
+        shareToast.textContent = msg;
+        shareToast.style.opacity = '1';
+        setTimeout(() => { shareToast.style.opacity = '0'; }, 2200);
+      }
+      if (shareNative) {
+        if (navigator.share) {
+          shareNative.addEventListener('click', async () => {
+            try { await navigator.share({ title: PAGE_TITLE, text: concernText(currentConcern()), url: pageUrl }); } catch (_) {}
+          });
+        } else {
+          shareNative.addEventListener('click', async () => {
+            try { await navigator.clipboard.writeText(concernText(currentConcern()) + '\n' + pageUrl); showToast('結果をコピーしたよ！'); }
+            catch (_) { showToast('コピーできなかった…'); }
+          });
+        }
+      }
+      if (shareCopy) {
+        shareCopy.addEventListener('click', async () => {
+          try { await navigator.clipboard.writeText(pageUrl); showToast('リンクをコピーしたよ！'); }
+          catch (_) { showToast('コピーできなかった…'); }
+        });
+      }
+      updateConcern('power');
+
+      // ───────── Answer reveal (答え合わせ) ─────────
+      const scoreNum = document.getElementById('score-num');
+      const scoreMsg = document.getElementById('score-message');
+      const scoreSub = document.getElementById('score-sub');
+      const scoreRows = document.getElementById('score-rows');
+      const gradeOji = document.getElementById('grade-oji');
+      const quizShareNative = document.getElementById('quiz-share-native');
+      const quizShareX = document.getElementById('quiz-share-x');
+      const quizShareLine = document.getElementById('quiz-share-line');
+      const quizShareToast = document.getElementById('quiz-share-toast');
+      const QUIZ_TITLES = ['力', '美容', '健やかさ', '長寿と食'];
+
+      function gradeFor(score) {
+        if (score === 4) return { pose: '/images/oji/oji_excited.png', title: 'パーフェクト！', sub: 'もう立派なビーガン王子の右腕。 友達にも教えてあげて。' };
+        if (score === 3) return { pose: '/images/oji/oji_happy.png', title: 'すごい！', sub: 'ほぼ理解できているね。 もう一度読み返すと全問わかるかも。' };
+        if (score === 2) return { pose: '/images/oji/oji_thinking.png', title: 'いい線！', sub: '半分わかった。 もう一度上にもどって読み返してみて。' };
+        if (score === 1) return { pose: '/images/oji/oji_curious.png', title: 'これから！', sub: '最初の一歩。 もう一度ページを上から読むと、見え方が変わるよ。' };
+        return { pose: '/images/oji/oji_questioning.png', title: 'むずかしかった！', sub: '答えは上の章に全部あるよ。 もう一度読み返してみて。' };
+      }
+      function iconFor(state) {
+        if (state === 'got') return '<svg width="44" height="44" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="18" fill="#DCEFD8" stroke="#3F6A3A" stroke-width="2.5"/><path d="M14 22 L20 28 L31 16" stroke="#3F6A3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>';
+        if (state === 'miss') return '<svg width="44" height="44" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="18" fill="#F8DCDC" stroke="#9C1428" stroke-width="2.5"/><path d="M16 16 L28 28 M28 16 L16 28" stroke="#9C1428" stroke-width="3" stroke-linecap="round" fill="none"/></svg>';
+        return '<svg width="44" height="44" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="18" stroke="#786148" stroke-width="2.5" stroke-dasharray="4 3" fill="none"/></svg>';
+      }
+      function rowHTML(qIdx, pickIdx, correctIdx) {
+        const state = pickIdx === null ? 'none' : (pickIdx === correctIdx ? 'got' : 'miss');
+        return `<div class="flex flex-col items-center gap-1.5 p-3 rounded-2xl border-2 border-ink/15" style="background:rgba(255,249,238,0.6);">
+          <div class="text-[11px] tracking-[0.16em] text-ink/55">Q${qIdx + 1}</div>
+          ${iconFor(state)}
+          <div class="text-[11px] sm:text-[12px] text-ink/65 text-center">${QUIZ_TITLES[qIdx]}</div>
+        </div>`;
+      }
+      function renderAnswerKey() {
+        if (!scoreNum) return;
+        const picks = QUIZ.picks, correct = QUIZ.correct;
+        const answered = picks.filter(p => p !== null).length;
+        if (answered === 0) {
+          scoreNum.textContent = '—';
+          scoreMsg.textContent = 'まずはクイズに答えてみて！';
+          scoreSub.textContent = 'このページのいちばん上にもどって、4問にチャレンジしてね。';
+          scoreRows.innerHTML = picks.map((_, i) => rowHTML(i, null, correct[i])).join('');
+          if (gradeOji) gradeOji.src = '/images/oji/oji_questioning.png';
+        } else {
+          const score = picks.reduce((a, p, i) => a + (p === correct[i] ? 1 : 0), 0);
+          const g = gradeFor(score);
+          scoreNum.textContent = String(score);
+          scoreMsg.textContent = g.title;
+          scoreSub.textContent = answered < 4 ? `（${answered} / 4 だけ答えてある。 残りもチャレンジしてね！）` : g.sub;
+          scoreRows.innerHTML = picks.map((p, i) => rowHTML(i, p, correct[i])).join('');
+          if (gradeOji) gradeOji.src = g.pose;
+        }
+        quizCards.forEach((card, qIdx) => {
+          card.querySelectorAll('.quiz-opt').forEach((opt, i) => {
+            const picked = picks[qIdx];
+            if (picked === null) opt.removeAttribute('data-state');
+            else if (i === correct[qIdx]) opt.dataset.state = 'correct';
+            else if (i === picked) opt.dataset.state = 'wrong';
+            else opt.removeAttribute('data-state');
+          });
+        });
+        const score = answered === 0 ? 0 : picks.reduce((a, p, i) => a + (p === correct[i] ? 1 : 0), 0);
+        const txt = answered === 0 ? 'ビーガン王子のクイズに挑戦してみて！' : `「ビーガンと体」クイズ：${score}/4 だった！ きみは何問わかる？`;
+        if (quizShareX) quizShareX.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(txt) + '&url=' + encodeURIComponent(pageUrl);
+        if (quizShareLine) quizShareLine.href = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(txt);
+      }
+      window.renderAnswerKey = renderAnswerKey;
+      function showQuizToast(msg) {
+        if (!quizShareToast) return;
+        quizShareToast.textContent = msg;
+        quizShareToast.style.opacity = '1';
+        setTimeout(() => { quizShareToast.style.opacity = '0'; }, 2200);
+      }
+      if (quizShareNative) {
+        quizShareNative.addEventListener('click', async () => {
+          const answered = QUIZ.picks.filter(p => p !== null).length;
+          const score = answered === 0 ? 0 : QUIZ.picks.reduce((a, p, i) => a + (p === QUIZ.correct[i] ? 1 : 0), 0);
+          const txt = answered === 0 ? 'ビーガン王子のクイズに挑戦してみて！' : `「ビーガンと体」クイズ：${score}/4 だった！\nきみは何問わかる？`;
+          if (navigator.share) {
+            try { await navigator.share({ title: 'ビーガンと体クイズ', text: txt, url: pageUrl }); } catch (_) {}
+          } else {
+            try { await navigator.clipboard.writeText(txt + ' ' + pageUrl); showQuizToast('結果をコピーしたよ！'); } catch (_) {}
+          }
+        });
+      }
+      const ansSection = document.getElementById('answer-key');
+      if (ansSection && 'IntersectionObserver' in window) {
+        const ansIO = new IntersectionObserver((entries) => {
+          for (const e of entries) { if (e.isIntersecting) renderAnswerKey(); }
+        }, { threshold: 0.25 });
+        ansIO.observe(ansSection);
+      }
+      renderAnswerKey();
+    })();
+  </script>
+
+</body>
+</html>
