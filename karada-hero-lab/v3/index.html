@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V3 カラーポップ — ヒーロー背景案</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+    @theme {
+      --color-paper: #FFF8EB; --color-ink: #1F1812; --color-royal: #C9223A;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+    html, body { background: #E55063; color: #FFF8EB; }
+    body { font-family: var(--font-noto-sans-jp); font-feature-settings: "palt"; -webkit-font-smoothing: antialiased; }
+    .font-jp-display { font-weight: 900; } .display-tight { letter-spacing:-0.035em; line-height:0.94; }
+    @keyframes bobble { 0%,100%{transform:translateY(0) rotate(-1deg);} 50%{transform:translateY(-12px) rotate(1deg);} }
+    .anim-bobble { animation: bobble 5s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce){ .anim-bobble{animation:none;} }
+    .labtag { position:fixed; top:12px; left:12px; z-index:50; background: #1F1812; color: #FFF8EB; font-weight:900; font-size:12px; padding:8px 14px; border-radius:999px; box-shadow:3px 3px 0 #E8C76F; }
+    .blob { position:absolute; border-radius:50%; pointer-events:none; filter: blur(2px); opacity:.5; }
+  </style>
+</head>
+<body class="antialiased">
+  <a href="/karada-hero-lab/" class="labtag">◂ V3 カラーポップ ・ 案を切り替え</a>
+
+  <section class="relative min-h-[100svh] flex items-center justify-center px-6 sm:px-10 overflow-hidden"
+           style="background: radial-gradient(ellipse at 74% 16%, rgba(248,200,210,0.95), transparent 58%), radial-gradient(ellipse at 16% 92%, rgba(232,199,111,0.85), transparent 52%), radial-gradient(ellipse at 90% 95%, rgba(156,20,40,0.55), transparent 55%), #E55063;">
+
+    <div class="relative z-10 max-w-3xl mx-auto text-center pt-12 sm:pt-0">
+      <div class="font-semibold text-[18px] sm:text-[22px] tracking-[0.06em] mb-5 sm:mb-7" style="color: rgba(255,248,235,0.85);">ビーガン王子が教える ——</div>
+      <h1 class="font-jp-display font-black display-tight text-[44px] sm:text-[84px] lg:text-[104px] leading-[1.02]" style="color:#FFF8EB; text-shadow:0 4px 0 rgba(156,20,40,0.35);">
+        植物の、<br/><span style="color:#FFE39A;">本当のチカラ。</span>
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-[17px] sm:text-[19px] leading-[1.95]" style="color: rgba(255,248,235,0.95);">
+        強さも、美しさも、長生きも。<br/>植物には、ちゃんと理由がある。<br/>4つのテーマで、一緒に見てみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_greeting.png" alt="ビーガン王子" class="w-44 sm:w-56 lg:w-64 anim-bobble drop-shadow-[0_14px_34px_rgba(31,24,18,0.35)]" loading="eager"/>
+      </div>
+      <div class="mt-8 sm:mt-12 inline-flex flex-col items-center gap-2" style="color: rgba(255,248,235,0.7);">
+        <span class="text-[14px] tracking-[0.06em]">下にスクロール</span>
+        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" class="animate-bounce"><path d="M7 2 L7 16 M2 11 L7 16 L12 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
