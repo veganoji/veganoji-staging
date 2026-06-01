@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V2 浮かぶ野菜 — ヒーロー背景案</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+    @theme {
+      --color-paper: #FFF9EE; --color-ink: #1F1812; --color-ink-soft: #3C2E22; --color-royal: #C9223A;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+    html, body { background: var(--color-paper); color: var(--color-ink); }
+    body { font-family: var(--font-noto-sans-jp); font-feature-settings: "palt"; -webkit-font-smoothing: antialiased; }
+    .font-jp-display { font-weight: 900; } .display-tight { letter-spacing:-0.035em; line-height:0.94; }
+    @keyframes bobble { 0%,100%{transform:translateY(0) rotate(-4deg);} 50%{transform:translateY(-16px) rotate(4deg);} }
+    @keyframes drift { 0%,100%{transform:translate(0,0) rotate(0);} 50%{transform:translate(12px,-18px) rotate(8deg);} }
+    .fl { position:absolute; pointer-events:none; opacity:.92; }
+    .fl.b { animation: bobble 6s ease-in-out infinite; }
+    .fl.d { animation: drift 9s ease-in-out infinite; }
+    .fl img { width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 6px 12px rgba(31,24,18,0.14)); }
+    .fl .em { font-size:100%; line-height:1; filter: drop-shadow(0 6px 12px rgba(31,24,18,0.14)); }
+    @media (prefers-reduced-motion: reduce){ .fl{animation:none !important;} }
+    .labtag { position:fixed; top:12px; left:12px; z-index:50; background: var(--color-ink); color: var(--color-paper); font-weight:900; font-size:12px; padding:8px 14px; border-radius:999px; box-shadow:3px 3px 0 #9C7E2A; }
+  </style>
+</head>
+<body class="antialiased">
+  <a href="/karada-hero-lab/" class="labtag">◂ V2 浮かぶ野菜 ・ 案を切り替え</a>
+
+  <section class="relative min-h-[100svh] flex items-center justify-center px-6 sm:px-10 overflow-hidden"
+           style="background: radial-gradient(ellipse at 80% 8%, rgba(232,199,111,0.34), transparent 55%), radial-gradient(ellipse at 18% 92%, rgba(242,168,192,0.30), transparent 60%), radial-gradient(ellipse at 50% 50%, rgba(108,149,96,0.10), transparent 70%), #FFF9EE;">
+
+    <!-- floating produce -->
+    <div class="fl d" style="top:11%; left:7%; width:78px; height:78px;"><img src="/images/decorations/icon-greens.png" alt="" onerror="this.parentElement.innerHTML='<span class=&quot;em&quot; style=&quot;font-size:60px&quot;>🥦</span>'"/></div>
+    <div class="fl b" style="top:18%; right:9%; width:72px; height:72px; animation-delay:-1.6s;"><span class="em" style="font-size:58px">🍅</span></div>
+    <div class="fl d" style="top:40%; left:4%; width:64px; height:64px; animation-delay:-3s;"><span class="em" style="font-size:54px">🥕</span></div>
+    <div class="fl b" style="bottom:22%; right:6%; width:80px; height:80px; animation-delay:-2.2s;"><img src="/images/decorations/icon-fruit.png" alt="" onerror="this.parentElement.innerHTML='<span class=&quot;em&quot; style=&quot;font-size:62px&quot;>🍎</span>'"/></div>
+    <div class="fl d" style="bottom:14%; left:10%; width:70px; height:70px; animation-delay:-4.2s;"><img src="/images/decorations/icon-tofu.png" alt="" onerror="this.parentElement.innerHTML='<span class=&quot;em&quot; style=&quot;font-size:56px&quot;>🧈</span>'"/></div>
+    <div class="fl b" style="top:9%; left:42%; width:52px; height:52px; animation-delay:-3.6s;"><span class="em" style="font-size:42px">🫛</span></div>
+    <div class="fl d" style="top:32%; right:5%; width:58px; height:58px; animation-delay:-5s;"><span class="em" style="font-size:48px">🥑</span></div>
+    <div class="fl b" style="bottom:30%; left:3%; width:56px; height:56px; animation-delay:-1.1s;"><span class="em" style="font-size:46px">🍠</span></div>
+    <div class="fl d" style="bottom:9%; right:24%; width:54px; height:54px; animation-delay:-2.8s;"><span class="em" style="font-size:44px">🌽</span></div>
+    <div class="fl b" style="top:24%; left:22%; width:46px; height:46px; animation-delay:-4.8s;"><span class="em" style="font-size:38px">🍓</span></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto text-center pt-12 sm:pt-0">
+      <div class="font-semibold text-ink/70 text-[18px] sm:text-[22px] tracking-[0.05em] mb-5 sm:mb-7">ビーガン王子が教える ——</div>
+      <h1 class="font-jp-display font-black display-tight text-[44px] sm:text-[84px] lg:text-[104px] leading-[1.02] text-ink">
+        植物の、<br/><span class="text-royal">本当のチカラ。</span>
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-ink-soft text-[17px] sm:text-[19px] leading-[1.95]">
+        強さも、美しさも、長生きも。<br/>植物には、ちゃんと理由がある。<br/>4つのテーマで、一緒に見てみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_greeting.png" alt="ビーガン王子" class="w-44 sm:w-56 lg:w-64 anim-bobble drop-shadow-[0_10px_28px_rgba(31,24,18,0.18)]" style="animation: bobble 5s ease-in-out infinite;" loading="eager"/>
+      </div>
+      <div class="mt-8 sm:mt-12 inline-flex flex-col items-center gap-2 text-ink/45">
+        <span class="text-[14px] tracking-[0.06em]">下にスクロール</span>
+        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" class="animate-bounce"><path d="M7 2 L7 16 M2 11 L7 16 L12 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
