@@ -159,6 +159,80 @@
       letter-spacing: 0.04em;
     }
     .v3-cap--accent { background: var(--color-royal); }
+
+    /* ──────────────────────────────────────────────────────────────────
+       VARIANT 4 — SINGLE STACKED BAR (split adjacent)
+       One horizontal bar split into livestock+transport+others, animated.
+       ────────────────────────────────────────────────────────────────── */
+    .v4-bar {
+      width: 100%;
+      height: 56px;
+      border: 2.5px solid var(--color-ink);
+      border-radius: 14px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+      overflow: hidden;
+      display: flex;
+      background: var(--color-paper);
+    }
+    @media (min-width: 640px) { .v4-bar { height: 68px; } }
+    .v4-seg {
+      height: 100%;
+      transition: width 1.1s cubic-bezier(.22,1,.36,1);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 900;
+      color: var(--color-paper);
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      border-right: 2px solid var(--color-ink);
+      width: 0;
+    }
+    .v4-seg:last-child { border-right: none; }
+    @media (min-width: 640px) { .v4-seg { font-size: 20px; } }
+
+    /* ──────────────────────────────────────────────────────────────────
+       VARIANT 5 — PICTOGRAPH ROWS (icon = 1%, side-by-side rows)
+       ────────────────────────────────────────────────────────────────── */
+    .v5-row {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 3px;
+      align-items: center;
+      min-height: 38px;
+    }
+    @media (min-width: 640px) { .v5-row { gap: 4px; min-height: 48px; } }
+    .v5-icon { font-size: 24px; line-height: 1; opacity: 0; transition: opacity 0.35s; }
+    @media (min-width: 640px) { .v5-icon { font-size: 30px; } }
+    .v5-icon.is-in { opacity: 1; }
+    .v5-half { font-size: 18px; opacity: 0.55; }
+    @media (min-width: 640px) { .v5-half { font-size: 22px; } }
+
+    /* ──────────────────────────────────────────────────────────────────
+       VARIANT 6 — DONUT PIE OF GLOBAL GHG
+       Two highlighted slices in a single donut: livestock + transport.
+       ────────────────────────────────────────────────────────────────── */
+    .v6-donut {
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      border: 3px solid var(--color-ink);
+      box-shadow: 5px 5px 0 var(--color-ink);
+      position: relative;
+      background: conic-gradient(
+        #C9223A 0deg 52.2deg,
+        #786148 52.2deg 102.6deg,
+        rgba(180,170,150,0.30) 102.6deg 360deg
+      );
+    }
+    @media (min-width: 640px) { .v6-donut { width: 320px; height: 320px; } }
+    .v6-donut__hole {
+      position: absolute;
+      inset: 22%;
+      background: var(--color-paper);
+      border: 3px solid var(--color-ink);
+      border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+    }
   </style>
 </head>
 <body class="text-ink">
@@ -173,13 +247,12 @@
       </a>
       <h1 class="mt-4 font-jp-display text-[32px] sm:text-[52px] display-tight text-ink leading-[1.05]">
         畜産 vs 全交通機関<br/>
-        <span class="text-royal-deep">3つの可視化案。</span>
+        <span class="text-royal-deep">6つの可視化案。</span>
       </h1>
       <p class="mt-5 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] max-w-2xl">
-        「畜産の温室効果ガスは、世界の飛行機・船・車・電車を合わせたよりも多い」——
-        現状はてんびんで表現していて可愛いけど、ぱっと見で差が伝わりにくい。
-        この lab では3つの方向で再設計してみた：<br/>
-        ① 巨大な数字対決　② 比率にあわせた煙雲ふたつ　③ 1% = 1段の積み上げタワー
+        「畜産の温室効果ガスは、世界の飛行機・船・車・電車を合わせたよりも多い」——<br/>
+        ① 巨大な数字対決　② 比率にあわせた煙雲ふたつ　③ 1% = 1段の積み上げタワー<br/>
+        ④ 1本の積み上げ棒分割　⑤ アイコン横並びピクトグラフ　⑥ 世界全体ドーナツ
       </p>
     </div>
   </header>
@@ -357,7 +430,161 @@
     </div>
   </section>
 
-  <footer class="px-6 sm:px-10 py-10 text-center text-ink/55 text-[12px] sm:text-[13px] font-jp">
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 4 — SINGLE STACKED BAR (split adjacent)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20 border-t-2 border-ink/15">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7 flex items-end justify-between gap-4">
+        <div>
+          <div class="text-[13px] sm:text-[14px] tracking-[0.18em] text-royal-deep font-bold mb-1">VARIANT 4</div>
+          <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">1本の積み上げ棒分割</h2>
+        </div>
+        <div class="text-[13px] sm:text-[14px] text-ink-soft font-jp text-right max-w-xs">
+          世界の温室効果ガスを1本の棒に。<br/>
+          隣接で差がそのまま見える。
+        </div>
+      </div>
+
+      <div class="sticker p-7 sm:p-10 relative">
+        <div class="absolute -top-5 left-7 sm:left-10 px-3 py-1 rounded-full text-paper text-[13px] sm:text-[14px] tracking-[0.16em]"
+             style="background: #C9223A; border: 2px solid var(--color-ink);">
+          KEY FACT
+        </div>
+
+        <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9] text-center sm:text-left mb-6">
+          世界の温室効果ガス、まるごと 100% を 1本の棒に並べると——
+        </p>
+
+        <div class="v4-bar">
+          <div class="v4-seg" id="v4-seg-livestock" style="background: #C9223A;">畜産 14.5%</div>
+          <div class="v4-seg" id="v4-seg-transport" style="background: #786148;">全交通 14%</div>
+          <div class="v4-seg" id="v4-seg-other"     style="background: rgba(180,170,150,0.42); color: var(--color-ink);">他 71.5%</div>
+        </div>
+
+        <div class="mt-5 grid grid-cols-3 gap-2 text-center text-[14px] sm:text-[15px]">
+          <div>
+            <div class="inline-block w-4 h-4 rounded-sm border-2 border-ink align-middle" style="background: #C9223A;"></div>
+            <span class="font-jp ml-2"><span class="font-bold" style="color: #C9223A;">畜産</span></span>
+          </div>
+          <div>
+            <div class="inline-block w-4 h-4 rounded-sm border-2 border-ink align-middle" style="background: #786148;"></div>
+            <span class="font-jp ml-2"><span class="font-bold text-ink/70">全交通</span></span>
+          </div>
+          <div>
+            <div class="inline-block w-4 h-4 rounded-sm border-2 border-ink align-middle" style="background: rgba(180,170,150,0.42);"></div>
+            <span class="font-jp ml-2"><span class="font-bold text-ink/55">その他</span></span>
+          </div>
+        </div>
+
+        <p class="mt-6 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center">
+          畜産だけで <span class="font-bold" style="color: #C9223A;">飛行機・船・車・電車</span> の合計より、<br/>
+          ほんの少しだけ大きい。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 5 — PICTOGRAPH ROWS (icon = 1%)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20 border-t-2 border-ink/15">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7 flex items-end justify-between gap-4">
+        <div>
+          <div class="text-[13px] sm:text-[14px] tracking-[0.18em] text-royal-deep font-bold mb-1">VARIANT 5</div>
+          <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">アイコン横並びピクトグラフ</h2>
+        </div>
+        <div class="text-[13px] sm:text-[14px] text-ink-soft font-jp text-right max-w-xs">
+          1個=1%。横にのびる行の<br/>長さで差が分かる。
+        </div>
+      </div>
+
+      <div class="sticker p-7 sm:p-10 relative">
+        <div class="absolute -top-5 left-7 sm:left-10 px-3 py-1 rounded-full text-paper text-[13px] sm:text-[14px] tracking-[0.16em]"
+             style="background: #C9223A; border: 2px solid var(--color-ink);">
+          KEY FACT
+        </div>
+
+        <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9] text-center sm:text-left">
+          1アイコン = 世界の温室効果ガス 1%
+        </p>
+
+        <div class="mt-7 sm:mt-9 space-y-5">
+          <div>
+            <div class="font-jp text-[14px] sm:text-[16px] font-bold mb-2"><span style="color: #C9223A;">畜産</span> 14.5%</div>
+            <div class="v5-row" id="v5-row-livestock"></div>
+          </div>
+          <div>
+            <div class="font-jp text-[14px] sm:text-[16px] font-bold mb-2"><span class="text-ink/70">全交通機関</span> 14%</div>
+            <div class="v5-row" id="v5-row-transport"></div>
+          </div>
+        </div>
+
+        <p class="mt-7 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center">
+          1個分だけ、畜産が長い。<br/>
+          <span class="text-ink/65">食卓の影響は、ぜんぶの交通機関より大きい。</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 6 — GLOBAL GHG DONUT
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20 border-t-2 border-ink/15">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7 flex items-end justify-between gap-4">
+        <div>
+          <div class="text-[13px] sm:text-[14px] tracking-[0.18em] text-royal-deep font-bold mb-1">VARIANT 6</div>
+          <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">世界全体ドーナツ</h2>
+        </div>
+        <div class="text-[13px] sm:text-[14px] text-ink-soft font-jp text-right max-w-xs">
+          世界の温室効果ガスの<br/>パイ全体を一度に。
+        </div>
+      </div>
+
+      <div class="sticker p-7 sm:p-10 relative">
+        <div class="absolute -top-5 left-7 sm:left-10 px-3 py-1 rounded-full text-paper text-[13px] sm:text-[14px] tracking-[0.16em]"
+             style="background: #C9223A; border: 2px solid var(--color-ink);">
+          KEY FACT
+        </div>
+
+        <div class="flex justify-center my-6 sm:my-8">
+          <div class="v6-donut">
+            <div class="v6-donut__hole">
+              <div class="font-jp text-[13px] sm:text-[14px] tracking-[0.16em] text-ink/55">世界の</div>
+              <div class="font-jp-display text-[16px] sm:text-[18px] text-ink/80">温室効果ガス</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-3 max-w-sm mx-auto">
+          <div class="flex items-center gap-3 font-jp text-[14px] sm:text-[16px]">
+            <span class="inline-block w-5 h-5 rounded-sm border-2 border-ink" style="background: #C9223A;"></span>
+            <span class="font-bold" style="color: #C9223A;">畜産 14.5%</span>
+            <span class="text-ink/55 ml-auto ticker">いちばん大きい</span>
+          </div>
+          <div class="flex items-center gap-3 font-jp text-[14px] sm:text-[16px]">
+            <span class="inline-block w-5 h-5 rounded-sm border-2 border-ink" style="background: #786148;"></span>
+            <span class="font-bold text-ink/70">全交通機関 14%</span>
+            <span class="text-ink/55 ml-auto ticker">ちょっと少ない</span>
+          </div>
+          <div class="flex items-center gap-3 font-jp text-[14px] sm:text-[16px]">
+            <span class="inline-block w-5 h-5 rounded-sm border-2 border-ink" style="background: rgba(180,170,150,0.42);"></span>
+            <span class="font-bold text-ink/55">その他 71.5%</span>
+            <span class="text-ink/55 ml-auto">発電・工業・建物 など</span>
+          </div>
+        </div>
+
+        <p class="mt-7 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center">
+          畜産のスライス、よく見ると <span class="font-bold" style="color: #C9223A;">交通機関より大きい</span>。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="px-6 sm:px-10 py-10 text-center text-ink/55 text-[14px] font-jp">
     どれが好み？選んだらメインの <a href="/vegan-to-chikyu/" class="underline hover:text-ink-soft">/vegan-to-chikyu/</a> に統合します。
   </footer>
 
@@ -417,6 +644,79 @@
       } else {
         staggerIn(livestockRows, 100);
         staggerIn(transportRows, 300);
+      }
+
+      // ── V4 — animated bar fill on scroll ────────────────────────────
+      const v4Segs = {
+        livestock: document.getElementById('v4-seg-livestock'),
+        transport: document.getElementById('v4-seg-transport'),
+        other:     document.getElementById('v4-seg-other'),
+      };
+      function fillV4() {
+        if (v4Segs.livestock) v4Segs.livestock.style.width = '14.5%';
+        if (v4Segs.transport) v4Segs.transport.style.width = '14%';
+        if (v4Segs.other)     v4Segs.other.style.width     = '71.5%';
+      }
+      if ('IntersectionObserver' in window && v4Segs.livestock) {
+        const v4IO = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) { fillV4(); v4IO.unobserve(e.target); }
+          }
+        }, { threshold: 0.3 });
+        v4IO.observe(v4Segs.livestock.parentElement);
+      } else { fillV4(); }
+
+      // ── V5 — pictograph rows: 14.5 cow + 14 mixed transport ─────────
+      function buildPicto(el, count, emoji, halfLast) {
+        if (!el) return [];
+        const items = [];
+        for (let i = 0; i < count; i++) {
+          const s = document.createElement('span');
+          s.className = 'v5-icon';
+          s.textContent = emoji;
+          el.appendChild(s);
+          items.push(s);
+        }
+        if (halfLast) {
+          const h = document.createElement('span');
+          h.className = 'v5-icon v5-half';
+          h.textContent = emoji;
+          el.appendChild(h);
+          items.push(h);
+        }
+        return items;
+      }
+      const v5LivestockIcons = buildPicto(document.getElementById('v5-row-livestock'), 14, '🐄', true);
+      const v5TransportRow   = document.getElementById('v5-row-transport');
+      const v5TransportIcons = [];
+      if (v5TransportRow) {
+        const mix = ['🚗', '✈️', '🚢', '🚂'];
+        for (let i = 0; i < 14; i++) {
+          const s = document.createElement('span');
+          s.className = 'v5-icon';
+          s.textContent = mix[i % mix.length];
+          v5TransportRow.appendChild(s);
+          v5TransportIcons.push(s);
+        }
+      }
+      function staggerPicto(items, baseDelay) {
+        items.forEach((s, i) => setTimeout(() => s.classList.add('is-in'), baseDelay + i * 60));
+      }
+      if ('IntersectionObserver' in window) {
+        const v5IO = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              if (e.target.id === 'v5-row-livestock') staggerPicto(v5LivestockIcons, 80);
+              if (e.target.id === 'v5-row-transport') staggerPicto(v5TransportIcons, 200);
+              v5IO.unobserve(e.target);
+            }
+          }
+        }, { threshold: 0.3 });
+        if (v5LivestockIcons.length) v5IO.observe(document.getElementById('v5-row-livestock'));
+        if (v5TransportIcons.length) v5IO.observe(document.getElementById('v5-row-transport'));
+      } else {
+        staggerPicto(v5LivestockIcons, 80);
+        staggerPicto(v5TransportIcons, 200);
       }
     })();
   </script>
