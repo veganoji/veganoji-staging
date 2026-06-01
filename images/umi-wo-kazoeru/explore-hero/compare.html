@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero background — 5 variants</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-abyss:  #020c14;
+      --color-paper:  #FFF9EE;
+      --color-gold:   #E8C76F;
+      --font-jp:         "Noto Sans JP", sans-serif;
+      --font-jp-display: "Noto Sans JP", sans-serif;
+    }
+    body { font-family: var(--font-jp); }
+    .font-jp { font-family: var(--font-jp); }
+    .font-jp-display { font-family: var(--font-jp-display); }
+    .display-tight { letter-spacing: -0.01em; }
+
+    .bg-img { background-size: cover; background-position: center; }
+    .v1 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v1-goldenhour.jpg'); }
+    .v2 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v2-pastel-dream.jpg'); }
+    .v3 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v3-ukiyoe-waves.jpg'); }
+    .v4 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v4-starry-twilight.jpg'); }
+    .v5 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v5-enchanted-underwater.jpg'); }
+
+    /* Moderate readability overlay — heavier in the centre where text sits */
+    .ovl {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(2,12,20,0.50), rgba(2,12,20,0.20) 75%),
+        linear-gradient(180deg, rgba(2,12,20,0.10) 0%, rgba(2,12,20,0.40) 55%, rgba(2,12,20,0.85) 100%);
+    }
+    /* Lighter overlay option for the brighter pastel/ukiyo-e variants */
+    .ovl-light {
+      background:
+        radial-gradient(ellipse at 50% 45%, rgba(2,12,20,0.42), rgba(2,12,20,0.12) 78%),
+        linear-gradient(180deg, rgba(2,12,20,0.05) 0%, rgba(2,12,20,0.28) 55%, rgba(2,12,20,0.7) 100%);
+    }
+
+    ruby { ruby-position: over; -webkit-ruby-position: over; ruby-align: center; }
+    rt { font-size: clamp(7px,0.5em,14px); font-weight:400; line-height:1; opacity:0.7; margin-bottom:-0.25em; }
+    .hero-h1-with-ruby { line-height: 1.25 !important; }
+
+    @keyframes bobble { 0%,100%{transform:translateY(0) rotate(-1deg);} 50%{transform:translateY(-12px) rotate(1deg);} }
+    .anim-bobble { animation: bobble 5s ease-in-out infinite; }
+
+    .label {
+      position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 30; background: rgba(2,12,20,0.8); color: #E8C76F;
+      font-weight: 700; font-size: 18px; padding: 8px 20px; border-radius: 999px;
+      border: 1.5px solid rgba(232,199,111,0.5); letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body class="bg-abyss text-paper antialiased">
+
+  <!-- Reusable hero block, repeated per variant. -->
+  <!-- V1 -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="v1 bg-img absolute inset-0"></div>
+    <div class="ovl absolute inset-0"></div>
+    <div class="label">V1 · 黄昏ゴールデンアワー (Golden hour)</div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
+      </div>
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] leading-[1.9]">
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_questioning.png" alt="" class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="v2 bg-img absolute inset-0"></div>
+    <div class="ovl-light absolute inset-0"></div>
+    <div class="label">V2 · パステルの夢 (Pastel dream)</div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
+      </div>
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] leading-[1.9]">
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_questioning.png" alt="" class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- V3 -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="v3 bg-img absolute inset-0"></div>
+    <div class="ovl-light absolute inset-0"></div>
+    <div class="label">V3 · 浮世絵の波 (Ukiyo-e waves)</div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
+      </div>
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] leading-[1.9]">
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_questioning.png" alt="" class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- V4 -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="v4 bg-img absolute inset-0"></div>
+    <div class="ovl absolute inset-0"></div>
+    <div class="label">V4 · 星空の黄昏 (Starry twilight)</div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
+      </div>
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] leading-[1.9]">
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_questioning.png" alt="" class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- V5 -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="v5 bg-img absolute inset-0"></div>
+    <div class="ovl absolute inset-0"></div>
+    <div class="label">V5 · 海中の光 (Enchanted underwater)</div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
+      </div>
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] leading-[1.9]">
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_questioning.png" alt="" class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"/>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

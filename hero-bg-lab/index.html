@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Background — Lab</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Hachi+Maru+Pop&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+
+    @theme {
+      --color-paper:       #FFF9EE;
+      --color-paper-soft:  #FDF1DA;
+      --color-ink:         #1F1812;
+      --color-ink-soft:    #3C2E22;
+      --color-muted:       #786148;
+      --color-royal:       #C9223A;
+      --color-royal-deep:  #9C1428;
+      --color-gold:        #D4A847;
+      --color-gold-deep:   #9C7E2A;
+      --color-leaf:        #6C9560;
+      --color-leaf-deep:   #3F6A3A;
+      --color-leaf-soft:   #A3C49A;
+      --color-sky:         #B5D5E8;
+      --color-blush:       #F8C8D2;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+
+    html, body { background: #F1ECDB; color: var(--color-ink); }
+    body { font-family: var(--font-noto-sans-jp); -webkit-font-smoothing: antialiased; }
+    .font-jp         { font-family: var(--font-noto-sans-jp); }
+    .font-jp-display { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+    .display-tight   { letter-spacing: -0.035em; line-height: 0.94; }
+
+    .anim-bobble { animation: bobble 4.5s ease-in-out infinite; }
+    @keyframes bobble {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    /* Each hero variant shares the same content layout; only the background
+       layer differs. Keeping things side-by-side comparable. */
+    .hero-frame {
+      position: relative;
+      min-height: 540px;
+      overflow: hidden;
+      border: 2.5px solid var(--color-ink);
+      border-radius: 28px;
+      box-shadow: 8px 8px 0 var(--color-ink);
+    }
+    @media (min-width: 640px) { .hero-frame { min-height: 640px; } }
+
+    /* ────── V1 — CURRENT (refined) — soft warm radial gradients ────── */
+    .hero-v1 {
+      background:
+        radial-gradient(ellipse at 80% 10%, rgba(232,199,111,0.30), transparent 55%),
+        radial-gradient(ellipse at 20% 90%, rgba(108,149,96,0.22), transparent 60%),
+        var(--color-paper);
+    }
+
+    /* ────── V2 — GARDEN FLORAL — pinks + sage with floating petals ────── */
+    .hero-v2 {
+      background:
+        radial-gradient(ellipse at 15% 18%, rgba(248,200,210,0.42), transparent 50%),
+        radial-gradient(ellipse at 90% 30%, rgba(232,199,111,0.30), transparent 55%),
+        radial-gradient(ellipse at 50% 95%, rgba(163,196,154,0.30), transparent 60%),
+        var(--color-paper);
+    }
+    .hero-v2__petal {
+      position: absolute;
+      width: 20px; height: 20px;
+      border-radius: 50% 0 50% 50%;
+      opacity: 0.55;
+      animation: gentleFloat 7s ease-in-out infinite;
+    }
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-12px) rotate(8deg); }
+    }
+
+    /* ────── V3 — FOOD WALLPAPER — chibi food icons scattered ────── */
+    .hero-v3 {
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(255,249,238,0), rgba(253,241,218,0.85)),
+        var(--color-paper);
+    }
+    .hero-v3__item {
+      position: absolute;
+      opacity: 0.18;
+      filter: saturate(0.85);
+      pointer-events: none;
+      animation: gentleFloat 6s ease-in-out infinite;
+    }
+
+    /* ────── V4 — PASTORAL LANDSCAPE (uses generated image) ────── */
+    .hero-v4 {
+      background:
+        linear-gradient(180deg, rgba(255,249,238,0.10) 0%, rgba(255,249,238,0.55) 70%, rgba(255,249,238,0.85) 100%),
+        url('/images/vegan-to-chikyu/hero-bg-pastoral.png') center/cover no-repeat,
+        var(--color-paper);
+    }
+
+    /* ────── V5 — COSMIC NIGHT (uses generated image) ────── */
+    .hero-v5 {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(255,249,238,0.20) 0%, rgba(255,249,238,0.65) 70%),
+        url('/images/vegan-to-chikyu/hero-bg-cosmic.png') center/cover no-repeat,
+        var(--color-paper);
+    }
+
+    /* Shared hero content layout */
+    .hero-content {
+      position: relative; z-index: 10;
+      padding: 60px 24px 40px;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .hero-content { padding: 90px 32px 60px; }
+    }
+  </style>
+</head>
+<body class="text-ink">
+
+  <header class="px-6 sm:px-10 py-10 sm:py-14 border-b-2 border-ink/15">
+    <div class="max-w-5xl mx-auto">
+      <a href="/vegan-to-chikyu/" class="font-jp text-[13px] sm:text-[14px] text-ink/55 tracking-[0.12em] hover:text-ink-soft">
+        ← /vegan-to-chikyu/ に戻る
+      </a>
+      <h1 class="mt-4 font-jp-display text-[32px] sm:text-[52px] display-tight text-ink leading-[1.05]">
+        Hero 背景 — <span class="text-leaf-deep">5つの世界観案。</span>
+      </h1>
+      <p class="mt-5 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] max-w-2xl">
+        現状は cream + 黄色 + sage のシンプルな radial グラデーション。
+        Oji の世界観を背景でもっと感じられるように、5つの方向で再設計：<br/>
+        ① 現状を refine　② 花咲く庭(ピンク+sage)　③ 食べ物ウォールペーパー
+        　④ 物語の風景(イラスト)　⑤ コズミック(地球と星空)
+      </p>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 1 — REFINED CURRENT
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20 border-b-2 border-ink/15">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7">
+        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] text-leaf-deep font-bold mb-1">VARIANT 1</div>
+        <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">現状を refine</h2>
+        <p class="mt-2 font-jp text-ink-soft text-[14px] leading-[1.65]">
+          ほぼ現状。warm yellow + sage の radial グラデで cream paper を温める。
+        </p>
+      </div>
+
+      <div class="hero-frame hero-v1">
+        <div class="hero-content">
+          <div class="font-jp font-semibold text-ink/70 text-[16px] sm:text-[20px] tracking-[0.05em] mb-5">
+            ビーガン王子が教える ——
+          </div>
+          <h2 class="font-jp-display font-black display-tight text-[42px] sm:text-[70px] leading-[1.05] text-ink">
+            あなたの<span class="text-leaf-deep">一食</span>、<br/>
+            地球の<span class="text-royal">一年</span>。
+          </h2>
+          <p class="mt-7 sm:mt-10 max-w-md mx-auto text-ink-soft font-jp text-[15px] sm:text-[18px] leading-[1.9]">
+            毎日の食べ物。<br/>
+            全部、地球とつながってる。
+          </p>
+          <div class="mt-7 sm:mt-10 flex justify-center">
+            <img src="/images/oji/oji_greeting.png" alt="" class="w-32 sm:w-44 anim-bobble drop-shadow-[0_8px_22px_rgba(31,24,18,0.18)]" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 2 — GARDEN FLORAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20 border-b-2 border-ink/15">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7">
+        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] text-leaf-deep font-bold mb-1">VARIANT 2</div>
+        <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">花咲く庭</h2>
+        <p class="mt-2 font-jp text-ink-soft text-[14px] leading-[1.65]">
+          ピンク + sage + 黄色 で王子の庭っぽく。やわらかい花びらがふわふわ。
+        </p>
+      </div>
+
+      <div class="hero-frame hero-v2">
+        <!-- Floating petals -->
+        <div class="hero-v2__petal" style="top: 12%; left: 8%;  background: #F8C8D2; transform: rotate(20deg); animation-delay: -1s;"></div>
+        <div class="hero-v2__petal" style="top: 26%; right: 14%; background: #A3C49A; transform: rotate(-30deg); animation-delay: -3s;"></div>
+        <div class="hero-v2__petal" style="bottom: 18%; left: 14%; background: #F8C8D2; transform: rotate(45deg); animation-delay: -5s;"></div>
+        <div class="hero-v2__petal" style="bottom: 28%; right: 8%; background: #D4A847; transform: rotate(-15deg); animation-delay: -2s; opacity: 0.4;"></div>
+        <div class="hero-v2__petal" style="top: 50%; left: 5%; background: #A3C49A; transform: rotate(60deg); animation-delay: -4s;"></div>
+
+        <div class="hero-content">
+          <div class="font-jp font-semibold text-ink/70 text-[16px] sm:text-[20px] tracking-[0.05em] mb-5">
+            ビーガン王子が教える ——
+          </div>
+          <h2 class="font-jp-display font-black display-tight text-[42px] sm:text-[70px] leading-[1.05] text-ink">
+            あなたの<span class="text-leaf-deep">一食</span>、<br/>
+            地球の<span class="text-royal">一年</span>。
+          </h2>
+          <p class="mt-7 sm:mt-10 max-w-md mx-auto text-ink-soft font-jp text-[15px] sm:text-[18px] leading-[1.9]">
+            毎日の食べ物。<br/>
+            全部、地球とつながってる。
+          </p>
+          <div class="mt-7 sm:mt-10 flex justify-center">
+            <img src="/images/oji/oji_greeting.png" alt="" class="w-32 sm:w-44 anim-bobble drop-shadow-[0_8px_22px_rgba(31,24,18,0.18)]" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 3 — FOOD WALLPAPER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20 border-b-2 border-ink/15">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7">
+        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] text-leaf-deep font-bold mb-1">VARIANT 3</div>
+        <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">食べ物ウォールペーパー</h2>
+        <p class="mt-2 font-jp text-ink-soft text-[14px] leading-[1.65]">
+          チビ食べ物アイコンを薄く散らして、ページのテーマを背景にも反映。
+        </p>
+      </div>
+
+      <div class="hero-frame hero-v3">
+        <!-- Scattered chibi food items at low opacity -->
+        <img class="hero-v3__item" src="/images/vegan-to-chikyu/food-apple.png"     style="top: 8%;  left: 6%;  width: 60px; animation-delay: -1s;"/>
+        <img class="hero-v3__item" src="/images/vegan-to-chikyu/food-broccoli.png"  style="top: 14%; right: 10%; width: 70px; animation-delay: -3s;"/>
+        <img class="hero-v3__item" src="/images/vegan-to-chikyu/food-onigiri.png"   style="top: 38%; left: 4%;  width: 56px; animation-delay: -5s;"/>
+        <img class="hero-v3__item" src="/images/vegan-to-chikyu/food-tomato.png"    style="bottom: 28%; right: 4%; width: 56px; animation-delay: -2s;"/>
+        <img class="hero-v3__item" src="/images/vegan-to-chikyu/food-banana.png"    style="bottom: 14%; left: 18%; width: 60px; animation-delay: -4s;"/>
+        <img class="hero-v3__item" src="/images/vegan-to-chikyu/food-veggie-burger.png" style="bottom: 8%;  right: 16%; width: 70px; animation-delay: -6s;"/>
+        <img class="hero-v3__item" src="/images/vegan-to-chikyu/food-tofu.png"      style="top: 22%; right: 38%; width: 50px; animation-delay: -2.5s;"/>
+
+        <div class="hero-content">
+          <div class="font-jp font-semibold text-ink/70 text-[16px] sm:text-[20px] tracking-[0.05em] mb-5">
+            ビーガン王子が教える ——
+          </div>
+          <h2 class="font-jp-display font-black display-tight text-[42px] sm:text-[70px] leading-[1.05] text-ink">
+            あなたの<span class="text-leaf-deep">一食</span>、<br/>
+            地球の<span class="text-royal">一年</span>。
+          </h2>
+          <p class="mt-7 sm:mt-10 max-w-md mx-auto text-ink-soft font-jp text-[15px] sm:text-[18px] leading-[1.9]">
+            毎日の食べ物。<br/>
+            全部、地球とつながってる。
+          </p>
+          <div class="mt-7 sm:mt-10 flex justify-center">
+            <img src="/images/oji/oji_greeting.png" alt="" class="w-32 sm:w-44 anim-bobble drop-shadow-[0_8px_22px_rgba(31,24,18,0.18)]" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 4 — PASTORAL LANDSCAPE (generated)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20 border-b-2 border-ink/15">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7">
+        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] text-leaf-deep font-bold mb-1">VARIANT 4</div>
+        <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">物語の風景</h2>
+        <p class="mt-2 font-jp text-ink-soft text-[14px] leading-[1.65]">
+          イラストの牧歌的風景。畑と丘でビーガン王子の世界をそのまま舞台に。
+        </p>
+      </div>
+
+      <div class="hero-frame hero-v4">
+        <div class="hero-content">
+          <div class="font-jp font-semibold text-ink/80 text-[16px] sm:text-[20px] tracking-[0.05em] mb-5">
+            ビーガン王子が教える ——
+          </div>
+          <h2 class="font-jp-display font-black display-tight text-[42px] sm:text-[70px] leading-[1.05] text-ink">
+            あなたの<span class="text-leaf-deep">一食</span>、<br/>
+            地球の<span class="text-royal">一年</span>。
+          </h2>
+          <p class="mt-7 sm:mt-10 max-w-md mx-auto text-ink-soft font-jp text-[15px] sm:text-[18px] leading-[1.9]">
+            毎日の食べ物。<br/>
+            全部、地球とつながってる。
+          </p>
+          <div class="mt-7 sm:mt-10 flex justify-center">
+            <img src="/images/oji/oji_greeting.png" alt="" class="w-32 sm:w-44 anim-bobble drop-shadow-[0_8px_22px_rgba(31,24,18,0.18)]" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 5 — COSMIC NIGHT (generated)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7">
+        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] text-leaf-deep font-bold mb-1">VARIANT 5</div>
+        <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">コズミック</h2>
+        <p class="mt-2 font-jp text-ink-soft text-[14px] leading-[1.65]">
+          夢みたいな星空と小さな地球で「地球規模」のテーマを背景でほのめかす。
+        </p>
+      </div>
+
+      <div class="hero-frame hero-v5">
+        <div class="hero-content">
+          <div class="font-jp font-semibold text-ink/80 text-[16px] sm:text-[20px] tracking-[0.05em] mb-5">
+            ビーガン王子が教える ——
+          </div>
+          <h2 class="font-jp-display font-black display-tight text-[42px] sm:text-[70px] leading-[1.05] text-ink">
+            あなたの<span class="text-leaf-deep">一食</span>、<br/>
+            地球の<span class="text-royal">一年</span>。
+          </h2>
+          <p class="mt-7 sm:mt-10 max-w-md mx-auto text-ink-soft font-jp text-[15px] sm:text-[18px] leading-[1.9]">
+            毎日の食べ物。<br/>
+            全部、地球とつながってる。
+          </p>
+          <div class="mt-7 sm:mt-10 flex justify-center">
+            <img src="/images/oji/oji_greeting.png" alt="" class="w-32 sm:w-44 anim-bobble drop-shadow-[0_8px_22px_rgba(31,24,18,0.18)]" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="px-6 sm:px-10 py-10 text-center text-ink/55 text-[14px] font-jp">
+    どれが好み？ <a href="/vegan-to-chikyu/" class="underline hover:text-ink-soft">/vegan-to-chikyu/</a> に統合します。
+  </footer>
+
+</body>
+</html>
