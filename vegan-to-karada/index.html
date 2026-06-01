@@ -525,10 +525,9 @@
       height: 100%;
       width: 0%;
       background: linear-gradient(90deg,
-        #C9223A 0%, #C9223A 25%,
-        #B8456A 25%, #B8456A 50%,
-        #3F6A3A 50%, #3F6A3A 75%,
-        #9C7E2A 75%, #9C7E2A 100%);
+        #C9223A 0%, #C9223A 33%,
+        #2B7AB0 33%, #2B7AB0 66%,
+        #3F6A3A 66%, #3F6A3A 100%);
       background-size: 400% 100%;
       transition: width 0.2s linear;
     }
@@ -574,6 +573,23 @@
     .pola .cap { padding:10px 2px 14px; text-align:left; }
     .pola .q { display:none; }
     .pola.is-open .q { display:block; }
+
+    /* ── 健康: clickable benefit cards (accordion) ──────────────────── */
+    .hcard { border:2.5px solid var(--color-ink); border-radius:18px; box-shadow:5px 5px 0 var(--color-ink); background: var(--color-paper); overflow:hidden; }
+    .hcard-head { display:flex; align-items:center; gap:14px; padding:16px 18px; cursor:pointer; transition: background .2s ease; }
+    .hcard-head:hover { background: rgba(43,122,176,.06); }
+    .hcard-ico { font-size:30px; line-height:1; flex-shrink:0; }
+    .hcard-ttl { font-weight:900; font-size:16px; line-height:1.3; }
+    .hcard-sub { color: var(--color-muted); font-size:12px; margin-top:2px; }
+    .hcard-chev { margin-left:auto; flex-shrink:0; transition: transform .25s ease; color: var(--color-muted); }
+    .hcard.is-open .hcard-chev { transform: rotate(180deg); }
+    .hcard-body { display:none; padding:2px 18px 18px; }
+    .hcard.is-open .hcard-body { display:block; }
+    .hcard-body ul { list-style:none; margin:0; padding:0; }
+    .hcard-body li { position:relative; padding-left:22px; margin-bottom:11px; font-size:13px; line-height:1.75; color: var(--color-ink-soft); }
+    .hcard-body li:last-child { margin-bottom:0; }
+    .hcard-body li::before { content:'✓'; position:absolute; left:0; top:0; color:#2B7AB0; font-weight:900; }
+    @media (min-width:640px){ .hcard-ttl{ font-size:18px; } .hcard-body li{ font-size:14px; } }
   </style>
 </head>
 
@@ -919,7 +935,7 @@
         <img src="/images/oji/oji_idea.png" alt="ビーガン王子" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_explaining.png'"/>
         <div class="bubble flex-1 mb-4">
           <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
-            でもね、栄養って<strong>タンパク質だけ</strong>じゃないんだ。 じつは“タンパク質不足”の人はたった<strong>7%</strong>。 足りてないのは——<strong style="color:#C9223A;">食物繊維</strong>（なんと94%が不足）。<a href="#src-greger" class="src">15</a>
+            でもね、栄養って<strong>タンパク質だけ</strong>じゃないんだ。 じつは“タンパク質不足”の人はたった<strong>7%</strong>。 足りてないのは——<strong style="color:#C9223A;">食物繊維</strong>（なんと94%が不足）。<a href="#src-greger" class="src">4</a>
           </p>
         </div>
       </div>
@@ -945,14 +961,14 @@
           <div class="row-label">カロリー密度</div><div class="cell bad"><span class="lab">高い</span></div><div class="cell good"><span class="lab">低め</span></div><div class="cell best"><span class="lab">低い</span></div>
         </div>
 
-        <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">糞便汚染 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">多い</span></div><div class="cell good"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">牛・七面鳥ひき肉の<strong>85%</strong>、鶏肉の約1/3から腸内細菌（糞便の指標）が検出される。<a href="#src-greger" class="src">15</a></div></div>
+        <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">糞便汚染 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">多い</span></div><div class="cell good"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">牛・七面鳥ひき肉の<strong>85%</strong>、鶏肉の約1/3から腸内細菌（糞便の指標）が検出される。<a href="#src-greger" class="src">4</a></div></div>
         <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">サルモネラ等 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">あり</span></div><div class="cell good"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">米国では小売鶏肉の<strong>4個に1個</strong>からサルモネラ。 カンピロバクターは年間<strong>80万人</strong>を発症させる。</div></div>
         <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">ホルモン剤 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">あり</span></div><div class="cell good"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">米国の食肉では<strong>7種</strong>のホルモン剤が認可。 EUでは公衆衛生上の理由から全面禁止されている。</div></div>
         <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">発がん性分類 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">高い</span></div><div class="cell good"><span class="lab">低い</span></div><div class="cell best"><span class="lab">低い</span></div></div><div class="diff-detail">WHOは加工肉を<strong>グループ1（ヒトに発がん性あり）</strong>、赤身肉を2Aに分類。 加工肉50g/日で大腸がんリスク+18%。</div></div>
         <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">TMAO（心血管） <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">↑</span></div><div class="cell good"><span class="lab">低い</span></div><div class="cell best"><span class="lab">低い</span></div></div><div class="diff-detail">肉由来で増えやすいTMAOは、心血管疾患のリスクとの関連が報告されている。</div></div>
         <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">乳化剤・カビ毒・アレルゲン <span class="info">ⓘ</span></div><div class="cell good"><span class="lab">少ない</span></div><div class="cell bad"><span class="lab">多い</span></div><div class="cell best"><span class="lab">少ない</span></div></div><div class="diff-detail">正直に言うと、ここは<strong>代替肉（超加工）がお肉より劣る</strong>数少ない項目。 だからこそ、いちばんの正解は「まるごと植物」。</div></div>
 
-        <p class="text-center text-[11px] text-ink/45 mt-4">緑＝良い ・ 黄＝同じ ・ 赤＝悪い ／ ⓘの行をタップで詳しく ／ 出典：Greger 2025<a href="#src-greger" class="src">15</a></p>
+        <p class="text-center text-[11px] text-ink/45 mt-4">緑＝良い ・ 黄＝同じ ・ 赤＝悪い ／ ⓘの行をタップで詳しく ／ 出典：Greger 2025<a href="#src-greger" class="src">4</a></p>
       </div>
 
       <!-- Athletes -->
@@ -1008,221 +1024,139 @@
        ░  CHAPTER 2  ░  美  ░  Beauty
        ═══════════════════════════════════════════════════════════════════════ -->
   <section id="ch2" class="chapter px-6 sm:px-10"
-           data-chapter-num="02" data-chapter-label="美"
+           data-chapter-num="02" data-chapter-label="健康"
            style="background:
-             radial-gradient(ellipse at 90% 5%, rgba(242,168,192,0.22), transparent 55%),
-             radial-gradient(ellipse at 5% 95%, rgba(184,69,106,0.10), transparent 60%),
-             #FBEFF3;">
+             radial-gradient(ellipse at 90% 5%, rgba(43,122,176,0.16), transparent 55%),
+             radial-gradient(ellipse at 5% 95%, rgba(27,92,139,0.10), transparent 60%),
+             #ECF4F9;">
 
     <div class="sticky-head">
       <div class="sticky-head__pill">
-        <span class="sticky-head__num" style="background: #B8456A;">2</span>
-        美
+        <span class="sticky-head__num" style="background: #2B7AB0;">2</span>
+        健康
       </div>
     </div>
 
     <div class="max-w-3xl mx-auto">
 
       <div class="reveal text-center">
-        <div class="inline-flex items-center gap-3" style="color: #B8456A;">
+        <div class="inline-flex items-center gap-3" style="color: #1B5C8B;">
           <span class="chapter-eyebrow__line"></span>
-          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">CHAPTER 02 ・ BEAUTY</span>
+          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">CHAPTER 02 ・ HEALTH</span>
           <span class="chapter-eyebrow__line"></span>
         </div>
         <h2 class="mt-5 font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
-          美しさは、<br/>
-          <span style="color: #B8456A;">内側から。</span>
+          植物の力で、<br/>
+          <span style="color: #2B7AB0;">からだは変わる。</span>
         </h2>
         <p class="mt-6 font-jp text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
-          肌のハリ、髪のツヤ、爪の強さ。<br/>
-          その材料は、毎日の食事の中にある。
+          気分の問題じゃない。<br/>
+          世界中の研究が、はっきり示している。
         </p>
       </div>
 
-      <div class="reveal mt-12 sm:mt-16 text-center">
-        <p class="font-jp font-bold text-ink text-[16px] sm:text-[18px]">気になるところを、選んでみて。</p>
+      <!-- Oji guiding -->
+      <div class="reveal mt-8 flex items-end gap-3 sm:gap-6">
+        <img src="/images/oji/oji_teaching.png" alt="ビーガン王子" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_explaining.png'"/>
+        <div class="bubble flex-1 mb-4">
+          <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
+            ここからは、ちょっと真面目な話。 でも安心して——全部、ちゃんとした研究にもとづいてるよ。 気になるカードをタップして、効果を見てみて！ 👆
+          </p>
+        </div>
       </div>
 
-      <!-- Beauty parts picker -->
-      <div id="beauty-grid" class="mt-6 grid grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto"></div>
+      <!-- Health benefit cards (accordion) -->
+      <div class="mt-8 space-y-4">
 
-      <div id="beauty-result" class="reveal mt-7 p-6 sm:p-8 rounded-2xl border-2 border-ink/15 min-h-[140px] flex items-center justify-center"
-           style="background: rgba(255,249,238,0.55);">
-        <p class="font-jp text-ink/55 text-[14px] sm:text-[15px] text-center">
-          ↑ 肌・髪・爪のどれかをタップしてみて。
-        </p>
+        <div class="hcard reveal is-open">
+          <div class="hcard-head"><span class="hcard-ico">🫀</span><div><div class="hcard-ttl">心臓と血管を、守る。</div><div class="hcard-sub">コレステロール・血圧・心臓病</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-body"><ul>
+            <li><strong>悪玉(LDL)コレステロールを下げる。</strong> 動物性の脂肪とコレステロールをやめると、LDLが下がる。 スタンフォード大の双子研究では、<strong>わずか8週間でLDLが約14%低下</strong>し、効果は4週間で現れはじめた。<a href="#src-cardio" class="src">5</a></li>
+            <li><strong>血圧を下げる。</strong> ベジタリアン食は収縮期血圧を<strong>平均で約5mmHg</strong>下げると報告。 脳卒中・高血圧のリスクを減らす。<a href="#src-bp" class="src">6</a></li>
+            <li><strong>心臓病のリスクを減らす。</strong> 全粒・ナッツ・豆が動脈を守り、冠動脈疾患のリスクを下げる。<a href="#src-chd" class="src">7</a></li>
+          </ul></div>
+        </div>
+
+        <div class="hcard reveal">
+          <div class="hcard-head"><span class="hcard-ico">⚖️</span><div><div class="hcard-ttl">代謝と体重を、整える。</div><div class="hcard-sub">血糖・ダイエット・代謝</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-body"><ul>
+            <li><strong>インスリン感受性を高める。</strong> まるごと植物は糖の吸収をゆるやかにする。 30万人規模の研究で、健康的な植物性食は<strong>2型糖尿病のリスクを下げる</strong>と確認された。<a href="#src-t2d" class="src">8</a></li>
+            <li><strong>無理のない減量。</strong> 植物性食はカロリー密度が低く、食物繊維で満腹が続く。 双子研究では植物性の側が平均で多く減量した。<a href="#src-cardio" class="src">5</a></li>
+            <li><strong>代謝を後押し。</strong> 植物中心の食事は体内の炎症を抑え、食後のエネルギー消費を支える。<a href="#src-inflam" class="src">15</a></li>
+          </ul></div>
+        </div>
+
+        <div class="hcard reveal">
+          <div class="hcard-head"><span class="hcard-ico">🛡️</span><div><div class="hcard-ttl">がんから、細胞を守る。</div><div class="hcard-sub">大腸がん・抗酸化・ホルモン</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-body"><ul>
+            <li><strong>大腸がんのリスクを下げる。</strong> 豆類・食物繊維をしっかり摂ると、大腸がんのリスクが<strong>約9〜18%下がる</strong>と報告。<a href="#src-fibcrc" class="src">9</a></li>
+            <li><strong>抗酸化成分が豊富。</strong> ビタミンA・C・Eが、細胞を傷つける活性酸素を中和する。</li>
+            <li><strong>ホルモンバランスを整える。</strong> 大豆（イソフラボン）を多くとり、体脂肪を低く保つことが、乳がん・前立腺がんのリスク低下と関連する。</li>
+          </ul></div>
+        </div>
+
+        <div class="hcard reveal">
+          <div class="hcard-head"><span class="hcard-ico">🌀</span><div><div class="hcard-ttl">腸を育て、炎症を鎮める。</div><div class="hcard-sub">腸内環境・関節の痛み</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-body"><ul>
+            <li><strong>腸内細菌を多様にする。</strong> 複雑な植物の繊維が、善玉菌のエサになる。<a href="#src-fiber" class="src">10</a></li>
+            <li><strong>関節の痛みをやわらげる。</strong> 全粒・植物中心の食事は炎症マーカーをはっきり下げ、関節の痛みを軽くすると報告されている。<a href="#src-multi" class="src">11</a></li>
+          </ul></div>
+        </div>
+
+        <div class="hcard reveal">
+          <div class="hcard-head"><span class="hcard-ico">✨</span><div><div class="hcard-ttl">肌・髪・爪を、つくる。</div><div class="hcard-sub">ハリ・ツヤ・強さ</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-body"><ul>
+            <li><strong>肌のハリを支える。</strong> コラーゲンづくりに欠かせない<strong>ビタミンC</strong>は、赤ピーマン・ブロッコリー・柑橘にたっぷり。<a href="#src-skin" class="src">14</a></li>
+            <li><strong>髪と爪の材料に。</strong> タンパク質・鉄・亜鉛が、大豆・レンズ豆・ナッツ・全粒から摂れる。</li>
+          </ul></div>
+        </div>
+
+        <div class="hcard reveal">
+          <div class="hcard-head"><span class="hcard-ico">⏳</span><div><div class="hcard-ttl">老化を、ゆるやかに。</div><div class="hcard-sub">細胞の若さ・長寿</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-body"><ul>
+            <li><strong>細胞の老化をゆるめる。</strong> 植物中心の生活習慣が、細胞の“寿命”を測るテロメアを保つことと関連する（オーニッシュ研究）。<a href="#src-telo" class="src">12</a></li>
+            <li><strong>長寿の食卓。</strong> かつて長寿日本一だった沖縄の伝統食は、芋・大豆・野菜が中心の“まるごと植物”だった。<a href="#src-oki" class="src">13</a></li>
+          </ul></div>
+        </div>
+
+        <div class="hcard reveal">
+          <div class="hcard-head"><span class="hcard-ico">⚡</span><div><div class="hcard-ttl">エネルギーが、上がる。</div><div class="hcard-sub">軽さ・回復力</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-body"><ul>
+            <li><strong>一日を、軽やかに。</strong> 炎症が減り、鉄分豊富な植物（豆・全粒・緑黄色野菜）が体を動かす燃料に。 多くのアスリートが「回復が速くなった」と語る。<a href="#src-inflam" class="src">15</a></li>
+          </ul></div>
+        </div>
+
+        <div class="hcard reveal">
+          <div class="hcard-head"><span class="hcard-ico">🌿</span><div><div class="hcard-ttl">便秘を、改善する。</div><div class="hcard-sub">毎日のスッキリ</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-body"><ul>
+            <li><strong>お通じをスムーズに。</strong> お肉・卵・乳製品の食物繊維はゼロ。 植物の食物繊維が、毎日のリズムを整える。<a href="#src-fiber" class="src">10</a></li>
+          </ul></div>
+        </div>
+
       </div>
 
+      <!-- Disclaimer -->
       <div class="reveal mt-10 note-box">
-        <p class="font-jp text-ink-soft text-[12.5px] sm:text-[14px] leading-[1.85]">
-          ビタミンCや抗酸化成分は、色の濃い野菜や果物にたっぷり。 こうした栄養が、肌や髪の<strong>調子・ハリ・ツヤ</strong>を支えると言われている。<a href="#src-2-1" class="src">4</a> （効果には個人差があり、特定の効能を保証するものではありません。）
+        <p class="font-jp text-ink-soft text-[12px] sm:text-[13.5px] leading-[1.9]">
+          効果や数値は、引用した研究で報告されたもの。 個人差があり、すべての人に同じ結果を約束するものではありません。 持病のある方、妊娠・授乳中の方、お子さま・ご高齢の方の食事は、医師や管理栄養士にご相談ください。 植物性中心の食事では、ビタミン B12 などを意識して補うと安心です。<a href="#src-b12" class="src">16</a>
         </p>
       </div>
 
     </div>
   </section>
   <!-- ═══════════════════════════════════════════════════════════════════════
-       ░  CHAPTER 3  ░  健やかさ  ░  Wellbeing + Okinawa
+       ░  CHAPTER 3  ░  おいしさ  ░  "Not just grass" — flip cards
        ═══════════════════════════════════════════════════════════════════════ -->
-  <section id="ch3" class="chapter px-6 sm:px-10"
-           data-chapter-num="03" data-chapter-label="健やかさ"
+  <section id="ch4" class="chapter px-6 sm:px-10"
+           data-chapter-num="03" data-chapter-label="おいしさ"
            style="background:
-             radial-gradient(ellipse at 90% 5%, rgba(108,149,96,0.20), transparent 55%),
+             radial-gradient(ellipse at 90% 5%, rgba(108,149,96,0.22), transparent 55%),
              radial-gradient(ellipse at 5% 95%, rgba(63,106,58,0.10), transparent 60%),
              #EEF5E9;">
 
     <div class="sticky-head">
       <div class="sticky-head__pill">
         <span class="sticky-head__num" style="background: #3F6A3A;">3</span>
-        健やかさ
-      </div>
-    </div>
-
-    <div class="max-w-3xl mx-auto">
-
-      <div class="reveal text-center">
-        <div class="inline-flex items-center gap-3" style="color: #3F6A3A;">
-          <span class="chapter-eyebrow__line"></span>
-          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">CHAPTER 03 ・ WELLBEING</span>
-          <span class="chapter-eyebrow__line"></span>
-        </div>
-        <h2 class="mt-5 font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
-          毎日を、<br/>
-          <span style="color: #3F6A3A;">軽やかに。</span>
-        </h2>
-        <p class="mt-6 font-jp text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
-          植物が得意なこと。 それは、体の調子を内側から整えること。
-        </p>
-      </div>
-
-      <!-- Soy isoflavone pop -->
-      <div class="reveal mt-12 sm:mt-16 sticker p-7 sm:p-10 text-center">
-        <div class="text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-3" style="color:#3F6A3A;">SOY ・ 大豆</div>
-        <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.85]">
-          大豆にとくに多い成分、<strong>イソフラボン</strong>。
-        </p>
-        <div class="mt-4 font-jp-display text-[30px] sm:text-[44px] leading-[1.25] text-ink">
-          大豆のタンパク質は、<br/>
-          <span data-pop="1" class="inline-block" style="color:#3F6A3A;">悪玉コレステロール</span>と<br/>
-          関連が報告されている。<a href="#src-3-1" class="src">6</a>
-        </div>
-        <p class="mt-5 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.8]">
-          豆腐・納豆・味噌・豆乳・枝豆——日本の食卓には、もともと大豆があふれてる。
-        </p>
-      </div>
-
-      <!-- Fiber -->
-      <div class="reveal mt-14 sm:mt-20 text-center">
-        <h3 class="font-jp-display text-[24px] sm:text-[34px] text-ink leading-[1.35]">
-          そして、<span style="color:#3F6A3A;">食物繊維</span>。
-        </h3>
-        <p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.85]">
-          お肉・お魚・卵・乳製品に含まれる食物繊維は——
-        </p>
-        <div class="mt-4 font-jp-display text-[64px] sm:text-[96px] leading-none" data-pop="1" style="color:#C9223A;">0g</div>
-        <p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.85]">
-          一方、植物にはたっぷり。 腸の調子を支えると言われている。<a href="#src-3-2" class="src">7</a>（100g あたりの食物繊維量）
-        </p>
-      </div>
-
-      <div class="mt-8 sm:mt-10 space-y-5 sm:space-y-6">
-        <div class="reveal">
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px]">オートミール</span>
-            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">9.4g</span>
-          </div>
-          <div class="bar-track"><div class="bar-fill" data-bar-target="94" style="background:#6C9560;"></div></div>
-        </div>
-        <div class="reveal">
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px]">大豆（ゆで）</span>
-            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">8.5g</span>
-          </div>
-          <div class="bar-track"><div class="bar-fill" data-bar-target="85" style="background:#6C9560;"></div></div>
-        </div>
-        <div class="reveal">
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px]">ごぼう</span>
-            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">5.7g</span>
-          </div>
-          <div class="bar-track"><div class="bar-fill" data-bar-target="57" style="background:#6C9560;"></div></div>
-        </div>
-        <div class="reveal">
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px]">アボカド</span>
-            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">5.6g</span>
-          </div>
-          <div class="bar-track"><div class="bar-fill" data-bar-target="56" style="background:#6C9560;"></div></div>
-        </div>
-        <div class="reveal">
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px]">ブロッコリー</span>
-            <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">5.1g</span>
-          </div>
-          <div class="bar-track"><div class="bar-fill" data-bar-target="51" style="background:#6C9560;"></div></div>
-        </div>
-      </div>
-
-      <!-- Okinawa rise & fall -->
-      <div class="reveal mt-16 sm:mt-24 text-center">
-        <div class="inline-flex items-center gap-3" style="color: #3F6A3A;">
-          <span class="chapter-eyebrow__line"></span>
-          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">OKINAWA ・ 何が変わった？</span>
-          <span class="chapter-eyebrow__line"></span>
-        </div>
-        <h3 class="mt-5 font-jp-display text-[26px] sm:text-[40px] text-ink leading-[1.3]">
-          かつて、<span style="color:#3F6A3A;">長寿日本一</span>だった島。
-        </h3>
-        <p class="mt-5 font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9] max-w-xl mx-auto">
-          沖縄の食卓は、もともと芋・大豆・野菜が中心。 世界の研究者が「長生きの秘密」を調べにきたほど。<a href="#src-3-5" class="src">10</a>
-        </p>
-      </div>
-
-      <div class="reveal mt-10 grid sm:grid-cols-2 gap-5 sm:gap-7 items-stretch">
-        <div class="compare-col" style="background:#F2F8EE;">
-          <div class="text-[12px] tracking-[0.16em] font-bold mb-3" style="color:#3F6A3A;">昔の沖縄</div>
-          <div class="text-[40px] mb-2">🍠</div>
-          <p class="font-jp text-ink-soft text-[14px] sm:text-[15px] leading-[1.85]">
-            芋・大豆・島野菜が中心の、軽やかな食事。 平均寿命は<strong>日本一</strong>。 百歳を超える人が、たくさんいた。
-          </p>
-        </div>
-        <div class="compare-col" style="background:#FCEFEC;">
-          <div class="text-[12px] tracking-[0.16em] font-bold mb-3" style="color:#C9223A;">今の沖縄</div>
-          <div class="text-[40px] mb-2">🍔</div>
-          <p class="font-jp text-ink-soft text-[14px] sm:text-[15px] leading-[1.85]">
-            お肉・揚げ物・加工食品が増え、食卓が大きく変化。 男性の平均寿命の<strong>順位は大きく低下</strong>した。<a href="#src-3-7" class="src">12</a>
-          </p>
-        </div>
-      </div>
-
-      <p class="reveal mt-8 font-jp-display text-[20px] sm:text-[26px] text-center text-ink leading-[1.5]">
-        変わったのは、遺伝でも気候でもない。<br/>
-        <span style="color:#3F6A3A;">毎日の、食卓。</span>
-      </p>
-
-      <!-- Disclaimer -->
-      <div class="reveal mt-12 note-box">
-        <p class="font-jp text-ink-soft text-[12px] sm:text-[13.5px] leading-[1.9]">
-          ※ このページは一般的な栄養の話題をまとめたもので、病気の診断・治療・予防を約束するものではありません。 持病のある方、妊娠・授乳中の方、お子さま・ご高齢の方の食事は、医師や管理栄養士にご相談ください。 植物性中心の食事では、ビタミン B12 などを意識して補うと安心です。<a href="#src-4-1" class="src">13</a>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       ░  CHAPTER 4  ░  おいしさ  ░  "Not just grass" — flip cards
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section id="ch4" class="chapter px-6 sm:px-10"
-           data-chapter-num="04" data-chapter-label="おいしさ"
-           style="background:
-             radial-gradient(ellipse at 90% 5%, rgba(232,199,111,0.26), transparent 55%),
-             radial-gradient(ellipse at 5% 95%, rgba(156,126,42,0.10), transparent 60%),
-             #FBF3DF;">
-
-    <div class="sticky-head">
-      <div class="sticky-head__pill">
-        <span class="sticky-head__num" style="background: #9C7E2A;">4</span>
         おいしさ
       </div>
     </div>
@@ -1230,26 +1164,29 @@
     <div class="max-w-3xl mx-auto">
 
       <div class="reveal text-center">
-        <div class="inline-flex items-center gap-3" style="color: #9C7E2A;">
+        <div class="inline-flex items-center gap-3" style="color: #3F6A3A;">
           <span class="chapter-eyebrow__line"></span>
-          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">CHAPTER 04 ・ DELICIOUS</span>
+          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">CHAPTER 03 ・ DELICIOUS</span>
           <span class="chapter-eyebrow__line"></span>
         </div>
         <h2 class="mt-5 font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
           ビーガン＝草、<br/>
-          <span style="color: #9C7E2A;">じゃない。</span>
+          <span style="color: #3F6A3A;">じゃない。</span>
         </h2>
         <p class="mt-6 font-jp text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
           我慢でも、修行でもない。<br/>
           好きなものは、たいてい植物性でつくれる。
         </p>
-        <div class="mt-7 flex justify-center">
-          <img src="/images/mascot/chef-cooking.png" alt="ビーガン王子 — 料理" class="w-32 sm:w-44 anim-bobble drop-shadow-[0_10px_24px_rgba(31,24,18,0.16)]" loading="lazy"
-               onerror="this.src='/images/oji/oji_happy.png'"/>
+      </div>
+
+      <!-- Oji guiding -->
+      <div class="reveal mt-8 flex items-end gap-3 sm:gap-6">
+        <img src="/images/mascot/chef-cooking.png" alt="ビーガン王子 — 料理" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_happy.png'"/>
+        <div class="bubble flex-1 mb-4">
+          <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
+            ここまでお疲れさま！ 最後はごほうび。 ぼくの大好きな料理を、植物性バージョンにしてみたよ。 カードをタップして、ひっくり返してみて！ 👆
+          </p>
         </div>
-        <p class="mt-6 font-jp font-bold text-ink text-[15px] sm:text-[17px]">
-          カードをタップして、ひっくり返してみて。 👆
-        </p>
       </div>
 
       <!-- Flip card grid (built by JS) -->
@@ -1537,38 +1474,34 @@
           </div>
 
           <div>
-            <h3 class="font-jp-display text-[14px] sm:text-[15px] mb-3" style="color: #B8456A;">美 ・ 美容</h3>
+            <h3 class="font-jp-display text-[14px] sm:text-[15px] mb-3" style="color: #C9223A;">栄養プロファイル比較（お肉 vs 代替肉 vs まるごと植物）</h3>
             <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker" start="4">
-              <li id="src-2-1"><span class="font-bold">4.</span> Pullar, J.M., Carr, A.C., Vissers, M.C.M. (2017). The Roles of Vitamin C in Skin Health. Nutrients, 9(8): 866.</li>
-              <li id="src-2-2"><span class="font-bold">5.</span> Park, K. (2015). Role of Micronutrients in Skin Health and Function. Biomolecules &amp; Therapeutics, 23(3): 207–217.</li>
+              <li id="src-greger"><span class="font-bold">4.</span> Greger, M. (2025). Are ultra-processed plant-based meats better than the alternative? <em>Clinical Nutrition Open Science</em>, 61: 241–252.（食物繊維・飽和脂肪・トランス脂肪の数値、糞便汚染・サルモネラ・ホルモン剤・発がん性分類・TMAO・乳化剤等の比較、たんぱく質充足93%超／食物繊維充足約6%。 本論文内の各引用に基づく。）</li>
             </ol>
           </div>
 
           <div>
-            <h3 class="font-jp-display text-[14px] sm:text-[15px] mb-3" style="color: #3F6A3A;">健やかさ ・ 大豆・食物繊維・沖縄</h3>
-            <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker" start="6">
-              <li id="src-3-1"><span class="font-bold">6.</span> Blanco Mejia, S. et al. (2019). A Meta-Analysis of 46 Studies Identified by the FDA Demonstrates that Soy Protein Decreases Circulating LDL and Total Cholesterol Concentrations in Adults. The Journal of Nutrition, 149(6): 968–981.</li>
-              <li id="src-3-2"><span class="font-bold">7.</span> Reynolds, A. et al. (2019). Carbohydrate quality and human health: a series of systematic reviews and meta-analyses. The Lancet, 393(10170): 434–445.</li>
-              <li id="src-3-3"><span class="font-bold">8.</span> Dinu, M. et al. (2017). Vegetarian, vegan diets and multiple health outcomes: a systematic review with meta-analysis of observational studies. Critical Reviews in Food Science and Nutrition, 57(17): 3640–3649.</li>
-              <li id="src-3-4"><span class="font-bold">9.</span> Satija, A. et al. (2017). Healthful and Unhealthful Plant-Based Diets and the Risk of Coronary Heart Disease in U.S. Adults. Journal of the American College of Cardiology, 70(4): 411–422.</li>
-              <li id="src-3-5"><span class="font-bold">10.</span> Willcox, D.C., Willcox, B.J., Todoriki, H., Suzuki, M. (2009). The Okinawan Diet: Health Implications of a Low-Calorie, Nutrient-Dense, Antioxidant-Rich Dietary Pattern Low in Glycemic Load. Journal of the American College of Nutrition, 28 Suppl: 500S–516S.</li>
-              <li id="src-3-6"><span class="font-bold">11.</span> Willcox, B.J. et al. (2007). Caloric Restriction, the Traditional Okinawan Diet, and Healthy Aging. Annals of the New York Academy of Sciences, 1114: 434–455.</li>
-              <li id="src-3-7"><span class="font-bold">12.</span> 厚生労働省「都道府県別生命表」— 沖縄県の平均寿命順位の推移（男性順位の大幅な低下、いわゆる「26ショック」を含む）。</li>
+            <h3 class="font-jp-display text-[14px] sm:text-[15px] mb-3" style="color: #2B7AB0;">健康効果 ・ 臨床研究にもとづく</h3>
+            <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker" start="5">
+              <li id="src-cardio"><span class="font-bold">5.</span> Gardner, C.D. et al. (2023). Cardiometabolic Effects of Omnivorous vs Vegan Diets in Identical Twins: A Randomized Clinical Trial（スタンフォード大・双子研究）. JAMA Network Open, 6(11): e2344457. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10690456/" target="_blank" rel="noopener" class="underline hover:text-ink">PMC10690456</a></li>
+              <li id="src-bp"><span class="font-bold">6.</span> Yokoyama, Y. et al. (2014). Vegetarian Diets and Blood Pressure: A Meta-analysis. JAMA Internal Medicine, 174(4): 577–587. <a href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/1832195" target="_blank" rel="noopener" class="underline hover:text-ink">jamanetwork.com</a></li>
+              <li id="src-chd"><span class="font-bold">7.</span> Satija, A. et al. (2017). Healthful and Unhealthful Plant-Based Diets and the Risk of Coronary Heart Disease in U.S. Adults. Journal of the American College of Cardiology, 70(4): 411–422.</li>
+              <li id="src-t2d"><span class="font-bold">8.</span> Qian, F. et al. (2019). Association Between Plant-Based Dietary Patterns and Risk of Type 2 Diabetes: A Systematic Review and Meta-analysis. JAMA Internal Medicine, 179(10): 1335–1344. <a href="https://pubmed.ncbi.nlm.nih.gov/31329220/" target="_blank" rel="noopener" class="underline hover:text-ink">PubMed 31329220</a></li>
+              <li id="src-fibcrc"><span class="font-bold">9.</span> Aune, D. et al. (2011). Dietary fibre, whole grains, and risk of colorectal cancer: systematic review and dose-response meta-analysis. BMJ, 343: d6617.</li>
+              <li id="src-fiber"><span class="font-bold">10.</span> Reynolds, A. et al. (2019). Carbohydrate quality and human health: a series of systematic reviews and meta-analyses. The Lancet, 393(10170): 434–445.</li>
+              <li id="src-multi"><span class="font-bold">11.</span> Dinu, M. et al. (2017). Vegetarian, vegan diets and multiple health outcomes: a systematic review with meta-analysis. Critical Reviews in Food Science and Nutrition, 57(17): 3640–3649.</li>
+              <li id="src-telo"><span class="font-bold">12.</span> Ornish, D. et al. (2013). Effect of comprehensive lifestyle changes on telomerase activity and telomere length. The Lancet Oncology, 14(11): 1112–1120.</li>
+              <li id="src-oki"><span class="font-bold">13.</span> Willcox, D.C. et al. (2009). The Okinawan Diet: Health Implications of a Low-Calorie, Nutrient-Dense, Antioxidant-Rich Dietary Pattern. Journal of the American College of Nutrition, 28 Suppl: 500S–516S.</li>
+              <li id="src-skin"><span class="font-bold">14.</span> Pullar, J.M., Carr, A.C., Vissers, M.C.M. (2017). The Roles of Vitamin C in Skin Health. Nutrients, 9(8): 866.</li>
+              <li id="src-inflam"><span class="font-bold">15.</span> MD Anderson Cancer Center — How a plant-based diet can reduce inflammation（がん専門機関の解説資料）.</li>
             </ol>
           </div>
 
           <div>
             <h3 class="font-jp-display text-[14px] sm:text-[15px] mb-3" style="color: #9C7E2A;">全世代 ・ 注意点</h3>
-            <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker" start="13">
-              <li id="src-4-1"><span class="font-bold">13.</span> Pawlak, R. et al. (2013). How prevalent is vitamin B12 deficiency among vegetarians? Nutrition Reviews, 71(2): 110–117.</li>
-              <li id="src-4-2"><span class="font-bold">14.</span> 本ページの内容は一般的な栄養情報であり、医療上の助言ではありません。 体調や持病・ライフステージに応じて、医師・管理栄養士にご相談ください。</li>
-            </ol>
-          </div>
-
-          <div>
-            <h3 class="font-jp-display text-[14px] sm:text-[15px] mb-3" style="color: #C9223A;">栄養プロファイル比較（お肉 vs 代替肉 vs まるごと植物）</h3>
-            <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker" start="15">
-              <li id="src-greger"><span class="font-bold">15.</span> Greger, M. (2025). Are ultra-processed plant-based meats better than the alternative? <em>Clinical Nutrition Open Science</em>, 61: 241–252.（食物繊維・飽和脂肪・トランス脂肪の数値、糞便汚染・サルモネラ・ホルモン剤・発がん性分類・TMAO・乳化剤等の比較、たんぱく質充足93%超／食物繊維充足約6%。 本論文内の各引用に基づく。）</li>
+            <ol class="space-y-2.5 text-ink-soft text-[12px] sm:text-[13px] leading-[1.65] font-jp ticker" start="16">
+              <li id="src-b12"><span class="font-bold">16.</span> Pawlak, R. et al. (2013). How prevalent is vitamin B12 deficiency among vegetarians? Nutrition Reviews, 71(2): 110–117.</li>
+              <li id="src-disc"><span class="font-bold">17.</span> 本ページの内容は一般的な栄養情報であり、医療上の助言ではありません。 体調や持病・ライフステージに応じて、医師・管理栄養士にご相談ください。</li>
             </ol>
           </div>
         </div>
@@ -1647,36 +1580,7 @@
       }
 
       // ───────── CH2 beauty parts picker ─────────
-      (function buildBeauty() {
-        const grid = document.getElementById('beauty-grid');
-        const result = document.getElementById('beauty-result');
-        if (!grid || !result) return;
-        const BEAUTY = [
-          { id: 'skin', emoji: '🌸', label: '肌', accent: '#B8456A', bg: 'rgba(251,239,243,0.7)',
-            msg: 'ハリのもとになるコラーゲンづくりには<strong>ビタミンC</strong>。 赤ピーマン・ブロッコリー・キウイ・柑橘にたっぷり。 抗酸化成分の多い色の濃い野菜も、肌の調子を支えると言われている。<a href="#src-2-1" class="src">4</a>' },
-          { id: 'hair', emoji: '💇', label: '髪', accent: '#9C7E2A', bg: 'rgba(251,243,223,0.7)',
-            msg: '髪の材料は<strong>タンパク質</strong>、そして<strong>鉄・亜鉛</strong>。 大豆・レンズ豆・全粒・ナッツ・かぼちゃの種から、しっかり摂れる。<a href="#src-2-2" class="src">5</a>' },
-          { id: 'nail', emoji: '💅', label: '爪', accent: '#3F6A3A', bg: 'rgba(238,245,233,0.7)',
-            msg: '爪を支えるのも<strong>タンパク質とミネラル</strong>。 豆類・全粒・緑の野菜をふだんから。 不足しがちな<strong>ビタミンB群</strong>も意識して。' },
-        ];
-        BEAUTY.forEach(b => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'pick-btn';
-          btn.setAttribute('aria-pressed', 'false');
-          btn.innerHTML = '<span class="pick-btn__emoji">' + b.emoji + '</span><span class="pick-btn__label">' + b.label + '</span>';
-          btn.addEventListener('click', () => {
-            grid.querySelectorAll('.pick-btn').forEach(x => x.setAttribute('aria-pressed', x === btn ? 'true' : 'false'));
-            result.style.background = b.bg;
-            result.innerHTML =
-              '<div class="text-center">' +
-                '<div class="text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-2" style="color:' + b.accent + ';">' + b.emoji + ' ' + b.label + '</div>' +
-                '<p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] max-w-md mx-auto">' + b.msg + '</p>' +
-              '</div>';
-          });
-          grid.appendChild(btn);
-        });
-      })();
+      // (former beauty-picker removed — the 美 chapter is now the 健康 benefit-cards section)
 
       // ───────── CH4 おいしさ flip cards ─────────
       (function buildFlips() {
@@ -1899,7 +1803,7 @@
       const quizShareX = document.getElementById('quiz-share-x');
       const quizShareLine = document.getElementById('quiz-share-line');
       const quizShareToast = document.getElementById('quiz-share-toast');
-      const QUIZ_TITLES = ['力', '美容', '健やかさ', '長寿と食'];
+      const QUIZ_TITLES = ['力', 'お肌', '大豆', '長寿'];
 
       function gradeFor(score) {
         if (score === 4) return { pose: '/images/oji/oji_excited.png', title: 'パーフェクト！', sub: 'もう立派なビーガン王子の右腕。 友達にも教えてあげて。' };
@@ -1986,6 +1890,7 @@
       document.querySelectorAll('.dex').forEach(function(c){ c.addEventListener('click', function(){ c.classList.toggle('is-flipped'); }); });
       document.querySelectorAll('.pola').forEach(function(c){ c.addEventListener('click', function(){ c.classList.toggle('is-open'); }); });
       document.querySelectorAll('.diffrow-head').forEach(function(h){ h.addEventListener('click', function(){ h.parentElement.classList.toggle('is-open'); }); });
+      document.querySelectorAll('.hcard-head').forEach(function(h){ h.addEventListener('click', function(){ h.parentElement.classList.toggle('is-open'); }); });
     })();
   </script>
 
