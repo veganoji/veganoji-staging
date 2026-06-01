@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>畜産 vs 全交通機関 — Lab</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Hachi+Maru+Pop&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+
+    @theme {
+      --color-paper:       #FFF9EE;
+      --color-paper-soft:  #FDF1DA;
+      --color-ink:         #1F1812;
+      --color-ink-soft:    #3C2E22;
+      --color-muted:       #786148;
+      --color-royal:       #C9223A;
+      --color-royal-deep:  #9C1428;
+      --color-gold:        #D4A847;
+      --color-gold-deep:   #9C7E2A;
+      --color-leaf:        #6C9560;
+      --color-leaf-deep:   #3F6A3A;
+      --color-sky:         #B5D5E8;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+      --font-hand:         "Hachi Maru Pop", "Noto Sans JP", sans-serif;
+    }
+
+    html, body { background: #F1ECDB; color: var(--color-ink); }
+    body { font-family: var(--font-noto-sans-jp); -webkit-font-smoothing: antialiased; }
+    .font-jp         { font-family: var(--font-noto-sans-jp); }
+    .font-jp-display { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+    .display-tight   { letter-spacing: -0.035em; line-height: 0.94; }
+    .ticker { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+    .anim-bobble { animation: bobble 4.5s ease-in-out infinite; }
+    @keyframes bobble {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    .sticker {
+      background: var(--color-paper);
+      border: 2.5px solid var(--color-ink);
+      border-radius: 24px;
+      box-shadow: 8px 8px 0 var(--color-ink);
+    }
+
+    /* ──────────────────────────────────────────────────────────────────
+       VARIANT 1 — MASSIVE NUMERIC SHOWDOWN
+       Two huge percentages face off. Bars below show the bias. Minimal,
+       most quickly readable. Punchy.
+       ────────────────────────────────────────────────────────────────── */
+    .v1-num {
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 0.85;
+      font-variant-numeric: tabular-nums;
+    }
+    .v1-bar-track {
+      height: 22px;
+      background: rgba(31,24,18,0.08);
+      border: 2px solid var(--color-ink);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .v1-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      width: 0;
+      animation: v1Bar 1.6s 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    @keyframes v1Bar { to { width: var(--w, 100%); } }
+
+    /* ──────────────────────────────────────────────────────────────────
+       VARIANT 2 — TWO PROPORTIONAL SMOKE CLOUDS
+       Smoke cloud sizes drawn to scale. Livestock cloud bigger and darker.
+       Items sit underneath. Animated in.
+       ────────────────────────────────────────────────────────────────── */
+    .v2-cloud {
+      position: relative;
+      filter: drop-shadow(0 6px 10px rgba(31,24,18,0.12));
+      animation: v2Float 5s ease-in-out infinite;
+    }
+    @keyframes v2Float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-4px); }
+    }
+    .v2-cloud--livestock {
+      width: 240px; height: 180px;
+      background:
+        radial-gradient(ellipse at 20% 60%, #6B6258 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 40%, #786E62 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 70%, #6B6258 0%, transparent 50%),
+        radial-gradient(ellipse at 40% 30%, #847868 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 60%, #6B6258 0%, transparent 60%);
+    }
+    .v2-cloud--transport {
+      width: 200px; height: 140px;
+      opacity: 0.78;
+      background:
+        radial-gradient(ellipse at 30% 55%, #BAB2A8 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 45%, #C9C2B8 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 70%, #BAB2A8 0%, transparent 55%);
+    }
+    @media (min-width: 640px) {
+      .v2-cloud--livestock { width: 320px; height: 240px; }
+      .v2-cloud--transport { width: 260px; height: 180px; }
+    }
+    .v2-cloud-label {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 900;
+      color: var(--color-paper);
+      font-size: 36px;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+    @media (min-width: 640px) {
+      .v2-cloud-label { font-size: 52px; }
+    }
+
+    /* ──────────────────────────────────────────────────────────────────
+       VARIANT 3 — STACKED ICON TOWERS
+       Each row = 1% of global GHG. Livestock tower is taller. Animated
+       stack-up (rows fade in from bottom).
+       ────────────────────────────────────────────────────────────────── */
+    .v3-tower {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 4px;
+    }
+    .v3-row {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .v3-row.is-in { opacity: 1; transform: translateY(0); }
+    .v3-row__emoji { font-size: 28px; line-height: 1; }
+    @media (min-width: 640px) { .v3-row__emoji { font-size: 36px; } }
+    .v3-cap {
+      margin-top: 8px;
+      padding: 6px 14px;
+      background: var(--color-ink);
+      color: var(--color-paper);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+    .v3-cap--accent { background: var(--color-royal); }
+  </style>
+</head>
+<body class="text-ink">
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <header class="px-6 sm:px-10 py-10 sm:py-14 border-b-2 border-ink/15">
+    <div class="max-w-5xl mx-auto">
+      <a href="/vegan-to-chikyu/" class="font-jp text-[12px] sm:text-[13px] text-ink/55 tracking-[0.12em] hover:text-ink-soft">
+        ← /vegan-to-chikyu/ に戻る
+      </a>
+      <h1 class="mt-4 font-jp-display text-[32px] sm:text-[52px] display-tight text-ink leading-[1.05]">
+        畜産 vs 全交通機関<br/>
+        <span class="text-royal-deep">3つの可視化案。</span>
+      </h1>
+      <p class="mt-5 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] max-w-2xl">
+        「畜産の温室効果ガスは、世界の飛行機・船・車・電車を合わせたよりも多い」——
+        現状はてんびんで表現していて可愛いけど、ぱっと見で差が伝わりにくい。
+        この lab では3つの方向で再設計してみた：<br/>
+        ① 巨大な数字対決　② 比率にあわせた煙雲ふたつ　③ 1% = 1段の積み上げタワー
+      </p>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 1 — MASSIVE NUMERIC SHOWDOWN
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20 border-b-2 border-ink/15">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7 flex items-end justify-between gap-4">
+        <div>
+          <div class="text-[11px] sm:text-[12px] tracking-[0.18em] text-royal-deep font-bold mb-1">VARIANT 1</div>
+          <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">巨大な数字対決</h2>
+        </div>
+        <div class="text-[12px] sm:text-[13px] text-ink-soft font-jp text-right max-w-xs">
+          一瞬で読める。<br/>
+          数字の大きさそのものが説得力。
+        </div>
+      </div>
+
+      <div class="sticker p-7 sm:p-10 relative">
+        <div class="absolute -top-5 left-7 sm:left-10 px-3 py-1 rounded-full text-paper text-[11px] sm:text-[12px] tracking-[0.16em]"
+             style="background: #C9223A; border: 2px solid var(--color-ink);">
+          KEY FACT
+        </div>
+
+        <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9] text-center sm:text-left">
+          全世界の温室効果ガスのうち——
+        </p>
+
+        <div class="mt-7 sm:mt-9 grid grid-cols-2 gap-3 sm:gap-8 items-center">
+          <!-- Livestock side -->
+          <div class="text-center">
+            <img src="/images/vegan-to-chikyu/icon-livestock-group.png" alt="" class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 anim-bobble" loading="lazy"/>
+            <div class="v1-num text-[80px] sm:text-[140px] text-royal" style="color: #C9223A;">14.5<span class="text-[34px] sm:text-[54px] ml-1">%</span></div>
+            <div class="mt-2 font-jp text-[13px] sm:text-[15px] font-bold text-ink">畜産</div>
+          </div>
+          <!-- Transport side -->
+          <div class="text-center">
+            <img src="/images/vegan-to-chikyu/icon-transport-mix.png" alt="" class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 anim-bobble" style="animation-delay:-2s;" loading="lazy"/>
+            <div class="v1-num text-[80px] sm:text-[140px] text-ink/55">14.0<span class="text-[34px] sm:text-[54px] ml-1">%</span></div>
+            <div class="mt-2 font-jp text-[13px] sm:text-[15px] font-bold text-ink/70">全交通機関</div>
+          </div>
+        </div>
+
+        <!-- Direct comparison bars -->
+        <div class="mt-8 sm:mt-10 space-y-3.5 sm:space-y-4">
+          <div>
+            <div class="flex items-baseline justify-between mb-1.5">
+              <span class="font-jp text-[13px] sm:text-[15px] text-ink font-bold">畜産</span>
+              <span class="font-jp-display ticker text-[14px] sm:text-[17px]" style="color: #C9223A;">14.5%</span>
+            </div>
+            <div class="v1-bar-track">
+              <div class="v1-bar-fill" style="--w: 100%; background: #C9223A;"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-baseline justify-between mb-1.5">
+              <span class="font-jp text-[13px] sm:text-[15px] text-ink">飛行機・船・車・電車 ぜんぶ</span>
+              <span class="font-jp-display ticker text-[14px] sm:text-[17px] text-ink/65">14.0%</span>
+            </div>
+            <div class="v1-bar-track">
+              <div class="v1-bar-fill" style="--w: 96.5%; background: #786148;"></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-7 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center sm:text-left">
+          畜産は、地球上の<span class="font-bold">すべての乗り物</span>を合わせたより、<br class="hidden sm:block"/>
+          <span class="font-bold" style="color: #C9223A;">少し多い</span>。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 2 — TWO PROPORTIONAL SMOKE CLOUDS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20 border-b-2 border-ink/15">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7 flex items-end justify-between gap-4">
+        <div>
+          <div class="text-[11px] sm:text-[12px] tracking-[0.18em] text-royal-deep font-bold mb-1">VARIANT 2</div>
+          <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">比率にあわせた煙雲ふたつ</h2>
+        </div>
+        <div class="text-[12px] sm:text-[13px] text-ink-soft font-jp text-right max-w-xs">
+          煙の大きさが、そのまま量。<br/>
+          ふわっと浮く演出付き。
+        </div>
+      </div>
+
+      <div class="sticker p-7 sm:p-10 relative">
+        <div class="absolute -top-5 left-7 sm:left-10 px-3 py-1 rounded-full text-paper text-[11px] sm:text-[12px] tracking-[0.16em]"
+             style="background: #C9223A; border: 2px solid var(--color-ink);">
+          KEY FACT
+        </div>
+
+        <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9] text-center sm:text-left">
+          動物畜産による温室効果ガスは、<br/>
+          世界の<span class="font-bold">飛行機・船・車・電車</span>を全部合わせたよりも——
+        </p>
+
+        <div class="mt-8 sm:mt-12 grid grid-cols-2 gap-4 sm:gap-8 items-end">
+          <!-- Livestock — bigger cloud -->
+          <div class="flex flex-col items-center">
+            <div class="v2-cloud v2-cloud--livestock">
+              <div class="v2-cloud-label">14.5%</div>
+            </div>
+            <img src="/images/vegan-to-chikyu/icon-livestock-group.png" alt="" class="w-20 h-20 sm:w-28 sm:h-28 -mt-2 anim-bobble" loading="lazy"/>
+            <div class="mt-2 font-jp text-[14px] sm:text-[16px] font-bold text-ink">畜産</div>
+          </div>
+          <!-- Transport — smaller cloud -->
+          <div class="flex flex-col items-center">
+            <div class="v2-cloud v2-cloud--transport" style="animation-delay:-2.5s;">
+              <div class="v2-cloud-label">14%</div>
+            </div>
+            <img src="/images/vegan-to-chikyu/icon-transport-mix.png" alt="" class="w-20 h-20 sm:w-28 sm:h-28 -mt-2 anim-bobble" style="animation-delay:-1.5s;" loading="lazy"/>
+            <div class="mt-2 font-jp text-[14px] sm:text-[16px] font-bold text-ink/70">全交通機関</div>
+          </div>
+        </div>
+
+        <p class="mt-7 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center">
+          <span class="font-bold" style="color: #C9223A;">畜産のほうが、ちょっとだけ多い。</span><br/>
+          <span class="text-ink/65">乗り物ぜんぶより——食卓のほうが大きいなんて。</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VARIANT 3 — STACKED ICON TOWERS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-7 flex items-end justify-between gap-4">
+        <div>
+          <div class="text-[11px] sm:text-[12px] tracking-[0.18em] text-royal-deep font-bold mb-1">VARIANT 3</div>
+          <h2 class="font-jp-display text-[24px] sm:text-[32px] text-ink leading-[1.2]">1% = 1段の積み上げタワー</h2>
+        </div>
+        <div class="text-[12px] sm:text-[13px] text-ink-soft font-jp text-right max-w-xs">
+          各段=1%。<br/>
+          積み上がる動きで差が見える。
+        </div>
+      </div>
+
+      <div class="sticker p-7 sm:p-10 relative">
+        <div class="absolute -top-5 left-7 sm:left-10 px-3 py-1 rounded-full text-paper text-[11px] sm:text-[12px] tracking-[0.16em]"
+             style="background: #C9223A; border: 2px solid var(--color-ink);">
+          KEY FACT
+        </div>
+
+        <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9] text-center sm:text-left">
+          1段 = 世界の温室効果ガス 1% ぶん——<br/>
+          積み上げるとこんなふうに：
+        </p>
+
+        <div class="mt-8 sm:mt-10 grid grid-cols-2 gap-6 sm:gap-12 items-end">
+          <!-- Livestock tower — 14.5 rows -->
+          <div class="flex flex-col items-center">
+            <div class="v3-tower" id="v3-tower-livestock"></div>
+            <div class="v3-cap v3-cap--accent">畜産 14.5%</div>
+          </div>
+          <!-- Transport tower — 14 rows -->
+          <div class="flex flex-col items-center">
+            <div class="v3-tower" id="v3-tower-transport"></div>
+            <div class="v3-cap">全交通 14%</div>
+          </div>
+        </div>
+
+        <p class="mt-7 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center">
+          畜産タワーがちょっとだけ高い。<br/>
+          <span class="text-ink/65">食卓の重さが、世界の乗り物 ぜんぶ より重いんだ。</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="px-6 sm:px-10 py-10 text-center text-ink/55 text-[12px] sm:text-[13px] font-jp">
+    どれが好み？選んだらメインの <a href="/vegan-to-chikyu/" class="underline hover:text-ink-soft">/vegan-to-chikyu/</a> に統合します。
+  </footer>
+
+  <script>
+    (function () {
+      // Build the V3 stacked towers — each row is 1% of global GHG.
+      // Livestock: 14.5 rows (last row half-emoji); transport: 14 rows.
+      function buildTower(el, emoji, fullRows, halfRow) {
+        if (!el) return;
+        const rows = [];
+        for (let i = 0; i < fullRows; i++) {
+          const r = document.createElement('div');
+          r.className = 'v3-row';
+          r.innerHTML = '<span class="v3-row__emoji">' + emoji + '</span>';
+          el.appendChild(r);
+          rows.push(r);
+        }
+        if (halfRow) {
+          const r = document.createElement('div');
+          r.className = 'v3-row';
+          r.style.opacity = '0';
+          // Half a slice to indicate the .5
+          r.innerHTML = '<span class="v3-row__emoji" style="filter: grayscale(0.2); opacity: 0.55;">' + emoji + '</span>';
+          el.appendChild(r);
+          rows.push(r);
+        }
+        return rows;
+      }
+
+      const livestockRows = buildTower(document.getElementById('v3-tower-livestock'), '🐄', 14, true);
+      const transportRows = buildTower(document.getElementById('v3-tower-transport'),
+        '🚗', 14, false);
+      // Cycle through transport icons (✈🚢🚗🚂) for visual richness
+      const transportEmojis = ['🚗', '✈️', '🚢', '🚂'];
+      transportRows.forEach((r, i) => {
+        r.querySelector('.v3-row__emoji').textContent = transportEmojis[i % transportEmojis.length];
+      });
+
+      // Reveal-from-bottom on scroll
+      function staggerIn(rows, delay) {
+        rows.forEach((r, i) => setTimeout(() => r.classList.add('is-in'), delay + i * 90));
+      }
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              if (e.target.id === 'v3-tower-livestock') staggerIn(livestockRows, 100);
+              if (e.target.id === 'v3-tower-transport') staggerIn(transportRows, 300);
+              observer.unobserve(e.target);
+            }
+          }
+        }, { threshold: 0.2 });
+        const lv = document.getElementById('v3-tower-livestock');
+        const tr = document.getElementById('v3-tower-transport');
+        if (lv) observer.observe(lv);
+        if (tr) observer.observe(tr);
+      } else {
+        staggerIn(livestockRows, 100);
+        staggerIn(transportRows, 300);
+      }
+    })();
+  </script>
+
+</body>
+</html>

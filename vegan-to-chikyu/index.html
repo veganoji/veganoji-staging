@@ -410,12 +410,12 @@
     .food-btn {
       position: relative;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 4px;
-      padding: 10px 8px;
+      gap: 1px;
+      padding: 6px 6px 5px;
       background: var(--color-paper);
-      border: 2.5px solid var(--color-ink);
-      border-radius: 18px;
-      box-shadow: 4px 4px 0 var(--color-ink);
+      border: 2px solid var(--color-ink);
+      border-radius: 14px;
+      box-shadow: 3px 3px 0 var(--color-ink);
       cursor: pointer;
       font-family: var(--font-noto-sans-jp);
       transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.2s ease;
@@ -424,31 +424,31 @@
     .food-btn:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
     .food-btn[aria-pressed="true"] {
       background: #DDEEF8;
-      box-shadow: 4px 4px 0 #1B5C8B;
+      box-shadow: 3px 3px 0 #1B5C8B;
       border-color: #1B5C8B;
     }
     .food-btn img {
-      width: 64px; height: 64px;
+      width: 42px; height: 42px;
       object-fit: contain;
       pointer-events: none;
     }
     @media (min-width: 640px) {
-      .food-btn img { width: 80px; height: 80px; }
+      .food-btn img { width: 56px; height: 56px; }
     }
     .food-btn__label {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       color: var(--color-ink);
-      line-height: 1.25;
+      line-height: 1.2;
       text-align: center;
     }
     @media (min-width: 640px) {
-      .food-btn__label { font-size: 12px; }
+      .food-btn__label { font-size: 11px; }
     }
     .food-btn__kind {
       position: absolute;
-      top: 5px; right: 5px;
-      width: 10px; height: 10px;
+      top: 4px; right: 4px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       border: 1.5px solid var(--color-ink);
     }
@@ -684,24 +684,25 @@
     }
     .stat-row {
       display: grid;
-      grid-template-columns: 28px 1fr auto;
+      grid-template-columns: 36px 1fr auto;
       align-items: center;
-      gap: 14px;
-      padding: 14px 0;
+      gap: 12px;
+      padding: 12px 0;
       border-bottom: 1px dotted rgba(31,24,18,0.18);
     }
     .stat-row:last-child { border-bottom: none; }
     .stat-row__icon { font-size: 22px; text-align: center; line-height: 1; }
+    .stat-row__img { width: 36px; height: 36px; object-fit: contain; display: block; }
     .stat-row__label {
       font-family: var(--font-noto-sans-jp);
       font-weight: 700;
       font-size: 14px;
       letter-spacing: 0.04em;
       color: var(--color-ink);
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
     .stat-bar {
-      height: 18px;
+      height: 26px;
       background: rgba(31,24,18,0.08);
       border: 2px solid var(--color-ink);
       border-radius: 999px;
@@ -725,10 +726,11 @@
     }
     .stat-row__val small { font-size: 13px; color: rgba(31,24,18,0.55); margin-left: 2px; font-weight: 700; }
     @media (min-width: 640px) {
-      .stat-row { grid-template-columns: 34px 1fr auto; gap: 18px; padding: 16px 0; }
+      .stat-row { grid-template-columns: 44px 1fr auto; gap: 16px; padding: 14px 0; }
       .stat-row__icon { font-size: 28px; }
+      .stat-row__img { width: 44px; height: 44px; }
       .stat-row__label { font-size: 16px; }
-      .stat-bar { height: 22px; }
+      .stat-bar { height: 32px; }
       .stat-row__val { font-size: 26px; min-width: 92px; }
       .stat-row__val small { font-size: 14px; }
     }
@@ -1169,7 +1171,6 @@
             <div class="font-jp font-bold text-ink text-[13px] sm:text-[15px] mt-2 whitespace-nowrap">全交通機関</div>
           </div>
         </div>
-        <p class="mt-3 font-jp text-ink/55 text-[12px] sm:text-[13px] text-center">下にスクロールして、てんびんを動かしてみよう</p>
       </div>
 
       <!-- Methane 28x + N2O 265x: the multiplier shocker -->
@@ -1200,17 +1201,38 @@
         </div>
       </div>
 
-      <!-- Comparison: hybrid car vs vegan -->
+      <!-- Comparative impact chart — 6 lifestyle moves ranked by CO₂ savings
+           per year. The top row (vegan/plant-based) wins by a wide margin.
+           Bars animate from 0 → target via the global [data-bar-target] IO. -->
       <div class="reveal mt-14 sm:mt-20 sticker p-6 sm:p-10">
         <h3 class="font-jp-display text-[22px] sm:text-[32px] leading-[1.4] text-ink">
           <span style="color: #C9223A;">じゃあ、私には何ができる？</span>
         </h3>
         <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.8]">
-          二つの行動を、温室効果ガスで比べてみよう。
+          いろんな行動を、1年あたりの温室効果ガス削減量で並べてみると——<br/>
+          食事を変えるのが、いちばん大きい。
         </p>
 
-        <div class="mt-7 sm:mt-9 space-y-6">
-          <!-- Hybrid bar -->
+        <div class="mt-7 sm:mt-9 space-y-5 sm:space-y-6">
+          <!-- ★ Plant-based diet — THE WINNER. Highlighted card-like row. -->
+          <div class="p-3.5 sm:p-4 -mx-2 sm:-mx-3 rounded-2xl border-2 border-ink relative"
+               style="background: rgba(248,220,220,0.55); box-shadow: 4px 4px 0 var(--color-royal-deep);">
+            <div class="absolute -top-2.5 right-3 sm:right-4 px-2 py-0.5 rounded-full text-paper text-[10px] sm:text-[11px] tracking-[0.16em] font-bold"
+                 style="background: var(--color-royal-deep);">
+              いちばん大きい
+            </div>
+            <div class="flex items-baseline justify-between mb-2">
+              <div class="flex items-center gap-2.5">
+                <img src="/images/vegan-to-chikyu/icon-leaf-vegan.png" alt="" class="w-10 h-10 sm:w-12 sm:h-12" loading="lazy"/>
+                <span class="font-jp text-[14px] sm:text-[16px] text-ink font-bold">一日一食、植物性に変える</span>
+              </div>
+              <span class="font-jp-display ticker text-[20px] sm:text-[26px] font-bold" style="color: #9C1428;">-1.5 t/年</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" data-bar-target="100" style="background: #C9223A;"></div>
+            </div>
+          </div>
+          <!-- Hybrid car -->
           <div>
             <div class="flex items-baseline justify-between mb-2">
               <div class="flex items-center gap-2.5">
@@ -1220,28 +1242,66 @@
               <span class="font-jp-display ticker text-[18px] sm:text-[22px] text-ink/80">-1.0 t/年</span>
             </div>
             <div class="bar-track">
-              <div class="bar-fill" data-bar-target="66" style="background: #E55063;"></div>
+              <div class="bar-fill" data-bar-target="67" style="background: #E55063;"></div>
             </div>
           </div>
-          <!-- Vegan bar -->
+          <!-- Skip 1 international flight -->
           <div>
             <div class="flex items-baseline justify-between mb-2">
               <div class="flex items-center gap-2.5">
-                <img src="/images/vegan-to-chikyu/icon-leaf-vegan.png" alt="" class="w-9 h-9 sm:w-11 sm:h-11" loading="lazy"/>
-                <span class="font-jp text-[14px] sm:text-[16px] text-ink">一食、植物性に変える</span>
+                <span class="text-[28px] sm:text-[34px] leading-none w-9 sm:w-11 text-center">✈️</span>
+                <span class="font-jp text-[14px] sm:text-[16px] text-ink">海外旅行を 1往復 減らす</span>
               </div>
-              <span class="font-jp-display ticker text-[18px] sm:text-[22px]" style="color: #9C1428;">-1.5 t/年</span>
+              <span class="font-jp-display ticker text-[18px] sm:text-[22px] text-ink/80">-1.0 t/回</span>
             </div>
             <div class="bar-track">
-              <div class="bar-fill" data-bar-target="100" style="background: #C9223A;"></div>
+              <div class="bar-fill" data-bar-target="67" style="background: #C9532C;"></div>
+            </div>
+          </div>
+          <!-- Bike to work -->
+          <div>
+            <div class="flex items-baseline justify-between mb-2">
+              <div class="flex items-center gap-2.5">
+                <span class="text-[28px] sm:text-[34px] leading-none w-9 sm:w-11 text-center">🚴</span>
+                <span class="font-jp text-[14px] sm:text-[16px] text-ink">毎日 自転車で通勤(10km)</span>
+              </div>
+              <span class="font-jp-display ticker text-[18px] sm:text-[22px] text-ink/80">-0.5 t/年</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" data-bar-target="33" style="background: #D4A847;"></div>
+            </div>
+          </div>
+          <!-- Short shower -->
+          <div>
+            <div class="flex items-baseline justify-between mb-2">
+              <div class="flex items-center gap-2.5">
+                <img src="/images/vegan-to-chikyu/icon-shower.png" alt="" class="w-9 h-9 sm:w-11 sm:h-11" loading="lazy"/>
+                <span class="font-jp text-[14px] sm:text-[16px] text-ink">シャワーを 2分 短く</span>
+              </div>
+              <span class="font-jp-display ticker text-[18px] sm:text-[22px] text-ink/65">-0.15 t/年</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" data-bar-target="10" style="background: #5BA0CE;"></div>
+            </div>
+          </div>
+          <!-- Recycle -->
+          <div>
+            <div class="flex items-baseline justify-between mb-2">
+              <div class="flex items-center gap-2.5">
+                <span class="text-[28px] sm:text-[34px] leading-none w-9 sm:w-11 text-center">♻️</span>
+                <span class="font-jp text-[14px] sm:text-[16px] text-ink">リサイクルを 徹底</span>
+              </div>
+              <span class="font-jp-display ticker text-[18px] sm:text-[22px] text-ink/65">-0.10 t/年</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" data-bar-target="7" style="background: #6C9560;"></div>
             </div>
           </div>
         </div>
 
-        <p class="mt-7 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85]">
-          一日一食、植物性に変えていくだけで、<br/>
-          <span class="font-bold" style="color: #C9223A;">毎年1.5トン</span> の温室効果ガスが減らせる。<a href="#src-1-4" class="src">4</a><br/>
-          ハイブリッド車に乗り換えるより、ちょっと多いんだ。
+        <p class="mt-7 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center">
+          毎日のごはんは、いちばん身近で、いちばん大きな <span class="font-bold" style="color: #C9223A;">1 アクション</span>。<br/>
+          <span class="text-ink/65">他をぜんぶ合わせるより、食事ひとつのほうが大きいんだ。</span>
         </p>
 
         <!-- Optional deeper facts — collapsed by default so the section
@@ -1470,7 +1530,7 @@
           <div class="grid sm:grid-cols-[1fr_auto] gap-5 sm:gap-7 items-center">
             <div>
               <h3 class="font-jp-display text-[22px] sm:text-[28px] leading-[1.4] text-ink mb-3">
-                海ごみの<span class="font-bold ticker" style="color: #1B5C8B;"> およそ45% </span>は、<br class="hidden sm:block"/>
+                海ごみの<span class="font-bold" style="color: #1B5C8B;">およそ45%</span>は、<br class="hidden sm:block"/>
                 捨てられた<span style="color: #2B7AB0;">漁網や漁具</span>。
               </h3>
               <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] mb-4">
@@ -1483,8 +1543,8 @@
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6 L10 6 M6 2 L10 6 L6 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
               </a>
             </div>
-            <img src="/images/vegan-to-chikyu/icon-fishing-net.png" alt=""
-                 class="w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0 flex-shrink-0 anim-bobble"
+            <img src="/images/vegan-to-chikyu/icon-fishing-gear-bundle.png" alt="漁網と漁具"
+                 class="w-28 h-28 sm:w-36 sm:h-36 mx-auto sm:mx-0 flex-shrink-0 anim-bobble"
                  loading="lazy"/>
           </div>
         </div>
@@ -1492,22 +1552,23 @@
 
       <!-- INTERACTIVE FOOD PICKER — tap to see water footprint per item.
            Animal items show the wow-factor in baths/showers; plant items
-           frame the savings relative to a comparable animal product. -->
-      <div class="reveal mt-12 sm:mt-16 sticker p-6 sm:p-10">
-        <h3 class="font-jp-display text-[22px] sm:text-[32px] leading-[1.35] text-ink text-center">
+           frame the savings relative to a comparable animal product.
+           Designed compact so all 12 buttons + result fit on one phone screen. -->
+      <div class="reveal mt-12 sm:mt-16 sticker p-5 sm:p-8">
+        <h3 class="font-jp-display text-[20px] sm:text-[28px] leading-[1.3] text-ink text-center">
           <span style="color: #2B7AB0;">タップして</span>、調べてみよう
         </h3>
-        <p class="mt-2 font-jp text-ink-soft text-[13px] sm:text-[15px] text-center leading-[1.75]">
+        <p class="mt-1.5 font-jp text-ink-soft text-[12px] sm:text-[14px] text-center leading-[1.6]">
           1つ作るのに、どれくらいの水が必要？
         </p>
 
-        <!-- 12-item grid (3 per row mobile, 4 per row sm+) -->
-        <div id="food-grid" class="mt-7 sm:mt-9 grid grid-cols-3 sm:grid-cols-4 gap-2.5 sm:gap-3.5"></div>
+        <!-- 12-item grid — 4 per row even on mobile so it stays compact -->
+        <div id="food-grid" class="mt-5 sm:mt-7 grid grid-cols-4 sm:grid-cols-6 gap-2 sm:gap-2.5"></div>
 
         <!-- Result panel — populated on click -->
-        <div id="food-result" class="mt-7 p-5 sm:p-7 rounded-2xl border-2 border-ink/15"
-             style="background: rgba(255,249,238,0.7); min-height: 130px;">
-          <div class="text-center text-ink-soft font-jp text-[13px] sm:text-[14px] leading-[1.7]">
+        <div id="food-result" class="mt-5 p-4 sm:p-6 rounded-2xl border-2 border-ink/15"
+             style="background: rgba(255,249,238,0.7); min-height: 110px;">
+          <div class="text-center text-ink-soft font-jp text-[12px] sm:text-[13px] leading-[1.6]">
             ↑ 上の食べ物をタップして、お水の量を見てみよう。
           </div>
         </div>
@@ -1612,58 +1673,84 @@
         </p>
       </div>
 
-      <!-- KEY: 30% of Earth -->
+      <!-- KEY: 30% of Earth — surprised Oji intro + chibi visual + bar
+           comparison directly showing 畜産地 > Moon in area. -->
       <div class="reveal mt-14 sm:mt-20 sticker p-6 sm:p-10 relative">
         <div class="absolute -top-5 left-6 sm:left-10 px-3 py-1 rounded-full text-paper text-[11px] sm:text-[12px] tracking-[0.16em]"
              style="background: #C9532C; border: 2px solid var(--color-ink);">
           KEY FACT
         </div>
 
-        <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9]">
-          動物畜産が使っている、地球の土地。
-        </p>
-        <div class="mt-6 sm:mt-8 flex items-baseline gap-2 flex-wrap">
-          <div data-count-target="30" data-count-suffix="%" data-pop="1" class="big-number ticker text-[96px] sm:text-[170px] inline-block" style="color: #C9532C;">0%</div>
-          <span class="font-jp-display text-[24px] sm:text-[36px] text-ink/80 ml-2">の土地。<a href="#src-3-1" class="src">16</a></span>
+        <!-- Surprised Oji + reframed heading -->
+        <div class="grid sm:grid-cols-[auto_1fr] gap-5 sm:gap-7 items-center">
+          <img src="/images/oji/oji_surprised.png"
+               alt="ビーガン王子 — 驚き"
+               class="w-24 sm:w-32 mx-auto sm:mx-0 flex-shrink-0 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.18)]"
+               loading="lazy"/>
+          <div class="text-center sm:text-left">
+            <div class="text-[11px] sm:text-[12px] tracking-[0.18em] font-bold mb-1" style="color: #C9532C;">ちょっとびっくり……</div>
+            <h3 class="font-jp-display text-[20px] sm:text-[28px] leading-[1.4] text-ink">
+              地球の<span style="color: #C9532C;">30%</span>が、<br class="sm:hidden"/>畜産で使われている。
+            </h3>
+          </div>
         </div>
 
-        <!-- Globe stage: pie + Asia + moon -->
-        <div class="mt-8 sm:mt-12">
-          <div class="grid sm:grid-cols-3 gap-6 items-center">
-            <!-- Earth — chibi globe with a 30% wedge inset overlay.
-                 Sized larger than the moon so the "Earth's 30% > Moon"
-                 claim is felt at a glance. -->
-            <div class="flex flex-col items-center">
-              <div class="relative anim-bobble">
-                <img src="/images/vegan-to-chikyu/icon-earth-detailed.png" alt="" class="w-52 sm:w-64" loading="lazy"/>
-                <!-- Coral wedge overlay covering 30% of the globe -->
-                <div class="absolute pointer-events-none" style="
-                  inset: 8%;
-                  border-radius: 50%;
-                  background: conic-gradient(
-                    rgba(201,83,44,0.55) 0deg 108deg,
-                    transparent 108deg 360deg);
-                  mix-blend-mode: multiply;
-                "></div>
-              </div>
-              <div class="mt-3 text-center font-jp text-[13px] sm:text-[14px] text-ink/70">地球の<span class="font-bold" style="color: #C9532C;">30%</span></div>
+        <!-- Big animating percent -->
+        <div class="mt-6 sm:mt-8 flex items-baseline gap-2 flex-wrap justify-center sm:justify-start">
+          <div data-count-target="30" data-count-suffix="%" data-pop="1" class="big-number ticker text-[96px] sm:text-[170px] inline-block leading-none" style="color: #C9532C;">0%</div>
+          <span class="font-jp-display text-[20px] sm:text-[30px] text-ink/80 ml-2">の土地。<a href="#src-3-1" class="src">16</a></span>
+        </div>
+
+        <!-- Earth + bar-comparison + Moon. The bars are sized so 畜産地
+             clearly overruns 月 — the "bigger than the moon" message is
+             carried by the bar geometry, not a ">". -->
+        <div class="mt-8 sm:mt-10 grid sm:grid-cols-[auto_1fr_auto] gap-5 sm:gap-7 items-center">
+          <!-- Earth chibi with 30% wedge overlay -->
+          <div class="flex flex-col items-center">
+            <div class="relative anim-bobble">
+              <img src="/images/vegan-to-chikyu/icon-earth-detailed.png" alt="" class="w-32 sm:w-44" loading="lazy"/>
+              <div class="absolute pointer-events-none" style="
+                inset: 8%;
+                border-radius: 50%;
+                background: conic-gradient(
+                  rgba(201,83,44,0.55) 0deg 108deg,
+                  transparent 108deg 360deg);
+                mix-blend-mode: multiply;
+              "></div>
             </div>
-            <!-- equals -->
-            <div class="flex flex-col items-center text-center">
-              <div class="font-jp-display text-[28px] sm:text-[40px] text-ink mb-2">＞</div>
-              <div class="font-jp-display text-[20px] sm:text-[26px] leading-[1.4]" style="color: #C9532C;">
-                約4,403万 km²
+            <div class="mt-2 text-center font-jp text-[12px] sm:text-[13px] text-ink/70">地球</div>
+          </div>
+
+          <!-- Bar comparison — animates as the card enters view via
+               the global [data-bar-target] / [data-count-target] observers. -->
+          <div class="space-y-4 sm:space-y-5">
+            <div>
+              <div class="flex items-baseline justify-between mb-1.5">
+                <span class="font-jp text-[13px] sm:text-[15px] text-ink font-bold">畜産地</span>
+                <span class="font-jp-display ticker text-[16px] sm:text-[20px]" style="color: #C9532C;">4,403万 km²</span>
               </div>
-              <div class="mt-2 font-jp text-[12px] sm:text-[14px] text-ink/65 leading-[1.7]">
-                アジア大陸とほぼ同じ。<br/>
-                <span class="font-bold">月(3,793万km²)</span>より、大きい。
+              <div class="bar-track" style="height: 22px;">
+                <div class="bar-fill" data-bar-target="100" style="background: #C9532C;"></div>
               </div>
             </div>
-            <!-- Moon comparison (intentionally smaller than the earth) -->
-            <div class="flex flex-col items-center">
-              <img src="/images/vegan-to-chikyu/icon-moon.png" alt="" class="w-24 sm:w-32 anim-bobble" loading="lazy" style="animation-delay:-2s;"/>
-              <div class="mt-3 text-center font-jp text-[13px] sm:text-[14px] text-ink/70">月</div>
+            <div>
+              <div class="flex items-baseline justify-between mb-1.5">
+                <span class="font-jp text-[13px] sm:text-[15px] text-ink">月</span>
+                <span class="font-jp-display ticker text-[16px] sm:text-[20px] text-ink/65">3,793万 km²</span>
+              </div>
+              <div class="bar-track" style="height: 22px;">
+                <div class="bar-fill" data-bar-target="86" style="background: #786148;"></div>
+              </div>
             </div>
+            <p class="font-jp text-ink-soft text-[12px] sm:text-[13px] leading-[1.6] text-center sm:text-left">
+              畜産で使われる土地の方が、<span class="font-bold" style="color: #C9532C;">月より広い</span>。
+            </p>
+          </div>
+
+          <!-- Moon -->
+          <div class="flex flex-col items-center">
+            <img src="/images/vegan-to-chikyu/icon-moon.png" alt="" class="w-20 sm:w-28 anim-bobble" loading="lazy" style="animation-delay:-2s;"/>
+            <div class="mt-2 text-center font-jp text-[12px] sm:text-[13px] text-ink/70">月</div>
           </div>
         </div>
       </div>
@@ -1695,17 +1782,18 @@
           <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] text-center leading-[1.7]">直感で選んでみて。</p>
         </div>
 
-        <!-- Reveal block — shown after correct answer -->
+        <!-- Reveal block — shown after correct answer. Number + bar animate
+             from 0 → target on reveal (see click handler in script). -->
         <div id="ch3-cq-reveal" class="mt-6 grid sm:grid-cols-2 gap-5 sm:gap-7" style="display: none;">
           <div>
             <div class="text-[11px] sm:text-[12px] tracking-[0.18em] text-ink/55 mb-2">畜産が使っている農地</div>
-            <div class="big-number ticker text-[58px] sm:text-[80px]" style="color: #C9532C;">80%</div>
-            <div class="bar-track mt-3"><div class="bar-fill" style="width: 80%; background: #C9532C;"></div></div>
+            <div class="big-number ticker text-[58px] sm:text-[80px]" data-count-target="80" data-count-suffix="%" style="color: #C9532C;">0%</div>
+            <div class="bar-track mt-3"><div class="bar-fill" data-bar-target="80" style="background: #C9532C;"></div></div>
           </div>
           <div>
             <div class="text-[11px] sm:text-[12px] tracking-[0.18em] text-ink/55 mb-2">産み出されるカロリー</div>
-            <div class="big-number ticker text-[58px] sm:text-[80px] text-ink/70">20%</div>
-            <div class="bar-track mt-3"><div class="bar-fill" style="width: 20%; background: var(--color-leaf);"></div></div>
+            <div class="big-number ticker text-[58px] sm:text-[80px] text-ink/70" data-count-target="20" data-count-suffix="%">0%</div>
+            <div class="bar-track mt-3"><div class="bar-fill" data-bar-target="20" style="background: var(--color-leaf);"></div></div>
           </div>
           <p class="sm:col-span-2 mt-2 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85]">
             こんな大きな土地を使っているのに、世界のカロリーの<span class="font-bold">2割</span>しか産まない。<a href="#src-3-2" class="src">17</a><br/>
@@ -1806,17 +1894,23 @@
         </p>
 
         <div class="mt-8 sm:mt-10 grid sm:grid-cols-2 gap-4">
-          <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink/15" style="background: rgba(255,249,238,0.6);">
-            <div class="font-jp-display text-[18px] sm:text-[22px] ticker" style="color: #C9532C;">40億トン / 年</div>
-            <p class="mt-1 font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.7]">
-              2030年までに動物畜産が出す排泄物の予測。<a href="#src-2-8" class="src">14</a>
-            </p>
+          <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink/15 flex items-center gap-4" style="background: rgba(255,249,238,0.6);">
+            <img src="/images/vegan-to-chikyu/icon-poo.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0" loading="lazy"/>
+            <div>
+              <div class="font-jp-display text-[18px] sm:text-[22px] ticker" style="color: #C9532C;">40億トン / 年</div>
+              <p class="mt-1 font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.6]">
+                2030年までの予測。<a href="#src-2-8" class="src">14</a>
+              </p>
+            </div>
           </div>
-          <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink/15" style="background: rgba(255,249,238,0.6);">
-            <div class="font-jp-display text-[18px] sm:text-[22px] ticker" style="color: #C9532C;">8,545 万トン</div>
-            <p class="mt-1 font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.7]">
-              日本で1996年時点の、動物からの排泄物。<a href="#src-2-9" class="src">15</a>
-            </p>
+          <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink/15 flex items-center gap-4" style="background: rgba(255,249,238,0.6);">
+            <img src="/images/vegan-to-chikyu/icon-poo.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0" loading="lazy"/>
+            <div>
+              <div class="font-jp-display text-[18px] sm:text-[22px] ticker" style="color: #C9532C;">8,545 万トン</div>
+              <p class="mt-1 font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.6]">
+                日本 1996年時点の量。<a href="#src-2-9" class="src">15</a>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -2032,22 +2126,14 @@
           </div>
         </div>
 
-        <!-- 100:1 dot visualization — directly shows the magnitude.
-             Left: 100 sage dots in a 10x10 grid (proportional to plant).
-             Right: 1 lone purple dot at the same scale. -->
-        <div id="land-dot-stage" class="mt-8 grid grid-cols-[1fr_auto_1fr] gap-3 sm:gap-5 items-end p-5 sm:p-6 rounded-2xl border-2 border-ink/15"
-             style="background: rgba(255,249,238,0.6); min-height: 220px;">
-          <div class="text-center">
-            <div id="land-plant-dots" class="grid mx-auto"
-                 style="grid-template-columns: repeat(10, 1fr); gap: 3px; max-width: 200px;"></div>
-            <div class="mt-3 font-jp text-[12px] sm:text-[13px] text-ink/70">🌱 植物 <span class="font-bold">100</span></div>
-          </div>
-          <div class="self-center text-ink/35 font-jp-display text-[20px] sm:text-[24px] pb-4">vs</div>
-          <div class="text-center">
-            <div id="land-meat-dots" class="grid mx-auto"
-                 style="grid-template-columns: 1fr; gap: 3px; width: 17px;"></div>
-            <div class="mt-3 font-jp text-[12px] sm:text-[13px] text-ink/70">🍖 お肉 <span class="font-bold" style="color: #4B3666;">1</span></div>
-          </div>
+        <!-- Custom visual: overflowing veg basket vs tiny lonely meat cut.
+             The size asymmetry IS the message — 100x more food from plants. -->
+        <div class="mt-8 flex justify-center items-center px-4 py-2 rounded-2xl border-2 border-ink/15"
+             style="background: rgba(255,249,238,0.6);">
+          <img src="/images/vegan-to-chikyu/icon-land-veg-vs-meat.png"
+               alt="同じ土地で作れる植物性食品の量と牛肉の量の比較"
+               class="w-full max-w-md anim-bobble"
+               loading="lazy"/>
         </div>
         <p class="mt-4 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.75] text-center">
           ほぼ <span class="font-bold">100倍</span> ものちがい。<a href="#src-4-9" class="src">30</a><br/>
@@ -2243,58 +2329,49 @@
         </p>
       </div>
 
-      <!-- Compact pill diet picker — V3-style. Meat selected by default so
-           users see the HIGH usage first, then watch numbers collapse as
-           they click toward ビーガン (especially 0匹 lives). -->
-      <div class="reveal mt-8 sm:mt-10 text-center">
-        <div class="font-jp text-ink-soft text-[14px] sm:text-[15px] mb-4">
-          普段のお肉の頻度は？
-        </div>
-        <div class="diet-pills">
-          <button type="button" class="diet-opt" data-diet="meat" aria-pressed="true">
-            <span class="diet-opt__emoji">🍖</span><span class="diet-opt__label">毎食お肉</span>
-          </button>
-          <button type="button" class="diet-opt" data-diet="mixed" aria-pressed="false">
-            <span class="diet-opt__emoji">🍱</span><span class="diet-opt__label">週に数回</span>
-          </button>
-          <button type="button" class="diet-opt" data-diet="veggie" aria-pressed="false">
-            <span class="diet-opt__emoji">🥗</span><span class="diet-opt__label">ほぼベジ</span>
-          </button>
-          <button type="button" class="diet-opt" data-diet="vegan" aria-pressed="false">
-            <span class="diet-opt__emoji">🌱</span><span class="diet-opt__label">ビーガン</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Result card — Oji trading-card style with speech bubble + animated bars -->
-      <div class="reveal mt-10 sm:mt-12">
-        <div id="share-card" class="share-card p-6 sm:p-9">
+      <!-- Result card — picker now lives INSIDE for a unified, compact layout. -->
+      <div class="reveal mt-8 sm:mt-10">
+        <div id="share-card" class="share-card p-5 sm:p-7">
           <div class="relative z-10">
 
-            <h3 class="font-jp-display text-[22px] sm:text-[30px] leading-[1.35] text-ink text-center sm:text-left mb-6">
-              一週間で、これだけ地球を使ってる。
-            </h3>
-
-            <!-- Oji + speech bubble row -->
-            <div class="flex items-center justify-center sm:justify-start gap-3 sm:gap-5 mb-6">
-              <div class="oji-bubble" id="result-bubble">毎日お肉、おつかれさま。</div>
+            <!-- Heading + Oji + bubble together at the top -->
+            <div class="flex items-start gap-3 sm:gap-5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-jp-display text-[20px] sm:text-[28px] leading-[1.3] text-ink">
+                  一週間で、<br/>これだけ地球を使ってる。
+                </h3>
+                <div class="oji-bubble mt-3" id="result-bubble">毎日お肉、おつかれさま。</div>
+              </div>
               <div class="oji-portrait">
                 <img id="result-oji" src="/images/oji/oji_thinking.png" alt="ビーガン王子" loading="lazy"/>
               </div>
             </div>
 
-            <!-- Diet banner pill -->
-            <div class="mb-5 text-center sm:text-left">
-              <span class="diet-banner">
-                <span id="result-diet-emoji">🍖</span>
-                <span id="result-diet-label">毎食お肉</span>
-              </span>
+            <!-- Compact diet picker inside the card -->
+            <div class="mt-5 sm:mt-6 text-center">
+              <div class="font-jp text-ink-soft text-[12px] sm:text-[13px] mb-2.5">
+                普段のお肉の頻度は？
+              </div>
+              <div class="diet-pills">
+                <button type="button" class="diet-opt" data-diet="meat" aria-pressed="true">
+                  <span class="diet-opt__emoji">🍖</span><span class="diet-opt__label">毎食お肉</span>
+                </button>
+                <button type="button" class="diet-opt" data-diet="mixed" aria-pressed="false">
+                  <span class="diet-opt__emoji">🍱</span><span class="diet-opt__label">週に数回</span>
+                </button>
+                <button type="button" class="diet-opt" data-diet="veggie" aria-pressed="false">
+                  <span class="diet-opt__emoji">🥗</span><span class="diet-opt__label">ほぼベジ</span>
+                </button>
+                <button type="button" class="diet-opt" data-diet="vegan" aria-pressed="false">
+                  <span class="diet-opt__emoji">🌱</span><span class="diet-opt__label">ビーガン</span>
+                </button>
+              </div>
             </div>
 
-            <!-- 4 stat rows with animated bars -->
-            <div>
+            <!-- 4 stat rows with animated bars and custom icons -->
+            <div class="mt-5 sm:mt-6">
               <div class="stat-row">
-                <div class="stat-row__icon">💨</div>
+                <img class="stat-row__img" src="/images/vegan-to-chikyu/icon-co2-cloud.png" alt=""/>
                 <div>
                   <div class="stat-row__label">CO₂</div>
                   <div class="stat-bar"><span id="result-bar-co2" style="width: 100%; background: #C9223A;"></span></div>
@@ -2304,7 +2381,7 @@
                 </div>
               </div>
               <div class="stat-row">
-                <div class="stat-row__icon">💧</div>
+                <img class="stat-row__img" src="/images/vegan-to-chikyu/icon-water-drop.png" alt=""/>
                 <div>
                   <div class="stat-row__label">お水</div>
                   <div class="stat-bar"><span id="result-bar-water" style="width: 100%; background: #2B7AB0;"></span></div>
@@ -2314,7 +2391,7 @@
                 </div>
               </div>
               <div class="stat-row">
-                <div class="stat-row__icon">🌍</div>
+                <img class="stat-row__img" src="/images/vegan-to-chikyu/icon-globe-earth.png" alt=""/>
                 <div>
                   <div class="stat-row__label">土地</div>
                   <div class="stat-bar"><span id="result-bar-land" style="width: 100%; background: #C9532C;"></span></div>
@@ -2324,7 +2401,7 @@
                 </div>
               </div>
               <div class="stat-row">
-                <div class="stat-row__icon">🐾</div>
+                <img class="stat-row__img" src="/images/vegan-to-chikyu/icon-livestock-group.png" alt=""/>
                 <div>
                   <div class="stat-row__label">いのち</div>
                   <div class="stat-bar"><span id="result-bar-animals" style="width: 100%; background: #6B4E8C;"></span></div>
@@ -2335,7 +2412,7 @@
               </div>
             </div>
 
-            <p class="mt-6 font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.75] text-center" id="result-tagline">
+            <p class="mt-4 sm:mt-5 font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7] text-center" id="result-tagline">
               これが、毎日のごはんが地球に乗せている重さ。
             </p>
           </div>
@@ -2864,13 +2941,13 @@
             result.style.background = accentBg;
             result.innerHTML =
               '<div class="text-center">' +
-                '<div class="text-[11px] sm:text-[12px] tracking-[0.16em] font-bold mb-2" style="color:' + accent + ';">' +
+                '<div class="text-[10px] sm:text-[11px] tracking-[0.16em] font-bold mb-1.5" style="color:' + accent + ';">' +
                   (f.kind === 'animal' ? 'ANIMAL' : 'PLANT') + ' ・ ' + f.label +
                 '</div>' +
-                '<div class="font-jp-display ticker text-[44px] sm:text-[60px] leading-none" style="color:' + accent + ';">' +
+                '<div class="font-jp-display ticker text-[34px] sm:text-[48px] leading-none" style="color:' + accent + ';">' +
                   litresStr +
                 '</div>' +
-                '<p class="mt-4 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.75]">' +
+                '<p class="mt-2 font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.65]">' +
                   f.msg +
                 '</p>' +
               '</div>';
@@ -2944,55 +3021,6 @@
         }
       })();
 
-      // ───────── 100-vs-1 land productivity dots ─────────
-      //   For "同じ土地でも、作れる量はぜんぜん違う" — replaces the
-      //   invisible 99% bar with a stark visual: 100 sage dots vs 1 lone
-      //   purple dot. Both populate with a staggered fade when scrolled in.
-      const landPlantDots = document.getElementById('land-plant-dots');
-      const landMeatDots  = document.getElementById('land-meat-dots');
-      if (landPlantDots && landMeatDots) {
-        let landDotsRendered = false;
-        function renderLandDots() {
-          if (landDotsRendered) return;
-          landDotsRendered = true;
-          // Plant — 100 dots, staggered fade
-          const plantFrag = document.createDocumentFragment();
-          for (let i = 0; i < 100; i++) {
-            const d = document.createElement('div');
-            d.style.aspectRatio = '1 / 1';
-            d.style.borderRadius = '50%';
-            d.style.border = '1.2px solid var(--color-ink)';
-            d.style.background = '#6C9560';
-            d.style.opacity = '0';
-            d.style.transition = 'opacity 0.4s ease-out';
-            plantFrag.appendChild(d);
-            setTimeout(() => { d.style.opacity = '1'; }, 50 + i * 8);
-          }
-          landPlantDots.appendChild(plantFrag);
-          // Meat — single dot, fades in at the very end for dramatic pause
-          const m = document.createElement('div');
-          m.style.aspectRatio = '1 / 1';
-          m.style.borderRadius = '50%';
-          m.style.border = '1.5px solid var(--color-ink)';
-          m.style.background = '#4B3666';
-          m.style.boxShadow = '0 0 0 3px rgba(75,54,102,0.30)';
-          m.style.opacity = '0';
-          m.style.transition = 'opacity 0.5s ease-out';
-          landMeatDots.appendChild(m);
-          setTimeout(() => { m.style.opacity = '1'; }, 1000);
-        }
-        const landStage = document.getElementById('land-dot-stage');
-        if ('IntersectionObserver' in window && landStage) {
-          const landIO = new IntersectionObserver((entries) => {
-            for (const e of entries) {
-              if (e.isIntersecting) { renderLandDots(); landIO.unobserve(landStage); }
-            }
-          }, { threshold: 0.15 });
-          landIO.observe(landStage);
-        } else {
-          renderLandDots();
-        }
-      }
 
       // ───────── CH3 Amazon-deforestation quiz + live counter ─────────
       //   Correct answer reveals the 9割 fact AND starts a counter that
@@ -3056,6 +3084,16 @@
               reveal.style.display = '';
               // Disable other buttons.
               cq.querySelectorAll('.ch3-cq-opt').forEach(o => { if (o !== opt) o.disabled = true; });
+              // Kick off the 80% / 20% number + bar animations now that the
+              // reveal is on screen (they were waiting for it to render).
+              reveal.querySelectorAll('[data-count-target]').forEach(el => {
+                el.dataset.counted = '0';
+                if (typeof animateCounter === 'function') animateCounter(el);
+              });
+              reveal.querySelectorAll('[data-bar-target]').forEach(el => {
+                el.dataset.filled = '0';
+                if (typeof fillBar === 'function') fillBar(el);
+              });
             } else {
               opt.dataset.state = 'wrong';
               feedback.innerHTML = '<p class="font-jp text-[14px] sm:text-[15px] text-center" style="color: #9C1428;">もう一度トライ！ ヒント：思っているより、ずっと少ないかも……</p>';
@@ -3290,8 +3328,6 @@
       const resultWater = document.getElementById('result-water');
       const resultLand  = document.getElementById('result-land');
       const resultAnimals = document.getElementById('result-animals');
-      const resultDietLabel = document.getElementById('result-diet-label');
-      const resultDietEmoji = document.getElementById('result-diet-emoji');
       const resultTagline = document.getElementById('result-tagline');
       const resultBubble  = document.getElementById('result-bubble');
       const resultOji     = document.getElementById('result-oji');
@@ -3307,9 +3343,7 @@
         resultWater.textContent = fmt(d.water);
         resultLand.textContent  = d.land.toLocaleString('ja-JP');
         resultAnimals.textContent = d.animals;
-        resultDietLabel.textContent = d.label;
-        if (resultDietEmoji) resultDietEmoji.textContent = d.emoji;
-        if (resultBubble)    resultBubble.textContent    = d.bubble;
+        if (resultBubble) resultBubble.textContent = d.bubble;
         if (resultOji) {
           resultOji.style.opacity = '0';
           setTimeout(() => {
