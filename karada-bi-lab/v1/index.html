@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V1 内も外も、美しく — 美チャプター案</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+    @theme {
+      --color-paper: #FFF9EE; --color-paper-soft: #FDF1DA; --color-ink: #1F1812; --color-ink-soft: #3C2E22; --color-muted: #786148;
+      --color-royal: #C9223A; --color-leaf: #6C9560; --color-leaf-deep: #3F6A3A; --color-gold-deep: #9C7E2A;
+      --color-blush: #F2A8C0; --color-blush-deep: #B8456A;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+    html, body { background: var(--color-paper); color: var(--color-ink); }
+    body { font-family: var(--font-noto-sans-jp); font-feature-settings: "palt"; -webkit-font-smoothing: antialiased; }
+    .font-jp-display { font-weight: 900; }
+    .display-tight { letter-spacing:-0.035em; line-height:0.94; }
+    button, [class*="btn-"] { font-family: var(--font-noto-sans-jp) !important; font-weight:700 !important; }
+    @keyframes bobble { 0%,100% { transform: translateY(0) rotate(-1deg);} 50% { transform: translateY(-10px) rotate(1deg);} }
+    .anim-bobble { animation: bobble 5s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce){ .anim-bobble{ animation:none;} }
+    .reveal { opacity:0; transform: translateY(20px); transition: opacity .9s ease-out, transform .9s ease-out; }
+    .reveal.is-visible { opacity:1; transform:none; }
+    .src { color: var(--color-muted); text-decoration:none; font-size:.62em; vertical-align:super; line-height:0; padding:0 2px; border-bottom:1px dotted var(--color-muted); }
+    .sticker { background: var(--color-paper); border:2.5px solid var(--color-ink); border-radius:20px; box-shadow:6px 6px 0 var(--color-ink); }
+    .sticker-soft { background: var(--color-paper); border:2px solid var(--color-ink); border-radius:18px; box-shadow:4px 4px 0 var(--color-ink); }
+    .note-box { border:2px dashed var(--color-muted); border-radius:16px; background: rgba(255,249,238,.6); padding:16px 18px; }
+    .labtag { position:fixed; top:12px; left:12px; z-index:50; background: var(--color-ink); color: var(--color-paper); font-weight:900; font-size:12px; padding:8px 14px; border-radius:999px; box-shadow:3px 3px 0 var(--color-blush-deep); }
+    .bubble { position:relative; background: var(--color-paper); border:2.5px solid var(--color-ink); border-radius:18px; box-shadow:4px 4px 0 var(--color-ink); padding:16px 18px; }
+    .bubble::after { content:''; position:absolute; left:34px; bottom:-13px; width:20px; height:20px; background: var(--color-paper); border-right:2.5px solid var(--color-ink); border-bottom:2.5px solid var(--color-ink); transform: rotate(45deg); }
+    .pick-btn { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:16px 10px 14px; background: var(--color-paper); border:2.5px solid var(--color-ink); border-radius:18px; box-shadow:4px 4px 0 var(--color-ink); cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, background .2s ease, color .2s ease; width:100%; }
+    .pick-btn:hover { transform: translate(2px,2px); box-shadow:2px 2px 0 var(--color-ink); }
+    .pick-btn[aria-pressed="true"] { background: var(--color-ink); color: var(--color-paper); box-shadow:4px 4px 0 var(--color-blush-deep); }
+    .pick-emoji { font-size:30px; line-height:1; } .pick-label { font-size:13px; font-weight:700; }
+    .seg { display:inline-flex; border:2.5px solid var(--color-ink); border-radius:999px; overflow:hidden; box-shadow:4px 4px 0 var(--color-ink); }
+    .seg button { padding:10px 22px; font-size:14px; font-weight:900; background: var(--color-paper); color: var(--color-ink); border:none; cursor:pointer; }
+    .seg button[aria-pressed="true"] { background: var(--color-blush-deep); color: var(--color-paper); }
+    .ecard { border:2px solid var(--color-ink); border-radius:16px; box-shadow:4px 4px 0 var(--color-ink); background: var(--color-paper); overflow:hidden; }
+    .ecard-head { display:flex; align-items:center; gap:12px; padding:16px 18px; cursor:pointer; }
+    .ecard .body { display:none; padding:0 18px 18px; font-size:13px; line-height:1.8; color: var(--color-ink-soft); }
+    .ecard.is-open .body { display:block; }
+    .ecard .chev { margin-left:auto; transition: transform .25s ease; }
+    .ecard.is-open .chev { transform: rotate(180deg); }
+  </style>
+</head>
+<body class="antialiased">
+  <a href="/karada-bi-lab/" class="labtag">◂ V1 内も外も ・ 案を切り替え</a>
+
+  <section class="px-6 sm:px-10 pt-24 pb-24 sm:pt-28 sm:pb-32"
+           style="background: radial-gradient(ellipse at 90% 5%, rgba(242,168,192,.22), transparent 55%), radial-gradient(ellipse at 5% 95%, rgba(184,69,106,.10), transparent 60%), #FBEFF3;">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="reveal text-center">
+        <div class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold" style="color:#B8456A;">CHAPTER 02 ・ BEAUTY</div>
+        <h2 class="mt-4 font-jp-display display-tight text-[34px] sm:text-[58px] text-ink leading-[1.06]">
+          美しさは、<span style="color:#B8456A;">内も外も。</span>
+        </h2>
+        <p class="mt-6 text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
+          肌・髪・爪の「外側の美」。 そして、体の調子という「内側の美」。<br/>どちらも、毎日の食事から生まれる。
+        </p>
+      </div>
+
+      <!-- Segmented toggle -->
+      <div class="reveal mt-10 flex justify-center">
+        <div class="seg" role="tablist">
+          <button id="tab-outer" aria-pressed="true">🌸 外側の美</button>
+          <button id="tab-inner" aria-pressed="false">🌿 内側の美</button>
+        </div>
+      </div>
+
+      <!-- OUTER -->
+      <div id="panel-outer" class="mt-10">
+        <p class="reveal text-center font-jp font-bold text-ink text-[16px] sm:text-[18px]">気になるところを、選んでみて。</p>
+        <div id="beauty-grid" class="reveal mt-6 grid grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto"></div>
+        <div id="beauty-result" class="reveal mt-7 p-6 sm:p-8 rounded-2xl border-2 border-ink/15 min-h-[140px] flex items-center justify-center" style="background: rgba(255,249,238,.55);">
+          <p class="font-jp text-ink/55 text-[14px] sm:text-[15px] text-center">↑ 肌・髪・爪のどれかをタップしてみて。</p>
+        </div>
+        <div class="reveal mt-8 note-box">
+          <p class="text-ink-soft text-[12.5px] sm:text-[14px] leading-[1.85]">
+            ビタミンCや抗酸化成分は、色の濃い野菜や果物にたっぷり。 こうした栄養が、肌や髪の<strong>調子・ハリ・ツヤ</strong>を支えると言われている。<a href="#s1" class="src">1</a>（効果には個人差があります。）
+          </p>
+        </div>
+      </div>
+
+      <!-- INNER -->
+      <div id="panel-inner" class="mt-10" style="display:none;">
+        <div class="reveal flex items-end gap-3 sm:gap-6">
+          <img src="/images/oji/oji_thinking.png" alt="ビーガン王子" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,.16)]" loading="lazy" onerror="this.src='/images/oji/oji_explaining.png'"/>
+          <div class="bubble flex-1 mb-4">
+            <p class="text-ink text-[14px] sm:text-[16px] leading-[1.85]">
+              ほんとうの美しさは、内側の健康から。 肌のためだけじゃなくて、体ぜんぶが軽くなる感じ。 ちょっと専門的な話も、タップでのぞいてみて。
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-7 space-y-4">
+          <div class="ecard reveal"><div class="ecard-head"><span class="text-[26px]">🌀</span><div><div class="font-jp-display text-[15px] sm:text-[17px]">腸から、肌へ。</div><div class="text-ink/55 text-[12px]">食物繊維と、肌の調子</div></div><svg class="chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div><div class="body">植物にたっぷりの<strong>食物繊維</strong>は、腸内環境を整えると言われている。 腸の調子は、肌の調子とも関わりが深いと注目されている分野。 お肉・卵・乳製品の食物繊維は、ほぼゼロ。<a href="#s2" class="src">2</a></div></div>
+
+          <div class="ecard reveal"><div class="ecard-head"><span class="text-[26px]">🪶</span><div><div class="font-jp-display text-[15px] sm:text-[17px]">軽やかな、毎日。</div><div class="text-ink/55 text-[12px]">むくみ・重さからの解放</div></div><svg class="chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div><div class="body">植物中心の食事は、カロリー密度が低く、食物繊維で満足感が続きやすい。 「重さ」より「軽やかさ」を感じる人も多い。 美しさは、見た目だけじゃなく、コンディションそのもの。</div></div>
+
+          <div class="ecard reveal" style="border-color:#B8456A; box-shadow:4px 4px 0 #B8456A;"><div class="ecard-head"><span class="text-[26px]">🛡️</span><div><div class="font-jp-display text-[15px] sm:text-[17px]" style="color:#B8456A;">守る力。</div><div class="text-ink/55 text-[12px]">体を、内側から守る（タップ）</div></div><svg class="chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div><div class="body">植物中心の食事は、<strong>心臓病・2型糖尿病・一部のがん</strong>の「リスクが低いこと」との関連が、複数の研究で報告されている。<a href="#s3" class="src">3</a><a href="#s4" class="src">4</a> たとえばお肉をやめてLDL（悪玉）コレステロールが下がると、心臓病リスクの低下につながると考えられている。<a href="#s5" class="src">5</a><br/><span class="text-ink/55">※ これは一般的な情報で、病気の予防・治療を保証するものではありません。 持病のある方は医師にご相談を。</span></div></div>
+        </div>
+      </div>
+
+      <!-- Close -->
+      <div class="reveal mt-12 text-center">
+        <p class="font-jp-display text-[18px] sm:text-[24px] leading-[1.5]">
+          外側も、内側も。<br/><span style="color:#B8456A;">食べたものから、できている。</span>
+        </p>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-ink/15 text-ink-soft text-[11.5px] sm:text-[12.5px] leading-[1.7] space-y-1.5">
+        <p id="s1"><span class="font-bold">1.</span> Pullar, J.M. et al. (2017). The Roles of Vitamin C in Skin Health. <em>Nutrients</em>, 9(8): 866.</p>
+        <p id="s2"><span class="font-bold">2.</span> Reynolds, A. et al. (2019). Carbohydrate quality and human health. <em>The Lancet</em>, 393: 434–445.</p>
+        <p id="s3"><span class="font-bold">3.</span> Dinu, M. et al. (2017). Vegetarian, vegan diets and multiple health outcomes. <em>Crit Rev Food Sci Nutr</em>, 57(17): 3640–3649.</p>
+        <p id="s4"><span class="font-bold">4.</span> Satija, A. et al. (2017). Plant-Based Diets and Risk of Coronary Heart Disease. <em>J Am Coll Cardiol</em>, 70(4): 411–422.</p>
+        <p id="s5"><span class="font-bold">5.</span> Greger, M. (2025). <em>Clinical Nutrition Open Science</em>, 61: 241–252.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible'); io.unobserve(e.target);}});},{threshold:.14});
+      document.querySelectorAll('.reveal').forEach(function(r){io.observe(r);});
+
+      // tabs
+      var to=document.getElementById('tab-outer'), ti=document.getElementById('tab-inner'),
+          po=document.getElementById('panel-outer'), pi=document.getElementById('panel-inner');
+      function setTab(outer){ to.setAttribute('aria-pressed',outer?'true':'false'); ti.setAttribute('aria-pressed',outer?'false':'true'); po.style.display=outer?'block':'none'; pi.style.display=outer?'none':'block'; }
+      to.addEventListener('click',function(){setTab(true);}); ti.addEventListener('click',function(){setTab(false);});
+
+      // beauty parts picker
+      var grid=document.getElementById('beauty-grid'), result=document.getElementById('beauty-result');
+      var BEAUTY=[
+        {emoji:'🌸',label:'肌',accent:'#B8456A',bg:'rgba(251,239,243,.7)',msg:'ハリのもとになるコラーゲンづくりには<strong>ビタミンC</strong>。 赤ピーマン・ブロッコリー・キウイ・柑橘にたっぷり。 抗酸化成分の多い色の濃い野菜も、肌の調子を支えると言われている。<a href=\'#s1\' class=\'src\'>1</a>'},
+        {emoji:'💇',label:'髪',accent:'#9C7E2A',bg:'rgba(251,243,223,.7)',msg:'髪の材料は<strong>タンパク質</strong>、そして<strong>鉄・亜鉛</strong>。 大豆・レンズ豆・全粒・ナッツ・かぼちゃの種から、しっかり摂れる。'},
+        {emoji:'💅',label:'爪',accent:'#3F6A3A',bg:'rgba(238,245,233,.7)',msg:'爪を支えるのも<strong>タンパク質とミネラル</strong>。 豆類・全粒・緑の野菜をふだんから。 不足しがちな<strong>ビタミンB群</strong>も意識して。'}
+      ];
+      BEAUTY.forEach(function(b){
+        var btn=document.createElement('button'); btn.type='button'; btn.className='pick-btn'; btn.setAttribute('aria-pressed','false');
+        btn.innerHTML='<span class="pick-emoji">'+b.emoji+'</span><span class="pick-label">'+b.label+'</span>';
+        btn.addEventListener('click',function(){
+          grid.querySelectorAll('.pick-btn').forEach(function(x){x.setAttribute('aria-pressed',x===btn?'true':'false');});
+          result.style.background=b.bg;
+          result.innerHTML='<div class="text-center"><div class="text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-2" style="color:'+b.accent+';">'+b.emoji+' '+b.label+'</div><p class="text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] max-w-md mx-auto">'+b.msg+'</p></div>';
+        });
+        grid.appendChild(btn);
+      });
+
+      // expandable inner cards
+      document.querySelectorAll('.ecard .ecard-head').forEach(function(h){ h.addEventListener('click',function(){ h.parentElement.classList.toggle('is-open'); }); });
+    })();
+  </script>
+</body>
+</html>
