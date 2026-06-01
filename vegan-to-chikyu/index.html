@@ -1204,7 +1204,8 @@
         </div>
 
         <p class="mt-7 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center">
-          一番下まで下げると、毎年 <span class="font-bold" style="color: #3F6A3A;">1.5トン</span> も減らせる。<a href="#src-1-4" class="src">4</a>
+          🍖 から 🌱 に切り替えるだけで、<br class="sm:hidden"/>
+          年間 <span class="font-bold" style="color: #3F6A3A;">約1.5トン</span> の温室効果ガスが減らせる。<a href="#src-1-4" class="src">4</a>
         </p>
       </div>
     </div>
@@ -1540,13 +1541,21 @@
         </div>
       </div>
 
-      <!-- 8:2 farmland vs calories — interactive guess -->
+      <!-- 8:2 farmland vs calories — interactive guess, with Oji setup -->
       <div id="ch3-calorie-quiz" class="reveal mt-12 sm:mt-16 sticker-soft p-6 sm:p-9" data-correct="20">
-        <div class="text-[11px] sm:text-[12px] tracking-[0.18em] font-bold mb-2" style="color: #8E3A1B;">クイズ</div>
-        <h3 class="font-jp-display text-[20px] sm:text-[28px] leading-[1.4] text-ink">
-          地球の<span style="color: #C9532C;">農地の8割</span>を畜産が使っている。<br/>
-          じゃあ、世界のカロリーの何%を生み出してる？
-        </h3>
+        <div class="grid sm:grid-cols-[auto_1fr] gap-5 sm:gap-7 items-center mb-5">
+          <img src="/images/oji/oji_pointing_up.png"
+               alt="ビーガン王子 — 指で示す"
+               class="w-24 sm:w-32 mx-auto sm:mx-0 flex-shrink-0 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.15)]"
+               loading="lazy"/>
+          <div class="text-center sm:text-left">
+            <div class="text-[11px] sm:text-[12px] tracking-[0.18em] font-bold mb-1" style="color: #8E3A1B;">クイズ</div>
+            <h3 class="font-jp-display text-[20px] sm:text-[28px] leading-[1.4] text-ink">
+              地球の<span style="color: #C9532C;">農地の8割</span>を畜産が使っている。<br/>
+              じゃあ、世界のカロリーの何%を生み出してる？
+            </h3>
+          </div>
+        </div>
 
         <div id="ch3-cq-options" class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
           <button type="button" class="ch3-cq-opt" data-val="20">20%</button>
@@ -1809,10 +1818,15 @@
           <span class="font-bold">もう、全員に行き渡る量はある。</span>
         </p>
 
+        <!-- Promoted (was hidden in dropdown) — sets up the pies below -->
+        <p class="mt-6 sm:mt-7 font-jp text-[15px] sm:text-[18px] leading-[1.8] text-ink text-center">
+          世界中の <span class="font-bold" style="color: #6B4E8C;">大豆</span> や <span class="font-bold" style="color: #6B4E8C;">穀物</span> の多くが、<br class="sm:hidden"/>動物に食べさせるために。
+        </p>
+
         <!-- Supporting pies — collapsed by default -->
         <details class="group mt-7 -mx-6 sm:-mx-10 px-6 sm:px-10 pt-5 border-t border-ink/10">
           <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
-            <span class="font-jp text-[13px] sm:text-[14px] text-ink-soft font-bold">もう少しだけ、詳しく。</span>
+            <span class="font-jp text-[13px] sm:text-[14px] text-ink-soft font-bold">国別に見ると——</span>
             <span class="flex items-center gap-1 text-ink/55 text-[12px]">
               <span class="group-open:hidden">開く</span>
               <span class="hidden group-open:inline">閉じる</span>
@@ -1820,9 +1834,6 @@
             </span>
           </summary>
 
-          <p class="mt-5 font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.85] text-center">
-            世界中の <span class="font-bold" style="color: #6B4E8C;">大豆</span> や <span class="font-bold" style="color: #6B4E8C;">穀物</span> の多くが、動物に食べさせるために。
-          </p>
           <div class="mt-5 grid grid-cols-2 gap-4 sm:gap-8">
             <div class="flex flex-col items-center">
               <div class="relative">
@@ -1894,8 +1905,22 @@
           </div>
         </div>
 
-        <div class="mt-6 bar-track" style="height: 32px;">
-          <div class="bar-fill" data-bar-target="100" style="background: linear-gradient(90deg, #6B4E8C 99%, #4B3666 99%, #4B3666 100%);"></div>
+        <!-- 100:1 dot visualization — directly shows the magnitude.
+             Left: 100 sage dots in a 10x10 grid (proportional to plant).
+             Right: 1 lone purple dot at the same scale. -->
+        <div id="land-dot-stage" class="mt-8 grid grid-cols-[1fr_auto_1fr] gap-3 sm:gap-5 items-end p-5 sm:p-6 rounded-2xl border-2 border-ink/15"
+             style="background: rgba(255,249,238,0.6); min-height: 220px;">
+          <div class="text-center">
+            <div id="land-plant-dots" class="grid mx-auto"
+                 style="grid-template-columns: repeat(10, 1fr); gap: 3px; max-width: 200px;"></div>
+            <div class="mt-3 font-jp text-[12px] sm:text-[13px] text-ink/70">🌱 植物 <span class="font-bold">100</span></div>
+          </div>
+          <div class="self-center text-ink/35 font-jp-display text-[20px] sm:text-[24px] pb-4">vs</div>
+          <div class="text-center">
+            <div id="land-meat-dots" class="grid mx-auto"
+                 style="grid-template-columns: 1fr; gap: 3px; width: 17px;"></div>
+            <div class="mt-3 font-jp text-[12px] sm:text-[13px] text-ink/70">🍖 お肉 <span class="font-bold" style="color: #4B3666;">1</span></div>
+          </div>
         </div>
         <p class="mt-4 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.75] text-center">
           ほぼ <span class="font-bold">100倍</span> ものちがい。<a href="#src-4-9" class="src">30</a><br/>
@@ -1974,55 +1999,6 @@
             </article>
           </div>
         </details>
-      </div>
-
-      <!-- 96% mammals — Oji explains, 100-dot grid reveals on scroll
-           (no quiz step). -->
-      <div id="ch3-wild-quiz" class="reveal mt-12 sm:mt-16 sticker p-6 sm:p-9">
-        <div class="grid sm:grid-cols-[auto_1fr] gap-5 sm:gap-7 items-center mb-6">
-          <img src="/images/oji/oji_thinking.png"
-               alt="ビーガン王子 — 考え込む"
-               class="w-24 sm:w-32 mx-auto sm:mx-0 flex-shrink-0 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.15)]"
-               loading="lazy"/>
-          <div class="text-center sm:text-left">
-            <div class="text-[11px] sm:text-[12px] tracking-[0.18em] font-bold mb-1" style="color: #4B3666;">知ってた？</div>
-            <h3 class="font-jp-display text-[20px] sm:text-[26px] leading-[1.4] text-ink">
-              地球の動物は、もう<br class="sm:hidden"/>
-              <span style="color: #6B4E8C;">ほとんど野生じゃない</span>。
-            </h3>
-          </div>
-        </div>
-
-        <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] mb-6 text-center sm:text-left">
-          畜産を増やすために、野生の住み処はどんどん削られてきた。<br/>
-          世界の哺乳動物100匹をならべてみると、こんなふうに——
-        </p>
-
-        <div class="p-4 sm:p-6 rounded-2xl border-2 border-ink/15"
-             style="background: rgba(255,249,238,0.6);">
-          <div id="ch3-wq-dots" class="grid mx-auto"
-               style="grid-template-columns: repeat(10, 1fr); gap: 4px; max-width: 280px;"></div>
-
-          <div class="mt-5 grid grid-cols-3 gap-2 text-center text-[11px] sm:text-[12px]">
-            <div>
-              <div class="inline-block w-3.5 h-3.5 rounded-sm border-2 border-ink align-middle" style="background: #3C2E22;"></div>
-              <span class="font-jp text-ink ml-1.5"><span class="font-bold">家畜</span> 60匹</span>
-            </div>
-            <div>
-              <div class="inline-block w-3.5 h-3.5 rounded-sm border-2 border-ink align-middle" style="background: #C9532C;"></div>
-              <span class="font-jp text-ink ml-1.5"><span class="font-bold">人間</span> 36匹</span>
-            </div>
-            <div>
-              <div class="inline-block w-3.5 h-3.5 rounded-sm border-2 border-ink align-middle" style="background: #6C9560;"></div>
-              <span class="font-jp text-ink ml-1.5"><span class="font-bold">野生</span> たった4匹</span>
-            </div>
-          </div>
-        </div>
-
-        <p class="mt-5 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.85] text-center">
-          地球の哺乳動物の<span class="font-bold" style="color: #6B4E8C;">96%</span>は、もう人間と家畜。<a href="#src-3-6" class="src">19</a><br/>
-          食べるものを変えると、野生にも住める場所が、また生まれる。
-        </p>
       </div>
 
       <!-- CH4 ENDING — diet bar chart: 1年に必要な穀物 (including feed). -->
@@ -2843,51 +2819,53 @@
         }
       })();
 
-      // ───────── 96%-mammals 100-dot reveal (no quiz, just Oji explainer) ─
-      //   The grid auto-populates with a staggered fade when the section
-      //   scrolls into view. 60 livestock dots, 36 human dots, 4 wild dots
-      //   (with a sage glow ring) shuffled so the wild dots scatter.
-      const wq = document.getElementById('ch3-wild-quiz');
-      if (wq) {
-        const dots = document.getElementById('ch3-wq-dots');
-        const palette = []
-          .concat(Array(60).fill('#3C2E22'))
-          .concat(Array(36).fill('#C9532C'))
-          .concat(Array(4).fill('#6C9560'));
-        for (let i = palette.length - 1; i > 0; i--) {
-          const j = (i * 2654435761 ^ 12345) % (i + 1);
-          const t = palette[i]; palette[i] = palette[j]; palette[j] = t;
-        }
-        let dotsRendered = false;
-        function renderDots() {
-          if (dotsRendered) return;
-          dotsRendered = true;
-          const frag = document.createDocumentFragment();
-          palette.forEach((color, i) => {
+      // ───────── 100-vs-1 land productivity dots ─────────
+      //   For "同じ土地でも、作れる量はぜんぜん違う" — replaces the
+      //   invisible 99% bar with a stark visual: 100 sage dots vs 1 lone
+      //   purple dot. Both populate with a staggered fade when scrolled in.
+      const landPlantDots = document.getElementById('land-plant-dots');
+      const landMeatDots  = document.getElementById('land-meat-dots');
+      if (landPlantDots && landMeatDots) {
+        let landDotsRendered = false;
+        function renderLandDots() {
+          if (landDotsRendered) return;
+          landDotsRendered = true;
+          // Plant — 100 dots, staggered fade
+          const plantFrag = document.createDocumentFragment();
+          for (let i = 0; i < 100; i++) {
             const d = document.createElement('div');
             d.style.aspectRatio = '1 / 1';
             d.style.borderRadius = '50%';
-            d.style.border = '1.5px solid var(--color-ink)';
-            d.style.background = color;
+            d.style.border = '1.2px solid var(--color-ink)';
+            d.style.background = '#6C9560';
             d.style.opacity = '0';
             d.style.transition = 'opacity 0.4s ease-out';
-            if (color === '#6C9560') {
-              d.style.boxShadow = '0 0 0 2px rgba(108,149,96,0.45)';
-            }
-            frag.appendChild(d);
-            setTimeout(() => { d.style.opacity = '1'; }, 50 + i * 9);
-          });
-          dots.appendChild(frag);
+            plantFrag.appendChild(d);
+            setTimeout(() => { d.style.opacity = '1'; }, 50 + i * 8);
+          }
+          landPlantDots.appendChild(plantFrag);
+          // Meat — single dot, fades in at the very end for dramatic pause
+          const m = document.createElement('div');
+          m.style.aspectRatio = '1 / 1';
+          m.style.borderRadius = '50%';
+          m.style.border = '1.5px solid var(--color-ink)';
+          m.style.background = '#4B3666';
+          m.style.boxShadow = '0 0 0 3px rgba(75,54,102,0.30)';
+          m.style.opacity = '0';
+          m.style.transition = 'opacity 0.5s ease-out';
+          landMeatDots.appendChild(m);
+          setTimeout(() => { m.style.opacity = '1'; }, 1000);
         }
-        if ('IntersectionObserver' in window) {
-          const wqIO = new IntersectionObserver((entries) => {
+        const landStage = document.getElementById('land-dot-stage');
+        if ('IntersectionObserver' in window && landStage) {
+          const landIO = new IntersectionObserver((entries) => {
             for (const e of entries) {
-              if (e.isIntersecting) { renderDots(); wqIO.unobserve(wq); }
+              if (e.isIntersecting) { renderLandDots(); landIO.unobserve(landStage); }
             }
-          }, { threshold: 0.3 });
-          wqIO.observe(wq);
+          }, { threshold: 0.15 });
+          landIO.observe(landStage);
         } else {
-          renderDots();
+          renderLandDots();
         }
       }
 
