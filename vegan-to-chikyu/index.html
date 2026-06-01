@@ -568,42 +568,169 @@
       border-style: dashed;
     }
 
-    /* ── Diet quiz buttons ──────────────────────────────────────────── */
-    .diet-opt {
-      display: flex; flex-direction: column; align-items: center;
-      gap: 8px;
-      padding: 18px 14px 16px;
+    /* ── Diet picker — compact pill row (V3) ────────────────────────── */
+    .diet-pills {
+      display: inline-flex;
+      gap: 5px;
+      padding: 6px;
       background: var(--color-paper);
       border: 2.5px solid var(--color-ink);
-      border-radius: 18px;
+      border-radius: 999px;
       box-shadow: 4px 4px 0 var(--color-ink);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.2s ease, color 0.2s ease;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .diet-opt {
+      padding: 9px 14px;
+      border-radius: 999px;
       cursor: pointer;
-      text-align: center;
+      background: transparent;
+      border: none;
       font-family: var(--font-noto-sans-jp);
       font-weight: 700;
-      width: 100%;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--color-ink-soft);
+      transition: background 0.2s ease, color 0.2s ease;
+      display: inline-flex; align-items: center; gap: 6px;
+      white-space: nowrap;
     }
-    .diet-opt:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); }
+    .diet-opt:hover { background: rgba(108,149,96,0.12); }
     .diet-opt[aria-pressed="true"] {
       background: var(--color-ink);
       color: var(--color-paper);
-      box-shadow: 4px 4px 0 var(--color-leaf-deep);
     }
-    .diet-opt__emoji {
-      font-size: 30px;
-      line-height: 1;
-      display: block;
+    .diet-opt__emoji { font-size: 16px; line-height: 1; }
+    .diet-opt__label { font-size: 13px; letter-spacing: 0.04em; line-height: 1; }
+    @media (min-width: 640px) {
+      .diet-pills { gap: 6px; padding: 7px; }
+      .diet-opt { padding: 11px 18px; font-size: 14px; }
+      .diet-opt__emoji { font-size: 18px; }
+      .diet-opt__label { font-size: 14px; }
     }
-    .diet-opt__label {
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      line-height: 1.3;
+
+    /* ── Result trading-card — Oji + speech bubble + stat bars ───────── */
+    .oji-portrait {
+      /* Fixed-size container so different pose images don't shift layout.
+         Mobile 110×140, desktop 132×170. object-fit: contain keeps aspect. */
+      width: 110px; height: 140px;
+      flex-shrink: 0;
+      display: flex; align-items: flex-end; justify-content: center;
     }
     @media (min-width: 640px) {
-      .diet-opt { padding: 22px 18px 20px; }
-      .diet-opt__emoji { font-size: 38px; }
-      .diet-opt__label { font-size: 15px; }
+      .oji-portrait { width: 132px; height: 170px; }
+    }
+    .oji-portrait img {
+      max-width: 100%; max-height: 100%;
+      width: auto; height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(31,24,18,0.18));
+      transition: opacity 0.25s ease;
+    }
+    .oji-bubble {
+      position: relative;
+      background: var(--color-paper);
+      border: 2px solid var(--color-ink);
+      border-radius: 16px;
+      padding: 12px 16px;
+      box-shadow: 3px 3px 0 var(--color-ink);
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--color-ink);
+      max-width: 220px;
+    }
+    .oji-bubble::after {
+      /* Right-pointing tail toward Oji */
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      transform: translateY(-50%);
+      width: 0; height: 0;
+      border-left: 12px solid var(--color-ink);
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+    }
+    .oji-bubble::before {
+      /* Paper-color inner triangle, layered on top of the ink one */
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -7px;
+      transform: translateY(-50%);
+      width: 0; height: 0;
+      border-left: 10px solid var(--color-paper);
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      z-index: 1;
+    }
+    @media (min-width: 640px) {
+      .oji-bubble { font-size: 15px; padding: 14px 18px; }
+    }
+    .diet-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px 7px;
+      background: var(--color-ink);
+      color: var(--color-paper);
+      border-radius: 999px;
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px dotted rgba(31,24,18,0.18);
+    }
+    .stat-row:last-child { border-bottom: none; }
+    .stat-row__icon { font-size: 22px; text-align: center; line-height: 1; }
+    .stat-row__label {
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: var(--color-ink);
+      margin-bottom: 5px;
+    }
+    .stat-bar {
+      height: 18px;
+      background: rgba(31,24,18,0.08);
+      border: 2px solid var(--color-ink);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .stat-bar > span {
+      display: block;
+      height: 100%;
+      transition: width 0.7s cubic-bezier(.22,.61,.36,1), background 0.4s ease;
+      border-radius: 999px;
+    }
+    .stat-row__val {
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 900;
+      font-size: 22px;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      font-variant-numeric: tabular-nums;
+      min-width: 78px;
+      text-align: right;
+    }
+    .stat-row__val small { font-size: 13px; color: rgba(31,24,18,0.55); margin-left: 2px; font-weight: 700; }
+    @media (min-width: 640px) {
+      .stat-row { grid-template-columns: 34px 1fr auto; gap: 18px; padding: 16px 0; }
+      .stat-row__icon { font-size: 28px; }
+      .stat-row__label { font-size: 16px; }
+      .stat-bar { height: 22px; }
+      .stat-row__val { font-size: 26px; min-width: 92px; }
+      .stat-row__val small { font-size: 14px; }
     }
 
     /* ── Share card frame ───────────────────────────────────────────── */
@@ -2116,103 +2243,101 @@
         </p>
       </div>
 
-      <!-- Mascot guide -->
-      <div class="reveal mt-8 sm:mt-10 flex justify-center">
-        <img src="/images/oji/oji_idea.png"
-             alt="ビーガン王子 — ひらめき"
-             class="w-32 sm:w-40 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.15)]"
-             loading="lazy" />
-      </div>
-
-      <!-- Diet picker — meat selected by default so users see the HIGH
-           usage first, then watch numbers collapse as they click toward
-           ビーガン (especially 0匹 lives). -->
-      <div class="reveal mt-10 sm:mt-12">
-        <div class="font-jp text-ink-soft text-[14px] sm:text-[15px] mb-3 text-center">
+      <!-- Compact pill diet picker — V3-style. Meat selected by default so
+           users see the HIGH usage first, then watch numbers collapse as
+           they click toward ビーガン (especially 0匹 lives). -->
+      <div class="reveal mt-8 sm:mt-10 text-center">
+        <div class="font-jp text-ink-soft text-[14px] sm:text-[15px] mb-4">
           普段のお肉の頻度は？
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        <div class="diet-pills">
           <button type="button" class="diet-opt" data-diet="meat" aria-pressed="true">
-            <span class="diet-opt__emoji">🍖</span>
-            <span class="diet-opt__label">毎食<br/>お肉</span>
+            <span class="diet-opt__emoji">🍖</span><span class="diet-opt__label">毎食お肉</span>
           </button>
           <button type="button" class="diet-opt" data-diet="mixed" aria-pressed="false">
-            <span class="diet-opt__emoji">🍱</span>
-            <span class="diet-opt__label">週に<br/>数回</span>
+            <span class="diet-opt__emoji">🍱</span><span class="diet-opt__label">週に数回</span>
           </button>
           <button type="button" class="diet-opt" data-diet="veggie" aria-pressed="false">
-            <span class="diet-opt__emoji">🥗</span>
-            <span class="diet-opt__label">ほぼ<br/>ベジ</span>
+            <span class="diet-opt__emoji">🥗</span><span class="diet-opt__label">ほぼベジ</span>
           </button>
           <button type="button" class="diet-opt" data-diet="vegan" aria-pressed="false">
-            <span class="diet-opt__emoji">🌱</span>
-            <span class="diet-opt__label">ビーガン</span>
+            <span class="diet-opt__emoji">🌱</span><span class="diet-opt__label">ビーガン</span>
           </button>
         </div>
       </div>
 
-      <!-- Result share card -->
+      <!-- Result card — Oji trading-card style with speech bubble + animated bars -->
       <div class="reveal mt-10 sm:mt-12">
-        <div id="share-card" class="share-card p-7 sm:p-10">
+        <div id="share-card" class="share-card p-6 sm:p-9">
           <div class="relative z-10">
-            <div class="flex items-center justify-between mb-5">
-              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] text-ink/55">あなたが1年で使う</div>
-              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] text-leaf-deep font-bold" id="result-diet-label">毎食お肉</div>
-            </div>
 
-            <h3 class="font-jp-display text-[22px] sm:text-[30px] leading-[1.35] text-ink mb-7">
+            <h3 class="font-jp-display text-[22px] sm:text-[30px] leading-[1.35] text-ink text-center sm:text-left mb-6">
               一週間で、これだけ地球を使ってる。
             </h3>
 
-            <!-- 4 stat tiles -->
-            <div class="grid grid-cols-2 gap-3 sm:gap-5">
-              <!-- CO2 -->
-              <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink" style="background: #FCE4D9;">
-                <div class="text-[11px] sm:text-[12px] tracking-[0.14em] text-ink/60 mb-1">CO₂ 換算</div>
-                <div class="big-number ticker text-[32px] sm:text-[42px] leading-none" style="color: #C9223A;">
-                  <span id="result-co2">0.75</span>
-                  <span class="text-[16px] sm:text-[20px] font-bold ml-0.5">t</span>
-                </div>
-                <div class="font-jp text-[12px] sm:text-[13px] text-ink/70 mt-2 leading-tight" id="result-co2-friend">≒ 東京-福岡を車で <span class="font-bold">3回</span></div>
-              </div>
-              <!-- Water -->
-              <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink" style="background: #DDEEF8;">
-                <div class="text-[11px] sm:text-[12px] tracking-[0.14em] text-ink/60 mb-1">お水</div>
-                <div class="big-number ticker text-[32px] sm:text-[42px] leading-none" style="color: #2B7AB0;">
-                  <span id="result-water">1.8M</span>
-                  <span class="text-[16px] sm:text-[20px] font-bold ml-0.5">L</span>
-                </div>
-                <div class="font-jp text-[12px] sm:text-[13px] text-ink/70 mt-2 leading-tight">≒ お風呂 <span class="font-bold" id="result-water-friend">9,000</span> 回分</div>
-              </div>
-              <!-- Land -->
-              <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink" style="background: #FBE4D5;">
-                <div class="text-[11px] sm:text-[12px] tracking-[0.14em] text-ink/60 mb-1">土地</div>
-                <div class="big-number ticker text-[32px] sm:text-[42px] leading-none" style="color: #C9532C;">
-                  <span id="result-land">600</span>
-                  <span class="text-[16px] sm:text-[20px] font-bold ml-0.5">m²</span>
-                </div>
-                <div class="font-jp text-[12px] sm:text-[13px] text-ink/70 mt-2 leading-tight">≒ テニスコート <span class="font-bold" id="result-land-friend">2</span> 面</div>
-              </div>
-              <!-- Animals lost -->
-              <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink" style="background: #EADFF1;">
-                <div class="text-[11px] sm:text-[12px] tracking-[0.14em] text-ink/60 mb-1">失われる命</div>
-                <div class="big-number ticker text-[32px] sm:text-[42px] leading-none" style="color: #6B4E8C;">
-                  <span id="result-animals">200</span>
-                  <span class="text-[16px] sm:text-[20px] font-bold ml-0.5">匹</span>
-                </div>
-                <div class="font-jp text-[12px] sm:text-[13px] text-ink/70 mt-2 leading-tight">魚・鳥・うし・ぶたなど</div>
+            <!-- Oji + speech bubble row -->
+            <div class="flex items-center justify-center sm:justify-start gap-3 sm:gap-5 mb-6">
+              <div class="oji-bubble" id="result-bubble">毎日お肉、おつかれさま。</div>
+              <div class="oji-portrait">
+                <img id="result-oji" src="/images/oji/oji_thinking.png" alt="ビーガン王子" loading="lazy"/>
               </div>
             </div>
 
-            <!-- Signature line at bottom of card -->
-            <div class="mt-7 pt-5 border-t border-ink/15 flex items-center justify-between text-[11px] sm:text-[12px] text-ink/55">
-              <div class="flex items-center gap-2">
-                <img src="/images/voji-logos/v-mark.png" alt="" class="w-5 h-5 object-contain"
-                     onerror="this.style.display='none'"/>
-                <span class="tracking-[0.12em]">veganoji.jp</span>
-              </div>
-              <div class="font-jp" id="result-tagline">君の一食、ありがとう。</div>
+            <!-- Diet banner pill -->
+            <div class="mb-5 text-center sm:text-left">
+              <span class="diet-banner">
+                <span id="result-diet-emoji">🍖</span>
+                <span id="result-diet-label">毎食お肉</span>
+              </span>
             </div>
+
+            <!-- 4 stat rows with animated bars -->
+            <div>
+              <div class="stat-row">
+                <div class="stat-row__icon">💨</div>
+                <div>
+                  <div class="stat-row__label">CO₂</div>
+                  <div class="stat-bar"><span id="result-bar-co2" style="width: 100%; background: #C9223A;"></span></div>
+                </div>
+                <div class="stat-row__val" style="color: #C9223A;">
+                  <span id="result-co2">2.5</span><small>t</small>
+                </div>
+              </div>
+              <div class="stat-row">
+                <div class="stat-row__icon">💧</div>
+                <div>
+                  <div class="stat-row__label">お水</div>
+                  <div class="stat-bar"><span id="result-bar-water" style="width: 100%; background: #2B7AB0;"></span></div>
+                </div>
+                <div class="stat-row__val" style="color: #2B7AB0;">
+                  <span id="result-water">5.5M</span><small>L</small>
+                </div>
+              </div>
+              <div class="stat-row">
+                <div class="stat-row__icon">🌍</div>
+                <div>
+                  <div class="stat-row__label">土地</div>
+                  <div class="stat-bar"><span id="result-bar-land" style="width: 100%; background: #C9532C;"></span></div>
+                </div>
+                <div class="stat-row__val" style="color: #C9532C;">
+                  <span id="result-land">3,000</span><small>m²</small>
+                </div>
+              </div>
+              <div class="stat-row">
+                <div class="stat-row__icon">🐾</div>
+                <div>
+                  <div class="stat-row__label">いのち</div>
+                  <div class="stat-bar"><span id="result-bar-animals" style="width: 100%; background: #6B4E8C;"></span></div>
+                </div>
+                <div class="stat-row__val" style="color: #6B4E8C;">
+                  <span id="result-animals">200</span><small>匹</small>
+                </div>
+              </div>
+            </div>
+
+            <p class="mt-6 font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.75] text-center" id="result-tagline">
+              これが、毎日のごはんが地球に乗せている重さ。
+            </p>
           </div>
         </div>
 
@@ -3127,26 +3252,32 @@
       //   for vegan — the emotional anchor of the visualization.
       const DIETS = {
         meat: {
-          label: '毎食お肉',
+          label: '毎食お肉', emoji: '🍖', oji: 'oji_thinking',
+          bubble: '毎日お肉、おつかれさま。',
           co2: 2.5, water: 5500000, land: 3000, animals: 200,
           tagline: 'これが、毎日のごはんが地球に乗せている重さ。',
         },
         mixed: {
-          label: '週に数回',
+          label: '週に数回', emoji: '🍱', oji: 'oji_curious',
+          bubble: '減らすだけで、こんなに変わるよ。',
           co2: 1.9, water: 3700000, land: 2400, animals: 150,
           tagline: '少し控えるだけでも、こんなに変わる。',
         },
         veggie: {
-          label: 'ほぼベジ',
+          label: 'ほぼベジ', emoji: '🥗', oji: 'oji_happy',
+          bubble: '地球、ちょっと嬉しそう。',
           co2: 1.3, water: 1900000, land: 1800, animals: 50,
           tagline: 'もう、地球がよろこんでるよ。',
         },
         vegan: {
-          label: 'ビーガン',
+          label: 'ビーガン', emoji: '🌱', oji: 'oji_winking',
+          bubble: 'やさしい一年、ありがとう。',
           co2: 1.0, water: 500000,  land: 1500, animals: 0,
           tagline: '命を奪わない一年。 ありがとう。',
         },
       };
+      // Max values used to compute bar widths relative to meat baseline.
+      const DIET_MAX = { co2: 2.5, water: 5500000, land: 3000, animals: 200 };
 
       function fmt(n) {
         if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
@@ -3160,10 +3291,14 @@
       const resultLand  = document.getElementById('result-land');
       const resultAnimals = document.getElementById('result-animals');
       const resultDietLabel = document.getElementById('result-diet-label');
-      const resultCo2Friend = document.getElementById('result-co2-friend');
-      const resultWaterFriend = document.getElementById('result-water-friend');
-      const resultLandFriend  = document.getElementById('result-land-friend');
+      const resultDietEmoji = document.getElementById('result-diet-emoji');
       const resultTagline = document.getElementById('result-tagline');
+      const resultBubble  = document.getElementById('result-bubble');
+      const resultOji     = document.getElementById('result-oji');
+      const resultBarCo2     = document.getElementById('result-bar-co2');
+      const resultBarWater   = document.getElementById('result-bar-water');
+      const resultBarLand    = document.getElementById('result-bar-land');
+      const resultBarAnimals = document.getElementById('result-bar-animals');
 
       function updateShare(dietKey) {
         const d = DIETS[dietKey];
@@ -3173,17 +3308,22 @@
         resultLand.textContent  = d.land.toLocaleString('ja-JP');
         resultAnimals.textContent = d.animals;
         resultDietLabel.textContent = d.label;
-        // Tokyo–Fukuoka ~1,100 km, ~0.21 kg CO2/km for a typical car = ~231 kg per trip
-        const trips = d.co2 > 0 ? Math.max(1, Math.round((d.co2 * 1000) / 231)) : 0;
-        resultCo2Friend.innerHTML = trips > 0
-          ? '≒ 東京-福岡を車で <span class="font-bold">' + trips + '回</span>'
-          : 'まずは知ることから';
-        // 1 ofuro ≒ 200 L
-        const baths = Math.round(d.water / 200);
-        resultWaterFriend.textContent = baths > 0 ? baths.toLocaleString('ja-JP') : '0';
-        // 1 tennis court (singles+doubles area) ≒ 261 m². Round to nice number.
-        const courts = Math.max(0, Math.round(d.land / 261));
-        resultLandFriend.textContent = courts;
+        if (resultDietEmoji) resultDietEmoji.textContent = d.emoji;
+        if (resultBubble)    resultBubble.textContent    = d.bubble;
+        if (resultOji) {
+          resultOji.style.opacity = '0';
+          setTimeout(() => {
+            resultOji.src = '/images/oji/' + d.oji + '.png';
+            resultOji.alt = 'ビーガン王子 — ' + d.label;
+            resultOji.style.opacity = '1';
+          }, 150);
+        }
+        // Stat bars — width is proportional to meat baseline (= 100%)
+        if (resultBarCo2)     resultBarCo2.style.width     = (d.co2     / DIET_MAX.co2     * 100) + '%';
+        if (resultBarWater)   resultBarWater.style.width   = (d.water   / DIET_MAX.water   * 100) + '%';
+        if (resultBarLand)    resultBarLand.style.width    = (d.land    / DIET_MAX.land    * 100) + '%';
+        // いのち goes fully to 0% on vegan — that empty bar is the emotional payoff.
+        if (resultBarAnimals) resultBarAnimals.style.width = (d.animals / DIET_MAX.animals * 100) + '%';
         resultTagline.textContent = d.tagline;
         // Update share URLs
         updateShareLinks(dietKey);
