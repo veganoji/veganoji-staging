@@ -578,7 +578,9 @@
     .hcard { border:2.5px solid var(--color-ink); border-radius:18px; box-shadow:5px 5px 0 var(--color-ink); background: var(--color-paper); overflow:hidden; }
     .hcard-head { display:flex; align-items:center; gap:14px; padding:16px 18px; cursor:pointer; transition: background .2s ease; }
     .hcard-head:hover { background: rgba(43,122,176,.06); }
-    .hcard-ico { font-size:30px; line-height:1; flex-shrink:0; }
+    .hcard-ico { flex-shrink:0; width:48px; height:48px; display:flex; align-items:center; justify-content:center; }
+    .hcard-ico img { width:100%; height:100%; object-fit:contain; }
+    .hcard-ico .fb { font-size:30px; }
     .hcard-ttl { font-weight:900; font-size:16px; line-height:1.3; }
     .hcard-sub { color: var(--color-muted); font-size:12px; margin-top:2px; }
     .hcard-chev { margin-left:auto; flex-shrink:0; transition: transform .25s ease; color: var(--color-muted); }
@@ -586,10 +588,25 @@
     .hcard-body { display:none; padding:2px 18px 18px; }
     .hcard.is-open .hcard-body { display:block; }
     .hcard-body ul { list-style:none; margin:0; padding:0; }
-    .hcard-body li { position:relative; padding-left:22px; margin-bottom:11px; font-size:13px; line-height:1.75; color: var(--color-ink-soft); }
+    .hcard-body li { position:relative; padding-left:24px; margin-bottom:11px; font-size:13px; line-height:1.75; color: var(--color-ink-soft); }
     .hcard-body li:last-child { margin-bottom:0; }
-    .hcard-body li::before { content:'✓'; position:absolute; left:0; top:0; color:#2B7AB0; font-weight:900; }
+    .hcard-body li::before { content:''; position:absolute; left:1px; top:6px; width:12px; height:12px; background:#6C9560; border:1.5px solid var(--color-ink); border-radius:0 100% 0 100%; }
     @media (min-width:640px){ .hcard-ttl{ font-size:18px; } .hcard-body li{ font-size:14px; } }
+
+    /* ── おいしさ: auto-scroll food gallery ─────────────────────────── */
+    .gallery { overflow:hidden; position:relative; -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+    .gallery-track { display:flex; gap:16px; width:max-content; animation: gscroll 40s linear infinite; }
+    .gallery:hover .gallery-track { animation-play-state: paused; }
+    @keyframes gscroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .gallery-item { width:230px; flex-shrink:0; }
+    .gallery-item .ph { width:230px; height:172px; border:2.5px solid var(--color-ink); border-radius:18px; box-shadow:5px 5px 0 var(--color-ink); object-fit:cover; display:block; background:#EAF4E4; }
+    .gallery-item .cap { text-align:center; font-weight:700; font-size:12.5px; margin-top:9px; color: var(--color-ink); }
+    @media (prefers-reduced-motion: reduce){ .gallery-track { animation:none; } }
+    @media (min-width:640px){ .gallery-item, .gallery-item .ph { width:280px; } .gallery-item .ph { height:210px; } }
+
+    /* ── concern picker images ─────────────────────────────────────── */
+    .pick-btn img.pick-img { width:50px; height:50px; object-fit:contain; }
+    @media (min-width:640px){ .pick-btn img.pick-img { width:62px; height:62px; } }
   </style>
 </head>
 
@@ -645,142 +662,6 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       ░  QUIZ INTRO — 4 questions, one at a time, with back nav.
-       ░  Answers are NOT revealed here; they show in 答え合わせ at the bottom.
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section id="quiz" class="chapter px-6 sm:px-10 relative quiz-bg"
-           data-chapter-num="00" data-chapter-label="体クイズ">
-
-    <div class="sticky-head">
-      <div class="sticky-head__pill">
-        <span class="sticky-head__num" style="background: #D4A847;">？</span>
-        体クイズ
-      </div>
-    </div>
-
-    <div class="max-w-3xl mx-auto">
-
-      <div class="reveal text-center">
-        <h2 class="font-jp-display display-tight text-[36px] sm:text-[60px] lg:text-[72px] text-ink leading-[1.05]">
-          さて、ここで<br/>
-          <span style="color: #B8456A;">クイズです！</span>
-        </h2>
-        <p class="mt-6 font-jp text-ink-soft text-[15px] sm:text-[18px] leading-[1.95] max-w-xl mx-auto">
-          先に4問だけ、考えてみて。<br/>
-          答え合わせは、最後にこの王子から。
-        </p>
-        <div class="mt-8 flex justify-center">
-          <img src="/images/oji/oji_questioning.png"
-               alt="ビーガン王子 — 問いかけ"
-               class="w-36 sm:w-44 anim-bobble drop-shadow-[0_10px_24px_rgba(31,24,18,0.18)]"
-               loading="lazy"/>
-        </div>
-      </div>
-
-      <!-- Progress strip -->
-      <div class="reveal mt-10 sm:mt-12 flex items-center justify-center gap-2">
-        <span class="quiz-dot is-active" data-dot="0"></span>
-        <span class="quiz-dot" data-dot="1"></span>
-        <span class="quiz-dot" data-dot="2"></span>
-        <span class="quiz-dot" data-dot="3"></span>
-      </div>
-
-      <!-- One question at a time. -->
-      <div id="quiz-stage" class="mt-5 sm:mt-7 relative" style="min-height: 380px;">
-        <article class="quiz-card sticker p-6 sm:p-8" data-q="0" data-correct="2" data-active="true">
-          <div class="flex items-baseline gap-3 mb-4">
-            <span class="quiz-q-num" style="background: #C9223A;">Q1</span>
-            <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
-              ゾウ・サイ・ゴリラ。 地球で最も力強い動物たちは、主に何を食べている？
-            </h3>
-          </div>
-          <div class="grid gap-2.5 sm:gap-3">
-            <button type="button" class="quiz-opt" data-i="0">お肉（他の動物）</button>
-            <button type="button" class="quiz-opt" data-i="1">お魚</button>
-            <button type="button" class="quiz-opt" data-i="2">植物（草・葉・果実）</button>
-            <button type="button" class="quiz-opt" data-i="3">昆虫</button>
-          </div>
-        </article>
-
-        <article class="quiz-card sticker p-6 sm:p-8" data-q="1" data-correct="3">
-          <div class="flex items-baseline gap-3 mb-4">
-            <span class="quiz-q-num" style="background: #B8456A;">Q2</span>
-            <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
-              肌のハリを支えるコラーゲン。 その材料づくりに欠かせない栄養を、最も多く含むのは？
-            </h3>
-          </div>
-          <div class="grid gap-2.5 sm:gap-3">
-            <button type="button" class="quiz-opt" data-i="0">牛肉</button>
-            <button type="button" class="quiz-opt" data-i="1">たまご</button>
-            <button type="button" class="quiz-opt" data-i="2">牛乳</button>
-            <button type="button" class="quiz-opt" data-i="3">野菜・果物（赤ピーマン・柑橘など）</button>
-          </div>
-        </article>
-
-        <article class="quiz-card sticker p-6 sm:p-8" data-q="2" data-correct="0">
-          <div class="flex items-baseline gap-3 mb-4">
-            <span class="quiz-q-num" style="background: #3F6A3A;">Q3</span>
-            <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
-              大豆にとくに多く含まれ、コレステロール対策などで注目される成分は？
-            </h3>
-          </div>
-          <div class="grid gap-2.5 sm:gap-3">
-            <button type="button" class="quiz-opt" data-i="0">イソフラボン</button>
-            <button type="button" class="quiz-opt" data-i="1">コラーゲン</button>
-            <button type="button" class="quiz-opt" data-i="2">乳酸菌</button>
-            <button type="button" class="quiz-opt" data-i="3">カフェイン</button>
-          </div>
-        </article>
-
-        <article class="quiz-card sticker p-6 sm:p-8" data-q="3" data-correct="1">
-          <div class="flex items-baseline gap-3 mb-4">
-            <span class="quiz-q-num" style="background: #9C7E2A;">Q4</span>
-            <h3 class="font-jp-display text-[19px] sm:text-[24px] leading-[1.5] text-ink flex-1">
-              かつて長寿日本一だった沖縄。 その後、順位が下がっていった大きな背景は？
-            </h3>
-          </div>
-          <div class="grid gap-2.5 sm:gap-3">
-            <button type="button" class="quiz-opt" data-i="0">気候が変わったから</button>
-            <button type="button" class="quiz-opt" data-i="1">食生活の変化（お肉・揚げ物・加工食品の増加）</button>
-            <button type="button" class="quiz-opt" data-i="2">運動量だけが原因</button>
-            <button type="button" class="quiz-opt" data-i="3">人口が増えたから</button>
-          </div>
-        </article>
-      </div>
-
-      <div id="quiz-nav" class="mt-5 flex items-center justify-start max-w-md mx-auto" style="min-height: 44px;">
-        <button id="quiz-back" type="button" class="btn-base btn-ghost" style="display:none; padding: 8px 16px; font-size: 13px;">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 2 L4 6 L8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
-          前の問題
-        </button>
-      </div>
-
-      <div id="quiz-complete" class="mt-12 sm:mt-16 text-center" style="opacity: 0; transform: translateY(10px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; pointer-events: none;">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-paper text-[12px] sm:text-[13px] tracking-[0.16em] font-bold mb-5"
-             style="background: #3F6A3A; border: 2px solid var(--color-ink); box-shadow: 3px 3px 0 var(--color-ink);">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L6 10 L11 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-          全問 こたえ済み
-        </div>
-        <p class="font-jp-display text-[20px] sm:text-[26px] text-ink leading-[1.5]">
-          おつかれさま！<br/>
-          このあとの4つの章を読むと、<span style="color: #3F6A3A;">答えが見えてくる</span>よ。
-        </p>
-        <div class="mt-7 sm:mt-9 flex justify-center">
-          <img src="/images/oji/oji_teaching.png"
-               alt="ビーガン王子 — 教える"
-               class="w-32 sm:w-40 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.18)]"
-               loading="lazy"/>
-        </div>
-        <div class="mt-5 inline-flex flex-col items-center gap-1 text-ink/65">
-          <span class="font-jp text-[14px] tracking-[0.06em] font-bold">下にスクロール</span>
-          <svg width="14" height="20" viewBox="0 0 14 20" fill="none" class="animate-bounce">
-            <path d="M7 2 L7 16 M2 11 L7 16 L12 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- ═══════════════════════════════════════════════════════════════════════
        ░  CHAPTER 1  ░  力  ░  Protein / strength myth
        ═══════════════════════════════════════════════════════════════════════ -->
@@ -1060,7 +941,7 @@
         <img src="/images/oji/oji_teaching.png" alt="ビーガン王子" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_explaining.png'"/>
         <div class="bubble flex-1 mb-4">
           <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
-            ここからは、ちょっと真面目な話。 でも安心して——全部、ちゃんとした研究にもとづいてるよ。 気になるカードをタップして、効果を見てみて！ 👆
+            じつはね、植物のごはんって、からだにいいことがいっぱいなんだ。 気になるカードをタップして、ひとつずつのぞいてみて！ 👆
           </p>
         </div>
       </div>
@@ -1069,7 +950,7 @@
       <div class="mt-8 space-y-4">
 
         <div class="hcard reveal is-open">
-          <div class="hcard-head"><span class="hcard-ico">🫀</span><div><div class="hcard-ttl">心臓と血管を、守る。</div><div class="hcard-sub">コレステロール・血圧・心臓病</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/heart.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🫀</span></span><div><div class="hcard-ttl">心臓と血管を、守る。</div><div class="hcard-sub">コレステロール・血圧・心臓病</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
           <div class="hcard-body"><ul>
             <li><strong>悪玉(LDL)コレステロールを下げる。</strong> 動物性の脂肪とコレステロールをやめると、LDLが下がる。 スタンフォード大の双子研究では、<strong>わずか8週間でLDLが約14%低下</strong>し、効果は4週間で現れはじめた。<a href="#src-cardio" class="src">5</a></li>
             <li><strong>血圧を下げる。</strong> ベジタリアン食は収縮期血圧を<strong>平均で約5mmHg</strong>下げると報告。 脳卒中・高血圧のリスクを減らす。<a href="#src-bp" class="src">6</a></li>
@@ -1078,16 +959,16 @@
         </div>
 
         <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico">⚖️</span><div><div class="hcard-ttl">代謝と体重を、整える。</div><div class="hcard-sub">血糖・ダイエット・代謝</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/energy.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">⚡</span></span><div><div class="hcard-ttl">代謝・体重・エネルギー。</div><div class="hcard-sub">血糖・ダイエット・軽やかさ</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
           <div class="hcard-body"><ul>
             <li><strong>インスリン感受性を高める。</strong> まるごと植物は糖の吸収をゆるやかにする。 30万人規模の研究で、健康的な植物性食は<strong>2型糖尿病のリスクを下げる</strong>と確認された。<a href="#src-t2d" class="src">8</a></li>
-            <li><strong>無理のない減量。</strong> 植物性食はカロリー密度が低く、食物繊維で満腹が続く。 双子研究では植物性の側が平均で多く減量した。<a href="#src-cardio" class="src">5</a></li>
-            <li><strong>代謝を後押し。</strong> 植物中心の食事は体内の炎症を抑え、食後のエネルギー消費を支える。<a href="#src-inflam" class="src">15</a></li>
+            <li><strong>無理のない減量。</strong> カロリー密度が低く、食物繊維で満腹が続く。 双子研究では植物性の側が平均で多く減量した。<a href="#src-cardio" class="src">5</a></li>
+            <li><strong>一日を、軽やかに。</strong> 炎症が減り、鉄分豊富な植物（豆・全粒・緑黄色野菜）が体を動かす燃料に。 多くのアスリートが「回復が速くなった」と語る。<a href="#src-inflam" class="src">15</a></li>
           </ul></div>
         </div>
 
         <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico">🛡️</span><div><div class="hcard-ttl">がんから、細胞を守る。</div><div class="hcard-sub">大腸がん・抗酸化・ホルモン</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/shield.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🛡️</span></span><div><div class="hcard-ttl">がんから、細胞を守る。</div><div class="hcard-sub">大腸がん・抗酸化・ホルモン</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
           <div class="hcard-body"><ul>
             <li><strong>大腸がんのリスクを下げる。</strong> 豆類・食物繊維をしっかり摂ると、大腸がんのリスクが<strong>約9〜18%下がる</strong>と報告。<a href="#src-fibcrc" class="src">9</a></li>
             <li><strong>抗酸化成分が豊富。</strong> ビタミンA・C・Eが、細胞を傷つける活性酸素を中和する。</li>
@@ -1096,40 +977,21 @@
         </div>
 
         <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico">🌀</span><div><div class="hcard-ttl">腸を育て、炎症を鎮める。</div><div class="hcard-sub">腸内環境・関節の痛み</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/gut.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🌀</span></span><div><div class="hcard-ttl">腸を育て、お通じを整える。</div><div class="hcard-sub">腸内環境・便秘・関節の痛み</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
           <div class="hcard-body"><ul>
             <li><strong>腸内細菌を多様にする。</strong> 複雑な植物の繊維が、善玉菌のエサになる。<a href="#src-fiber" class="src">10</a></li>
-            <li><strong>関節の痛みをやわらげる。</strong> 全粒・植物中心の食事は炎症マーカーをはっきり下げ、関節の痛みを軽くすると報告されている。<a href="#src-multi" class="src">11</a></li>
+            <li><strong>お通じをスムーズに。</strong> お肉・卵・乳製品の食物繊維はゼロ。 植物の繊維が、毎日のリズムを整える。<a href="#src-fiber" class="src">10</a></li>
+            <li><strong>関節の痛みをやわらげる。</strong> 植物中心の食事は炎症マーカーをはっきり下げ、関節の痛みを軽くすると報告されている。<a href="#src-multi" class="src">11</a></li>
           </ul></div>
         </div>
 
         <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico">✨</span><div><div class="hcard-ttl">肌・髪・爪を、つくる。</div><div class="hcard-sub">ハリ・ツヤ・強さ</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/glow.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">✨</span></span><div><div class="hcard-ttl">美容・アンチエイジング。</div><div class="hcard-sub">肌・髪・爪・若々しさ</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
           <div class="hcard-body"><ul>
             <li><strong>肌のハリを支える。</strong> コラーゲンづくりに欠かせない<strong>ビタミンC</strong>は、赤ピーマン・ブロッコリー・柑橘にたっぷり。<a href="#src-skin" class="src">14</a></li>
             <li><strong>髪と爪の材料に。</strong> タンパク質・鉄・亜鉛が、大豆・レンズ豆・ナッツ・全粒から摂れる。</li>
-          </ul></div>
-        </div>
-
-        <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico">⏳</span><div><div class="hcard-ttl">老化を、ゆるやかに。</div><div class="hcard-sub">細胞の若さ・長寿</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
-          <div class="hcard-body"><ul>
             <li><strong>細胞の老化をゆるめる。</strong> 植物中心の生活習慣が、細胞の“寿命”を測るテロメアを保つことと関連する（オーニッシュ研究）。<a href="#src-telo" class="src">12</a></li>
-            <li><strong>長寿の食卓。</strong> かつて長寿日本一だった沖縄の伝統食は、芋・大豆・野菜が中心の“まるごと植物”だった。<a href="#src-oki" class="src">13</a></li>
-          </ul></div>
-        </div>
-
-        <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico">⚡</span><div><div class="hcard-ttl">エネルギーが、上がる。</div><div class="hcard-sub">軽さ・回復力</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
-          <div class="hcard-body"><ul>
-            <li><strong>一日を、軽やかに。</strong> 炎症が減り、鉄分豊富な植物（豆・全粒・緑黄色野菜）が体を動かす燃料に。 多くのアスリートが「回復が速くなった」と語る。<a href="#src-inflam" class="src">15</a></li>
-          </ul></div>
-        </div>
-
-        <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico">🌿</span><div><div class="hcard-ttl">便秘を、改善する。</div><div class="hcard-sub">毎日のスッキリ</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
-          <div class="hcard-body"><ul>
-            <li><strong>お通じをスムーズに。</strong> お肉・卵・乳製品の食物繊維はゼロ。 植物の食物繊維が、毎日のリズムを整える。<a href="#src-fiber" class="src">10</a></li>
+            <li><strong>長寿の食卓。</strong> かつて長寿日本一だった沖縄の伝統食も、芋・大豆・野菜が中心の“まるごと植物”だった。<a href="#src-oki" class="src">13</a></li>
           </ul></div>
         </div>
 
@@ -1184,20 +1046,64 @@
         <img src="/images/mascot/chef-cooking.png" alt="ビーガン王子 — 料理" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_happy.png'"/>
         <div class="bubble flex-1 mb-4">
           <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
-            ここまでお疲れさま！ 最後はごほうび。 ぼくの大好きな料理を、植物性バージョンにしてみたよ。 カードをタップして、ひっくり返してみて！ 👆
+            ここまでお疲れさま！ じつはビーガン料理って、こんなにおいしそうなんだ。 まずは、見て！ 👀
           </p>
         </div>
       </div>
 
-      <!-- Flip card grid (built by JS) -->
-      <div id="oishisa-grid" class="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"></div>
+      <!-- Auto-scroll food gallery (built by JS) -->
+      <div class="gallery reveal mt-8 sm:mt-10">
+        <div class="gallery-track" id="food-track"></div>
+      </div>
+      <p class="reveal mt-5 font-jp text-ink-soft text-[13px] sm:text-[15px] text-center">
+        ぜんぶ、植物だけでつくれる料理。 「草」のイメージ、変わったかな？ 😋
+      </p>
+
+      <!-- Swap cards intro -->
+      <div class="reveal mt-16 sm:mt-20 text-center">
+        <h3 class="font-jp-display text-[24px] sm:text-[34px] text-ink leading-[1.3]">
+          おうちでも、かんたん。<br/><span style="color:#3F6A3A;">置きかえるだけ。</span>
+        </h3>
+        <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px]">いつもの材料、何にかえる？ カードをタップ！ 👆</p>
+      </div>
+
+      <!-- Swap flip cards (built by JS) -->
+      <div id="oishisa-grid" class="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"></div>
 
       <p class="reveal mt-10 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center max-w-xl mx-auto">
-        同じおいしさを、ちょっと違う——そしてたいてい、軽い——材料で。 がまんを足すんじゃなくて、選択肢を増やすだけ。
+        がまんを足すんじゃなくて、選択肢を増やすだけ。 そしてたいてい、ちょっと軽い。
       </p>
 
     </div>
   </section>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ░  VEGAN MAP CTA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="px-6 sm:px-10 py-14 sm:py-20"
+           style="background:
+             radial-gradient(ellipse at 20% 20%, rgba(108,149,96,0.18), transparent 55%),
+             radial-gradient(ellipse at 80% 80%, rgba(212,168,71,0.20), transparent 55%),
+             #FDF1DA;">
+    <div class="max-w-3xl mx-auto">
+      <div class="reveal sticker p-7 sm:p-10 flex flex-col sm:flex-row items-center gap-5 sm:gap-7 text-center sm:text-left">
+        <img src="/images/mascot/map-japan.png" alt="" class="w-28 sm:w-36 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.15)]" loading="lazy" onerror="this.src='/images/oji/oji_excited.png'"/>
+        <div class="flex-1">
+          <div class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold mb-2" style="color:#3F6A3A;">VEGAN MAP</div>
+          <h2 class="font-jp-display text-[24px] sm:text-[34px] text-ink leading-[1.3] mb-3">
+            お店でも、食べてみよう。
+          </h2>
+          <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] mb-5">
+            日本全国の、ビーガン対応のお店をマップでチェック。 近くの一軒から、気軽に。
+          </p>
+          <a href="https://veganoji.jp/japan-vegan-map/" target="_blank" rel="noopener" class="btn-base btn-leaf">
+            日本ビーガンマップを見る
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════════════════════════════════════
        ░  PAYOFF  ░  Concern picker → personalised card + share
        ═══════════════════════════════════════════════════════════════════════ -->
@@ -1227,19 +1133,19 @@
       <!-- Concern picker -->
       <div class="reveal mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         <button type="button" class="pick-btn" data-concern="power" aria-pressed="true">
-          <span class="pick-btn__emoji">💪</span>
+          <img class="pick-img" src="/images/oji/oji_confident.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/><span class="pick-btn__emoji" style="display:none;">💪</span>
           <span class="pick-btn__label">力</span>
         </button>
         <button type="button" class="pick-btn" data-concern="beauty" aria-pressed="false">
-          <span class="pick-btn__emoji">✨</span>
+          <img class="pick-img" src="/images/oji/oji_happy.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/><span class="pick-btn__emoji" style="display:none;">✨</span>
           <span class="pick-btn__label">美</span>
         </button>
         <button type="button" class="pick-btn" data-concern="health" aria-pressed="false">
-          <span class="pick-btn__emoji">🍃</span>
+          <img class="pick-img" src="/images/oji/oji_excited.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/><span class="pick-btn__emoji" style="display:none;">🍃</span>
           <span class="pick-btn__label">健やかさ</span>
         </button>
         <button type="button" class="pick-btn" data-concern="taste" aria-pressed="false">
-          <span class="pick-btn__emoji">🍜</span>
+          <img class="pick-img" src="/images/mascot/eating-vegan.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/><span class="pick-btn__emoji" style="display:none;">🍜</span>
           <span class="pick-btn__label">おいしさ</span>
         </button>
       </div>
@@ -1286,101 +1192,6 @@
             </button>
           </div>
           <div id="share-toast" class="mt-1 text-[12px] sm:text-[13px] text-leaf-deep opacity-0 transition-opacity duration-300">コピーしたよ！</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       ░  ANSWER KEY  ░  答え合わせ
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section id="answer-key" class="chapter px-6 sm:px-10 relative"
-           data-chapter-num="05" data-chapter-label="答え合わせ"
-           style="background:
-             radial-gradient(ellipse at 100% 0%, rgba(212,168,71,0.25), transparent 55%),
-             radial-gradient(ellipse at 0% 100%, rgba(242,168,192,0.18), transparent 60%),
-             #FDF1DA;">
-
-    <div class="sticky-head">
-      <div class="sticky-head__pill">
-        <span class="sticky-head__num" style="background: #9C7E2A;">★</span>
-        答え合わせ
-      </div>
-    </div>
-
-    <div class="max-w-3xl mx-auto">
-
-      <div class="reveal text-center">
-        <div class="inline-flex items-center gap-3" style="color: #9C7E2A;">
-          <span class="chapter-eyebrow__line"></span>
-          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">FINAL SCORE</span>
-          <span class="chapter-eyebrow__line"></span>
-        </div>
-        <h2 class="mt-5 font-jp-display display-tight text-[36px] sm:text-[60px] lg:text-[72px] text-ink leading-[1.05]">
-          さあ、<br/>
-          <span style="color: #9C7E2A;">何問わかった？</span>
-        </h2>
-        <p class="mt-5 font-jp text-ink-soft text-[15px] sm:text-[18px] leading-[1.9] max-w-xl mx-auto">
-          上で読んできた内容で、最初のクイズの答えが見えてきたはず。
-        </p>
-      </div>
-
-      <div class="reveal mt-8 sm:mt-10 flex justify-center">
-        <img id="grade-oji"
-             src="/images/oji/oji_presenting.png"
-             alt="ビーガン王子 — 結果発表"
-             class="w-32 sm:w-40 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.15)]"
-             loading="lazy"/>
-      </div>
-
-      <div class="reveal mt-10 sm:mt-12">
-        <div id="score-card" class="share-card p-7 sm:p-10">
-          <div class="relative z-10">
-            <div class="flex items-center justify-between mb-5">
-              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] text-ink/55">あなたの正解数</div>
-              <div class="text-[11px] sm:text-[12px] tracking-[0.16em] font-bold" style="color: #9C7E2A;">QUIZ RESULT</div>
-            </div>
-
-            <div class="flex items-baseline justify-center gap-2 mt-2 mb-5">
-              <span id="score-num" class="big-number ticker text-[88px] sm:text-[140px] leading-none" style="color: #C9223A;">—</span>
-              <span class="font-jp-display text-[36px] sm:text-[60px] text-ink/65"> / 4</span>
-            </div>
-
-            <div id="score-message" class="font-jp-display text-[20px] sm:text-[26px] text-ink leading-[1.4] text-center mb-2">
-              まずはクイズに答えてみて！
-            </div>
-            <div id="score-sub" class="font-jp text-ink-soft text-[14px] sm:text-[15px] leading-[1.7] text-center"></div>
-
-            <div id="score-rows" class="mt-7 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"></div>
-
-            <div class="mt-7 pt-5 border-t border-ink/15 flex items-center justify-between text-[11px] sm:text-[12px] text-ink/55">
-              <div class="flex items-center gap-2">
-                <img src="/images/voji-logos/vegan-oji.png" alt="" class="w-5 h-5 object-contain" onerror="this.style.display='none'"/>
-                <span class="tracking-[0.12em]">veganoji.jp / vegan-to-karada</span>
-              </div>
-              <div class="font-jp">ビーガンと体クイズ</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-8 flex flex-col items-center gap-4">
-          <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] text-center">
-            結果をシェアして、友達も試してみよう。<br class="sm:hidden"/>
-            <span class="text-ink/55">スクリーンショットも OK！</span>
-          </p>
-          <div class="flex flex-wrap items-center justify-center gap-3">
-            <button type="button" id="quiz-share-native" class="btn-base btn-leaf">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2 L8 11 M5 5 L8 2 L11 5 M3 8 L3 14 L13 14 L13 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-              結果をシェア
-            </button>
-            <a id="quiz-share-x" target="_blank" rel="noopener" class="btn-base btn-ghost" href="#">
-              <span class="font-bold">X</span>でつぶやく
-            </a>
-            <a id="quiz-share-line" target="_blank" rel="noopener" class="btn-base btn-ghost" href="#">
-              LINEで送る
-            </a>
-          </div>
-          <div id="quiz-share-toast" class="mt-1 text-[12px] sm:text-[13px] text-leaf-deep opacity-0 transition-opacity duration-300">コピーしたよ！</div>
         </div>
       </div>
     </div>
@@ -1583,18 +1394,57 @@
       // (former beauty-picker removed — the 美 chapter is now the 健康 benefit-cards section)
 
       // ───────── CH4 おいしさ flip cards ─────────
-      (function buildFlips() {
+      (function buildOishisa() {
+        // (a) Auto-scroll food gallery
+        const track = document.getElementById('food-track');
+        if (track) {
+          const FOOD = [
+            { slug: 'ramen', name: 'ラーメン', e: '🍜' },
+            { slug: 'karaage', name: 'からあげ', e: '🍗' },
+            { slug: 'gyoza', name: '餃子', e: '🥟' },
+            { slug: 'curry', name: 'カレー', e: '🍛' },
+            { slug: 'sushi', name: 'お寿司', e: '🍣' },
+            { slug: 'burger', name: 'バーガー', e: '🍔' },
+            { slug: 'cheesecake', name: 'チーズケーキ', e: '🍰' },
+            { slug: 'bowl', name: 'ブッダボウル', e: '🥗' },
+          ];
+          const makeItem = (f) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            const img = document.createElement('img');
+            img.className = 'ph';
+            img.src = '/images/karada/food/' + f.slug + '.jpg';
+            img.alt = f.name;
+            img.loading = 'lazy';
+            img.onerror = function () {
+              const d = document.createElement('div');
+              d.className = 'ph';
+              d.style.cssText = 'display:flex;align-items:center;justify-content:center;font-size:54px;';
+              d.textContent = f.e;
+              img.replaceWith(d);
+            };
+            const cap = document.createElement('div');
+            cap.className = 'cap';
+            cap.textContent = f.name;
+            item.appendChild(img); item.appendChild(cap);
+            return item;
+          };
+          // Duplicate the set so the -50% keyframe loops seamlessly.
+          FOOD.concat(FOOD).forEach(f => track.appendChild(makeItem(f)));
+        }
+
+        // (b) Ingredient-swap flip cards (いつもの → 植物性の代替品)
         const grid = document.getElementById('oishisa-grid');
         if (!grid) return;
-        const DISHES = [
-          { emoji: '🍜', front: 'いつものラーメン', back: '植物性ラーメン', swap: '豆乳・味噌・きのこ出汁で、こっくり。' },
-          { emoji: '🍗', front: 'からあげ', back: '大豆ミートのからあげ', swap: '下味は同じ。 サクッとジューシー。' },
-          { emoji: '🥟', front: '餃子', back: '野菜と大豆ミートの餃子', swap: 'キャベツたっぷり、後味は軽め。' },
-          { emoji: '🍛', front: 'カレー', back: '野菜と豆のカレー', swap: 'ひよこ豆やレンズ豆で、食べごたえ◎。' },
-          { emoji: '🧀', front: 'チーズケーキ', back: '豆腐＆カシューのケーキ', swap: 'なめらかなのに、軽い後味。' },
-          { emoji: '🍔', front: 'ハンバーガー', back: '植物性パティのバーガー', swap: '大豆パティで、ガッツリそのまま。' },
+        const SWAPS = [
+          { e: '🥛', name: '牛乳', alt: '豆乳・オーツ・アーモンド・ライスミルク' },
+          { e: '🥩', name: 'お肉', alt: '大豆ミート・テンペ・セイタン・きのこ' },
+          { e: '🧈', name: 'バター', alt: '植物オイル・ココナッツ・ナッツバター' },
+          { e: '🥚', name: 'たまご', alt: '豆腐・アクアファバ・バナナ・フラックス' },
+          { e: '🧀', name: 'チーズ', alt: 'カシューチーズ・栄養酵母' },
+          { e: '🍯', name: 'はちみつ', alt: 'メープル・アガベ・甘酒' },
         ];
-        DISHES.forEach(d => {
+        SWAPS.forEach(d => {
           const card = document.createElement('button');
           card.type = 'button';
           card.className = 'flip-card reveal';
@@ -1603,15 +1453,14 @@
             '<div class="flip-inner">' +
               '<div class="flip-face flip-front">' +
                 '<span class="flip-tag" style="color:#9C7E2A; background:#FBF3DF;">いつもの</span>' +
-                '<div class="flip-emoji">' + d.emoji + '</div>' +
-                '<div class="font-jp-display text-[18px] sm:text-[20px] text-ink mt-3">' + d.front + '</div>' +
+                '<div class="flip-emoji">' + d.e + '</div>' +
+                '<div class="font-jp-display text-[18px] sm:text-[20px] text-ink mt-3">' + d.name + '</div>' +
                 '<div class="font-jp text-ink/55 text-[12px] mt-2">タップで変身 →</div>' +
               '</div>' +
               '<div class="flip-face flip-back">' +
-                '<span class="flip-tag" style="color:#3F6A3A; background:#FFF9EE;">植物性</span>' +
+                '<span class="flip-tag" style="color:#3F6A3A; background:#FFF9EE;">植物性なら</span>' +
                 '<div class="flip-emoji">🌱</div>' +
-                '<div class="font-jp-display text-[17px] sm:text-[19px] mt-3" style="color:#3F6A3A;">' + d.back + '</div>' +
-                '<p class="font-jp text-ink-soft text-[12.5px] sm:text-[13.5px] leading-[1.6] mt-2 px-2">' + d.swap + '</p>' +
+                '<p class="font-jp-display text-[15px] sm:text-[17px] mt-3 leading-[1.55] px-2" style="color:#3F6A3A;">' + d.alt + '</p>' +
               '</div>' +
             '</div>';
           card.addEventListener('click', () => {
@@ -1620,7 +1469,6 @@
           });
           grid.appendChild(card);
         });
-        // Re-observe the freshly added .reveal cards.
         if ('IntersectionObserver' in window) {
           const io2 = new IntersectionObserver((entries) => {
             for (const e of entries) {
@@ -1707,8 +1555,7 @@
         });
       });
       if (quizBack) quizBack.addEventListener('click', () => showQuestion(quizActive - 1));
-      showQuestion(0);
-      markComplete();
+      if (quizCards.length) { showQuestion(0); markComplete(); }
 
       // ───────── Concern picker → personalised card + share ─────────
       const CONCERNS = {
