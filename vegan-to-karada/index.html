@@ -607,6 +607,11 @@
     /* ── concern picker images ─────────────────────────────────────── */
     .pick-btn img.pick-img { width:50px; height:50px; object-fit:contain; }
     @media (min-width:640px){ .pick-btn img.pick-img { width:62px; height:62px; } }
+
+    /* ── 力 matrix header icons + おいしさ swap-card icons ──────────── */
+    .score-h .ico { font-size:19px; display:block; margin-bottom:1px; line-height:1; }
+    .flip-ico { width:74px; height:74px; object-fit:contain; }
+    @media (min-width:640px){ .flip-ico { width:90px; height:90px; } }
   </style>
 </head>
 
@@ -727,6 +732,12 @@
 
       <!-- Baboumian bridge quote -->
       <div class="reveal mt-10 sm:mt-12 sticker p-7 sm:p-9 text-center" style="background:#1F1812;">
+        <div class="flex justify-center mb-5">
+          <div style="width:88px;height:88px;border-radius:50%;border:2.5px solid #D4A847;overflow:hidden;background:#2A2018;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 rgba(0,0,0,0.35);">
+            <img src="/images/karada/athletes/baboumian.jpg" alt="Patrik Baboumian" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/>
+            <span style="display:none;font-size:40px;">🏋️</span>
+          </div>
+        </div>
         <p class="font-jp-display text-[19px] sm:text-[27px] leading-[1.5]" style="color:#FFF9EE;">
           「最も強い動物は、草食動物だ。<br/>ゴリラ、牛、象——<span style="color:#E8C76F;">そして、私だ。</span>」
         </p>
@@ -804,6 +815,16 @@
         ※ 大豆ミート・高野豆腐・きなこは乾燥重量。 水で戻すと量は変わるけど、栄養はしっかり。 納豆・豆腐・枝豆みたいに、日本の食卓ではもうおなじみ。<a href="#src-1-1" class="src">1</a>
       </p>
 
+      <!-- Oji: dried soy meat can beat meat -->
+      <div class="reveal mt-8 flex items-end gap-3 sm:gap-6">
+        <img src="/images/oji/oji_pointing_up.png" alt="ビーガン王子" class="w-20 sm:w-28 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_excited.png'"/>
+        <div class="bubble flex-1 mb-4">
+          <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
+            見て見て！ 乾燥タイプの大豆ミートは、なんと<strong>お肉よりタンパク質が多い</strong>ことも。 「お肉じゃないと…」なんて、もう言わせないよ。 💪
+          </p>
+        </div>
+      </div>
+
       <!-- ════ Nutrition: not just protein ════ -->
       <div class="reveal mt-16 sm:mt-24 text-center">
         <div class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold" style="color:#9C1428;">NUTRITION SCOREBOARD</div>
@@ -830,9 +851,9 @@
       <div class="reveal mt-7 sticker p-4 sm:p-6">
         <div class="score-head">
           <div></div>
-          <div class="score-h" style="background:#FCE0E0;">お肉</div>
-          <div class="score-h" style="background:#EAF4E4; line-height:1.1;">代替肉<br/><span style="font-size:9px; font-weight:700;">超加工</span></div>
-          <div class="score-h" style="background:#DFF0D6;">まるごと<br/>植物</div>
+          <div class="score-h" style="background:#FCDCDC; border-color:#C9223A;"><span class="ico">🍖</span>お肉</div>
+          <div class="score-h" style="background:#E6EFF5; border-color:#2B7AB0;"><span class="ico">🌭</span>代替肉</div>
+          <div class="score-h" style="background:#DCEFD3; border-color:#3F6A3A;"><span class="ico">🥦</span>まるごと植物</div>
         </div>
         <div class="score mt-1.5">
           <div class="row-label">食物繊維</div><div class="cell bad"><span class="big">0g</span></div><div class="cell good"><span class="big">5g</span></div><div class="cell best"><span class="big">9g</span></div>
@@ -847,7 +868,7 @@
         <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">ホルモン剤 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">あり</span></div><div class="cell good"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">米国の食肉では<strong>7種</strong>のホルモン剤が認可。 EUでは公衆衛生上の理由から全面禁止されている。</div></div>
         <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">発がん性分類 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">高い</span></div><div class="cell good"><span class="lab">低い</span></div><div class="cell best"><span class="lab">低い</span></div></div><div class="diff-detail">WHOは加工肉を<strong>グループ1（ヒトに発がん性あり）</strong>、赤身肉を2Aに分類。 加工肉50g/日で大腸がんリスク+18%。</div></div>
         <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">TMAO（心血管） <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">↑</span></div><div class="cell good"><span class="lab">低い</span></div><div class="cell best"><span class="lab">低い</span></div></div><div class="diff-detail">肉由来で増えやすいTMAOは、心血管疾患のリスクとの関連が報告されている。</div></div>
-        <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">乳化剤・カビ毒・アレルゲン <span class="info">ⓘ</span></div><div class="cell good"><span class="lab">少ない</span></div><div class="cell bad"><span class="lab">多い</span></div><div class="cell best"><span class="lab">少ない</span></div></div><div class="diff-detail">正直に言うと、ここは<strong>代替肉（超加工）がお肉より劣る</strong>数少ない項目。 だからこそ、いちばんの正解は「まるごと植物」。</div></div>
+        <div class="diffrow mt-1.5"><div class="diffrow-head"><div class="row-label">乳化剤・カビ毒・アレルゲン <span class="info">ⓘ</span></div><div class="cell good"><span class="lab">少ない</span></div><div class="cell bad"><span class="lab">多い</span></div><div class="cell best"><span class="lab">少ない</span></div></div><div class="diff-detail">正直に言うと、ここは<strong>代替肉がお肉より劣る</strong>こともある数少ない項目。 だからこそ、いちばんの正解は「まるごと植物」。</div></div>
 
         <p class="text-center text-[11px] text-ink/45 mt-4">緑＝良い ・ 黄＝同じ ・ 赤＝悪い ／ ⓘの行をタップで詳しく ／ 出典：Greger 2025<a href="#src-greger" class="src">4</a></p>
       </div>
@@ -1074,24 +1095,14 @@
         がまんを足すんじゃなくて、選択肢を増やすだけ。 そしてたいてい、ちょっと軽い。
       </p>
 
-    </div>
-  </section>
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       ░  VEGAN MAP CTA
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="px-6 sm:px-10 py-14 sm:py-20"
-           style="background:
-             radial-gradient(ellipse at 20% 20%, rgba(108,149,96,0.18), transparent 55%),
-             radial-gradient(ellipse at 80% 80%, rgba(212,168,71,0.20), transparent 55%),
-             #FDF1DA;">
-    <div class="max-w-3xl mx-auto">
-      <div class="reveal sticker p-7 sm:p-10 flex flex-col sm:flex-row items-center gap-5 sm:gap-7 text-center sm:text-left">
-        <img src="/images/mascot/map-japan.png" alt="" class="w-28 sm:w-36 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.15)]" loading="lazy" onerror="this.src='/images/oji/oji_excited.png'"/>
+      <!-- Vegan map CTA (end of おいしさ) -->
+      <div class="reveal mt-14 sm:mt-16 sticker p-6 sm:p-9 flex flex-col sm:flex-row items-center gap-5 sm:gap-7 text-center sm:text-left" style="background:#FDF1DA;">
+        <img src="/images/mascot/map-japan.png" alt="" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.15)]" loading="lazy" onerror="this.src='/images/oji/oji_excited.png'"/>
         <div class="flex-1">
           <div class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold mb-2" style="color:#3F6A3A;">VEGAN MAP</div>
-          <h2 class="font-jp-display text-[24px] sm:text-[34px] text-ink leading-[1.3] mb-3">
+          <h3 class="font-jp-display text-[22px] sm:text-[30px] text-ink leading-[1.3] mb-3">
             お店でも、食べてみよう。
-          </h2>
+          </h3>
           <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] mb-5">
             日本全国の、ビーガン対応のお店をマップでチェック。 近くの一軒から、気軽に。
           </p>
@@ -1101,99 +1112,7 @@
           </a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       ░  PAYOFF  ░  Concern picker → personalised card + share
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section id="payoff" class="chapter px-6 sm:px-10 relative"
-           style="background:
-             radial-gradient(ellipse at 80% 5%, rgba(232,199,111,0.26), transparent 55%),
-             radial-gradient(ellipse at 20% 95%, rgba(108,149,96,0.18), transparent 60%),
-             #FDF1DA;">
-
-    <div class="max-w-3xl mx-auto">
-
-      <div class="reveal text-center">
-        <div class="inline-flex items-center gap-3 text-ink/55">
-          <span class="chapter-eyebrow__line"></span>
-          <span class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold">YOUR FIRST STEP</span>
-          <span class="chapter-eyebrow__line"></span>
-        </div>
-        <h2 class="mt-5 font-jp-display display-tight text-[34px] sm:text-[56px] lg:text-[64px] text-ink leading-[1.06]">
-          あなたは、<br/>
-          <span class="text-royal">何が気になる？</span>
-        </h2>
-        <p class="mt-6 font-jp text-ink-soft text-[15px] sm:text-[18px] leading-[1.9] max-w-xl mx-auto">
-          ひとつ選ぶと、王子から「今週の小さな一歩」を。
-        </p>
-      </div>
-
-      <!-- Concern picker -->
-      <div class="reveal mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-        <button type="button" class="pick-btn" data-concern="power" aria-pressed="true">
-          <img class="pick-img" src="/images/oji/oji_confident.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/><span class="pick-btn__emoji" style="display:none;">💪</span>
-          <span class="pick-btn__label">力</span>
-        </button>
-        <button type="button" class="pick-btn" data-concern="beauty" aria-pressed="false">
-          <img class="pick-img" src="/images/oji/oji_happy.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/><span class="pick-btn__emoji" style="display:none;">✨</span>
-          <span class="pick-btn__label">美</span>
-        </button>
-        <button type="button" class="pick-btn" data-concern="health" aria-pressed="false">
-          <img class="pick-img" src="/images/oji/oji_excited.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/><span class="pick-btn__emoji" style="display:none;">🍃</span>
-          <span class="pick-btn__label">健やかさ</span>
-        </button>
-        <button type="button" class="pick-btn" data-concern="taste" aria-pressed="false">
-          <img class="pick-img" src="/images/mascot/eating-vegan.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/><span class="pick-btn__emoji" style="display:none;">🍜</span>
-          <span class="pick-btn__label">おいしさ</span>
-        </button>
-      </div>
-
-      <!-- Result share card -->
-      <div class="reveal mt-10 sm:mt-12">
-        <div id="karada-share-card" class="share-card p-7 sm:p-10">
-          <div class="relative z-10 text-center">
-            <div class="text-[40px] sm:text-[52px] leading-none mb-3" id="kshare-emoji">💪</div>
-            <div class="font-jp-display text-[24px] sm:text-[34px] leading-[1.3] text-ink mb-3" id="kshare-headline">植物のチカラで、動ける体に。</div>
-            <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.9] max-w-md mx-auto" id="kshare-body">タンパク質は、大豆や豆、全粒からしっかり摂れる。 強さは、お肉だけのものじゃない。</p>
-            <div class="mt-6 inline-flex flex-col items-start gap-1 px-5 py-4 rounded-2xl border-2 border-ink text-left" style="box-shadow:4px 4px 0 var(--color-ink); background:rgba(255,249,238,0.7);">
-              <span class="text-[11px] tracking-[0.16em] font-bold" id="kshare-step-label" style="color:#C9223A;">今週の小さな一歩</span>
-              <span class="font-jp font-bold text-[15px] sm:text-[17px] text-ink" id="kshare-step">今日のタンパク質を、豆腐か納豆に。</span>
-            </div>
-            <div class="mt-7 pt-5 border-t border-ink/15 flex items-center justify-between text-[11px] sm:text-[12px] text-ink/55">
-              <div class="flex items-center gap-2">
-                <img src="/images/voji-logos/vegan-oji.png" alt="" class="w-5 h-5 object-contain" onerror="this.style.display='none'"/>
-                <span class="tracking-[0.12em]">veganoji.jp / vegan-to-karada</span>
-              </div>
-              <div class="font-jp">ビーガンと体</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-8 flex flex-col items-center gap-4">
-          <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] text-center">
-            一歩をシェアして、誰かの背中もそっと押そう。<br class="sm:hidden"/>
-            <span class="text-ink/55">スクリーンショットも OK！</span>
-          </p>
-          <div class="flex flex-wrap items-center justify-center gap-3">
-            <button type="button" id="share-native" class="btn-base btn-leaf">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2 L8 11 M5 5 L8 2 L11 5 M3 8 L3 14 L13 14 L13 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-              シェアする
-            </button>
-            <a id="share-x" target="_blank" rel="noopener" class="btn-base btn-ghost" href="#">
-              <span class="font-bold">X</span>でつぶやく
-            </a>
-            <a id="share-line" target="_blank" rel="noopener" class="btn-base btn-ghost" href="#">
-              LINEで送る
-            </a>
-            <button type="button" id="share-copy" class="btn-base btn-ghost">
-              リンクをコピー
-            </button>
-          </div>
-          <div id="share-toast" class="mt-1 text-[12px] sm:text-[13px] text-leaf-deep opacity-0 transition-opacity duration-300">コピーしたよ！</div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1437,13 +1356,15 @@
         const grid = document.getElementById('oishisa-grid');
         if (!grid) return;
         const SWAPS = [
-          { e: '🥛', name: '牛乳', alt: '豆乳・オーツ・アーモンド・ライスミルク' },
-          { e: '🥩', name: 'お肉', alt: '大豆ミート・テンペ・セイタン・きのこ' },
-          { e: '🧈', name: 'バター', alt: '植物オイル・ココナッツ・ナッツバター' },
-          { e: '🥚', name: 'たまご', alt: '豆腐・アクアファバ・バナナ・フラックス' },
-          { e: '🧀', name: 'チーズ', alt: 'カシューチーズ・栄養酵母' },
-          { e: '🍯', name: 'はちみつ', alt: 'メープル・アガベ・甘酒' },
+          { s: 'milk',   a: 'soymilk',     e: '🥛', ae: '🥛', name: '牛乳',   alt: '豆乳・オーツ・アーモンド' },
+          { s: 'meat',   a: 'soymeat',     e: '🥩', ae: '🍱', name: 'お肉',   alt: '大豆ミート・厚揚げ・高野豆腐' },
+          { s: 'egg',    a: 'tofu',        e: '🥚', ae: '🍳', name: 'たまご', alt: '豆腐・おからで スクランブルやオムレツ' },
+          { s: 'cheese', a: 'plantcheese', e: '🧀', ae: '🌱', name: 'チーズ', alt: '豆乳チーズ・カシューチーズ' },
+          { s: 'butter', a: 'plantbutter', e: '🧈', ae: '🌱', name: 'バター', alt: '植物性マーガリン・米油・ココナッツ' },
+          { s: 'honey',  a: 'maple',       e: '🍯', ae: '🍁', name: 'はちみつ', alt: 'メープル・甘酒・米飴' },
         ];
+        const swapIco = (slug, fb) =>
+          '<img class="flip-ico" src="/images/karada/swap/' + slug + '.png" alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\';"/><span class="flip-emoji" style="display:none;">' + fb + '</span>';
         SWAPS.forEach(d => {
           const card = document.createElement('button');
           card.type = 'button';
@@ -1453,14 +1374,14 @@
             '<div class="flip-inner">' +
               '<div class="flip-face flip-front">' +
                 '<span class="flip-tag" style="color:#9C7E2A; background:#FBF3DF;">いつもの</span>' +
-                '<div class="flip-emoji">' + d.e + '</div>' +
+                swapIco(d.s, d.e) +
                 '<div class="font-jp-display text-[18px] sm:text-[20px] text-ink mt-3">' + d.name + '</div>' +
                 '<div class="font-jp text-ink/55 text-[12px] mt-2">タップで変身 →</div>' +
               '</div>' +
               '<div class="flip-face flip-back">' +
                 '<span class="flip-tag" style="color:#3F6A3A; background:#FFF9EE;">植物性なら</span>' +
-                '<div class="flip-emoji">🌱</div>' +
-                '<p class="font-jp-display text-[15px] sm:text-[17px] mt-3 leading-[1.55] px-2" style="color:#3F6A3A;">' + d.alt + '</p>' +
+                swapIco(d.a, d.ae) +
+                '<p class="font-jp-display text-[14px] sm:text-[16px] mt-2 leading-[1.5] px-2" style="color:#3F6A3A;">' + d.alt + '</p>' +
               '</div>' +
             '</div>';
           card.addEventListener('click', () => {
@@ -1737,7 +1658,17 @@
       document.querySelectorAll('.dex').forEach(function(c){ c.addEventListener('click', function(){ c.classList.toggle('is-flipped'); }); });
       document.querySelectorAll('.pola').forEach(function(c){ c.addEventListener('click', function(){ c.classList.toggle('is-open'); }); });
       document.querySelectorAll('.diffrow-head').forEach(function(h){ h.addEventListener('click', function(){ h.parentElement.classList.toggle('is-open'); }); });
-      document.querySelectorAll('.hcard-head').forEach(function(h){ h.addEventListener('click', function(){ h.parentElement.classList.toggle('is-open'); }); });
+      document.querySelectorAll('.hcard-head').forEach(function(h){
+        h.addEventListener('click', function(){
+          var card = h.parentElement;
+          var willOpen = !card.classList.contains('is-open');
+          var top0 = h.getBoundingClientRect().top;           // remember header's screen position
+          document.querySelectorAll('.hcard.is-open').forEach(function(c){ if (c !== card) c.classList.remove('is-open'); });
+          card.classList.toggle('is-open', willOpen);
+          var top1 = h.getBoundingClientRect().top;            // compensate scroll so it doesn't jump
+          if (top1 !== top0) window.scrollBy(0, top1 - top0);
+        });
+      });
     })();
   </script>
 
