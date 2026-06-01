@@ -374,24 +374,6 @@
       .quiz-card { animation: none; }
     }
 
-    /* ── Ten-earths grid (CH4: 100億人分 visualization) ──────────────
-       Each earth starts hidden + small; .is-in pops it into place.
-       JS staggers them on IntersectionObserver entry. */
-    #ten-earths-grid img {
-      width: 100%;
-      height: auto;
-      opacity: 0;
-      transform: scale(0.4);
-      transition: opacity 0.45s ease-out, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    #ten-earths-grid img.is-in {
-      opacity: 1;
-      transform: scale(1);
-    }
-    @media (prefers-reduced-motion: reduce) {
-      #ten-earths-grid img { opacity: 1; transform: none; transition: none; }
-    }
-
     /* ── Efficiency click-to-reveal cards (CH4 7kg + 5kg) ─────────── */
     .efficiency-card {
       transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.2s ease;
@@ -454,6 +436,13 @@
     }
     .food-btn[data-kind="animal"] .food-btn__kind { background: #E55063; }
     .food-btn[data-kind="plant"]  .food-btn__kind { background: #6C9560; }
+
+    /* Food-result smooth fade between selections (set by JS on click). */
+    #food-result {
+      transition: opacity 0.18s ease-out, background-color 0.28s ease-out, transform 0.22s cubic-bezier(.22,.61,.36,1);
+    }
+    #food-result.is-fading { opacity: 0; transform: translateY(-4px); }
+    #food-result.is-entering { opacity: 0; transform: translateY(6px); }
 
     /* ── Ofuro bath sequence animation ──────────────────────────────
        Each bath icon in the GRIDS starts hidden + slightly smaller;
@@ -1249,7 +1238,7 @@
           <div>
             <div class="flex items-baseline justify-between mb-2">
               <div class="flex items-center gap-2.5">
-                <span class="text-[28px] sm:text-[34px] leading-none w-9 sm:w-11 text-center">✈️</span>
+                <img src="/images/vegan-to-chikyu/icon-airplane-chibi.png" alt="" class="w-9 h-9 sm:w-11 sm:h-11" loading="lazy"/>
                 <span class="font-jp text-[14px] sm:text-[16px] text-ink">海外旅行を 1往復 減らす</span>
               </div>
               <span class="font-jp-display ticker text-[18px] sm:text-[22px] text-ink/80">-1.0 t/回</span>
@@ -1262,7 +1251,7 @@
           <div>
             <div class="flex items-baseline justify-between mb-2">
               <div class="flex items-center gap-2.5">
-                <span class="text-[28px] sm:text-[34px] leading-none w-9 sm:w-11 text-center">🚴</span>
+                <img src="/images/vegan-to-chikyu/icon-bicycle-chibi.png" alt="" class="w-9 h-9 sm:w-11 sm:h-11" loading="lazy"/>
                 <span class="font-jp text-[14px] sm:text-[16px] text-ink">毎日 自転車で通勤(10km)</span>
               </div>
               <span class="font-jp-display ticker text-[18px] sm:text-[22px] text-ink/80">-0.5 t/年</span>
@@ -1288,7 +1277,7 @@
           <div>
             <div class="flex items-baseline justify-between mb-2">
               <div class="flex items-center gap-2.5">
-                <span class="text-[28px] sm:text-[34px] leading-none w-9 sm:w-11 text-center">♻️</span>
+                <img src="/images/vegan-to-chikyu/icon-recycle-chibi.png" alt="" class="w-9 h-9 sm:w-11 sm:h-11" loading="lazy"/>
                 <span class="font-jp text-[14px] sm:text-[16px] text-ink">リサイクルを 徹底</span>
               </div>
               <span class="font-jp-display ticker text-[18px] sm:text-[22px] text-ink/65">-0.10 t/年</span>
@@ -1893,30 +1882,20 @@
           世界の動物畜産は、<span class="font-bold">1秒で約40,000kg</span>の排泄物を出している。<a href="#src-2-6" class="src">12</a>
         </p>
 
-        <div class="mt-8 sm:mt-10 grid sm:grid-cols-2 gap-4">
-          <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink/15 flex items-center gap-4" style="background: rgba(255,249,238,0.6);">
-            <img src="/images/vegan-to-chikyu/icon-poo.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0" loading="lazy"/>
-            <div>
-              <div class="font-jp-display text-[18px] sm:text-[22px] ticker" style="color: #C9532C;">40億トン / 年</div>
-              <p class="mt-1 font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.6]">
-                2030年までの予測。<a href="#src-2-8" class="src">14</a>
-              </p>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5 rounded-2xl border-2 border-ink/15 flex items-center gap-4" style="background: rgba(255,249,238,0.6);">
-            <img src="/images/vegan-to-chikyu/icon-poo.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0" loading="lazy"/>
-            <div>
-              <div class="font-jp-display text-[18px] sm:text-[22px] ticker" style="color: #C9532C;">8,545 万トン</div>
-              <p class="mt-1 font-jp text-ink-soft text-[12px] sm:text-[14px] leading-[1.6]">
-                日本 1996年時点の量。<a href="#src-2-9" class="src">15</a>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <p class="mt-6 font-jp text-ink-soft text-[12px] sm:text-[13px] leading-[1.7] text-center">
-          これらは処理施設を通らず、土や地下水を汚す原因にもなる。
-        </p>
+        <ul class="mt-6 sm:mt-7 space-y-2.5 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.75] max-w-xl mx-auto">
+          <li class="flex gap-3">
+            <span style="color: #C9532C;" class="flex-shrink-0 font-bold">•</span>
+            <span>世界全体の予測は <span class="font-bold ticker" style="color: #C9532C;">40億トン / 年</span>(2030年まで)。<a href="#src-2-8" class="src">14</a></span>
+          </li>
+          <li class="flex gap-3">
+            <span style="color: #C9532C;" class="flex-shrink-0 font-bold">•</span>
+            <span>日本だけで <span class="font-bold ticker" style="color: #C9532C;">8,545 万トン</span>(1996年時点)。<a href="#src-2-9" class="src">15</a></span>
+          </li>
+          <li class="flex gap-3">
+            <span style="color: #C9532C;" class="flex-shrink-0 font-bold">•</span>
+            <span>処理施設を通らず、土や地下水を汚す原因にもなる。</span>
+          </li>
+        </ul>
       </div>
 
       <!-- CH3 ENDING — diet bar chart: 1人が必要とする土地 by diet. -->
@@ -2012,29 +1991,34 @@
         </p>
       </div>
 
-      <!-- KEY FACT — 100億人分 leads. 10 earths populate in. Pies kept
-           as supporting facts inside a collapsed dropdown. -->
+      <!-- KEY FACT — 100億人分 leads. Single Earth icon + giant counted-up
+           number is the centerpiece; no decoder label needed. -->
       <div class="reveal mt-14 sm:mt-20 sticker p-6 sm:p-10 relative">
         <div class="absolute -top-5 left-6 sm:left-10 px-3 py-1 rounded-full text-paper text-[11px] sm:text-[12px] tracking-[0.16em]"
              style="background: #6B4E8C; border: 2px solid var(--color-ink);">
           KEY FACT
         </div>
 
-        <h3 class="font-jp-display text-[24px] sm:text-[36px] leading-[1.3] text-ink text-center">
-          畜産のエサに使われている食料は——<br/>
-          <span class="font-bold" style="color: #6B4E8C;">人口100億人分。</span><a href="#src-4-10" class="src">31</a>
-        </h3>
+        <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9] text-center">
+          畜産のエサに使われている食料は——
+        </p>
 
-        <div id="ten-earths-stage" class="mt-7 sm:mt-9">
-          <div id="ten-earths-grid" class="grid grid-cols-5 gap-2 sm:gap-3 max-w-md mx-auto">
-            <!-- populated by JS: 10 earths, each pops in with stagger -->
-          </div>
-          <div class="mt-3 text-center font-jp text-[11px] sm:text-[12px] text-ink/55 tracking-[0.12em]">
-            🌏 = 10億人分
+        <!-- Single Earth + giant 100億 hero number side-by-side -->
+        <div class="mt-5 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+          <img src="/images/vegan-to-chikyu/icon-earth-detailed.png"
+               alt="" loading="lazy"
+               class="w-28 sm:w-40 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.18)]"/>
+          <div class="text-center sm:text-left">
+            <div class="flex items-baseline justify-center sm:justify-start gap-1 flex-wrap">
+              <span data-count-target="100" data-pop="1" class="big-number ticker text-[88px] sm:text-[140px] leading-none" style="color: #6B4E8C;">0</span>
+              <span class="font-jp-display text-[36px] sm:text-[56px] text-ink">億</span>
+              <span class="font-jp-display text-[24px] sm:text-[36px] text-ink/80 ml-1">人分。<a href="#src-4-10" class="src">31</a></span>
+            </div>
+            <div class="mt-2 font-jp text-ink-soft text-[12px] sm:text-[14px] tracking-[0.06em]">の食料が、毎年 動物のエサに。</div>
           </div>
         </div>
 
-        <p class="mt-6 font-jp text-[14px] sm:text-[16px] leading-[1.85] text-ink-soft text-center">
+        <p class="mt-6 sm:mt-8 font-jp text-[14px] sm:text-[16px] leading-[1.85] text-ink-soft text-center">
           今の世界人口は約80億人。<br/>
           <span class="font-bold">もう、全員に行き渡る量はある。</span>
         </p>
@@ -2856,36 +2840,6 @@
         });
       });
 
-      // ───────── CH4 ten-earths reveal — 1 earth = 1 billion people ───
-      (function buildTenEarths() {
-        const grid = document.getElementById('ten-earths-grid');
-        if (!grid) return;
-        const earths = [];
-        for (let i = 0; i < 10; i++) {
-          const img = document.createElement('img');
-          img.src = '/images/vegan-to-chikyu/icon-earth-detailed.png';
-          img.alt = '10億人分';
-          img.loading = 'lazy';
-          grid.appendChild(img);
-          earths.push(img);
-        }
-        const prefersReducedM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const reveal = () => {
-          if (prefersReducedM) { earths.forEach(e => e.classList.add('is-in')); return; }
-          earths.forEach((img, i) => setTimeout(() => img.classList.add('is-in'), 80 + i * 180));
-        };
-        if ('IntersectionObserver' in window) {
-          const io = new IntersectionObserver((entries) => {
-            for (const e of entries) {
-              if (e.isIntersecting) { reveal(); io.unobserve(grid); }
-            }
-          }, { threshold: 0.35 });
-          io.observe(grid);
-        } else {
-          reveal();
-        }
-      })();
-
       // ───────── CH2 interactive food-picker ─────────
       //   12 foods (6 animal, 6 plant). Click reveals water L per typical
       //   serving and a one-line message. Animal items frame the scale in
@@ -2938,8 +2892,7 @@
             const accent = f.kind === 'animal' ? '#C9223A' : '#3F6A3A';
             const accentBg = f.kind === 'animal' ? 'rgba(248,220,220,0.55)' : 'rgba(220,239,216,0.55)';
             const litresStr = f.litres.toLocaleString('ja-JP') + ' L';
-            result.style.background = accentBg;
-            result.innerHTML =
+            const newHTML =
               '<div class="text-center">' +
                 '<div class="text-[10px] sm:text-[11px] tracking-[0.16em] font-bold mb-1.5" style="color:' + accent + ';">' +
                   (f.kind === 'animal' ? 'ANIMAL' : 'PLANT') + ' ・ ' + f.label +
@@ -2951,6 +2904,18 @@
                   f.msg +
                 '</p>' +
               '</div>';
+            // Cross-fade: fade out → swap content + background → fade in
+            result.classList.add('is-fading');
+            setTimeout(() => {
+              result.style.background = accentBg;
+              result.innerHTML = newHTML;
+              result.classList.remove('is-fading');
+              result.classList.add('is-entering');
+              // Next frame: trigger the entering→visible transition
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => result.classList.remove('is-entering'));
+              });
+            }, 180);
           });
           grid.appendChild(btn);
         });
@@ -3046,7 +3011,7 @@
             const val = parseInt(opt.dataset.val, 10);
             if (val === correct) {
               opt.dataset.state = 'right';
-              fb.innerHTML = '<p class="font-jp text-[15px] sm:text-[17px] font-bold leading-[1.6] text-center" style="color: #3F6A3A;">🎉 やった、正解！</p>';
+              fb.innerHTML = '<div class="flex items-center justify-center gap-3"><img src="/images/oji/oji_excited.png" alt="ビーガン王子 — よろこんでる" class="w-14 sm:w-16 anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.18)]" loading="lazy"/><p class="font-jp text-[15px] sm:text-[17px] font-bold leading-[1.5]" style="color: #3F6A3A;">やった、正解！</p></div>';
               reveal.style.display = '';
               aq.querySelectorAll('.ch3-cq-opt').forEach(o => { if (o !== opt) o.disabled = true; });
               if (!fRunning) {
@@ -3080,7 +3045,7 @@
             const val = parseInt(opt.dataset.val, 10);
             if (val === correct) {
               opt.dataset.state = 'right';
-              feedback.innerHTML = '<p class="font-jp text-[15px] sm:text-[17px] font-bold leading-[1.6] text-center" style="color: #3F6A3A;">🎉 やった、正解！ なんと、たったの2割。</p>';
+              feedback.innerHTML = '<div class="flex items-center justify-center gap-3"><img src="/images/oji/oji_excited.png" alt="ビーガン王子 — よろこんでる" class="w-14 sm:w-16 anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.18)]" loading="lazy"/><p class="font-jp text-[15px] sm:text-[17px] font-bold leading-[1.5]" style="color: #3F6A3A;">やった、正解！ なんと、たったの2割。</p></div>';
               reveal.style.display = '';
               // Disable other buttons.
               cq.querySelectorAll('.ch3-cq-opt').forEach(o => { if (o !== opt) o.disabled = true; });
