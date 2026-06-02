@@ -575,7 +575,7 @@
     .pola { background:#fff; border:2px solid var(--color-ink); box-shadow:5px 5px 0 var(--color-ink); border-radius:6px; padding:12px 12px 0; cursor:pointer; transition: opacity .9s ease-out, box-shadow .2s ease; width:100%; }
     .pola:hover { box-shadow:7px 7px 0 var(--color-ink); }
     .pola .photo { position:relative; background:#FDF1DA; border:1.5px solid rgba(31,24,18,.2); border-radius:3px; height:128px; overflow:hidden; }
-    .pola .photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .pola .photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:6px; }
     .pola .ph-emoji { position:absolute; inset:0; display:none; align-items:center; justify-content:center; font-size:52px; }
     .pola .cap { padding:10px 2px 14px; text-align:left; }
     .pola .q { max-height:0; opacity:0; overflow:hidden; margin-top:0; transition: max-height .45s cubic-bezier(.22,1,.36,1), opacity .35s ease, margin-top .4s ease; }
@@ -624,6 +624,17 @@
     #athlete-grid > .pola { flex:0 0 76%; scroll-snap-align:center; }
     @media (min-width:640px){ #athlete-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; overflow:visible; padding-bottom:0; } #athlete-grid > .pola { flex:none; } }
     @media (min-width:1024px){ #athlete-grid { grid-template-columns:1fr 1fr 1fr; } }
+
+    /* matrix corner legend */
+    .lgnd { display:flex; flex-direction:column; gap:4px; justify-content:center; padding:7px 8px; }
+    .lgnd span { display:flex; align-items:center; gap:5px; font-size:11.5px; font-weight:700; color: var(--color-ink); line-height:1; }
+    .lgnd i { width:12px; height:12px; border-radius:3px; border:1.5px solid var(--color-ink); display:inline-block; flex-shrink:0; }
+    @media (min-width:640px){ .lgnd span{ font-size:13px; } .lgnd i{ width:13px; height:13px; } }
+    /* collapsible note */
+    .note-toggle summary { list-style:none; }
+    .note-toggle summary::-webkit-details-marker { display:none; }
+    .note-toggle .chev { transition: transform .25s ease; }
+    .note-toggle[open] summary .chev { transform: rotate(180deg); }
   </style>
 </head>
 
@@ -685,7 +696,7 @@
            style="background:
              radial-gradient(ellipse at 90% 5%, rgba(229,80,99,0.16), transparent 55%),
              radial-gradient(ellipse at 5% 95%, rgba(201,34,58,0.10), transparent 60%),
-             #FCEDEC;">
+             #FBE0E4;">
 
     <div class="sticky-head">
       <div class="sticky-head__pill">
@@ -739,7 +750,7 @@
       <div class="reveal mt-10 sm:mt-12 sticker p-7 sm:p-9 text-center" style="background:#1F1812;">
         <div class="flex justify-center mb-5">
           <div style="width:88px;height:88px;border-radius:50%;border:2.5px solid #D4A847;overflow:hidden;background:#2A2018;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 rgba(0,0,0,0.35);">
-            <img src="/images/karada/athletes/baboumian.jpg" alt="Patrik Baboumian" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/>
+            <img src="/images/karada/athletes/gen4.png" alt="Patrik Baboumian" style="width:100%;height:100%;object-fit:contain;padding:4px;" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/>
             <span style="display:none;font-size:40px;">🏋️</span>
           </div>
         </div>
@@ -856,7 +867,7 @@
       <div class="reveal mt-7">
         <div class="matrix">
         <div class="score-head">
-          <div></div>
+          <div class="lgnd"><span><i style="background:#5FA64E"></i>良い</span><span><i style="background:#CC9A33"></i>同じ</span><span><i style="background:#D94A41"></i>悪い</span></div>
           <div class="score-h" style="background:#FCDCDC;"><img class="hico" src="/images/karada/matrix/meat.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🍖</span>お肉</div>
           <div class="score-h" style="background:#E6EFF5;"><img class="hico" src="/images/karada/matrix/altmeat.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🌭</span>代替肉</div>
           <div class="score-h" style="background:#DCEFD3;"><img class="hico" src="/images/karada/matrix/plants.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🥦</span>まるごと植物</div>
@@ -877,7 +888,7 @@
         <div class="diffrow"><div class="diffrow-head"><div class="row-label">乳化剤・カビ毒・アレルゲン <span class="info">ⓘ</span></div><div class="cell good"><span class="lab">少ない</span></div><div class="cell bad"><span class="lab">多い</span></div><div class="cell best"><span class="lab">少ない</span></div></div><div class="diff-detail">正直に言うと、ここは<strong>代替肉がお肉より劣る</strong>こともある数少ない項目。 だからこそ、いちばんの正解は「まるごと植物」。</div></div>
 
         </div>
-        <p class="text-center text-[13px] text-ink/45 mt-3">緑＝良い ・ 黄＝同じ ・ 赤＝悪い ／ ⓘの行をタップで詳しく ／ 出典：Greger 2025<a href="#src-greger" class="src">4</a></p>
+        <p class="text-center text-[13px] text-ink/45 mt-3">ⓘの行をタップで詳しく ／ 出典：Greger 2025<a href="#src-greger" class="src">4</a></p>
       </div>
 
       <!-- Athletes -->
@@ -892,27 +903,27 @@
       <p class="reveal sm:hidden text-center text-ink/40 text-[13.5px] mt-3">← よこにスワイプ →</p>
       <div id="athlete-grid" class="mt-6 sm:mt-10 -mx-6 px-6 sm:mx-0 sm:px-0">
         <button type="button" class="pola reveal" style="transform:rotate(-2deg)">
-          <div class="photo"><img src="/images/karada/athletes/arnold.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🎬</span></div>
+          <div class="photo"><img src="/images/karada/athletes/gen1.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🎬</span></div>
           <div class="cap"><div class="font-jp-display text-[15px]">アーノルド</div><div class="text-ink/55 text-[13px]">元ミスター・オリンピア</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「“男は肉を食え”って広告を、僕らは信じてた。 でもあれはマーケティング。 現実じゃない。」<span class="block text-ink/45 text-[13px] font-normal mt-1">The Game Changers（製作総指揮）<a href="#src-1-2" class="src">2</a></span></p></div>
         </button>
         <button type="button" class="pola reveal" style="transform:rotate(1.5deg)">
-          <div class="photo"><img src="/images/karada/athletes/nimai.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🏆</span></div>
+          <div class="photo"><img src="/images/karada/athletes/gen2.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🏆</span></div>
           <div class="cap"><div class="font-jp-display text-[15px]">ニマイ・デルガド</div><div class="text-ink/55 text-[13px]">IFBBプロ／生涯ベジ</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「ビーガンにした瞬間、回復もエネルギーも、はっきり変わった。 炎症も筋肉痛も減った。 もう戻る気はない。」<span class="block text-ink/45 text-[13px] font-normal mt-1">Nimai Delgado</span></p></div>
         </button>
         <button type="button" class="pola reveal" style="transform:rotate(-1deg)">
-          <div class="photo"><img src="/images/karada/athletes/torre.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">💪</span></div>
+          <div class="photo"><img src="/images/karada/athletes/gen3.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">💪</span></div>
           <div class="cap"><div class="font-jp-display text-[15px]">トーレ・ワシントン</div><div class="text-ink/55 text-[13px]">1998年からビーガン</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「“ダイエット”って言葉は使わない。 死にに来たんじゃない、よりよく生きに来たんだ。」<span class="block text-ink/45 text-[13px] font-normal mt-1">Torre Washington（オリンピア出場）</span></p></div>
         </button>
         <button type="button" class="pola reveal" style="transform:rotate(2deg)">
-          <div class="photo"><img src="/images/karada/athletes/joey.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🥇</span></div>
+          <div class="photo"><img src="/images/karada/athletes/gen5.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🥇</span></div>
           <div class="cap"><div class="font-jp-display text-[15px]">ジョーイ・ビロテック</div><div class="text-ink/55 text-[13px]">2026 OCB・クラシックフィジーク優勝</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「同じ大会でビーガンが2人とも優勝。 これ以上ない証拠だよ——筋肉に、肉は要らないって。」<span class="block text-ink/45 text-[13px] font-normal mt-1">舞台裏で“相方”もビーガンだと発覚</span></p></div>
         </button>
         <button type="button" class="pola reveal" style="transform:rotate(-1.5deg)">
-          <div class="photo"><img src="/images/karada/athletes/charlie.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🏅</span></div>
+          <div class="photo"><img src="/images/karada/athletes/gen6.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🏅</span></div>
           <div class="cap"><div class="font-jp-display text-[15px]">"Chuck"・ジーグラー</div><div class="text-ink/55 text-[13px]">ボディビル優勝・プロ昇格</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">ボディビル部門で優勝、10年越しのプロ資格を獲得。 楽屋で連絡先を交換して——はじめて、おたがいビーガンだと判明。<span class="block text-ink/45 text-[13px] font-normal mt-1">Charlie "the Vegan Lifter" Ziegler</span></p></div>
         </button>
         <button type="button" class="pola reveal" style="transform:rotate(1deg)">
-          <div class="photo"><img src="/images/karada/athletes/baboumian.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🪨</span></div>
+          <div class="photo"><img src="/images/karada/athletes/gen4.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🪨</span></div>
           <div class="cap"><div class="font-jp-display text-[15px]">パトリック・バブミアン</div><div class="text-ink/55 text-[13px]">ストロングマン世界記録</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「最も強い動物は草食動物だ。 ゴリラ、牛、象——そして、私だ。」<span class="block text-ink/45 text-[13px] font-normal mt-1">Patrik Baboumian</span></p></div>
         </button>
       </div>
@@ -938,7 +949,7 @@
            style="background:
              radial-gradient(ellipse at 90% 5%, rgba(43,122,176,0.16), transparent 55%),
              radial-gradient(ellipse at 5% 95%, rgba(27,92,139,0.10), transparent 60%),
-             #ECF4F9;">
+             #E3EDF6;">
 
     <div class="sticky-head">
       <div class="sticky-head__pill">
@@ -1021,12 +1032,16 @@
 
       </div>
 
-      <!-- Disclaimer -->
-      <div class="reveal mt-10 note-box">
-        <p class="font-jp text-ink-soft text-[13px] sm:text-[13.5px] leading-[1.9]">
+      <!-- Disclaimer (collapsible) -->
+      <details class="reveal mt-10 note-box note-toggle">
+        <summary class="cursor-pointer flex items-center gap-2 font-jp font-bold text-ink-soft text-[13.5px] sm:text-[14px]">
+          <span>⚠️</span><span>ご利用にあたって（注意）</span>
+          <svg class="chev ml-auto" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3.5 5 L6.5 8 L9.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+        </summary>
+        <p class="font-jp text-ink-soft text-[13px] sm:text-[13.5px] leading-[1.9] mt-3">
           効果や数値は、引用した研究で報告されたもの。 個人差があり、すべての人に同じ結果を約束するものではありません。 持病のある方、妊娠・授乳中の方、お子さま・ご高齢の方の食事は、医師や管理栄養士にご相談ください。 植物性中心の食事では、ビタミン B12 などを意識して補うと安心です。<a href="#src-b12" class="src">16</a>
         </p>
-      </div>
+      </details>
 
     </div>
   </section>
@@ -1038,7 +1053,7 @@
            style="background:
              radial-gradient(ellipse at 90% 5%, rgba(108,149,96,0.22), transparent 55%),
              radial-gradient(ellipse at 5% 95%, rgba(63,106,58,0.10), transparent 60%),
-             #EEF5E9;">
+             #E5F0DC;">
 
     <div class="sticky-head">
       <div class="sticky-head__pill">
@@ -1062,7 +1077,7 @@
 
       <!-- Oji guiding -->
       <div class="reveal mt-8 flex items-end gap-3 sm:gap-6">
-        <img src="/images/mascot/chef-cooking.png" alt="ビーガン王子 — 料理" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_happy.png'"/>
+        <img src="/images/mascot/chef-prince.png" alt="ビーガン王子 — 料理" class="w-28 sm:w-36 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_happy.png'"/>
         <div class="bubble flex-1 mb-4">
           <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
             ここまでお疲れさま！ じつはビーガン料理って、こんなにおいしそうなんだ。 まずは、見て！ 👀
@@ -1383,8 +1398,10 @@
               '</div>' +
             '</div>';
           card.addEventListener('click', () => {
-            const flipped = card.classList.toggle('is-flipped');
-            card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+            const willFlip = !card.classList.contains('is-flipped');
+            grid.querySelectorAll('.flip-card.is-flipped').forEach(o => { if (o !== card) { o.classList.remove('is-flipped'); o.setAttribute('aria-pressed', 'false'); } });
+            card.classList.toggle('is-flipped', willFlip);
+            card.setAttribute('aria-pressed', willFlip ? 'true' : 'false');
           });
           grid.appendChild(card);
         });
