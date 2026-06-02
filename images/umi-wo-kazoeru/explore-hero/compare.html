@@ -27,6 +27,11 @@
     .v3 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v3-ukiyoe-waves.jpg'); }
     .v4 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v4-starry-twilight.jpg'); }
     .v5 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v5-enchanted-underwater.jpg'); }
+    .v6 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v6-sunny-blue.jpg'); }
+    .v7 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v7-tropical-aqua.jpg'); }
+    .v8 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v8-cheerful-sunrise.jpg'); }
+    .v9 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v9-kawaii-pop.jpg'); }
+    .v10 { background-image: url('/images/umi-wo-kazoeru/explore-hero/hero-v10-crystal-shallows.jpg'); }
 
     /* Moderate readability overlay — heavier in the centre where text sits */
     .ovl {
@@ -39,6 +44,13 @@
       background:
         radial-gradient(ellipse at 50% 45%, rgba(2,12,20,0.42), rgba(2,12,20,0.12) 78%),
         linear-gradient(180deg, rgba(2,12,20,0.05) 0%, rgba(2,12,20,0.28) 55%, rgba(2,12,20,0.7) 100%);
+    }
+    /* Heavier overlay for the very BRIGHT variants — white text needs more
+       contrast against a sunny sky.  Stronger centre scrim + bottom fade. */
+    .ovl-bright {
+      background:
+        radial-gradient(ellipse at 50% 48%, rgba(2,12,20,0.62), rgba(2,12,20,0.30) 78%),
+        linear-gradient(180deg, rgba(2,12,20,0.28) 0%, rgba(2,12,20,0.45) 50%, rgba(2,12,20,0.85) 100%);
     }
 
     ruby { ruby-position: over; -webkit-ruby-position: over; ruby-align: center; }
@@ -152,6 +164,118 @@
     <div class="v5 bg-img absolute inset-0"></div>
     <div class="ovl absolute inset-0"></div>
     <div class="label">V5 · 海中の光 (Enchanted underwater)</div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
+      </div>
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] leading-[1.9]">
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_questioning.png" alt="" class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ BRIGHT / CHEERFUL BATCH ════════ -->
+
+  <!-- V6 -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="v6 bg-img absolute inset-0"></div>
+    <div class="ovl-bright absolute inset-0"></div>
+    <div class="label">V6 · 晴れた青空 (Sunny blue day)</div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
+      </div>
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] leading-[1.9]">
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_questioning.png" alt="" class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- V7 -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="v7 bg-img absolute inset-0"></div>
+    <div class="ovl-bright absolute inset-0"></div>
+    <div class="label">V7 · トロピカル (Tropical aqua)</div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
+      </div>
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] leading-[1.9]">
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_questioning.png" alt="" class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- V8 -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="v8 bg-img absolute inset-0"></div>
+    <div class="ovl-bright absolute inset-0"></div>
+    <div class="label">V8 · 朝焼け (Cheerful sunrise)</div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
+      </div>
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] leading-[1.9]">
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_questioning.png" alt="" class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- V9 -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="v9 bg-img absolute inset-0"></div>
+    <div class="ovl-bright absolute inset-0"></div>
+    <div class="label">V9 · ポップ空 (Kawaii pop sky)</div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
+        <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
+      </div>
+      <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
+        <span class="text-gold"><ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby></span>だと<ruby>思<rt>おも</rt></ruby>う？
+      </h1>
+      <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-paper/75 font-jp text-[20px] leading-[1.9]">
+        <ruby>答<rt>こた</rt></ruby>えは、たぶん<ruby>想像<rt>そうぞう</rt></ruby>のずっと<ruby>先<rt>さき</rt></ruby>。<br/>
+        ゆっくり、<ruby>一緒<rt>いっしょ</rt></ruby>に、<ruby>数<rt>かぞ</rt></ruby>えてみよう。
+      </p>
+      <div class="mt-10 sm:mt-12 flex justify-center">
+        <img src="/images/oji/oji_questioning.png" alt="" class="w-44 sm:w-56 lg:w-72 anim-bobble drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- V10 -->
+  <section class="relative min-h-[100svh] flex items-center px-6 sm:px-10 overflow-hidden bg-abyss">
+    <div class="v10 bg-img absolute inset-0"></div>
+    <div class="ovl-bright absolute inset-0"></div>
+    <div class="label">V10 · 透明な浅瀬 (Crystal shallows)</div>
     <div class="relative z-10 max-w-3xl mx-auto text-center">
       <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3">
         <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
