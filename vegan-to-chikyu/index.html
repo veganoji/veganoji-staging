@@ -442,12 +442,17 @@
     .food-btn[data-kind="animal"] .food-btn__kind { background: #E55063; }
     .food-btn[data-kind="plant"]  .food-btn__kind { background: #6C9560; }
 
-    /* Food-result smooth fade between selections (set by JS on click). */
+    /* Food-result smooth fade between selections (set by JS on click).
+       Only the TEXT block fades — the bar stays visible the whole time so
+       its width animates smoothly between previous and new values. */
     #food-result {
-      transition: opacity 0.18s ease-out, background-color 0.28s ease-out, transform 0.22s cubic-bezier(.22,.61,.36,1);
+      transition: background-color 0.4s ease-out;
     }
-    #food-result.is-fading { opacity: 0; transform: translateY(-4px); }
-    #food-result.is-entering { opacity: 0; transform: translateY(6px); }
+    #food-result-text {
+      transition: opacity 0.18s ease-out, transform 0.22s cubic-bezier(.22,.61,.36,1);
+    }
+    #food-result.is-fading #food-result-text   { opacity: 0; transform: translateY(-4px); }
+    #food-result.is-entering #food-result-text { opacity: 0; transform: translateY(6px); }
 
     /* ── Ofuro bath sequence animation ──────────────────────────────
        Each bath icon in the GRIDS starts hidden + slightly smaller;
@@ -1056,8 +1061,9 @@
         </button>
       </div>
 
-      <!-- Completion banner — hidden until all 4 answered -->
-      <div id="quiz-complete" class="mt-12 sm:mt-16 text-center" style="opacity: 0; transform: translateY(10px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; pointer-events: none;">
+      <!-- Completion banner — collapsed to zero height until all 4 answered;
+           the JS toggles .is-revealed to expand + reveal. -->
+      <div id="quiz-complete" class="text-center" style="max-height: 0; opacity: 0; margin: 0; overflow: hidden; transform: translateY(10px); transition: max-height 0.7s ease-out, opacity 0.7s ease-out, margin 0.7s ease-out, transform 0.7s ease-out; pointer-events: none;">
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-paper text-[14px] sm:text-[13px] tracking-[0.16em] font-bold mb-5"
              style="background: #3F6A3A; border: 2px solid var(--color-ink); box-shadow: 3px 3px 0 var(--color-ink);">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L6 10 L11 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
@@ -1325,8 +1331,7 @@
         </div>
 
         <p class="mt-7 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center">
-          毎日のごはんは、いちばん身近で、いちばん大きな <span class="font-bold" style="color: #C9223A;">1 アクション</span>。<br/>
-          <span class="text-ink/65">他をぜんぶ合わせるより、食事ひとつのほうが大きいんだ。</span>
+          毎日のごはんは、いちばん身近で、いちばん大きな <span class="font-bold" style="color: #C9223A;">1 アクション</span>。
         </p>
 
         <!-- Optional deeper facts — collapsed by default so the section
@@ -1583,12 +1588,23 @@
         <!-- 12-item grid — 4 per row even on mobile so it stays compact -->
         <div id="food-grid" class="mt-5 sm:mt-7 grid grid-cols-4 sm:grid-cols-6 gap-2 sm:gap-2.5"></div>
 
-        <!-- Result panel — populated on click. min-height locked so layout
-             doesn't jump between 1- and 2-sentence messages. -->
-        <div id="food-result" class="mt-5 p-5 sm:p-6 rounded-2xl border-2 border-ink/15 flex items-center justify-center"
-             style="background: rgba(255,249,238,0.7); min-height: 240px;">
-          <div class="text-center text-ink-soft font-jp text-[14px] sm:text-[15px] leading-[1.7]">
-            ↑ 上の食べ物をタップして、<br/>お水の量を見てみよう。
+        <!-- Result panel — bar stays in stable DOM so it animates from
+             previous → new on each selection. Text content swaps independently. -->
+        <div id="food-result" class="mt-5 p-5 sm:p-6 rounded-2xl border-2 border-ink/15"
+             style="background: rgba(255,249,238,0.7); min-height: 260px;">
+          <div id="food-result-text" class="text-center">
+            <div class="text-ink-soft font-jp text-[14px] sm:text-[15px] leading-[1.7]">
+              ↑ 上の食べ物をタップして、<br/>お水の量を見てみよう。
+            </div>
+          </div>
+          <!-- Stable bar — width animates between picks -->
+          <div id="food-result-bar-wrap" class="mt-4 mx-auto" style="max-width: 320px; opacity: 0; transition: opacity 0.3s ease;">
+            <div class="bar-track" style="height: 18px; width: 100%;">
+              <div id="food-result-bar" class="bar-fill" style="width: 0%; background: #6C9560; transition: width 0.6s cubic-bezier(.22,.61,.36,1), background 0.4s ease;"></div>
+            </div>
+            <div class="mt-2 flex justify-between text-[13px] text-ink/55 font-jp">
+              <span>少ない</span><span>多い</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1855,11 +1871,12 @@
           </h3>
         </div>
 
-        <!-- Poo stage — original chibi PNG. Centered + uncapped growth;
-             counter card sits in FRONT via z-index. -->
+        <!-- Poo stage — original chibi PNG. Positioned in the upper third
+             of the stage (was center) + uncapped growth. Counter card sits
+             in FRONT via z-index. -->
         <div id="poo-stage" class="relative" style="height: 360px;">
-          <div class="absolute inset-0 flex items-center justify-center pointer-events-none"
-               style="overflow: visible; z-index: 1;">
+          <div class="absolute inset-x-0 flex items-center justify-center pointer-events-none"
+               style="top: 22%; overflow: visible; z-index: 1;">
             <img id="poo-img" src="/images/vegan-to-chikyu/icon-poo.png"
                  alt="動物畜産の排泄物" loading="lazy"
                  style="width: 90px; height: auto; transition: width 0.6s ease-out; transform-origin: center center;"
@@ -2119,13 +2136,19 @@
           </div>
         </div>
 
-        <!-- Custom visual: overflowing veg basket vs tiny lonely meat cut.
-             The size asymmetry IS the message — 100x more food from plants. -->
-        <div class="mt-8 flex justify-center items-center px-4 py-2 rounded-2xl border-2 border-ink/15"
+        <!-- Side-by-side custom visual: big overflowing veg basket vs ONE
+             tiny lonely meat crumb on a plate. Two separate images so each
+             can animate / be sized independently. -->
+        <div class="mt-8 grid grid-cols-[5fr_1fr] gap-3 sm:gap-6 items-center px-4 py-5 rounded-2xl border-2 border-ink/15"
              style="background: rgba(255,249,238,0.6);">
-          <img src="/images/vegan-to-chikyu/icon-land-veg-vs-meat.png"
-               alt="同じ土地で作れる植物性食品の量と牛肉の量の比較"
-               class="w-full max-w-md anim-bobble"
+          <img src="/images/vegan-to-chikyu/icon-veg-basket-big.png"
+               alt="植物性食品 13,825 キロ"
+               class="w-full max-w-[300px] sm:max-w-[360px] mx-auto anim-bobble drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]"
+               loading="lazy"/>
+          <img src="/images/vegan-to-chikyu/icon-meat-tiny.png"
+               alt="牛肉 140 キロ"
+               class="w-full max-w-[60px] sm:max-w-[80px] mx-auto anim-bobble drop-shadow-[0_3px_8px_rgba(31,24,18,0.12)]"
+               style="animation-delay: -2s;"
                loading="lazy"/>
         </div>
         <p class="mt-4 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.75] text-center">
@@ -2261,36 +2284,6 @@
         </p>
       </div>
 
-      <!-- Bridge to umi-wo-kazoeru — character + button card -->
-      <div class="reveal mt-12 sm:mt-16">
-        <div class="sticker p-6 sm:p-9"
-             style="background:
-               radial-gradient(ellipse at 80% 0%, rgba(181,213,232,0.40), transparent 55%),
-               radial-gradient(ellipse at 0% 100%, rgba(232,199,111,0.20), transparent 60%),
-               var(--color-paper);">
-          <div class="grid sm:grid-cols-[auto_1fr] gap-5 sm:gap-7 items-center">
-            <img src="/images/oji/oji_reading.png"
-                 alt="ビーガン王子 — 学ぶ"
-                 class="w-28 sm:w-36 mx-auto sm:mx-0 flex-shrink-0 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.18)]"
-                 loading="lazy"/>
-            <div class="text-center sm:text-left">
-              <div class="text-[13px] sm:text-[14px] tracking-[0.18em] font-bold mb-2" style="color: #1B5C8B;">次の旅へ</div>
-              <h3 class="font-jp-display text-[24px] sm:text-[32px] leading-[1.35] text-ink mb-3">
-                海についても、学ぼう。
-              </h3>
-              <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] mb-5">
-                毎年、<span class="font-bold" style="color: #2B7AB0;">2兆匹以上</span> の魚が獲られている。<a href="#src-4-5" class="src">26</a><br/>
-                このままだと、2040年までに海が空っぽに——。<a href="#src-4-6" class="src">27</a>
-              </p>
-              <a href="/umi-wo-kazoeru/" class="btn-base inline-flex"
-                 style="background: #2B7AB0; color: var(--color-paper);">
-                海をかぞえる
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -2581,9 +2574,6 @@
         <a href="/blog/" class="btn-base btn-ghost">
           ビーガンの記事を読む
         </a>
-        <a href="/umi-wo-kazoeru/" class="btn-base btn-ghost">
-          海をかぞえる
-        </a>
       </div>
 
       <!-- Social rail -->
@@ -2595,6 +2585,43 @@
           <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="social"><img src="/images/social/yt.png" alt=""/></a>
           <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="social"><img src="/images/social/tt.png" alt=""/></a>
           <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social"><img src="/images/social/li.png" alt=""/></a>
+        </div>
+      </div>
+
+      <!-- Explore more — links to umi-wo-kazoeru / vegan-to-karada / japanveganmap -->
+      <div class="reveal mt-14 sm:mt-16">
+        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] font-bold text-ink/65 mb-5">もっと、知る</div>
+        <div class="grid sm:grid-cols-3 gap-4 sm:gap-5 text-left">
+          <a href="/umi-wo-kazoeru/" class="sticker block p-5 sm:p-6 hover:-translate-y-1 transition-transform"
+             style="background:
+               radial-gradient(ellipse at 100% 0%, rgba(181,213,232,0.55), transparent 55%),
+               var(--color-paper);">
+            <div class="text-[13px] tracking-[0.18em] font-bold mb-2" style="color: #1B5C8B;">海</div>
+            <div class="font-jp-display text-[20px] sm:text-[22px] text-ink leading-[1.35] mb-2">海をかぞえる</div>
+            <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7]">
+              毎年2兆匹の魚。海の今を、数字で。
+            </p>
+          </a>
+          <a href="/vegan-to-karada/" class="sticker block p-5 sm:p-6 hover:-translate-y-1 transition-transform"
+             style="background:
+               radial-gradient(ellipse at 100% 0%, rgba(248,200,210,0.55), transparent 55%),
+               var(--color-paper);">
+            <div class="text-[13px] tracking-[0.18em] font-bold mb-2" style="color: #9C1428;">体</div>
+            <div class="font-jp-display text-[20px] sm:text-[22px] text-ink leading-[1.35] mb-2">ビーガンと体</div>
+            <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7]">
+              健康への影響、栄養、力。植物性の体のはなし。
+            </p>
+          </a>
+          <a href="https://japanveganmap.ojidigital.com/" target="_blank" rel="noopener" class="sticker block p-5 sm:p-6 hover:-translate-y-1 transition-transform"
+             style="background:
+               radial-gradient(ellipse at 100% 0%, rgba(232,199,111,0.50), transparent 55%),
+               var(--color-paper);">
+            <div class="text-[13px] tracking-[0.18em] font-bold mb-2" style="color: #9C7E2A;">マップ</div>
+            <div class="font-jp-display text-[20px] sm:text-[22px] text-ink leading-[1.35] mb-2">全国ビーガンマップ</div>
+            <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7]">
+              日本中のビーガンに優しいお店、地図で。
+            </p>
+          </a>
         </div>
       </div>
 
@@ -2920,7 +2947,8 @@
             if (firstStop !== -1 && firstStop < msgHTML.length - 1) {
               msgHTML = msgHTML.slice(0, firstStop + 1) + '<br/>' + msgHTML.slice(firstStop + 1).trimStart();
             }
-            const newHTML =
+            // Text block (above the stable bar)
+            const textHTML =
               '<div class="text-center">' +
                 '<div class="text-[13px] sm:text-[13px] tracking-[0.16em] font-bold mb-1.5" style="color:' + accent + ';">' +
                   (f.kind === 'animal' ? 'ANIMAL' : 'PLANT') + ' ・ ' + f.label +
@@ -2928,24 +2956,26 @@
                 '<div class="font-jp-display ticker text-[34px] sm:text-[48px] leading-none" style="color:' + accent + ';">' +
                   litresStr +
                 '</div>' +
-                '<div class="mt-3 sm:mt-4 mx-auto bar-track" style="height: 14px; max-width: 320px;">' +
-                  '<div class="bar-fill" style="background:' + barColor + '; width: ' + barPct + '%;"></div>' +
-                '</div>' +
-                '<div class="mt-1.5 flex justify-between text-[13px] text-ink/55 mx-auto font-jp" style="max-width: 320px;">' +
-                  '<span>少ない</span><span>多い</span>' +
-                '</div>' +
                 '<p class="mt-3 font-jp text-ink-soft text-[14px] leading-[1.7]">' +
                   msgHTML +
                 '</p>' +
               '</div>';
-            // Cross-fade: fade out → swap content + background → fade in
+            const textEl  = document.getElementById('food-result-text');
+            const barWrap = document.getElementById('food-result-bar-wrap');
+            const barFill = document.getElementById('food-result-bar');
+            // Fade text out → swap → fade back in. Bar updates its width
+            // directly so the animation goes from PREVIOUS width to NEW width.
             result.classList.add('is-fading');
             setTimeout(() => {
               result.style.background = accentBg;
-              result.innerHTML = newHTML;
+              if (textEl) textEl.innerHTML = textHTML;
+              if (barWrap) barWrap.style.opacity = '1';
+              if (barFill) {
+                barFill.style.background = barColor;
+                barFill.style.width = barPct + '%';
+              }
               result.classList.remove('is-fading');
               result.classList.add('is-entering');
-              // Next frame: trigger the entering→visible transition
               requestAnimationFrame(() => {
                 requestAnimationFrame(() => result.classList.remove('is-entering'));
               });
@@ -3235,14 +3265,18 @@
         const answered = QUIZ.picks.filter(p => p !== null).length;
         if (answered === 4) {
           quizSection.classList.add('is-complete');
+          quizComplete.style.maxHeight = '800px';
           quizComplete.style.opacity = '1';
+          quizComplete.style.marginTop = window.innerWidth >= 640 ? '64px' : '48px';
           quizComplete.style.transform = 'translateY(0)';
           quizComplete.style.pointerEvents = 'auto';
           // Mark all dots done.
           quizDots.forEach(d => { d.classList.remove('is-active'); d.classList.add('is-done'); });
         } else {
           quizSection.classList.remove('is-complete');
+          quizComplete.style.maxHeight = '0';
           quizComplete.style.opacity = '0';
+          quizComplete.style.marginTop = '0';
           quizComplete.style.transform = 'translateY(10px)';
           quizComplete.style.pointerEvents = 'none';
         }

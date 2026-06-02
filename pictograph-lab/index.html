@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pictograph Placement — Lab</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+
+    @theme {
+      --color-paper:       #FFF9EE;
+      --color-paper-soft:  #FDF1DA;
+      --color-ink:         #1F1812;
+      --color-royal:       #C9223A;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+
+    html, body { background: #F1ECDB; color: var(--color-ink); }
+    body { font-family: var(--font-noto-sans-jp); -webkit-font-smoothing: antialiased; }
+    .font-jp { font-family: var(--font-noto-sans-jp); }
+
+    /* Pictograph stage — uses CSS variables that the controls update live */
+    .stage {
+      background:
+        radial-gradient(ellipse at 100% 0%, #F7CCB3, transparent 55%),
+        radial-gradient(ellipse at 0% 100%, #FCE4D9, transparent 60%),
+        #FCE4D9;
+      border: 2.5px solid var(--color-ink);
+      border-radius: 24px;
+      box-shadow: 8px 8px 0 var(--color-ink);
+      padding: 32px 20px;
+    }
+
+    .control {
+      display: grid;
+      grid-template-columns: 200px 1fr 70px;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+    }
+    .control label { font-size: 14px; font-weight: 700; }
+    .control input[type=range] { width: 100%; }
+    .control output {
+      font-family: monospace;
+      font-size: 13px;
+      text-align: right;
+      color: var(--color-ink);
+      background: white;
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .section-h {
+      font-weight: 900; font-size: 18px; margin-top: 18px; margin-bottom: 8px;
+      border-bottom: 2px solid var(--color-ink); padding-bottom: 6px;
+    }
+
+    pre.snippet {
+      background: #1F1812;
+      color: #DDEEF8;
+      padding: 16px;
+      border-radius: 12px;
+      font-family: monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    button.copy-btn {
+      padding: 8px 16px;
+      background: var(--color-royal);
+      color: white;
+      border: 2px solid var(--color-ink);
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 3px 3px 0 var(--color-ink);
+    }
+    button.copy-btn:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--color-ink); }
+  </style>
+</head>
+<body class="text-ink">
+
+  <header class="px-6 sm:px-10 py-10 border-b-2 border-ink/15">
+    <div class="max-w-6xl mx-auto">
+      <a href="/vegan-to-chikyu/" class="font-jp text-[13px] text-ink/55 tracking-[0.12em] hover:text-ink-soft">
+        ← /vegan-to-chikyu/ に戻る
+      </a>
+      <h1 class="mt-3 text-[28px] sm:text-[40px] font-black leading-tight">
+        Pictograph 配置・サイズ調整ラボ
+      </h1>
+      <p class="mt-3 text-ink-soft text-[15px] leading-[1.7] max-w-2xl">
+        スライダーで雲のサイズ・位置、動物・乗り物の大きさを動かしてプレビュー。
+        満足したら下の <strong>「現在の値をコピー」</strong> ボタンで CSS スニペットをコピー
+        → 私に貼り付ければ live page に反映します。
+      </p>
+    </div>
+  </header>
+
+  <main class="px-6 sm:px-10 py-10">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_400px] gap-10">
+
+      <!-- STAGE -->
+      <div>
+        <h2 class="text-[14px] tracking-[0.18em] font-bold text-ink/55 mb-4">プレビュー</h2>
+        <div class="stage">
+          <div id="ch1-pictograph" class="grid grid-cols-[1fr_auto_1fr] gap-2 sm:gap-6 items-center">
+            <!-- LEFT cluster -->
+            <div class="relative flex flex-col items-center text-center">
+              <img id="smoke-lv" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""
+                   class="absolute pointer-events-none"
+                   style="z-index: 0;"/>
+              <div id="animals" class="relative z-10 flex items-end justify-center flex-wrap-reverse"
+                   style="max-width: 280px; min-height: 180px;">
+                <img id="anim-pig"     src="/images/vegan-to-chikyu/icon-pig-solo.png"     alt=""/>
+                <img id="anim-cow"     src="/images/vegan-to-chikyu/icon-cow-solo.png"     alt=""/>
+                <img id="anim-sheep"   src="/images/vegan-to-chikyu/icon-sheep-solo.png"   alt=""/>
+                <img id="anim-chicken" src="/images/vegan-to-chikyu/icon-chicken-solo.png" alt=""/>
+              </div>
+              <div class="mt-3 font-bold text-[16px]">畜産</div>
+            </div>
+
+            <img id="gt" src="/images/vegan-to-chikyu/icon-greater-than-red.png" alt="" style="width: 80px;"/>
+
+            <!-- RIGHT cluster -->
+            <div class="relative flex flex-col items-center text-center">
+              <img id="smoke-tx" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""
+                   class="absolute pointer-events-none"
+                   style="z-index: 0;"/>
+              <div id="transports" class="relative z-10 grid grid-cols-2" style="max-width: 200px;">
+                <img id="tx-plane" src="/images/vegan-to-chikyu/icon-airplane-chibi.png" alt=""/>
+                <img id="tx-ship"  src="/images/vegan-to-chikyu/icon-cargo-ship-chibi.png" alt=""/>
+                <img id="tx-car"   src="/images/vegan-to-chikyu/icon-hybrid-car.png" alt=""/>
+                <img id="tx-train" src="/images/vegan-to-chikyu/icon-train-chibi.png" alt=""/>
+              </div>
+              <div class="mt-3 font-bold text-[16px]">飛行機・船・車・電車</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Snippet output -->
+        <div class="mt-8">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-[14px] tracking-[0.18em] font-bold text-ink/55">現在の値 (CSS スニペット)</h2>
+            <button class="copy-btn" id="copy-btn">コピー</button>
+          </div>
+          <pre class="snippet" id="snippet-out">(調整するとここに更新されます)</pre>
+        </div>
+      </div>
+
+      <!-- CONTROLS -->
+      <div>
+        <h2 class="text-[14px] tracking-[0.18em] font-bold text-ink/55 mb-4">コントロール</h2>
+
+        <div class="section-h">畜産 — 大きな煙雲</div>
+        <div class="control"><label>幅 (px)</label>
+          <input type="range" id="lv-cloud-w" min="120" max="480" value="320"/>
+          <output id="lv-cloud-w-out">320</output></div>
+        <div class="control"><label>X オフセット (%)</label>
+          <input type="range" id="lv-cloud-x" min="-30" max="30" value="0"/>
+          <output id="lv-cloud-x-out">0</output></div>
+        <div class="control"><label>Y オフセット (%)</label>
+          <input type="range" id="lv-cloud-y" min="-30" max="60" value="38"/>
+          <output id="lv-cloud-y-out">38</output></div>
+
+        <div class="section-h">畜産 — 動物のサイズ</div>
+        <div class="control"><label>豚 (px)</label>
+          <input type="range" id="pig-w" min="40" max="120" value="80"/>
+          <output id="pig-w-out">80</output></div>
+        <div class="control"><label>牛 (px)</label>
+          <input type="range" id="cow-w" min="60" max="160" value="112"/>
+          <output id="cow-w-out">112</output></div>
+        <div class="control"><label>羊 (px)</label>
+          <input type="range" id="sheep-w" min="40" max="120" value="88"/>
+          <output id="sheep-w-out">88</output></div>
+        <div class="control"><label>鶏 (px)</label>
+          <input type="range" id="chicken-w" min="30" max="100" value="64"/>
+          <output id="chicken-w-out">64</output></div>
+        <div class="control"><label>クラスタ最大幅 (px)</label>
+          <input type="range" id="animals-max" min="180" max="400" value="280"/>
+          <output id="animals-max-out">280</output></div>
+
+        <div class="section-h">交通 — 小さな煙雲</div>
+        <div class="control"><label>幅 (px)</label>
+          <input type="range" id="tx-cloud-w" min="80" max="300" value="150"/>
+          <output id="tx-cloud-w-out">150</output></div>
+        <div class="control"><label>X オフセット (%)</label>
+          <input type="range" id="tx-cloud-x" min="-30" max="30" value="0"/>
+          <output id="tx-cloud-x-out">0</output></div>
+        <div class="control"><label>Y オフセット (%)</label>
+          <input type="range" id="tx-cloud-y" min="-30" max="60" value="40"/>
+          <output id="tx-cloud-y-out">40</output></div>
+
+        <div class="section-h">交通 — クラスタ</div>
+        <div class="control"><label>クラスタ最大幅 (px)</label>
+          <input type="range" id="transports-max" min="120" max="320" value="200"/>
+          <output id="transports-max-out">200</output></div>
+
+        <div class="section-h">中央の "&gt;"</div>
+        <div class="control"><label>サイズ (px)</label>
+          <input type="range" id="gt-w" min="40" max="160" value="80"/>
+          <output id="gt-w-out">80</output></div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="px-6 sm:px-10 py-10 text-center text-ink/55 text-[14px]">
+    調整したら <a href="/vegan-to-chikyu/" class="underline">/vegan-to-chikyu/</a> に統合します。
+  </footer>
+
+  <script>
+    (function () {
+      const ids = [
+        'lv-cloud-w','lv-cloud-x','lv-cloud-y',
+        'pig-w','cow-w','sheep-w','chicken-w','animals-max',
+        'tx-cloud-w','tx-cloud-x','tx-cloud-y','transports-max',
+        'gt-w'
+      ];
+      const v = id => parseFloat(document.getElementById(id).value);
+
+      function apply() {
+        // Animal cluster max width
+        document.getElementById('animals').style.maxWidth = v('animals-max') + 'px';
+        // Each animal
+        document.getElementById('anim-pig').style.width     = v('pig-w') + 'px';
+        document.getElementById('anim-cow').style.width     = v('cow-w') + 'px';
+        document.getElementById('anim-sheep').style.width   = v('sheep-w') + 'px';
+        document.getElementById('anim-chicken').style.width = v('chicken-w') + 'px';
+        // Animal cloud
+        const lvCloud = document.getElementById('smoke-lv');
+        lvCloud.style.width = v('lv-cloud-w') + 'px';
+        lvCloud.style.top   = v('lv-cloud-y') + '%';
+        lvCloud.style.left  = (50 + v('lv-cloud-x')) + '%';
+        lvCloud.style.transform = 'translate(-50%, -50%)';
+        // Transport cluster + cloud
+        document.getElementById('transports').style.maxWidth = v('transports-max') + 'px';
+        const txCloud = document.getElementById('smoke-tx');
+        txCloud.style.width = v('tx-cloud-w') + 'px';
+        txCloud.style.top   = v('tx-cloud-y') + '%';
+        txCloud.style.left  = (50 + v('tx-cloud-x')) + '%';
+        txCloud.style.transform = 'translate(-50%, -50%)';
+        // > size
+        document.getElementById('gt').style.width = v('gt-w') + 'px';
+        // Update outputs
+        ids.forEach(id => {
+          document.getElementById(id + '-out').textContent = document.getElementById(id).value;
+        });
+        // Snippet
+        const out =
+`<!-- LIVESTOCK CLUSTER -->
+<img id="ch1-pic-smoke-lv" src="..." alt=""
+     class="absolute pointer-events-none anim-bobble"
+     style="z-index: 0; width: ${v('lv-cloud-w')}px; top: ${v('lv-cloud-y')}%; left: ${50 + v('lv-cloud-x')}%; transform: translate(-50%, -50%);"/>
+
+<div class="relative z-10 flex items-end justify-center flex-wrap-reverse gap-1 sm:gap-2"
+     style="max-width: ${v('animals-max')}px;">
+  <img id="ch1-pic-pig"     style="width: ${v('pig-w')}px;"     src="icon-pig-solo.png"/>
+  <img id="ch1-pic-cow"     style="width: ${v('cow-w')}px;"     src="icon-cow-solo.png"/>
+  <img id="ch1-pic-sheep"   style="width: ${v('sheep-w')}px;"   src="icon-sheep-solo.png"/>
+  <img id="ch1-pic-chicken" style="width: ${v('chicken-w')}px;" src="icon-chicken-solo.png"/>
+</div>
+
+<!-- > symbol —  width: ${v('gt-w')}px -->
+
+<!-- TRANSPORT CLUSTER -->
+<img id="ch1-pic-smoke-tx" src="..." alt=""
+     class="absolute pointer-events-none anim-bobble"
+     style="z-index: 0; width: ${v('tx-cloud-w')}px; top: ${v('tx-cloud-y')}%; left: ${50 + v('tx-cloud-x')}%; transform: translate(-50%, -50%);"/>
+
+<div class="relative z-10 grid grid-cols-2 gap-2 sm:gap-3"
+     style="max-width: ${v('transports-max')}px;">
+  4 transport icons (icon-airplane-chibi / icon-cargo-ship-chibi / icon-hybrid-car / icon-train-chibi)
+</div>`;
+        document.getElementById('snippet-out').textContent = out;
+      }
+
+      ids.forEach(id => document.getElementById(id).addEventListener('input', apply));
+      document.getElementById('copy-btn').addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(document.getElementById('snippet-out').textContent);
+          const btn = document.getElementById('copy-btn');
+          const orig = btn.textContent;
+          btn.textContent = 'コピーした！';
+          setTimeout(() => { btn.textContent = orig; }, 1400);
+        } catch (e) {
+          alert('Couldn\'t copy: ' + e);
+        }
+      });
+      apply();
+    })();
+  </script>
+
+</body>
+</html>
