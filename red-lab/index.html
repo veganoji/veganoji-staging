@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Red-Section Lab · ビーガン王子</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Noto+Serif+JP:wght@200;300;400;500;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --color-paper: #FFF9EE;
+      --color-cream: #FDF1DA;
+      --color-royal: #C9223A;
+      --color-royal-deep: #9C1428;
+      --color-gold: #D4A847;
+      --color-gold-soft: #E8C76F;
+      --color-ink: #1F1812;
+      --color-ink-soft: #3C2E22;
+      --color-muted: #786148;
+      --font-jp: "Noto Sans JP", sans-serif;
+      --font-jp-display: "Noto Serif JP", serif;
+    }
+    html, body { background: var(--color-paper); color: var(--color-ink); margin: 0; }
+    body { font-family: var(--font-jp); }
+    .font-jp { font-family: var(--font-jp); }
+    .font-jp-display { font-family: var(--font-jp-display); font-weight: 900; }
+    .display-tight { letter-spacing: -0.035em; }
+    .display-italic { font-family: var(--font-jp-display); font-style: italic; }
+
+    /* Sample red section base */
+    .red-sample {
+      position: relative; overflow: hidden;
+      padding: 64px 24px 80px;
+      min-height: 360px;
+      color: var(--color-paper);
+    }
+    .red-sample-inner {
+      position: relative; z-index: 2;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .red-sample-veil {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    }
+
+    /* Lab banner between variations */
+    .lab-banner-v {
+      background: var(--color-ink); color: var(--color-paper);
+      padding: 32px 24px; text-align: center;
+    }
+    .lab-banner-tag {
+      display: inline-block; font-size: 11px; letter-spacing: 0.24em;
+      color: var(--color-gold-soft); margin-bottom: 8px; font-weight: 800;
+    }
+    .lab-banner-label {
+      font-family: var(--font-jp-display); font-weight: 900;
+      font-size: 26px; margin: 0; letter-spacing: -0.02em;
+    }
+    .lab-banner-desc {
+      font-size: 13.5px; color: rgba(255,249,238,0.75);
+      margin: 10px auto 0; max-width: 600px; line-height: 1.6;
+    }
+    .top-banner {
+      background: var(--color-royal); padding: 12px 20px; text-align: center;
+      font-size: 13px; font-weight: 700; color: var(--color-paper);
+    }
+    .top-banner a { color: var(--color-gold-soft); text-decoration: underline; }
+  </style>
+</head>
+<body class="font-jp antialiased">
+
+  <div class="top-banner">🎨 Red-Section Lab — 4 watercolor variations on the Mission red section · <a href="/">live homepage →</a></div>
+
+  <!-- ═══════════════ CURRENT (for comparison) ═══════════════ -->
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">CURRENT (BASELINE)</div>
+    <h2 class="lab-banner-label">いまのバージョン — flat royal red</h2>
+    <p class="lab-banner-desc">crown-pattern が背景に乗っているフラットな royal red。水彩感ゼロ。</p>
+  </div>
+
+  <section class="red-sample" style="background: linear-gradient(180deg, var(--color-royal) 0%, var(--color-royal-deep) 100%);">
+    <div class="red-sample-inner">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
+        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
+      </blockquote>
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
+        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ V1 — SUNSET WASH ═══════════════ -->
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V1 — SUNSET WASH</div>
+    <h2 class="lab-banner-label">夕焼け水彩</h2>
+    <p class="lab-banner-desc">ヒーローの「sunny countryside」と Talk-to-Prince の「sunset street」の延長線上の色域。
+      もっとも他の水彩セクションと調和する候補。</p>
+  </div>
+
+  <section class="red-sample" style="background: url('/images/decorations/red-bgs/red-sunset.jpg') center/cover no-repeat, var(--color-royal-deep);">
+    <div class="red-sample-veil" style="background: linear-gradient(180deg, rgba(156,20,40,0.20) 0%, rgba(156,20,40,0.42) 60%, rgba(156,20,40,0.60) 100%);"></div>
+    <div class="red-sample-inner">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance; text-shadow: 0 2px 12px rgba(31,8,12,0.45);">
+        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
+      </blockquote>
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/95 mt-8 sm:mt-10 max-w-[440px]" style="text-shadow: 0 1px 6px rgba(31,8,12,0.45);">
+        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ V2 — SUMI-E INK WASH ═══════════════ -->
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V2 — SUMI-E INK WASH</div>
+    <h2 class="lab-banner-label">墨絵風 red ink</h2>
+    <p class="lab-banner-desc">和紙にしみ込んだ赤い墨水。クリーム地に大きな赤いブルーム。文字は ink（黒）で読ませる、唯一の dark-on-light 候補。</p>
+  </div>
+
+  <section class="red-sample" style="background: url('/images/decorations/red-bgs/red-ink-wash.jpg') center/cover no-repeat, var(--color-paper); color: var(--color-ink);">
+    <div class="red-sample-veil" style="background: linear-gradient(180deg, rgba(255,249,238,0.45) 0%, rgba(255,249,238,0.30) 50%, rgba(255,249,238,0.55) 100%);"></div>
+    <div class="red-sample-inner">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance; color: var(--color-ink);">
+        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-royal); font-weight:700">王子様</span>らしさ」
+      </blockquote>
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] mt-8 sm:mt-10 max-w-[440px]" style="color: var(--color-ink-soft);">
+        国籍は三つ、操る言語は六つ。<span style="color: var(--color-royal); font-weight: 700">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ V3 — RED ROSES BORDER ═══════════════ -->
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V3 — RED ROSES BORDER</div>
+    <h2 class="lab-banner-label">バラのコーナーフレーム</h2>
+    <p class="lab-banner-desc">クリーム地の中央に文字、両サイドから赤いバラが咲く。ロマンチック、ボタニカル。
+      花が多めなので Mission の重たい文には少しうるさいかも。</p>
+  </div>
+
+  <section class="red-sample" style="background: url('/images/decorations/red-bgs/red-roses.jpg') center/cover no-repeat, var(--color-cream); color: var(--color-ink);">
+    <div class="red-sample-veil" style="background: linear-gradient(180deg, rgba(255,249,238,0.20) 0%, rgba(255,249,238,0.45) 50%, rgba(255,249,238,0.55) 100%);"></div>
+    <div class="red-sample-inner">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance; color: var(--color-ink);">
+        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-royal); font-weight:700">王子様</span>らしさ」
+      </blockquote>
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] mt-8 sm:mt-10 max-w-[440px]" style="color: var(--color-ink-soft);">
+        国籍は三つ、操る言語は六つ。<span style="color: var(--color-royal); font-weight: 700">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ V4 — VELVET DRAPE ═══════════════ -->
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V4 — VELVET DRAPE</div>
+    <h2 class="lab-banner-label">ベルベット・ドレープ</h2>
+    <p class="lab-banner-desc">王室っぽい深い赤のベルベット波。劇場感あり、もっとも「王子」感が強い。
+      ただし華やか過ぎて Mission の静かなメッセージとは少し合わないかも。</p>
+  </div>
+
+  <section class="red-sample" style="background: url('/images/decorations/red-bgs/red-velvet-wave.jpg') center/cover no-repeat, var(--color-royal-deep);">
+    <div class="red-sample-veil" style="background: linear-gradient(180deg, rgba(78,10,22,0.25) 0%, rgba(78,10,22,0.50) 60%, rgba(78,10,22,0.65) 100%);"></div>
+    <div class="red-sample-inner">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance; text-shadow: 0 2px 12px rgba(31,8,12,0.55);">
+        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
+      </blockquote>
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/95 mt-8 sm:mt-10 max-w-[440px]" style="text-shadow: 0 1px 6px rgba(31,8,12,0.55);">
+        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ END ═══════════════ -->
+  <div class="lab-banner-v" style="background:var(--color-paper); color: var(--color-ink); border-top: 2px solid var(--color-cream);">
+    <div class="lab-banner-tag" style="color: var(--color-royal);">どれが好き？</div>
+    <h2 class="lab-banner-label">気に入った方向を教えて</h2>
+    <p class="lab-banner-desc" style="color: var(--color-muted);">
+      おすすめ: V1 (sunset wash) — ヒーローとフッターの夕焼けと連続性がある。<br/>
+      もしくは V2 (sumi-e) — Mission のような瞑想的なセクションには静か。<br/>
+      展開先: Speaks Six (#about), Mission, Catch the Prince (#events), Support the cause (#donate)
+    </p>
+  </div>
+
+</body>
+</html>
