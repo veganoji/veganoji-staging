@@ -681,6 +681,34 @@
       font-size: 14px;
       letter-spacing: 0.06em;
     }
+    /* CH3 5,000m² section — uniform land-unit size for both veg + meat
+       so the only visual difference is QUANTITY (100 vs 1). */
+    .land-unit { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; display: block; }
+
+    /* ── Closing-section "explore more" cards (matches /links/ link-card) ── */
+    .link-card-vc {
+      display: flex; align-items: center; gap: 14px; width: 100%;
+      background: #FFFCF6;
+      border: 2.5px solid var(--color-ink); border-radius: 18px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+      padding: 14px 16px; text-decoration: none; color: var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+    .link-card-vc:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-paper-soft); }
+    .link-card-vc:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .lcv-thumb {
+      width: 58px; height: 58px; flex-shrink: 0; object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(31,24,18,0.14));
+    }
+    @media (min-width: 640px) { .lcv-thumb { width: 64px; height: 64px; } }
+    .lcv-body { min-width: 0; flex: 1; text-align: left; }
+    .lcv-title { font-weight: 900; font-size: 17px; line-height: 1.2; letter-spacing: -0.01em; }
+    @media (min-width: 640px) { .lcv-title { font-size: 18px; } }
+    .lcv-sub { font-weight: 700; font-size: 11px; letter-spacing: 0.14em; margin-top: 2px; }
+    .lcv-teaser { font-size: 13px; color: var(--color-ink-soft); margin-top: 4px; line-height: 1.5; }
+    .lcv-arrow { margin-left: 6px; color: var(--color-royal); font-weight: 900; font-size: 22px; flex-shrink: 0; transition: transform 0.18s ease; }
+    .link-card-vc:hover .lcv-arrow { transform: translateX(3px); }
+
     /* Numbered facts in 排泄物 section — chunky chibi-sticker numerals */
     .poo-num {
       flex-shrink: 0;
@@ -706,8 +734,8 @@
     }
 
     /* Modernized diet stat rows — image + label + amount centered on ONE
-       line above a full-width animated bar. Sizes bumped + locked so all
-       four rows look the same scale (no rebalancing per-stat). */
+       line above a full-width animated bar. Labels match the number's
+       weight + size, images bumped up. */
     .stat-row {
       padding: 16px 0;
       border-bottom: 1px dotted rgba(31,24,18,0.18);
@@ -717,15 +745,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
       margin-bottom: 10px;
     }
-    .stat-row__img { width: 42px; height: 42px; object-fit: contain; display: block; flex-shrink: 0; }
+    .stat-row__img { width: 58px; height: 58px; object-fit: contain; display: block; flex-shrink: 0; }
     .stat-row__label {
       font-family: var(--font-noto-sans-jp);
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: 0.04em;
+      font-weight: 900;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      line-height: 1;
       color: var(--color-ink);
     }
     .stat-row__val {
@@ -753,9 +782,9 @@
     }
     @media (min-width: 640px) {
       .stat-row { padding: 20px 0; }
-      .stat-row__head { gap: 14px; margin-bottom: 12px; }
-      .stat-row__img { width: 52px; height: 52px; }
-      .stat-row__label { font-size: 20px; }
+      .stat-row__head { gap: 16px; margin-bottom: 12px; }
+      .stat-row__img { width: 72px; height: 72px; }
+      .stat-row__label { font-size: 34px; }
       .stat-row__val { font-size: 36px; }
       .stat-row__val small { font-size: 18px; }
       .stat-row__bar { height: 30px; }
@@ -1891,17 +1920,15 @@
           </h3>
         </div>
 
-        <!-- Poo stage — original chibi PNG. Positioned in the upper third
-             of the stage (was center) + uncapped growth. Counter card sits
-             in FRONT via z-index. -->
-        <div id="poo-stage" class="relative" style="height: 360px;">
-          <div class="absolute inset-x-0 flex items-center justify-center pointer-events-none"
-               style="top: 22%; overflow: visible; z-index: 1;">
-            <img id="poo-img" src="/images/vegan-to-chikyu/icon-poo.png"
-                 alt="動物畜産の排泄物" loading="lazy"
-                 style="width: 90px; height: auto; transition: width 0.6s ease-out; transform-origin: center center;"
-                 class="drop-shadow-[0_6px_14px_rgba(31,24,18,0.18)]"/>
-          </div>
+        <!-- Poo stage — chibi PNG. Image is anchored by its OWN center via
+             translate(-50%, -50%), so width+height growth expands evenly in
+             every direction from the centre point (no longer drops downward).
+             Counter card sits in FRONT via z-index. -->
+        <div id="poo-stage" class="relative" style="height: 360px; overflow: visible;">
+          <img id="poo-img" src="/images/vegan-to-chikyu/icon-poo.png"
+               alt="動物畜産の排泄物" loading="lazy"
+               style="position: absolute; top: 35%; left: 50%; width: 90px; height: auto; transform: translate(-50%, -50%); transition: width 0.6s ease-out; pointer-events: none; z-index: 1;"
+               class="drop-shadow-[0_6px_14px_rgba(31,24,18,0.18)]"/>
 
           <div class="absolute inset-x-0 bottom-2 sm:bottom-4 flex justify-center pointer-events-none"
                style="z-index: 20;">
@@ -2156,20 +2183,32 @@
           </div>
         </div>
 
-        <!-- Side-by-side custom visual: big overflowing veg basket vs ONE
-             tiny lonely meat crumb on a plate. Two separate images so each
-             can animate / be sized independently. -->
-        <div class="mt-8 grid grid-cols-[5fr_1fr] gap-3 sm:gap-6 items-center px-4 py-5 rounded-2xl border-2 border-ink/15"
+        <!-- 100 small veg icons vs 1 same-size meat icon, with VS in the
+             middle. All units are the SAME pixel size so the imbalance
+             comes from quantity. Same idea as the お風呂 100 baths above. -->
+        <div class="mt-8 grid grid-cols-[1fr_auto_1fr] gap-3 sm:gap-5 items-center px-4 py-5 rounded-2xl border-2 border-ink/15"
              style="background: rgba(255,249,238,0.6);">
-          <img src="/images/vegan-to-chikyu/icon-veg-basket-big.png"
-               alt="植物性食品 13,825 キロ"
-               class="w-full max-w-[300px] sm:max-w-[360px] mx-auto anim-bobble drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]"
+          <!-- LEFT: 100 veg icons in a tight 10×10 grid -->
+          <div>
+            <div id="land-veg-grid" class="grid mx-auto"
+                 style="grid-template-columns: repeat(10, 1fr); gap: 2px; max-width: 220px;"></div>
+            <div class="mt-3 text-center font-jp text-[13px] sm:text-[14px] text-ink/70 font-bold">植物 <span style="color: #6B4E8C;">100</span></div>
+          </div>
+
+          <!-- VS sticker — floats in the middle -->
+          <img src="/images/vegan-to-chikyu/icon-vs-symbol.png" alt="vs"
+               class="w-12 sm:w-20 anim-bobble drop-shadow-[0_6px_12px_rgba(31,24,18,0.18)]"
                loading="lazy"/>
-          <img src="/images/vegan-to-chikyu/icon-meat-tiny.png"
-               alt="牛肉 140 キロ"
-               class="w-full max-w-[60px] sm:max-w-[80px] mx-auto anim-bobble drop-shadow-[0_3px_8px_rgba(31,24,18,0.12)]"
-               style="animation-delay: -2s;"
-               loading="lazy"/>
+
+          <!-- RIGHT: 1 meat icon, sized exactly like ONE veg cell -->
+          <div>
+            <div id="land-meat-cell" class="mx-auto" style="width: 22px;">
+              <img src="/images/vegan-to-chikyu/icon-beef-cut.png" alt=""
+                   class="land-unit anim-bobble drop-shadow-[0_3px_8px_rgba(31,24,18,0.18)]"
+                   loading="lazy"/>
+            </div>
+            <div class="mt-3 text-center font-jp text-[13px] sm:text-[14px] text-ink/70 font-bold">お肉 <span style="color: #4B3666;">1</span></div>
+          </div>
         </div>
         <p class="mt-4 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.75] text-center">
           ほぼ <span class="font-bold">100倍</span> ものちがい。<a href="#src-4-9" class="src">30</a><br/>
@@ -2405,7 +2444,7 @@
               </div>
               <div class="stat-row">
                 <div class="stat-row__head">
-                  <img class="stat-row__img" src="/images/vegan-to-chikyu/icon-livestock-group.png" alt=""/>
+                  <img class="stat-row__img" src="/images/vegan-to-chikyu/icon-chicken-solo.png" alt=""/>
                   <span class="stat-row__label">いのち</span>
                   <span class="stat-row__val" style="color: #6B4E8C;"><span id="result-animals">200</span><small>匹</small></span>
                 </div>
@@ -2608,39 +2647,37 @@
         </div>
       </div>
 
-      <!-- Explore more — links to umi-wo-kazoeru / vegan-to-karada / japanveganmap -->
-      <div class="reveal mt-14 sm:mt-16">
-        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] font-bold text-ink/65 mb-5">もっと、知る</div>
-        <div class="grid sm:grid-cols-3 gap-4 sm:gap-5 text-left">
-          <a href="/umi-wo-kazoeru/" class="sticker block p-5 sm:p-6 hover:-translate-y-1 transition-transform"
-             style="background:
-               radial-gradient(ellipse at 100% 0%, rgba(181,213,232,0.55), transparent 55%),
-               var(--color-paper);">
-            <div class="text-[13px] tracking-[0.18em] font-bold mb-2" style="color: #1B5C8B;">海</div>
-            <div class="font-jp-display text-[20px] sm:text-[22px] text-ink leading-[1.35] mb-2">海をかぞえる</div>
-            <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7]">
-              毎年2兆匹の魚。海の今を、数字で。
-            </p>
+      <!-- Explore more — same horizontal link-card style as /links/ page:
+           thumb + title + eyebrow + teaser + arrow on the right. -->
+      <div class="reveal mt-14 sm:mt-16 max-w-xl mx-auto">
+        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] font-bold text-ink/65 mb-5 text-center">もっと、知る</div>
+        <div class="flex flex-col gap-3.5">
+          <a href="/umi-wo-kazoeru/" class="link-card-vc">
+            <img class="lcv-thumb" src="/images/oji/oji_reading.png" alt=""/>
+            <div class="lcv-body">
+              <div class="lcv-title">海をかぞえる</div>
+              <div class="lcv-sub" style="color: #1B5C8B;">UMI · OCEAN</div>
+              <div class="lcv-teaser">毎年2兆匹の魚。海の今を、数字で。</div>
+            </div>
+            <span class="lcv-arrow">→</span>
           </a>
-          <a href="/vegan-to-karada/" class="sticker block p-5 sm:p-6 hover:-translate-y-1 transition-transform"
-             style="background:
-               radial-gradient(ellipse at 100% 0%, rgba(248,200,210,0.55), transparent 55%),
-               var(--color-paper);">
-            <div class="text-[13px] tracking-[0.18em] font-bold mb-2" style="color: #9C1428;">体</div>
-            <div class="font-jp-display text-[20px] sm:text-[22px] text-ink leading-[1.35] mb-2">ビーガンと体</div>
-            <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7]">
-              健康への影響、栄養、力。植物性の体のはなし。
-            </p>
+          <a href="/vegan-to-karada/" class="link-card-vc">
+            <img class="lcv-thumb" src="/images/oji/oji_happy.png" alt=""/>
+            <div class="lcv-body">
+              <div class="lcv-title">ビーガンと体</div>
+              <div class="lcv-sub" style="color: #9C1428;">KARADA · BODY</div>
+              <div class="lcv-teaser">健康への影響、栄養、力。植物性の体のはなし。</div>
+            </div>
+            <span class="lcv-arrow">→</span>
           </a>
-          <a href="https://japanveganmap.ojidigital.com/" target="_blank" rel="noopener" class="sticker block p-5 sm:p-6 hover:-translate-y-1 transition-transform"
-             style="background:
-               radial-gradient(ellipse at 100% 0%, rgba(232,199,111,0.50), transparent 55%),
-               var(--color-paper);">
-            <div class="text-[13px] tracking-[0.18em] font-bold mb-2" style="color: #9C7E2A;">マップ</div>
-            <div class="font-jp-display text-[20px] sm:text-[22px] text-ink leading-[1.35] mb-2">全国ビーガンマップ</div>
-            <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.7]">
-              日本中のビーガンに優しいお店、地図で。
-            </p>
+          <a href="https://japanveganmap.ojidigital.com/" target="_blank" rel="noopener" class="link-card-vc">
+            <img class="lcv-thumb" src="/images/oji/oji_exploring.png" alt=""/>
+            <div class="lcv-body">
+              <div class="lcv-title">全国ビーガンマップ</div>
+              <div class="lcv-sub" style="color: #9C7E2A;">MAP</div>
+              <div class="lcv-teaser">日本中のビーガンに優しいお店、地図で。</div>
+            </div>
+            <span class="lcv-arrow">→</span>
           </a>
         </div>
       </div>
@@ -2894,6 +2931,55 @@
           });
         });
       });
+
+      // ───────── CH3 5,000m² 100-veg vs 1-meat reveal ─────────
+      //   Populates the veg grid with 100 icons (icon-plant-bunch), staggered
+      //   fade-in. Also locks the meat cell to the same pixel size as a
+      //   single veg cell so the comparison is apples-to-apples.
+      (function buildLandVegMeat() {
+        const grid = document.getElementById('land-veg-grid');
+        const meatCell = document.getElementById('land-meat-cell');
+        if (!grid || !meatCell) return;
+        const imgs = [];
+        for (let i = 0; i < 100; i++) {
+          const img = document.createElement('img');
+          img.src = '/images/vegan-to-chikyu/icon-plant-bunch.png';
+          img.alt = '';
+          img.loading = 'lazy';
+          img.className = 'land-unit';
+          img.style.opacity = '0';
+          img.style.transition = 'opacity 0.35s ease-out';
+          grid.appendChild(img);
+          imgs.push(img);
+        }
+        // Match the meat cell's pixel width to one veg cell's actual width
+        // (and keep them in sync on resize).
+        function syncMeatSize() {
+          const first = grid.firstElementChild;
+          if (!first) return;
+          const w = first.getBoundingClientRect().width;
+          if (w > 0) meatCell.style.width = w + 'px';
+        }
+        // requestAnimationFrame so the grid has its measured width
+        requestAnimationFrame(syncMeatSize);
+        window.addEventListener('resize', syncMeatSize);
+
+        const prefersReducedM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reveal = () => {
+          if (prefersReducedM) { imgs.forEach(i => i.style.opacity = '1'); return; }
+          imgs.forEach((img, i) => setTimeout(() => { img.style.opacity = '1'; }, 50 + i * 14));
+        };
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) { reveal(); syncMeatSize(); io.unobserve(grid); }
+            }
+          }, { threshold: 0.2 });
+          io.observe(grid);
+        } else {
+          reveal();
+        }
+      })();
 
       // ───────── CH2 interactive food-picker ─────────
       //   12 foods (6 animal, 6 plant). Click reveals water L per typical
