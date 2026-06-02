@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-02 15:39",
+  "generated": "2026-06-02 17:59",
   "size": 128,
   "pages": {
     "environment": [
@@ -27,6 +27,21 @@
         "file": "environment/sticker-prince-globe.png",
         "style": "sticker",
         "slug": "prince-globe"
+      },
+      {
+        "file": "environment/crowned-globe-v1.png",
+        "style": "crowned",
+        "slug": "globe-v1"
+      },
+      {
+        "file": "environment/crowned-globe-v2.png",
+        "style": "crowned",
+        "slug": "globe-v2"
+      },
+      {
+        "file": "environment/crowned-globe-v3.png",
+        "style": "crowned",
+        "slug": "globe-v3"
       },
       {
         "file": "environment/flat-globe.png",
@@ -74,6 +89,21 @@
         "file": "health/sticker-prince-strong.png",
         "style": "sticker",
         "slug": "prince-strong"
+      },
+      {
+        "file": "health/crowned-heart-pulse-v1.png",
+        "style": "crowned",
+        "slug": "heart-pulse-v1"
+      },
+      {
+        "file": "health/crowned-heart-pulse-v2.png",
+        "style": "crowned",
+        "slug": "heart-pulse-v2"
+      },
+      {
+        "file": "health/crowned-heart-pulse-v3.png",
+        "style": "crowned",
+        "slug": "heart-pulse-v3"
       },
       {
         "file": "health/flat-apple.png",
@@ -165,6 +195,21 @@
         "slug": "tree-stack"
       },
       {
+        "file": "linktree/crowned-chain-v1.png",
+        "style": "crowned",
+        "slug": "chain-v1"
+      },
+      {
+        "file": "linktree/crowned-chain-v2.png",
+        "style": "crowned",
+        "slug": "chain-v2"
+      },
+      {
+        "file": "linktree/crowned-chain-v3.png",
+        "style": "crowned",
+        "slug": "chain-v3"
+      },
+      {
         "file": "linktree/flat-hub.png",
         "style": "flat",
         "slug": "hub"
@@ -212,6 +257,21 @@
         "slug": "prince-japan"
       },
       {
+        "file": "map/crowned-japan-pin-v1.png",
+        "style": "crowned",
+        "slug": "japan-pin-v1"
+      },
+      {
+        "file": "map/crowned-japan-pin-v2.png",
+        "style": "crowned",
+        "slug": "japan-pin-v2"
+      },
+      {
+        "file": "map/crowned-japan-pin-v3.png",
+        "style": "crowned",
+        "slug": "japan-pin-v3"
+      },
+      {
         "file": "map/flat-japan.png",
         "style": "flat",
         "slug": "japan"
@@ -257,6 +317,21 @@
         "file": "ocean/sticker-wave.png",
         "style": "sticker",
         "slug": "wave"
+      },
+      {
+        "file": "ocean/crowned-drop-v1.png",
+        "style": "crowned",
+        "slug": "drop-v1"
+      },
+      {
+        "file": "ocean/crowned-drop-v2.png",
+        "style": "crowned",
+        "slug": "drop-v2"
+      },
+      {
+        "file": "ocean/crowned-drop-v3.png",
+        "style": "crowned",
+        "slug": "drop-v3"
       },
       {
         "file": "ocean/flat-drop.png",

@@ -18,6 +18,7 @@
       --color-royal: #C9223A;
       --color-royal-deep: #9C1428;
       --color-gold: #D4A847;
+      --color-gold-deep: #9C7E2A;
       --color-ink: #1F1812;
       --color-muted: #786148;
       --color-leaf: #6C9560;
@@ -51,15 +52,25 @@
     .tabmock.dark  { background: #2a2a2c; color: #e8e8e8; }
 
     .card {
+      position: relative;
       background: var(--color-paper);
       border: 2px solid var(--color-ink);
       border-radius: 16px;
       box-shadow: 4px 4px 0 var(--color-ink);
       overflow: hidden;
     }
+    .card.is-pick { border-color: var(--color-gold-deep); box-shadow: 4px 4px 0 var(--color-gold-deep); }
+    .pick-tag {
+      position: absolute; top: 8px; left: 8px; z-index: 2;
+      font-size: 10px; font-weight: 900; letter-spacing: .02em;
+      background: var(--color-gold); color: var(--color-ink);
+      padding: 3px 9px; border-radius: 999px;
+      border: 2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink);
+    }
     .badge { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; letter-spacing: .02em; }
     .badge-sticker { background: var(--color-royal); color: var(--color-paper); }
     .badge-flat    { background: var(--color-gold);  color: var(--color-ink); }
+    .badge-crowned { background: var(--color-gold-deep); color: var(--color-paper); }
 
     .scale-strip { display: flex; align-items: flex-end; gap: 14px; }
     .scale-strip figure { display: flex; flex-direction: column; align-items: center; gap: 4px; }
@@ -82,11 +93,16 @@
       <br class="hidden sm:block" />
       Each candidate is shown in a real browser-tab mock (light + dark) at its true 16px size, plus a scale strip.
       <strong>Pick one per page</strong> and tell me the filename — I'll wire it in and push.
+      <br class="hidden sm:block" />
+      <strong>New:</strong> your picks now have <strong>crowned variants</strong> — the little social-icon crown perched top-right
+      (3 each, shown by default below). Homepage's <code class="bg-cream px-1 rounded">crown-leaf</code> is already a crown, so it's left as-is.
     </p>
 
     <div class="mt-5 flex flex-wrap items-center gap-2">
-      <span class="text-xs font-bold text-muted mr-1">STYLE</span>
-      <button class="seg on" data-filter="all">All</button>
+      <span class="text-xs font-bold text-muted mr-1">SHOW</span>
+      <button class="seg on" data-filter="picks">&#9733; Picks &amp; crowns</button>
+      <button class="seg" data-filter="all">All candidates</button>
+      <button class="seg" data-filter="crowned">+ Crown only</button>
       <button class="seg" data-filter="sticker">Die-cut sticker</button>
       <button class="seg" data-filter="flat">Flat minimal</button>
     </div>
@@ -110,15 +126,33 @@
       map:         { label: "Japan Vegan Map", jp: "地図",         where: "japanveganmap  (separate site)",   title: "日本ビーガンマップ" },
     };
     const ORDER = ["homepage", "linktree", "environment", "health", "ocean", "map"];
-    let FILTER = "all";
+    // the user's chosen base per page (id = "<style>-<slug>")
+    const PICKS = {
+      homepage:    "sticker-crown-leaf",
+      linktree:    "sticker-chain",
+      environment: "sticker-globe",
+      health:      "sticker-heart-pulse",
+      ocean:       "sticker-drop",
+      map:         "sticker-japan-pin",
+    };
+    let FILTER = "picks";
+
+    function visible(page, item) {
+      const id = item.style + "-" + item.slug;
+      if (FILTER === "all") return true;
+      if (FILTER === "picks") return item.style === "crowned" || PICKS[page] === id;
+      return item.style === FILTER;
+    }
 
     function card(page, item) {
       const src = "candidates/" + item.file;
       const title = META[page].title;
+      const isPick = PICKS[page] === item.style + "-" + item.slug;
       const el = document.createElement("article");
-      el.className = "card flex flex-col";
+      el.className = "card flex flex-col" + (isPick ? " is-pick" : "");
       el.dataset.style = item.style;
       el.innerHTML = `
+        ${isPick ? '<span class="pick-tag">&#9733; your pick</span>' : ''}
         <div class="checker flex items-center justify-center" style="height:140px">
           <img src="${src}" alt="${item.slug}" style="width:104px;height:104px;object-fit:contain" />
         </div>
@@ -145,7 +179,7 @@
       const root = document.getElementById("root");
       root.innerHTML = "";
       ORDER.forEach(page => {
-        const items = (manifest.pages[page] || []).filter(i => FILTER === "all" || i.style === FILTER);
+        const items = (manifest.pages[page] || []).filter(i => visible(page, i));
         if (!items.length) return;
         const m = META[page];
         const sec = document.createElement("section");
