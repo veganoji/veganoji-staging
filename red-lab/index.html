@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Red-Section Lab · ビーガン王子</title>
+  <title>Red-Section Lab v2 · ビーガン王子</title>
   <meta name="robots" content="noindex,nofollow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,25 +29,93 @@
     body { font-family: var(--font-jp); }
     .font-jp { font-family: var(--font-jp); }
     .font-jp-display { font-family: var(--font-jp-display); font-weight: 900; }
-    .display-tight { letter-spacing: -0.035em; }
     .display-italic { font-family: var(--font-jp-display); font-style: italic; }
 
-    /* Sample red section base */
+    /* Sample red section — vivid royal red base, doodles on top */
     .red-sample {
       position: relative; overflow: hidden;
       padding: 64px 24px 80px;
       min-height: 360px;
       color: var(--color-paper);
+      background: linear-gradient(180deg, var(--color-royal) 0%, var(--color-royal-deep) 100%);
     }
-    .red-sample-inner {
-      position: relative; z-index: 2;
-      max-width: 1100px; margin: 0 auto;
+    .red-doodle-layer {
+      position: absolute; inset: 0; pointer-events: none;
+      opacity: 0.30;
     }
-    .red-sample-veil {
-      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    .red-sample-inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+
+    /* ─── V1: VEGGY DOODLE STICKERS (carrots, leaves, tomatoes) ─── */
+    .v1-doodles {
+      background-image:
+        /* Carrots */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M30 25 L40 65 Q42 70 44 65 L52 25 Z'/><path d='M30 25 Q35 15 28 12'/><path d='M40 22 Q45 10 42 5'/><path d='M50 25 Q55 18 60 18'/></g></svg>"),
+        /* Leaves */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M20 40 Q40 15 60 40 Q40 65 20 40 Z'/><path d='M25 40 L55 40'/></g></svg>"),
+        /* Tomato */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><circle cx='40' cy='45' r='20'/><path d='M30 27 Q35 22 40 25 Q45 22 50 27'/><path d='M40 25 L40 22'/></g></svg>"),
+        /* Hearts */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M40 55 Q20 38 30 25 Q40 25 40 35 Q40 25 50 25 Q60 38 40 55 Z'/></g></svg>");
+      background-size: 120px, 100px, 130px, 90px;
+      background-position: 8% 18%, 75% 30%, 22% 75%, 88% 78%;
+      background-repeat: no-repeat;
+      opacity: 0.35;
     }
 
-    /* Lab banner between variations */
+    /* ─── V2: TILED VEGGY PATTERN (denser, smaller) ─── */
+    .v2-tiled-veggies {
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g fill='none' stroke='%23E8C76F' stroke-width='2' stroke-linejoin='round' stroke-linecap='round' opacity='0.6'><path d='M40 60 L46 88 Q48 92 50 88 L56 60 Z'/><path d='M40 60 Q42 53 38 50'/><path d='M48 58 Q52 50 50 46'/><path d='M120 140 Q140 120 160 140 Q140 160 120 140 Z'/><path d='M125 140 L155 140'/><circle cx='150' cy='60' r='15'/><path d='M143 47 Q147 43 150 45 Q153 43 157 47'/><path d='M150 45 L150 41'/></g></svg>");
+      background-size: 180px 180px;
+      background-repeat: repeat;
+      opacity: 0.22;
+    }
+
+    /* ─── V3: ROYAL CREST PATTERN (crown SVG tiled) ─── */
+    .v3-crowns {
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='%23E8C76F' fill-opacity='0.4'><path d='M30 60 L20 35 L32 45 L40 25 L48 45 L60 35 L50 60 Z'/></g></svg>");
+      background-size: 80px 80px;
+      background-repeat: repeat;
+      opacity: 0.45;
+    }
+
+    /* ─── V4: PINSTRIPE GOLD (subtle royal stripes) ─── */
+    .v4-pinstripe {
+      background-image:
+        repeating-linear-gradient(135deg,
+          transparent 0px, transparent 22px,
+          rgba(232,199,111,0.10) 22px, rgba(232,199,111,0.10) 23.5px);
+    }
+
+    /* ─── V5: SPARKLE / CONFETTI BURST (festive on red) ─── */
+    .v5-sparkles {
+      background-image:
+        radial-gradient(circle, rgba(232,199,111,0.55) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,249,238,0.40) 1.5px, transparent 2.5px),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23E8C76F' fill-opacity='0.55'><path d='M40 20 L42 38 L60 40 L42 42 L40 60 L38 42 L20 40 L38 38 Z'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><g fill='%23FFF9EE' fill-opacity='0.4'><path d='M30 10 L32 28 L50 30 L32 32 L30 50 L28 32 L10 30 L28 28 Z'/></g></svg>");
+      background-size: 24px 24px, 36px 36px, 110px 110px, 70px 70px;
+      background-position: 0 0, 12px 18px, 30% 25%, 70% 70%;
+      background-repeat: repeat, repeat, no-repeat, no-repeat;
+      opacity: 0.5;
+    }
+
+    /* ─── V6: VEGGY + CROWN COMBO (the kitchen-sink option) ─── */
+    .v6-combo {
+      background-image:
+        /* Tiled small crowns */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='%23E8C76F' fill-opacity='0.18'><path d='M30 60 L20 35 L32 45 L40 25 L48 45 L60 35 L50 60 Z'/></g></svg>"),
+        /* Scattered veggie doodles on top */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M30 25 L40 65 Q42 70 44 65 L52 25 Z'/><path d='M30 25 Q35 15 28 12'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M20 40 Q40 15 60 40 Q40 65 20 40 Z'/></g></svg>");
+      background-size: 110px 110px, 130px 130px, 100px 100px;
+      background-position: 0 0, 80% 22%, 18% 78%;
+      background-repeat: repeat, no-repeat, no-repeat;
+      opacity: 0.4;
+    }
+
+    /* Lab UI */
     .lab-banner-v {
       background: var(--color-ink); color: var(--color-paper);
       padding: 32px 24px; text-align: center;
@@ -73,16 +141,15 @@
 </head>
 <body class="font-jp antialiased">
 
-  <div class="top-banner">🎨 Red-Section Lab — 4 watercolor variations on the Mission red section · <a href="/">live homepage →</a></div>
+  <div class="top-banner">🎨 Red-Section Lab v2 — same vivid red, with gold doodle overlays · <a href="/">live homepage →</a></div>
 
-  <!-- ═══════════════ CURRENT (for comparison) ═══════════════ -->
+  <!-- ═══════════════ CURRENT (baseline) ═══════════════ -->
   <div class="lab-banner-v">
     <div class="lab-banner-tag">CURRENT (BASELINE)</div>
     <h2 class="lab-banner-label">いまのバージョン — flat royal red</h2>
-    <p class="lab-banner-desc">crown-pattern が背景に乗っているフラットな royal red。水彩感ゼロ。</p>
+    <p class="lab-banner-desc">王冠パターンが背景に乗っているだけのフラットなロイヤルレッド。少しさみしい。</p>
   </div>
-
-  <section class="red-sample" style="background: linear-gradient(180deg, var(--color-royal) 0%, var(--color-royal-deep) 100%);">
+  <section class="red-sample">
     <div class="red-sample-inner">
       <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
         「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
@@ -93,80 +160,110 @@
     </div>
   </section>
 
-  <!-- ═══════════════ V1 — SUNSET WASH ═══════════════ -->
+  <!-- ═══════════════ V1 — VEGGY DOODLE STICKERS ═══════════════ -->
   <div class="lab-banner-v">
-    <div class="lab-banner-tag">V1 — SUNSET WASH</div>
-    <h2 class="lab-banner-label">夕焼け水彩</h2>
-    <p class="lab-banner-desc">ヒーローの「sunny countryside」と Talk-to-Prince の「sunset street」の延長線上の色域。
-      もっとも他の水彩セクションと調和する候補。</p>
+    <div class="lab-banner-tag">V1 — VEGGY DOODLE STICKERS</div>
+    <h2 class="lab-banner-label">手描き野菜ドゥードル (sparse)</h2>
+    <p class="lab-banner-desc">にんじん・葉っぱ・トマト・ハートが４隅に散らばる。少なめ、ゆるい手描き感。</p>
   </div>
-
-  <section class="red-sample" style="background: url('/images/decorations/red-bgs/red-sunset.jpg') center/cover no-repeat, var(--color-royal-deep);">
-    <div class="red-sample-veil" style="background: linear-gradient(180deg, rgba(156,20,40,0.20) 0%, rgba(156,20,40,0.42) 60%, rgba(156,20,40,0.60) 100%);"></div>
+  <section class="red-sample">
+    <div class="red-doodle-layer v1-doodles"></div>
     <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance; text-shadow: 0 2px 12px rgba(31,8,12,0.45);">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
         「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
       </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/95 mt-8 sm:mt-10 max-w-[440px]" style="text-shadow: 0 1px 6px rgba(31,8,12,0.45);">
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
         国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
       </p>
     </div>
   </section>
 
-  <!-- ═══════════════ V2 — SUMI-E INK WASH ═══════════════ -->
+  <!-- ═══════════════ V2 — TILED VEGGY PATTERN ═══════════════ -->
   <div class="lab-banner-v">
-    <div class="lab-banner-tag">V2 — SUMI-E INK WASH</div>
-    <h2 class="lab-banner-label">墨絵風 red ink</h2>
-    <p class="lab-banner-desc">和紙にしみ込んだ赤い墨水。クリーム地に大きな赤いブルーム。文字は ink（黒）で読ませる、唯一の dark-on-light 候補。</p>
+    <div class="lab-banner-tag">V2 — TILED VEGGY PATTERN</div>
+    <h2 class="lab-banner-label">タイル化された野菜パターン</h2>
+    <p class="lab-banner-desc">V1の野菜たちを規則正しくタイル状に。壁紙感、密度高め。</p>
   </div>
-
-  <section class="red-sample" style="background: url('/images/decorations/red-bgs/red-ink-wash.jpg') center/cover no-repeat, var(--color-paper); color: var(--color-ink);">
-    <div class="red-sample-veil" style="background: linear-gradient(180deg, rgba(255,249,238,0.45) 0%, rgba(255,249,238,0.30) 50%, rgba(255,249,238,0.55) 100%);"></div>
+  <section class="red-sample">
+    <div class="red-doodle-layer v2-tiled-veggies"></div>
     <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance; color: var(--color-ink);">
-        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-royal); font-weight:700">王子様</span>らしさ」
-      </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] mt-8 sm:mt-10 max-w-[440px]" style="color: var(--color-ink-soft);">
-        国籍は三つ、操る言語は六つ。<span style="color: var(--color-royal); font-weight: 700">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══════════════ V3 — RED ROSES BORDER ═══════════════ -->
-  <div class="lab-banner-v">
-    <div class="lab-banner-tag">V3 — RED ROSES BORDER</div>
-    <h2 class="lab-banner-label">バラのコーナーフレーム</h2>
-    <p class="lab-banner-desc">クリーム地の中央に文字、両サイドから赤いバラが咲く。ロマンチック、ボタニカル。
-      花が多めなので Mission の重たい文には少しうるさいかも。</p>
-  </div>
-
-  <section class="red-sample" style="background: url('/images/decorations/red-bgs/red-roses.jpg') center/cover no-repeat, var(--color-cream); color: var(--color-ink);">
-    <div class="red-sample-veil" style="background: linear-gradient(180deg, rgba(255,249,238,0.20) 0%, rgba(255,249,238,0.45) 50%, rgba(255,249,238,0.55) 100%);"></div>
-    <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance; color: var(--color-ink);">
-        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-royal); font-weight:700">王子様</span>らしさ」
-      </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] mt-8 sm:mt-10 max-w-[440px]" style="color: var(--color-ink-soft);">
-        国籍は三つ、操る言語は六つ。<span style="color: var(--color-royal); font-weight: 700">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══════════════ V4 — VELVET DRAPE ═══════════════ -->
-  <div class="lab-banner-v">
-    <div class="lab-banner-tag">V4 — VELVET DRAPE</div>
-    <h2 class="lab-banner-label">ベルベット・ドレープ</h2>
-    <p class="lab-banner-desc">王室っぽい深い赤のベルベット波。劇場感あり、もっとも「王子」感が強い。
-      ただし華やか過ぎて Mission の静かなメッセージとは少し合わないかも。</p>
-  </div>
-
-  <section class="red-sample" style="background: url('/images/decorations/red-bgs/red-velvet-wave.jpg') center/cover no-repeat, var(--color-royal-deep);">
-    <div class="red-sample-veil" style="background: linear-gradient(180deg, rgba(78,10,22,0.25) 0%, rgba(78,10,22,0.50) 60%, rgba(78,10,22,0.65) 100%);"></div>
-    <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance; text-shadow: 0 2px 12px rgba(31,8,12,0.55);">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
         「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
       </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/95 mt-8 sm:mt-10 max-w-[440px]" style="text-shadow: 0 1px 6px rgba(31,8,12,0.55);">
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
+        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ V3 — ROYAL CREST PATTERN ═══════════════ -->
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V3 — ROYAL CREST</div>
+    <h2 class="lab-banner-label">王冠タイル (royal crest)</h2>
+    <p class="lab-banner-desc">小さな金の王冠が壁紙状に。クラシック王室感、ブランドの「王子」モチーフを反復。</p>
+  </div>
+  <section class="red-sample">
+    <div class="red-doodle-layer v3-crowns"></div>
+    <div class="red-sample-inner">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
+        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
+      </blockquote>
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
+        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ V4 — GOLD PINSTRIPE ═══════════════ -->
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V4 — GOLD PINSTRIPE</div>
+    <h2 class="lab-banner-label">控えめな金のストライプ</h2>
+    <p class="lab-banner-desc">対角線のごく細い金線パターン。ミニマルで上品。クラシックスーツの裏地感。</p>
+  </div>
+  <section class="red-sample">
+    <div class="red-doodle-layer v4-pinstripe" style="opacity:1"></div>
+    <div class="red-sample-inner">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
+        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
+      </blockquote>
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
+        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ V5 — SPARKLE / CONFETTI BURST ═══════════════ -->
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V5 — SPARKLE CONFETTI</div>
+    <h2 class="lab-banner-label">スパークル＋紙吹雪</h2>
+    <p class="lab-banner-desc">金の星と小さなドットがふわっと飛んでる。お祝い感、リッチでフェスティブ。</p>
+  </div>
+  <section class="red-sample">
+    <div class="red-doodle-layer v5-sparkles"></div>
+    <div class="red-sample-inner">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
+        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
+      </blockquote>
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
+        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ V6 — VEGGY + CROWN COMBO ═══════════════ -->
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V6 — VEGGY + CROWN COMBO</div>
+    <h2 class="lab-banner-label">野菜＋王冠ミックス</h2>
+    <p class="lab-banner-desc">タイル状の小さな王冠（薄め）＋ところどころに大きめの野菜ドゥードル。
+      二層構造で深みが出る。「王子」と「野菜」両方のテーマを同時に表現。</p>
+  </div>
+  <section class="red-sample">
+    <div class="red-doodle-layer v6-combo"></div>
+    <div class="red-sample-inner">
+      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
+        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
+      </blockquote>
+      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
         国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
       </p>
     </div>
@@ -177,9 +274,9 @@
     <div class="lab-banner-tag" style="color: var(--color-royal);">どれが好き？</div>
     <h2 class="lab-banner-label">気に入った方向を教えて</h2>
     <p class="lab-banner-desc" style="color: var(--color-muted);">
-      おすすめ: V1 (sunset wash) — ヒーローとフッターの夕焼けと連続性がある。<br/>
-      もしくは V2 (sumi-e) — Mission のような瞑想的なセクションには静か。<br/>
-      展開先: Speaks Six (#about), Mission, Catch the Prince (#events), Support the cause (#donate)
+      <strong>全部 CSS のみ</strong>（バックグラウンドの SVG はインラインで data URI）。
+      画像なし、ロード超高速、解像度ロスゼロ。<br/>
+      展開先: Speaks Six / Mission / Catch the Prince / Support the cause
     </p>
   </div>
 
