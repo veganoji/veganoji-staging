@@ -169,6 +169,47 @@
       to   { -webkit-mask-position: var(--crown-tile) var(--crown-tile);
                      mask-position: var(--crown-tile) var(--crown-tile); }
     }
+    /* ─── Profile-photo cycle (3 images crossfading) ─── */
+    .profile-photo-cycle > img {
+      opacity: 0; animation: profileCycle 18s ease-in-out infinite;
+      transform: scale(1.0);
+      transition: transform 0.4s ease;
+    }
+    .profile-photo-cycle > img:nth-of-type(1) { animation-delay: 0s; opacity: 1; }
+    .profile-photo-cycle > img:nth-of-type(2) { animation-delay: 6s; }
+    .profile-photo-cycle > img:nth-of-type(3) { animation-delay: 12s; }
+    @keyframes profileCycle {
+      0%   { opacity: 0; }
+      4%   { opacity: 1; }
+      28%  { opacity: 1; }
+      33%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* ─── Pastel watercolor wash (CSS-only — radial gradient blooms) ─── */
+    .pastel-wash-bg {
+      background:
+        radial-gradient(ellipse at 30% 25%, rgba(232,200,210,0.55) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 70%, rgba(232,199,111,0.45) 0%, transparent 50%),
+        radial-gradient(ellipse at 15% 85%, rgba(201,34,58,0.18) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 20%, rgba(212,168,71,0.32) 0%, transparent 50%),
+        linear-gradient(135deg, var(--color-cream) 0%, var(--color-paper) 100%);
+      filter: blur(6px);
+    }
+    .pastel-wash-strip {
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(212,168,71,0.30) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(201,34,58,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 30%, rgba(232,200,210,0.40) 0%, transparent 55%),
+        linear-gradient(180deg, var(--color-cream) 0%, var(--color-paper) 100%);
+    }
+
+    /* ─── Reduced-motion: stop the photo cycle ─── */
+    @media (prefers-reduced-motion: reduce) {
+      .profile-photo-cycle > img { animation: none; }
+      .profile-photo-cycle > img:not(:first-of-type) { display: none; }
+    }
+
     /* Hero crown anchor — single large pseudo-watermark behind hero */
     .hero-crown-anchor {
       bottom: -18%; right: -22%;
@@ -1156,35 +1197,25 @@
         </div>
       </div>
 
-      <!-- PHOTO + MASCOT (mobile second, desktop right column) -->
+      <!-- PHOTO — cycling through 3 personas (MC / talent / model) -->
       <div class="lg:col-span-5 order-2">
-        <div class="relative max-w-[300px] sm:max-w-[360px] lg:max-w-none mx-auto">
-          <div class="absolute -top-4 -right-4 w-[108%] h-[108%] -z-10 rounded-full dots-bg opacity-50"></div>
+        <div class="relative max-w-[320px] sm:max-w-[380px] lg:max-w-[440px] mx-auto">
+          <!-- Pastel wash backdrop behind frame -->
+          <div class="absolute -inset-6 -z-10 rounded-3xl pastel-wash-bg opacity-95 pointer-events-none"></div>
 
-          <div class="relative photo-frame overflow-hidden bg-cream aspect-square">
-            <img src="https://veganoji.jp/wp-content/uploads/2026/03/Vegan-Oji_Profile-Picture.jpg"
-                 alt="アレックス・デレチ"
-                 class="absolute inset-0 w-full h-full object-cover"
-                 loading="eager"/>
-          </div>
-
-          <div class="absolute -top-3 -left-3 sm:-top-5 sm:-left-5 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-royal text-paper flex flex-col items-center justify-center rotate-[-8deg] shadow-xl border-4 border-paper">
-            <svg width="18" height="18" class="sm:hidden"><use href="#crown"/></svg>
-            <svg width="22" height="22" class="hidden sm:block"><use href="#crown"/></svg>
-            <span class="font-jp-display text-[11px] sm:text-[13px] lg:text-[15px] leading-none font-medium mt-0.5">王子</span>
-            <span class="text-[7px] sm:text-[8px] tracking-[0.15em] mt-0.5 sm:mt-1 font-jp">2017年〜</span>
-          </div>
-
-          <div class="absolute -bottom-8 -right-4 sm:-bottom-10 sm:-right-6 lg:-right-10 w-24 sm:w-32 lg:w-44 anim-bobble" style="animation-delay:0.3s">
-            <div class="pose-cycle aspect-[4/5] relative">
-              <img src="/images/mascot/celebrating.png" alt="" class="drop-shadow-lg" loading="eager"/>
-              <img src="/images/mascot/eating-vegan.png" alt="" class="drop-shadow-lg" loading="eager"/>
-              <img src="/images/mascot/thumbs-up-wink.png" alt="" class="drop-shadow-lg" loading="eager"/>
+          <!-- Photo frame (Variation B style: ink border + offset shadow + name overlay) -->
+          <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-cream border-[2.5px] border-ink shadow-[8px_8px_0_var(--color-ink)]">
+            <div class="profile-photo-cycle absolute inset-0">
+              <img src="/images/profile/alex-mc.jpg"     alt="アレックス・デレチ — MC"     class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+              <img src="/images/profile/alex-talent.jpg" alt="アレックス・デレチ — タレント" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+              <img src="/images/profile/alex-model.jpg"  alt="アレックス・デレチ — モデル"  class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
             </div>
-          </div>
-
-          <div class="absolute -bottom-1 left-3 sm:left-6 lg:left-10 font-hand text-[18px] sm:text-[22px] lg:text-[24px] text-royal rotate-[-4deg]">
-            よろしくね！ ♡
+            <!-- Name overlay -->
+            <div class="absolute bottom-0 left-0 right-0 px-5 py-4 sm:px-6 sm:py-5 pointer-events-none"
+                 style="background:linear-gradient(to top, rgba(31,24,18,0.92) 0%, rgba(31,24,18,0.45) 65%, transparent 100%);">
+              <div class="font-jp-display text-paper leading-none" style="font-weight:900; font-size:clamp(22px, 4.5vw, 30px);">Alex Derycz</div>
+              <div class="font-jp text-paper/85 mt-1.5" style="font-size:14px;">アレックス・デレチ / ビーガン王子</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1241,7 +1272,14 @@
   </section>
 
   <!-- ─────────────  PRESS MARQUEE (auto-scrolling chibi pills)  ───────────── -->
-  <section class="bg-cream crown-bg border-y border-line py-8 sm:py-10 overflow-hidden">
+  <section class="pastel-wash-strip border-y border-line py-10 sm:py-12 overflow-hidden relative">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative mb-6 sm:mb-8">
+      <div class="flex items-center justify-center gap-3">
+        <span class="h-[1.5px] w-12 sm:w-20 bg-royal/40"></span>
+        <span class="font-jp text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-royal" style="font-weight:800">Media Archive · メディア掲載</span>
+        <span class="h-[1.5px] w-12 sm:w-20 bg-royal/40"></span>
+      </div>
+    </div>
     <div class="press-marquee" aria-label="メディア掲載・出演">
       <div class="press-marquee-track">
         <!-- First copy of the press items -->
@@ -1463,9 +1501,14 @@
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
 
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] text-paper leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
-        「やさしさと行動こそ、本当の<span class="text-gold-soft display-italic font-display font-medium">王子様</span>らしさ」
-      </blockquote>
+      <div class="relative max-w-[20em]">
+        <!-- Watercolor sunset halo behind quote -->
+        <div class="absolute -inset-x-8 -inset-y-10 sm:-inset-x-14 sm:-inset-y-14 pointer-events-none -z-0"
+             style="background:radial-gradient(ellipse at 30% 40%, rgba(232,199,111,0.32) 0%, transparent 55%), radial-gradient(ellipse at 70% 70%, rgba(248,200,210,0.16) 0%, transparent 50%); filter: blur(20px);"></div>
+        <blockquote class="relative z-10 font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] text-paper leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
+          「やさしさと行動こそ、本当の<span class="text-gold-soft display-italic font-display font-medium">王子様</span>らしさ」
+        </blockquote>
+      </div>
 
       <div class="mt-8 sm:mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div class="lg:col-span-7">
@@ -1866,9 +1909,12 @@
   </section>
 
   <!-- ─────────────  BOOKING  ───────────── -->
-  <section id="booking" class="bg-paper crown-bg crown-bg-wide py-12 sm:py-16 lg:py-24 relative overflow-hidden">
+  <section id="booking" class="pastel-wash-strip crown-bg crown-bg-wide py-12 sm:py-16 lg:py-24 relative overflow-hidden">
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
+      <div class="font-jp font-semibold text-royal/85 text-[15px] sm:text-[17px] tracking-[0.04em] mb-3 sm:mb-4">
+        ご連絡、お待ちしています ──
+      </div>
       <h2 class="font-display display-tight text-[40px] sm:text-[64px] lg:text-[88px] font-black leading-[1.02] text-ink">
         Talk to <span class="display-italic text-royal">the prince.</span>
       </h2>
