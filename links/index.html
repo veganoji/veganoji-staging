@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ビーガン王子 · Alex Derycz — リンク集</title>
+  <meta name="description" content="ビーガン王子ことアレックス・デレチのリンク集。SNS、お仕事のご相談、ビーガンを楽しく知るページまとめ。" />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    /* Seed rule — keeps the v4 browser parser happy (must precede @theme). */
+    .__seed { color: inherit; }
+
+    @theme {
+      --color-paper: #FFF9EE;
+      --color-cream: #FDF1DA;
+      --color-cream-2: #F6E4BD;
+      --color-royal: #C9223A;
+      --color-royal-soft: #E55063;
+      --color-royal-deep: #9C1428;
+      --color-gold: #D4A847;
+      --color-gold-soft: #E8C76F;
+      --color-gold-deep: #9C7E2A;
+      --color-ink: #1F1812;
+      --color-ink-soft: #3C2E22;
+      --color-muted: #786148;
+      --color-sky: #B5D5E8;
+      --color-blush: #F8C8D2;
+      --color-leaf: #6C9560;
+      --color-leaf-deep: #3F6A3A;
+      --color-line-stamp: #06C755;
+      --color-line: #E9D9B5;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+
+    html, body { background: var(--color-paper); color: var(--color-ink); }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-noto-sans-jp); }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    .font-display { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+    .display-tight { letter-spacing: -0.03em; line-height: 0.96; }
+
+    @utility eyebrow {
+      @apply text-[11px] tracking-[0.26em] uppercase text-royal font-bold;
+    }
+
+    /* ─── Chibi-sticker buttons (site-wide style) ─── */
+    @utility btn-primary {
+      @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-royal text-paper px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
+      font-family: "Noto Sans JP", sans-serif; font-weight: 700;
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      text-decoration: none;
+    }
+    @utility btn-ghost {
+      @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-paper text-royal px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
+      font-family: "Noto Sans JP", sans-serif; font-weight: 700;
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+      text-decoration: none;
+    }
+    @utility btn-gold {
+      @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-gold text-ink px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
+      font-family: "Noto Sans JP", sans-serif; font-weight: 700;
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal-deep); }
+    .btn-primary:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .btn-ghost:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal); color: var(--color-paper); }
+    .btn-ghost:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .btn-gold:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-gold-deep); }
+    .btn-gold:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
+
+    /* ─── Crown-pattern watermark behind the page ─── */
+    .crown-bg { position: relative; --crown-tile: 150px; }
+    .crown-bg > * { position: relative; z-index: 1; }
+    .crown-bg::before {
+      content: ""; position: fixed; inset: 0;
+      -webkit-mask-image: url('/images/decorations/crown-pattern.svg');
+              mask-image: url('/images/decorations/crown-pattern.svg');
+      -webkit-mask-repeat: repeat; mask-repeat: repeat;
+      -webkit-mask-size: var(--crown-tile) var(--crown-tile);
+              mask-size: var(--crown-tile) var(--crown-tile);
+      background: var(--color-royal);
+      opacity: 0.035; pointer-events: none; z-index: 0;
+      animation: crownDrift 75s linear infinite;
+    }
+    @keyframes crownDrift {
+      from { -webkit-mask-position: 0 0; mask-position: 0 0; }
+      to   { -webkit-mask-position: var(--crown-tile) var(--crown-tile); mask-position: var(--crown-tile) var(--crown-tile); }
+    }
+    @media (prefers-reduced-motion: reduce) { .crown-bg::before { animation: none; } }
+
+    /* ─── Language toggle (top-right pill) ─── */
+    .lang-toggle {
+      position: fixed; top: 14px; right: 14px; z-index: 50;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #FFF9EE; color: #1F1812;
+      font-weight: 900; font-size: 12.5px; letter-spacing: 0.04em;
+      border: 2.5px solid #1F1812; border-radius: 999px;
+      box-shadow: 3px 3px 0 #1F1812;
+      padding: 7px 14px; cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+    .lang-toggle:hover { transform: translate(1.5px,1.5px); box-shadow: 1.5px 1.5px 0 #1F1812; background: #FDF1DA; }
+    .lang-toggle:active { transform: translate(2.5px,2.5px); box-shadow: 1px 1px 0 #1F1812; }
+
+    /* ─── Identity card ─── */
+    .avatar-wrap { position: relative; width: 132px; height: 132px; margin: 0 auto; }
+    .avatar-frame {
+      width: 132px; height: 132px; border-radius: 999px; overflow: hidden;
+      background: linear-gradient(165deg, #FFFFFF 0%, #FDF1DA 100%);
+      border: 3px solid #1F1812; box-shadow: 5px 5px 0 #1F1812;
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    .avatar-frame img { width: 118%; height: auto; transform: translateY(8%); }
+    .avatar-crown {
+      position: absolute; top: -22px; left: 50%; transform: translateX(-50%) rotate(-6deg);
+      width: 52px; height: auto; filter: drop-shadow(0 3px 5px rgba(31,24,18,.25));
+    }
+
+    /* ─── Link cards (the learn / read cluster) ─── */
+    .link-card {
+      display: flex; align-items: center; gap: 13px; width: 100%;
+      background: #FFFCF6;
+      border: 2.5px solid #1F1812; border-radius: 18px;
+      box-shadow: 4px 4px 0 #1F1812;
+      padding: 12px 15px; text-decoration: none; color: #1F1812;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+    .link-card:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 #1F1812; background: #FDF1DA; }
+    .link-card:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 #1F1812; }
+    .link-card .thumb {
+      width: 52px; height: 52px; flex-shrink: 0; object-fit: contain;
+      filter: drop-shadow(0 2px 3px rgba(31,24,18,.12));
+    }
+    .lc-body { min-width: 0; flex: 1; }
+    .lc-title { font-weight: 900; font-size: 15.5px; line-height: 1.15; letter-spacing: -0.01em; }
+    .lc-sub { font-weight: 700; font-size: 10px; letter-spacing: 0.08em; color: #9C7E2A; text-transform: uppercase; margin-top: 1px; }
+    .lc-teaser { font-size: 12px; color: #3C2E22; margin-top: 4px; line-height: 1.4; }
+    .lc-arrow { margin-left: 8px; color: #C9223A; font-weight: 900; font-size: 18px; flex-shrink: 0; transition: transform .16s ease; }
+    .link-card:hover .lc-arrow { transform: translateX(3px); }
+
+    /* ─── Social icon row ─── */
+    .social-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-row a {
+      width: 44px; height: 44px; display: inline-flex;
+      transition: transform .22s ease, filter .22s ease;
+      filter: drop-shadow(0 3px 6px rgba(31,24,18,.12));
+    }
+    .social-row a:hover { transform: translateY(-3px) rotate(-5deg) scale(1.08); }
+    .social-row img { width: 100%; height: 100%; object-fit: contain; }
+
+    /* ─── Section heading ─── */
+    .sec-head { display: flex; align-items: center; gap: 10px; margin: 0 2px 14px; }
+    .sec-head .bar { flex: 1; height: 2px; background: repeating-linear-gradient(90deg,#E9D9B5 0 7px, transparent 7px 12px); }
+    .sec-title { font-weight: 900; font-size: 13px; letter-spacing: 0.14em; color: #786148; white-space: nowrap; }
+
+    /* ─── Newsletter strip ─── */
+    .news-strip {
+      background: linear-gradient(165deg, #FDF1DA 0%, #F6E4BD 100%);
+      border: 2.5px solid #1F1812; border-radius: 20px;
+      box-shadow: 4px 4px 0 #1F1812; padding: 20px 18px; text-align: center;
+    }
+
+    /* ─── Mascot bobble (footer) ─── */
+    .bobble { animation: bobble 4s ease-in-out infinite; }
+    @keyframes bobble { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-6px) rotate(-2deg); } }
+    @media (prefers-reduced-motion: reduce) { .bobble { animation: none; } }
+
+    /* ─── Gentle load reveal ─── */
+    .reveal { opacity: 0; transform: translateY(10px); animation: reveal .5s ease forwards; }
+    @keyframes reveal { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; animation: none; } }
+  </style>
+</head>
+
+<body class="crown-bg">
+  <!-- Language toggle -->
+  <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch to English">
+    <span id="langLabel">EN</span>
+  </button>
+
+  <main class="relative mx-auto w-full max-w-[500px] px-5 pt-16 pb-10">
+
+    <!-- 1 · Identity -->
+    <section class="text-center reveal" style="animation-delay:.02s">
+      <div class="avatar-wrap">
+        <img class="avatar-crown" src="/images/ui-icons/crown.png" alt="" />
+        <div class="avatar-frame">
+          <img src="/images/oji/oji_greeting.png" alt="ビーガン王子" />
+        </div>
+      </div>
+      <h1 class="font-display display-tight text-[30px] mt-4 text-ink">ビーガン王子</h1>
+      <p class="font-display text-[14px] tracking-[0.08em] text-royal mt-0.5">Alex Derycz</p>
+      <p class="text-[13px] text-ink-soft mt-2 font-medium leading-relaxed"
+         data-ja="モデル・タレント・6カ国語MC・海外の架け橋"
+         data-en="Model · TV talent · 6-language MC · a bridge between Japan & the world">モデル・タレント・6カ国語MC・海外の架け橋</p>
+      <p class="text-[14px] text-ink mt-3 font-bold"
+         data-ja="「お笑いあり、涙あり、野菜あり」"
+         data-en="&ldquo;Laughter, tears, and vegetables.&rdquo;">「お笑いあり、涙あり、野菜あり」</p>
+      <p class="eyebrow mt-3"
+         data-ja="東京 · 2017年〜"
+         data-en="Tokyo · since 2017">東京 · 2017年〜</p>
+    </section>
+
+    <!-- 2 · Social row -->
+    <section class="mt-6 reveal" style="animation-delay:.08s">
+      <div class="social-row" aria-label="SNS">
+        <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram"><img src="/images/social/ig.png" alt="Instagram" /></a>
+        <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube"><img src="/images/social/yt.png" alt="YouTube" /></a>
+        <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok"><img src="/images/social/tt.png" alt="TikTok" /></a>
+        <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X"><img src="/images/social/x.png" alt="X" /></a>
+        <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/images/social/li.png" alt="LinkedIn" /></a>
+        <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener" aria-label="LINE Stickers"><img src="/images/social/line.png" alt="LINE" /></a>
+      </div>
+    </section>
+
+    <!-- 3 · Work with me -->
+    <section class="mt-7 reveal" style="animation-delay:.14s">
+      <div class="grid grid-cols-2 gap-3">
+        <a href="/#booking" class="btn-primary !text-[14px]" data-ja="王子に依頼" data-en="Hire the Prince">王子に依頼</a>
+        <a href="/#donate" class="btn-gold !text-[14px]" data-ja="応援する" data-en="Support">応援する</a>
+      </div>
+      <a href="https://drive.google.com/drive/folders/1iFVzYBwNPQh3hLUdvMHZUehJamtOTNJJ?usp=sharing" target="_blank" rel="noopener"
+         class="btn-ghost !text-[14px] w-full mt-3" data-ja="プレスキット・出演資料" data-en="Press kit & media">プレスキット・出演資料</a>
+    </section>
+
+    <!-- 4 · About -->
+    <section class="mt-8 reveal" style="animation-delay:.18s">
+      <div class="sec-head">
+        <span class="sec-title" data-ja="王子について" data-en="ABOUT ME">王子について</span>
+        <span class="bar"></span>
+      </div>
+      <p class="text-[13.5px] text-ink-soft leading-relaxed text-center px-1"
+         data-ja="人にも地球にも動物にもやさしい、&ldquo;ディズニーみたいな世界&rdquo;をつくる。"
+         data-en="Building a &ldquo;Disney-like world&rdquo; that&rsquo;s kind to people, the planet, and animals.">人にも地球にも動物にもやさしい、&ldquo;ディズニーみたいな世界&rdquo;をつくる。</p>
+      <div class="grid grid-cols-2 gap-3 mt-4">
+        <a href="/" class="btn-ghost !text-[14px]" data-ja="ホームページ" data-en="Homepage">ホームページ</a>
+        <a href="/#character" class="btn-ghost !text-[14px]" data-ja="プロフィール" data-en="Profile">プロフィール</a>
+      </div>
+    </section>
+
+    <!-- 5 · Discover veganism -->
+    <section class="mt-8 reveal" style="animation-delay:.22s">
+      <div class="sec-head">
+        <span class="sec-title" data-ja="ビーガンを知る" data-en="DISCOVER VEGANISM">ビーガンを知る</span>
+        <span class="bar"></span>
+      </div>
+      <div class="flex flex-col gap-3.5">
+
+        <a href="/umi-wo-kazoeru/" class="link-card">
+          <img class="thumb" src="/images/oji/oji_exploring.png" alt="" />
+          <div class="lc-body">
+            <div class="lc-title" data-ja="海をかぞえる" data-en="Counting the Sea">海をかぞえる</div>
+            <div class="lc-sub">OCEAN</div>
+            <div class="lc-teaser" data-ja="食卓の魚を「数」で見たら、海はどう見える？" data-en="What the ocean looks like when you count the fish on our plates.">食卓の魚を「数」で見たら、海はどう見える？</div>
+          </div>
+          <span class="lc-arrow">→</span>
+        </a>
+
+        <a href="https://japanveganmap.ojidigital.com" target="_blank" rel="noopener" class="link-card">
+          <img class="thumb" src="/images/mascot/map-japan.png" alt="" />
+          <div class="lc-body">
+            <div class="lc-title" data-ja="日本ビーガンマップ" data-en="Japan Vegan Map">日本ビーガンマップ</div>
+            <div class="lc-sub">MAP</div>
+            <div class="lc-teaser" data-ja="全国のビーガン店を、王子と一緒に探そう。" data-en="Find vegan spots across Japan with the Prince.">全国のビーガン店を、王子と一緒に探そう。</div>
+          </div>
+          <span class="lc-arrow">→</span>
+        </a>
+
+        <a href="/vegan-to-chikyu/" class="link-card">
+          <img class="thumb" src="/images/oji/oji_teaching.png" alt="" />
+          <div class="lc-body">
+            <div class="lc-title" data-ja="ビーガンと地球" data-en="Vegan &amp; the Planet">ビーガンと地球</div>
+            <div class="lc-sub">ENVIRONMENT</div>
+            <div class="lc-teaser" data-ja="一皿の選択が、地球にどれだけ効くのか。" data-en="How a single plate can change the planet.">一皿の選択が、地球にどれだけ効くのか。</div>
+          </div>
+          <span class="lc-arrow">→</span>
+        </a>
+
+        <a href="/vegan-to-karada/" class="link-card">
+          <img class="thumb" src="/images/oji/oji_excited.png" alt="" />
+          <div class="lc-body">
+            <div class="lc-title" data-ja="ビーガンと体" data-en="Vegan &amp; the Body">ビーガンと体</div>
+            <div class="lc-sub">HEALTH</div>
+            <div class="lc-teaser" data-ja="力・健康・おいしさ。野菜だけで、ここまで。" data-en="Strength, health, flavor — all from plants.">力・健康・おいしさ。野菜だけで、ここまで。</div>
+          </div>
+          <span class="lc-arrow">→</span>
+        </a>
+
+        <a href="/tools/" class="link-card">
+          <img class="thumb" src="/images/mascot/calculator.png" alt="" />
+          <div class="lc-body">
+            <div class="lc-title" data-ja="王子のツール" data-en="The Prince&rsquo;s Tools">王子のツール</div>
+            <div class="lc-sub">TOOLS</div>
+            <div class="lc-teaser" data-ja="自分にぴったりのビーガン・スタイルを診断。" data-en="Find the plant-based style that fits you.">自分にぴったりのビーガン・スタイルを診断。</div>
+          </div>
+          <span class="lc-arrow">→</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- 6 · Read & watch -->
+    <section class="mt-8 reveal" style="animation-delay:.26s">
+      <div class="sec-head">
+        <span class="sec-title" data-ja="読む・観る" data-en="READ &amp; WATCH">読む・観る</span>
+        <span class="bar"></span>
+      </div>
+      <div class="flex flex-col gap-3.5">
+        <a href="/blog/" class="link-card">
+          <img class="thumb" src="/images/oji/oji_writing.png" alt="" />
+          <div class="lc-body">
+            <div class="lc-title" data-ja="ブログ" data-en="Blog">ブログ</div>
+            <div class="lc-sub">BLOG</div>
+            <div class="lc-teaser" data-ja="日々の気づきと、ビーガンレシピ。" data-en="Notes, recipes, and everyday discoveries.">日々の気づきと、ビーガンレシピ。</div>
+          </div>
+          <span class="lc-arrow">→</span>
+        </a>
+        <a href="/activity/" class="link-card">
+          <img class="thumb" src="/images/mascot/mc-mic.png" alt="" />
+          <div class="lc-body">
+            <div class="lc-title" data-ja="活動・メディア出演" data-en="Press & Appearances">活動・メディア出演</div>
+            <div class="lc-sub">ACTIVITY</div>
+            <div class="lc-teaser" data-ja="テレビ・イベント出演の記録。" data-en="TV, events, and media appearances.">テレビ・イベント出演の記録。</div>
+          </div>
+          <span class="lc-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 7 · Other ventures -->
+    <section class="mt-8 reveal" style="animation-delay:.30s">
+      <div class="sec-head">
+        <span class="sec-title" data-ja="王子のもう一つの顔" data-en="OTHER VENTURES">王子のもう一つの顔</span>
+        <span class="bar"></span>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <a href="https://handpanstudiotokyo.jp" target="_blank" rel="noopener" class="link-card !flex-col !text-center !gap-2 !py-4">
+          <img class="thumb" src="/images/voji-logos/handpan-studio-tokyo.webp" alt="" />
+          <div class="lc-title !text-[13px]">Handpan Studio<br/>Tokyo</div>
+        </a>
+        <a href="https://ojidigital.com" target="_blank" rel="noopener" class="link-card !flex-col !text-center !gap-2 !py-4">
+          <img class="thumb" src="/images/voji-logos/oji-digital.webp" alt="" />
+          <div class="lc-title !text-[13px]">Oji Digital</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 8 · Newsletter -->
+    <section class="mt-8 reveal" style="animation-delay:.34s">
+      <div class="news-strip">
+        <div class="font-display text-[17px] text-royal" data-ja="📬 月1で、王子からお手紙。" data-en="📬 A letter from the Prince, monthly.">📬 月1で、王子からお手紙。</div>
+        <p class="text-[12.5px] text-ink-soft mt-1.5" data-ja="ビーガンのこと、舞台裏のこと。ゆるくお届け。" data-en="Veganism, behind-the-scenes, and more — gently delivered.">ビーガンのこと、舞台裏のこと。ゆるくお届け。</p>
+        <a href="mailto:info@veganoji.jp?subject=%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E3%83%AC%E3%82%BF%E3%83%BC%E7%99%BB%E9%8C%B2"
+           class="btn-primary !text-[13.5px] mt-3.5" data-ja="お手紙を受け取る" data-en="Subscribe">お手紙を受け取る</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-10 text-center reveal" style="animation-delay:.38s">
+      <img class="bobble mx-auto" src="/images/oji/oji_winking.png" alt="ビーガン王子" style="width:96px;height:auto" loading="lazy" />
+      <div class="font-display text-[34px] text-royal mt-1" data-ja="またね！" data-en="See you!">またね！</div>
+      <p class="text-[12.5px] text-muted mt-3">
+        <a href="mailto:info@veganoji.jp" class="text-royal font-semibold">info@veganoji.jp</a>
+      </p>
+      <p class="text-[11.5px] text-muted mt-2 tracking-wide">© 2026 ビーガン王子株式会社 · Vegan Oji Inc.</p>
+    </footer>
+
+  </main>
+
+  <script>
+    (function () {
+      var STRINGS = document.querySelectorAll('[data-ja]');
+      var toggle = document.getElementById('langToggle');
+      var label = document.getElementById('langLabel');
+
+      function apply(lang) {
+        var root = document.documentElement;
+        root.setAttribute('lang', lang === 'en' ? 'en' : 'ja');
+        STRINGS.forEach(function (el) {
+          var val = el.getAttribute('data-' + lang);
+          if (val != null) el.innerHTML = val;
+        });
+        label.textContent = lang === 'en' ? '日本語' : 'EN';
+        toggle.setAttribute('aria-label', lang === 'en' ? '日本語に切り替え' : 'Switch to English');
+        try { localStorage.setItem('voji-lang', lang); } catch (e) {}
+      }
+
+      var saved = 'ja';
+      try { saved = localStorage.getItem('voji-lang') || 'ja'; } catch (e) {}
+      if (saved === 'en') apply('en');
+
+      toggle.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'ja';
+        apply(current === 'en' ? 'ja' : 'en');
+      });
+    })();
+  </script>
+</body>
+</html>
