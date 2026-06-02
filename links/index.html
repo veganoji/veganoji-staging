@@ -230,6 +230,21 @@
     .bundle-row .lc-arrow { font-size: 16px; margin-left: 4px; }
     .bundle-row:hover .lc-arrow { transform: translateX(3px); }
 
+    /* ─── Other ventures — brand-logo tiles (full-width, contrasting plates) ─── */
+    .venture-card {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      width: 100%; min-height: 74px; padding: 14px 38px;
+      border: 2.5px solid #1F1812; border-radius: 18px;
+      box-shadow: 4px 4px 0 #1F1812; text-decoration: none;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .venture-card:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 #1F1812; }
+    .venture-card:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 #1F1812; }
+    .venture-card img { max-height: 44px; max-width: 76%; width: auto; height: auto; object-fit: contain; display: block; }
+    .venture-light { background: #FFFCF6; }
+    .venture-dark  { background: #1F1812; }
+    .venture-arrow { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); font-weight: 900; font-size: 14px; line-height: 1; }
+
     /* ─── Social icon row ─── */
     .social-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .social-row a {
@@ -404,14 +419,14 @@
         <span class="sec-title" data-ja="王子のもう一つの顔" data-en="OTHER VENTURES">王子のもう一つの顔</span>
         <span class="bar"></span>
       </div>
-      <div class="grid grid-cols-2 gap-3">
-        <a href="https://handpanstudiotokyo.jp" target="_blank" rel="noopener" class="link-card !flex-col !text-center !gap-2 !py-4">
-          <img class="thumb" src="/images/voji-logos/handpan-studio-tokyo.webp" alt="" />
-          <div class="lc-title !text-[13px]">Handpan Studio<br/>Tokyo</div>
+      <div class="flex flex-col gap-3.5">
+        <a href="https://handpanstudiotokyo.jp" target="_blank" rel="noopener" class="venture-card venture-light" aria-label="Handpan Studio Tokyo">
+          <img src="/images/voji-logos/handpan-studio-tokyo.webp" alt="Handpan Studio Tokyo" />
+          <span class="venture-arrow" style="color:#9C1428" aria-hidden="true">↗</span>
         </a>
-        <a href="https://ojidigital.com" target="_blank" rel="noopener" class="link-card !flex-col !text-center !gap-2 !py-4">
-          <img class="thumb" src="/images/voji-logos/oji-digital.webp" alt="" />
-          <div class="lc-title !text-[13px]">Oji Digital</div>
+        <a href="https://ojidigital.com" target="_blank" rel="noopener" class="venture-card venture-dark" aria-label="Oji Digital">
+          <img src="/images/voji-logos/oji-digital.webp" alt="Oji Digital" />
+          <span class="venture-arrow" style="color:#FFF8EB" aria-hidden="true">↗</span>
         </a>
       </div>
     </section>
