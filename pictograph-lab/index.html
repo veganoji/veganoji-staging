@@ -97,9 +97,8 @@
         Pictograph 配置・サイズ調整ラボ
       </h1>
       <p class="mt-3 text-ink-soft text-[15px] leading-[1.7] max-w-2xl">
-        スライダーで雲のサイズ・位置、動物・乗り物の大きさを動かしてプレビュー。
-        満足したら下の <strong>「現在の値をコピー」</strong> ボタンで CSS スニペットをコピー
-        → 私に貼り付ければ live page に反映します。
+        スライダーでサイズ・位置を調整。<strong>画像はドラッグして自由に動かせます</strong>(マウスでもタッチでも)。
+        満足したら下の <strong>「コピー」</strong> ボタンで CSS スニペットをコピー → 私に貼り付ければ live page に反映します。
       </p>
     </div>
   </header>
@@ -115,7 +114,7 @@
             <!-- LEFT cluster -->
             <div class="relative flex flex-col items-center text-center">
               <img id="smoke-lv" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""
-                   class="absolute pointer-events-none"
+                   class="absolute"
                    style="z-index: 0;"/>
               <div id="animals" class="relative z-10 flex items-end justify-center flex-wrap-reverse"
                    style="max-width: 280px; min-height: 180px;">
@@ -132,7 +131,7 @@
             <!-- RIGHT cluster -->
             <div class="relative flex flex-col items-center text-center">
               <img id="smoke-tx" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""
-                   class="absolute pointer-events-none"
+                   class="absolute"
                    style="z-index: 0;"/>
               <div id="transports" class="relative z-10 grid grid-cols-2" style="max-width: 200px;">
                 <img id="tx-plane" src="/images/vegan-to-chikyu/icon-airplane-chibi.png" alt=""/>
@@ -157,55 +156,72 @@
 
       <!-- CONTROLS -->
       <div>
-        <h2 class="text-[14px] tracking-[0.18em] font-bold text-ink/55 mb-4">コントロール</h2>
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-[14px] tracking-[0.18em] font-bold text-ink/55">コントロール</h2>
+          <button class="copy-btn" id="reset-btn" style="background: #786148;">ドラッグ位置をリセット</button>
+        </div>
 
         <div class="section-h">畜産 — 大きな煙雲</div>
         <div class="control"><label>幅 (px)</label>
-          <input type="range" id="lv-cloud-w" min="120" max="480" value="320"/>
+          <input type="range" id="lv-cloud-w" min="30" max="900" value="320"/>
           <output id="lv-cloud-w-out">320</output></div>
         <div class="control"><label>X オフセット (%)</label>
-          <input type="range" id="lv-cloud-x" min="-30" max="30" value="0"/>
+          <input type="range" id="lv-cloud-x" min="-60" max="60" value="0"/>
           <output id="lv-cloud-x-out">0</output></div>
         <div class="control"><label>Y オフセット (%)</label>
-          <input type="range" id="lv-cloud-y" min="-30" max="60" value="38"/>
+          <input type="range" id="lv-cloud-y" min="-60" max="100" value="38"/>
           <output id="lv-cloud-y-out">38</output></div>
 
         <div class="section-h">畜産 — 動物のサイズ</div>
         <div class="control"><label>豚 (px)</label>
-          <input type="range" id="pig-w" min="40" max="120" value="80"/>
+          <input type="range" id="pig-w" min="20" max="320" value="80"/>
           <output id="pig-w-out">80</output></div>
         <div class="control"><label>牛 (px)</label>
-          <input type="range" id="cow-w" min="60" max="160" value="112"/>
+          <input type="range" id="cow-w" min="20" max="360" value="112"/>
           <output id="cow-w-out">112</output></div>
         <div class="control"><label>羊 (px)</label>
-          <input type="range" id="sheep-w" min="40" max="120" value="88"/>
+          <input type="range" id="sheep-w" min="20" max="320" value="88"/>
           <output id="sheep-w-out">88</output></div>
         <div class="control"><label>鶏 (px)</label>
-          <input type="range" id="chicken-w" min="30" max="100" value="64"/>
+          <input type="range" id="chicken-w" min="20" max="280" value="64"/>
           <output id="chicken-w-out">64</output></div>
         <div class="control"><label>クラスタ最大幅 (px)</label>
-          <input type="range" id="animals-max" min="180" max="400" value="280"/>
+          <input type="range" id="animals-max" min="80" max="700" value="280"/>
           <output id="animals-max-out">280</output></div>
 
         <div class="section-h">交通 — 小さな煙雲</div>
         <div class="control"><label>幅 (px)</label>
-          <input type="range" id="tx-cloud-w" min="80" max="300" value="150"/>
+          <input type="range" id="tx-cloud-w" min="30" max="700" value="150"/>
           <output id="tx-cloud-w-out">150</output></div>
         <div class="control"><label>X オフセット (%)</label>
-          <input type="range" id="tx-cloud-x" min="-30" max="30" value="0"/>
+          <input type="range" id="tx-cloud-x" min="-60" max="60" value="0"/>
           <output id="tx-cloud-x-out">0</output></div>
         <div class="control"><label>Y オフセット (%)</label>
-          <input type="range" id="tx-cloud-y" min="-30" max="60" value="40"/>
+          <input type="range" id="tx-cloud-y" min="-60" max="100" value="40"/>
           <output id="tx-cloud-y-out">40</output></div>
 
         <div class="section-h">交通 — クラスタ</div>
         <div class="control"><label>クラスタ最大幅 (px)</label>
-          <input type="range" id="transports-max" min="120" max="320" value="200"/>
+          <input type="range" id="transports-max" min="60" max="500" value="200"/>
           <output id="transports-max-out">200</output></div>
+
+        <div class="section-h">交通 — 各サイズ</div>
+        <div class="control"><label>飛行機 (px)</label>
+          <input type="range" id="plane-w" min="20" max="280" value="80"/>
+          <output id="plane-w-out">80</output></div>
+        <div class="control"><label>船 (px)</label>
+          <input type="range" id="ship-w" min="20" max="280" value="80"/>
+          <output id="ship-w-out">80</output></div>
+        <div class="control"><label>車 (px)</label>
+          <input type="range" id="car-w" min="20" max="280" value="80"/>
+          <output id="car-w-out">80</output></div>
+        <div class="control"><label>電車 (px)</label>
+          <input type="range" id="train-w" min="20" max="280" value="80"/>
+          <output id="train-w-out">80</output></div>
 
         <div class="section-h">中央の "&gt;"</div>
         <div class="control"><label>サイズ (px)</label>
-          <input type="range" id="gt-w" min="40" max="160" value="80"/>
+          <input type="range" id="gt-w" min="20" max="320" value="80"/>
           <output id="gt-w-out">80</output></div>
 
       </div>
@@ -222,9 +238,28 @@
         'lv-cloud-w','lv-cloud-x','lv-cloud-y',
         'pig-w','cow-w','sheep-w','chicken-w','animals-max',
         'tx-cloud-w','tx-cloud-x','tx-cloud-y','transports-max',
+        'plane-w','ship-w','car-w','train-w',
         'gt-w'
       ];
       const v = id => parseFloat(document.getElementById(id).value);
+
+      // Drag-offset state per element. Persisted in dragOffsets[id] = {x,y}.
+      // Smoke clouds keep their base translate(-50%,-50%) anchored, drags add
+      // pixel offsets on top.
+      const dragOffsets = {};
+      const cloudIds = new Set(['smoke-lv', 'smoke-tx']);
+
+      function applyTransform(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const o = dragOffsets[id] || { x: 0, y: 0 };
+        if (cloudIds.has(id)) {
+          // Cloud is absolutely positioned + translated -50%,-50% to center
+          el.style.transform = `translate(calc(-50% + ${o.x}px), calc(-50% + ${o.y}px))`;
+        } else {
+          el.style.transform = `translate(${o.x}px, ${o.y}px)`;
+        }
+      }
 
       function apply() {
         // Animal cluster max width
@@ -239,48 +274,128 @@
         lvCloud.style.width = v('lv-cloud-w') + 'px';
         lvCloud.style.top   = v('lv-cloud-y') + '%';
         lvCloud.style.left  = (50 + v('lv-cloud-x')) + '%';
-        lvCloud.style.transform = 'translate(-50%, -50%)';
+        applyTransform('smoke-lv');
         // Transport cluster + cloud
         document.getElementById('transports').style.maxWidth = v('transports-max') + 'px';
+        document.getElementById('tx-plane').style.width = v('plane-w') + 'px';
+        document.getElementById('tx-ship').style.width  = v('ship-w')  + 'px';
+        document.getElementById('tx-car').style.width   = v('car-w')   + 'px';
+        document.getElementById('tx-train').style.width = v('train-w') + 'px';
         const txCloud = document.getElementById('smoke-tx');
         txCloud.style.width = v('tx-cloud-w') + 'px';
         txCloud.style.top   = v('tx-cloud-y') + '%';
         txCloud.style.left  = (50 + v('tx-cloud-x')) + '%';
-        txCloud.style.transform = 'translate(-50%, -50%)';
+        applyTransform('smoke-tx');
         // > size
         document.getElementById('gt').style.width = v('gt-w') + 'px';
+        applyTransform('gt');
+        // Re-apply translate to all draggable elements so a slider change doesn't wipe it
+        ['anim-pig','anim-cow','anim-sheep','anim-chicken',
+         'tx-plane','tx-ship','tx-car','tx-train'].forEach(applyTransform);
         // Update outputs
         ids.forEach(id => {
           document.getElementById(id + '-out').textContent = document.getElementById(id).value;
         });
-        // Snippet
+        // Snippet — include drag offsets as transform: translate
+        const off = id => dragOffsets[id] || { x: 0, y: 0 };
+        const offCss = id => {
+          const o = off(id);
+          return (o.x || o.y) ? ` transform: translate(${o.x}px, ${o.y}px);` : '';
+        };
+        const cloudOffCss = id => {
+          const o = off(id);
+          const tx = o.x ? `calc(-50% + ${o.x}px)` : '-50%';
+          const ty = o.y ? `calc(-50% + ${o.y}px)` : '-50%';
+          return ` transform: translate(${tx}, ${ty});`;
+        };
         const out =
 `<!-- LIVESTOCK CLUSTER -->
 <img id="ch1-pic-smoke-lv" src="..." alt=""
      class="absolute pointer-events-none anim-bobble"
-     style="z-index: 0; width: ${v('lv-cloud-w')}px; top: ${v('lv-cloud-y')}%; left: ${50 + v('lv-cloud-x')}%; transform: translate(-50%, -50%);"/>
+     style="z-index: 0; width: ${v('lv-cloud-w')}px; top: ${v('lv-cloud-y')}%; left: ${50 + v('lv-cloud-x')}%;${cloudOffCss('smoke-lv')}"/>
 
 <div class="relative z-10 flex items-end justify-center flex-wrap-reverse gap-1 sm:gap-2"
      style="max-width: ${v('animals-max')}px;">
-  <img id="ch1-pic-pig"     style="width: ${v('pig-w')}px;"     src="icon-pig-solo.png"/>
-  <img id="ch1-pic-cow"     style="width: ${v('cow-w')}px;"     src="icon-cow-solo.png"/>
-  <img id="ch1-pic-sheep"   style="width: ${v('sheep-w')}px;"   src="icon-sheep-solo.png"/>
-  <img id="ch1-pic-chicken" style="width: ${v('chicken-w')}px;" src="icon-chicken-solo.png"/>
+  <img id="ch1-pic-pig"     style="width: ${v('pig-w')}px;${offCss('anim-pig')}"         src="icon-pig-solo.png"/>
+  <img id="ch1-pic-cow"     style="width: ${v('cow-w')}px;${offCss('anim-cow')}"         src="icon-cow-solo.png"/>
+  <img id="ch1-pic-sheep"   style="width: ${v('sheep-w')}px;${offCss('anim-sheep')}"     src="icon-sheep-solo.png"/>
+  <img id="ch1-pic-chicken" style="width: ${v('chicken-w')}px;${offCss('anim-chicken')}" src="icon-chicken-solo.png"/>
 </div>
 
-<!-- > symbol —  width: ${v('gt-w')}px -->
+<!-- > symbol -->
+<img id="ch1-pic-gt" src="icon-greater-than-red.png"
+     style="width: ${v('gt-w')}px;${offCss('gt')}"/>
 
 <!-- TRANSPORT CLUSTER -->
 <img id="ch1-pic-smoke-tx" src="..." alt=""
      class="absolute pointer-events-none anim-bobble"
-     style="z-index: 0; width: ${v('tx-cloud-w')}px; top: ${v('tx-cloud-y')}%; left: ${50 + v('tx-cloud-x')}%; transform: translate(-50%, -50%);"/>
+     style="z-index: 0; width: ${v('tx-cloud-w')}px; top: ${v('tx-cloud-y')}%; left: ${50 + v('tx-cloud-x')}%;${cloudOffCss('smoke-tx')}"/>
 
 <div class="relative z-10 grid grid-cols-2 gap-2 sm:gap-3"
      style="max-width: ${v('transports-max')}px;">
-  4 transport icons (icon-airplane-chibi / icon-cargo-ship-chibi / icon-hybrid-car / icon-train-chibi)
+  <img id="ch1-pic-plane" style="width: ${v('plane-w')}px;${offCss('tx-plane')}" src="icon-airplane-chibi.png"/>
+  <img id="ch1-pic-ship"  style="width: ${v('ship-w')}px;${offCss('tx-ship')}"   src="icon-cargo-ship-chibi.png"/>
+  <img id="ch1-pic-car"   style="width: ${v('car-w')}px;${offCss('tx-car')}"     src="icon-hybrid-car.png"/>
+  <img id="ch1-pic-train" style="width: ${v('train-w')}px;${offCss('tx-train')}" src="icon-train-chibi.png"/>
 </div>`;
         document.getElementById('snippet-out').textContent = out;
       }
+
+      // ── Draggable behaviour ─────────────────────────────────────────
+      const draggableIds = [
+        'smoke-lv','smoke-tx','gt',
+        'anim-pig','anim-cow','anim-sheep','anim-chicken',
+        'tx-plane','tx-ship','tx-car','tx-train',
+      ];
+      function makeDraggable(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.style.cursor = 'grab';
+        el.style.userSelect = 'none';
+        el.style.touchAction = 'none';
+        let dragging = false;
+        let startX = 0, startY = 0;
+        let baseX = 0, baseY = 0;
+        function point(e) {
+          if (e.touches && e.touches[0]) return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+          return { x: e.clientX, y: e.clientY };
+        }
+        function start(e) {
+          e.preventDefault();
+          dragging = true;
+          const p = point(e);
+          startX = p.x; startY = p.y;
+          const o = dragOffsets[id] || { x: 0, y: 0 };
+          baseX = o.x; baseY = o.y;
+          el.style.cursor = 'grabbing';
+        }
+        function move(e) {
+          if (!dragging) return;
+          e.preventDefault();
+          const p = point(e);
+          dragOffsets[id] = { x: Math.round(baseX + p.x - startX), y: Math.round(baseY + p.y - startY) };
+          applyTransform(id);
+          apply(); // re-render snippet
+        }
+        function end() {
+          if (!dragging) return;
+          dragging = false;
+          el.style.cursor = 'grab';
+        }
+        el.addEventListener('mousedown', start);
+        window.addEventListener('mousemove', move);
+        window.addEventListener('mouseup', end);
+        el.addEventListener('touchstart', start, { passive: false });
+        window.addEventListener('touchmove', move, { passive: false });
+        window.addEventListener('touchend', end);
+      }
+      draggableIds.forEach(makeDraggable);
+
+      // Reset all drag offsets
+      document.getElementById('reset-btn').addEventListener('click', () => {
+        draggableIds.forEach(id => { dragOffsets[id] = { x: 0, y: 0 }; });
+        apply();
+      });
 
       ids.forEach(id => document.getElementById(id).addEventListener('input', apply));
       document.getElementById('copy-btn').addEventListener('click', async () => {
