@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Red-Section Lab v2 · ビーガン王子</title>
+  <title>Red-Section Lab v3 · ビーガン王子</title>
   <meta name="robots" content="noindex,nofollow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,7 +20,6 @@
       --color-gold: #D4A847;
       --color-gold-soft: #E8C76F;
       --color-ink: #1F1812;
-      --color-ink-soft: #3C2E22;
       --color-muted: #786148;
       --font-jp: "Noto Sans JP", sans-serif;
       --font-jp-display: "Noto Serif JP", serif;
@@ -31,7 +30,6 @@
     .font-jp-display { font-family: var(--font-jp-display); font-weight: 900; }
     .display-italic { font-family: var(--font-jp-display); font-style: italic; }
 
-    /* Sample red section — vivid royal red base, doodles on top */
     .red-sample {
       position: relative; overflow: hidden;
       padding: 64px 24px 80px;
@@ -39,22 +37,17 @@
       color: var(--color-paper);
       background: linear-gradient(180deg, var(--color-royal) 0%, var(--color-royal-deep) 100%);
     }
-    .red-doodle-layer {
-      position: absolute; inset: 0; pointer-events: none;
-      opacity: 0.30;
-    }
+    .red-doodle-layer { position: absolute; inset: 0; pointer-events: none; }
     .red-sample-inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
 
-    /* ─── V1: VEGGY DOODLE STICKERS (carrots, leaves, tomatoes) ─── */
-    .v1-doodles {
+    /* ════════ FAMILY A — Sparse hand-drawn icons (V1 family) ════════ */
+
+    /* A1 (V1 kept) — Veggy doodles in 4 corners */
+    .a1-veggies {
       background-image:
-        /* Carrots */
         url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M30 25 L40 65 Q42 70 44 65 L52 25 Z'/><path d='M30 25 Q35 15 28 12'/><path d='M40 22 Q45 10 42 5'/><path d='M50 25 Q55 18 60 18'/></g></svg>"),
-        /* Leaves */
         url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M20 40 Q40 15 60 40 Q40 65 20 40 Z'/><path d='M25 40 L55 40'/></g></svg>"),
-        /* Tomato */
         url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><circle cx='40' cy='45' r='20'/><path d='M30 27 Q35 22 40 25 Q45 22 50 27'/><path d='M40 25 L40 22'/></g></svg>"),
-        /* Hearts */
         url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M40 55 Q20 38 30 25 Q40 25 40 35 Q40 25 50 25 Q60 38 40 55 Z'/></g></svg>");
       background-size: 120px, 100px, 130px, 90px;
       background-position: 8% 18%, 75% 30%, 22% 75%, 88% 78%;
@@ -62,221 +55,216 @@
       opacity: 0.35;
     }
 
-    /* ─── V2: TILED VEGGY PATTERN (denser, smaller) ─── */
-    .v2-tiled-veggies {
+    /* A2 — Sparse hearts only */
+    .a2-hearts {
       background-image:
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g fill='none' stroke='%23E8C76F' stroke-width='2' stroke-linejoin='round' stroke-linecap='round' opacity='0.6'><path d='M40 60 L46 88 Q48 92 50 88 L56 60 Z'/><path d='M40 60 Q42 53 38 50'/><path d='M48 58 Q52 50 50 46'/><path d='M120 140 Q140 120 160 140 Q140 160 120 140 Z'/><path d='M125 140 L155 140'/><circle cx='150' cy='60' r='15'/><path d='M143 47 Q147 43 150 45 Q153 43 157 47'/><path d='M150 45 L150 41'/></g></svg>");
-      background-size: 180px 180px;
-      background-repeat: repeat;
-      opacity: 0.22;
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M40 60 Q20 42 28 28 Q35 25 40 35 Q45 25 52 28 Q60 42 40 60 Z'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23E8C76F' fill-opacity='0.55'><path d='M40 60 Q20 42 28 28 Q35 25 40 35 Q45 25 52 28 Q60 42 40 60 Z'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'><path d='M40 55 Q24 40 30 30 Q36 27 40 33 Q44 27 50 30 Q56 40 40 55 Z'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23E8C76F' fill-opacity='0.55'><path d='M40 50 Q28 40 32 32 Q37 30 40 35 Q43 30 48 32 Q52 40 40 50 Z'/></g></svg>");
+      background-size: 100px, 60px, 80px, 50px;
+      background-position: 12% 22%, 30% 80%, 70% 18%, 85% 70%;
+      background-repeat: no-repeat;
+      opacity: 0.42;
     }
 
-    /* ─── V3: ROYAL CREST PATTERN (crown SVG tiled) ─── */
-    .v3-crowns {
+    /* A3 — Sparse tiny crowns */
+    .a3-crowns {
       background-image:
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='%23E8C76F' fill-opacity='0.4'><path d='M30 60 L20 35 L32 45 L40 25 L48 45 L60 35 L50 60 Z'/></g></svg>");
-      background-size: 80px 80px;
-      background-repeat: repeat;
-      opacity: 0.45;
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='%23E8C76F'><path d='M30 65 L20 35 L32 48 L40 25 L48 48 L60 35 L50 65 Z'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M30 65 L20 35 L32 48 L40 25 L48 48 L60 35 L50 65 Z'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='%23E8C76F'><path d='M30 65 L20 35 L32 48 L40 25 L48 48 L60 35 L50 65 Z'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M30 65 L20 35 L32 48 L40 25 L48 48 L60 35 L50 65 Z'/></g></svg>");
+      background-size: 70px, 55px, 60px, 80px;
+      background-position: 10% 25%, 32% 78%, 72% 20%, 88% 75%;
+      background-repeat: no-repeat;
+      opacity: 0.42;
     }
 
-    /* ─── V4: PINSTRIPE GOLD (subtle royal stripes) ─── */
-    .v4-pinstripe {
+    /* A4 — Sparse music notes */
+    .a4-music {
       background-image:
-        repeating-linear-gradient(135deg,
-          transparent 0px, transparent 22px,
-          rgba(232,199,111,0.10) 22px, rgba(232,199,111,0.10) 23.5px);
-    }
-
-    /* ─── V5: SPARKLE / CONFETTI BURST (festive on red) ─── */
-    .v5-sparkles {
-      background-image:
-        radial-gradient(circle, rgba(232,199,111,0.55) 2px, transparent 3px),
-        radial-gradient(circle, rgba(255,249,238,0.40) 1.5px, transparent 2.5px),
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23E8C76F' fill-opacity='0.55'><path d='M40 20 L42 38 L60 40 L42 42 L40 60 L38 42 L20 40 L38 38 Z'/></g></svg>"),
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><g fill='%23FFF9EE' fill-opacity='0.4'><path d='M30 10 L32 28 L50 30 L32 32 L30 50 L28 32 L10 30 L28 28 Z'/></g></svg>");
-      background-size: 24px 24px, 36px 36px, 110px 110px, 70px 70px;
-      background-position: 0 0, 12px 18px, 30% 25%, 70% 70%;
-      background-repeat: repeat, repeat, no-repeat, no-repeat;
-      opacity: 0.5;
-    }
-
-    /* ─── V6: VEGGY + CROWN COMBO (the kitchen-sink option) ─── */
-    .v6-combo {
-      background-image:
-        /* Tiled small crowns */
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='%23E8C76F' fill-opacity='0.18'><path d='M30 60 L20 35 L32 45 L40 25 L48 45 L60 35 L50 60 Z'/></g></svg>"),
-        /* Scattered veggie doodles on top */
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M30 25 L40 65 Q42 70 44 65 L52 25 Z'/><path d='M30 25 Q35 15 28 12'/></g></svg>"),
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M20 40 Q40 15 60 40 Q40 65 20 40 Z'/></g></svg>");
-      background-size: 110px 110px, 130px 130px, 100px 100px;
-      background-position: 0 0, 80% 22%, 18% 78%;
-      background-repeat: repeat, no-repeat, no-repeat;
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23E8C76F'><ellipse cx='30' cy='55' rx='10' ry='8' transform='rotate(-15 30 55)'/><rect x='38' y='18' width='3' height='40'/><path d='M38 18 Q55 22 50 38'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23E8C76F'><ellipse cx='30' cy='55' rx='9' ry='7'/><ellipse cx='50' cy='50' rx='9' ry='7'/><rect x='38' y='25' width='3' height='30'/><rect x='58' y='22' width='3' height='28'/><path d='M40 25 L60 22 L60 30 L40 33 Z'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><ellipse cx='30' cy='55' rx='10' ry='8' transform='rotate(-15 30 55)'/><rect x='38' y='18' width='3' height='40' fill='%23E8C76F'/><path d='M38 18 Q55 22 50 38'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23E8C76F'><ellipse cx='35' cy='55' rx='8' ry='6'/><rect x='42' y='22' width='2.5' height='34'/></g></svg>");
+      background-size: 80px, 110px, 90px, 60px;
+      background-position: 10% 20%, 35% 75%, 75% 25%, 88% 72%;
+      background-repeat: no-repeat;
       opacity: 0.4;
     }
 
+    /* A5 — Vine leaves curling at corners (organic) */
+    .a5-vines {
+      background-image:
+        /* Top-left vine */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 160'><g fill='none' stroke='%23E8C76F' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'><path d='M5 5 Q50 10 80 40 Q100 70 130 75'/><path d='M40 22 Q35 12 50 8'/><path d='M60 33 Q60 20 75 18'/><path d='M85 50 Q90 38 105 38'/><path d='M110 65 Q115 53 130 53'/></g></svg>"),
+        /* Bottom-right vine (mirrored) */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 160'><g fill='none' stroke='%23E8C76F' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'><path d='M215 155 Q170 150 140 120 Q120 90 90 85'/><path d='M180 138 Q185 148 170 152'/><path d='M160 127 Q160 140 145 142'/><path d='M135 110 Q130 122 115 122'/><path d='M110 95 Q105 107 90 107'/></g></svg>");
+      background-size: 320px, 320px;
+      background-position: top left, bottom right;
+      background-repeat: no-repeat;
+      opacity: 0.55;
+    }
+
+    /* A6 — Mixed sparse icons (one of each: heart, crown, leaf, music, sparkle) */
+    .a6-mixed {
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23E8C76F'><path d='M40 55 Q24 40 30 30 Q36 27 40 33 Q44 27 50 30 Q56 40 40 55 Z'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='%23E8C76F'><path d='M30 65 L20 35 L32 48 L40 25 L48 48 L60 35 L50 65 Z'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='none' stroke='%23E8C76F' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><path d='M20 45 Q40 20 60 45 Q40 60 20 45 Z'/><path d='M25 45 L55 45'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23E8C76F'><ellipse cx='30' cy='55' rx='9' ry='7'/><rect x='38' y='22' width='3' height='34'/><path d='M38 22 Q55 26 50 42'/></g></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><g fill='%23E8C76F'><path d='M30 8 L33 26 L51 30 L33 34 L30 52 L27 34 L9 30 L27 26 Z'/></g></svg>");
+      background-size: 70px, 75px, 90px, 80px, 50px;
+      background-position: 8% 25%, 38% 18%, 22% 78%, 70% 75%, 88% 28%;
+      background-repeat: no-repeat;
+      opacity: 0.42;
+    }
+
+    /* ════════ FAMILY B — Geometric / minimal (V4 family) ════════ */
+
+    /* B1 (V4 kept) — Diagonal solid pinstripe */
+    .b1-pinstripe {
+      background-image: repeating-linear-gradient(135deg,
+        transparent 0px, transparent 22px,
+        rgba(232,199,111,0.10) 22px, rgba(232,199,111,0.10) 23.5px);
+    }
+
+    /* B2 — Diagonal DASHED pinstripe */
+    .b2-dashes {
+      background-image: repeating-linear-gradient(135deg,
+        transparent 0px, transparent 4px,
+        rgba(232,199,111,0.18) 4px, rgba(232,199,111,0.18) 9px,
+        transparent 9px, transparent 28px);
+    }
+
+    /* B3 — Tiny diagonal dot grid */
+    .b3-dots {
+      background-image:
+        radial-gradient(circle, rgba(232,199,111,0.30) 1.3px, transparent 1.8px);
+      background-size: 22px 22px;
+    }
+
+    /* B4 — Wider double-line pinstripe (lux) */
+    .b4-double {
+      background-image: repeating-linear-gradient(135deg,
+        transparent 0px, transparent 36px,
+        rgba(232,199,111,0.10) 36px, rgba(232,199,111,0.10) 37px,
+        transparent 37px, transparent 41px,
+        rgba(232,199,111,0.10) 41px, rgba(232,199,111,0.10) 42px);
+    }
+
     /* Lab UI */
-    .lab-banner-v {
-      background: var(--color-ink); color: var(--color-paper);
-      padding: 32px 24px; text-align: center;
-    }
-    .lab-banner-tag {
-      display: inline-block; font-size: 11px; letter-spacing: 0.24em;
-      color: var(--color-gold-soft); margin-bottom: 8px; font-weight: 800;
-    }
-    .lab-banner-label {
-      font-family: var(--font-jp-display); font-weight: 900;
-      font-size: 26px; margin: 0; letter-spacing: -0.02em;
-    }
-    .lab-banner-desc {
-      font-size: 13.5px; color: rgba(255,249,238,0.75);
-      margin: 10px auto 0; max-width: 600px; line-height: 1.6;
-    }
-    .top-banner {
-      background: var(--color-royal); padding: 12px 20px; text-align: center;
-      font-size: 13px; font-weight: 700; color: var(--color-paper);
-    }
+    .lab-banner-v { background: var(--color-ink); color: var(--color-paper); padding: 32px 24px; text-align: center; }
+    .lab-banner-tag { display: inline-block; font-size: 11px; letter-spacing: 0.24em; color: var(--color-gold-soft); margin-bottom: 8px; font-weight: 800; }
+    .lab-banner-tag.keep { color: var(--color-paper); background: var(--color-royal); padding: 4px 12px; border-radius: 999px; }
+    .lab-banner-label { font-family: var(--font-jp-display); font-weight: 900; font-size: 26px; margin: 0; letter-spacing: -0.02em; }
+    .lab-banner-desc { font-size: 13.5px; color: rgba(255,249,238,0.75); margin: 10px auto 0; max-width: 600px; line-height: 1.6; }
+    .top-banner { background: var(--color-royal); padding: 12px 20px; text-align: center; font-size: 13px; font-weight: 700; color: var(--color-paper); }
     .top-banner a { color: var(--color-gold-soft); text-decoration: underline; }
+
+    .section-group {
+      background: var(--color-cream); padding: 22px 24px; text-align: center;
+      border-top: 2px solid var(--color-line, #E9D9B5);
+    }
+    .section-group h3 { font-family: var(--font-jp-display); font-weight: 900; font-size: 22px; color: var(--color-royal-deep); margin: 0; }
+    .section-group p { font-size: 13px; color: var(--color-muted); margin: 6px 0 0; }
   </style>
 </head>
 <body class="font-jp antialiased">
 
-  <div class="top-banner">🎨 Red-Section Lab v2 — same vivid red, with gold doodle overlays · <a href="/">live homepage →</a></div>
+  <div class="top-banner">🎨 Red-Section Lab v3 — sparse + minimal (V1/V4 family expanded) · <a href="/">live homepage →</a></div>
 
-  <!-- ═══════════════ CURRENT (baseline) ═══════════════ -->
-  <div class="lab-banner-v">
-    <div class="lab-banner-tag">CURRENT (BASELINE)</div>
-    <h2 class="lab-banner-label">いまのバージョン — flat royal red</h2>
-    <p class="lab-banner-desc">王冠パターンが背景に乗っているだけのフラットなロイヤルレッド。少しさみしい。</p>
+  <!-- ════════ Family A: SPARSE ICONS ════════ -->
+  <div class="section-group">
+    <h3>FAMILY A · Sparse hand-drawn icons</h3>
+    <p>同じ手描き感、コーナーに散らばる構成。V1の延長線上。</p>
   </div>
-  <section class="red-sample">
-    <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
-        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
-      </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
-        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
-      </p>
-    </div>
-  </section>
 
-  <!-- ═══════════════ V1 — VEGGY DOODLE STICKERS ═══════════════ -->
   <div class="lab-banner-v">
-    <div class="lab-banner-tag">V1 — VEGGY DOODLE STICKERS</div>
-    <h2 class="lab-banner-label">手描き野菜ドゥードル (sparse)</h2>
-    <p class="lab-banner-desc">にんじん・葉っぱ・トマト・ハートが４隅に散らばる。少なめ、ゆるい手描き感。</p>
+    <div class="lab-banner-tag keep">A1 — V1 KEPT</div>
+    <h2 class="lab-banner-label">Veggy doodles (carrot / leaf / tomato / heart)</h2>
+    <p class="lab-banner-desc">オリジナル。にんじん、葉、トマト、ハートが４隅に。</p>
   </div>
-  <section class="red-sample">
-    <div class="red-doodle-layer v1-doodles"></div>
-    <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
-        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
-      </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
-        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
-      </p>
-    </div>
-  </section>
+  <section class="red-sample"><div class="red-doodle-layer a1-veggies"></div><div class="red-sample-inner"><blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」</blockquote><p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──</p></div></section>
 
-  <!-- ═══════════════ V2 — TILED VEGGY PATTERN ═══════════════ -->
   <div class="lab-banner-v">
-    <div class="lab-banner-tag">V2 — TILED VEGGY PATTERN</div>
-    <h2 class="lab-banner-label">タイル化された野菜パターン</h2>
-    <p class="lab-banner-desc">V1の野菜たちを規則正しくタイル状に。壁紙感、密度高め。</p>
+    <div class="lab-banner-tag">A2 — HEARTS ONLY</div>
+    <h2 class="lab-banner-label">ハートだけ (outlined + filled mix)</h2>
+    <p class="lab-banner-desc">アウトラインと塗りのハート、サイズ違いで４か所。やさしさ最優先。</p>
   </div>
-  <section class="red-sample">
-    <div class="red-doodle-layer v2-tiled-veggies"></div>
-    <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
-        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
-      </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
-        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
-      </p>
-    </div>
-  </section>
+  <section class="red-sample"><div class="red-doodle-layer a2-hearts"></div><div class="red-sample-inner"><blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」</blockquote><p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──</p></div></section>
 
-  <!-- ═══════════════ V3 — ROYAL CREST PATTERN ═══════════════ -->
   <div class="lab-banner-v">
-    <div class="lab-banner-tag">V3 — ROYAL CREST</div>
-    <h2 class="lab-banner-label">王冠タイル (royal crest)</h2>
-    <p class="lab-banner-desc">小さな金の王冠が壁紙状に。クラシック王室感、ブランドの「王子」モチーフを反復。</p>
+    <div class="lab-banner-tag">A3 — TINY CROWNS</div>
+    <h2 class="lab-banner-label">小さな王冠 (outlined + filled)</h2>
+    <p class="lab-banner-desc">ブランドのモチーフ「王冠」だけ。シンプル＆クラシック。</p>
   </div>
-  <section class="red-sample">
-    <div class="red-doodle-layer v3-crowns"></div>
-    <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
-        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
-      </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
-        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
-      </p>
-    </div>
-  </section>
+  <section class="red-sample"><div class="red-doodle-layer a3-crowns"></div><div class="red-sample-inner"><blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」</blockquote><p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──</p></div></section>
 
-  <!-- ═══════════════ V4 — GOLD PINSTRIPE ═══════════════ -->
   <div class="lab-banner-v">
-    <div class="lab-banner-tag">V4 — GOLD PINSTRIPE</div>
-    <h2 class="lab-banner-label">控えめな金のストライプ</h2>
-    <p class="lab-banner-desc">対角線のごく細い金線パターン。ミニマルで上品。クラシックスーツの裏地感。</p>
+    <div class="lab-banner-tag">A4 — MUSIC NOTES</div>
+    <h2 class="lab-banner-label">音符 (single + paired + outlined)</h2>
+    <p class="lab-banner-desc">６カ国語MC・音楽好きな王子のテーマ。リズム感、軽やか。</p>
   </div>
-  <section class="red-sample">
-    <div class="red-doodle-layer v4-pinstripe" style="opacity:1"></div>
-    <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
-        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
-      </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
-        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
-      </p>
-    </div>
-  </section>
+  <section class="red-sample"><div class="red-doodle-layer a4-music"></div><div class="red-sample-inner"><blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」</blockquote><p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──</p></div></section>
 
-  <!-- ═══════════════ V5 — SPARKLE / CONFETTI BURST ═══════════════ -->
   <div class="lab-banner-v">
-    <div class="lab-banner-tag">V5 — SPARKLE CONFETTI</div>
-    <h2 class="lab-banner-label">スパークル＋紙吹雪</h2>
-    <p class="lab-banner-desc">金の星と小さなドットがふわっと飛んでる。お祝い感、リッチでフェスティブ。</p>
+    <div class="lab-banner-tag">A5 — VINE LEAVES</div>
+    <h2 class="lab-banner-label">蔓と葉のコーナー (organic)</h2>
+    <p class="lab-banner-desc">左上と右下から伸びる金の蔓と葉。植物的、上品、対角線で構図を引き締める。</p>
   </div>
-  <section class="red-sample">
-    <div class="red-doodle-layer v5-sparkles"></div>
-    <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
-        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
-      </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
-        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
-      </p>
-    </div>
-  </section>
+  <section class="red-sample"><div class="red-doodle-layer a5-vines"></div><div class="red-sample-inner"><blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」</blockquote><p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──</p></div></section>
 
-  <!-- ═══════════════ V6 — VEGGY + CROWN COMBO ═══════════════ -->
   <div class="lab-banner-v">
-    <div class="lab-banner-tag">V6 — VEGGY + CROWN COMBO</div>
-    <h2 class="lab-banner-label">野菜＋王冠ミックス</h2>
-    <p class="lab-banner-desc">タイル状の小さな王冠（薄め）＋ところどころに大きめの野菜ドゥードル。
-      二層構造で深みが出る。「王子」と「野菜」両方のテーマを同時に表現。</p>
+    <div class="lab-banner-tag">A6 — MIXED ICONS</div>
+    <h2 class="lab-banner-label">ミックス (heart / crown / leaf / music / sparkle)</h2>
+    <p class="lab-banner-desc">５種類のシンボル、一個ずつ。ブランドのテーマ全部入り、でも詰め込みすぎない。</p>
   </div>
-  <section class="red-sample">
-    <div class="red-doodle-layer v6-combo"></div>
-    <div class="red-sample-inner">
-      <blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">
-        「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」
-      </blockquote>
-      <p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">
-        国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──
-      </p>
-    </div>
-  </section>
+  <section class="red-sample"><div class="red-doodle-layer a6-mixed"></div><div class="red-sample-inner"><blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」</blockquote><p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──</p></div></section>
 
-  <!-- ═══════════════ END ═══════════════ -->
+  <!-- ════════ Family B: GEOMETRIC ════════ -->
+  <div class="section-group">
+    <h3>FAMILY B · Geometric / minimal patterns</h3>
+    <p>幾何学的、ミニマル、壁紙感。V4の延長線上。</p>
+  </div>
+
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag keep">B1 — V4 KEPT</div>
+    <h2 class="lab-banner-label">Diagonal solid pinstripe</h2>
+    <p class="lab-banner-desc">オリジナル。対角の極細ライン。スーツの裏地感。</p>
+  </div>
+  <section class="red-sample"><div class="red-doodle-layer b1-pinstripe"></div><div class="red-sample-inner"><blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」</blockquote><p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──</p></div></section>
+
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">B2 — DASHED PINSTRIPE</div>
+    <h2 class="lab-banner-label">対角のダッシュ線</h2>
+    <p class="lab-banner-desc">同じ角度、線の代わりに短い金のダッシュ。動きと軽さがある。</p>
+  </div>
+  <section class="red-sample"><div class="red-doodle-layer b2-dashes"></div><div class="red-sample-inner"><blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」</blockquote><p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──</p></div></section>
+
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">B3 — TINY DOT GRID</div>
+    <h2 class="lab-banner-label">小さなドットの格子</h2>
+    <p class="lab-banner-desc">最ミニマル。22pxごとに金の小さなドットが格子状に。テクスチャを感じるか感じないかの境目。</p>
+  </div>
+  <section class="red-sample"><div class="red-doodle-layer b3-dots"></div><div class="red-sample-inner"><blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」</blockquote><p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──</p></div></section>
+
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">B4 — DOUBLE PINSTRIPE</div>
+    <h2 class="lab-banner-label">細い二本線 (luxury)</h2>
+    <p class="lab-banner-desc">同じ対角、ペアの細い線。ピンストライプより少しリッチ、フォーマルウェア感。</p>
+  </div>
+  <section class="red-sample"><div class="red-doodle-layer b4-double"></div><div class="red-sample-inner"><blockquote class="font-jp-display text-[26px] sm:text-[42px] lg:text-[58px] leading-[1.4] font-light max-w-[16em]" style="text-wrap:balance">「やさしさと行動こそ、本当の<span class="display-italic" style="color:var(--color-gold-soft); font-weight:600">王子様</span>らしさ」</blockquote><p class="font-jp text-[15px] sm:text-[17px] leading-[1.95] text-paper/85 mt-8 sm:mt-10 max-w-[440px]">国籍は三つ、操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に──</p></div></section>
+
+  <!-- ════════ END ════════ -->
   <div class="lab-banner-v" style="background:var(--color-paper); color: var(--color-ink); border-top: 2px solid var(--color-cream);">
     <div class="lab-banner-tag" style="color: var(--color-royal);">どれが好き？</div>
     <h2 class="lab-banner-label">気に入った方向を教えて</h2>
     <p class="lab-banner-desc" style="color: var(--color-muted);">
-      <strong>全部 CSS のみ</strong>（バックグラウンドの SVG はインラインで data URI）。
-      画像なし、ロード超高速、解像度ロスゼロ。<br/>
-      展開先: Speaks Six / Mission / Catch the Prince / Support the cause
+      Family A（手描きアイコン）と Family B（幾何学）を <strong>混ぜる</strong> こともできる。<br/>
+      例: Mission には A3 (crowns)、Speaks Six には A4 (music)、Catch the Prince には A2 (hearts) など。<br/>
+      全部 CSS のみ（インライン SVG data URI）、ファイル追加ゼロ。
     </p>
   </div>
 
