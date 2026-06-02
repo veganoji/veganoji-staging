@@ -671,11 +671,35 @@
       font-size: 14px;
       letter-spacing: 0.06em;
     }
+    /* Numbered facts in 排泄物 section — chunky chibi-sticker numerals */
+    .poo-num {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: #C9532C;
+      color: var(--color-paper);
+      border: 2.5px solid var(--color-ink);
+      border-radius: 50%;
+      box-shadow: 3px 3px 0 var(--color-ink);
+      font-family: var(--font-noto-sans-jp);
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+    @media (min-width: 640px) {
+      .poo-num { width: 46px; height: 46px; font-size: 24px; box-shadow: 4px 4px 0 var(--color-ink); }
+    }
+
     /* Modernized diet stat rows — image + label + amount centered on ONE
-       line above a full-width animated bar (same .bar-track look as the
-       rest of the page for consistency). */
+       line above a full-width animated bar. Sizes bumped + locked so all
+       four rows look the same scale (no rebalancing per-stat). */
     .stat-row {
-      padding: 14px 0;
+      padding: 16px 0;
       border-bottom: 1px dotted rgba(31,24,18,0.18);
     }
     .stat-row:last-child { border-bottom: none; }
@@ -683,28 +707,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 8px;
+      gap: 12px;
+      margin-bottom: 10px;
     }
-    .stat-row__img { width: 30px; height: 30px; object-fit: contain; display: block; flex-shrink: 0; }
+    .stat-row__img { width: 42px; height: 42px; object-fit: contain; display: block; flex-shrink: 0; }
     .stat-row__label {
       font-family: var(--font-noto-sans-jp);
       font-weight: 700;
-      font-size: 15px;
+      font-size: 18px;
       letter-spacing: 0.04em;
       color: var(--color-ink);
     }
     .stat-row__val {
       font-family: var(--font-noto-sans-jp);
       font-weight: 900;
-      font-size: 24px;
+      font-size: 28px;
       line-height: 1;
       letter-spacing: -0.01em;
       font-variant-numeric: tabular-nums;
     }
-    .stat-row__val small { font-size: 14px; color: rgba(31,24,18,0.55); margin-left: 2px; font-weight: 700; }
+    .stat-row__val small { font-size: 16px; color: rgba(31,24,18,0.55); margin-left: 2px; font-weight: 700; }
     .stat-row__bar {
-      height: 22px;
+      height: 24px;
       background: var(--color-paper);
       border: 2px solid var(--color-ink);
       border-radius: 999px;
@@ -718,13 +742,13 @@
       transition: width 0.7s cubic-bezier(.22,.61,.36,1), background 0.4s ease;
     }
     @media (min-width: 640px) {
-      .stat-row { padding: 18px 0; }
-      .stat-row__head { gap: 12px; margin-bottom: 10px; }
-      .stat-row__img { width: 36px; height: 36px; }
-      .stat-row__label { font-size: 17px; }
-      .stat-row__val { font-size: 30px; }
-      .stat-row__val small { font-size: 16px; }
-      .stat-row__bar { height: 28px; }
+      .stat-row { padding: 20px 0; }
+      .stat-row__head { gap: 14px; margin-bottom: 12px; }
+      .stat-row__img { width: 52px; height: 52px; }
+      .stat-row__label { font-size: 20px; }
+      .stat-row__val { font-size: 36px; }
+      .stat-row__val small { font-size: 18px; }
+      .stat-row__bar { height: 30px; }
     }
 
     /* ── Share card frame ───────────────────────────────────────────── */
@@ -1061,6 +1085,7 @@
            data-chapter-num="01" data-chapter-label="温暖化"
            style="background:
              url('/images/vegan-to-chikyu/hero-bg-ch1-warming-wash.png') top center / 100% auto no-repeat,
+             url('/images/vegan-to-chikyu/hero-bg-ch1-warming-wash-flip.png') bottom center / 100% auto no-repeat,
              radial-gradient(ellipse at 100% 0%, #F7CCB3, transparent 55%),
              radial-gradient(ellipse at 0% 100%, #FCE4D9, transparent 60%),
              #FCE4D9;">
@@ -1112,28 +1137,41 @@
           <span class="font-jp-display text-[28px] sm:text-[40px] text-ink">多い。<a href="#src-1-1" class="src">1</a></span>
         </div>
 
-        <!-- Pictograph comparison: 1 cow > 4 transports. Each element is
-             a separate image so it can pop in independently. The ">" carries
-             the comparison directly. -->
-        <div id="ch1-pictograph" class="mt-10 sm:mt-12 grid grid-cols-[1fr_auto_1fr] gap-3 sm:gap-6 items-center">
-          <!-- Cow column (livestock) -->
-          <div class="flex flex-col items-center text-center">
-            <img id="ch1-pic-cow" src="/images/vegan-to-chikyu/icon-cow-solo.png" alt="畜産"
-                 class="w-24 sm:w-36 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.18)]"
-                 style="opacity: 0; transform: translateY(12px); transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(.22,1,.36,1);"
+        <!-- Pictograph comparison: a CLUSTER of farm animals (with a big
+             pollution cloud behind them) > 4 transport icons (with a smaller
+             pollution cloud behind). The ">" carries the comparison. -->
+        <div id="ch1-pictograph" class="mt-10 sm:mt-12 grid grid-cols-[1fr_auto_1fr] gap-2 sm:gap-6 items-center">
+          <!-- LEFT: livestock cluster with LARGE smoke cloud behind -->
+          <div class="relative flex flex-col items-center text-center">
+            <!-- Big smoke cloud BEHIND the animals -->
+            <img id="ch1-pic-smoke-lv" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""
+                 class="absolute pointer-events-none anim-bobble"
+                 style="z-index: 0; width: 100%; max-width: 260px; top: -8%; left: 50%; transform: translateX(-50%) scale(0.7); opacity: 0; transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(.34,1.56,.64,1); filter: brightness(0.96);"
                  loading="lazy"/>
+            <!-- Animals cluster (4-5 farm animals, varied size/position) -->
+            <div class="relative z-10 flex items-end justify-center flex-wrap-reverse gap-1 sm:gap-2 max-w-[180px] sm:max-w-[260px] min-h-[120px] sm:min-h-[180px]">
+              <img id="ch1-pic-cow1"        src="/images/vegan-to-chikyu/icon-cow-solo.png"          alt="" class="w-14 sm:w-20 anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.18)]" style="opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(.22,1,.36,1); animation-delay:-0.7s;" loading="lazy"/>
+              <img id="ch1-pic-cow-big"     src="/images/vegan-to-chikyu/icon-cow-solo.png"          alt="畜産" class="w-20 sm:w-28 anim-bobble drop-shadow-[0_6px_14px_rgba(31,24,18,0.20)]" style="opacity: 0; transform: translateY(12px); transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(.22,1,.36,1); animation-delay:-1.2s;" loading="lazy"/>
+              <img id="ch1-pic-livestock"   src="/images/vegan-to-chikyu/icon-livestock-group.png"   alt="" class="w-16 sm:w-24 anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.18)]" style="opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(.22,1,.36,1); animation-delay:-1.8s;" loading="lazy"/>
+              <img id="ch1-pic-cow2"        src="/images/vegan-to-chikyu/icon-cow-solo.png"          alt="" class="w-12 sm:w-16 anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.18)]" style="opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(.22,1,.36,1); animation-delay:-2.4s;" loading="lazy"/>
+            </div>
             <div class="mt-3 font-jp font-bold text-ink text-[14px] sm:text-[16px]">畜産</div>
           </div>
 
           <!-- > comparison symbol — middle -->
           <img id="ch1-pic-gt" src="/images/vegan-to-chikyu/icon-greater-than.png" alt="より多い"
-               class="w-12 sm:w-20 anim-bobble"
+               class="w-10 sm:w-20 anim-bobble"
                style="opacity: 0; transform: scale(0.6); transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(.34,1.56,.64,1); animation-delay:-1.5s;"
                loading="lazy"/>
 
-          <!-- Transport column — 4 vehicles in a 2x2 grid, each pops in -->
-          <div class="flex flex-col items-center text-center">
-            <div class="grid grid-cols-2 gap-2 sm:gap-3 max-w-[140px] sm:max-w-[200px]">
+          <!-- RIGHT: transport cluster with SMALLER smoke cloud behind -->
+          <div class="relative flex flex-col items-center text-center">
+            <!-- Smaller smoke cloud BEHIND the transports -->
+            <img id="ch1-pic-smoke-tx" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""
+                 class="absolute pointer-events-none anim-bobble"
+                 style="z-index: 0; width: 80%; max-width: 180px; top: -2%; left: 50%; transform: translateX(-50%) scale(0.7); opacity: 0; transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(.34,1.56,.64,1); animation-delay:-2.5s; filter: brightness(1.02);"
+                 loading="lazy"/>
+            <div class="relative z-10 grid grid-cols-2 gap-2 sm:gap-3 max-w-[140px] sm:max-w-[200px]">
               <img id="ch1-pic-plane" src="/images/vegan-to-chikyu/icon-airplane-chibi.png" alt="飛行機"
                    class="w-full anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.15)]"
                    style="opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease-out, transform 0.45s cubic-bezier(.22,1,.36,1); animation-delay:-0.5s;"
@@ -1197,21 +1235,21 @@
         </p>
 
         <div class="mt-7 sm:mt-9 space-y-5 sm:space-y-6">
-          <!-- ★ Plant-based diet — THE WINNER. Highlighted card-like row. -->
-          <div class="p-3.5 sm:p-4 -mx-2 sm:-mx-3 rounded-2xl border-2 border-ink relative"
+          <!-- ★ Plant-based diet — THE WINNER. Highlighted card-like row.
+               Layout: icon + label on top line, amount on its own line below
+               (so the badge doesn't collide with the amount on mobile). -->
+          <div class="pt-5 pb-4 px-4 sm:p-4 -mx-2 sm:-mx-3 rounded-2xl border-2 border-ink relative"
                style="background: rgba(248,220,220,0.55); box-shadow: 4px 4px 0 var(--color-royal-deep);">
             <div class="absolute -top-2.5 right-3 sm:right-4 px-2 py-0.5 rounded-full text-paper text-[13px] sm:text-[13px] tracking-[0.16em] font-bold"
                  style="background: var(--color-royal-deep);">
               いちばん大きい
             </div>
-            <div class="flex items-baseline justify-between mb-2">
-              <div class="flex items-center gap-2.5">
-                <img src="/images/vegan-to-chikyu/icon-leaf-vegan.png" alt="" class="w-10 h-10 sm:w-12 sm:h-12" loading="lazy"/>
-                <span class="font-jp text-[14px] sm:text-[16px] text-ink font-bold">一日一食、植物性に変える</span>
-              </div>
-              <span class="font-jp-display ticker text-[20px] sm:text-[26px] font-bold" style="color: #9C1428;">-1.5 t/年</span>
+            <div class="flex items-center gap-2.5 mb-1">
+              <img src="/images/vegan-to-chikyu/icon-leaf-vegan.png" alt="" class="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0" loading="lazy"/>
+              <span class="font-jp text-[15px] sm:text-[16px] text-ink font-bold leading-tight">一日一食、<br class="sm:hidden"/>植物性に変える</span>
+              <span class="ml-auto font-jp-display ticker text-[20px] sm:text-[26px] font-bold whitespace-nowrap" style="color: #9C1428;">-1.5 t/年</span>
             </div>
-            <div class="bar-track">
+            <div class="bar-track mt-2">
               <div class="bar-fill" data-bar-target="100" style="background: #C9223A;"></div>
             </div>
           </div>
@@ -1387,6 +1425,7 @@
   <section id="ch2" class="chapter px-6 sm:px-10"
            data-chapter-num="02" data-chapter-label="お水"
            style="background:
+             url('/images/vegan-to-chikyu/hero-bg-ch2-water-wash-flip.png') top center / 100% auto no-repeat,
              url('/images/vegan-to-chikyu/hero-bg-ch2-water-wash.png') bottom center / 100% auto no-repeat,
              radial-gradient(ellipse at 0% 0%, #BCDDF0, transparent 55%),
              radial-gradient(ellipse at 100% 100%, #DDEEF8, transparent 60%),
@@ -1617,6 +1656,7 @@
   <section id="ch3" class="chapter px-6 sm:px-10"
            data-chapter-num="03" data-chapter-label="土地"
            style="background:
+             url('/images/vegan-to-chikyu/hero-bg-ch3-land-wash-flip.png') top center / 100% auto no-repeat,
              url('/images/vegan-to-chikyu/hero-bg-ch3-land-wash.png') bottom center / 100% auto no-repeat,
              radial-gradient(ellipse at 100% 20%, #F4C8AC, transparent 50%),
              radial-gradient(ellipse at 10% 100%, #FBE4D5, transparent 60%),
@@ -1715,7 +1755,7 @@
           <div class="text-center sm:text-left">
             <div class="text-[13px] sm:text-[14px] tracking-[0.18em] font-bold mb-1" style="color: #8E3A1B;">クイズ</div>
             <h3 class="font-jp-display text-[20px] sm:text-[26px] leading-[1.45] text-ink">
-              地球の<span style="color: #C9532C;">農地の8割</span>を畜産が使っている。<br/>
+              <span style="color: #C9532C;">農地の8割</span>を畜産が使っている。<br/>
               じゃあ、世界のカロリーの<br class="sm:hidden"/>何%を生み出してると思う？
             </h3>
           </div>
@@ -1811,14 +1851,14 @@
           </h3>
         </div>
 
-        <!-- Poo stage — original chibi PNG. Grows from inside the stage,
+        <!-- Poo stage — original chibi PNG. Centered + uncapped growth;
              counter card sits in FRONT via z-index. -->
         <div id="poo-stage" class="relative" style="height: 360px;">
-          <div class="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none"
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none"
                style="overflow: visible; z-index: 1;">
             <img id="poo-img" src="/images/vegan-to-chikyu/icon-poo.png"
                  alt="動物畜産の排泄物" loading="lazy"
-                 style="width: 90px; height: auto; transition: width 0.6s ease-out; transform-origin: bottom center;"
+                 style="width: 90px; height: auto; transition: width 0.6s ease-out; transform-origin: center center;"
                  class="drop-shadow-[0_6px_14px_rgba(31,24,18,0.18)]"/>
           </div>
 
@@ -1839,17 +1879,17 @@
           世界の動物畜産は、<span class="font-bold">1秒で約40,000kg</span>の排泄物を出している。<a href="#src-2-6" class="src">12</a>
         </p>
 
-        <ul class="mt-7 sm:mt-8 space-y-3.5 sm:space-y-4 font-jp text-ink text-[15px] sm:text-[17px] leading-[1.7] max-w-xl mx-auto">
-          <li class="flex gap-3 items-start">
-            <span style="background: #C9532C; color: var(--color-paper);" class="flex-shrink-0 inline-flex items-center justify-center font-bold rounded-full text-[14px] sm:text-[16px]" aria-hidden="true" style="background: #C9532C; color: var(--color-paper); width: 26px; height: 26px;">①</span>
+        <ul class="mt-8 sm:mt-10 space-y-4 sm:space-y-5 font-jp text-ink text-[15px] sm:text-[17px] leading-[1.65] max-w-xl mx-auto">
+          <li class="flex gap-4 items-center">
+            <span class="poo-num" aria-hidden="true">1</span>
             <span>世界全体の予測は <span class="font-bold ticker" style="color: #C9532C;">40億トン / 年</span>(2030年まで)。<a href="#src-2-8" class="src">14</a></span>
           </li>
-          <li class="flex gap-3 items-start">
-            <span style="background: #C9532C; color: var(--color-paper); width: 26px; height: 26px;" class="flex-shrink-0 inline-flex items-center justify-center font-bold rounded-full text-[14px] sm:text-[16px]" aria-hidden="true">②</span>
+          <li class="flex gap-4 items-center">
+            <span class="poo-num" aria-hidden="true">2</span>
             <span>日本だけで <span class="font-bold ticker" style="color: #C9532C;">8,545 万トン</span>(1996年時点)。<a href="#src-2-9" class="src">15</a></span>
           </li>
-          <li class="flex gap-3 items-start">
-            <span style="background: #C9532C; color: var(--color-paper); width: 26px; height: 26px;" class="flex-shrink-0 inline-flex items-center justify-center font-bold rounded-full text-[14px] sm:text-[16px]" aria-hidden="true">③</span>
+          <li class="flex gap-4 items-center">
+            <span class="poo-num" aria-hidden="true">3</span>
             <span>処理施設を通らず、<span class="font-bold">土や地下水を汚す原因</span>にもなる。</span>
           </li>
         </ul>
@@ -1916,6 +1956,7 @@
   <section id="ch4" class="chapter px-6 sm:px-10"
            data-chapter-num="04" data-chapter-label="食物"
            style="background:
+             url('/images/vegan-to-chikyu/hero-bg-ch4-food-wash-flip.png') top center / 100% auto no-repeat,
              url('/images/vegan-to-chikyu/hero-bg-ch4-food-wash.png') bottom center / 100% auto no-repeat,
              radial-gradient(ellipse at 0% 100%, #D5BFE1, transparent 55%),
              radial-gradient(ellipse at 100% 0%, #EADFF1, transparent 60%),
@@ -3070,10 +3111,10 @@
         const elapsedSec = (performance.now() - pooStart) / 1000;
         const kg = Math.floor(elapsedSec * 40000);
         pooCounter.textContent = kg.toLocaleString('ja-JP');
-        // Grow the poo FOREVER but much more slowly than before so the
-        // animation feels organic, not frantic. Was +120 px/s; now +30 px/s.
-        // 90 px start, hard-cap at 8000 px so the layout can't run away.
-        const w = Math.min(8000, 90 + elapsedSec * 30);
+        // Grow the poo FOREVER, no cap. 90 px start, +30 px/s — slow,
+        // organic. The image is absolutely-positioned inside the stage
+        // and the stage has overflow: visible so it can overflow freely.
+        const w = 90 + elapsedSec * 30;
         if (pooImg) pooImg.style.width = w + 'px';
         requestAnimationFrame(pooTick);
       }
@@ -3092,29 +3133,40 @@
       }
 
       // ───────── CH1 pictograph reveal — stagger each element in ─────────
-      //   Cow first, then ">", then the 4 transport icons (plane/ship/car/train)
-      //   pop in one by one. Triggered when the pictograph enters view.
+      //   Big smoke cloud floats in first (left), then cluster of cows,
+      //   then ">", then small smoke (right), then 4 transport icons.
       (function buildPictographReveal() {
         const stage = document.getElementById('ch1-pictograph');
         if (!stage) return;
         const order = [
-          { id: 'ch1-pic-cow',   delay: 100 },
-          { id: 'ch1-pic-gt',    delay: 450 },
-          { id: 'ch1-pic-plane', delay: 700 },
-          { id: 'ch1-pic-ship',  delay: 850 },
-          { id: 'ch1-pic-car',   delay: 1000 },
-          { id: 'ch1-pic-train', delay: 1150 },
+          { id: 'ch1-pic-smoke-lv',  delay: 100,  isCloud: true },
+          { id: 'ch1-pic-cow-big',   delay: 300 },
+          { id: 'ch1-pic-cow1',      delay: 450 },
+          { id: 'ch1-pic-livestock', delay: 600 },
+          { id: 'ch1-pic-cow2',      delay: 750 },
+          { id: 'ch1-pic-gt',        delay: 950 },
+          { id: 'ch1-pic-smoke-tx',  delay: 1100, isCloud: true },
+          { id: 'ch1-pic-plane',     delay: 1250 },
+          { id: 'ch1-pic-ship',      delay: 1400 },
+          { id: 'ch1-pic-car',       delay: 1550 },
+          { id: 'ch1-pic-train',     delay: 1700 },
         ];
         let revealed = false;
         function revealAll() {
           if (revealed) return;
           revealed = true;
-          order.forEach(({ id, delay }) => {
+          order.forEach(({ id, delay, isCloud }) => {
             const el = document.getElementById(id);
             if (!el) return;
             setTimeout(() => {
-              el.style.opacity = '1';
-              el.style.transform = id === 'ch1-pic-gt' ? 'scale(1)' : 'translateY(0)';
+              el.style.opacity = isCloud ? '0.55' : '1';
+              if (id === 'ch1-pic-gt') {
+                el.style.transform = 'scale(1)';
+              } else if (isCloud) {
+                el.style.transform = 'translateX(-50%) scale(1)';
+              } else {
+                el.style.transform = 'translateY(0)';
+              }
             }, delay);
           });
         }
