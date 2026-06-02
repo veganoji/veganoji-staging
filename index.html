@@ -241,6 +241,17 @@
     @media (max-width: 640px) {
       .hero-crown-anchor { bottom: -10%; right: -30%; width: 110%; opacity: 0.05; }
     }
+    /* ─── Section pinstripe (B1 from /red-lab/ — for red sections) ─── */
+    .section-pinstripe { position: relative; }
+    .section-pinstripe::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: repeating-linear-gradient(135deg,
+        transparent 0px, transparent 22px,
+        rgba(232,199,111,0.12) 22px, rgba(232,199,111,0.12) 23.5px);
+      z-index: 0;
+    }
+    .section-pinstripe > * { position: relative; z-index: 1; }
+
     /* Tone variants */
     .crown-bg-light { --crown-color: var(--color-paper); --crown-opacity: 0.05; }
     .crown-bg-gold  { --crown-color: var(--color-gold);  --crown-opacity: 0.07; }
@@ -1339,7 +1350,7 @@
   </section>
 
   <!-- ─────────────  ABOUT / SIX LANGUAGES  ───────────── -->
-  <section id="about" class="bg-royal crown-bg crown-bg-light text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
+  <section id="about" class="bg-royal section-pinstripe text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
     <div class="absolute inset-0 stars-bg opacity-50 pointer-events-none"></div>
     <svg class="absolute top-16 left-[8%] w-12 h-12 text-gold opacity-30 anim-float"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-24 right-[12%] w-10 h-10 text-paper opacity-20 anim-float" style="animation-delay:1.4s"><use href="#sparkle"/></svg>
@@ -1512,7 +1523,7 @@
   </section>
 
   <!-- ─────────────  MISSION  ───────────── -->
-  <section class="bg-royal crown-bg crown-bg-light text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
+  <section class="bg-royal section-pinstripe text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
     <div class="absolute inset-0 stars-bg opacity-20 pointer-events-none"></div>
     <svg class="absolute top-20 left-[8%] w-8 h-8 text-gold opacity-60 anim-sparkle"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-32 right-[20%] w-6 h-6 text-gold-soft opacity-50 anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
@@ -1602,7 +1613,7 @@
   </section>
 
   <!-- ─────────────  UPCOMING EVENTS  ───────────── -->
-  <section id="events" class="bg-royal crown-bg crown-bg-light text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
+  <section id="events" class="bg-royal section-pinstripe text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
     <div class="absolute inset-0 stars-bg opacity-30 pointer-events-none"></div>
     <svg class="absolute top-12 right-[10%] w-12 h-12 text-gold opacity-40 anim-float"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-16 left-[8%] w-10 h-10 text-paper opacity-15 anim-float" style="animation-delay:1.1s"><use href="#sparkle"/></svg>
@@ -1842,7 +1853,7 @@
   </section>
 
   <!-- ─────────────  DONATE  ───────────── -->
-  <section id="donate" class="bg-royal heart-bg heart-bg-light text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
+  <section id="donate" class="bg-royal section-pinstripe text-paper py-12 sm:py-16 lg:py-24 relative overflow-hidden">
 
     <div class="absolute top-6 right-2 sm:top-12 sm:right-6 lg:top-1/2 lg:-translate-y-1/2 lg:right-[4%] w-28 sm:w-40 lg:w-56 anim-bobble pointer-events-none z-10">
       <img src="/images/mascot/treasure-chest.png" alt="ビーガン王子 - サポーター" class="w-full h-auto drop-shadow-2xl" loading="lazy"/>
