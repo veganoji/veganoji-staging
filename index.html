@@ -133,7 +133,10 @@
     /* ─── Footer (Variation B — "Big Hug Goodbye") ─── */
     .footer-hug {
       position: relative; overflow: hidden;
-      background: linear-gradient(180deg, var(--color-paper) 0%, var(--color-cream-2) 100%);
+      background:
+        linear-gradient(180deg, rgba(255,249,238,0.74) 0%, rgba(255,249,238,0.54) 52%, rgba(255,249,238,0.42) 100%),
+        url('/images/decorations/footer-night.jpg') center/cover no-repeat,
+        var(--color-paper);
       padding: 56px 24px 32px;
     }
     .footer-hug::after {
@@ -208,6 +211,22 @@
     @media (prefers-reduced-motion: reduce) {
       .profile-photo-cycle > img { animation: none; }
       .profile-photo-cycle > img:not(:first-of-type) { display: none; }
+    }
+
+    /* Hero V7 watercolor veil — cream gradient over the countryside bg */
+    .hero-veil {
+      background: linear-gradient(180deg,
+        rgba(255,249,238,0.25) 0%,
+        rgba(255,249,238,0.50) 50%,
+        rgba(255,249,238,0.92) 100%);
+    }
+    @media (min-width: 900px) {
+      .hero-veil {
+        background: linear-gradient(110deg,
+          rgba(255,249,238,0.75) 0%,
+          rgba(255,249,238,0.42) 50%,
+          rgba(255,249,238,0.20) 100%);
+      }
     }
 
     /* Hero crown anchor — single large pseudo-watermark behind hero */
@@ -1155,18 +1174,12 @@
   </header>
 
 
-  <!-- ─────────────  HERO (mobile-first)  ───────────── -->
-  <section id="top" class="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-6 sm:pt-10 lg:pt-14 pb-10 sm:pb-14 lg:pb-20 overflow-hidden">
+  <!-- ─────────────  HERO (mobile-first, V7 watercolor countryside)  ───────────── -->
+  <section id="top" class="relative overflow-hidden hero-bg-section"
+           style="background:url('/images/decorations/hero-bgs/hero-countryside.jpg') center/cover no-repeat, var(--color-paper);">
+    <div class="hero-veil absolute inset-0 z-0 pointer-events-none"></div>
 
-    <!-- Big hero crown anchor (single, decorative, behind content) -->
-    <img src="/images/decorations/crown-pattern.svg"
-         alt="" aria-hidden="true"
-         class="absolute pointer-events-none select-none -z-10 hero-crown-anchor"
-         loading="lazy"/>
-
-    <!-- Faint damask pattern overlay (very subtle, type-safe) -->
-    <div class="absolute inset-0 pointer-events-none opacity-30 -z-10"
-         style="background-image:url('/images/decorations/damask-tile.png');background-size:256px 256px;"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-6 sm:pt-10 lg:pt-14 pb-10 sm:pb-14 lg:pb-20">
 
     <svg class="absolute top-12 left-[5%] w-5 h-5 text-gold anim-sparkle" style="animation-delay:0.5s"><use href="#sparkle"/></svg>
     <svg class="absolute top-1/3 right-[6%] w-4 h-4 text-royal-soft anim-sparkle" style="animation-delay:1.1s"><use href="#sparkle"/></svg>
@@ -1258,6 +1271,8 @@
       <span class="text-[12px] tracking-[0.22em] uppercase font-jp">スクロール</span>
       <div class="scroll-cue"></div>
     </div>
+
+    </div>  <!-- /z-10 hero inner -->
   </section>
 
   <!-- ─────────────  KEY ACTIONS RAIL (right under hero)  ───────────── -->
@@ -1389,7 +1404,8 @@
   </section>
 
   <!-- ─────────────  SERVICES  ───────────── -->
-  <section id="services" class="bg-paper crown-bg crown-bg-wide py-12 sm:py-16 lg:py-24 relative">
+  <section id="services" class="py-12 sm:py-16 lg:py-24 relative overflow-hidden"
+           style="background:linear-gradient(180deg, rgba(255,249,238,0.55) 0%, rgba(255,249,238,0.72) 50%, rgba(255,249,238,0.95) 100%), url('/images/decorations/hero-bgs/hero-confetti.jpg') center/cover no-repeat, var(--color-paper);">
     <svg class="absolute top-20 right-[6%] w-8 h-8 text-royal-soft opacity-60 anim-sparkle"><use href="#sparkle"/></svg>
     <svg class="absolute bottom-32 left-[4%] w-6 h-6 text-gold anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
 
@@ -1562,7 +1578,8 @@
   </section>
 
   <!-- ─────────────  SELECTED WORK (horizontal scroll)  ───────────── -->
-  <section id="work" class="bg-paper crown-bg py-12 sm:py-16 lg:py-24 relative">
+  <section id="work" class="py-12 sm:py-16 lg:py-24 relative overflow-hidden"
+           style="background:linear-gradient(180deg, rgba(255,249,238,0.55) 0%, rgba(255,249,238,0.72) 50%, rgba(255,249,238,0.95) 100%), url('/images/decorations/hero-bgs/section-recent.jpg') center/cover no-repeat, var(--color-paper);">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
 
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 relative">
@@ -1667,7 +1684,8 @@
   </section>
 
   <!-- ─────────────  CHARACTER + ALEX PROFILE TABS  ───────────── -->
-  <section id="character" class="bg-cream py-12 sm:py-16 lg:py-24 border-y border-line relative overflow-hidden">
+  <section id="character" class="py-12 sm:py-16 lg:py-24 border-y border-line relative overflow-hidden"
+           style="background:linear-gradient(180deg, rgba(255,249,238,0.58) 0%, rgba(255,249,238,0.75) 50%, rgba(255,249,238,0.95) 100%), url('/images/decorations/hero-bgs/section-meet.jpg') center/cover no-repeat, var(--color-cream);">
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
 
@@ -1906,7 +1924,8 @@
   </section>
 
   <!-- ─────────────  BOOKING  ───────────── -->
-  <section id="booking" class="pastel-wash-strip crown-bg crown-bg-wide py-12 sm:py-16 lg:py-24 relative overflow-hidden">
+  <section id="booking" class="py-12 sm:py-16 lg:py-24 relative overflow-hidden"
+           style="background:linear-gradient(180deg, rgba(255,249,238,0.55) 0%, rgba(255,249,238,0.72) 50%, rgba(255,249,238,0.95) 100%), url('/images/decorations/hero-bgs/section-talk.jpg') center/cover no-repeat, var(--color-paper);">
 
     <div class="max-w-[1100px] mx-auto px-6 lg:px-10 relative">
       <div class="font-jp font-semibold text-royal/85 text-[15px] sm:text-[17px] tracking-[0.04em] mb-3 sm:mb-4">
