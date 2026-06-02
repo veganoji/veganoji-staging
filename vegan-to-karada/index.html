@@ -426,7 +426,7 @@
     .flip-inner {
       position: relative;
       width: 100%;
-      height: 196px;
+      height: 234px;
       transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
       transform-style: preserve-3d;
     }
@@ -453,9 +453,16 @@
       .flip-inner { transition: none; }
     }
     @media (min-width: 640px) {
-      .flip-inner { height: 250px; }
+      .flip-inner { height: 270px; }
       .flip-emoji { font-size: 64px; }
     }
+    .flip-ico.sm { width:44px; height:44px; }
+    .flip-emoji.sm { font-size:34px; }
+    @media (min-width:640px){ .flip-ico.sm { width:54px; height:54px; } }
+    .swap-list { font-family: var(--font-noto-sans-jp); font-weight:600; font-size:13px; line-height:1.5; color: var(--color-ink-soft); margin-top:7px; padding:0 4px; }
+    .swap-list b { color:#3F6A3A; font-weight:900; }
+    .swap-list em { color: var(--color-muted); font-style:normal; font-weight:700; }
+    @media (min-width:640px){ .swap-list{ font-size:14px; } }
 
     /* ── Two-column before/after compare (Okinawa) ─────────────────── */
     .compare-col {
@@ -1106,7 +1113,7 @@
         <h3 class="font-jp-display text-[24px] sm:text-[34px] text-ink leading-[1.3]">
           おうちでも、かんたん。<br/><span style="color:#3F6A3A;">置きかえるだけ。</span>
         </h3>
-        <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px]">いつもの材料、何にかえる？ カードをタップ！ 👆</p>
+        <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px]">いつもの材料、じつは選べるものがたくさん。 タップしてね！（手に入りやすい順）👆</p>
       </div>
 
       <!-- Swap flip cards (built by JS) -->
@@ -1377,15 +1384,15 @@
         const grid = document.getElementById('oishisa-grid');
         if (!grid) return;
         const SWAPS = [
-          { s: 'milk',   a: 'soymilk',     e: '🥛', ae: '🥛', name: '牛乳',   alt: '豆乳・オーツ・アーモンド' },
-          { s: 'meat',   a: 'soymeat',     e: '🥩', ae: '🍱', name: 'お肉',   alt: '大豆ミート・厚揚げ・高野豆腐' },
-          { s: 'egg',    a: 'tofu',        e: '🥚', ae: '🍳', name: 'たまご', alt: '豆腐・おからで スクランブルやオムレツ' },
-          { s: 'cheese', a: 'plantcheese', e: '🧀', ae: '🌱', name: 'チーズ', alt: '豆乳チーズ・カシューチーズ' },
-          { s: 'butter', a: 'plantbutter', e: '🧈', ae: '🌱', name: 'バター', alt: '植物性マーガリン・米油・ココナッツ' },
-          { s: 'honey',  a: 'maple',       e: '🍯', ae: '🍁', name: 'はちみつ', alt: 'メープル・甘酒・米飴' },
+          { s: 'milk',   a: 'soymilk',     e: '🥛', ae: '🥛', name: '牛乳',   alt: '<b>豆乳</b>・アーモンド・オーツ・ライス・ココナッツ・カシュー <em>…など</em>' },
+          { s: 'meat',   a: 'soymeat',     e: '🥩', ae: '🍱', name: 'お肉',   alt: '<b>豆腐</b>・厚揚げ・高野豆腐・大豆ミート・きのこ・車麩(麩) <em>…など</em>' },
+          { s: 'egg',    a: 'tofu',        e: '🥚', ae: '🍳', name: 'たまご', alt: '<b>豆腐</b>・おから・片栗粉・バナナ・かぼちゃ・アクアファバ <em>…など</em>' },
+          { s: 'cheese', a: 'plantcheese', e: '🧀', ae: '🌱', name: 'チーズ', alt: '<b>植物性チーズ</b>・豆乳・カシュー・栄養酵母・酒粕・白味噌 <em>…など</em>' },
+          { s: 'butter', a: 'plantbutter', e: '🧈', ae: '🌱', name: 'バター', alt: '<b>マーガリン</b>・米油・なたね油・オリーブ油・ココナッツ油 <em>…など</em>' },
+          { s: 'honey',  a: 'maple',       e: '🍯', ae: '🍁', name: 'はちみつ', alt: '<b>メープル</b>・甘酒・米飴・黒蜜・アガベ・デーツ <em>…など</em>' },
         ];
-        const swapIco = (slug, fb) =>
-          '<img class="flip-ico" src="/images/karada/swap/' + slug + '.png" alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\';"/><span class="flip-emoji" style="display:none;">' + fb + '</span>';
+        const swapIco = (slug, fb, cls) =>
+          '<img class="flip-ico' + (cls || '') + '" src="/images/karada/swap/' + slug + '.png" alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\';"/><span class="flip-emoji' + (cls || '') + '" style="display:none;">' + fb + '</span>';
         SWAPS.forEach(d => {
           const card = document.createElement('button');
           card.type = 'button';
@@ -1401,8 +1408,8 @@
               '</div>' +
               '<div class="flip-face flip-back">' +
                 '<span class="flip-tag" style="color:#3F6A3A; background:#FFF9EE;">植物性なら</span>' +
-                swapIco(d.a, d.ae) +
-                '<p class="font-jp-display text-[13px] sm:text-[16px] mt-2 leading-[1.4] px-1" style="color:#3F6A3A;">' + d.alt + '</p>' +
+                swapIco(d.a, d.ae, ' sm') +
+                '<p class="swap-list">' + d.alt + '</p>' +
               '</div>' +
             '</div>';
           card.addEventListener('click', () => {
