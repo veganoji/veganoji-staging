@@ -3,26 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hero Lab — watercolor backdrop · ビーガン王子</title>
+  <title>Hero Lab — 6 variations · ビーガン王子</title>
   <meta name="robots" content="noindex,nofollow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Noto+Serif+JP:wght@200;300;400;500;700;900&display=swap" rel="stylesheet" />
-
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style type="text/tailwindcss">
     @theme {
       --color-paper: #FFF9EE;
       --color-cream: #FDF1DA;
-      --color-cream-2: #F6E4BD;
       --color-royal: #C9223A;
       --color-royal-soft: #E55063;
       --color-royal-deep: #9C1428;
       --color-gold: #D4A847;
       --color-gold-soft: #E8C76F;
-      --color-gold-deep: #9C7E2A;
       --color-ink: #1F1812;
       --color-ink-soft: #3C2E22;
       --color-muted: #786148;
@@ -30,39 +27,13 @@
       --font-jp:         "Noto Sans JP", sans-serif;
       --font-jp-display: "Noto Serif JP", serif;
     }
-
     html, body { background: var(--color-paper); color: var(--color-ink); margin: 0; }
     body { font-family: var(--font-jp); }
     .font-jp { font-family: var(--font-jp); }
     .font-jp-display { font-family: var(--font-jp-display); font-weight: 900; }
     .display-tight { letter-spacing: -0.035em; }
+    .eyebrow-mini { font-size:12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--color-royal); font-weight:700; }
 
-    /* ─── Hero watercolor backdrop + veil (vegan map / chikyu style) ─── */
-    .hero-watercolor {
-      position: relative;
-      background:
-        url('/images/decorations/hero-watercolor.jpg') center/cover no-repeat,
-        var(--color-paper);
-    }
-    .hero-veil {
-      position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background: linear-gradient(180deg,
-        rgba(255,249,238,0.36) 0%,
-        rgba(255,249,238,0.50) 36%,
-        rgba(255,249,238,0.78) 70%,
-        rgba(255,249,238,1.00) 100%);
-    }
-    @media (min-width: 900px) {
-      .hero-veil {
-        background: linear-gradient(110deg,
-          rgba(255,249,238,0.90) 0%,
-          rgba(255,249,238,0.70) 38%,
-          rgba(255,249,238,0.42) 62%,
-          rgba(255,249,238,0.20) 100%);
-      }
-    }
-
-    /* ─── Buttons (V3 chibi-sticker spec from memory) ─── */
     @utility btn-primary {
       @apply inline-flex items-center gap-2 rounded-2xl bg-royal text-paper px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
       font-family: var(--font-jp); font-weight: 700;
@@ -75,17 +46,12 @@
       font-family: var(--font-jp); font-weight: 700;
       border: 2.5px solid var(--color-ink);
       box-shadow: 4px 4px 0 var(--color-ink);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
     }
     .btn-primary:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal-deep); }
     .btn-ghost:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal); color: var(--color-paper); }
 
-    @utility eyebrow {
-      @apply text-[12px] tracking-[0.24em] uppercase text-royal;
-      font-weight: 700;
-    }
-
-    /* ─── Rotating roles (lang-stack) ─── */
+    /* Rotating roles */
     .lang-stack { display: grid; grid-template-areas: "stack"; align-items: center; justify-items: start; }
     .lang-stack > * { grid-area: stack; }
     .lang-word { opacity: 0; transform: translateY(14px); animation: langCycle 18s infinite; }
@@ -96,25 +62,21 @@
     .lang-word:nth-child(5) { animation-delay: 12s; }
     .lang-word:nth-child(6) { animation-delay: 15s; }
     @keyframes langCycle {
-      0%   { opacity: 0; transform: translateY(14px); }
-      4%   { opacity: 1; transform: translateY(0); }
-      14%  { opacity: 1; transform: translateY(0); }
-      18%  { opacity: 0; transform: translateY(-14px); }
-      100% { opacity: 0; transform: translateY(-14px); }
+      0%{opacity:0;transform:translateY(14px);}
+      4%{opacity:1;transform:translateY(0);} 14%{opacity:1;transform:translateY(0);}
+      18%{opacity:0;transform:translateY(-14px);} 100%{opacity:0;transform:translateY(-14px);}
     }
 
-    /* ─── Badge ribbon (お笑いあり) ─── */
+    /* Badge ribbon */
     .badge-ribbon {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 16px;
+      display: inline-flex; align-items: center; padding: 6px 16px;
       background: var(--color-royal); color: var(--color-paper);
       border: 2px solid var(--color-ink);
       box-shadow: 3px 3px 0 var(--color-ink);
-      border-radius: 999px;
-      font-family: var(--font-jp);
+      border-radius: 999px; font-family: var(--font-jp);
     }
 
-    /* ─── Profile photo cycle ─── */
+    /* Profile photo cycle (3 portraits) */
     .profile-photo-cycle > img {
       opacity: 0; animation: profileCycle 18s ease-in-out infinite;
     }
@@ -122,51 +84,63 @@
     .profile-photo-cycle > img:nth-of-type(2) { animation-delay: 6s; }
     .profile-photo-cycle > img:nth-of-type(3) { animation-delay: 12s; }
     @keyframes profileCycle {
-      0%   { opacity: 0; }
-      4%   { opacity: 1; }
-      28%  { opacity: 1; }
-      33%  { opacity: 0; }
-      100% { opacity: 0; }
+      0%{opacity:0;} 4%{opacity:1;} 28%{opacity:1;} 33%{opacity:0;} 100%{opacity:0;}
     }
 
-    /* ─── Social icons (hero mobile row + sticky rail) ─── */
-    .social-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; transition: transform 0.25s ease; }
-    .social-icon-btn img { width: 100%; height: 100%; object-fit: contain; }
-    .social-icon-btn:hover { transform: translateY(-2px) scale(1.08); }
+    /* Pose-cycle mascot (excited oji) */
+    .pose-cycle { position: relative; }
+    .pose-cycle > img {
+      position: absolute; inset: 0; width: 100%; height: auto;
+      opacity: 0; animation: poseCycle 9s ease-in-out infinite;
+    }
+    .pose-cycle > img:nth-of-type(1) { animation-delay: 0s; opacity: 1; }
+    .pose-cycle > img:nth-of-type(2) { animation-delay: 3s; }
+    .pose-cycle > img:nth-of-type(3) { animation-delay: 6s; }
+    @keyframes poseCycle {
+      0%{opacity:0;} 4%{opacity:1;} 28%{opacity:1;} 33%{opacity:0;} 100%{opacity:0;}
+    }
+    @keyframes bobble { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+    .anim-bobble { animation: bobble 3.4s ease-in-out infinite; }
 
-    /* ─── Sparkle SVG animation ─── */
-    @keyframes sparkle { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.15); } }
-    .anim-sparkle { animation: sparkle 2.4s ease-in-out infinite; }
-
-    /* ─── Lab header ─── */
-    .lab-banner {
+    /* Lab banner between variations */
+    .lab-banner-v {
       background: var(--color-ink); color: var(--color-paper);
-      padding: 14px 20px; text-align: center;
-      font-family: var(--font-jp); font-size: 13px;
+      padding: 32px 24px; text-align: center;
     }
-    .lab-banner a { color: var(--color-gold-soft); text-decoration: underline; font-weight: 700; }
+    .lab-banner-tag {
+      display: inline-block; font-size: 11px; letter-spacing: 0.24em;
+      color: var(--color-gold-soft); margin-bottom: 8px; font-weight: 800;
+    }
+    .lab-banner-label {
+      font-family: var(--font-jp-display); font-weight: 900;
+      font-size: 26px; margin: 0; letter-spacing: -0.02em;
+    }
+    .lab-banner-desc {
+      font-size: 13.5px; color: rgba(255,249,238,0.75);
+      margin: 10px auto 0; max-width: 600px; line-height: 1.6;
+    }
+    .top-banner { background: var(--color-royal); padding: 12px 20px; text-align: center; font-size: 13px; font-weight: 700; color: var(--color-paper); }
+    .top-banner a { color: var(--color-gold-soft); text-decoration: underline; }
   </style>
 </head>
 <body class="font-jp antialiased">
 
-  <div class="lab-banner">
-    🎨 <strong>Hero Lab</strong> — current hero with new watercolor backdrop ·
-    <a href="/">live homepage →</a>
+  <div class="top-banner">🎨 Hero Lab — 6 variations · <a href="/">live homepage →</a></div>
+
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V1-TOKYO</div>
+    <h2 class="lab-banner-label">V1 — Watercolor Tokyo morning</h2>
+    <p class="lab-banner-desc">元のバージョン。富士山＋桜＋朝の光のあたたかい水彩。</p>
   </div>
 
-  <!-- ═══════════════ HERO (current version + new watercolor bg) ═══════════════ -->
-  <section id="top" class="hero-watercolor relative overflow-hidden">
-    <div class="hero-veil"></div>
+  <section class="hero-bg-section relative overflow-hidden" data-variant="v1-tokyo" style="background:url('/images/decorations/hero-watercolor.jpg') center/cover no-repeat, var(--color-paper);">
+    <div class="hero-veil absolute inset-0 z-0" style="background:linear-gradient(180deg, rgba(255,249,238,0.36) 0%, rgba(255,249,238,0.50) 36%, rgba(255,249,238,0.78) 70%, rgba(255,249,238,1.00) 100%)"></div>
+    <style>section[data-variant="v1-tokyo"]:not(:hover) .hero-veil { background: linear-gradient(180deg, rgba(255,249,238,0.36) 0%, rgba(255,249,238,0.50) 36%, rgba(255,249,238,0.78) 70%, rgba(255,249,238,1.00) 100%); } @media (min-width:900px){ section[data-variant="v1-tokyo"] .hero-veil { background: linear-gradient(110deg, rgba(255,249,238,0.90) 0%, rgba(255,249,238,0.70) 38%, rgba(255,249,238,0.42) 62%, rgba(255,249,238,0.20) 100%); } }</style>
 
-    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-6 sm:pt-10 lg:pt-14 pb-10 sm:pb-14 lg:pb-20">
-
-      <svg class="absolute top-12 left-[5%] w-5 h-5 text-gold anim-sparkle" style="animation-delay:0.5s"><use href="#sparkle"/></svg>
-      <svg class="absolute top-1/3 right-[6%] w-4 h-4 text-royal-soft anim-sparkle" style="animation-delay:1.1s"><use href="#sparkle"/></svg>
-      <svg class="absolute bottom-16 left-[8%] w-5 h-5 text-gold-soft anim-sparkle" style="animation-delay:1.6s"><use href="#sparkle"/></svg>
-      <svg class="absolute top-24 right-[2%] w-5 h-5 text-royal anim-sparkle" style="animation-delay:0.2s"><use href="#sparkle"/></svg>
-
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-20">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14 items-center">
 
+        <!-- TEXT -->
         <div class="lg:col-span-7 relative order-1">
           <div class="font-jp font-semibold text-royal/85 text-[15px] sm:text-[17px] lg:text-[19px] tracking-[0.04em] mb-3 sm:mb-4">
             アレックス・デレチ ——
@@ -176,7 +150,7 @@
           </h1>
 
           <div class="mt-4 sm:mt-6 flex items-baseline gap-3">
-            <span class="eyebrow font-jp">現在 —</span>
+            <span class="font-jp eyebrow-mini">現在 —</span>
             <div class="lang-stack font-jp-display text-[16px] sm:text-[18px] lg:text-[20px] text-ink-soft">
               <span class="lang-word">モデル</span>
               <span class="lang-word">タレント</span>
@@ -188,13 +162,14 @@
           </div>
         </div>
 
+        <!-- PHOTO with pose-cycle sticker -->
         <div class="lg:col-span-5 order-2">
           <div class="relative max-w-[320px] sm:max-w-[380px] lg:max-w-[440px] mx-auto">
             <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-cream border-[2.5px] border-ink" style="box-shadow:8px 8px 0 var(--color-ink);">
               <div class="profile-photo-cycle absolute inset-0">
-                <img src="/images/profile/alex-mc.jpg"     alt="アレックス・デレチ — MC"     class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
-                <img src="/images/profile/alex-talent.jpg" alt="アレックス・デレチ — タレント" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
-                <img src="/images/profile/alex-model.jpg"  alt="アレックス・デレチ — モデル"  class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-mc.jpg"     alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-talent.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-model.jpg"  alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
               </div>
               <div class="absolute bottom-0 left-0 right-0 px-5 py-4 sm:px-6 sm:py-5 pointer-events-none"
                    style="background:linear-gradient(to top, rgba(31,24,18,0.92) 0%, rgba(31,24,18,0.45) 65%, transparent 100%);">
@@ -202,51 +177,425 @@
                 <div class="font-jp text-paper/85 mt-1.5" style="font-size:14px;">アレックス・デレチ / ビーガン王子</div>
               </div>
             </div>
+
+            <!-- Excited oji pose-cycle sticker, peeking from bottom-right -->
+            <div class="absolute -bottom-8 -right-4 sm:-bottom-10 sm:-right-8 lg:-right-12 w-24 sm:w-32 lg:w-40 anim-bobble pointer-events-none z-10" style="animation-delay:0.3s">
+              <div class="pose-cycle aspect-[4/5] relative">
+                <img src="/images/mascot/celebrating.png"    alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/eating-vegan.png"   alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/thumbs-up-wink.png" alt="" class="drop-shadow-lg" loading="eager"/>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="lg:col-span-7 order-3 lg:order-3 mt-6 sm:mt-8 lg:mt-0">
+        <!-- TAGLINE + BUTTONS -->
+        <div class="lg:col-span-7 order-3 mt-6 sm:mt-8 lg:mt-0">
           <div class="badge-ribbon mb-4 sm:mb-5 text-[13.5px] sm:text-[15px]" style="font-weight:900">お笑いあり、涙あり、野菜あり</div>
           <p class="font-jp text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.85] sm:leading-[2] text-ink-soft max-w-[560px]">
-            国籍は三つ。操る言語は六つ。<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい<span class="text-royal">"ディズニーみたいな世界"</span>を現実にするため発信しています。
+            国籍は三つ。操る言語は六つ。<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい世界を、ぜんぶの言葉で伝えています。
           </p>
           <div class="mt-5 sm:mt-7 flex flex-wrap items-center gap-3">
-            <a href="#" class="btn-primary !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3">
-              <span class="font-jp">仕事を依頼する</span>
-            </a>
+            <a href="#" class="btn-primary !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">仕事を依頼する</span></a>
             <a href="#" class="btn-ghost !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">王子を知る</span></a>
-          </div>
-
-          <div class="lg:hidden mt-8 sm:mt-10 flex items-center justify-center gap-3 sm:gap-4">
-            <a href="https://instagram.com/veganoji" aria-label="Instagram" class="social-icon-btn"><img src="/images/social/ig.png" alt=""/></a>
-            <a href="https://x.com/VeganOji"        aria-label="X"         class="social-icon-btn"><img src="/images/social/x.png"  alt=""/></a>
-            <a href="https://www.youtube.com/@veganoji" aria-label="YouTube" class="social-icon-btn"><img src="/images/social/yt.png" alt=""/></a>
-            <a href="https://www.tiktok.com/@veganoji"  aria-label="TikTok"  class="social-icon-btn"><img src="/images/social/tt.png" alt=""/></a>
-            <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" aria-label="LinkedIn" class="social-icon-btn"><img src="/images/social/li.png" alt=""/></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sparkle SVG sprite -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="sparkle" viewBox="0 0 24 24">
-      <path d="M12 2 L13.5 10.5 L22 12 L13.5 13.5 L12 22 L10.5 13.5 L2 12 L10.5 10.5 Z" fill="currentColor"/>
-    </symbol>
-  </svg>
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V2-SAKURA</div>
+    <h2 class="lab-banner-label">V2 — Sakura drift</h2>
+    <p class="lab-banner-desc">やわらかい桜の水彩。春のロマンチック感。</p>
+  </div>
 
-  <!-- Bottom note -->
-  <section class="py-12 px-6 max-w-[700px] mx-auto text-center">
-    <p class="font-jp text-[14px] text-muted leading-relaxed">
-      Backdrop: <code>/images/decorations/hero-watercolor.jpg</code> — warm watercolor Tokyo morning, painterly Fuji silhouette + cherry blossoms.<br/>
-      Veil: cream linear-gradient (heavier at top on mobile so text stays legible on small screens).<br/>
-      Removed for this variation: hero-crown-anchor + damask-tile overlay (they competed with the watercolor — but easy to layer back if you want).
-    </p>
-    <p class="font-jp text-[14px] text-muted mt-6">
-      <a href="/" class="text-royal underline font-bold">← live homepage</a>
-    </p>
+  <section class="hero-bg-section relative overflow-hidden" data-variant="v2-sakura" style="background:url('/images/decorations/hero-bgs/hero-sakura.jpg') center/cover no-repeat, var(--color-paper);">
+    <div class="hero-veil absolute inset-0 z-0" style="background:linear-gradient(180deg, rgba(255,249,238,0.30) 0%, rgba(255,249,238,0.55) 50%, rgba(255,249,238,0.92) 100%)"></div>
+    <style>section[data-variant="v2-sakura"]:not(:hover) .hero-veil { background: linear-gradient(180deg, rgba(255,249,238,0.30) 0%, rgba(255,249,238,0.55) 50%, rgba(255,249,238,0.92) 100%); } @media (min-width:900px){ section[data-variant="v2-sakura"] .hero-veil { background: linear-gradient(110deg, rgba(255,249,238,0.78) 0%, rgba(255,249,238,0.40) 50%, rgba(255,249,238,0.18) 100%); } }</style>
+
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14 items-center">
+
+        <!-- TEXT -->
+        <div class="lg:col-span-7 relative order-1">
+          <div class="font-jp font-semibold text-royal/85 text-[15px] sm:text-[17px] lg:text-[19px] tracking-[0.04em] mb-3 sm:mb-4">
+            アレックス・デレチ ——
+          </div>
+          <h1 class="font-jp-display display-tight text-[15vw] sm:text-[88px] lg:text-[124px] leading-[1.02] text-ink">
+            ビーガン<span class="text-royal">王子</span>
+          </h1>
+
+          <div class="mt-4 sm:mt-6 flex items-baseline gap-3">
+            <span class="font-jp eyebrow-mini">現在 —</span>
+            <div class="lang-stack font-jp-display text-[16px] sm:text-[18px] lg:text-[20px] text-ink-soft">
+              <span class="lang-word">モデル</span>
+              <span class="lang-word">タレント</span>
+              <span class="lang-word">６カ国語MC</span>
+              <span class="lang-word">SNSクリエイター</span>
+              <span class="lang-word">海外の架け橋</span>
+              <span class="lang-word">王子業、絶賛拡張中 ✨</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHOTO with pose-cycle sticker -->
+        <div class="lg:col-span-5 order-2">
+          <div class="relative max-w-[320px] sm:max-w-[380px] lg:max-w-[440px] mx-auto">
+            <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-cream border-[2.5px] border-ink" style="box-shadow:8px 8px 0 var(--color-ink);">
+              <div class="profile-photo-cycle absolute inset-0">
+                <img src="/images/profile/alex-mc.jpg"     alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-talent.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-model.jpg"  alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 px-5 py-4 sm:px-6 sm:py-5 pointer-events-none"
+                   style="background:linear-gradient(to top, rgba(31,24,18,0.92) 0%, rgba(31,24,18,0.45) 65%, transparent 100%);">
+                <div class="font-jp-display text-paper leading-none" style="font-weight:900; font-size:clamp(22px, 4.5vw, 30px);">Alex Derycz</div>
+                <div class="font-jp text-paper/85 mt-1.5" style="font-size:14px;">アレックス・デレチ / ビーガン王子</div>
+              </div>
+            </div>
+
+            <!-- Excited oji pose-cycle sticker, peeking from bottom-right -->
+            <div class="absolute -bottom-8 -right-4 sm:-bottom-10 sm:-right-8 lg:-right-12 w-24 sm:w-32 lg:w-40 anim-bobble pointer-events-none z-10" style="animation-delay:0.3s">
+              <div class="pose-cycle aspect-[4/5] relative">
+                <img src="/images/mascot/celebrating.png"    alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/eating-vegan.png"   alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/thumbs-up-wink.png" alt="" class="drop-shadow-lg" loading="eager"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAGLINE + BUTTONS -->
+        <div class="lg:col-span-7 order-3 mt-6 sm:mt-8 lg:mt-0">
+          <div class="badge-ribbon mb-4 sm:mb-5 text-[13.5px] sm:text-[15px]" style="font-weight:900">お笑いあり、涙あり、野菜あり</div>
+          <p class="font-jp text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.85] sm:leading-[2] text-ink-soft max-w-[560px]">
+            国籍は三つ。操る言語は六つ。<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい世界を、ぜんぶの言葉で伝えています。
+          </p>
+          <div class="mt-5 sm:mt-7 flex flex-wrap items-center gap-3">
+            <a href="#" class="btn-primary !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">仕事を依頼する</span></a>
+            <a href="#" class="btn-ghost !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">王子を知る</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V3-VELVET</div>
+    <h2 class="lab-banner-label">V3 — Royal velvet curtain (drama!)</h2>
+    <p class="lab-banner-desc">劇場のような赤いベルベットカーテン＋金のタッセル。文字は白に反転。</p>
+  </div>
+
+  <section class="hero-bg-section relative overflow-hidden" data-variant="v3-velvet" style="background:url('/images/decorations/hero-bgs/hero-velvet.jpg') center/cover no-repeat, #2a0a10;">
+    <div class="hero-veil absolute inset-0 z-0" style="background:linear-gradient(180deg, rgba(31,8,12,0.15) 0%, rgba(31,8,12,0.55) 60%, rgba(31,8,12,0.85) 100%)"></div>
+    <style>section[data-variant="v3-velvet"]:not(:hover) .hero-veil { background: linear-gradient(180deg, rgba(31,8,12,0.15) 0%, rgba(31,8,12,0.55) 60%, rgba(31,8,12,0.85) 100%); } @media (min-width:900px){ section[data-variant="v3-velvet"] .hero-veil { background: linear-gradient(180deg, rgba(31,8,12,0.15) 0%, rgba(31,8,12,0.45) 60%, rgba(31,8,12,0.75) 100%); } }</style>
+
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14 items-center">
+
+        <!-- TEXT -->
+        <div class="lg:col-span-7 relative order-1">
+          <div class="font-jp font-semibold text-gold-soft text-[15px] sm:text-[17px] lg:text-[19px] tracking-[0.04em] mb-3 sm:mb-4">
+            アレックス・デレチ ——
+          </div>
+          <h1 class="font-jp-display display-tight text-[15vw] sm:text-[88px] lg:text-[124px] leading-[1.02] text-paper">
+            ビーガン<span class="text-gold-soft">王子</span>
+          </h1>
+
+          <div class="mt-4 sm:mt-6 flex items-baseline gap-3">
+            <span class="font-jp eyebrow-mini">現在 —</span>
+            <div class="lang-stack font-jp-display text-[16px] sm:text-[18px] lg:text-[20px] text-paper/85">
+              <span class="lang-word">モデル</span>
+              <span class="lang-word">タレント</span>
+              <span class="lang-word">６カ国語MC</span>
+              <span class="lang-word">SNSクリエイター</span>
+              <span class="lang-word">海外の架け橋</span>
+              <span class="lang-word">王子業、絶賛拡張中 ✨</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHOTO with pose-cycle sticker -->
+        <div class="lg:col-span-5 order-2">
+          <div class="relative max-w-[320px] sm:max-w-[380px] lg:max-w-[440px] mx-auto">
+            <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-cream border-[2.5px] border-ink" style="box-shadow:8px 8px 0 var(--color-ink);">
+              <div class="profile-photo-cycle absolute inset-0">
+                <img src="/images/profile/alex-mc.jpg"     alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-talent.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-model.jpg"  alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 px-5 py-4 sm:px-6 sm:py-5 pointer-events-none"
+                   style="background:linear-gradient(to top, rgba(31,24,18,0.92) 0%, rgba(31,24,18,0.45) 65%, transparent 100%);">
+                <div class="font-jp-display text-paper leading-none" style="font-weight:900; font-size:clamp(22px, 4.5vw, 30px);">Alex Derycz</div>
+                <div class="font-jp text-paper/85 mt-1.5" style="font-size:14px;">アレックス・デレチ / ビーガン王子</div>
+              </div>
+            </div>
+
+            <!-- Excited oji pose-cycle sticker, peeking from bottom-right -->
+            <div class="absolute -bottom-8 -right-4 sm:-bottom-10 sm:-right-8 lg:-right-12 w-24 sm:w-32 lg:w-40 anim-bobble pointer-events-none z-10" style="animation-delay:0.3s">
+              <div class="pose-cycle aspect-[4/5] relative">
+                <img src="/images/mascot/celebrating.png"    alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/eating-vegan.png"   alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/thumbs-up-wink.png" alt="" class="drop-shadow-lg" loading="eager"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAGLINE + BUTTONS -->
+        <div class="lg:col-span-7 order-3 mt-6 sm:mt-8 lg:mt-0">
+          <div class="badge-ribbon mb-4 sm:mb-5 text-[13.5px] sm:text-[15px]" style="font-weight:900">お笑いあり、涙あり、野菜あり</div>
+          <p class="font-jp text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.85] sm:leading-[2] text-paper/95 max-w-[560px]">
+            国籍は三つ。操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい世界を、ぜんぶの言葉で伝えています。
+          </p>
+          <div class="mt-5 sm:mt-7 flex flex-wrap items-center gap-3">
+            <a href="#" class="btn-primary !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">仕事を依頼する</span></a>
+            <a href="#" class="btn-ghost !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">王子を知る</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V4-STORYBOOK</div>
+    <h2 class="lab-banner-label">V4 — Storybook sky</h2>
+    <p class="lab-banner-desc">ディズニーみたいな夢の空。太陽＋雲＋牧草。</p>
+  </div>
+
+  <section class="hero-bg-section relative overflow-hidden" data-variant="v4-storybook" style="background:url('/images/decorations/hero-bgs/hero-storybook.jpg') center/cover no-repeat, var(--color-paper);">
+    <div class="hero-veil absolute inset-0 z-0" style="background:linear-gradient(180deg, rgba(255,249,238,0.25) 0%, rgba(255,249,238,0.55) 55%, rgba(255,249,238,0.95) 100%)"></div>
+    <style>section[data-variant="v4-storybook"]:not(:hover) .hero-veil { background: linear-gradient(180deg, rgba(255,249,238,0.25) 0%, rgba(255,249,238,0.55) 55%, rgba(255,249,238,0.95) 100%); } @media (min-width:900px){ section[data-variant="v4-storybook"] .hero-veil { background: linear-gradient(110deg, rgba(255,249,238,0.82) 0%, rgba(255,249,238,0.45) 50%, rgba(255,249,238,0.18) 100%); } }</style>
+
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14 items-center">
+
+        <!-- TEXT -->
+        <div class="lg:col-span-7 relative order-1">
+          <div class="font-jp font-semibold text-royal/85 text-[15px] sm:text-[17px] lg:text-[19px] tracking-[0.04em] mb-3 sm:mb-4">
+            アレックス・デレチ ——
+          </div>
+          <h1 class="font-jp-display display-tight text-[15vw] sm:text-[88px] lg:text-[124px] leading-[1.02] text-ink">
+            ビーガン<span class="text-royal">王子</span>
+          </h1>
+
+          <div class="mt-4 sm:mt-6 flex items-baseline gap-3">
+            <span class="font-jp eyebrow-mini">現在 —</span>
+            <div class="lang-stack font-jp-display text-[16px] sm:text-[18px] lg:text-[20px] text-ink-soft">
+              <span class="lang-word">モデル</span>
+              <span class="lang-word">タレント</span>
+              <span class="lang-word">６カ国語MC</span>
+              <span class="lang-word">SNSクリエイター</span>
+              <span class="lang-word">海外の架け橋</span>
+              <span class="lang-word">王子業、絶賛拡張中 ✨</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHOTO with pose-cycle sticker -->
+        <div class="lg:col-span-5 order-2">
+          <div class="relative max-w-[320px] sm:max-w-[380px] lg:max-w-[440px] mx-auto">
+            <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-cream border-[2.5px] border-ink" style="box-shadow:8px 8px 0 var(--color-ink);">
+              <div class="profile-photo-cycle absolute inset-0">
+                <img src="/images/profile/alex-mc.jpg"     alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-talent.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-model.jpg"  alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 px-5 py-4 sm:px-6 sm:py-5 pointer-events-none"
+                   style="background:linear-gradient(to top, rgba(31,24,18,0.92) 0%, rgba(31,24,18,0.45) 65%, transparent 100%);">
+                <div class="font-jp-display text-paper leading-none" style="font-weight:900; font-size:clamp(22px, 4.5vw, 30px);">Alex Derycz</div>
+                <div class="font-jp text-paper/85 mt-1.5" style="font-size:14px;">アレックス・デレチ / ビーガン王子</div>
+              </div>
+            </div>
+
+            <!-- Excited oji pose-cycle sticker, peeking from bottom-right -->
+            <div class="absolute -bottom-8 -right-4 sm:-bottom-10 sm:-right-8 lg:-right-12 w-24 sm:w-32 lg:w-40 anim-bobble pointer-events-none z-10" style="animation-delay:0.3s">
+              <div class="pose-cycle aspect-[4/5] relative">
+                <img src="/images/mascot/celebrating.png"    alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/eating-vegan.png"   alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/thumbs-up-wink.png" alt="" class="drop-shadow-lg" loading="eager"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAGLINE + BUTTONS -->
+        <div class="lg:col-span-7 order-3 mt-6 sm:mt-8 lg:mt-0">
+          <div class="badge-ribbon mb-4 sm:mb-5 text-[13.5px] sm:text-[15px]" style="font-weight:900">お笑いあり、涙あり、野菜あり</div>
+          <p class="font-jp text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.85] sm:leading-[2] text-ink-soft max-w-[560px]">
+            国籍は三つ。操る言語は六つ。<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい世界を、ぜんぶの言葉で伝えています。
+          </p>
+          <div class="mt-5 sm:mt-7 flex flex-wrap items-center gap-3">
+            <a href="#" class="btn-primary !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">仕事を依頼する</span></a>
+            <a href="#" class="btn-ghost !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">王子を知る</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V5-NEON</div>
+    <h2 class="lab-banner-label">V5 — Tokyo neon night (warm)</h2>
+    <p class="lab-banner-desc">夜の路地、ちょうちん、温かいネオン。文字は白に反転。</p>
+  </div>
+
+  <section class="hero-bg-section relative overflow-hidden" data-variant="v5-neon" style="background:url('/images/decorations/hero-bgs/hero-neon-night.jpg') center/cover no-repeat, #1a0a08;">
+    <div class="hero-veil absolute inset-0 z-0" style="background:linear-gradient(180deg, rgba(26,10,8,0.20) 0%, rgba(26,10,8,0.55) 55%, rgba(26,10,8,0.88) 100%)"></div>
+    <style>section[data-variant="v5-neon"]:not(:hover) .hero-veil { background: linear-gradient(180deg, rgba(26,10,8,0.20) 0%, rgba(26,10,8,0.55) 55%, rgba(26,10,8,0.88) 100%); } @media (min-width:900px){ section[data-variant="v5-neon"] .hero-veil { background: linear-gradient(180deg, rgba(26,10,8,0.20) 0%, rgba(26,10,8,0.48) 60%, rgba(26,10,8,0.78) 100%); } }</style>
+
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14 items-center">
+
+        <!-- TEXT -->
+        <div class="lg:col-span-7 relative order-1">
+          <div class="font-jp font-semibold text-gold-soft text-[15px] sm:text-[17px] lg:text-[19px] tracking-[0.04em] mb-3 sm:mb-4">
+            アレックス・デレチ ——
+          </div>
+          <h1 class="font-jp-display display-tight text-[15vw] sm:text-[88px] lg:text-[124px] leading-[1.02] text-paper">
+            ビーガン<span class="text-gold-soft">王子</span>
+          </h1>
+
+          <div class="mt-4 sm:mt-6 flex items-baseline gap-3">
+            <span class="font-jp eyebrow-mini">現在 —</span>
+            <div class="lang-stack font-jp-display text-[16px] sm:text-[18px] lg:text-[20px] text-paper/85">
+              <span class="lang-word">モデル</span>
+              <span class="lang-word">タレント</span>
+              <span class="lang-word">６カ国語MC</span>
+              <span class="lang-word">SNSクリエイター</span>
+              <span class="lang-word">海外の架け橋</span>
+              <span class="lang-word">王子業、絶賛拡張中 ✨</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHOTO with pose-cycle sticker -->
+        <div class="lg:col-span-5 order-2">
+          <div class="relative max-w-[320px] sm:max-w-[380px] lg:max-w-[440px] mx-auto">
+            <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-cream border-[2.5px] border-ink" style="box-shadow:8px 8px 0 var(--color-ink);">
+              <div class="profile-photo-cycle absolute inset-0">
+                <img src="/images/profile/alex-mc.jpg"     alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-talent.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-model.jpg"  alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 px-5 py-4 sm:px-6 sm:py-5 pointer-events-none"
+                   style="background:linear-gradient(to top, rgba(31,24,18,0.92) 0%, rgba(31,24,18,0.45) 65%, transparent 100%);">
+                <div class="font-jp-display text-paper leading-none" style="font-weight:900; font-size:clamp(22px, 4.5vw, 30px);">Alex Derycz</div>
+                <div class="font-jp text-paper/85 mt-1.5" style="font-size:14px;">アレックス・デレチ / ビーガン王子</div>
+              </div>
+            </div>
+
+            <!-- Excited oji pose-cycle sticker, peeking from bottom-right -->
+            <div class="absolute -bottom-8 -right-4 sm:-bottom-10 sm:-right-8 lg:-right-12 w-24 sm:w-32 lg:w-40 anim-bobble pointer-events-none z-10" style="animation-delay:0.3s">
+              <div class="pose-cycle aspect-[4/5] relative">
+                <img src="/images/mascot/celebrating.png"    alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/eating-vegan.png"   alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/thumbs-up-wink.png" alt="" class="drop-shadow-lg" loading="eager"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAGLINE + BUTTONS -->
+        <div class="lg:col-span-7 order-3 mt-6 sm:mt-8 lg:mt-0">
+          <div class="badge-ribbon mb-4 sm:mb-5 text-[13.5px] sm:text-[15px]" style="font-weight:900">お笑いあり、涙あり、野菜あり</div>
+          <p class="font-jp text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.85] sm:leading-[2] text-paper/95 max-w-[560px]">
+            国籍は三つ。操る言語は六つ。<span class="text-gold-soft">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい世界を、ぜんぶの言葉で伝えています。
+          </p>
+          <div class="mt-5 sm:mt-7 flex flex-wrap items-center gap-3">
+            <a href="#" class="btn-primary !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">仕事を依頼する</span></a>
+            <a href="#" class="btn-ghost !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">王子を知る</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lab-banner-v">
+    <div class="lab-banner-tag">V6-DOODLES</div>
+    <h2 class="lab-banner-label">V6 — Kawaii doodles</h2>
+    <p class="lab-banner-desc">スティッカーブックみたいな手描きアイコン。王冠・ハート・音符・野菜。</p>
+  </div>
+
+  <section class="hero-bg-section relative overflow-hidden" data-variant="v6-doodles" style="background:url('/images/decorations/hero-bgs/hero-doodles.jpg') center/cover no-repeat, var(--color-paper);">
+    <div class="hero-veil absolute inset-0 z-0" style="background:linear-gradient(180deg, rgba(255,249,238,0.40) 0%, rgba(255,249,238,0.62) 50%, rgba(255,249,238,0.92) 100%)"></div>
+    <style>section[data-variant="v6-doodles"]:not(:hover) .hero-veil { background: linear-gradient(180deg, rgba(255,249,238,0.40) 0%, rgba(255,249,238,0.62) 50%, rgba(255,249,238,0.92) 100%); } @media (min-width:900px){ section[data-variant="v6-doodles"] .hero-veil { background: linear-gradient(110deg, rgba(255,249,238,0.55) 0%, rgba(255,249,238,0.35) 50%, rgba(255,249,238,0.20) 100%); } }</style>
+
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14 items-center">
+
+        <!-- TEXT -->
+        <div class="lg:col-span-7 relative order-1">
+          <div class="font-jp font-semibold text-royal/85 text-[15px] sm:text-[17px] lg:text-[19px] tracking-[0.04em] mb-3 sm:mb-4">
+            アレックス・デレチ ——
+          </div>
+          <h1 class="font-jp-display display-tight text-[15vw] sm:text-[88px] lg:text-[124px] leading-[1.02] text-ink">
+            ビーガン<span class="text-royal">王子</span>
+          </h1>
+
+          <div class="mt-4 sm:mt-6 flex items-baseline gap-3">
+            <span class="font-jp eyebrow-mini">現在 —</span>
+            <div class="lang-stack font-jp-display text-[16px] sm:text-[18px] lg:text-[20px] text-ink-soft">
+              <span class="lang-word">モデル</span>
+              <span class="lang-word">タレント</span>
+              <span class="lang-word">６カ国語MC</span>
+              <span class="lang-word">SNSクリエイター</span>
+              <span class="lang-word">海外の架け橋</span>
+              <span class="lang-word">王子業、絶賛拡張中 ✨</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHOTO with pose-cycle sticker -->
+        <div class="lg:col-span-5 order-2">
+          <div class="relative max-w-[320px] sm:max-w-[380px] lg:max-w-[440px] mx-auto">
+            <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-cream border-[2.5px] border-ink" style="box-shadow:8px 8px 0 var(--color-ink);">
+              <div class="profile-photo-cycle absolute inset-0">
+                <img src="/images/profile/alex-mc.jpg"     alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-talent.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+                <img src="/images/profile/alex-model.jpg"  alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager"/>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 px-5 py-4 sm:px-6 sm:py-5 pointer-events-none"
+                   style="background:linear-gradient(to top, rgba(31,24,18,0.92) 0%, rgba(31,24,18,0.45) 65%, transparent 100%);">
+                <div class="font-jp-display text-paper leading-none" style="font-weight:900; font-size:clamp(22px, 4.5vw, 30px);">Alex Derycz</div>
+                <div class="font-jp text-paper/85 mt-1.5" style="font-size:14px;">アレックス・デレチ / ビーガン王子</div>
+              </div>
+            </div>
+
+            <!-- Excited oji pose-cycle sticker, peeking from bottom-right -->
+            <div class="absolute -bottom-8 -right-4 sm:-bottom-10 sm:-right-8 lg:-right-12 w-24 sm:w-32 lg:w-40 anim-bobble pointer-events-none z-10" style="animation-delay:0.3s">
+              <div class="pose-cycle aspect-[4/5] relative">
+                <img src="/images/mascot/celebrating.png"    alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/eating-vegan.png"   alt="" class="drop-shadow-lg" loading="eager"/>
+                <img src="/images/mascot/thumbs-up-wink.png" alt="" class="drop-shadow-lg" loading="eager"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAGLINE + BUTTONS -->
+        <div class="lg:col-span-7 order-3 mt-6 sm:mt-8 lg:mt-0">
+          <div class="badge-ribbon mb-4 sm:mb-5 text-[13.5px] sm:text-[15px]" style="font-weight:900">お笑いあり、涙あり、野菜あり</div>
+          <p class="font-jp text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.85] sm:leading-[2] text-ink-soft max-w-[560px]">
+            国籍は三つ。操る言語は六つ。<span class="text-royal">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい世界を、ぜんぶの言葉で伝えています。
+          </p>
+          <div class="mt-5 sm:mt-7 flex flex-wrap items-center gap-3">
+            <a href="#" class="btn-primary !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">仕事を依頼する</span></a>
+            <a href="#" class="btn-ghost !px-5 !py-2.5 !text-[13px] sm:!text-[14px] sm:!px-6 sm:!py-3"><span class="font-jp">王子を知る</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lab-banner-v" style="background:var(--color-paper); color: var(--color-ink); border-top: 2px solid var(--color-line);">
+    <div class="lab-banner-tag" style="color: var(--color-royal);">どれが好き？</div>
+    <h2 class="lab-banner-label">気に入った方向を教えて、ホームページに展開します</h2>
+    <p class="lab-banner-desc" style="color: var(--color-muted);">
+      組み合わせも可能（例: V1の背景 + V4の太陽光ハロー、など）。
+    </p>
+  </div>
 
 </body>
 </html>
