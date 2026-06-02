@@ -116,15 +116,22 @@
     .close-bg-img      { background-image: url('/images/umi-wo-kazoeru/close-bg.jpg'); }
 
     /* ─── Section overlays ──────────────────────────────────────
-       Hero starts ABOVE water (bright golden hour) — needs a heavier
-       darken under the centered text but stays light enough to let
-       the warm sky bleed through.  Each section's overlay also fades
-       darker toward the bottom so the transition into the next
-       (deeper) section feels seamless. */
+       Hero is a BRIGHT sunny-blue sky — keep the overlay LIGHT so the
+       cheerful brightness survives; legibility comes from a soft text
+       shadow (see .hero-content) rather than a heavy scrim.  The bottom
+       still fades darker to seam into the (deeper) count section. */
     .hero-bg-overlay {
       background:
-        radial-gradient(ellipse at 50% 50%, rgba(2, 12, 20, 0.55), rgba(2, 12, 20, 0.25) 75%),
-        linear-gradient(180deg, rgba(2, 12, 20, 0.10) 0%, rgba(2, 12, 20, 0.45) 55%, rgba(2, 12, 20, 0.88) 100%);
+        radial-gradient(ellipse at 50% 52%, rgba(2, 12, 20, 0.34), rgba(2, 12, 20, 0.05) 72%),
+        linear-gradient(180deg, rgba(2, 12, 20, 0.04) 0%, rgba(2, 12, 20, 0.16) 50%, rgba(2, 12, 20, 0.70) 100%);
+    }
+    /* Soft dark halo so the hero text reads cleanly on the bright sky
+       without needing a heavy darkening overlay. */
+    .hero-content h1,
+    .hero-content .hero-eyebrow,
+    .hero-content p,
+    .hero-content .hero-scroll {
+      text-shadow: 0 2px 14px rgba(2, 12, 20, 0.55), 0 1px 3px rgba(2, 12, 20, 0.5);
     }
     /* Default for descending underwater sections */
     .section-bg-overlay {
@@ -523,8 +530,8 @@
     <div class="hero-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <canvas id="hero-stars" class="ocean-canvas opacity-50" aria-hidden="true"></canvas>
 
-    <div class="relative z-10 max-w-3xl mx-auto text-center">
-      <div class="font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3 lg:mb-3">
+    <div class="hero-content relative z-10 max-w-3xl mx-auto text-center">
+      <div class="hero-eyebrow font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3 lg:mb-3">
         <ruby>今年<rt>ことし</rt></ruby>、<ruby>世界<rt>せかい</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby> ——
       </div>
       <h1 class="hero-h1-with-ruby font-jp-display font-black display-tight text-[52px] sm:text-[100px] lg:text-[124px] leading-[1.05] text-paper whitespace-nowrap">
@@ -546,7 +553,7 @@
         />
       </div>
 
-      <div class="mt-10 sm:mt-12 inline-flex flex-col items-center gap-2 text-paper/50">
+      <div class="hero-scroll mt-10 sm:mt-12 inline-flex flex-col items-center gap-2 text-paper/50">
         <span class="font-jp text-[20px]"><ruby>下<rt>した</rt></ruby>にスクロール</span>
         <svg width="16" height="22" viewBox="0 0 16 22" fill="none" class="animate-bounce">
           <path d="M8 2 L8 18 M3 13 L8 18 L13 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
