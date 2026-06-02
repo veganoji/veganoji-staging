@@ -110,6 +110,15 @@
               mask-image: linear-gradient(180deg, #000 0%, #000 52%, transparent 95%);
     }
 
+    /* ─── Footer background — pastel sky, reflected (mirrors the top) ─── */
+    .footer-aura {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 380px;
+      z-index: -1; pointer-events: none;
+      background: url('/images/links-hero/cand2-sky-flip.jpg') center bottom / cover no-repeat;
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 50%, #000 100%);
+              mask-image: linear-gradient(180deg, transparent 0%, #000 50%, #000 100%);
+    }
+
     /* ─── Language toggle (top-right pill) ─── */
     .lang-toggle {
       position: fixed; top: 14px; right: 14px; z-index: 50;
@@ -263,6 +272,7 @@
 
   <main class="relative mx-auto w-full max-w-[500px] px-5 pt-16 pb-10">
     <div class="hero-aura" aria-hidden="true"></div>
+    <div class="footer-aura" aria-hidden="true"></div>
 
     <!-- 1 · Identity -->
     <section class="text-center reveal" style="animation-delay:.02s">
@@ -272,8 +282,8 @@
           <img class="av av-mascot" src="/images/oji/oji_greeting.png" alt="" />
         </div>
       </div>
-      <h1 class="font-display display-tight text-[30px] mt-4 text-ink">ビーガン王子</h1>
-      <p class="font-display text-[14px] tracking-[0.08em] text-royal mt-0.5">Alex Derycz</p>
+      <h1 class="font-display display-tight text-[30px] mt-4 text-ink" data-ja="ビーガン王子" data-en="Vegan Oji">ビーガン王子</h1>
+      <p class="font-display text-[14px] tracking-[0.08em] text-royal mt-0.5" data-ja="デレチ・アレックス" data-en="Alex Derycz">デレチ・アレックス</p>
       <p class="text-[13px] text-ink-soft mt-2 font-medium leading-relaxed"
          data-ja="モデル・タレント・6カ国語MC・海外の架け橋"
          data-en="Model · TV talent · 6-language MC · a bridge between Japan & the world">モデル・タレント・6カ国語MC・海外の架け橋</p>
@@ -340,7 +350,7 @@
       </div>
       <div class="bundle">
         <a href="/umi-wo-kazoeru/" class="bundle-row">
-          <img class="brow-thumb" src="/images/vegan-to-chikyu/icon-fish-wild.png" alt="" />
+          <img class="brow-thumb" src="/images/umi-wo-kazoeru/fish-sprite-b.png" alt="" />
           <span class="brow-title" data-ja="海をかぞえる" data-en="Counting the Sea">海をかぞえる</span>
           <span class="brow-tag">OCEAN</span>
           <span class="lc-arrow">→</span>
