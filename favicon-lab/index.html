@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favicon Lab — ビーガン王子</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --color-paper: #FFF9EE;
+      --color-cream: #FDF1DA;
+      --color-royal: #C9223A;
+      --color-royal-deep: #9C1428;
+      --color-gold: #D4A847;
+      --color-ink: #1F1812;
+      --color-muted: #786148;
+      --color-leaf: #6C9560;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+    html, body { background: #F1ECDB; color: var(--color-ink); }
+    body { font-family: var(--font-noto-sans-jp); -webkit-font-smoothing: antialiased; }
+
+    /* checkerboard to reveal transparency on die-cut stickers */
+    .checker {
+      background-color: #fbf7ec;
+      background-image:
+        linear-gradient(45deg, #e7dfc9 25%, transparent 25%),
+        linear-gradient(-45deg, #e7dfc9 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e7dfc9 75%),
+        linear-gradient(-45deg, transparent 75%, #e7dfc9 75%);
+      background-size: 14px 14px;
+      background-position: 0 0, 0 7px, 7px -7px, -7px 0;
+    }
+
+    /* realistic browser-tab mock */
+    .tabmock {
+      display: flex; align-items: center; gap: 7px;
+      width: 168px; padding: 6px 9px;
+      border-radius: 9px 9px 0 0; font-size: 11px; line-height: 1;
+    }
+    .tabmock img { width: 16px; height: 16px; flex: none; object-fit: contain; image-rendering: auto; }
+    .tabmock .t { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .tabmock .x { opacity: .45; font-size: 13px; }
+    .tabmock.light { background: #fff; color: #3a3a3a; box-shadow: inset 0 0 0 1px #dcdcdc; }
+    .tabmock.dark  { background: #2a2a2c; color: #e8e8e8; }
+
+    .card {
+      background: var(--color-paper);
+      border: 2px solid var(--color-ink);
+      border-radius: 16px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+      overflow: hidden;
+    }
+    .badge { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; letter-spacing: .02em; }
+    .badge-sticker { background: var(--color-royal); color: var(--color-paper); }
+    .badge-flat    { background: var(--color-gold);  color: var(--color-ink); }
+
+    .scale-strip { display: flex; align-items: flex-end; gap: 14px; }
+    .scale-strip figure { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .scale-strip img { object-fit: contain; image-rendering: auto; }
+    .scale-strip figcaption { font-size: 9px; color: var(--color-muted); font-family: monospace; }
+
+    .seg { font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer;
+           border: 2px solid var(--color-ink); background: var(--color-paper); }
+    .seg.on { background: var(--color-ink); color: var(--color-paper); }
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="max-w-6xl mx-auto px-5 pt-10 pb-6">
+    <p class="text-royal font-black tracking-wide text-sm">FAVICON LAB</p>
+    <h1 class="text-3xl sm:text-4xl font-black mt-1">ファビコン候補 — ページごとに選ぶ</h1>
+    <p class="text-muted mt-3 max-w-3xl leading-relaxed text-[15px]">
+      Candidates for each page's browser-tab icon. <strong>Yes — every page can have its own favicon</strong>
+      even on the same site: each page declares its own <code class="bg-cream px-1 rounded">&lt;link rel="icon"&gt;</code>
+      in its <code class="bg-cream px-1 rounded">&lt;head&gt;</code>, and the browser shows whatever the current page declares.
+      <br class="hidden sm:block" />
+      Each candidate is shown in a real browser-tab mock (light + dark) at its true 16px size, plus a scale strip.
+      <strong>Pick one per page</strong> and tell me the filename — I'll wire it in and push.
+    </p>
+
+    <div class="mt-5 flex flex-wrap items-center gap-2">
+      <span class="text-xs font-bold text-muted mr-1">STYLE</span>
+      <button class="seg on" data-filter="all">All</button>
+      <button class="seg" data-filter="sticker">Die-cut sticker</button>
+      <button class="seg" data-filter="flat">Flat minimal</button>
+    </div>
+  </header>
+
+  <main id="root" class="max-w-6xl mx-auto px-5 pb-24"></main>
+
+  <div id="empty" class="max-w-3xl mx-auto px-5 py-20 text-center text-muted hidden">
+    <p class="text-lg font-bold">No manifest found.</p>
+    <p class="mt-2 text-sm">Open this page through the dev/live server (not <code>file://</code>) so it can load
+    <code>candidates/manifest.json</code>.</p>
+  </div>
+
+  <script>
+    const META = {
+      homepage:    { label: "Homepage",        jp: "ホームページ", where: "veganoji-staging  /",            title: "ビーガン王子 · Alex Derycz" },
+      linktree:    { label: "Linktree",        jp: "リンク",       where: "/links/",                          title: "リンク · ビーガン王子" },
+      environment: { label: "Environment",     jp: "地球",         where: "/vegan-to-chikyu/",                title: "ヴィーガンと地球" },
+      health:      { label: "Health",          jp: "からだ",       where: "/vegan-to-karada/",                title: "ヴィーガンとからだ" },
+      ocean:       { label: "Ocean",           jp: "海",           where: "/umi-wo-kazoeru/",                 title: "海をかぞえる" },
+      map:         { label: "Japan Vegan Map", jp: "地図",         where: "japanveganmap  (separate site)",   title: "日本ビーガンマップ" },
+    };
+    const ORDER = ["homepage", "linktree", "environment", "health", "ocean", "map"];
+    let FILTER = "all";
+
+    function card(page, item) {
+      const src = "candidates/" + item.file;
+      const title = META[page].title;
+      const el = document.createElement("article");
+      el.className = "card flex flex-col";
+      el.dataset.style = item.style;
+      el.innerHTML = `
+        <div class="checker flex items-center justify-center" style="height:140px">
+          <img src="${src}" alt="${item.slug}" style="width:104px;height:104px;object-fit:contain" />
+        </div>
+        <div class="p-4 flex flex-col gap-3 border-t-2 border-ink">
+          <div class="flex flex-col gap-1.5">
+            <div class="tabmock light"><img src="${src}"><span class="t">${title}</span><span class="x">&times;</span></div>
+            <div class="tabmock dark"><img src="${src}"><span class="t">${title}</span><span class="x">&times;</span></div>
+          </div>
+          <div class="scale-strip pt-1">
+            <figure><img src="${src}" style="width:16px;height:16px"><figcaption>16</figcaption></figure>
+            <figure><img src="${src}" style="width:32px;height:32px"><figcaption>32</figcaption></figure>
+            <figure><img src="${src}" style="width:48px;height:48px"><figcaption>48</figcaption></figure>
+            <figure><img src="${src}" style="width:64px;height:64px"><figcaption>64</figcaption></figure>
+          </div>
+          <div class="flex items-center justify-between pt-1">
+            <span class="badge badge-${item.style}">${item.style}</span>
+            <code class="text-[11px] text-muted">${item.style}-${item.slug}.png</code>
+          </div>
+        </div>`;
+      return el;
+    }
+
+    function render(manifest) {
+      const root = document.getElementById("root");
+      root.innerHTML = "";
+      ORDER.forEach(page => {
+        const items = (manifest.pages[page] || []).filter(i => FILTER === "all" || i.style === FILTER);
+        if (!items.length) return;
+        const m = META[page];
+        const sec = document.createElement("section");
+        sec.className = "mt-10 first:mt-2";
+        sec.innerHTML = `
+          <div class="flex items-baseline gap-3 border-b-2 border-ink pb-2 mb-5">
+            <h2 class="text-2xl font-black">${m.jp} <span class="text-muted text-lg font-bold">· ${m.label}</span></h2>
+            <code class="ml-auto text-xs text-muted">${m.where}</code>
+          </div>`;
+        const grid = document.createElement("div");
+        grid.className = "grid gap-5 sm:grid-cols-2 lg:grid-cols-3";
+        items.forEach(it => grid.appendChild(card(page, it)));
+        sec.appendChild(grid);
+        root.appendChild(sec);
+      });
+    }
+
+    let MANIFEST = null;
+    fetch("candidates/manifest.json", { cache: "no-store" })
+      .then(r => { if (!r.ok) throw new Error("no manifest"); return r.json(); })
+      .then(m => { MANIFEST = m; render(m); })
+      .catch(() => { document.getElementById("empty").classList.remove("hidden"); });
+
+    document.querySelectorAll(".seg").forEach(b => b.addEventListener("click", () => {
+      document.querySelectorAll(".seg").forEach(x => x.classList.remove("on"));
+      b.classList.add("on");
+      FILTER = b.dataset.filter;
+      if (MANIFEST) render(MANIFEST);
+    }));
+  </script>
+</body>
+</html>
