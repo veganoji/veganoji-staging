@@ -101,6 +101,15 @@
     }
     @media (prefers-reduced-motion: reduce) { .crown-bg::before { animation: none; } }
 
+    /* ─── Hero background — pastel sky, fades into the paper ─── */
+    .hero-aura {
+      position: absolute; top: 0; left: 0; right: 0; height: 660px;
+      z-index: -1; pointer-events: none;
+      background: url('/images/links-hero/cand2-sky.jpg') center top / cover no-repeat;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 52%, transparent 95%);
+              mask-image: linear-gradient(180deg, #000 0%, #000 52%, transparent 95%);
+    }
+
     /* ─── Language toggle (top-right pill) ─── */
     .lang-toggle {
       position: fixed; top: 14px; right: 14px; z-index: 50;
@@ -118,15 +127,29 @@
     /* ─── Identity card ─── */
     .avatar-wrap { position: relative; width: 132px; height: 132px; margin: 0 auto; }
     .avatar-frame {
+      position: relative;
       width: 132px; height: 132px; border-radius: 999px; overflow: hidden;
       background: linear-gradient(165deg, #FFFFFF 0%, #FDF1DA 100%);
       border: 3px solid #1F1812; box-shadow: 5px 5px 0 #1F1812;
-      display: flex; align-items: flex-end; justify-content: center;
     }
-    .avatar-frame img { width: 118%; height: auto; transform: translateY(8%); }
+    .avatar-frame .av { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .av-photo { object-fit: cover; object-position: center; }
+    .av-mascot {
+      object-fit: contain; object-position: center bottom;
+      transform: scale(1.16) translateY(7%);
+      background: linear-gradient(165deg, #FFFFFF 0%, #FDF1DA 100%);
+      opacity: 0; animation: avSwap 9s ease-in-out infinite;
+    }
+    @keyframes avSwap {
+      0%, 34% { opacity: 0; }
+      48%, 84% { opacity: 1; }
+      98%, 100% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .av-mascot { animation: none; opacity: 0; } }
     .avatar-crown {
       position: absolute; top: -22px; left: 50%; transform: translateX(-50%) rotate(-6deg);
       width: 52px; height: auto; filter: drop-shadow(0 3px 5px rgba(31,24,18,.25));
+      z-index: 2;
     }
 
     /* ─── Link cards (the learn / read cluster) ─── */
@@ -150,6 +173,53 @@
     .lc-teaser { font-size: 12px; color: #3C2E22; margin-top: 4px; line-height: 1.4; }
     .lc-arrow { margin-left: 8px; color: #C9223A; font-weight: 900; font-size: 18px; flex-shrink: 0; transition: transform .16s ease; }
     .link-card:hover .lc-arrow { transform: translateX(3px); }
+
+    /* ─── Mission line — keep phrases unbroken on mobile ─── */
+    .mph { display: inline-block; white-space: nowrap; }
+
+    /* ─── Featured map card (standalone, prominent) ─── */
+    .map-feature {
+      position: relative; display: flex; align-items: center; gap: 15px; width: 100%;
+      background: linear-gradient(160deg, #FDF1DA 0%, #F6E4BD 100%);
+      border: 3px solid #1F1812; border-radius: 22px;
+      box-shadow: 5px 5px 0 #1F1812;
+      padding: 16px 18px; text-decoration: none; color: #1F1812;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .map-feature:hover { transform: translate(2px,2px); box-shadow: 3px 3px 0 #1F1812; }
+    .map-feature:active { transform: translate(4px,4px); box-shadow: 1px 1px 0 #1F1812; }
+    .map-thumb { width: 66px; height: 66px; flex-shrink: 0; object-fit: contain; filter: drop-shadow(0 3px 4px rgba(31,24,18,.15)); }
+    .map-body { flex: 1; min-width: 0; }
+    .map-title { font-weight: 900; font-size: 18px; letter-spacing: -0.01em; line-height: 1.1; }
+    .map-teaser { font-size: 12px; color: #3C2E22; margin-top: 4px; line-height: 1.45; }
+    .map-badge {
+      position: absolute; top: -11px; left: 18px;
+      background: #C9223A; color: #FFF8EB; font-weight: 900; font-size: 10.5px;
+      letter-spacing: 0.12em; padding: 3px 11px; border-radius: 999px;
+      border: 2px solid #1F1812; box-shadow: 2px 2px 0 #1F1812;
+    }
+    .map-feature:hover .lc-arrow { transform: translateX(3px); }
+
+    /* ─── Bundled "why vegan" card ─── */
+    .bundle {
+      background: #FFFCF6; border: 2.5px solid #1F1812; border-radius: 20px;
+      box-shadow: 4px 4px 0 #1F1812; overflow: hidden;
+    }
+    .bundle-head { padding: 13px 16px 11px; background: linear-gradient(180deg,#FDF1DA, #FFFCF6); border-bottom: 2px dashed #E9D9B5; }
+    .bundle-title { font-weight: 900; font-size: 16px; color: #C9223A; }
+    .bundle-sub { font-size: 11.5px; color: #786148; margin-top: 2px; }
+    .bundle-row {
+      display: flex; align-items: center; gap: 11px; padding: 11px 16px;
+      text-decoration: none; color: #1F1812; transition: background .15s ease;
+      border-bottom: 1px solid #F1E6CC;
+    }
+    .bundle-row:last-child { border-bottom: 0; }
+    .bundle-row:hover { background: #FDF1DA; }
+    .brow-thumb { width: 40px; height: 40px; flex-shrink: 0; object-fit: contain; }
+    .brow-title { font-weight: 900; font-size: 14.5px; flex: 1; min-width: 0; }
+    .brow-tag { font-weight: 700; font-size: 9.5px; letter-spacing: 0.08em; color: #9C7E2A; }
+    .bundle-row .lc-arrow { font-size: 16px; margin-left: 4px; }
+    .bundle-row:hover .lc-arrow { transform: translateX(3px); }
 
     /* ─── Social icon row ─── */
     .social-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -192,13 +262,14 @@
   </button>
 
   <main class="relative mx-auto w-full max-w-[500px] px-5 pt-16 pb-10">
+    <div class="hero-aura" aria-hidden="true"></div>
 
     <!-- 1 · Identity -->
     <section class="text-center reveal" style="animation-delay:.02s">
       <div class="avatar-wrap">
-        <img class="avatar-crown" src="/images/ui-icons/crown.png" alt="" />
         <div class="avatar-frame">
-          <img src="/images/oji/oji_greeting.png" alt="ビーガン王子" />
+          <img class="av av-photo" src="/images/profile/alex.jpg" alt="ビーガン王子 アレックス・デレチ" />
+          <img class="av av-mascot" src="/images/oji/oji_greeting.png" alt="" />
         </div>
       </div>
       <h1 class="font-display display-tight text-[30px] mt-4 text-ink">ビーガン王子</h1>
@@ -209,9 +280,6 @@
       <p class="text-[14px] text-ink mt-3 font-bold"
          data-ja="「お笑いあり、涙あり、野菜あり」"
          data-en="&ldquo;Laughter, tears, and vegetables.&rdquo;">「お笑いあり、涙あり、野菜あり」</p>
-      <p class="eyebrow mt-3"
-         data-ja="東京 · 2017年〜"
-         data-en="Tokyo · since 2017">東京 · 2017年〜</p>
     </section>
 
     <!-- 2 · Social row -->
@@ -243,72 +311,52 @@
         <span class="bar"></span>
       </div>
       <p class="text-[13.5px] text-ink-soft leading-relaxed text-center px-1"
-         data-ja="人にも地球にも動物にもやさしい、&ldquo;ディズニーみたいな世界&rdquo;をつくる。"
-         data-en="Building a &ldquo;Disney-like world&rdquo; that&rsquo;s kind to people, the planet, and animals.">人にも地球にも動物にもやさしい、&ldquo;ディズニーみたいな世界&rdquo;をつくる。</p>
+         data-ja="<span class='mph'>人にも地球にも動物にもやさしい、</span><span class='mph'>&ldquo;ディズニーみたいな世界&rdquo;をつくる。</span>"
+         data-en="Building a &ldquo;Disney-like world&rdquo; that&rsquo;s kind to people, the planet, and animals."><span class="mph">人にも地球にも動物にもやさしい、</span><span class="mph">&ldquo;ディズニーみたいな世界&rdquo;をつくる。</span></p>
       <div class="grid grid-cols-2 gap-3 mt-4">
         <a href="/" class="btn-ghost !text-[14px]" data-ja="ホームページ" data-en="Homepage">ホームページ</a>
         <a href="/#character" class="btn-ghost !text-[14px]" data-ja="プロフィール" data-en="Profile">プロフィール</a>
       </div>
     </section>
 
-    <!-- 5 · Discover veganism -->
+    <!-- 5 · Featured: Japan Vegan Map (standalone) -->
     <section class="mt-8 reveal" style="animation-delay:.22s">
+      <a href="https://japanveganmap.org" target="_blank" rel="noopener" class="map-feature">
+        <span class="map-badge" data-ja="人気" data-en="POPULAR">人気</span>
+        <img class="map-thumb" src="/images/mascot/map-japan.png" alt="" />
+        <div class="map-body">
+          <div class="map-title" data-ja="日本ビーガンマップ" data-en="Japan Vegan Map">日本ビーガンマップ</div>
+          <div class="map-teaser" data-ja="全国のビーガン店を、地図でまるごと。王子と一緒に探そう。" data-en="Every vegan spot in Japan, on one map — explore it with the Prince.">全国のビーガン店を、地図でまるごと。王子と一緒に探そう。</div>
+        </div>
+        <span class="lc-arrow">→</span>
+      </a>
+    </section>
+
+    <!-- 6 · Why vegan (bundled: ocean / planet / body) -->
+    <section class="mt-8 reveal" style="animation-delay:.26s">
       <div class="sec-head">
-        <span class="sec-title" data-ja="ビーガンを知る" data-en="DISCOVER VEGANISM">ビーガンを知る</span>
+        <span class="sec-title" data-ja="なぜ、ビーガン？" data-en="WHY VEGAN?">なぜ、ビーガン？</span>
         <span class="bar"></span>
       </div>
-      <div class="flex flex-col gap-3.5">
-
-        <a href="/umi-wo-kazoeru/" class="link-card">
-          <img class="thumb" src="/images/oji/oji_exploring.png" alt="" />
-          <div class="lc-body">
-            <div class="lc-title" data-ja="海をかぞえる" data-en="Counting the Sea">海をかぞえる</div>
-            <div class="lc-sub">OCEAN</div>
-            <div class="lc-teaser" data-ja="食卓の魚を「数」で見たら、海はどう見える？" data-en="What the ocean looks like when you count the fish on our plates.">食卓の魚を「数」で見たら、海はどう見える？</div>
-          </div>
+      <div class="bundle">
+        <a href="/umi-wo-kazoeru/" class="bundle-row">
+          <img class="brow-thumb" src="/images/vegan-to-chikyu/icon-fish-wild.png" alt="" />
+          <span class="brow-title" data-ja="海をかぞえる" data-en="Counting the Sea">海をかぞえる</span>
+          <span class="brow-tag">OCEAN</span>
           <span class="lc-arrow">→</span>
         </a>
-
-        <a href="https://japanveganmap.ojidigital.com" target="_blank" rel="noopener" class="link-card">
-          <img class="thumb" src="/images/mascot/map-japan.png" alt="" />
-          <div class="lc-body">
-            <div class="lc-title" data-ja="日本ビーガンマップ" data-en="Japan Vegan Map">日本ビーガンマップ</div>
-            <div class="lc-sub">MAP</div>
-            <div class="lc-teaser" data-ja="全国のビーガン店を、王子と一緒に探そう。" data-en="Find vegan spots across Japan with the Prince.">全国のビーガン店を、王子と一緒に探そう。</div>
-          </div>
+        <a href="/vegan-to-chikyu/" class="bundle-row">
+          <img class="brow-thumb" src="/images/vegan-to-chikyu/icon-globe-earth.png" alt="" />
+          <span class="brow-title" data-ja="ビーガンと地球" data-en="Vegan &amp; the Planet">ビーガンと地球</span>
+          <span class="brow-tag">PLANET</span>
           <span class="lc-arrow">→</span>
         </a>
-
-        <a href="/vegan-to-chikyu/" class="link-card">
-          <img class="thumb" src="/images/oji/oji_teaching.png" alt="" />
-          <div class="lc-body">
-            <div class="lc-title" data-ja="ビーガンと地球" data-en="Vegan &amp; the Planet">ビーガンと地球</div>
-            <div class="lc-sub">ENVIRONMENT</div>
-            <div class="lc-teaser" data-ja="一皿の選択が、地球にどれだけ効くのか。" data-en="How a single plate can change the planet.">一皿の選択が、地球にどれだけ効くのか。</div>
-          </div>
+        <a href="/vegan-to-karada/" class="bundle-row">
+          <img class="brow-thumb" src="/images/vegan-to-chikyu/icon-heart.png" alt="" />
+          <span class="brow-title" data-ja="ビーガンと体" data-en="Vegan &amp; the Body">ビーガンと体</span>
+          <span class="brow-tag">BODY</span>
           <span class="lc-arrow">→</span>
         </a>
-
-        <a href="/vegan-to-karada/" class="link-card">
-          <img class="thumb" src="/images/oji/oji_excited.png" alt="" />
-          <div class="lc-body">
-            <div class="lc-title" data-ja="ビーガンと体" data-en="Vegan &amp; the Body">ビーガンと体</div>
-            <div class="lc-sub">HEALTH</div>
-            <div class="lc-teaser" data-ja="力・健康・おいしさ。野菜だけで、ここまで。" data-en="Strength, health, flavor — all from plants.">力・健康・おいしさ。野菜だけで、ここまで。</div>
-          </div>
-          <span class="lc-arrow">→</span>
-        </a>
-
-        <a href="/tools/" class="link-card">
-          <img class="thumb" src="/images/mascot/calculator.png" alt="" />
-          <div class="lc-body">
-            <div class="lc-title" data-ja="王子のツール" data-en="The Prince&rsquo;s Tools">王子のツール</div>
-            <div class="lc-sub">TOOLS</div>
-            <div class="lc-teaser" data-ja="自分にぴったりのビーガン・スタイルを診断。" data-en="Find the plant-based style that fits you.">自分にぴったりのビーガン・スタイルを診断。</div>
-          </div>
-          <span class="lc-arrow">→</span>
-        </a>
-
       </div>
     </section>
 
@@ -358,13 +406,13 @@
       </div>
     </section>
 
-    <!-- 8 · Newsletter -->
+    <!-- 9 · Contact -->
     <section class="mt-8 reveal" style="animation-delay:.34s">
       <div class="news-strip">
-        <div class="font-display text-[17px] text-royal" data-ja="📬 月1で、王子からお手紙。" data-en="📬 A letter from the Prince, monthly.">📬 月1で、王子からお手紙。</div>
-        <p class="text-[12.5px] text-ink-soft mt-1.5" data-ja="ビーガンのこと、舞台裏のこと。ゆるくお届け。" data-en="Veganism, behind-the-scenes, and more — gently delivered.">ビーガンのこと、舞台裏のこと。ゆるくお届け。</p>
-        <a href="mailto:info@veganoji.jp?subject=%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E3%83%AC%E3%82%BF%E3%83%BC%E7%99%BB%E9%8C%B2"
-           class="btn-primary !text-[13.5px] mt-3.5" data-ja="お手紙を受け取る" data-en="Subscribe">お手紙を受け取る</a>
+        <div class="font-display text-[17px] text-royal" data-ja="📬 王子に聞いてみる？" data-en="📬 Want to reach the Prince?">📬 王子に聞いてみる？</div>
+        <p class="text-[12.5px] text-ink-soft mt-1.5" data-ja="お仕事・出演・コラボのご相談、お気軽にどうぞ。" data-en="Work, appearances, collaborations — reach out anytime.">お仕事・出演・コラボのご相談、お気軽にどうぞ。</p>
+        <a href="mailto:info@veganoji.jp?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"
+           class="btn-primary !text-[13.5px] mt-3.5" data-ja="問い合わせる" data-en="Get in touch">問い合わせる</a>
       </div>
     </section>
 
