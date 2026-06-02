@@ -626,11 +626,10 @@
     @media (min-width:1024px){ #athlete-grid { grid-template-columns:1fr 1fr 1fr; } }
 
     /* matrix corner legend */
-    .lgnd { display:flex; flex-direction:column; gap:3px; justify-content:center; padding:6px 7px; }
-    .lgnd-h { font-size:10px; font-weight:900; color: var(--color-muted); margin-bottom:1px; letter-spacing:0.02em; }
-    .lgnd span { display:flex; align-items:center; gap:5px; font-size:11px; font-weight:700; color: var(--color-ink); line-height:1.05; }
-    .lgnd i { width:11px; height:11px; border-radius:3px; border:1.5px solid var(--color-ink); display:inline-block; flex-shrink:0; }
-    @media (min-width:640px){ .lgnd-h{ font-size:11px; } .lgnd span{ font-size:12.5px; } .lgnd i{ width:12px; height:12px; } }
+    .lgnd { display:flex; flex-direction:column; gap:5px; justify-content:center; padding:8px 9px; }
+    .lgnd span { display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:700; color: var(--color-ink); line-height:1.1; }
+    .lgnd i { width:13px; height:13px; border-radius:3px; border:1.5px solid var(--color-ink); display:inline-block; flex-shrink:0; }
+    @media (min-width:640px){ .lgnd span{ font-size:14px; } .lgnd i{ width:15px; height:15px; } }
     /* collapsible note */
     .note-toggle summary { list-style:none; }
     .note-toggle summary::-webkit-details-marker { display:none; }
@@ -868,7 +867,7 @@
       <div class="reveal mt-7">
         <div class="matrix">
         <div class="score-head">
-          <div class="lgnd"><div class="lgnd-h">お肉と比べて</div><span><i style="background:#3E8A34"></i>かなりプラス</span><span><i style="background:#5FA64E"></i>プラス</span><span><i style="background:#CC9A33"></i>同じくらい</span><span><i style="background:#D94A41"></i>マイナス</span></div>
+          <div class="lgnd"><span><i style="background:#3E8A34"></i>かなりプラス</span><span><i style="background:#5FA64E"></i>プラス</span><span><i style="background:#CC9A33"></i>同じくらい</span><span><i style="background:#D94A41"></i>マイナス</span></div>
           <div class="score-h" style="background:#FCDCDC;"><img class="hico" src="/images/karada/matrix/meat.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🍖</span>お肉</div>
           <div class="score-h" style="background:#E6EFF5;"><img class="hico" src="/images/karada/matrix/altmeat.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🌭</span>代替肉</div>
           <div class="score-h" style="background:#DCEFD3;"><img class="hico" src="/images/karada/matrix/plants.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🥦</span>まるごと植物</div>
