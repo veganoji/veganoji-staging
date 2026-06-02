@@ -116,9 +116,9 @@
     .footer-aura {
       position: absolute; bottom: 0; left: 0; right: 0; height: 380px;
       z-index: -1; pointer-events: none;
-      background: url('/images/links-hero/cand2-sky-flip.jpg') center bottom / cover no-repeat;
-      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 50%, #000 100%);
-              mask-image: linear-gradient(180deg, transparent 0%, #000 50%, #000 100%);
+      background: url('/images/links-hero/cand-night-flip.jpg') center bottom / cover no-repeat;
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 46%, #000 100%);
+              mask-image: linear-gradient(180deg, transparent 0%, #000 46%, #000 100%);
     }
 
     /* ─── Language toggle (top-right pill) ─── */
@@ -135,28 +135,29 @@
     .lang-toggle:hover { transform: translate(1.5px,1.5px); box-shadow: 1.5px 1.5px 0 #1F1812; background: #FDF1DA; }
     .lang-toggle:active { transform: translate(2.5px,2.5px); box-shadow: 1px 1px 0 #1F1812; }
 
-    /* ─── Identity card ─── */
+    /* ─── Identity — photo in a circle, crossfading to a frame-free chibi ─── */
     .avatar-wrap { position: relative; width: 132px; height: 132px; margin: 0 auto; }
     .avatar-frame {
-      position: relative;
+      position: absolute; inset: 0;
       width: 132px; height: 132px; border-radius: 999px; overflow: hidden;
       background: linear-gradient(165deg, #FFFFFF 0%, #FDF1DA 100%);
       border: 3px solid #1F1812; box-shadow: 5px 5px 0 #1F1812;
+      animation: frameFade 9s ease-in-out infinite;
     }
-    .avatar-frame .av { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .av-photo { object-fit: cover; object-position: center; }
+    .av-photo { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    /* The cartoon steps out of the frame — no circle, no border, full body */
     .av-mascot {
-      object-fit: contain; object-position: center bottom;
-      transform: scale(1.16) translateY(7%);
-      background: linear-gradient(165deg, #FFFFFF 0%, #FDF1DA 100%);
-      opacity: 0; animation: avSwap 9s ease-in-out infinite;
+      position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%);
+      width: 104px; height: auto; opacity: 0;
+      filter: drop-shadow(0 8px 11px rgba(31,24,18,.20));
+      animation: mascotFade 9s ease-in-out infinite;
     }
-    @keyframes avSwap {
-      0%, 34% { opacity: 0; }
-      48%, 84% { opacity: 1; }
-      98%, 100% { opacity: 0; }
+    @keyframes frameFade  { 0%, 34% { opacity: 1; } 48%, 84% { opacity: 0; } 98%, 100% { opacity: 1; } }
+    @keyframes mascotFade { 0%, 34% { opacity: 0; } 48%, 84% { opacity: 1; } 98%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .avatar-frame { animation: none; opacity: 1; }
+      .av-mascot { animation: none; opacity: 0; }
     }
-    @media (prefers-reduced-motion: reduce) { .av-mascot { animation: none; opacity: 0; } }
     .avatar-crown {
       position: absolute; top: -22px; left: 50%; transform: translateX(-50%) rotate(-6deg);
       width: 52px; height: auto; filter: drop-shadow(0 3px 5px rgba(31,24,18,.25));
@@ -295,9 +296,9 @@
     <section class="text-center reveal" style="animation-delay:.02s">
       <div class="avatar-wrap">
         <div class="avatar-frame">
-          <img class="av av-photo" src="/images/profile/alex.jpg" alt="ビーガン王子 アレックス・デレチ" />
-          <img class="av av-mascot" src="/images/oji/oji_greeting.png" alt="" />
+          <img class="av-photo" src="/images/profile/alex.jpg" alt="ビーガン王子 アレックス・デレチ" />
         </div>
+        <img class="av-mascot" src="/images/oji/oji_greeting.png" alt="" />
       </div>
       <h1 class="font-display display-tight text-[30px] mt-4 text-ink" data-ja="ビーガン王子" data-en="Vegan Oji">ビーガン王子</h1>
       <p class="font-display text-[14px] tracking-[0.08em] text-royal mt-0.5" data-ja="デレチ・アレックス" data-en="Alex Derycz">デレチ・アレックス</p>
@@ -446,11 +447,11 @@
     <!-- Footer -->
     <footer class="mt-10 text-center reveal" style="animation-delay:.38s">
       <img class="bobble mx-auto" src="/images/oji/oji_winking.png" alt="ビーガン王子" style="width:96px;height:auto" loading="lazy" />
-      <div class="font-display text-[34px] text-royal mt-1" data-ja="またね！" data-en="See you!">またね！</div>
-      <p class="text-[12.5px] text-muted mt-3">
-        <a href="mailto:info@veganoji.jp" class="text-royal font-semibold">info@veganoji.jp</a>
+      <div class="font-display text-[34px] mt-1" style="color:#FCE9B0;text-shadow:0 2px 10px rgba(18,26,54,.55)" data-ja="またね！" data-en="See you!">またね！</div>
+      <p class="text-[12.5px] mt-3" style="color:rgba(255,248,235,.9)">
+        <a href="mailto:info@veganoji.jp" class="font-semibold" style="color:#FFF8EB;text-shadow:0 1px 6px rgba(18,26,54,.5)">info@veganoji.jp</a>
       </p>
-      <p class="text-[11.5px] text-muted mt-2 tracking-wide">© 2026 ビーガン王子株式会社 · Vegan Oji Inc.</p>
+      <p class="text-[11.5px] mt-2 tracking-wide" style="color:rgba(255,248,235,.82);text-shadow:0 1px 5px rgba(18,26,54,.5)">© 2026 ビーガン王子株式会社 · Vegan Oji Inc.</p>
     </footer>
 
   </main>
