@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Hero Lab · ビーガン王子</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Noto+Serif+JP:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-paper: #FFF9EE;
+      --color-cream: #FDF1DA;
+      --color-cream-2: #F6E4BD;
+      --color-royal: #C9223A;
+      --color-royal-deep: #9C1428;
+      --color-gold: #D4A847;
+      --color-gold-soft: #E8C76F;
+      --color-ink: #1F1812;
+      --color-ink-soft: #3C2E22;
+      --color-muted: #786148;
+      --color-line: #E9D9B5;
+
+      --font-display: "Noto Serif JP", serif;
+      --font-jp-display: "Noto Serif JP", serif;
+      --font-jp: "Noto Sans JP", sans-serif;
+      --font-cute-jp: "Noto Sans JP", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: var(--font-jp);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      margin: 0;
+    }
+
+    /* ─── Lab heading between variations ─── */
+    .lab-header {
+      padding: 56px 24px 32px;
+      text-align: center;
+      background: var(--color-cream);
+      border-bottom: 2px solid var(--color-line);
+    }
+    .lab-tag {
+      display: inline-block;
+      font-family: var(--font-jp);
+      font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--color-royal); font-weight: 800;
+      padding: 4px 12px; border: 1.5px solid var(--color-royal);
+      border-radius: 999px; margin-bottom: 14px;
+    }
+    .lab-title {
+      font-family: var(--font-jp-display);
+      font-weight: 900; font-size: 36px;
+      color: var(--color-ink); margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .lab-sub {
+      font-family: var(--font-jp);
+      font-size: 14px; color: var(--color-muted);
+      margin-top: 6px; max-width: 540px; margin-inline: auto;
+      line-height: 1.7;
+    }
+
+    /* ─── Shared button (chibi V3 style from memory) ─── */
+    .btn-v3 {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px;
+      background: var(--color-royal); color: var(--color-paper);
+      border-radius: 14px; border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      font-family: var(--font-jp); font-weight: 700; font-size: 14px;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn-v3:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal-deep); }
+    .btn-v3.ghost { background: var(--color-paper); color: var(--color-royal); }
+    .btn-v3.ghost:hover { background: var(--color-royal); color: var(--color-paper); }
+    .btn-v3.gold  { background: var(--color-gold); color: var(--color-ink); }
+    .btn-v3.gold:hover  { background: var(--color-gold); color: var(--color-ink); filter: brightness(0.96); }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* ─── VARIATION A — Cinematic full-bleed portrait ──────────── */
+    /* ═══════════════════════════════════════════════════════════ */
+    .hero-a {
+      position: relative;
+      min-height: 100svh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 32px 24px;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, rgba(31,24,18,0.55) 0%, rgba(31,24,18,0.18) 40%, rgba(255,249,238,0.10) 70%, var(--color-paper) 100%),
+        url('https://veganoji.jp/wp-content/uploads/2026/03/Vegan-Oji_Profile-Picture.jpg') center/cover;
+    }
+    .hero-a .inner { position: relative; z-index: 2; max-width: 760px; text-align: center; }
+    .hero-a .kicker {
+      display: inline-block; padding: 4px 14px;
+      background: rgba(255,249,238,0.92); color: var(--color-royal-deep);
+      border: 1.5px solid var(--color-ink);
+      border-radius: 999px;
+      font-size: 12.5px; font-weight: 800; letter-spacing: 0.06em;
+      margin-bottom: 22px;
+    }
+    .hero-a h1 {
+      font-family: var(--font-jp-display);
+      font-weight: 900;
+      font-size: clamp(56px, 12vw, 132px);
+      line-height: 1.02; letter-spacing: -0.04em;
+      color: var(--color-paper);
+      text-shadow: 0 4px 24px rgba(31,24,18,0.55);
+      margin: 0;
+    }
+    .hero-a h1 .royal { color: var(--color-gold-soft); font-style: italic; }
+    .hero-a .lede {
+      margin-top: 22px; max-width: 540px; margin-inline: auto;
+      font-family: var(--font-jp);
+      font-size: clamp(15px, 2.2vw, 18px);
+      line-height: 1.95; color: rgba(255,249,238,0.95);
+      text-shadow: 0 2px 8px rgba(31,24,18,0.45);
+    }
+    .hero-a .ctas { margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hero-a .scroll-cue {
+      position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+      z-index: 2;
+      font-size: 11px; letter-spacing: 0.22em; color: var(--color-paper);
+      text-transform: uppercase; text-shadow: 0 1px 4px rgba(31,24,18,0.4);
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* ─── VARIATION B — Watercolor magazine split ──────────────── */
+    /* ═══════════════════════════════════════════════════════════ */
+    .hero-b {
+      position: relative; overflow: hidden;
+      padding: 56px 24px 80px;
+      background:
+        radial-gradient(ellipse at 70% 30%, rgba(212,168,71,0.20) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 80%, rgba(201,34,58,0.15) 0%, transparent 55%),
+        linear-gradient(180deg, var(--color-cream) 0%, var(--color-paper) 100%);
+    }
+    .hero-b .veil {
+      position: absolute; inset: 0; opacity: 0.08;
+      background-image:
+        radial-gradient(circle at 25% 25%, var(--color-royal) 1px, transparent 2px),
+        radial-gradient(circle at 75% 75%, var(--color-gold) 1px, transparent 2px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .hero-b .inner {
+      position: relative; z-index: 1;
+      max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 36px;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .hero-b .inner { grid-template-columns: 1.05fr 0.95fr; gap: 56px; }
+    }
+    .hero-b .kicker {
+      font-family: var(--font-jp);
+      font-weight: 800; font-size: 14px; letter-spacing: 0.06em;
+      color: var(--color-royal);
+    }
+    .hero-b h1 {
+      font-family: var(--font-jp-display);
+      font-weight: 900;
+      font-size: clamp(54px, 10vw, 116px);
+      line-height: 1.02; letter-spacing: -0.04em;
+      color: var(--color-ink);
+      margin: 10px 0 0;
+    }
+    .hero-b h1 .royal { color: var(--color-royal); }
+    .hero-b .lede {
+      margin-top: 20px; max-width: 480px;
+      font-family: var(--font-jp);
+      font-size: 15.5px; line-height: 1.95;
+      color: var(--color-ink-soft);
+    }
+    .hero-b .stats {
+      margin-top: 28px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+      max-width: 460px;
+    }
+    .hero-b .stat-num {
+      font-family: var(--font-jp-display);
+      font-weight: 900; font-size: 44px; line-height: 0.9;
+      color: var(--color-royal); letter-spacing: -0.03em;
+    }
+    .hero-b .stat-label {
+      font-family: var(--font-jp); font-weight: 700;
+      font-size: 12px; color: var(--color-ink-soft);
+      margin-top: 5px; letter-spacing: 0.04em;
+    }
+    .hero-b .ctas { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-b .photo-wrap {
+      position: relative; max-width: 440px; margin: 0 auto;
+      aspect-ratio: 4/5; border-radius: 24px; overflow: hidden;
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 8px 8px 0 var(--color-ink);
+    }
+    .hero-b .photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-b .photo-name {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 22px 22px 20px;
+      background: linear-gradient(to top, rgba(31,24,18,0.92) 0%, rgba(31,24,18,0.45) 65%, transparent 100%);
+      color: var(--color-paper);
+    }
+    .hero-b .photo-name .nm { font-family: var(--font-jp-display); font-weight: 900; font-size: 28px; line-height: 1; }
+    .hero-b .photo-name .ja { font-family: var(--font-jp); font-size: 14px; color: rgba(255,249,238,0.86); margin-top: 4px; }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* ─── VARIATION C — Editorial chapter (chikyu/karada style) ── */
+    /* ═══════════════════════════════════════════════════════════ */
+    .hero-c {
+      position: relative; overflow: hidden;
+      padding: 60px 24px 72px;
+      background:
+        url('/images/decorations/parchment-tile.jpg') center/600px repeat,
+        var(--color-paper);
+    }
+    .hero-c::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(255,249,238,0.40) 0%, rgba(255,249,238,0.85) 100%);
+    }
+    .hero-c .inner { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; }
+    .hero-c .chapter-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--font-jp);
+      font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-royal); font-weight: 800;
+      margin-bottom: 22px;
+    }
+    .hero-c .chapter-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 999px;
+      background: var(--color-royal); color: var(--color-paper);
+      font-size: 12px; font-weight: 900;
+    }
+    .hero-c .chapter-line {
+      display: inline-block; width: 32px; height: 1.5px;
+      background: var(--color-royal); opacity: 0.7;
+    }
+    .hero-c h1 {
+      font-family: var(--font-jp-display);
+      font-weight: 900;
+      font-size: clamp(56px, 11vw, 124px);
+      line-height: 1.02; letter-spacing: -0.04em;
+      color: var(--color-ink);
+      margin: 0;
+      max-width: 14em;
+    }
+    .hero-c h1 .accent { color: var(--color-royal); }
+    .hero-c .lede {
+      margin-top: 28px; max-width: 620px;
+      font-family: var(--font-jp);
+      font-size: 17px; line-height: 1.95;
+      color: var(--color-ink-soft);
+    }
+    .hero-c .badges {
+      margin-top: 36px;
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .hero-c .badge {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      padding: 9px 16px;
+      background: var(--color-cream);
+      border: 1.5px solid var(--color-ink);
+      border-radius: 999px;
+      font-family: var(--font-jp);
+      font-size: 13px; font-weight: 700; color: var(--color-ink);
+    }
+    .hero-c .badge .num {
+      font-family: var(--font-jp-display); font-weight: 900;
+      font-size: 18px; color: var(--color-royal);
+    }
+    .hero-c .ctas { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-c .pose-strip {
+      margin-top: 48px;
+      display: flex; gap: 18px; justify-content: center; flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 4px 0;
+      scrollbar-width: none;
+    }
+    .hero-c .pose-strip::-webkit-scrollbar { display: none; }
+    .hero-c .pose-card {
+      flex-shrink: 0;
+      width: 130px;
+      padding: 14px 10px 8px;
+      background: var(--color-paper);
+      border: 1.5px solid var(--color-ink);
+      border-radius: 16px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+      text-align: center;
+      transition: transform .25s ease;
+    }
+    .hero-c .pose-card:hover { transform: translateY(-4px) rotate(-2deg); }
+    .hero-c .pose-card img { width: 100%; height: auto; display: block; }
+    .hero-c .pose-card .lbl {
+      margin-top: 4px;
+      font-family: var(--font-jp); font-weight: 700; font-size: 11px;
+      color: var(--color-muted); letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════ VARIATION A ═══════════════════════════════════════ -->
+  <div class="lab-header">
+    <span class="lab-tag">Variation A</span>
+    <h2 class="lab-title">Cinematic full-bleed</h2>
+    <p class="lab-sub">Inspired by /umi-wo-kazoeru/. Photo becomes the entire hero with a dark-to-paper gradient veil that fades into the page. Single dramatic composition, no side panels, mascot pose-cycle removed for this approach.</p>
+  </div>
+  <section class="hero-a">
+    <div class="inner">
+      <span class="kicker">アレックス・デレチ ──</span>
+      <h1>ビーガン<span class="royal">王子</span></h1>
+      <p class="lede">国籍は三つ、操る言語は六つ。<br/>「お笑いあり、涙あり、野菜あり」を合言葉に、人にも地球にも動物にもやさしい世界を、まっすぐ伝えていきます。</p>
+      <div class="ctas">
+        <a class="btn-v3" href="#">仕事を依頼する</a>
+        <a class="btn-v3 ghost" href="#">王子を知る</a>
+      </div>
+    </div>
+    <div class="scroll-cue">スクロール ↓</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ VARIATION B ═══════════════════════════════════════ -->
+  <div class="lab-header">
+    <span class="lab-tag">Variation B</span>
+    <h2 class="lab-title">Watercolor magazine split</h2>
+    <p class="lab-sub">Inspired by /japanveganmap/. Cream watercolor backdrop with radial gold + royal washes, soft dot grain. Split layout: copy + stats on left, framed portrait with name overlay on right. Editorial breathing room.</p>
+  </div>
+  <section class="hero-b">
+    <div class="veil"></div>
+    <div class="inner">
+      <div>
+        <div class="kicker">東京 · 2017年から活動中 ──</div>
+        <h1>ビーガン<span class="royal">王子</span></h1>
+        <p class="lede">国籍は三つ、操る言語は六つ。<span style="color:var(--color-royal);font-weight:700">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい世界を、まっすぐ届けます。</p>
+
+        <div class="stats">
+          <div><div class="stat-num">6<span style="font-size:22px;color:var(--color-gold)">+1</span></div><div class="stat-label">言語</div></div>
+          <div><div class="stat-num">9<span style="font-size:22px;color:var(--color-gold)">年</span></div><div class="stat-label">日本で活動</div></div>
+          <div><div class="stat-num">30<span style="font-size:22px;color:var(--color-gold)">+</span></div><div class="stat-label">TV・メディア出演</div></div>
+        </div>
+
+        <div class="ctas">
+          <a class="btn-v3" href="#">仕事を依頼する</a>
+          <a class="btn-v3 ghost" href="#">王子を知る</a>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <img src="https://veganoji.jp/wp-content/uploads/2026/03/Vegan-Oji_Profile-Picture.jpg" alt="アレックス・デレチ"/>
+        <div class="photo-name">
+          <div class="nm">Alex Derycz</div>
+          <div class="ja">アレックス・デレチ / ビーガン王子</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ VARIATION C ═══════════════════════════════════════ -->
+  <div class="lab-header">
+    <span class="lab-tag">Variation C</span>
+    <h2 class="lab-title">Editorial chapter w/ pose-strip</h2>
+    <p class="lab-sub">Inspired by /vegan-to-chikyu/ + /vegan-to-karada/. Parchment wash background, chapter-style eyebrow (numbered like a magazine intro), big bold title, body, badge-stat row, then the existing mascot pose-cycle reborn as a horizontal sticker strip showing the full chibi cast at a glance.</p>
+  </div>
+  <section class="hero-c">
+    <div class="inner">
+      <div class="chapter-eyebrow">
+        <span class="chapter-num">01</span>
+        <span class="chapter-line"></span>
+        <span>プロフィール</span>
+      </div>
+      <h1>こんにちは、<br/><span class="accent">ビーガン王子</span>です。</h1>
+      <p class="lede">国籍は三つ、操る言語は六つ。<span style="color:var(--color-royal);font-weight:700">「お笑いあり、涙あり、野菜あり」</span>を合言葉に、人にも地球にも動物にもやさしい世界を、ぜんぶの言葉で伝えます。</p>
+
+      <div class="badges">
+        <span class="badge"><span class="num">6</span> カ国語MC</span>
+        <span class="badge"><span class="num">3</span> 国籍 (US / FR / 日)</span>
+        <span class="badge"><span class="num">9</span> 年 日本で活動</span>
+        <span class="badge"><span class="num">30+</span> TV・メディア</span>
+      </div>
+
+      <div class="ctas">
+        <a class="btn-v3" href="#">仕事を依頼する</a>
+        <a class="btn-v3 ghost" href="#">王子を知る</a>
+      </div>
+
+      <div class="pose-strip" aria-label="王子のポーズコレクション">
+        <div class="pose-card"><img src="/images/oji/oji_greeting.png" alt=""/><div class="lbl">挨拶</div></div>
+        <div class="pose-card"><img src="/images/oji/oji_teaching.png" alt=""/><div class="lbl">講演</div></div>
+        <div class="pose-card"><img src="/images/oji/oji_winking.png" alt=""/><div class="lbl">SNS</div></div>
+        <div class="pose-card"><img src="/images/oji/oji_confident.png" alt=""/><div class="lbl">モデル</div></div>
+        <div class="pose-card"><img src="/images/oji/oji_presenting.png" alt=""/><div class="lbl">ビジネス</div></div>
+        <div class="pose-card"><img src="/images/oji/oji_celebrating.png" onerror="this.src='/images/mascot/celebrating.png'" alt=""/><div class="lbl">活動</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lab-header" style="background:var(--color-paper);">
+    <span class="lab-tag">どれが好き？</span>
+    <h2 class="lab-title">3つから選んで、その方向でホームページを再設計します</h2>
+    <p class="lab-sub">Aは映画的でドラマチック。Bは雑誌のような上品さ。Cはストーリーテリング寄り（地球・からだページの方向）。組み合わせもOK — 「Bのレイアウト + Cのバッジ」みたいなのも可能です。</p>
+  </div>
+
+</body>
+</html>
