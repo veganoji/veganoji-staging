@@ -31,105 +31,130 @@
     .card {
       background: var(--color-paper);
       border: 2px solid var(--color-ink);
-      border-radius: 18px;
-      box-shadow: 5px 5px 0 var(--color-ink);
-      overflow: hidden;
-      display: flex; flex-direction: column;
+      border-radius: 16px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+      overflow: hidden; display: flex; flex-direction: column;
     }
-    /* logo image sits on a soft neutral stage; each logo carries its own bg */
-    .logo-wrap {
-      background:
-        repeating-conic-gradient(#f3eedd 0% 25%, #ece5d0 0% 50%) 50% / 22px 22px;
+    .stage {
+      background: repeating-conic-gradient(#f3eedd 0% 25%, #ece5d0 0% 50%) 50% / 20px 20px;
       display: flex; align-items: center; justify-content: center;
-      aspect-ratio: 3 / 2; border-bottom: 2px solid var(--color-ink);
+      border-bottom: 2px solid var(--color-ink);
     }
-    .logo-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    .logo-wrap.missing::after { content: "generating…"; color: var(--color-muted); font-size: 13px; }
+    .stage.wm { aspect-ratio: 3 / 2; }
+    .stage.sq { aspect-ratio: 1 / 1; }
+    .stage img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .stage.missing::after { content: "generating…"; color: var(--color-muted); font-size: 12px; }
+    .fname { font-size: 11px; color: var(--color-muted); font-family: monospace; padding: 7px 10px; }
 
-    .num { font-family: monospace; font-size: 12px; color: var(--color-gold-deep); font-weight: 700; }
-    .blurb { font-size: 13.5px; line-height: 1.5; color: var(--color-muted); }
-    .cmp {
-      display: inline-flex; align-items: baseline; gap: 8px;
-      background: var(--color-cream); border: 1.5px dashed var(--color-gold-deep);
-      border-radius: 10px; padding: 6px 12px;
-    }
-    .cmp .lbl { font-size: 10px; font-weight: 700; color: var(--color-gold-deep); letter-spacing: .04em; }
-    .cmp .tgt { font-size: 19px; font-weight: 700; letter-spacing: .02em; }
-    .tag { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 999px;
-           background: var(--color-royal); color: var(--color-paper); letter-spacing:.03em; }
-    .tag.alt { background: var(--color-leaf); }
-    .tag.lux { background: var(--color-ink); }
+    .sec-h { font-size: 12px; font-weight: 900; letter-spacing: .14em; color: var(--color-royal); }
+    .block { border: 2px solid var(--color-ink); border-radius: 20px; background: var(--color-paper);
+             box-shadow: 6px 6px 0 var(--color-ink); padding: 20px; }
+    .block-h { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .block-num { font-family: monospace; font-weight: 700; color: var(--color-gold-deep); }
+    .row-label { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+                 color: var(--color-muted); margin: 4px 0 8px; display: flex; align-items: center; gap: 8px; }
+    .row-label::after { content:""; flex:1; height:2px; background: #E4DcC4; border-radius: 2px; }
+    .cmp { display:inline-flex; align-items:baseline; gap:7px; background: var(--color-cream);
+           border:1.5px dashed var(--color-gold-deep); border-radius:9px; padding:4px 10px; }
+    .cmp .lbl { font-size:9px; font-weight:700; color:var(--color-gold-deep); letter-spacing:.04em; }
+    .cmp .tgt { font-size:16px; font-weight:700; }
+    .crownmark { background:
+        repeating-conic-gradient(#efe8d4 0% 25%, #e6ddc6 0% 50%) 50% / 18px 18px; }
   </style>
 </head>
 <body class="min-h-screen">
-  <header class="max-w-6xl mx-auto px-5 pt-10 pb-6">
-    <p class="text-royal font-black tracking-wide text-sm">LOGO LAB · 第一弾</p>
-    <h1 class="text-3xl sm:text-4xl font-black mt-1">「ビーガン王子」ロゴ — 10の方向性</h1>
+  <header class="max-w-6xl mx-auto px-5 pt-10 pb-4">
+    <p class="text-royal font-black tracking-wide text-sm">LOGO LAB</p>
+    <h1 class="text-3xl sm:text-4xl font-black mt-1">「ビーガン王子」ロゴ探求</h1>
     <p class="text-muted mt-3 max-w-3xl leading-relaxed text-[15px]">
-      Ten different style directions for the <strong>ビーガン王子</strong> wordmark — text-forward,
-      mostly without the mascot, ranging from playful and on-brand to luxury and editorial
-      (a few deliberately <em>not</em> vegan-themed). This is a first pass to pick directions;
-      we'll expand the ones you like.
+      <strong>Round 2</strong> deepens four directions — <strong>chibi, brush 筆文字, kawaii, botanical</strong> —
+      with 3 wordmark variations each, plus a standalone <strong>crown mark</strong> (the wordless brand
+      symbol) in each style. The original 10 first-pass directions are kept further down for reference.
     </p>
-    <p class="mt-3 max-w-3xl leading-relaxed text-[13.5px] text-ink/70 bg-cream border-2 border-gold-deep/40 rounded-xl px-4 py-3">
-      ⚠️ <strong>On the text:</strong> AI image models render Japanese glyphs imperfectly, so some
-      candidates may have slightly off strokes. Judge the <em>styling</em> here — for any direction
-      you choose, we lock the exact「ビーガン王子」glyphs with a real font afterwards. Each card shows
-      the correct spelling for reference.
+    <p class="mt-3 max-w-3xl leading-relaxed text-[13px] text-ink/70 bg-cream border-2 border-gold-deep/40 rounded-xl px-4 py-2.5">
+      ⚠️ AI glyphs aren't pixel-perfect — judge the <em>styling</em>; we lock exact「ビーガン王子」with a font on the final.
     </p>
   </header>
 
-  <main id="root" class="max-w-6xl mx-auto px-5 pb-24 grid gap-6 sm:grid-cols-2"></main>
+  <main class="max-w-6xl mx-auto px-5 pb-24">
+    <!-- ROUND 2 -->
+    <p class="sec-h mt-6 mb-4">● ROUND 2 · 深掘り＋クラウンマーク</p>
+    <div id="r2" class="flex flex-col gap-8"></div>
+
+    <!-- ROUND 1 -->
+    <p class="sec-h mt-16 mb-4 text-muted">● 第一弾 · 10 directions (reference)</p>
+    <div id="r1" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </main>
 
   <script>
     const TARGET = "ビーガン王子";
-    // 10 directions (order = display order)
-    const STYLES = [
-      { slug:"chibi-prince",      name:"Chibi sticker",      sub:"with mascot",   tag:"with character",
-        blurb:"Your on-brand chibi-sticker look — puffy royal-red & gold letters, cream die-cut outline, the little crowned prince waving alongside." },
-      { slug:"royal-crest",       name:"Royal crest",        sub:"emblem",        tag:"regal",
-        blurb:"A heraldic badge: gold crown, the wordmark on a deep-crimson shield, laurel flourishes. Premium and ceremonial." },
-      { slug:"fashion-editorial", name:"Fashion editorial",  sub:"masthead",      tag:"not vegan-y", alt:"lux",
-        blurb:"Thin, widely-spaced, lots of air — a luxury fashion-house masthead. Leans into the model / talent side." },
-      { slug:"brush-calligraphy", name:"Brush calligraphy",  sub:"筆文字",         tag:"traditional",
-        blurb:"Bold sumi-ink brushwork on washi with a red hanko seal. Artful, energetic, distinctly Japanese." },
-      { slug:"showa-retro",       name:"Showa retro",        sub:"昭和レトロ",      tag:"nostalgic",
-        blurb:"1970s kissaten signage — mustard, tomato red & cream, chunky rounded retro type with halftone warmth." },
-      { slug:"kawaii-bubble",     name:"Kawaii bubble pop",  sub:"アイドル",        tag:"playful",
-        blurb:"Glossy candy balloon letters, sparkles and stars. Bright idol/talent pop energy." },
-      { slug:"gold-luxury",       name:"Gold luxury",        sub:"fragrance",     tag:"not vegan-y", alt:"lux",
-        blurb:"Thin gold serif with a minimal line-art crown on matte black — an understated, expensive perfume-label feel." },
-      { slug:"geometric-modern",  name:"Geometric modern",   sub:"minimal",       tag:"clean",
-        blurb:"Confident contemporary geometry, single crimson on white, a crown hinted from simple shapes. Tech-brand crisp." },
-      { slug:"botanical-leaf",    name:"Botanical",          sub:"plant-based",   tag:"vegan-leaning", alt:"alt",
-        blurb:"Refined lettering laced with delicate leaves, vines & a small gold crown — grown-up, not childish. The one that nods to vegan." },
-      { slug:"streetwear-chrome", name:"Streetwear chrome",  sub:"Y2K",           tag:"not vegan-y",
-        blurb:"Liquid-chrome 3D letters with red & gold reflections on dark — the hype, charismatic-MC energy." },
-    ];
 
-    const root = document.getElementById("root");
+    // ---------- Round 2 ----------
+    const R2 = [
+      { key:"chibi",     num:"01", name:"Chibi sticker",          note:"puffy red & gold, cream die-cut, mascot optional" },
+      { key:"brush",     num:"04", name:"Brush calligraphy 筆文字", note:"bold sumi ink + red hanko" },
+      { key:"kawaii",    num:"06", name:"Kawaii bubble pop",       note:"glossy candy balloon letters" },
+      { key:"botanical", num:"09", name:"Botanical",              note:"leaves, vines & gold crown" },
+    ];
+    const r2 = document.getElementById("r2");
+    R2.forEach(s => {
+      const block = document.createElement("section");
+      block.className = "block";
+      const wm = [1,2,3].map(v => stage(`${s.key}-wm-v${v}`, "wm")).join("");
+      const cr = [1,2,3].map(v => stage(`${s.key}-crown-v${v}`, "sq", true)).join("");
+      block.innerHTML = `
+        <div class="block-h">
+          <span class="block-num">${s.num}</span>
+          <h2 class="text-xl font-black">${s.name}</h2>
+          <span class="text-muted text-sm font-bold">· ${s.note}</span>
+          <span class="cmp ml-auto"><span class="lbl">正しい表記</span><span class="tgt">${TARGET}</span></span>
+        </div>
+        <p class="row-label mt-4">Wordmark — 3 variations</p>
+        <div class="grid gap-4 sm:grid-cols-3">${wm}</div>
+        <p class="row-label mt-6">Crown mark — wordless brand symbol</p>
+        <div class="grid gap-4 sm:grid-cols-3">${cr}</div>`;
+      r2.appendChild(block);
+    });
+
+    function stage(slug, kind, crown) {
+      const ext = crown ? 'png' : 'jpg';   // wordmarks are opaque -> jpg; crowns transparent -> png
+      return `<div class="card">
+        <div class="stage ${kind} ${crown ? 'crownmark' : ''}">
+          <img src="candidates/${slug}.${ext}" alt="${slug}"
+               onerror="this.style.display='none';this.parentElement.classList.add('missing')">
+        </div>
+        <code class="fname">${slug}.${ext}</code>
+      </div>`;
+    }
+
+    // ---------- Round 1 (original 10) ----------
+    const STYLES = [
+      { slug:"chibi-prince",      name:"Chibi sticker",      sub:"with mascot" },
+      { slug:"royal-crest",       name:"Royal crest",        sub:"emblem" },
+      { slug:"fashion-editorial", name:"Fashion editorial",  sub:"masthead" },
+      { slug:"brush-calligraphy", name:"Brush calligraphy",  sub:"筆文字" },
+      { slug:"showa-retro",       name:"Showa retro",        sub:"昭和レトロ" },
+      { slug:"kawaii-bubble",     name:"Kawaii bubble pop",  sub:"アイドル" },
+      { slug:"gold-luxury",       name:"Gold luxury",        sub:"fragrance" },
+      { slug:"geometric-modern",  name:"Geometric modern",   sub:"minimal" },
+      { slug:"botanical-leaf",    name:"Botanical",          sub:"plant-based" },
+      { slug:"streetwear-chrome", name:"Streetwear chrome",  sub:"Y2K" },
+    ];
+    const r1 = document.getElementById("r1");
     STYLES.forEach((s, i) => {
       const el = document.createElement("article");
       el.className = "card";
-      const n = String(i + 1).padStart(2, "0");
       el.innerHTML = `
-        <div class="logo-wrap">
+        <div class="stage wm">
           <img src="candidates/${s.slug}.png" alt="${s.name}"
                onerror="this.style.display='none';this.parentElement.classList.add('missing')">
         </div>
-        <div class="p-5 flex flex-col gap-3 grow">
-          <div class="flex items-center gap-3">
-            <span class="num">${n}</span>
-            <h3 class="text-lg font-black">${s.name} <span class="text-muted font-bold text-sm">· ${s.sub}</span></h3>
-            <span class="tag ${s.alt||''} ml-auto">${s.tag}</span>
-          </div>
-          <p class="blurb grow">${s.blurb}</p>
-          <div class="flex items-center justify-between flex-wrap gap-2">
-            <span class="cmp"><span class="lbl">正しい表記</span><span class="tgt">${TARGET}</span></span>
-            <code class="text-[11px] text-muted">${s.slug}.png</code>
-          </div>
+        <div class="px-3 py-2 flex items-center gap-2">
+          <span class="text-[13px] font-black">${String(i+1).padStart(2,'0')} ${s.name}</span>
+          <span class="text-muted text-[11px]">· ${s.sub}</span>
+          <code class="fname ml-auto !p-0">${s.slug}.png</code>
         </div>`;
-      root.appendChild(el);
+      r1.appendChild(el);
     });
   </script>
 </body>
