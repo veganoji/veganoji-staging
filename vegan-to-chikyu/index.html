@@ -2166,50 +2166,44 @@
           同じ <span class="font-bold">5,000 m²</span> の土地で——できる食べ物の量。
         </p>
 
-        <div class="grid grid-cols-2 gap-6">
-          <div class="text-center">
-            <div class="flex items-center justify-center gap-1.5 mb-2">
-              <img src="/images/vegan-to-chikyu/icon-plant-bunch.png" alt="" class="w-6 h-6 sm:w-7 sm:h-7" loading="lazy"/>
-              <span class="text-[13px] sm:text-[14px] tracking-[0.06em] text-ink/70 font-bold">植物性食品</span>
-            </div>
-            <div class="big-number text-[36px] sm:text-[52px] ticker" data-count-target="13825" style="color: #6B4E8C;">0</div>
-            <div class="font-jp text-[14px] sm:text-[16px] text-ink/65 mt-1">キロ</div>
-          </div>
-          <div class="text-center">
-            <div class="flex items-center justify-center gap-1.5 mb-2">
-              <img src="/images/vegan-to-chikyu/icon-beef-cut.png" alt="" class="w-6 h-6 sm:w-7 sm:h-7" loading="lazy"/>
-              <span class="text-[13px] sm:text-[14px] tracking-[0.06em] text-ink/70 font-bold">牛肉</span>
-            </div>
-            <div class="big-number text-[36px] sm:text-[52px] ticker" data-count-target="140" style="color: #4B3666;">0</div>
-            <div class="font-jp text-[14px] sm:text-[16px] text-ink/65 mt-1">キロ</div>
-          </div>
-        </div>
-
         <!-- 100 small veg icons vs 1 same-size meat icon, with VS in the
              middle. All units are the SAME pixel size so the imbalance
-             comes from quantity. Same idea as the お風呂 100 baths above. -->
-        <div class="mt-8 grid grid-cols-[1fr_auto_1fr] gap-3 sm:gap-5 items-center px-4 py-5 rounded-2xl border-2 border-ink/15"
+             comes from quantity. Labels (植物性食品 13,825キロ + 牛肉 140キロ)
+             live INSIDE the box, vertically aligned. -->
+        <div class="mt-8 grid grid-cols-[1fr_auto_1fr] gap-2 sm:gap-5 items-end px-2 sm:px-5 py-5 sm:py-6 rounded-2xl border-2 border-ink/15"
              style="background: rgba(255,249,238,0.6);">
-          <!-- LEFT: 100 veg icons in a tight 10×10 grid -->
+          <!-- LEFT: 植物性食品 label/number + 100 veg icons -->
           <div>
+            <div class="text-center mb-2 sm:mb-3">
+              <div class="font-jp text-[12px] sm:text-[14px] tracking-[0.06em] text-ink/70 font-bold">植物性食品</div>
+              <div class="font-jp-display text-[26px] sm:text-[40px] leading-none mt-1 ticker" style="color: #6B4E8C;">
+                <span data-count-target="13825">0</span>
+                <span class="text-[13px] sm:text-[16px] text-ink/65 font-bold ml-0.5">キロ</span>
+              </div>
+            </div>
             <div id="land-veg-grid" class="grid mx-auto"
-                 style="grid-template-columns: repeat(10, 1fr); gap: 2px; max-width: 220px;"></div>
-            <div class="mt-3 text-center font-jp text-[13px] sm:text-[14px] text-ink/70 font-bold">植物 <span style="color: #6B4E8C;">100</span></div>
+                 style="grid-template-columns: repeat(10, 1fr); gap: 2px; max-width: 280px;"></div>
           </div>
 
           <!-- VS sticker — floats in the middle -->
           <img src="/images/vegan-to-chikyu/icon-vs-symbol.png" alt="vs"
-               class="w-12 sm:w-20 anim-bobble drop-shadow-[0_6px_12px_rgba(31,24,18,0.18)]"
+               class="w-12 sm:w-20 anim-bobble drop-shadow-[0_6px_12px_rgba(31,24,18,0.18)] mb-1 sm:mb-2"
                loading="lazy"/>
 
-          <!-- RIGHT: 1 meat icon, sized exactly like ONE veg cell -->
+          <!-- RIGHT: 牛肉 label/number + 1 meat icon (same cell size as one veg) -->
           <div>
-            <div id="land-meat-cell" class="mx-auto" style="width: 22px;">
+            <div class="text-center mb-2 sm:mb-3">
+              <div class="font-jp text-[12px] sm:text-[14px] tracking-[0.06em] text-ink/70 font-bold">牛肉</div>
+              <div class="font-jp-display text-[26px] sm:text-[40px] leading-none mt-1 ticker" style="color: #4B3666;">
+                <span data-count-target="140">0</span>
+                <span class="text-[13px] sm:text-[16px] text-ink/65 font-bold ml-0.5">キロ</span>
+              </div>
+            </div>
+            <div id="land-meat-cell" class="mx-auto" style="width: 28px;">
               <img src="/images/vegan-to-chikyu/icon-beef-cut.png" alt=""
-                   class="land-unit anim-bobble drop-shadow-[0_3px_8px_rgba(31,24,18,0.18)]"
+                   class="land-unit drop-shadow-[0_3px_8px_rgba(31,24,18,0.18)]"
                    loading="lazy"/>
             </div>
-            <div class="mt-3 text-center font-jp text-[13px] sm:text-[14px] text-ink/70 font-bold">お肉 <span style="color: #4B3666;">1</span></div>
           </div>
         </div>
         <p class="mt-4 font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.75] text-center">
