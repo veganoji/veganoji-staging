@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo Lab — ビーガン王子</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;600;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --color-paper: #FFF9EE;
+      --color-cream: #FDF1DA;
+      --color-royal: #C9223A;
+      --color-royal-deep: #9C1428;
+      --color-gold: #D4A847;
+      --color-gold-deep: #9C7E2A;
+      --color-ink: #1F1812;
+      --color-muted: #786148;
+      --color-leaf: #6C9560;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+      --font-noto-serif-jp: "Noto Serif JP", serif;
+    }
+    html, body { background: #EFE9D8; color: var(--color-ink); }
+    body { font-family: var(--font-noto-sans-jp); -webkit-font-smoothing: antialiased; }
+
+    .card {
+      background: var(--color-paper);
+      border: 2px solid var(--color-ink);
+      border-radius: 18px;
+      box-shadow: 5px 5px 0 var(--color-ink);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    /* logo image sits on a soft neutral stage; each logo carries its own bg */
+    .logo-wrap {
+      background:
+        repeating-conic-gradient(#f3eedd 0% 25%, #ece5d0 0% 50%) 50% / 22px 22px;
+      display: flex; align-items: center; justify-content: center;
+      aspect-ratio: 3 / 2; border-bottom: 2px solid var(--color-ink);
+    }
+    .logo-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .logo-wrap.missing::after { content: "generating…"; color: var(--color-muted); font-size: 13px; }
+
+    .num { font-family: monospace; font-size: 12px; color: var(--color-gold-deep); font-weight: 700; }
+    .blurb { font-size: 13.5px; line-height: 1.5; color: var(--color-muted); }
+    .cmp {
+      display: inline-flex; align-items: baseline; gap: 8px;
+      background: var(--color-cream); border: 1.5px dashed var(--color-gold-deep);
+      border-radius: 10px; padding: 6px 12px;
+    }
+    .cmp .lbl { font-size: 10px; font-weight: 700; color: var(--color-gold-deep); letter-spacing: .04em; }
+    .cmp .tgt { font-size: 19px; font-weight: 700; letter-spacing: .02em; }
+    .tag { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 999px;
+           background: var(--color-royal); color: var(--color-paper); letter-spacing:.03em; }
+    .tag.alt { background: var(--color-leaf); }
+    .tag.lux { background: var(--color-ink); }
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="max-w-6xl mx-auto px-5 pt-10 pb-6">
+    <p class="text-royal font-black tracking-wide text-sm">LOGO LAB · 第一弾</p>
+    <h1 class="text-3xl sm:text-4xl font-black mt-1">「ビーガン王子」ロゴ — 10の方向性</h1>
+    <p class="text-muted mt-3 max-w-3xl leading-relaxed text-[15px]">
+      Ten different style directions for the <strong>ビーガン王子</strong> wordmark — text-forward,
+      mostly without the mascot, ranging from playful and on-brand to luxury and editorial
+      (a few deliberately <em>not</em> vegan-themed). This is a first pass to pick directions;
+      we'll expand the ones you like.
+    </p>
+    <p class="mt-3 max-w-3xl leading-relaxed text-[13.5px] text-ink/70 bg-cream border-2 border-gold-deep/40 rounded-xl px-4 py-3">
+      ⚠️ <strong>On the text:</strong> AI image models render Japanese glyphs imperfectly, so some
+      candidates may have slightly off strokes. Judge the <em>styling</em> here — for any direction
+      you choose, we lock the exact「ビーガン王子」glyphs with a real font afterwards. Each card shows
+      the correct spelling for reference.
+    </p>
+  </header>
+
+  <main id="root" class="max-w-6xl mx-auto px-5 pb-24 grid gap-6 sm:grid-cols-2"></main>
+
+  <script>
+    const TARGET = "ビーガン王子";
+    // 10 directions (order = display order)
+    const STYLES = [
+      { slug:"chibi-prince",      name:"Chibi sticker",      sub:"with mascot",   tag:"with character",
+        blurb:"Your on-brand chibi-sticker look — puffy royal-red & gold letters, cream die-cut outline, the little crowned prince waving alongside." },
+      { slug:"royal-crest",       name:"Royal crest",        sub:"emblem",        tag:"regal",
+        blurb:"A heraldic badge: gold crown, the wordmark on a deep-crimson shield, laurel flourishes. Premium and ceremonial." },
+      { slug:"fashion-editorial", name:"Fashion editorial",  sub:"masthead",      tag:"not vegan-y", alt:"lux",
+        blurb:"Thin, widely-spaced, lots of air — a luxury fashion-house masthead. Leans into the model / talent side." },
+      { slug:"brush-calligraphy", name:"Brush calligraphy",  sub:"筆文字",         tag:"traditional",
+        blurb:"Bold sumi-ink brushwork on washi with a red hanko seal. Artful, energetic, distinctly Japanese." },
+      { slug:"showa-retro",       name:"Showa retro",        sub:"昭和レトロ",      tag:"nostalgic",
+        blurb:"1970s kissaten signage — mustard, tomato red & cream, chunky rounded retro type with halftone warmth." },
+      { slug:"kawaii-bubble",     name:"Kawaii bubble pop",  sub:"アイドル",        tag:"playful",
+        blurb:"Glossy candy balloon letters, sparkles and stars. Bright idol/talent pop energy." },
+      { slug:"gold-luxury",       name:"Gold luxury",        sub:"fragrance",     tag:"not vegan-y", alt:"lux",
+        blurb:"Thin gold serif with a minimal line-art crown on matte black — an understated, expensive perfume-label feel." },
+      { slug:"geometric-modern",  name:"Geometric modern",   sub:"minimal",       tag:"clean",
+        blurb:"Confident contemporary geometry, single crimson on white, a crown hinted from simple shapes. Tech-brand crisp." },
+      { slug:"botanical-leaf",    name:"Botanical",          sub:"plant-based",   tag:"vegan-leaning", alt:"alt",
+        blurb:"Refined lettering laced with delicate leaves, vines & a small gold crown — grown-up, not childish. The one that nods to vegan." },
+      { slug:"streetwear-chrome", name:"Streetwear chrome",  sub:"Y2K",           tag:"not vegan-y",
+        blurb:"Liquid-chrome 3D letters with red & gold reflections on dark — the hype, charismatic-MC energy." },
+    ];
+
+    const root = document.getElementById("root");
+    STYLES.forEach((s, i) => {
+      const el = document.createElement("article");
+      el.className = "card";
+      const n = String(i + 1).padStart(2, "0");
+      el.innerHTML = `
+        <div class="logo-wrap">
+          <img src="candidates/${s.slug}.png" alt="${s.name}"
+               onerror="this.style.display='none';this.parentElement.classList.add('missing')">
+        </div>
+        <div class="p-5 flex flex-col gap-3 grow">
+          <div class="flex items-center gap-3">
+            <span class="num">${n}</span>
+            <h3 class="text-lg font-black">${s.name} <span class="text-muted font-bold text-sm">· ${s.sub}</span></h3>
+            <span class="tag ${s.alt||''} ml-auto">${s.tag}</span>
+          </div>
+          <p class="blurb grow">${s.blurb}</p>
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <span class="cmp"><span class="lbl">正しい表記</span><span class="tgt">${TARGET}</span></span>
+            <code class="text-[11px] text-muted">${s.slug}.png</code>
+          </div>
+        </div>`;
+      root.appendChild(el);
+    });
+  </script>
+</body>
+</html>
