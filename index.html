@@ -847,12 +847,15 @@
     .lang-menu { position: relative; }
     .lang-trigger {
       display: inline-flex; align-items: center; gap: 6px;
-      padding: 7px 12px; border-radius: 999px;
-      border: 1px solid var(--color-line); background: var(--color-paper);
-      font-size: 12px; color: var(--color-ink-soft);
-      transition: all 0.2s ease;
+      background: var(--color-paper); color: var(--color-ink);
+      font-weight: 900; font-size: 12.5px; letter-spacing: 0.04em;
+      border: 2.5px solid var(--color-ink); border-radius: 999px;
+      box-shadow: 3px 3px 0 var(--color-ink);
+      padding: 7px 14px; cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
     }
-    .lang-trigger:hover { border-color: var(--color-royal); color: var(--color-royal); }
+    .lang-trigger:hover { transform: translate(1.5px,1.5px); box-shadow: 1.5px 1.5px 0 var(--color-ink); background: var(--color-cream); }
+    .lang-trigger:active { transform: translate(2.5px,2.5px); box-shadow: 1px 1px 0 var(--color-ink); }
     .lang-dropdown {
       position: absolute; top: calc(100% + 6px); right: 0;
       min-width: 180px;
@@ -1164,10 +1167,8 @@
   <!-- ─────────────  NAV  ───────────── -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-paper/90 border-b border-line/60">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2.5">
-        <svg width="28" height="28" class="text-royal"><use href="#crown"/></svg>
-        <span class="font-jp text-[20px] tracking-wide text-ink">ビーガン王子</span>
-        <span class="hidden md:inline text-[12px] tracking-[0.18em] text-muted uppercase">Vegan Oji</span>
+      <a href="/#top" class="flex items-center" aria-label="ビーガン王子 — ホーム">
+        <img src="/images/voji-logos/vegan-oji-logo.png" alt="ビーガン王子" class="h-9 sm:h-10 lg:h-11 w-auto" loading="eager"/>
       </a>
 
       <div class="flex items-center gap-3">
