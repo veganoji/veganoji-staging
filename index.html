@@ -58,6 +58,8 @@
       --font-fun:        var(--font-noto-sans-jp);
     }
 
+    /* SR-only utility (screen readers + crawlers see this, visually hidden) */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
     html, body { background: var(--color-paper); color: var(--color-ink); }
     html { scroll-behavior: smooth; scroll-padding-top: 84px; }
     @media (max-width: 767px) { html { scroll-padding-top: 116px; } }
@@ -1216,8 +1218,14 @@
         <div class="font-jp font-semibold text-royal/85 text-[15px] sm:text-[17px] lg:text-[19px] tracking-[0.04em] mb-3 sm:mb-4">
           アレックス・デレチ ——
         </div>
-        <h1 class="font-jp-display font-black display-tight text-[15vw] sm:text-[88px] lg:text-[124px] leading-[1.02] text-ink whitespace-nowrap">
-          ビーガン<span class="text-royal">王子</span>
+        <h1 class="leading-none">
+          <!-- SR-only text for screen readers + search engines (full semantic h1) -->
+          <span class="sr-only">ビーガン王子 — Alex Derycz / アレックス・デレチ</span>
+          <!-- Visual: hand-painted watercolor logo lockup -->
+          <img src="/images/voji-logos/vegan-oji-logo.png"
+               alt="ビーガン王子"
+               class="block w-full max-w-[460px] sm:max-w-[560px] lg:max-w-[640px] h-auto"
+               loading="eager"/>
         </h1>
 
       </div>
