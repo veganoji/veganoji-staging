@@ -228,10 +228,19 @@
     /* ─── Hero logo lift — drop-shadow + soft halo + gentle breathing ─── */
     .hero-logo {
       filter:
+        drop-shadow(0 2px 4px rgba(212,168,71,0.35))  /* gold backlight halo */
         drop-shadow(0 6px 18px rgba(31,24,18,0.18))   /* soft contact shadow */
-        drop-shadow(0 2px 4px rgba(212,168,71,0.35)); /* subtle gold backlight */
+        drop-shadow(5px 5px 0 var(--color-ink));      /* HARD chibi-sticker offset */
       animation: hero-logo-breathe 6s ease-in-out infinite;
       transform-origin: 25% center;
+    }
+    @media (min-width: 1024px) {
+      .hero-logo {
+        filter:
+          drop-shadow(0 2px 5px rgba(212,168,71,0.40))
+          drop-shadow(0 8px 22px rgba(31,24,18,0.20))
+          drop-shadow(6px 6px 0 var(--color-ink));   /* slightly bigger on desktop */
+      }
     }
     @keyframes hero-logo-breathe {
       0%, 100% { transform: translateY(0) rotate(0); }
