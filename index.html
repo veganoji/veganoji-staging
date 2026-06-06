@@ -225,6 +225,22 @@
       .profile-photo-cycle > img:not(:first-of-type) { display: none; }
     }
 
+    /* ─── Hero logo lift — drop-shadow + soft halo + gentle breathing ─── */
+    .hero-logo {
+      filter:
+        drop-shadow(0 6px 18px rgba(31,24,18,0.18))   /* soft contact shadow */
+        drop-shadow(0 2px 4px rgba(212,168,71,0.35)); /* subtle gold backlight */
+      animation: hero-logo-breathe 6s ease-in-out infinite;
+      transform-origin: 25% center;
+    }
+    @keyframes hero-logo-breathe {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50%      { transform: translateY(-4px) rotate(-0.4deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-logo { animation: none; }
+    }
+
     /* Hero V7 watercolor veil — cream gradient over the countryside bg */
     .hero-veil {
       background: linear-gradient(180deg,
@@ -1224,7 +1240,7 @@
           <!-- Visual: hand-painted watercolor logo lockup -->
           <img src="/images/voji-logos/vegan-oji-logo.png"
                alt="ビーガン王子"
-               class="block w-full max-w-[460px] sm:max-w-[560px] lg:max-w-[640px] h-auto"
+               class="hero-logo block w-full max-w-[460px] sm:max-w-[560px] lg:max-w-[640px] h-auto"
                loading="eager"/>
         </h1>
 
