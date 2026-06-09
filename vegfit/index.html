@@ -309,7 +309,7 @@
 
         <div class="mt-7 flex flex-wrap gap-3 justify-center lg:justify-start">
           <a href="#join" class="btn-primary !text-[15px] sm:!text-[16px] !px-7 !py-3.5">
-            <svg width="16" height="16"><use href="#dumbbell"/></svg> 仲間になる
+            <span class="inline-flex items-center justify-center rounded-full bg-paper flex-none" style="width:22px;height:22px;box-shadow:inset 0 0 0 1.5px #1F1812;"><img src="/images/vegfit/icons/join.png" alt="" class="w-3.5 h-3.5"/></span> 仲間になる
           </a>
           <a href="#activities" class="btn-ghost !text-[15px] sm:!text-[16px] !px-7 !py-3.5">活動を見る</a>
         </div>
@@ -333,12 +333,23 @@
     </div>
   </section>
 
-  <!-- ════════════════ TAGLINE BAND ════════════════ -->
-  <section class="px-5 sm:px-8 py-4 text-paper" style="background:linear-gradient(90deg,#4FA63E,#2F7A28);">
-    <div class="max-w-[1100px] mx-auto flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-center">
-      <span class="font-display text-[17px] sm:text-[22px]">ベジ × トレ × 仲間</span>
-      <span class="opacity-70">—</span>
-      <span class="text-[13px] sm:text-[15px] font-bold opacity-95">「ベジだと力が出ない」を、行動でくつがえす。</span>
+  <!-- ════════════════ MISSION — front & center ════════════════ -->
+  <section id="mission" class="px-5 sm:px-8 py-16 sm:py-24 text-paper" style="background:
+      radial-gradient(720px 380px at 50% -12%, rgba(247,197,62,.32), transparent 65%),
+      linear-gradient(135deg,#4FA63E 0%,#2F7A28 100%);">
+    <div class="max-w-[880px] mx-auto text-center reveal">
+      <span class="inline-block text-[13px] sm:text-[15px] font-extrabold text-sun tracking-wide">ベジ × トレ × 仲間</span>
+      <h2 class="mt-3 font-display display-tight text-[34px] sm:text-[56px]">「ベジでも、強くなれる」を、<br/>言葉じゃなく、行動で。</h2>
+      <p class="mt-6 text-[16px] sm:text-[18px] leading-[2] text-paper/95">
+        ベジトレClub は、植物の力で楽しく強くなる仲間を増やし、
+        日本でプラントベースな生き方を <span class="font-black text-sun">「カッコよくて、元気で、あたりまえ」</span> にしていくコミュニティ。<br class="hidden sm:block"/>
+        走って、汗をかいて、笑って、回復して——その姿そのものが、いちばんのメッセージ。
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <a href="#join" class="btn-sun !text-[15px] sm:!text-[16px] !px-7 !py-3.5"><span class="inline-flex items-center justify-center rounded-full bg-paper flex-none" style="width:22px;height:22px;box-shadow:inset 0 0 0 1.5px #1F1812;"><img src="/images/vegfit/icons/join.png" alt="" class="w-3.5 h-3.5"/></span> 仲間になる</a>
+        <a href="#beasts" class="inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-[15px] sm:text-[16px] font-extrabold text-paper" style="background:rgba(255,255,255,.16); border:2.5px solid #FFF9EE;">世界の“当たり前”を見る</a>
+      </div>
+      <p class="mt-7 text-[13px] sm:text-[14px] text-paper/80">— ビーガン王子の活動の、ひとつのカタチとして。</p>
     </div>
   </section>
 
@@ -346,7 +357,6 @@
   <section id="about" class="px-5 sm:px-8 py-14 sm:py-24">
     <div class="max-w-[1080px] mx-auto">
       <div class="max-w-2xl mx-auto text-center reveal">
-        <span class="eyebrow"><svg width="13" height="13"><use href="#leaf"/></svg> What is ベジトレ?</span>
         <h2 class="mt-3 font-display display-tight text-[32px] sm:text-[50px] text-ink">ベジトレって、なに?</h2>
         <p class="mt-5 text-[15px] sm:text-[17px] leading-[1.95] text-ink-soft">
           ベジトレClub は、<span class="text-leaf-deep font-bold">植物の力で楽しく強くなる</span>仲間の集まり。
@@ -386,11 +396,11 @@
       linear-gradient(180deg,#F2FAEC, #FFF9EE);">
     <div class="max-w-[1100px] mx-auto">
       <div class="max-w-2xl mx-auto text-center reveal">
-        <span class="eyebrow"><svg width="13" height="13"><use href="#flame"/></svg> 植物のチカラ、ナメちゃいけない</span>
-        <h2 class="mt-3 font-display display-tight text-[32px] sm:text-[52px] text-leaf-deep">世界最強は、草食。</h2>
+        <h2 class="font-display display-tight text-[32px] sm:text-[52px] text-leaf-deep">世界最強は、草食。</h2>
         <p class="mt-5 text-[15px] sm:text-[17px] leading-[1.95] text-ink-soft">
-          ゴリラも、ゾウも、サイも、ウシも——地球で一番パワフルな動物たちは、みんな<span class="text-leaf-deep font-bold">植物</span>を食べて、あの体になっている。
-          「ベジだと力が出ない」なんて、ただの思い込み。
+          ゴリラも、ゾウも、サイも——地球で一番パワフルな動物たちは、みんな<span class="text-leaf-deep font-bold">植物</span>を食べて、あの体に。
+          そして今、世界のトップアスリートたちも、続々と植物性へ。<br class="hidden sm:block"/>
+          「ベジ＝力が出ない」は、もう昔の話。世の中の<span class="text-leaf-deep font-bold">“当たり前”</span>が、変わりはじめています。
         </p>
         <!-- power meter -->
         <div class="mt-7 max-w-[420px] mx-auto reveal">
@@ -450,7 +460,30 @@
           </div>
         </div>
       </div>
-      <p class="mt-6 text-center text-[13px] text-muted">※ ベジトレの相棒たち。トレーニングのお供に、これから少しずつ登場します。</p>
+      <!-- real athletes — the world's "当たり前" is shifting -->
+      <div class="mt-12 sm:mt-16 reveal">
+        <p class="text-center text-[15px] sm:text-[16px] text-ink-soft mb-7">動物だけじゃない。世界のトップアスリートたちも——</p>
+        <div class="grid sm:grid-cols-3 gap-4 sm:gap-5">
+          <figure class="sticker p-6 text-left m-0">
+            <div class="font-display text-[42px] leading-[0.5] text-leaf-soft">“</div>
+            <blockquote class="text-[14px] leading-[1.85] text-ink font-bold">最も強い動物は草食動物だ。ゴリラ、牛、象——そして、私だ。</blockquote>
+            <figcaption class="mt-3 text-[12.5px] text-muted"><span class="font-bold text-ink">パトリック・バブミアン</span><br/>ストロングマン世界記録</figcaption>
+          </figure>
+          <figure class="sticker p-6 text-left m-0">
+            <div class="font-display text-[42px] leading-[0.5] text-leaf-soft">“</div>
+            <blockquote class="text-[14px] leading-[1.85] text-ink font-bold">「男は肉を食え」は、ただのマーケティング。現実じゃなかった。</blockquote>
+            <figcaption class="mt-3 text-[12.5px] text-muted"><span class="font-bold text-ink">アーノルド・シュワルツェネッガー</span><br/>元ミスター・オリンピア</figcaption>
+          </figure>
+          <figure class="sticker p-6 text-left m-0">
+            <div class="font-display text-[42px] leading-[0.5] text-leaf-soft">“</div>
+            <blockquote class="text-[14px] leading-[1.85] text-ink font-bold">ビーガンにした瞬間、回復もエネルギーも、はっきり変わった。</blockquote>
+            <figcaption class="mt-3 text-[12.5px] text-muted"><span class="font-bold text-ink">ニマイ・デルガド</span><br/>IFBBプロ・ボディビルダー</figcaption>
+          </figure>
+        </div>
+        <div class="text-center mt-7">
+          <a href="https://veganoji.jp/vegan-to-karada/" target="_blank" rel="noopener" class="btn-ghost !text-[14px]">科学とアスリートの声をもっと <svg width="13" height="13"><use href="#arrow"/></svg></a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -458,7 +491,6 @@
   <section id="activities" class="px-5 sm:px-8 py-14 sm:py-24">
     <div class="max-w-[1080px] mx-auto">
       <div class="max-w-2xl mx-auto text-center reveal">
-        <span class="eyebrow"><svg width="13" height="13"><use href="#run"/></svg> What we do</span>
         <h2 class="mt-3 font-display display-tight text-[32px] sm:text-[50px] text-ink">なにして、あそぶ?</h2>
         <p class="mt-5 text-[15px] sm:text-[16px] leading-[1.95] text-ink-soft">レースもトレも、ぜんぶ自由参加。気になるものに、ふらっとどうぞ。</p>
       </div>
@@ -496,7 +528,6 @@
   <section id="events" class="px-5 sm:px-8 py-14 sm:py-24" style="background:linear-gradient(180deg,#FFF9EE,#F2FAEC);">
     <div class="max-w-[1000px] mx-auto">
       <div class="max-w-2xl mx-auto text-center reveal">
-        <span class="eyebrow"><svg width="13" height="13"><use href="#calendar"/></svg> Adventures</span>
         <h2 class="mt-3 font-display display-tight text-[32px] sm:text-[50px] text-ink">これまでの冒険</h2>
         <p class="mt-5 text-[15px] sm:text-[16px] leading-[1.95] text-ink-soft">ベジトレの仲間が、実際に走って・登ってきた記録。次は、あなたの番。</p>
       </div>
@@ -538,46 +569,15 @@
     </div>
   </section>
 
-  <!-- ════════════════ NUTRITION / PLANT POWER ════════════════ -->
-  <section class="px-5 sm:px-8 py-14 sm:py-24">
-    <div class="max-w-[1000px] mx-auto">
-      <div class="max-w-2xl mx-auto text-center reveal">
-        <span class="eyebrow"><svg width="13" height="13"><use href="#leaf"/></svg> Plant fuel</span>
-        <h2 class="mt-3 font-display display-tight text-[30px] sm:text-[48px] text-ink">植物で、ちゃんと動ける。</h2>
-        <p class="mt-5 text-[15px] sm:text-[16px] leading-[1.95] text-ink-soft">むずかしい栄養学はナシ。続けやすい、ゆるっと実践tipsだけ。</p>
-      </div>
-
-      <div class="mt-10 grid sm:grid-cols-3 gap-5 reveal">
-        <div class="sticker sticker-hover p-6">
-          <div class="text-[34px]">🍙</div>
-          <h3 class="mt-2 font-display text-[18px] text-ink">リカバリーは“炭水化物+たんぱく質”</h3>
-          <p class="mt-2 text-[13.5px] leading-[1.85] text-ink-soft">走ったあとは、おにぎり+豆乳でも十分。30〜60分以内に、さっと補給。</p>
-        </div>
-        <div class="sticker sticker-hover p-6">
-          <div class="text-[34px]">🫘</div>
-          <h3 class="mt-2 font-display text-[18px] text-ink">たんぱく質は豆と大豆から</h3>
-          <p class="mt-2 text-[13.5px] leading-[1.85] text-ink-soft">大豆製品・豆・全粒・ナッツ。組み合わせれば、植物だけでもしっかり。</p>
-        </div>
-        <div class="sticker sticker-hover p-6">
-          <div class="text-[34px]">😋</div>
-          <h3 class="mt-2 font-display text-[18px] text-ink">続けるコツは“ゆるく・楽しく”</h3>
-          <p class="mt-2 text-[13.5px] leading-[1.85] text-ink-soft">完璧主義より継続。「今日は植物多めにできた」で大成功。</p>
-        </div>
-      </div>
-      <p class="mt-5 text-center text-[12.5px] text-muted">※ 一般的な情報です。体調や持病に合わせて、無理なく。心配なときは専門家に相談を。</p>
-    </div>
-  </section>
-
-  <!-- ════════════════ JOIN / PRICING ════════════════ -->
+<!-- ════════════════ JOIN / PRICING ════════════════ -->
   <section id="join" class="px-5 sm:px-8 py-14 sm:py-24" style="background:
       radial-gradient(800px 360px at 80% 0%, rgba(247,197,62,.28), transparent 60%),
       linear-gradient(180deg,#F2FAEC,#FFF9EE);">
     <div class="max-w-[1080px] mx-auto">
       <div class="max-w-2xl mx-auto text-center reveal">
-        <span class="eyebrow"><svg width="13" height="13"><use href="#dumbbell"/></svg> Join the Club</span>
         <h2 class="mt-3 font-display display-tight text-[32px] sm:text-[52px] text-leaf-deep">仲間になろう。</h2>
         <p class="mt-5 text-[15px] sm:text-[16px] leading-[1.95] text-ink-soft">
-          月額メンバーになると、<span class="font-bold text-ink">Monday イベントボード・メンバーLINE・イベント調整・ベジ補給tips</span> がぜんぶ使えます。
+          月額メンバーになると、<span class="font-bold text-ink">Monday イベントボード・メンバーLINE・イベント調整・ベジ栄養の情報交換</span> がぜんぶ使えます。
           いつでも解約OK。まずは気軽に、のぞいてみて。
         </p>
       </div>
@@ -593,7 +593,7 @@
             <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> Monday イベントボード</li>
             <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> メンバーLINEコミュニティ</li>
             <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> イベント調整・呼びかけ</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> ベジ補給・回復tips</li>
+            <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> ベジ栄養・回復tipsを仲間とシェア</li>
           </ul>
           <!-- TODO: replace href with the Stripe subscription link for the ¥500 tier -->
           <a href="#join" data-stripe="member-500" class="btn-primary w-full mt-6 !text-[15px]">¥500で参加する</a>
@@ -645,25 +645,10 @@
     </div>
   </section>
 
-  <!-- ════════════════ MISSION ════════════════ -->
-  <section class="px-5 sm:px-8 py-16 sm:py-24 text-paper" style="background:linear-gradient(135deg,#4FA63E 0%,#2F7A28 100%);">
-    <div class="max-w-[820px] mx-auto text-center reveal">
-      <span class="inline-flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase font-extrabold text-sun"><svg width="13" height="13"><use href="#flame"/></svg> Our Mission</span>
-      <h2 class="mt-4 font-display display-tight text-[30px] sm:text-[46px]">「ベジでも、強くなれる」を、<br/>言葉じゃなく、行動で。</h2>
-      <p class="mt-6 text-[15px] sm:text-[17px] leading-[2] text-paper/95">
-        ベジトレClub は、植物の力で楽しく強くなる仲間を増やし、
-        日本でプラントベースな生き方を <span class="font-bold text-sun">「カッコよくて、元気で、あたりまえ」</span> にしていくコミュニティです。
-        走って、汗をかいて、笑って、回復して——その姿そのものが、いちばんのメッセージ。
-      </p>
-      <p class="mt-5 text-[13px] sm:text-[14px] text-paper/80">ビーガン王子の活動の、ひとつのカタチとして。</p>
-    </div>
-  </section>
-
-  <!-- ════════════════ RULES ════════════════ -->
+<!-- ════════════════ RULES ════════════════ -->
   <section class="px-5 sm:px-8 py-14 sm:py-24">
     <div class="max-w-[920px] mx-auto">
       <div class="text-center reveal">
-        <span class="eyebrow"><svg width="13" height="13"><use href="#heart"/></svg> House rules</span>
         <h2 class="mt-3 font-display display-tight text-[30px] sm:text-[46px] text-ink">5つの、ゆる約束。</h2>
         <p class="mt-4 text-[15px] text-ink-soft">楽しく・安全に・ベジで。それだけ守れば、あとは自由。</p>
       </div>
@@ -682,7 +667,6 @@
   <section class="px-5 sm:px-8 py-14 sm:py-24" style="background:linear-gradient(180deg,#FFF9EE,#F2FAEC);">
     <div class="max-w-[760px] mx-auto">
       <div class="text-center reveal">
-        <span class="eyebrow"><svg width="13" height="13"><use href="#spark"/></svg> FAQ</span>
         <h2 class="mt-3 font-display display-tight text-[30px] sm:text-[46px] text-ink">よくある質問</h2>
       </div>
       <div class="mt-10 reveal">
@@ -695,11 +679,28 @@
     </div>
   </section>
 
+  <!-- ════════════════ からだ CROSS-LINK CARD ════════════════ -->
+  <section class="px-5 sm:px-8 py-12 sm:py-16">
+    <div class="max-w-[920px] mx-auto reveal">
+      <a href="https://veganoji.jp/vegan-to-karada/" target="_blank" rel="noopener"
+         class="sticker sticker-hover block overflow-hidden" style="background:linear-gradient(135deg,#E55063,#C9223A); text-decoration:none;">
+        <div class="flex items-center gap-4 sm:gap-7 p-5 sm:p-8">
+          <img src="/images/ui-icons/heart.png" alt="" class="w-16 sm:w-24 h-16 sm:h-24 object-contain flex-none drop-shadow-[0_6px_10px_rgba(0,0,0,.22)]"/>
+          <div class="flex-1 text-left text-paper">
+            <p class="text-[11px] tracking-[0.18em] uppercase font-extrabold text-paper/85">もっと知る</p>
+            <h3 class="font-display text-[21px] sm:text-[28px] leading-tight mt-1">ベジで、ほんとに強く・健康になれる?</h3>
+            <p class="mt-2 text-[13.5px] sm:text-[14.5px] leading-[1.7] text-paper/90">科学のエビデンスと、世界のアスリートの声で。「ビーガンと体」を、わかりやすく。</p>
+            <span class="inline-flex items-center gap-2 mt-4 font-extrabold text-[13.5px] sm:text-[14px] rounded-xl px-4 py-2.5" style="background:#FFF9EE; color:#C9223A; border:2.5px solid #1F1812; box-shadow:3px 3px 0 #1F1812;">ビーガンと体を読む <svg width="13" height="13"><use href="#arrow"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- ════════════════ ABOUT VEGAN OJI ════════════════ -->
   <section class="px-5 sm:px-8 py-14 sm:py-24">
     <div class="max-w-[920px] mx-auto grid sm:grid-cols-[1fr_auto] gap-8 sm:gap-12 items-center reveal">
       <div class="text-center sm:text-left order-2 sm:order-1">
-        <span class="eyebrow"><svg width="13" height="13"><use href="#crown"/></svg> Powered by ビーガン王子</span>
         <h2 class="mt-3 font-display display-tight text-[28px] sm:text-[40px] text-ink">主宰 · ビーガン王子</h2>
         <p class="mt-2 text-[13px] tracking-[0.14em] text-muted font-bold">デレチ・アレックス</p>
         <p class="mt-5 text-[15px] sm:text-[16px] leading-[2] text-ink-soft">
@@ -709,7 +710,7 @@
         </p>
         <div class="mt-7 flex flex-wrap gap-3 justify-center sm:justify-start">
           <a href="https://veganoji.jp/" target="_blank" rel="noopener" class="btn-ghost !text-[14px] sm:!text-[15px]">王子のサイトへ</a>
-          <a href="#join" class="btn-primary !text-[14px] sm:!text-[15px]"><svg width="14" height="14"><use href="#dumbbell"/></svg> 仲間になる</a>
+          <a href="#join" class="btn-primary !text-[14px] sm:!text-[15px]"><span class="inline-flex items-center justify-center rounded-full bg-paper flex-none" style="width:20px;height:20px;box-shadow:inset 0 0 0 1.5px #1F1812;"><img src="/images/vegfit/icons/join.png" alt="" class="w-3 h-3"/></span> 仲間になる</a>
         </div>
       </div>
       <div class="flex justify-center order-1 sm:order-2">
@@ -728,7 +729,7 @@
       </div>
 
       <div class="flex flex-wrap gap-3 justify-center">
-        <a href="#join" class="btn-primary !text-[15px]"><svg width="15" height="15"><use href="#dumbbell"/></svg> 仲間になる</a>
+        <a href="#join" class="btn-primary !text-[15px]"><span class="inline-flex items-center justify-center rounded-full bg-paper flex-none" style="width:22px;height:22px;box-shadow:inset 0 0 0 1.5px #1F1812;"><img src="/images/vegfit/icons/join.png" alt="" class="w-3.5 h-3.5"/></span> 仲間になる</a>
         <a href="#events" class="btn-ghost !text-[15px]">活動を見る</a>
       </div>
 
