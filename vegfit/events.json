@@ -1,0 +1,29 @@
+{
+  "updated": "2026-06-09",
+  "events": [
+    {
+      "name": "2026函館マラソン",
+      "date": "2026-06-28",
+      "month": 6,
+      "day": 28,
+      "location": "北海道函館市（函館どつくスポーツガーデン／千代台公園陸上競技場 発着）",
+      "distance": "フル42.195km / ハーフ21.0975km",
+      "type": "",
+      "link": "https://hakodate-marathon.jp/",
+      "registered": 1,
+      "interested": 0
+    },
+    {
+      "name": "SPARTANスーパー",
+      "date": "2026-07-25",
+      "month": 7,
+      "day": 25,
+      "location": "裾野市（富士山の近く）",
+      "distance": "10キロ",
+      "type": "スパルタン",
+      "link": "https://spartanracejapan.jp/race/",
+      "registered": 1,
+      "interested": 0
+    }
+  ]
+}
