@@ -749,14 +749,20 @@
     // Duplicate the beast marquee track for a seamless loop
     (function () { var t = document.getElementById('beast-track'); if (t) t.innerHTML += t.innerHTML; })();
 
-    // Upcoming events — pulled from Monday into events.json (auto-refreshed)
+    // Upcoming events — live from Monday via N8N (cached ~1h), with the committed events.json as fallback
     (function () {
       var wrap = document.getElementById('upcoming-wrap'), grid = document.getElementById('upcoming-events');
       if (!grid) return;
       var M = ['', '1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-      fetch('/vegfit/events.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
-        if (!d || !d.events || !d.events.length) return;
-        d.events.slice(0, 6).forEach(function (e) {
+      var LIVE = 'https://ojidigital.app.n8n.cloud/webhook/vegfit-events';
+      var CACHE = 'vegfit_events_v1';
+      function render(d) {
+        if (!d || !d.events) return;
+        var t0 = new Date(); t0.setHours(0, 0, 0, 0);
+        var ev = d.events.filter(function (e) { var dd = new Date((e.date || '') + 'T00:00:00'); return !isNaN(dd.getTime()) && dd >= t0; });
+        if (!ev.length) return;
+        grid.innerHTML = '';
+        ev.slice(0, 6).forEach(function (e) {
           var a = document.createElement('a'); a.className = 'up-card';
           if (e.link) { a.href = e.link; a.target = '_blank'; a.rel = 'noopener'; }
           var loc = (e.location || '').replace(/[（(].*$/, '').trim();
@@ -770,7 +776,13 @@
           grid.appendChild(a);
         });
         if (wrap) wrap.classList.remove('hidden');
-      }).catch(function () {});
+      }
+      function fallback() { fetch('/vegfit/events.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(render).catch(function () {}); }
+      try { var c = JSON.parse(localStorage.getItem(CACHE) || 'null'); if (c && c.d && (Date.now() - c.t) < 3600000) { render(c.d); return; } } catch (e) {}
+      fetch(LIVE, { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : Promise.reject(); }).then(function (d) {
+        render(d);
+        try { localStorage.setItem(CACHE, JSON.stringify({ t: Date.now(), d: d })); } catch (e) {}
+      }).catch(fallback);
     })();
   </script>
 </body>
