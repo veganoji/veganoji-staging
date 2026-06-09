@@ -175,6 +175,18 @@
     .race-chip { display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:12.5px; color:var(--color-ink);
       background:var(--color-paper); border:2px solid var(--color-ink); border-radius:999px; padding:6px 12px; box-shadow:2px 2px 0 var(--color-ink); }
     .race-chip b { color:#3F7A28; font-weight:900; }
+    .race-chip { flex-shrink:0; }
+
+    /* ── Side-scroll on mobile, grid on desktop ── */
+    .no-sb { scrollbar-width:none; -ms-overflow-style:none; }
+    .no-sb::-webkit-scrollbar { display:none; }
+    .sc-row { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:12px; align-items:flex-start; scrollbar-width:none; -ms-overflow-style:none; }
+    .sc-row::-webkit-scrollbar { display:none; }
+    .sc-row > * { flex:0 0 82%; max-width:300px; scroll-snap-align:start; }
+    @media (min-width:640px){
+      .sc-row { display:grid; gap:24px; overflow:visible; padding-bottom:0; }
+      .sc-row > * { flex:none; max-width:none; width:auto; }
+    }
 
     /* ── Upcoming event card (dynamic, from Monday → events.json) ── */
     .up-card { display:flex; gap:12px; align-items:stretch; text-decoration:none; background:var(--color-paper);
@@ -309,7 +321,7 @@
         </h1>
         <p class="mt-5 mx-auto lg:mx-0 max-w-[560px] text-[15px] sm:text-[17px] leading-[1.95] text-ink-soft">
           走る・登る・泳ぐ・笑う。<br class="hidden sm:block"/>
-          ランニングもトライアスロンもスパルタンも、<span class="text-leaf-deep font-bold">ベジな仲間</span>と一緒なら、ぜんぶ冒険。<br/>
+          <span class="text-leaf-deep font-bold">ベジって、こんなに楽しい。</span>仲間と一緒に、もっと強くなろう。<br/>
           初心者も、ベジ初心者も、大歓迎。
         </p>
 
@@ -337,8 +349,8 @@
           <!-- floating mascots + sticker bubbles -->
           <img src="/images/vegfit/animals/gorilla.png" alt="" class="hero-beast bob w-24 sm:w-32 lg:w-36" style="bottom:-7%; left:-11%;" loading="eager"/>
           <img src="/images/vegfit/animals/rabbit.png" alt="" class="hero-beast floaty-2 w-16 sm:w-24 lg:w-28" style="top:-6%; right:-7%;" loading="eager"/>
-          <div class="bubble floaty"   style="top:18%; left:-5%;">🥦</div>
-          <div class="bubble floaty-3" style="bottom:10%; right:-6%;">🏅</div>
+          <div class="bubble lg floaty"   style="top:16%; left:-7%;"><img src="/images/vegfit/icons/food_burger.png" alt=""/></div>
+          <div class="bubble lg floaty-3" style="bottom:8%; right:-7%;"><img src="/images/vegfit/icons/food_ramen.png" alt=""/></div>
           <svg class="sparkle absolute text-sun" style="top:3%; left:36%; width:26px;height:26px;"><use href="#spark"/></svg>
           <svg class="sparkle absolute text-carrot" style="bottom:26%; left:-1%; width:18px;height:18px; animation-delay:1s;"><use href="#spark"/></svg>
         </div>
@@ -358,10 +370,6 @@
         日本でプラントベースな生き方を <span class="font-black text-sun">「カッコよくて、元気で、あたりまえ」</span> にしていくコミュニティ。<br class="hidden sm:block"/>
         走って、汗をかいて、笑って、回復して——その姿そのものが、いちばんのメッセージ。
       </p>
-      <div class="mt-8 flex flex-wrap gap-3 justify-center">
-        <a href="#join" class="btn-sun !text-[15px] sm:!text-[16px] !px-7 !py-3.5"><span class="inline-flex items-center justify-center rounded-full bg-paper flex-none" style="width:22px;height:22px;box-shadow:inset 0 0 0 1.5px #1F1812;"><img src="/images/vegfit/icons/join.png" alt="" class="w-3.5 h-3.5"/></span> 仲間になる</a>
-        <a href="#beasts" class="inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-[15px] sm:text-[16px] font-extrabold text-paper" style="background:rgba(255,255,255,.16); border:2.5px solid #FFF9EE;">世界の“当たり前”を見る</a>
-      </div>
     </div>
   </section>
 
@@ -376,7 +384,7 @@
         </p>
       </div>
 
-      <div class="mt-10 sm:mt-14 grid sm:grid-cols-3 gap-5 sm:gap-6">
+      <div class="mt-10 sm:mt-14 sc-row sm:grid-cols-3">
         <!-- ベジ -->
         <div class="sticker sticker-hover p-7 text-center reveal">
           <img src="/images/vegfit/icons/c_veji.png" alt="" class="w-20 h-20 mx-auto mb-3 object-contain"/>
@@ -429,12 +437,7 @@
       <!-- real athletes — the world's "当たり前" is shifting -->
       <div class="mt-12 sm:mt-16 reveal">
         <p class="text-center text-[15px] sm:text-[16px] text-ink-soft mb-7">動物だけじゃない。世界のトップアスリートたちも——</p>
-        <div class="grid sm:grid-cols-3 gap-4 sm:gap-5">
-          <figure class="sticker p-6 text-left m-0">
-            <div class="font-display text-[42px] leading-[0.5] text-leaf-soft">“</div>
-            <blockquote class="text-[14px] leading-[1.85] text-ink font-bold">最も強い動物は草食動物だ。ゴリラ、牛、象——そして、私だ。</blockquote>
-            <figcaption class="mt-3 text-[12.5px] text-muted"><span class="font-bold text-ink">パトリック・バブミアン</span><br/>ストロングマン世界記録</figcaption>
-          </figure>
+        <div class="sc-row sm:grid-cols-3">
           <figure class="sticker p-6 text-left m-0">
             <div class="font-display text-[42px] leading-[0.5] text-leaf-soft">“</div>
             <blockquote class="text-[14px] leading-[1.85] text-ink font-bold">「男は肉を食え」は、ただのマーケティング。現実じゃなかった。</blockquote>
@@ -444,6 +447,11 @@
             <div class="font-display text-[42px] leading-[0.5] text-leaf-soft">“</div>
             <blockquote class="text-[14px] leading-[1.85] text-ink font-bold">ビーガンにした瞬間、回復もエネルギーも、はっきり変わった。</blockquote>
             <figcaption class="mt-3 text-[12.5px] text-muted"><span class="font-bold text-ink">ニマイ・デルガド</span><br/>IFBBプロ・ボディビルダー</figcaption>
+          </figure>
+          <figure class="sticker p-6 text-left m-0">
+            <div class="font-display text-[42px] leading-[0.5] text-leaf-soft">“</div>
+            <blockquote class="text-[14px] leading-[1.85] text-ink font-bold">最も強い動物は草食動物だ。ゴリラ、牛、象——そして、私だ。</blockquote>
+            <figcaption class="mt-3 text-[12.5px] text-muted"><span class="font-bold text-ink">パトリック・バブミアン</span><br/>ストロングマン世界記録</figcaption>
           </figure>
         </div>
         <!-- studies -->
@@ -489,27 +497,13 @@
         </div>
         <h3 class="text-center font-display text-[22px] sm:text-[30px] text-ink">これまでの冒険</h3>
         <p class="text-center mt-2 text-[14px] text-ink-soft">仲間が実際に走って・登ってきた記録。次は、あなたの番。</p>
-        <div class="mt-6 flex flex-wrap justify-center gap-2 sm:gap-2.5">
+        <div class="mt-6 flex gap-2.5 overflow-x-auto pb-2 no-sb sm:flex-wrap sm:justify-center sm:overflow-visible sm:pb-0">
           <span class="race-chip"><b>✓</b> 2026.03 はるな梅マラソン</span>
           <span class="race-chip"><b>✓</b> 2026.03 ソウルマラソン 🇰🇷</span>
           <span class="race-chip"><b>✓</b> 2026.05 いいづなトレイル</span>
           <span class="race-chip"><b>✓</b> 2026.05 横浜トライアスロン</span>
           <span class="race-chip"><b>✓</b> 2026.05 SPARTAN 千葉</span>
           <span class="race-chip"><b>✓</b> 2026.06 あだち荒川</span>
-        </div>
-        <p class="text-center mt-7 text-[13px] font-extrabold text-carrot-deep">行きたいレース・募集中</p>
-        <div class="mt-3 flex flex-wrap justify-center gap-2 sm:gap-2.5">
-          <span class="chip-tag !text-[12.5px] !py-1.5">SPARTAN Sprint / Super / Beast</span>
-          <span class="chip-tag !text-[12.5px] !py-1.5">函館マラソン</span>
-          <span class="chip-tag !text-[12.5px] !py-1.5">金沢</span>
-          <span class="chip-tag !text-[12.5px] !py-1.5">湘南</span>
-          <span class="chip-tag !text-[12.5px] !py-1.5">姫路城マラソン</span>
-          <span class="chip-tag !text-[12.5px] !py-1.5">+ あなたの推し</span>
-        </div>
-        <div class="mt-8 text-center">
-          <p class="text-[14px] text-ink-soft mb-3">次の冒険は、みんなの <span class="font-bold text-leaf-deep">Mondayイベントボード</span> で。</p>
-          <!-- TODO: replace with the real Monday board URL -->
-          <a href="#join" class="btn-primary !text-[14px] sm:!text-[15px]"><svg width="15" height="15"><use href="#calendar"/></svg> イベントボードを見る</a>
         </div>
       </div>
     </div>
@@ -528,7 +522,7 @@
         </p>
       </div>
 
-      <div class="mt-12 grid sm:grid-cols-3 gap-5 sm:gap-6 items-start">
+      <div class="mt-12 sc-row sm:grid-cols-3">
         <!-- メンバー -->
         <div class="price-pop sticker p-7 reveal">
           <span class="ribbon">いちばん人気</span>
@@ -565,22 +559,25 @@
         <div class="price-pop sticker p-7 reveal" style="background:#F4EAD6;">
           <h3 class="font-display text-[20px] text-ink">特別サポーター</h3>
           <p class="text-[12px] text-muted font-bold uppercase tracking-wide">Big Supporter</p>
-          <div class="mt-4 flex items-end gap-1"><span class="font-display text-[40px] text-wood leading-none">¥2,000</span><span class="text-[14px] text-muted font-bold pb-1">〜/月</span></div>
-          <p class="mt-2 text-[12.5px] text-muted">好きな金額で、もっと応援。</p>
+          <p class="mt-3 text-[13.5px] leading-[1.7] text-ink-soft">好きな金額で、活動をもっと応援。選んだ額が毎月の応援になります。</p>
           <ul class="mt-4 space-y-2.5 text-[13.5px] text-ink-soft">
             <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#check"/></svg> サポーター特典、ぜんぶ</li>
             <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#check"/></svg> お名前を大きく掲載</li>
             <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#crown"/></svg> 王子から特別なありがとう</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#heart"/></svg> ベジトレの活動を、力強く後押し</li>
           </ul>
-          <!-- TODO: replace href with the Stripe subscription link for the ¥2,000+ / custom tier -->
-          <a href="https://buy.stripe.com/cNicN40rM9ADbG3cSDao809" target="_blank" rel="noopener" data-stripe="big-supporter" class="btn-ghost w-full mt-6 !text-[15px]">金額を選んで応援</a>
+          <p class="mt-5 text-[12px] font-bold text-muted text-center">金額を選ぶ（月額）</p>
+          <div class="mt-2 grid grid-cols-2 gap-2">
+            <a href="https://buy.stripe.com/fZu8wO5M6cMP4dB5qbao80a" target="_blank" rel="noopener" data-stripe="support-2000" class="btn-ghost !text-[14px] !px-2 !py-2.5">¥2,000</a>
+            <a href="https://buy.stripe.com/5kQ5kC0rM7sv5hF8Cnao80b" target="_blank" rel="noopener" data-stripe="support-3000" class="btn-ghost !text-[14px] !px-2 !py-2.5">¥3,000</a>
+            <a href="https://buy.stripe.com/7sY28qcaudQT11p2dZao80c" target="_blank" rel="noopener" data-stripe="support-5000" class="btn-ghost !text-[14px] !px-2 !py-2.5">¥5,000</a>
+            <a href="https://buy.stripe.com/eVq5kC1vQbIL9xV3i3ao80d" target="_blank" rel="noopener" data-stripe="support-10000" class="btn-ghost !text-[14px] !px-2 !py-2.5">¥10,000</a>
+          </div>
         </div>
       </div>
 
       <!-- free on-ramp -->
       <div class="mt-10 sticker p-6 sm:p-7 flex flex-col sm:flex-row items-center gap-5 reveal" style="background:#EAF7E3;">
-        <div class="text-[40px]">👀</div>
+        <img src="/images/vegfit/icons/join2.png" alt="" class="w-16 h-16 sm:w-20 sm:h-20 object-contain flex-none"/>
         <div class="text-center sm:text-left flex-1">
           <h3 class="font-display text-[18px] text-ink">まずは無料で、のぞいてみて。</h3>
           <p class="mt-1 text-[13.5px] leading-[1.85] text-ink-soft">Instagram (@veganoji) で、ベジトレの空気は無料で味わえます。メンバー限定のLINEコミュニティには、参加後にご招待します。</p>
@@ -600,7 +597,7 @@
         <p class="mt-4 text-[15px] text-ink-soft">楽しく・安全に・ベジで。それだけ守れば、あとは自由。</p>
       </div>
 
-      <div class="mt-10 grid sm:grid-cols-2 gap-4 reveal">
+      <div class="mt-10 reveal sc-row sm:grid-cols-2">
         <div class="sticker p-6 flex gap-4"><div class="font-display text-[28px] text-leaf-soft leading-none">01</div><div><h3 class="font-display text-[17px] text-ink">だれでもウェルカム</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">ビーガンも、ベジタリアンも、ちょっと気になる人も。差別は、しない。</p></div></div>
         <div class="sticker p-6 flex gap-4"><div class="font-display text-[28px] text-leaf-soft leading-none">02</div><div><h3 class="font-display text-[17px] text-ink">楽しく、安全に</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">無理はしない。自分の体は自分で守る(レース参加は自己責任で)。</p></div></div>
         <div class="sticker p-6 flex gap-4"><div class="font-display text-[28px] text-leaf-soft leading-none">03</div><div><h3 class="font-display text-[17px] text-ink">押しつけない、でも楽しむ</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">ベジを誰かに強制しない。自分は、ベジを思いっきり楽しむ。</p></div></div>
