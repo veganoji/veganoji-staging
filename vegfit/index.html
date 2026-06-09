@@ -148,6 +148,27 @@
     .beast:nth-child(5) .beast-art img{ animation-delay:.8s; }
     .beast:nth-child(6) .beast-art img{ animation-delay:1.3s; }
     .beast:hover .beast-art img { animation-play-state:paused; transform:translateY(-6px) rotate(-3deg) scale(1.06); }
+
+    /* ── Beast marquee (auto-scroll, pause on hover) ── */
+    .beast-rail { overflow:hidden; position:relative;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+              mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent); }
+    .beast-track { display:flex; gap:14px; width:max-content; animation: beastScroll 36s linear infinite; }
+    .beast-rail:hover .beast-track { animation-play-state: paused; }
+    @keyframes beastScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .beast-card { width:140px; flex-shrink:0; text-align:center; }
+    .beast-card .art { width:140px; height:140px; display:flex; align-items:center; justify-content:center;
+      border:2.5px solid var(--color-ink); border-radius:24px; box-shadow:4px 5px 0 var(--color-ink);
+      background:radial-gradient(circle at 50% 38%, #ffffff 0%, #EAF6E2 70%, #D7EECB 100%); }
+    .beast-card .art img { width:86%; height:86%; object-fit:contain; }
+    .beast-card .nm { margin-top:8px; font-weight:800; font-size:14px; color:var(--color-ink); }
+    @media (max-width:640px){ .beast-card,.beast-card .art{ width:118px; } .beast-card .art{ height:118px; } }
+    @media (prefers-reduced-motion: reduce){ .beast-track{ animation:none; } }
+
+    /* ── Race chip (compact past-event pill) ── */
+    .race-chip { display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:12.5px; color:var(--color-ink);
+      background:var(--color-paper); border:2px solid var(--color-ink); border-radius:999px; padding:6px 12px; box-shadow:2px 2px 0 var(--color-ink); }
+    .race-chip b { color:#3F7A28; font-weight:900; }
     @media (min-width:640px){ .beast-art{ font-size:108px; } }
 
     /* ── Power meter (fills on reveal) ── */
@@ -349,7 +370,6 @@
         <a href="#join" class="btn-sun !text-[15px] sm:!text-[16px] !px-7 !py-3.5"><span class="inline-flex items-center justify-center rounded-full bg-paper flex-none" style="width:22px;height:22px;box-shadow:inset 0 0 0 1.5px #1F1812;"><img src="/images/vegfit/icons/join.png" alt="" class="w-3.5 h-3.5"/></span> 仲間になる</a>
         <a href="#beasts" class="inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-[15px] sm:text-[16px] font-extrabold text-paper" style="background:rgba(255,255,255,.16); border:2.5px solid #FFF9EE;">世界の“当たり前”を見る</a>
       </div>
-      <p class="mt-7 text-[13px] sm:text-[14px] text-paper/80">— ビーガン王子の活動の、ひとつのカタチとして。</p>
     </div>
   </section>
 
@@ -367,21 +387,21 @@
       <div class="mt-10 sm:mt-14 grid sm:grid-cols-3 gap-5 sm:gap-6">
         <!-- ベジ -->
         <div class="sticker sticker-hover p-7 text-center reveal">
-          <div class="ico mx-auto mb-4 text-paper" style="background:#4FA63E;"><svg><use href="#leaf"/></svg></div>
+          <img src="/images/vegfit/icons/c_veji.png" alt="" class="w-20 h-20 mx-auto mb-3 object-contain"/>
           <h3 class="font-display text-[22px] text-ink">ベジ</h3>
           <p class="mt-1 text-[12px] tracking-[0.14em] uppercase text-muted font-extrabold">Plant-based</p>
           <p class="mt-3 text-[14px] leading-[1.9] text-ink-soft">植物性の食事で、ちゃんと動けて、ちゃんと回復できる。100%じゃなくてOK。「ちょっと気になる」から始めよう。</p>
         </div>
         <!-- トレ -->
         <div class="sticker sticker-hover p-7 text-center reveal">
-          <div class="ico mx-auto mb-4 text-paper" style="background:#EE7B1E;"><svg><use href="#dumbbell"/></svg></div>
+          <img src="/images/vegfit/icons/c_tore.png" alt="" class="w-20 h-20 mx-auto mb-3 object-contain"/>
           <h3 class="font-display text-[22px] text-ink">トレ</h3>
           <p class="mt-1 text-[12px] tracking-[0.14em] uppercase text-muted font-extrabold">Training</p>
           <p class="mt-3 text-[14px] leading-[1.9] text-ink-soft">走る・登る・泳ぐ・鍛える。レースもゆるトレも。タイムより、続けること。一歩からで大丈夫。</p>
         </div>
         <!-- 仲間 -->
         <div class="sticker sticker-hover p-7 text-center reveal">
-          <div class="ico mx-auto mb-4 text-paper" style="background:#4FB6E6;"><svg><use href="#users"/></svg></div>
+          <img src="/images/vegfit/icons/c_nakama.png" alt="" class="w-20 h-20 mx-auto mb-3 object-contain"/>
           <h3 class="font-display text-[22px] text-ink">仲間</h3>
           <p class="mt-1 text-[12px] tracking-[0.14em] uppercase text-muted font-extrabold">Club</p>
           <p class="mt-3 text-[14px] leading-[1.9] text-ink-soft">一人だと続かないことも、みんなとなら冒険になる。イベント、練習、ベジな打ち上げ。つながって、応援し合おう。</p>
@@ -398,66 +418,20 @@
       <div class="max-w-2xl mx-auto text-center reveal">
         <h2 class="font-display display-tight text-[32px] sm:text-[52px] text-leaf-deep">世界最強は、草食。</h2>
         <p class="mt-5 text-[15px] sm:text-[17px] leading-[1.95] text-ink-soft">
-          ゴリラも、ゾウも、サイも——地球で一番パワフルな動物たちは、みんな<span class="text-leaf-deep font-bold">植物</span>を食べて、あの体に。
-          そして今、世界のトップアスリートたちも、続々と植物性へ。<br class="hidden sm:block"/>
+          ゴリラも、ゾウも、サイも——地球で一番パワフルな動物たちは、みんな<span class="text-leaf-deep font-bold">植物</span>で、あの体に。
           「ベジ＝力が出ない」は、もう昔の話。世の中の<span class="text-leaf-deep font-bold">“当たり前”</span>が、変わりはじめています。
         </p>
-        <!-- power meter -->
-        <div class="mt-7 max-w-[420px] mx-auto reveal">
-          <div class="flex justify-between text-[12px] font-extrabold text-ink-soft mb-1.5"><span>植物パワー</span><span class="text-leaf-deep">MAX 💪</span></div>
-          <div class="meter" style="--fill:96%;"><span></span></div>
-        </div>
       </div>
 
-      <!-- beast grid -->
-      <div class="mt-10 sm:mt-14 grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        <!-- gorilla -->
-        <div class="beast sticker sticker-hover overflow-hidden reveal">
-          <div class="beast-art"><img src="/images/vegfit/animals/gorilla.png" alt="筋トレするゴリラ" loading="lazy" onerror="this.replaceWith(document.createTextNode('🦍'))"/></div>
-          <div class="p-4 sm:p-5 text-center">
-            <h3 class="font-display text-[18px] sm:text-[20px] text-ink">ゴリラ</h3>
-            <p class="mt-1.5 text-[13px] leading-[1.8] text-ink-soft">ジャングルの筋肉王。主食は葉っぱと果実だけ。</p>
-          </div>
-        </div>
-        <!-- elephant -->
-        <div class="beast sticker sticker-hover overflow-hidden reveal">
-          <div class="beast-art"><img src="/images/vegfit/animals/elephant.png" alt="筋トレするゾウ" loading="lazy" onerror="this.replaceWith(document.createTextNode('🐘'))"/></div>
-          <div class="p-4 sm:p-5 text-center">
-            <h3 class="font-display text-[18px] sm:text-[20px] text-ink">ゾウ</h3>
-            <p class="mt-1.5 text-[13px] leading-[1.8] text-ink-soft">地上最大のパワー。その巨体、ぜんぶ植物でできてる。</p>
-          </div>
-        </div>
-        <!-- rhino -->
-        <div class="beast sticker sticker-hover overflow-hidden reveal">
-          <div class="beast-art"><img src="/images/vegfit/animals/rhino.png" alt="筋トレするサイ" loading="lazy" onerror="this.replaceWith(document.createTextNode('🦏'))"/></div>
-          <div class="p-4 sm:p-5 text-center">
-            <h3 class="font-display text-[18px] sm:text-[20px] text-ink">サイ</h3>
-            <p class="mt-1.5 text-[13px] leading-[1.8] text-ink-soft">天然の重装甲。草だけで、あの突進力。</p>
-          </div>
-        </div>
-        <!-- bull -->
-        <div class="beast sticker sticker-hover overflow-hidden reveal">
-          <div class="beast-art"><img src="/images/vegfit/animals/bull.png" alt="筋トレするウシ" loading="lazy" onerror="this.replaceWith(document.createTextNode('🐂'))"/></div>
-          <div class="p-4 sm:p-5 text-center">
-            <h3 class="font-display text-[18px] sm:text-[20px] text-ink">ウシ</h3>
-            <p class="mt-1.5 text-[13px] leading-[1.8] text-ink-soft">あの背中の筋肉、原料は草100%。</p>
-          </div>
-        </div>
-        <!-- horse -->
-        <div class="beast sticker sticker-hover overflow-hidden reveal">
-          <div class="beast-art"><img src="/images/vegfit/animals/horse.png" alt="走るウマ" loading="lazy" onerror="this.replaceWith(document.createTextNode('🐎'))"/></div>
-          <div class="p-4 sm:p-5 text-center">
-            <h3 class="font-display text-[18px] sm:text-[20px] text-ink">ウマ</h3>
-            <p class="mt-1.5 text-[13px] leading-[1.8] text-ink-soft">何キロでも走るスタミナの化身。草食ランナー。</p>
-          </div>
-        </div>
-        <!-- rabbit -->
-        <div class="beast sticker sticker-hover overflow-hidden reveal">
-          <div class="beast-art"><img src="/images/vegfit/animals/rabbit.png" alt="跳ねるウサギ" loading="lazy" onerror="this.replaceWith(document.createTextNode('🐇'))"/></div>
-          <div class="p-4 sm:p-5 text-center">
-            <h3 class="font-display text-[18px] sm:text-[20px] text-ink">ウサギ</h3>
-            <p class="mt-1.5 text-[13px] leading-[1.8] text-ink-soft">小さくても瞬発力おばけ。ダッシュ担当。</p>
-          </div>
+      <!-- beast marquee (auto-scroll; cards duplicated by JS for a seamless loop) -->
+      <div class="beast-rail mt-9 sm:mt-12 reveal">
+        <div class="beast-track" id="beast-track">
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/gorilla.png" alt="ゴリラ"/></div><div class="nm">ゴリラ</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/elephant.png" alt="ゾウ"/></div><div class="nm">ゾウ</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/rhino.png" alt="サイ"/></div><div class="nm">サイ</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/bull.png" alt="ウシ"/></div><div class="nm">ウシ</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/horse.png" alt="ウマ"/></div><div class="nm">ウマ</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/rabbit.png" alt="ウサギ"/></div><div class="nm">ウサギ</div></div>
         </div>
       </div>
       <!-- real athletes — the world's "当たり前" is shifting -->
@@ -480,6 +454,14 @@
             <figcaption class="mt-3 text-[12.5px] text-muted"><span class="font-bold text-ink">ニマイ・デルガド</span><br/>IFBBプロ・ボディビルダー</figcaption>
           </figure>
         </div>
+        <!-- studies -->
+        <div class="mt-9 max-w-[680px] mx-auto sticker p-5 sm:p-6" style="background:#F2FAEC;">
+          <p class="text-center text-[13px] font-extrabold text-leaf-deep mb-3 tracking-wide">研究でも、明らかに。</p>
+          <ul class="space-y-2.5 text-[13px] sm:text-[13.5px] leading-[1.7] text-ink-soft">
+            <li class="flex gap-2"><svg width="16" height="16" class="text-leaf flex-none" style="margin-top:3px;"><use href="#check"/></svg><span>植物性プロテインでも、<b class="text-ink">筋肉・筋力の増え方は動物性と同じ</b>。<a href="https://pubmed.ncbi.nlm.nih.gov/33599941/" target="_blank" rel="noopener" class="text-leaf-deep font-bold underline whitespace-nowrap">研究↗</a></span></li>
+            <li class="flex gap-2"><svg width="16" height="16" class="text-leaf flex-none" style="margin-top:3px;"><use href="#check"/></svg><span>植物性の食事でも<b class="text-ink">たんぱく質は十分</b>。アスリートを含む全世代に適切（米国栄養士会）。<a href="https://pubmed.ncbi.nlm.nih.gov/27886704/" target="_blank" rel="noopener" class="text-leaf-deep font-bold underline whitespace-nowrap">研究↗</a></span></li>
+          </ul>
+        </div>
         <div class="text-center mt-7">
           <a href="https://veganoji.jp/vegan-to-karada/" target="_blank" rel="noopener" class="btn-ghost !text-[14px]">科学とアスリートの声をもっと <svg width="13" height="13"><use href="#arrow"/></svg></a>
         </div>
@@ -487,83 +469,49 @@
     </div>
   </section>
 
-  <!-- ════════════════ ACTIVITIES ════════════════ -->
-  <section id="activities" class="px-5 sm:px-8 py-14 sm:py-24">
+  <!-- ════════════════ ACTIVITIES + ADVENTURES (merged) ════════════════ -->
+  <section id="activities" class="px-5 sm:px-8 py-14 sm:py-24" style="background:linear-gradient(180deg,#FFF9EE,#F2FAEC);">
     <div class="max-w-[1080px] mx-auto">
       <div class="max-w-2xl mx-auto text-center reveal">
-        <h2 class="mt-3 font-display display-tight text-[32px] sm:text-[50px] text-ink">なにして、あそぶ?</h2>
+        <h2 class="font-display display-tight text-[32px] sm:text-[50px] text-ink">なにして、あそぶ?</h2>
         <p class="mt-5 text-[15px] sm:text-[16px] leading-[1.95] text-ink-soft">レースもトレも、ぜんぶ自由参加。気になるものに、ふらっとどうぞ。</p>
       </div>
 
-      <div class="mt-10 sm:mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        <div class="sticker sticker-hover p-5 flex items-start gap-4 reveal">
-          <div class="ico text-paper" style="background:#4FA63E;"><svg><use href="#run"/></svg></div>
-          <div><h3 class="font-display text-[17px] text-ink">ランニング</h3><p class="mt-1 text-[13.5px] leading-[1.8] text-ink-soft">5kmから、フルマラソンまで。ゆるジョグも大歓迎。</p></div>
-        </div>
-        <div class="sticker sticker-hover p-5 flex items-start gap-4 reveal">
-          <div class="ico text-paper" style="background:#2F7A28;"><svg><use href="#mountain"/></svg></div>
-          <div><h3 class="font-display text-[17px] text-ink">トレイルラン</h3><p class="mt-1 text-[13.5px] leading-[1.8] text-ink-soft">山を走る。自然のなかで、心も整う。</p></div>
-        </div>
-        <div class="sticker sticker-hover p-5 flex items-start gap-4 reveal">
-          <div class="ico text-paper" style="background:#4FB6E6;"><svg><use href="#wave"/></svg></div>
-          <div><h3 class="font-display text-[17px] text-ink">トライアスロン</h3><p class="mt-1 text-[13.5px] leading-[1.8] text-ink-soft">泳ぐ・漕ぐ・走る。三種目の冒険に挑戦。</p></div>
-        </div>
-        <div class="sticker sticker-hover p-5 flex items-start gap-4 reveal">
-          <div class="ico text-paper" style="background:#EE7B1E;"><svg><use href="#flame"/></svg></div>
-          <div><h3 class="font-display text-[17px] text-ink">スパルタン・OCR</h3><p class="mt-1 text-[13.5px] leading-[1.8] text-ink-soft">障害物レース。泥まみれで、最高に笑える。</p></div>
-        </div>
-        <div class="sticker sticker-hover p-5 flex items-start gap-4 reveal">
-          <div class="ico text-paper" style="background:#C9223A;"><svg><use href="#dumbbell"/></svg></div>
-          <div><h3 class="font-display text-[17px] text-ink">みんなで練習</h3><p class="mt-1 text-[13.5px] leading-[1.8] text-ink-soft">誰でも練習会を主催OK。一緒に走ろう・鍛えよう。</p></div>
-        </div>
-        <div class="sticker sticker-hover p-5 flex items-start gap-4 reveal">
-          <div class="ico text-paper" style="background:#9A6A33;"><svg><use href="#heart"/></svg></div>
-          <div><h3 class="font-display text-[17px] text-ink">ベジな打ち上げ</h3><p class="mt-1 text-[13.5px] leading-[1.8] text-ink-soft">レースのあとは、ビーガングルメで乾杯。これが本番?</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════ EVENTS ════════════════ -->
-  <section id="events" class="px-5 sm:px-8 py-14 sm:py-24" style="background:linear-gradient(180deg,#FFF9EE,#F2FAEC);">
-    <div class="max-w-[1000px] mx-auto">
-      <div class="max-w-2xl mx-auto text-center reveal">
-        <h2 class="mt-3 font-display display-tight text-[32px] sm:text-[50px] text-ink">これまでの冒険</h2>
-        <p class="mt-5 text-[15px] sm:text-[16px] leading-[1.95] text-ink-soft">ベジトレの仲間が、実際に走って・登ってきた記録。次は、あなたの番。</p>
+      <!-- activity types (compact) -->
+      <div class="mt-9 sm:mt-12 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 reveal">
+        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_run.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">ランニング</h3></div>
+        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_trail.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">トレイルラン</h3></div>
+        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_tri.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">トライアスロン</h3></div>
+        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_spartan.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">スパルタン・OCR</h3></div>
+        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_practice.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">みんなで練習</h3></div>
+        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_party.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">ベジな打ち上げ</h3></div>
       </div>
 
-      <div class="mt-10 grid sm:grid-cols-2 gap-3.5 reveal">
-        <div class="ev"><span class="date">2026.03.08</span><span class="font-bold text-ink text-[14px]">はるな梅マラソン</span><span class="done">完走</span></div>
-        <div class="ev"><span class="date">2026.03.15</span><span class="font-bold text-ink text-[14px]">ソウルマラソン 🇰🇷</span><span class="done">完走</span></div>
-        <div class="ev"><span class="date">2026.05.02</span><span class="font-bold text-ink text-[14px]">いいづなトレイルラン</span><span class="done">完走</span></div>
-        <div class="ev"><span class="date">2026.05.17</span><span class="font-bold text-ink text-[14px]">横浜トライアスロン</span><span class="done">完走</span></div>
-        <div class="ev"><span class="date">2026.05.31</span><span class="font-bold text-ink text-[14px]">SPARTAN 千葉</span><span class="done">完走</span></div>
-        <div class="ev"><span class="date">2026.06.07</span><span class="font-bold text-ink text-[14px]">あだち荒川マラソン</span><span class="done">完走</span></div>
-      </div>
-
-      <!-- wishlist -->
-      <div class="mt-10 sticker p-6 sm:p-8 reveal" style="background:#FDF1DA;">
-        <div class="flex items-center gap-2 justify-center">
-          <svg width="18" height="18" class="text-carrot"><use href="#spark"/></svg>
-          <h3 class="font-display text-[18px] sm:text-[22px] text-ink">行きたいレース・募集中</h3>
+      <!-- past adventures (compact) -->
+      <div id="events" class="mt-14 sm:mt-16 reveal">
+        <h3 class="text-center font-display text-[22px] sm:text-[30px] text-ink">これまでの冒険</h3>
+        <p class="text-center mt-2 text-[14px] text-ink-soft">仲間が実際に走って・登ってきた記録。次は、あなたの番。</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-2 sm:gap-2.5">
+          <span class="race-chip"><b>✓</b> 2026.03 はるな梅マラソン</span>
+          <span class="race-chip"><b>✓</b> 2026.03 ソウルマラソン 🇰🇷</span>
+          <span class="race-chip"><b>✓</b> 2026.05 いいづなトレイル</span>
+          <span class="race-chip"><b>✓</b> 2026.05 横浜トライアスロン</span>
+          <span class="race-chip"><b>✓</b> 2026.05 SPARTAN 千葉</span>
+          <span class="race-chip"><b>✓</b> 2026.06 あだち荒川</span>
         </div>
-        <div class="mt-4 flex flex-wrap gap-2.5 justify-center">
-          <span class="chip-tag">SPARTAN Sprint / Super / Beast</span>
-          <span class="chip-tag">函館マラソン</span>
-          <span class="chip-tag">金沢</span>
-          <span class="chip-tag">湘南</span>
-          <span class="chip-tag">姫路城マラソン</span>
-          <span class="chip-tag">+ あなたの推しレース</span>
+        <p class="text-center mt-7 text-[13px] font-extrabold text-carrot-deep">行きたいレース・募集中</p>
+        <div class="mt-3 flex flex-wrap justify-center gap-2 sm:gap-2.5">
+          <span class="chip-tag !text-[12.5px] !py-1.5">SPARTAN Sprint / Super / Beast</span>
+          <span class="chip-tag !text-[12.5px] !py-1.5">函館マラソン</span>
+          <span class="chip-tag !text-[12.5px] !py-1.5">金沢</span>
+          <span class="chip-tag !text-[12.5px] !py-1.5">湘南</span>
+          <span class="chip-tag !text-[12.5px] !py-1.5">姫路城マラソン</span>
+          <span class="chip-tag !text-[12.5px] !py-1.5">+ あなたの推し</span>
         </div>
-      </div>
-
-      <!-- board CTA -->
-      <div class="mt-8 text-center reveal">
-        <p class="text-[15px] text-ink-soft mb-4">次の冒険は、みんなの <span class="font-bold text-leaf-deep">Monday イベントボード</span> で。誰がどのレースに出るか、ひと目でわかる。</p>
-        <div class="flex flex-wrap gap-3 justify-center">
+        <div class="mt-8 text-center">
+          <p class="text-[14px] text-ink-soft mb-3">次の冒険は、みんなの <span class="font-bold text-leaf-deep">Mondayイベントボード</span> で。</p>
           <!-- TODO: replace with the real Monday board URL -->
-          <a href="#join" class="btn-primary !text-[15px] sm:!text-[16px] !px-7 !py-3.5"><svg width="16" height="16"><use href="#calendar"/></svg> イベントボードを見る</a>
-          <a href="#join" class="btn-sun !text-[15px] sm:!text-[16px] !px-7 !py-3.5">一緒に走る仲間になる</a>
+          <a href="#join" class="btn-primary !text-[14px] sm:!text-[15px]"><svg width="15" height="15"><use href="#calendar"/></svg> イベントボードを見る</a>
         </div>
       </div>
     </div>
@@ -674,7 +622,8 @@
         <details class="faq"><summary><span class="q">Q</span>運動初心者でも大丈夫?<span class="tw">+</span></summary><div class="a">大丈夫です。むしろ初心者が主役。5kmのゆるジョグから始める人がほとんど。レベル不問・ノルマなし。出たいイベントに、出たいときだけ。</div></details>
         <details class="faq"><summary><span class="q">Q</span>地方や海外に住んでいても参加できる?<span class="tw">+</span></summary><div class="a">できます。LINEコミュニティやイベントボードはどこからでも。離れていても応援したい人には、サポーター枠がぴったりです。</div></details>
         <details class="faq"><summary><span class="q">Q</span>支払いは? 解約はできる?<span class="tw">+</span></summary><div class="a">Stripe(クレジットカード)での月額制です。いつでも解約OK。気軽に始めて、合わなければやめられます。</div></details>
-        <details class="faq"><summary><span class="q">Q</span>必ずイベントに出ないとダメ?<span class="tw">+</span></summary><div class="a">いいえ、ノルマはありません。見るだけでも、応援だけでもOK。「今月は忙しいから来月から」も、もちろんアリです。</div></details>
+        <details class="faq"><summary><span class="q">Q</span>必ずイベントに出ないとダメ?<span class="tw">+</span></summary><div class="a">いいえ、ノルマはありません。LINEコミュニティで質問したり、雑談したり、仲間と知り合うだけでも大歓迎。見る専・応援専もOK。出たいイベントに、出たいときだけどうぞ。</div></details>
+        <details class="faq"><summary><span class="q">Q</span>Stravaのグループはある?<span class="tw">+</span></summary><div class="a">あります！ベジトレの Strava クラブで、ランやライドの記録をシェアして応援し合っています。参加してくれたメンバーを、順次ご招待します。<a href="https://www.strava.com/clubs/1757566" target="_blank" rel="noopener" class="text-leaf-deep font-bold underline">Stravaクラブを見る ↗</a></div></details>
       </div>
     </div>
   </section>
@@ -685,12 +634,11 @@
       <a href="https://veganoji.jp/vegan-to-karada/" target="_blank" rel="noopener"
          class="sticker sticker-hover block overflow-hidden" style="background:linear-gradient(135deg,#E55063,#C9223A); text-decoration:none;">
         <div class="flex items-center gap-4 sm:gap-7 p-5 sm:p-8">
-          <img src="/images/ui-icons/heart.png" alt="" class="w-16 sm:w-24 h-16 sm:h-24 object-contain flex-none drop-shadow-[0_6px_10px_rgba(0,0,0,.22)]"/>
+          <img src="/images/vegfit/icons/h_flexheart.png" alt="" class="w-20 sm:w-28 h-20 sm:h-28 object-contain flex-none drop-shadow-[0_6px_10px_rgba(0,0,0,.22)]"/>
           <div class="flex-1 text-left text-paper">
-            <p class="text-[11px] tracking-[0.18em] uppercase font-extrabold text-paper/85">もっと知る</p>
-            <h3 class="font-display text-[21px] sm:text-[28px] leading-tight mt-1">ベジで、ほんとに強く・健康になれる?</h3>
+            <h3 class="font-display text-[22px] sm:text-[30px] leading-tight">ベジで、ほんとに強く・健康になれる?</h3>
             <p class="mt-2 text-[13.5px] sm:text-[14.5px] leading-[1.7] text-paper/90">科学のエビデンスと、世界のアスリートの声で。「ビーガンと体」を、わかりやすく。</p>
-            <span class="inline-flex items-center gap-2 mt-4 font-extrabold text-[13.5px] sm:text-[14px] rounded-xl px-4 py-2.5" style="background:#FFF9EE; color:#C9223A; border:2.5px solid #1F1812; box-shadow:3px 3px 0 #1F1812;">ビーガンと体を読む <svg width="13" height="13"><use href="#arrow"/></svg></span>
+            <span class="inline-flex items-center gap-2 mt-4 font-extrabold text-[13.5px] sm:text-[14px] rounded-xl px-4 py-2.5" style="background:#FFF9EE; color:#C9223A; border:2.5px solid #1F1812; box-shadow:3px 3px 0 #1F1812;">答えを見てみる <svg width="13" height="13"><use href="#arrow"/></svg></span>
           </div>
         </div>
       </a>
@@ -772,6 +720,9 @@
         if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
     });
+
+    // Duplicate the beast marquee track for a seamless loop
+    (function () { var t = document.getElementById('beast-track'); if (t) t.innerHTML += t.innerHTML; })();
   </script>
 </body>
 </html>
