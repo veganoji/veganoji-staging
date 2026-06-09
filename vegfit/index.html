@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ベジトレClub — 植物の力で、楽しく強くなる。 | ビーガン王子</title>
   <meta name="description" content="ベジトレClubは、植物の力で楽しく強くなる日本のプラントベース・フィットネス・コミュニティ。ランニング・トレイル・トライアスロン・スパルタンなどのイベントに、ベジな仲間と一緒に挑戦しよう。初心者・ベジ初心者も大歓迎。" />
-  <meta name="robots" content="noindex,nofollow" />
+  <meta name="robots" content="index,follow" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -242,38 +242,6 @@
   </style>
 </head>
 <body>
-
-  <!-- ════════════════ PIN GATE (preview lock — remove when launching publicly) ════════════════ -->
-  <div id="gate" style="position:fixed; inset:0; z-index:99999; display:flex; align-items:center; justify-content:center; padding:24px; background:linear-gradient(160deg,#4FA63E,#2F7A28); font-family:'Noto Sans JP',sans-serif;">
-    <div style="background:#FFF9EE; border:3px solid #1F1812; border-radius:24px; box-shadow:8px 10px 0 #1F1812; max-width:380px; width:100%; padding:32px 26px; text-align:center;">
-      <img src="/images/vegfit/logo.png" alt="ベジトレClub" style="height:64px; width:auto; margin:0 auto 14px; display:block;"/>
-      <div style="font-weight:900; font-size:20px; color:#1F1812;">メンバー限定プレビュー</div>
-      <div style="margin-top:8px; font-size:13.5px; line-height:1.7; color:#3C2E22;">このページは準備中です。<br/>PINコードを入力してください。</div>
-      <input id="gate-pin" type="password" inputmode="numeric" autocomplete="off" placeholder="PIN" maxlength="8"
-        style="margin-top:18px; width:100%; box-sizing:border-box; text-align:center; letter-spacing:.4em; font-size:20px; font-weight:800; padding:12px; border:2.5px solid #1F1812; border-radius:14px; background:#fff; color:#1F1812; outline:none;"/>
-      <div id="gate-err" style="height:18px; margin-top:8px; font-size:12.5px; font-weight:800; color:#C9223A;"></div>
-      <button id="gate-go" type="button"
-        style="margin-top:6px; width:100%; cursor:pointer; font-family:inherit; font-weight:800; font-size:15px; color:#FFF9EE; background:#EE7B1E; border:2.5px solid #1F1812; border-radius:14px; box-shadow:4px 4px 0 #1F1812; padding:13px;">入る</button>
-    </div>
-  </div>
-  <script>
-    (function(){
-      var KEY='vegfit_gate', PIN='2558', DAYS=31, g=document.getElementById('gate');
-      function authed(){ try{ var v=JSON.parse(localStorage.getItem(KEY)||'{}'); return v.exp && Date.now()<v.exp; }catch(e){ return false; } }
-      if(authed()){ g.parentNode.removeChild(g); return; }
-      document.documentElement.style.overflow='hidden';
-      var inp=document.getElementById('gate-pin'), err=document.getElementById('gate-err'), go=document.getElementById('gate-go');
-      function tryPin(){
-        if(inp.value.trim()===PIN){
-          try{ localStorage.setItem(KEY, JSON.stringify({exp: Date.now()+DAYS*864e5})); }catch(e){}
-          document.documentElement.style.overflow=''; g.parentNode.removeChild(g);
-        } else { err.textContent='PINが違います'; inp.value=''; inp.focus(); }
-      }
-      go.addEventListener('click', tryPin);
-      inp.addEventListener('keydown', function(e){ if(e.key==='Enter') tryPin(); });
-      setTimeout(function(){ inp.focus(); }, 60);
-    })();
-  </script>
 
   <!-- ── SVG sprite ── -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -554,7 +522,13 @@
         </p>
       </div>
 
-      <div class="mt-12 grid sm:grid-cols-3 gap-5 sm:gap-6 items-start">
+      <!-- interim: online payment pending (Stripe links coming); remove this banner + restore Stripe hrefs when ready -->
+      <div class="mt-7 max-w-[680px] mx-auto sticker p-4 sm:p-5 text-center reveal" style="background:#FDF1DA;">
+        <p class="text-[14px] sm:text-[15px] font-extrabold text-ink">🔜 オンライン決済（Stripe）は近日スタート！</p>
+        <p class="mt-1 text-[12.5px] sm:text-[13px] text-ink-soft">それまでは <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="text-leaf-deep font-bold underline">Instagram（@veganoji）</a> に「ベジトレ参加希望」とDMで、<span class="font-bold">先行受付中</span>です。</p>
+      </div>
+
+      <div class="mt-7 grid sm:grid-cols-3 gap-5 sm:gap-6 items-start">
         <!-- メンバー -->
         <div class="price-pop sticker p-7 reveal">
           <span class="ribbon">いちばん人気</span>
@@ -569,7 +543,7 @@
             <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> ベジ栄養・回復tipsを仲間とシェア</li>
           </ul>
           <!-- TODO: replace href with the Stripe subscription link for the ¥500 tier -->
-          <a href="#join" data-stripe="member-500" class="btn-primary w-full mt-6 !text-[15px]">¥500で参加する</a>
+          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" data-stripe="member-500" class="btn-primary w-full mt-6 !text-[15px]">¥500で参加する</a>
         </div>
 
         <!-- サポーター -->
@@ -584,7 +558,7 @@
             <li class="flex gap-2"><svg width="18" height="18" class="text-carrot flex-none"><use href="#heart"/></svg> 近くにいなくても、応援できる</li>
           </ul>
           <!-- TODO: replace href with the Stripe subscription link for the ¥1,000 tier -->
-          <a href="#join" data-stripe="supporter-1000" class="btn-sun w-full mt-6 !text-[15px]">¥1,000で応援する</a>
+          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" data-stripe="supporter-1000" class="btn-sun w-full mt-6 !text-[15px]">¥1,000で応援する</a>
         </div>
 
         <!-- 特別サポーター -->
@@ -600,7 +574,7 @@
             <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#heart"/></svg> ベジトレの活動を、力強く後押し</li>
           </ul>
           <!-- TODO: replace href with the Stripe subscription link for the ¥2,000+ / custom tier -->
-          <a href="#join" data-stripe="big-supporter" class="btn-ghost w-full mt-6 !text-[15px]">金額を選んで応援</a>
+          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" data-stripe="big-supporter" class="btn-ghost w-full mt-6 !text-[15px]">金額を選んで応援</a>
         </div>
       </div>
 
