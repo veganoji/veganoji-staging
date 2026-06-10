@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ベジトレ — Hero背景ラボ</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{ --ink:#1F1812; --ink-soft:#3C2E22; --muted:#6E5B45; --paper:#FFF9EE; --leaf:#4FA63E; --leaf-deep:#2F7A28; --carrot:#EE7B1E; --sun:#F7C53E; }
+    *{ box-sizing:border-box; }
+    body{ margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink); background:#EFEAD8; -webkit-font-smoothing:antialiased; }
+    .topbar{ position:sticky; top:0; z-index:50; background:#fff; border-bottom:2px solid rgba(31,24,18,.12); padding:14px 20px; display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+    .topbar h1{ font-size:17px; font-weight:900; margin:0; }
+    .topbar p{ margin:0; font-size:13px; color:var(--muted); }
+    .toggle{ margin-left:auto; font-size:13px; font-weight:800; border:2px solid var(--ink); background:var(--paper); border-radius:999px; padding:6px 14px; cursor:pointer; box-shadow:2px 2px 0 var(--ink); }
+
+    .prev{ position:relative; overflow:hidden; min-height:560px; display:flex; align-items:center; }
+    @media (max-width:760px){ .prev{ min-height:520px; } }
+    .bgimg{ position:absolute; inset:0; background-size:cover; background-position:center; z-index:0; }
+    .veil{ position:absolute; inset:0; z-index:1; pointer-events:none;
+      background:linear-gradient(105deg, rgba(255,249,238,.92) 0%, rgba(255,249,238,.66) 34%, rgba(255,249,238,.22) 64%, rgba(255,249,238,0) 100%); }
+    @media (max-width:760px){ .veil{ background:linear-gradient(180deg, rgba(255,249,238,.25) 0%, rgba(255,249,238,.5) 42%, rgba(255,249,238,.9) 78%, var(--paper) 100%); } }
+    .prev.noveil .veil{ display:none; }
+    .badge{ position:absolute; top:14px; left:14px; z-index:5; font-weight:900; font-size:13px; color:#fff; background:var(--leaf-deep); border:2px solid var(--ink); border-radius:999px; padding:5px 14px; box-shadow:2px 2px 0 var(--ink); }
+    .num{ position:absolute; top:14px; right:14px; z-index:5; font-weight:900; font-size:13px; color:var(--ink); background:var(--sun); border:2px solid var(--ink); border-radius:999px; padding:5px 12px; box-shadow:2px 2px 0 var(--ink); }
+
+    .inner{ position:relative; z-index:3; width:100%; max-width:1180px; margin:0 auto; padding:40px 28px; display:grid; grid-template-columns:1fr; gap:10px; align-items:center; }
+    @media (min-width:760px){ .inner{ grid-template-columns:7fr 5fr; gap:24px; padding:48px 40px; } }
+    .htext{ text-align:center; order:2; } @media(min-width:760px){ .htext{ text-align:left; order:1; } }
+    .eyebrow{ font-size:12px; letter-spacing:.16em; font-weight:800; color:var(--leaf-deep); text-transform:uppercase; }
+    .htext h2{ font-weight:900; letter-spacing:-.035em; line-height:.98; font-size:42px; margin:12px 0 0; }
+    @media(min-width:760px){ .htext h2{ font-size:64px; } }
+    .htext h2 .g{ color:var(--leaf-deep); }
+    .sub{ margin:16px 0 0; font-size:15px; line-height:1.9; color:var(--ink-soft); }
+    .chips{ margin-top:18px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; } @media(min-width:760px){ .chips{ justify-content:flex-start; } }
+    .chip{ font-size:13px; font-weight:800; background:var(--paper); border:2px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink); }
+    .ctas{ margin-top:22px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center; } @media(min-width:760px){ .ctas{ justify-content:flex-start; } }
+    .btn{ font-weight:800; font-size:15px; border:2.5px solid var(--ink); border-radius:16px; box-shadow:4px 4px 0 var(--ink); padding:13px 26px; }
+    .btnp{ background:var(--leaf); color:var(--paper); } .btng{ background:var(--paper); color:var(--leaf-deep); }
+
+    .hlogo{ position:relative; order:1; max-width:300px; margin:0 auto; } @media(min-width:760px){ .hlogo{ order:2; max-width:420px; } }
+    .hlogo > img.logo{ width:100%; height:auto; display:block; filter:drop-shadow(0 16px 28px rgba(31,24,18,.18)); }
+    .hb{ position:absolute; z-index:6; height:auto; filter:drop-shadow(0 10px 14px rgba(31,24,18,.22)); }
+    .bub{ position:absolute; display:flex; align-items:center; justify-content:center; width:66px; height:66px; border-radius:50%; border:3px solid var(--ink); box-shadow:3px 4px 0 rgba(31,24,18,.3); background:var(--paper); z-index:5; overflow:hidden; }
+    .bub img{ width:76%; height:76%; object-fit:contain; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div>
+      <h1>ベジトレ — Hero背景ラボ 🌱</h1>
+      <p>気に入った背景の<b>名前か番号</b>を教えてください（例：「track にして」）。実際のヒーローに反映します。</p>
+    </div>
+    <button class="toggle" id="toggle">ヴェールを消す</button>
+  </div>
+  <div id="previews"></div>
+
+  <script>
+    var BGS = [
+      { id:'meadow',    jp:'草原（水彩）' },
+      { id:'park',      jp:'公園（イラスト）' },
+      { id:'leaves',    jp:'リーフ柄' },
+      { id:'track',     jp:'トラック（金色）' },
+      { id:'botanical', jp:'ボタニカル' },
+      { id:'sky',       jp:'空＆虹' }
+    ];
+    var wrap = document.getElementById('previews');
+    BGS.forEach(function (b, i) {
+      var s = document.createElement('section');
+      s.className = 'prev';
+      s.innerHTML =
+        '<div class="bgimg" style="background-image:url(/images/vegfit/bg/bg_' + b.id + '.jpg)"></div>' +
+        '<div class="veil"></div>' +
+        '<span class="badge">' + b.id + ' ・ ' + b.jp + '</span>' +
+        '<span class="num">#' + (i + 1) + '</span>' +
+        '<div class="inner">' +
+          '<div class="htext">' +
+            '<div class="eyebrow">🌱 日本のプラントベース・フィットネス・コミュニティ</div>' +
+            '<h2>植物の力で、<br><span class="g">楽しく強くなる。</span></h2>' +
+            '<p class="sub">走る・登る・泳ぐ・笑う。<br>ベジって、こんなに楽しい。仲間と一緒に、もっと強くなろう。</p>' +
+            '<div class="chips"><span class="chip">✓ レベル不問</span><span class="chip">✓ ノルマなし</span><span class="chip">✓ だれでも歓迎</span></div>' +
+            '<div class="ctas"><span class="btn btnp">仲間になる</span><span class="btn btng">活動を見る</span></div>' +
+          '</div>' +
+          '<div class="hlogo">' +
+            '<img class="logo" src="/images/vegfit/logo.png" alt="ベジトレClub">' +
+            '<img class="hb" src="/images/vegfit/animals/gorilla.png" style="bottom:-7%;left:-11%;width:34%">' +
+            '<img class="hb" src="/images/vegfit/animals/rabbit.png" style="top:-6%;right:-7%;width:26%">' +
+            '<div class="bub" style="top:16%;left:-7%"><img src="/images/vegfit/icons/food_burger.png"></div>' +
+            '<div class="bub" style="bottom:8%;right:-7%"><img src="/images/vegfit/icons/food_ramen.png"></div>' +
+          '</div>' +
+        '</div>';
+      wrap.appendChild(s);
+    });
+    document.getElementById('toggle').addEventListener('click', function () {
+      var on = document.querySelector('.prev').classList.toggle('noveil');
+      document.querySelectorAll('.prev').forEach(function (p) { p.classList.toggle('noveil', on); });
+      this.textContent = on ? 'ヴェールを表示' : 'ヴェールを消す';
+    });
+  </script>
+</body>
+</html>

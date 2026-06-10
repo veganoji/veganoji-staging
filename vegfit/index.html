@@ -159,10 +159,11 @@
     .beast-rail { overflow:hidden; position:relative;
       -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
               mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent); }
-    .beast-track { display:flex; gap:14px; width:max-content; animation: beastScroll 36s linear infinite; }
+    .beast-track { display:flex; width:max-content; animation: beastScroll 36s linear infinite; }
     .beast-rail:hover .beast-track { animation-play-state: paused; }
     @keyframes beastScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .beast-card { width:140px; flex-shrink:0; text-align:center; }
+    .beast-card { width:140px; flex-shrink:0; text-align:center; margin-right:14px; }
+    .beast-card .tag { margin-top:2px; font-size:11px; line-height:1.3; color:var(--color-muted); }
     .beast-card .art { width:140px; height:140px; display:flex; align-items:center; justify-content:center;
       border:2.5px solid var(--color-ink); border-radius:24px; box-shadow:4px 5px 0 var(--color-ink);
       background:radial-gradient(circle at 50% 38%, #ffffff 0%, #EAF6E2 70%, #D7EECB 100%); }
@@ -175,7 +176,14 @@
     .race-chip { display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:12.5px; color:var(--color-ink);
       background:var(--color-paper); border:2px solid var(--color-ink); border-radius:999px; padding:6px 12px; box-shadow:2px 2px 0 var(--color-ink); }
     .race-chip b { color:#3F7A28; font-weight:900; }
-    .race-chip { flex-shrink:0; }
+    .race-chip { flex-shrink:0; margin-right:10px; }
+    .race-marquee { overflow:hidden; display:flex; flex-direction:column; gap:10px;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); }
+    .race-track { display:flex; width:max-content; animation: raceScroll 26s linear infinite; }
+    .race-track-2 { animation-duration:32s; animation-delay:-9s; }
+    .race-marquee:hover .race-track { animation-play-state:paused; }
+    @keyframes raceScroll { from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+    @media (prefers-reduced-motion: reduce){ .race-track{ animation:none; } }
 
     /* ── Side-scroll on mobile, grid on desktop ── */
     .no-sb { scrollbar-width:none; -ms-overflow-style:none; }
@@ -196,14 +204,15 @@
       background:linear-gradient(160deg,#6FC44E,#2F7A28); color:var(--color-paper); border:2px solid var(--color-ink); border-radius:13px; }
     .up-date .m { font-size:11px; font-weight:800; }
     .up-date .d { font-size:25px; font-weight:900; line-height:.95; }
-    .up-body { flex:1; min-width:0; text-align:left; }
+    .up-body { flex:1; min-width:0; text-align:left; display:flex; flex-direction:column; }
     .up-type { display:inline-block; font-size:10.5px; font-weight:900; color:var(--color-paper); background:var(--color-carrot);
       border:2px solid var(--color-ink); border-radius:999px; padding:1px 9px; }
     .up-card h4 { font-weight:900; color:var(--color-ink); font-size:15.5px; line-height:1.3; margin-top:4px; }
-    .up-meta { font-size:12px; color:var(--color-muted); margin-top:3px; line-height:1.5;
-      display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-    .up-foot { margin-top:7px; font-size:12px; font-weight:800; display:flex; justify-content:space-between; gap:8px; align-items:center; }
-    .up-foot .reg { color:var(--color-leaf-deep); }
+    .up-meta { font-size:12px; color:var(--color-muted); margin-top:4px; line-height:1.4; display:flex; align-items:center; gap:5px; }
+    .up-meta img { width:14px; height:14px; flex:none; object-fit:contain; }
+    .up-foot { margin-top:auto; padding-top:9px; font-size:12px; font-weight:800; display:flex; justify-content:space-between; gap:8px; align-items:flex-end; }
+    .up-foot .reg { color:var(--color-leaf-deep); display:inline-flex; align-items:center; gap:5px; }
+    .up-foot .reg img { width:15px; height:15px; flex:none; object-fit:contain; }
     .up-foot .up-link { color:var(--color-carrot-deep); white-space:nowrap; }
     @media (min-width:640px){ .beast-art{ font-size:108px; } }
 
@@ -334,7 +343,7 @@
 
         <div class="mt-7 flex flex-wrap gap-3 justify-center lg:justify-start">
           <a href="#join" class="btn-primary !text-[15px] sm:!text-[16px] !px-7 !py-3.5">
-            <span class="inline-flex items-center justify-center rounded-full bg-paper flex-none" style="width:22px;height:22px;box-shadow:inset 0 0 0 1.5px #1F1812;"><img src="/images/vegfit/icons/join.png" alt="" class="w-3.5 h-3.5"/></span> 仲間になる
+            <svg width="16" height="16"><use href="#dumbbell"/></svg> 仲間になる
           </a>
           <a href="#activities" class="btn-ghost !text-[15px] sm:!text-[16px] !px-7 !py-3.5">活動を見る</a>
         </div>
@@ -426,12 +435,12 @@
       <!-- beast marquee (auto-scroll; cards duplicated by JS for a seamless loop) -->
       <div class="beast-rail mt-9 sm:mt-12 reveal">
         <div class="beast-track" id="beast-track">
-          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/gorilla.png" alt="ゴリラ"/></div><div class="nm">ゴリラ</div></div>
-          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/elephant.png" alt="ゾウ"/></div><div class="nm">ゾウ</div></div>
-          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/rhino.png" alt="サイ"/></div><div class="nm">サイ</div></div>
-          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/bull.png" alt="ウシ"/></div><div class="nm">ウシ</div></div>
-          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/horse.png" alt="ウマ"/></div><div class="nm">ウマ</div></div>
-          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/rabbit.png" alt="ウサギ"/></div><div class="nm">ウサギ</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/gorilla.png" alt="ゴリラ"/></div><div class="nm">ゴリラ</div><div class="tag">葉っぱで、筋肉王</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/elephant.png" alt="ゾウ"/></div><div class="nm">ゾウ</div><div class="tag">草で、地上最大</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/rhino.png" alt="サイ"/></div><div class="nm">サイ</div><div class="tag">草だけで突進力</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/bull.png" alt="ウシ"/></div><div class="nm">ウシ</div><div class="tag">筋肉は草100%</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/horse.png" alt="ウマ"/></div><div class="nm">ウマ</div><div class="tag">草食スタミナの化身</div></div>
+          <div class="beast-card"><div class="art"><img src="/images/vegfit/animals/rabbit.png" alt="ウサギ"/></div><div class="nm">ウサギ</div><div class="tag">瞬発力おばけ</div></div>
         </div>
       </div>
       <!-- real athletes — the world's "当たり前" is shifting -->
@@ -497,13 +506,17 @@
         </div>
         <h3 class="text-center font-display text-[22px] sm:text-[30px] text-ink">これまでの冒険</h3>
         <p class="text-center mt-2 text-[14px] text-ink-soft">仲間が実際に走って・登ってきた記録。次は、あなたの番。</p>
-        <div class="mt-6 flex gap-2.5 overflow-x-auto pb-2 no-sb sm:flex-wrap sm:justify-center sm:overflow-visible sm:pb-0">
-          <span class="race-chip"><b>✓</b> 2026.03 はるな梅マラソン</span>
-          <span class="race-chip"><b>✓</b> 2026.03 ソウルマラソン 🇰🇷</span>
-          <span class="race-chip"><b>✓</b> 2026.05 いいづなトレイル</span>
-          <span class="race-chip"><b>✓</b> 2026.05 横浜トライアスロン</span>
-          <span class="race-chip"><b>✓</b> 2026.05 SPARTAN 千葉</span>
-          <span class="race-chip"><b>✓</b> 2026.06 あだち荒川</span>
+        <div class="mt-6 race-marquee">
+          <div class="race-track" id="race-row-1">
+            <span class="race-chip"><svg width="12" height="12" class="text-leaf"><use href="#check"/></svg> 2026.03 はるな梅マラソン</span>
+            <span class="race-chip"><svg width="12" height="12" class="text-leaf"><use href="#check"/></svg> 2026.05 いいづなトレイル</span>
+            <span class="race-chip"><svg width="12" height="12" class="text-leaf"><use href="#check"/></svg> 2026.05 SPARTAN 千葉</span>
+          </div>
+          <div class="race-track race-track-2" id="race-row-2">
+            <span class="race-chip"><svg width="12" height="12" class="text-leaf"><use href="#check"/></svg> 2026.03 ソウルマラソン 🇰🇷</span>
+            <span class="race-chip"><svg width="12" height="12" class="text-leaf"><use href="#check"/></svg> 2026.05 横浜トライアスロン</span>
+            <span class="race-chip"><svg width="12" height="12" class="text-leaf"><use href="#check"/></svg> 2026.06 あだち荒川</span>
+          </div>
         </div>
       </div>
     </div>
@@ -522,7 +535,7 @@
         </p>
       </div>
 
-      <div class="mt-12 sc-row sm:grid-cols-3">
+      <div class="mt-12 pt-6 sc-row sm:grid-cols-3 sm:pt-0">
         <!-- メンバー -->
         <div class="price-pop sticker p-7 reveal">
           <span class="ribbon">いちばん人気</span>
@@ -577,7 +590,7 @@
 
       <!-- free on-ramp -->
       <div class="mt-10 sticker p-6 sm:p-7 flex flex-col sm:flex-row items-center gap-5 reveal" style="background:#EAF7E3;">
-        <img src="/images/vegfit/icons/join2.png" alt="" class="w-16 h-16 sm:w-20 sm:h-20 object-contain flex-none"/>
+        <img src="/images/oji/oji_welcoming.png" alt="ビーガン王子" class="w-20 sm:w-24 h-auto object-contain flex-none bob"/>
         <div class="text-center sm:text-left flex-1">
           <h3 class="font-display text-[18px] text-ink">まずは無料で、のぞいてみて。</h3>
           <p class="mt-1 text-[13.5px] leading-[1.85] text-ink-soft">Instagram (@veganoji) で、ベジトレの空気は無料で味わえます。メンバー限定のLINEコミュニティには、参加後にご招待します。</p>
@@ -654,7 +667,7 @@
         </p>
         <div class="mt-7 flex flex-wrap gap-3 justify-center sm:justify-start">
           <a href="https://veganoji.jp/" target="_blank" rel="noopener" class="btn-ghost !text-[14px] sm:!text-[15px]">王子のサイトへ</a>
-          <a href="#join" class="btn-primary !text-[14px] sm:!text-[15px]"><span class="inline-flex items-center justify-center rounded-full bg-paper flex-none" style="width:20px;height:20px;box-shadow:inset 0 0 0 1.5px #1F1812;"><img src="/images/vegfit/icons/join.png" alt="" class="w-3 h-3"/></span> 仲間になる</a>
+          <a href="#join" class="btn-primary !text-[14px] sm:!text-[15px]"><svg width="15" height="15"><use href="#dumbbell"/></svg> 仲間になる</a>
         </div>
       </div>
       <div class="flex justify-center order-1 sm:order-2">
@@ -666,14 +679,14 @@
   <!-- ════════════════ FOOTER ════════════════ -->
   <footer class="relative px-5 sm:px-8 pt-16 pb-10" style="background:linear-gradient(180deg,#EAF7E3,#D7EECB);">
     <div class="max-w-[800px] mx-auto flex flex-col items-center text-center gap-6">
-      <img src="/images/vegfit/logo.png" alt="ベジトレClub" class="h-16 sm:h-20 w-auto bob" loading="lazy"/>
+      <img src="/images/vegfit/logo.png" alt="ベジトレClub" class="h-32 sm:h-44 w-auto bob" loading="lazy"/>
       <div>
         <div class="font-display text-[44px] sm:text-[64px] text-leaf-deep leading-none" style="letter-spacing:-0.04em;">走って、会おう！</div>
         <div class="mt-3 text-[15px] sm:text-[16px] text-ink-soft font-bold">植物の力で、楽しく強くなる。 🌱💪</div>
       </div>
 
       <div class="flex flex-wrap gap-3 justify-center">
-        <a href="#join" class="btn-primary !text-[15px]"><span class="inline-flex items-center justify-center rounded-full bg-paper flex-none" style="width:22px;height:22px;box-shadow:inset 0 0 0 1.5px #1F1812;"><img src="/images/vegfit/icons/join.png" alt="" class="w-3.5 h-3.5"/></span> 仲間になる</a>
+        <a href="#join" class="btn-primary !text-[15px]"><svg width="16" height="16"><use href="#dumbbell"/></svg> 仲間になる</a>
         <a href="#events" class="btn-ghost !text-[15px]">活動を見る</a>
       </div>
 
@@ -717,8 +730,8 @@
       });
     });
 
-    // Duplicate the beast marquee track for a seamless loop
-    (function () { var t = document.getElementById('beast-track'); if (t) t.innerHTML += t.innerHTML; })();
+    // Duplicate the beast + race marquee tracks for a seamless loop
+    (function () { ['beast-track','race-row-1','race-row-2'].forEach(function(id){ var t=document.getElementById(id); if(t) t.innerHTML += t.innerHTML; }); })();
 
     // Upcoming events — live from Monday via N8N (cached ~1h), with the committed events.json as fallback
     (function () {
@@ -737,12 +750,13 @@
           var a = document.createElement('a'); a.className = 'up-card';
           if (e.link) { a.href = e.link; a.target = '_blank'; a.rel = 'noopener'; }
           var loc = (e.location || '').replace(/[（(].*$/, '').trim();
-          var meta = [loc ? '📍 ' + loc : '', e.distance ? '🏃 ' + e.distance : ''].filter(Boolean).join('　');
           a.innerHTML =
             '<div class="up-date"><span class="m">' + (M[e.month] || '') + '</span><span class="d">' + e.day + '</span></div>' +
             '<div class="up-body">' + (e.type ? '<span class="up-type">' + e.type + '</span>' : '') +
-            '<h4>' + e.name + '</h4>' + (meta ? '<p class="up-meta">' + meta + '</p>' : '') +
-            '<div class="up-foot"><span class="reg">🙋 ' + e.registered + '人 参加予定</span>' +
+            '<h4>' + e.name + '</h4>' +
+            (loc ? '<p class="up-meta"><img src="/images/vegfit/icons/ev_pin.png" alt=""/>' + loc + '</p>' : '') +
+            (e.distance ? '<p class="up-meta"><img src="/images/vegfit/icons/ev_dist.png" alt=""/>' + e.distance + '</p>' : '') +
+            '<div class="up-foot"><span class="reg"><img src="/images/vegfit/icons/ev_people.png" alt=""/>' + e.registered + '人 参加予定</span>' +
             (e.link ? '<span class="up-link">大会ページ ↗</span>' : '') + '</div></div>';
           grid.appendChild(a);
         });
