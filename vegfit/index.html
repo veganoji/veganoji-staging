@@ -100,7 +100,7 @@
     .btn-line:hover    { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); background:#05a948; }
     .btn-primary:active, .btn-ghost:active, .btn-sun:active, .btn-line:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
 
-    .eyebrow { @apply inline-flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase font-extrabold; color: var(--color-leaf-deep); }
+    .eyebrow { @apply inline-flex items-center gap-2 text-[13px] sm:text-[13px] tracking-[0.22em] uppercase font-extrabold; color: var(--color-leaf-deep); }
     .chip-tag {
       @apply inline-flex items-center gap-2 rounded-full bg-paper px-4 py-2 text-[13px] sm:text-[14px] text-ink;
       font-weight: 800; border: 2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink);
@@ -172,7 +172,7 @@
     .beast-rail:hover .beast-track { animation-play-state: paused; }
     @keyframes beastScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .beast-card { width:140px; flex-shrink:0; text-align:center; margin-right:14px; }
-    .beast-card .tag { margin-top:2px; font-size:11px; line-height:1.3; color:var(--color-muted); }
+    .beast-card .tag { margin-top:2px; font-size:13px; line-height:1.3; color:var(--color-muted); }
     .beast-card .art { width:140px; height:140px; display:flex; align-items:center; justify-content:center;
       border:2.5px solid var(--color-ink); border-radius:24px; box-shadow:4px 5px 0 var(--color-ink);
       background:radial-gradient(circle at 50% 38%, #ffffff 0%, #EAF6E2 70%, #D7EECB 100%); }
@@ -182,7 +182,7 @@
     @media (prefers-reduced-motion: reduce){ .beast-track{ animation:none; } }
 
     /* ── Race chip (compact past-event pill) ── */
-    .race-chip { display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:12.5px; color:var(--color-ink);
+    .race-chip { display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13px; color:var(--color-ink);
       background:var(--color-paper); border:2px solid var(--color-ink); border-radius:999px; padding:6px 12px; box-shadow:2px 2px 0 var(--color-ink); }
     .race-chip b { color:#3F7A28; font-weight:900; }
     .race-chip { flex-shrink:0; margin-right:10px; }
@@ -197,7 +197,7 @@
     /* ── Side-scroll on mobile, grid on desktop ── */
     .no-sb { scrollbar-width:none; -ms-overflow-style:none; }
     .no-sb::-webkit-scrollbar { display:none; }
-    .sc-row { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:12px; align-items:flex-start; scrollbar-width:none; -ms-overflow-style:none; }
+    .sc-row { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:12px; align-items:stretch; scrollbar-width:none; -ms-overflow-style:none; }
     .sc-row::-webkit-scrollbar { display:none; }
     .sc-row > * { flex:0 0 82%; max-width:300px; scroll-snap-align:start; }
     @media (min-width:640px){
@@ -211,15 +211,15 @@
     .up-card:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--color-ink); }
     .up-date { flex:0 0 60px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;
       background:linear-gradient(160deg,#6FC44E,#2F7A28); color:var(--color-paper); border:2px solid var(--color-ink); border-radius:13px; }
-    .up-date .m { font-size:11px; font-weight:800; }
+    .up-date .m { font-size:13px; font-weight:800; }
     .up-date .d { font-size:25px; font-weight:900; line-height:.95; }
     .up-body { flex:1; min-width:0; text-align:left; display:flex; flex-direction:column; }
-    .up-type { display:inline-block; font-size:10.5px; font-weight:900; color:var(--color-paper); background:var(--color-carrot);
+    .up-type { display:inline-block; font-size:12.5px; font-weight:900; color:var(--color-paper); background:var(--color-carrot);
       border:2px solid var(--color-ink); border-radius:999px; padding:1px 9px; }
     .up-card h4 { font-weight:900; color:var(--color-ink); font-size:15.5px; line-height:1.3; margin-top:4px; }
-    .up-meta { font-size:12px; color:var(--color-muted); margin-top:4px; line-height:1.4; display:flex; align-items:center; gap:5px; }
+    .up-meta { font-size:13px; color:var(--color-muted); margin-top:4px; line-height:1.4; display:flex; align-items:center; gap:5px; }
     .up-meta img { width:14px; height:14px; flex:none; object-fit:contain; }
-    .up-foot { margin-top:auto; padding-top:9px; font-size:12px; font-weight:800; display:flex; justify-content:space-between; gap:8px; align-items:flex-end; }
+    .up-foot { margin-top:auto; padding-top:9px; font-size:13px; font-weight:800; display:flex; justify-content:space-between; gap:8px; align-items:flex-end; }
     .up-foot .reg { color:var(--color-leaf-deep); display:inline-flex; align-items:center; gap:5px; }
     .up-foot .reg img { width:15px; height:15px; flex:none; object-fit:contain; }
     .up-foot .up-link { color:var(--color-carrot-deep); white-space:nowrap; }
@@ -242,7 +242,7 @@
     .price-pop { position:relative; }
     .price-pop .ribbon {
       position:absolute; top:-14px; left:50%; transform:translateX(-50%);
-      background:var(--color-sun); color:var(--color-ink); font-weight:900; font-size:12px;
+      background:var(--color-sun); color:var(--color-ink); font-weight:900; font-size:13px;
       padding:5px 16px; border-radius:999px; border:2.5px solid var(--color-ink); box-shadow:2px 2px 0 var(--color-ink);
       white-space:nowrap; letter-spacing:.04em;
     }
@@ -251,7 +251,7 @@
     .ev { display:flex; align-items:center; gap:14px; padding:13px 16px; border:2.5px solid var(--color-ink);
       border-radius:16px; background:var(--color-paper); box-shadow:3px 3px 0 var(--color-ink); }
     .ev .date { font-weight:900; font-size:13px; color:var(--color-leaf-deep); white-space:nowrap; }
-    .ev .done { margin-left:auto; font-size:11px; font-weight:900; color:#fff; background:var(--color-leaf); border:2px solid var(--color-ink);
+    .ev .done { margin-left:auto; font-size:12.5px; font-weight:900; color:#fff; background:var(--color-leaf); border:2px solid var(--color-ink);
       border-radius:999px; padding:3px 10px; box-shadow:2px 2px 0 var(--color-ink); white-space:nowrap; }
 
     /* ── FAQ ── */
@@ -303,7 +303,7 @@
     <div class="max-w-[1240px] mx-auto px-4 sm:px-8 py-2.5 flex items-center justify-between gap-3">
       <a href="#top" class="flex items-center gap-2.5 min-w-0">
         <img src="/images/vegfit/logo.png" alt="ベジトレClub" class="h-9 sm:h-11 w-auto" />
-        <span class="hidden md:inline text-[11px] tracking-[0.18em] text-muted uppercase font-extrabold">VegFit · Plant-Powered Fitness</span>
+        <span class="hidden md:inline text-[13px] tracking-[0.18em] text-muted uppercase font-extrabold">VegFit · Plant-Powered Fitness</span>
       </a>
       <nav class="hidden lg:flex items-center gap-6 text-[14px] font-extrabold text-ink-soft" aria-label="メインナビ">
         <a href="#about" class="hover:text-leaf-deep transition-colors">ベジトレって?</a>
@@ -313,7 +313,7 @@
         <a href="#join" class="hover:text-leaf-deep transition-colors">参加する</a>
       </nav>
       <div class="flex items-center gap-2 sm:gap-2.5">
-        <a href="mailto:info@veganoji.jp?subject=%E3%80%90%E3%83%99%E3%82%B8%E3%83%88%E3%83%ACClub%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&body=%E3%83%99%E3%82%B8%E3%83%88%E3%83%ACClub%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%80%81%E3%81%8A%E6%B0%97%E8%BB%BD%E3%81%AB%E3%81%94%E9%80%A3%E7%B5%A1%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0A%0A" class="btn-ghost !py-2 !px-3 !text-[12px] sm:!text-[13px] hidden sm:inline-flex">問い合わせ</a>
+        <a href="mailto:info@veganoji.jp?subject=%E3%80%90%E3%83%99%E3%82%B8%E3%83%88%E3%83%ACClub%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&body=%E3%83%99%E3%82%B8%E3%83%88%E3%83%ACClub%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%80%81%E3%81%8A%E6%B0%97%E8%BB%BD%E3%81%AB%E3%81%94%E9%80%A3%E7%B5%A1%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0A%0A" class="btn-ghost !py-2 !px-3 !text-[13px] sm:!text-[13px] hidden sm:inline-flex">問い合わせ</a>
         <a href="#join" class="btn-primary !py-2 !px-4 !text-[13px] sm:!text-[14px]">
           <svg width="15" height="15"><use href="#dumbbell"/></svg>
           <span>参加する</span>
@@ -412,21 +412,21 @@
         <div class="sticker sticker-hover p-7 text-center reveal">
           <img src="/images/vegfit/icons/c_veji.png" alt="" class="w-20 h-20 mx-auto mb-3 object-contain"/>
           <h3 class="font-display text-[22px] text-ink">ベジ</h3>
-          <p class="mt-1 text-[12px] tracking-[0.14em] uppercase text-muted font-extrabold">Plant-based</p>
+          <p class="mt-1 text-[13px] tracking-[0.14em] uppercase text-muted font-extrabold">Plant-based</p>
           <p class="mt-3 text-[14px] leading-[1.9] text-ink-soft">植物性の食事で、ちゃんと動けて、ちゃんと回復できる。100%じゃなくてOK。「ちょっと気になる」から始めよう。</p>
         </div>
         <!-- トレ -->
         <div class="sticker sticker-hover p-7 text-center reveal">
           <img src="/images/vegfit/icons/c_tore.png" alt="" class="w-20 h-20 mx-auto mb-3 object-contain"/>
           <h3 class="font-display text-[22px] text-ink">トレ</h3>
-          <p class="mt-1 text-[12px] tracking-[0.14em] uppercase text-muted font-extrabold">Training</p>
+          <p class="mt-1 text-[13px] tracking-[0.14em] uppercase text-muted font-extrabold">Training</p>
           <p class="mt-3 text-[14px] leading-[1.9] text-ink-soft">走る・登る・泳ぐ・鍛える。レースもゆるトレも。タイムより、続けること。一歩からで大丈夫。</p>
         </div>
         <!-- 仲間 -->
         <div class="sticker sticker-hover p-7 text-center reveal">
           <img src="/images/vegfit/icons/c_nakama.png" alt="" class="w-20 h-20 mx-auto mb-3 object-contain"/>
           <h3 class="font-display text-[22px] text-ink">仲間</h3>
-          <p class="mt-1 text-[12px] tracking-[0.14em] uppercase text-muted font-extrabold">Club</p>
+          <p class="mt-1 text-[13px] tracking-[0.14em] uppercase text-muted font-extrabold">Club</p>
           <p class="mt-3 text-[14px] leading-[1.9] text-ink-soft">一人だと続かないことも、みんなとなら冒険になる。イベント、練習、ベジな打ち上げ。つながって、応援し合おう。</p>
         </div>
       </div>
@@ -464,22 +464,22 @@
           <figure class="sticker p-6 text-left m-0">
             <div class="font-display text-[42px] leading-[0.5] text-leaf-soft">“</div>
             <blockquote class="text-[14px] leading-[1.85] text-ink font-bold">「男は肉を食え」は、ただのマーケティング。現実じゃなかった。</blockquote>
-            <figcaption class="mt-3 text-[12.5px] text-muted"><span class="font-bold text-ink">アーノルド・シュワルツェネッガー</span><br/>元ミスター・オリンピア</figcaption>
+            <figcaption class="mt-3 text-[13px] text-muted"><span class="font-bold text-ink">アーノルド・シュワルツェネッガー</span><br/>元ミスター・オリンピア</figcaption>
           </figure>
           <figure class="sticker p-6 text-left m-0">
             <div class="font-display text-[42px] leading-[0.5] text-leaf-soft">“</div>
             <blockquote class="text-[14px] leading-[1.85] text-ink font-bold">ビーガンにした瞬間、回復もエネルギーも、はっきり変わった。</blockquote>
-            <figcaption class="mt-3 text-[12.5px] text-muted"><span class="font-bold text-ink">ニマイ・デルガド</span><br/>IFBBプロ・ボディビルダー</figcaption>
+            <figcaption class="mt-3 text-[13px] text-muted"><span class="font-bold text-ink">ニマイ・デルガド</span><br/>IFBBプロ・ボディビルダー</figcaption>
           </figure>
           <figure class="sticker p-6 text-left m-0">
             <div class="font-display text-[42px] leading-[0.5] text-leaf-soft">“</div>
             <blockquote class="text-[14px] leading-[1.85] text-ink font-bold">最も強い動物は草食動物だ。ゴリラ、牛、象——そして、私だ。</blockquote>
-            <figcaption class="mt-3 text-[12.5px] text-muted"><span class="font-bold text-ink">パトリック・バブミアン</span><br/>ストロングマン世界記録</figcaption>
+            <figcaption class="mt-3 text-[13px] text-muted"><span class="font-bold text-ink">パトリック・バブミアン</span><br/>ストロングマン世界記録</figcaption>
           </figure>
         </div>
         <!-- studies -->
         <div class="mt-9 max-w-[680px] mx-auto sticker p-5 sm:p-6" style="background:#F2FAEC;">
-          <p class="text-center text-[13px] font-extrabold text-leaf-deep mb-3 tracking-wide">研究でも、明らかに。</p>
+          <p class="text-center text-[15px] sm:text-[16px] font-extrabold text-leaf-deep mb-3 tracking-wide">研究でも、明らかに。</p>
           <ul class="space-y-2.5 text-[13px] sm:text-[13.5px] leading-[1.7] text-ink-soft">
             <li class="flex gap-2"><svg width="16" height="16" class="text-leaf flex-none" style="margin-top:3px;"><use href="#check"/></svg><span>植物性プロテインでも、<b class="text-ink">筋肉・筋力の増え方は動物性と同じ</b>。<a href="https://pubmed.ncbi.nlm.nih.gov/33599941/" target="_blank" rel="noopener" class="text-leaf-deep font-bold underline whitespace-nowrap">研究↗</a></span></li>
             <li class="flex gap-2"><svg width="16" height="16" class="text-leaf flex-none" style="margin-top:3px;"><use href="#check"/></svg><span>植物性の食事でも<b class="text-ink">たんぱく質は十分</b>。アスリートを含む全世代に適切（米国栄養士会）。<a href="https://pubmed.ncbi.nlm.nih.gov/27886704/" target="_blank" rel="noopener" class="text-leaf-deep font-bold underline whitespace-nowrap">研究↗</a></span></li>
@@ -497,17 +497,37 @@
     <div class="max-w-[1080px] mx-auto">
       <div class="max-w-2xl mx-auto text-center reveal">
         <h2 class="font-display display-tight text-[32px] sm:text-[50px] text-ink">なにして、あそぶ?</h2>
-        <p class="mt-5 text-[15px] sm:text-[16px] leading-[1.95] text-ink-soft">レースもトレも、ぜんぶ自由参加。気になるものに、ふらっとどうぞ。</p>
+        <p class="mt-5 text-[15px] sm:text-[16px] leading-[1.95] text-ink-soft">メンバーになると、仲間とつながる場所がぜんぶ手に入る。レースも練習も自由参加——気になるものに、ふらっとどうぞ。</p>
       </div>
 
-      <!-- activity types (compact) -->
-      <div class="mt-9 sm:mt-12 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 reveal">
-        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_run.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">ランニング</h3></div>
-        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_trail.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">トレイルラン</h3></div>
-        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_tri.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">トライアスロン</h3></div>
-        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_spartan.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">スパルタン・OCR</h3></div>
-        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_practice.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">みんなで練習</h3></div>
-        <div class="sticker sticker-hover p-4 sm:p-5 flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_party.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">ベジな打ち上げ</h3></div>
+      <!-- what you get access to (like the welcome email) -->
+      <div class="mt-9 sm:mt-12 sc-row sm:grid-cols-3 reveal">
+        <div class="sticker p-6">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-3" style="background:rgba(79,166,62,.15);"><svg width="24" height="24" style="color:var(--color-leaf-deep);"><use href="#users"/></svg></div>
+          <h3 class="font-display text-[18px] text-ink">メンバー限定LINE</h3>
+          <p class="mt-2 text-[13.5px] leading-[1.85] text-ink-soft">仲間とつながる、いちばんの場所。質問・雑談から、ベジ栄養や回復のtipsのシェア、ご飯会・オフ会の相談まで。</p>
+        </div>
+        <div class="sticker p-6">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-3" style="background:rgba(238,123,30,.15);"><svg width="24" height="24" style="color:var(--color-carrot-deep);"><use href="#calendar"/></svg></div>
+          <h3 class="font-display text-[18px] text-ink">イベントを提案・参加表明</h3>
+          <p class="mt-2 text-[13.5px] leading-[1.85] text-ink-soft">出たい大会を提案したり、「参加します」と表明。あなたの参加を見た仲間が「じゃあ私も！」と集まって、一緒に走れます。</p>
+        </div>
+        <div class="sticker p-6">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-3" style="background:rgba(79,182,230,.15);"><svg width="24" height="24" style="color:var(--color-sky-deep);"><use href="#run"/></svg></div>
+          <h3 class="font-display text-[18px] text-ink">Stravaクラブ</h3>
+          <p class="mt-2 text-[13.5px] leading-[1.85] text-ink-soft">ランやライドの記録をシェアして、お互いの頑張りを応援し合おう。離れていても、つながれる。</p>
+        </div>
+      </div>
+
+      <!-- play types (light, side-scroll) -->
+      <p class="mt-12 sm:mt-14 text-center text-[14px] text-muted reveal">こんな遊び方があります（自由参加）</p>
+      <div class="mt-4 flex sm:grid sm:grid-cols-6 gap-3 overflow-x-auto sm:overflow-visible pb-2 -mx-5 px-5 sm:mx-0 sm:px-0 reveal">
+        <div class="sticker sticker-hover p-4 sm:p-5 flex-none w-[40%] sm:w-auto flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_run.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">ランニング</h3></div>
+        <div class="sticker sticker-hover p-4 sm:p-5 flex-none w-[40%] sm:w-auto flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_trail.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">トレイルラン</h3></div>
+        <div class="sticker sticker-hover p-4 sm:p-5 flex-none w-[40%] sm:w-auto flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_tri.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">トライアスロン</h3></div>
+        <div class="sticker sticker-hover p-4 sm:p-5 flex-none w-[40%] sm:w-auto flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_spartan.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">スパルタン・OCR</h3></div>
+        <div class="sticker sticker-hover p-4 sm:p-5 flex-none w-[40%] sm:w-auto flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_practice.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">みんなで練習</h3></div>
+        <div class="sticker sticker-hover p-4 sm:p-5 flex-none w-[40%] sm:w-auto flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_party.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">ベジな打ち上げ</h3></div>
       </div>
 
       <!-- past adventures (compact) -->
@@ -551,12 +571,12 @@
 
       <div class="mt-12 pt-6 sc-row sm:grid-cols-3 sm:pt-0">
         <!-- メンバー -->
-        <div class="price-pop sticker p-7 reveal">
+        <div class="price-pop sticker p-7 reveal flex flex-col">
           <span class="ribbon">いちばん人気</span>
           <h3 class="font-display text-[20px] text-ink mt-1">メンバー</h3>
-          <p class="text-[12px] text-muted font-bold uppercase tracking-wide">Member</p>
+          <p class="text-[13px] text-muted font-bold uppercase tracking-wide">Member</p>
           <div class="mt-4 flex items-end gap-1"><span class="font-display text-[44px] text-leaf-deep leading-none">¥500</span><span class="text-[14px] text-muted font-bold pb-1">/月</span></div>
-          <ul class="mt-5 space-y-2.5 text-[13.5px] text-ink-soft">
+          <ul class="mt-5 space-y-2.5 text-[13.5px] text-ink-soft flex-1">
             <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> Monday イベントボード</li>
             <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> メンバー限定LINEコミュニティ</li>
             <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> Stravaクラブに招待</li>
@@ -568,11 +588,11 @@
         </div>
 
         <!-- サポーター -->
-        <div class="price-pop sticker p-7 reveal" style="background:#FDF1DA;">
+        <div class="price-pop sticker p-7 reveal flex flex-col" style="background:#FDF1DA;">
           <h3 class="font-display text-[20px] text-ink">サポーター</h3>
-          <p class="text-[12px] text-muted font-bold uppercase tracking-wide">Supporter</p>
+          <p class="text-[13px] text-muted font-bold uppercase tracking-wide">Supporter</p>
           <div class="mt-4 flex items-end gap-1"><span class="font-display text-[44px] text-carrot-deep leading-none">¥1,000</span><span class="text-[14px] text-muted font-bold pb-1">/月</span></div>
-          <ul class="mt-5 space-y-2.5 text-[13.5px] text-ink-soft">
+          <ul class="mt-5 space-y-2.5 text-[13.5px] text-ink-soft flex-1">
             <li class="flex gap-2"><svg width="18" height="18" class="text-carrot flex-none"><use href="#check"/></svg> メンバー特典、ぜんぶ</li>
             <li class="flex gap-2"><svg width="18" height="18" class="text-carrot flex-none"><use href="#check"/></svg> サイトにお名前を掲載</li>
             <li class="flex gap-2"><svg width="18" height="18" class="text-carrot flex-none"><use href="#check"/></svg> LINEサポーターバッジ</li>
@@ -583,16 +603,16 @@
         </div>
 
         <!-- 特別サポーター -->
-        <div class="price-pop sticker p-7 reveal" style="background:#F4EAD6;">
+        <div class="price-pop sticker p-7 reveal flex flex-col" style="background:#F4EAD6;">
           <h3 class="font-display text-[20px] text-ink">特別サポーター</h3>
-          <p class="text-[12px] text-muted font-bold uppercase tracking-wide">Big Supporter</p>
+          <p class="text-[13px] text-muted font-bold uppercase tracking-wide">Big Supporter</p>
           <p class="mt-3 text-[13.5px] leading-[1.7] text-ink-soft">好きな金額で、活動をもっと応援。選んだ額が毎月の応援になります。</p>
-          <ul class="mt-4 space-y-2.5 text-[13.5px] text-ink-soft">
+          <ul class="mt-4 space-y-2.5 text-[13.5px] text-ink-soft flex-1">
             <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#check"/></svg> サポーター特典、ぜんぶ</li>
             <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#check"/></svg> お名前を大きく掲載</li>
             <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#crown"/></svg> 王子から特別なありがとう</li>
           </ul>
-          <p class="mt-5 text-[12px] font-bold text-muted text-center">金額を選ぶ（月額）</p>
+          <p class="mt-5 text-[13px] font-bold text-muted text-center">金額を選ぶ（月額）</p>
           <div class="mt-2 grid grid-cols-2 gap-2">
             <a href="https://buy.stripe.com/fZu8wO5M6cMP4dB5qbao80a" target="_blank" rel="noopener" data-stripe="support-2000" class="btn-ghost !text-[14px] !px-2 !py-2.5">¥2,000</a>
             <a href="https://buy.stripe.com/5kQ5kC0rM7sv5hF8Cnao80b" target="_blank" rel="noopener" data-stripe="support-3000" class="btn-ghost !text-[14px] !px-2 !py-2.5">¥3,000</a>
@@ -721,7 +741,7 @@
         <a href="https://veganoji.jp/" target="_blank" rel="noopener">王子について</a>
       </nav>
 
-      <div class="text-[12px] text-muted mt-2">© 2026 ビーガン王子株式会社 · ベジトレClub</div>
+      <div class="text-[13px] text-muted mt-2">© 2026 ビーガン王子株式会社 · ベジトレClub</div>
     </div>
   </footer>
 
