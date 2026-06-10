@@ -128,6 +128,15 @@
     @media (max-width:640px){ .bubble{ width:48px; height:48px; font-size:23px; border-width:2.5px; } .bubble.lg{ width:58px; height:58px; font-size:28px; } }
     .hero-beast { position:absolute; z-index:6; height:auto; filter:drop-shadow(0 10px 14px rgba(31,24,18,.22)); }
 
+    /* ── Cycling hero backgrounds ── */
+    .hero-bgs { position:absolute; inset:0; z-index:0; }
+    .hero-slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1.5s ease; }
+    .hero-slide.on { opacity:1; }
+    .hero-veil { position:absolute; inset:0; z-index:1; pointer-events:none;
+      background:linear-gradient(105deg, rgba(255,249,238,.95) 0%, rgba(255,249,238,.8) 38%, rgba(255,249,238,.55) 100%); }
+    @media (max-width:768px){ .hero-veil { background:linear-gradient(180deg, rgba(255,249,238,.5) 0%, rgba(255,249,238,.72) 44%, rgba(255,249,238,.95) 80%, #FFF9EE 100%); } }
+    @media (prefers-reduced-motion: reduce){ .hero-slide { transition:none; } }
+
     .floaty   { animation: floaty 5s ease-in-out infinite; }
     .floaty-2 { animation: floaty 6.4s ease-in-out infinite; }
     .floaty-3 { animation: floaty 5.8s ease-in-out infinite .8s; }
@@ -311,15 +320,17 @@
   </header>
 
   <!-- ════════════════ HERO ════════════════ -->
-  <section id="top" class="relative overflow-hidden px-5 sm:px-8 pt-8 sm:pt-14 pb-12 sm:pb-20"
-           style="background:
-             radial-gradient(1100px 520px at 78% -8%, rgba(247,197,62,.40), transparent 60%),
-             linear-gradient(180deg, #BFE8FB 0%, #DDF3FC 30%, #EAF7E3 64%, #FFF9EE 100%);">
-    <!-- soft hills -->
-    <svg class="absolute bottom-0 left-0 w-full" style="z-index:0;" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 150 Q 360 90 720 140 T 1440 130 L1440 220 L0 220 Z" fill="#CBEBB6"/>
-      <path d="M0 180 Q 380 130 760 172 T 1440 168 L1440 220 L0 220 Z" fill="#AEDD96"/>
-    </svg>
+  <section id="top" class="relative overflow-hidden px-5 sm:px-8 pt-8 sm:pt-14 pb-12 sm:pb-20" style="background:#EAF7E3;">
+    <!-- cycling hero backgrounds -->
+    <div class="hero-bgs" aria-hidden="true">
+      <div class="hero-slide on" style="background-image:url('/images/vegfit/bg/bg_track2.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('/images/vegfit/bg/bg_protein.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('/images/vegfit/bg/bg_trail.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('/images/vegfit/bg/bg_bowls.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('/images/vegfit/bg/bg_field.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('/images/vegfit/bg/bg_food.jpg')"></div>
+    </div>
+    <div class="hero-veil" aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-[1180px] mx-auto grid lg:grid-cols-12 gap-6 lg:gap-6 items-center">
       <!-- Text -->
@@ -732,6 +743,13 @@
 
     // Duplicate the beast + race marquee tracks for a seamless loop
     (function () { ['beast-track','race-row-1','race-row-2'].forEach(function(id){ var t=document.getElementById(id); if(t) t.innerHTML += t.innerHTML; }); })();
+
+    // Cycle the hero backgrounds (crossfade)
+    (function () {
+      var s = document.querySelectorAll('#top .hero-slide'); if (s.length < 2) return;
+      var i = 0;
+      setInterval(function () { s[i].classList.remove('on'); i = (i + 1) % s.length; s[i].classList.add('on'); }, 5000);
+    })();
 
     // Upcoming events — live from Monday via N8N (cached ~1h), with the committed events.json as fallback
     (function () {
