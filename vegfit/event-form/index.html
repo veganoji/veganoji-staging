@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>イベントを提案・参加表明 | ベジトレClub</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="icon" type="image/png" href="/images/vegfit/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+    @theme {
+      --color-paper: #FFF9EE; --color-cream: #FDF1DA;
+      --color-leaf: #4FA63E; --color-leaf-soft: #9BD98A; --color-leaf-deep: #2F7A28;
+      --color-carrot: #EE7B1E; --color-carrot-deep: #C85E12; --color-sun: #F7C53E;
+      --color-berry: #C9223A; --color-ink: #1F1812; --color-ink-soft: #3C2E22; --color-muted: #6E5B45;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+    html { background: var(--color-paper); }
+    body { background:
+        radial-gradient(800px 360px at 80% 0%, rgba(247,197,62,.20), transparent 60%),
+        radial-gradient(700px 360px at 10% 8%, rgba(110,196,78,.16), transparent 60%),
+        var(--color-paper);
+      color: var(--color-ink); font-family: var(--font-noto-sans-jp); -webkit-font-smoothing: antialiased; min-height:100vh; }
+    .font-display { font-family: var(--font-noto-sans-jp); font-weight: 900; }
+    .display-tight { letter-spacing: -0.035em; line-height: 1.02; }
+    .sticker { background: var(--color-paper); border: 2.5px solid var(--color-ink); border-radius: 22px; box-shadow: 5px 6px 0 var(--color-ink); }
+    @utility btn-primary {
+      @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-leaf text-paper px-6 py-3 text-[16px] w-full;
+      font-weight: 800; border: 2.5px solid var(--color-ink); box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn-primary:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-leaf-deep); }
+    .btn-primary:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .btn-primary:disabled { opacity:.6; pointer-events:none; }
+    .lbl { display:block; font-weight:800; font-size:13.5px; margin:0 0 6px; color:var(--color-ink); }
+    .req { color:var(--color-berry); font-weight:900; }
+    .field { width:100%; border:2px solid var(--color-ink); border-radius:14px; background:#fff; padding:11px 14px; font-size:15px; color:var(--color-ink); font-family:inherit; }
+    .field:focus { outline:none; box-shadow:3px 3px 0 var(--color-leaf-soft); }
+    textarea.field { resize:vertical; min-height:78px; }
+    .opt { display:flex; gap:10px; align-items:flex-start; border:2px solid var(--color-ink); border-radius:14px; background:#fff; padding:12px 14px; cursor:pointer; transition:background .15s ease, box-shadow .15s ease; }
+    .opt input { margin-top:3px; width:18px; height:18px; accent-color:var(--color-leaf); flex:none; }
+    .opt:has(input:checked) { background:#F2FAEC; box-shadow:3px 3px 0 var(--color-leaf); }
+    .opt small { color:var(--color-muted); font-size:12.5px; }
+  </style>
+</head>
+<body>
+  <div class="max-w-[560px] mx-auto px-4 sm:px-5 py-10 sm:py-14">
+
+    <!-- header -->
+    <div class="text-center">
+      <img src="/images/oji/oji_excited.png" alt="ビーガン王子" class="w-20 h-20 mx-auto object-contain" />
+      <h1 class="mt-1 font-display display-tight text-[26px] sm:text-[32px] text-leaf-deep">イベントを提案・参加表明</h1>
+      <p class="mt-3 text-[14px] leading-[1.85] text-ink-soft">
+        出たい大会・気になるイベントを教えてね。<br>
+        <b class="text-ink">「参加します」</b>を選ぶと、サイトの「次の冒険」に載って、仲間も一緒に誘えます🌱
+      </p>
+    </div>
+
+    <!-- form -->
+    <form id="ev-form" class="sticker mt-7 p-6 sm:p-7 grid gap-5">
+      <div>
+        <label class="lbl" for="submitter">お名前・ニックネーム <span class="req">*</span></label>
+        <input class="field" id="submitter" name="submitter" type="text" required placeholder="例）たろう" />
+      </div>
+
+      <div>
+        <span class="lbl">あなたの参加 <span class="req">*</span></span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="opt"><input type="radio" name="intent" value="参加" checked /><span><b>参加します</b><br><small>エントリー予定／済み</small></span></label>
+          <label class="opt"><input type="radio" name="intent" value="興味" /><span><b>興味あり</b><br><small>情報がほしい</small></span></label>
+        </div>
+      </div>
+
+      <div>
+        <label class="lbl" for="eventName">イベント名・大会名 <span class="req">*</span></label>
+        <input class="field" id="eventName" name="eventName" type="text" required placeholder="例）2026 函館マラソン" />
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="lbl" for="date">開催日</label>
+          <input class="field" id="date" name="date" type="date" />
+        </div>
+        <div>
+          <label class="lbl" for="distance">距離・種目</label>
+          <input class="field" id="distance" name="distance" type="text" placeholder="例）ハーフ / 10km" />
+        </div>
+      </div>
+
+      <div>
+        <label class="lbl" for="location">場所</label>
+        <input class="field" id="location" name="location" type="text" placeholder="例）北海道函館市" />
+      </div>
+
+      <div>
+        <label class="lbl" for="link">公式サイト・リンク</label>
+        <input class="field" id="link" name="link" type="url" placeholder="https://..." />
+      </div>
+
+      <div>
+        <label class="lbl" for="memo">ひとこと（任意）</label>
+        <textarea class="field" id="memo" name="memo" placeholder="一緒に走りたい人へのメッセージなど"></textarea>
+      </div>
+
+      <button type="submit" id="submit-btn" class="btn-primary mt-1">送信する 🌱</button>
+      <p id="err" class="hidden text-center text-[13px] text-berry font-bold">送信できませんでした。少し時間をおいて、もう一度お試しください。</p>
+    </form>
+
+    <!-- success -->
+    <div id="done" class="hidden sticker mt-7 p-7 text-center" style="background:#F2FAEC;">
+      <img src="/images/oji/oji_happy.png" alt="" class="w-24 h-24 mx-auto object-contain" />
+      <h2 class="mt-1 font-display text-[22px] text-leaf-deep">ありがとう！🎉</h2>
+      <p class="mt-3 text-[14px] leading-[1.9] text-ink-soft">
+        受け取りました。運営が内容を確認して、サイトの「次の冒険」に掲載します。<br>
+        LINEでも「<b class="text-ink">この大会に出ます！</b>」とシェアすると、仲間がもっと集まります。
+      </p>
+      <a href="/vegfit/#events" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-paper text-leaf-deep px-6 py-3 text-[15px] mt-5" style="font-weight:800;border:2.5px solid var(--color-ink);box-shadow:4px 4px 0 var(--color-ink);">サイトに戻る</a>
+    </div>
+
+    <p class="text-center mt-6 text-[12.5px] text-muted">ベジトレClub ・ ビーガン王子事務局</p>
+  </div>
+
+  <script>
+    (function () {
+      var WEBHOOK = 'https://ojidigital.app.n8n.cloud/webhook/vegfit-event-submit';
+      var form = document.getElementById('ev-form');
+      var btn = document.getElementById('submit-btn');
+      var err = document.getElementById('err');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        err.classList.add('hidden');
+        btn.disabled = true; btn.textContent = '送信中…';
+        var data = new URLSearchParams(new FormData(form));
+        fetch(WEBHOOK, { method: 'POST', body: data })
+          .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+          .then(function (d) {
+            if (d && d.ok) {
+              form.classList.add('hidden');
+              document.getElementById('done').classList.remove('hidden');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else { throw new Error('bad'); }
+          })
+          .catch(function () {
+            err.classList.remove('hidden');
+            btn.disabled = false; btn.textContent = '送信する 🌱';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
