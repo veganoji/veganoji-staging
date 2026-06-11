@@ -80,13 +80,25 @@
         <input class="field" id="eventName" name="eventName" type="text" required placeholder="例）2026 函館マラソン" />
       </div>
 
+      <div>
+        <label class="lbl" for="sport">競技</label>
+        <select class="field" id="sport" name="sport">
+          <option value="未定/その他" selected>未定／その他</option>
+          <option value="ランニング">ランニング</option>
+          <option value="トレラン">トレラン</option>
+          <option value="トライアスロン">トライアスロン</option>
+          <option value="スパルタン">スパルタン</option>
+          <option value="HYROX">HYROX</option>
+        </select>
+      </div>
+
       <div class="grid grid-cols-2 gap-3">
         <div>
           <label class="lbl" for="date">開催日</label>
           <input class="field" id="date" name="date" type="date" />
         </div>
         <div>
-          <label class="lbl" for="distance">距離・種目</label>
+          <label class="lbl" for="distance">距離</label>
           <input class="field" id="distance" name="distance" type="text" placeholder="例）ハーフ / 10km" />
         </div>
       </div>
@@ -97,8 +109,8 @@
       </div>
 
       <div>
-        <label class="lbl" for="link">公式サイト・リンク</label>
-        <input class="field" id="link" name="link" type="url" placeholder="https://..." />
+        <label class="lbl" for="link">公式サイト・リンク <span class="req">*</span></label>
+        <input class="field" id="link" name="link" type="url" required placeholder="https://..." />
       </div>
 
       <div>
@@ -115,8 +127,8 @@
       <img src="/images/oji/oji_happy.png" alt="" class="w-24 h-24 mx-auto object-contain" />
       <h2 class="mt-1 font-display text-[22px] text-leaf-deep">ありがとう！🎉</h2>
       <p class="mt-3 text-[14px] leading-[1.9] text-ink-soft">
-        受け取りました。運営が内容を確認して、サイトの「次の冒険」に掲載します。<br>
-        LINEでも「<b class="text-ink">この大会に出ます！</b>」とシェアすると、仲間がもっと集まります。
+        内容を受け取りました🌱 運営が確認して、サイトの「次の冒険」に掲載しますね。<br>
+        よかったらLINEでも「<b class="text-ink">この大会に出ます！</b>」とひとこと。あなたの一歩を見て、仲間もきっと集まります。
       </p>
       <a href="/vegfit/#events" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-paper text-leaf-deep px-6 py-3 text-[15px] mt-5" style="font-weight:800;border:2.5px solid var(--color-ink);box-shadow:4px 4px 0 var(--color-ink);">サイトに戻る</a>
     </div>
