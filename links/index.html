@@ -222,6 +222,30 @@
     }
     .map-feature:hover .lc-arrow { transform: translateX(3px); }
 
+    /* ─── ベジトレClub — fitness club card (green accent) ─── */
+    .vegfit-card {
+      position: relative; display: flex; align-items: center; gap: 14px; width: 100%;
+      background: linear-gradient(160deg, #EDF5E2 0%, #D6E8C4 100%);
+      border: 3px solid #1F1812; border-radius: 22px;
+      box-shadow: 5px 5px 0 #1F1812;
+      padding: 15px 18px; text-decoration: none; color: #1F1812;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .vegfit-card:hover { transform: translate(2px,2px); box-shadow: 3px 3px 0 #1F1812; }
+    .vegfit-card:active { transform: translate(4px,4px); box-shadow: 1px 1px 0 #1F1812; }
+    .vegfit-thumb { width: 72px; height: 58px; flex-shrink: 0; object-fit: contain; filter: drop-shadow(0 3px 4px rgba(31,24,18,.16)); }
+    .vegfit-body { flex: 1; min-width: 0; }
+    .vegfit-title { font-weight: 900; font-size: 17.5px; letter-spacing: -0.01em; line-height: 1.1; color: #2E5524; }
+    .vegfit-teaser { font-size: 12px; color: #3C2E22; margin-top: 4px; line-height: 1.45; }
+    .vegfit-badge {
+      position: absolute; top: -11px; left: 18px;
+      background: #4E8C3C; color: #FFF8EB; font-weight: 900; font-size: 10.5px;
+      letter-spacing: 0.04em; padding: 3px 11px; border-radius: 999px;
+      border: 2px solid #1F1812; box-shadow: 2px 2px 0 #1F1812;
+    }
+    .vegfit-card .lc-arrow { color: #3F6A3A; }
+    .vegfit-card:hover .lc-arrow { transform: translateX(3px); }
+
     /* ─── Bundled "why vegan" card ─── */
     .bundle {
       background: #FFFCF6; border: 2.5px solid #1F1812; border-radius: 20px;
@@ -365,6 +389,19 @@
         <div class="map-body">
           <div class="map-title" data-ja="日本ビーガンマップ" data-en="Japan Vegan Map">日本ビーガンマップ</div>
           <div class="map-teaser" data-ja="全国のビーガン店を、地図でまるごと。王子と一緒に探そう。" data-en="Every vegan spot in Japan, on one map — explore it with the Prince.">全国のビーガン店を、地図でまるごと。王子と一緒に探そう。</div>
+        </div>
+        <span class="lc-arrow">→</span>
+      </a>
+    </section>
+
+    <!-- 5b · ベジトレClub — fitness club -->
+    <section class="mt-8 reveal" style="animation-delay:.24s">
+      <a href="https://veganoji.jp/vegfit" target="_blank" rel="noopener" class="vegfit-card">
+        <span class="vegfit-badge" data-ja="月¥500〜" data-en="From ¥500/mo">月¥500〜</span>
+        <img class="vegfit-thumb" src="/images/vegfit/logo-icon.png" alt="" />
+        <div class="vegfit-body">
+          <div class="vegfit-title" data-ja="ベジトレClub" data-en="VegFit Club">ベジトレClub</div>
+          <div class="vegfit-teaser" data-ja="植物の力で、楽しく強くなる。" data-en="Get strong the fun way — powered by plants.">植物の力で、楽しく強くなる。</div>
         </div>
         <span class="lc-arrow">→</span>
       </a>
