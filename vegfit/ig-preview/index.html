@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ベジトレClub — Instagram 投稿モックアップ</title>
+<meta name="robots" content="noindex,nofollow" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#FFF9EE; --cream:#FDF1DA; --leaf:#4FA63E; --leaf-deep:#2F7A28; --leaf-soft:#9BD98A;
+    --carrot:#EE7B1E; --carrot-deep:#C85E12; --sun:#F7C53E; --sky:#4FB6E6; --ink:#1F1812; --ink-soft:#3C2E22; --muted:#6E5B45;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e7e3d6;font-family:"Noto Sans JP",sans-serif;color:#222;}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 16px 80px;}
+  .pagehead{background:#fff;border:1px solid #d8d2be;border-radius:14px;padding:18px 22px;margin-bottom:26px;}
+  .pagehead h1{margin:0 0 6px;font-size:20px;}
+  .pagehead p{margin:4px 0;font-size:13.5px;color:#555;line-height:1.7;}
+  h2.sec{font-size:17px;margin:34px 0 4px;color:#1F1812;}
+  h2.sec span{color:#888;font-weight:700;font-size:13px;}
+  .note{font-size:13px;color:#6b6b6b;margin:0 0 14px;}
+  .row{display:flex;gap:18px;flex-wrap:wrap;}
+  .cell{width:300px;}
+  .cap{font-size:12.5px;color:#555;margin:8px 2px 0;text-align:center;font-weight:700;}
+  .thumb{width:300px;height:300px;border-radius:16px;overflow:hidden;border:2px solid #1F1812;box-shadow:4px 4px 0 #1F1812;background:#fff;}
+  .thumb .post{transform:scale(0.277778);transform-origin:top left;}
+
+  /* ===== 1080x1080 canvas ===== */
+  .post{position:relative;width:1080px;height:1080px;overflow:hidden;font-family:"Noto Sans JP",sans-serif;color:var(--ink);display:flex;flex-direction:column;}
+  .post .pad{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:90px;}
+  .scrim{position:absolute;inset:0;z-index:1;}
+  .cover{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;}
+  .center{justify-content:center;align-items:center;text-align:center;}
+
+  /* style A — illustrated (photo bg + scrim + white text) */
+  .sA .scrim{background:linear-gradient(to top, rgba(20,14,8,.74) 22%, rgba(20,14,8,.12) 60%, rgba(20,14,8,.30));}
+  .sA, .sA *{color:var(--paper);}
+  /* style B — cream sticker (site identity) */
+  .sB{background:var(--paper);}
+  .sB .scard{background:#fff;border:7px solid var(--ink);border-radius:34px;box-shadow:18px 20px 0 var(--ink);}
+  /* style C — bold green */
+  .sC{background:radial-gradient(700px 460px at 78% 12%, rgba(247,197,62,.34), transparent 60%),linear-gradient(158deg,#5FB54B,#2F7A28);}
+  .sC, .sC *{color:var(--paper);}
+
+  .badge{display:inline-flex;align-items:center;gap:14px;background:var(--carrot);color:#fff;border:6px solid var(--ink);border-radius:999px;padding:14px 34px;font-weight:900;font-size:46px;box-shadow:8px 8px 0 var(--ink);}
+  .pill{display:inline-block;background:var(--sun);color:var(--ink);border:5px solid var(--ink);border-radius:999px;padding:8px 26px;font-weight:900;font-size:34px;}
+  .logo-h{height:230px;object-fit:contain;}
+  .mascot{position:absolute;z-index:2;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(0,0,0,.22));}
+  .handle{font-weight:900;font-size:34px;opacity:.95;}
+  .doline{height:7px;width:140px;background:var(--sun);border-radius:99px;border:3px solid var(--ink);}
+
+  /* what-we-do rows */
+  .wrow{display:flex;align-items:center;gap:34px;margin:0 0 30px;}
+  .wnum{flex:none;width:118px;height:118px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:6px solid var(--ink);box-shadow:6px 6px 0 var(--ink);}
+  .wrow img{width:80px;height:80px;object-fit:contain;}
+  .wt{font-weight:900;font-size:54px;line-height:1.1;}
+  .ws{font-weight:700;font-size:32px;opacity:.9;margin-top:2px;}
+
+  /* join perks */
+  .perk{display:flex;align-items:center;gap:22px;font-weight:800;font-size:40px;margin:18px 0;}
+  .perk .dot{flex:none;width:46px;height:46px;border-radius:50%;background:var(--leaf);border:4px solid var(--ink);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;}
+
+  /* frame */
+  .fphoto{position:absolute;inset:0;background:url(/images/vegfit/bg/bg_track2.jpg) center/cover;z-index:0;}
+  .fband{position:absolute;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:center;gap:18px;font-weight:900;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="pagehead">
+    <h1>ベジトレClub — Instagram 投稿モックアップ 📌</h1>
+    <p>各タイプを <b>3スタイル（A=イラスト / B=ステッカー / C=グリーン）</b> で用意しました。表示は縮小版・実寸は <b>1080×1080</b> です。</p>
+    <p>気に入ったスタイルを教えてください → そのスタイルで最終PNGを書き出します。固定ピンのおすすめは下のメモを参照。</p>
+  </div>
+
+  <!-- ================= 1) HERO / 始動 ================= -->
+  <h2 class="sec">① ヒーロー（始動・これは何？） <span>— pin #1</span></h2>
+  <p class="note">プロフィールに来た人が一目で「何のアカウントか」わかる顔。</p>
+  <div class="row">
+    <div class="cell"><div class="thumb"><div class="post sA">
+      <div class="cover" style="background-image:url(/images/vegfit/banner.jpg)"></div>
+      <div class="scrim"></div>
+      <div class="pad center" style="justify-content:flex-end;">
+        <div class="badge" style="margin-bottom:30px;">🌱 始動！</div>
+        <div style="font-weight:900;font-size:66px;line-height:1.18;text-shadow:0 3px 10px rgba(0,0,0,.5);">植物の力で、<br>楽しく強くなる。</div>
+        <div class="handle" style="margin-top:26px;">@veganoji</div>
+      </div>
+    </div></div><p class="cap">A・イラスト</p></div>
+
+    <div class="cell"><div class="thumb"><div class="post sB center">
+      <div class="pad center">
+        <div class="pill" style="margin-bottom:34px;">🎉 始動！</div>
+        <img class="logo-h" style="height:300px;" src="/images/vegfit/logo.png" />
+        <div style="font-weight:900;font-size:52px;color:var(--leaf-deep);margin-top:26px;line-height:1.25;">植物の力で、<br>楽しく強くなる。</div>
+        <div style="font-weight:800;font-size:32px;color:var(--muted);margin-top:24px;">日本のプラントベース・<br>フィットネスコミュニティ</div>
+      </div>
+    </div></div><p class="cap">B・ステッカー</p></div>
+
+    <div class="cell"><div class="thumb"><div class="post sC center">
+      <div class="pad center">
+        <div style="background:var(--paper);border:6px solid var(--ink);border-radius:34px;padding:34px 40px;box-shadow:10px 10px 0 var(--ink);">
+          <img class="logo-h" style="height:250px;" src="/images/vegfit/logo.png" /></div>
+        <div style="font-weight:900;font-size:84px;margin-top:40px;letter-spacing:-.02em;">始動！</div>
+        <div style="font-weight:800;font-size:40px;margin-top:10px;">ベジでも、強くなれる。💪</div>
+        <div class="handle" style="margin-top:30px;">@veganoji</div>
+      </div>
+    </div></div><p class="cap">C・グリーン</p></div>
+  </div>
+
+  <!-- ================= 2) WHAT WE DO ================= -->
+  <h2 class="sec">② やること（運動・食・楽しむ） <span>— pin #2</span></h2>
+  <p class="note">「何をするコミュニティ?」に一発で答える。</p>
+  <div class="row">
+    <div class="cell"><div class="thumb"><div class="post sA">
+      <div class="cover" style="background-image:url(/images/vegfit/bg/bg_trail.jpg)"></div>
+      <div class="scrim" style="background:linear-gradient(to top,rgba(20,14,8,.82),rgba(20,14,8,.55));"></div>
+      <div class="pad">
+        <div style="font-weight:900;font-size:62px;margin-bottom:48px;">ベジトレで、やること</div>
+        <div class="wrow"><img src="/images/vegfit/icons/a_run.png"><div><div class="wt">運動する</div><div class="ws">走る・登る・鍛える</div></div></div>
+        <div class="wrow"><img src="/images/vegfit/icons/food_ramen.png"><div><div class="wt">食べる</div><div class="ws">おいしいビーガン食で回復</div></div></div>
+        <div class="wrow"><img src="/images/vegfit/icons/a_party.png"><div><div class="wt">楽しむ</div><div class="ws">仲間と、思いっきり🎉</div></div></div>
+      </div>
+    </div></div><p class="cap">A・イラスト</p></div>
+
+    <div class="cell"><div class="thumb"><div class="post sB">
+      <div class="pad">
+        <div style="font-weight:900;font-size:60px;color:var(--leaf-deep);margin-bottom:44px;">ベジトレで、やること</div>
+        <div class="wrow"><div class="wnum" style="background:var(--leaf-soft);"><img src="/images/vegfit/icons/a_run.png"></div><div><div class="wt" style="color:var(--ink);">運動する</div><div class="ws" style="color:var(--muted);">走る・登る・鍛える</div></div></div>
+        <div class="wrow"><div class="wnum" style="background:#FBD9A6;"><img src="/images/vegfit/icons/food_ramen.png"></div><div><div class="wt" style="color:var(--ink);">食べる</div><div class="ws" style="color:var(--muted);">おいしいビーガン食で回復</div></div></div>
+        <div class="wrow"><div class="wnum" style="background:#F7C7CE;"><img src="/images/vegfit/icons/a_party.png"></div><div><div class="wt" style="color:var(--ink);">楽しむ</div><div class="ws" style="color:var(--muted);">仲間と、思いっきり🎉</div></div></div>
+      </div>
+    </div></div><p class="cap">B・ステッカー</p></div>
+
+    <div class="cell"><div class="thumb"><div class="post sC">
+      <div class="pad">
+        <div style="font-weight:900;font-size:62px;margin-bottom:46px;">ベジトレで、やること</div>
+        <div class="wrow"><div class="wnum" style="background:var(--paper);"><img src="/images/vegfit/icons/a_run.png"></div><div><div class="wt">① 運動する</div><div class="ws">走る・登る・鍛える</div></div></div>
+        <div class="wrow"><div class="wnum" style="background:var(--paper);"><img src="/images/vegfit/icons/food_ramen.png"></div><div><div class="wt">② 食べる</div><div class="ws">おいしいビーガン食で回復</div></div></div>
+        <div class="wrow"><div class="wnum" style="background:var(--paper);"><img src="/images/vegfit/icons/a_party.png"></div><div><div class="wt">③ 楽しむ</div><div class="ws">仲間と、思いっきり🎉</div></div></div>
+      </div>
+    </div></div><p class="cap">C・グリーン</p></div>
+  </div>
+
+  <!-- ================= 3) MISSION ================= -->
+  <h2 class="sec">③ ミッション <span>— pin候補 / 想いを伝える</span></h2>
+  <p class="note">共感で刺す一枚。固定にしても、通常投稿でも。</p>
+  <div class="row">
+    <div class="cell"><div class="thumb"><div class="post sA center">
+      <div class="cover" style="background-image:url(/images/vegfit/bg/bg_field.jpg)"></div>
+      <div class="scrim"></div>
+      <div class="pad center">
+        <div style="font-weight:900;font-size:30px;letter-spacing:.3em;margin-bottom:30px;">MISSION</div>
+        <div style="font-weight:900;font-size:72px;line-height:1.4;text-shadow:0 3px 10px rgba(0,0,0,.5);">「ベジでも、<br>強くなれる」を、<br>当たり前に。</div>
+        <div class="doline" style="margin:40px auto 0;"></div>
+      </div>
+    </div></div><p class="cap">A・イラスト</p></div>
+
+    <div class="cell"><div class="thumb"><div class="post sB center">
+      <div class="pad center">
+        <img src="/images/vegfit/animals/gorilla.png" style="width:300px;height:300px;object-fit:contain;margin-bottom:20px;">
+        <div style="font-weight:900;font-size:30px;letter-spacing:.3em;color:var(--carrot-deep);margin-bottom:24px;">OUR MISSION</div>
+        <div style="font-weight:900;font-size:62px;line-height:1.45;color:var(--ink);">「ベジでも、<br>強くなれる」を、<br><span style="color:var(--leaf-deep);">当たり前に。</span></div>
+      </div>
+    </div></div><p class="cap">B・ステッカー</p></div>
+
+    <div class="cell"><div class="thumb"><div class="post sC center">
+      <div class="pad center">
+        <div style="font-weight:900;font-size:30px;letter-spacing:.3em;margin-bottom:34px;opacity:.9;">MISSION</div>
+        <div style="font-weight:900;font-size:70px;line-height:1.42;">「ベジでも、<br>強くなれる」を、<br>当たり前に。</div>
+        <div style="font-weight:800;font-size:34px;margin-top:40px;line-height:1.6;">日本のプラントベースを<br>〈カッコよくて・元気で・楽しい〉に。</div>
+      </div>
+    </div></div><p class="cap">C・グリーン</p></div>
+  </div>
+
+  <!-- ================= 4) JOIN / PRICE ================= -->
+  <h2 class="sec">④ 参加しよう（誰でもOK＋¥500） <span>— pin #3 のおすすめ</span></h2>
+  <p class="note">「自分も入れる?」に答えて背中を押す。価格はここに統合（独立した価格投稿より自然）。</p>
+  <div class="row">
+    <div class="cell"><div class="thumb"><div class="post sA">
+      <div class="cover" style="background-image:url(/images/vegfit/bg/bg_track2.jpg)"></div>
+      <div class="scrim" style="background:linear-gradient(to top,rgba(20,14,8,.84),rgba(20,14,8,.45));"></div>
+      <div class="pad" style="justify-content:center;">
+        <div style="font-weight:900;font-size:64px;">だれでも、参加OK。</div>
+        <div style="font-weight:800;font-size:34px;margin-top:10px;opacity:.92;">ビーガンも・ベジも・気になる人も。初心者大歓迎。</div>
+        <div style="display:flex;align-items:flex-end;gap:14px;margin-top:40px;"><span style="font-weight:900;font-size:150px;line-height:.9;color:var(--sun);">¥500</span><span style="font-weight:800;font-size:44px;padding-bottom:20px;">/月〜</span></div>
+        <div style="font-weight:800;font-size:32px;margin-top:14px;opacity:.92;">いつでも解約OK ・ プロフィールのリンクから ▶</div>
+      </div>
+    </div></div><p class="cap">A・イラスト</p></div>
+
+    <div class="cell"><div class="thumb"><div class="post sB">
+      <div class="pad" style="justify-content:center;">
+        <div style="font-weight:900;font-size:62px;color:var(--leaf-deep);">参加しよう🌱</div>
+        <div style="font-weight:800;font-size:34px;color:var(--muted);margin-top:8px;">だれでもOK・初心者大歓迎</div>
+        <div style="display:flex;align-items:flex-end;gap:14px;margin:34px 0 14px;"><span style="font-weight:900;font-size:140px;line-height:.9;color:var(--carrot);">¥500</span><span style="font-weight:800;font-size:42px;color:var(--muted);padding-bottom:18px;">/月〜</span></div>
+        <div class="perk"><span class="dot">✓</span> メンバー限定LINE</div>
+        <div class="perk"><span class="dot">✓</span> イベント参加・提案</div>
+        <div class="perk"><span class="dot">✓</span> Stravaクラブ</div>
+      </div>
+    </div></div><p class="cap">B・ステッカー</p></div>
+
+    <div class="cell"><div class="thumb"><div class="post sC center">
+      <div class="pad center">
+        <img src="/images/oji/oji_welcoming.png" style="width:300px;height:300px;object-fit:contain;">
+        <div style="font-weight:900;font-size:60px;margin-top:10px;">いっしょに、走ろう。</div>
+        <div style="background:var(--paper);color:var(--ink);border:6px solid var(--ink);border-radius:30px;box-shadow:8px 8px 0 var(--ink);padding:18px 40px;margin-top:30px;font-weight:900;font-size:64px;">月額 ¥500〜</div>
+        <div style="font-weight:800;font-size:34px;margin-top:26px;">プロフィールのリンクから ▶</div>
+      </div>
+    </div></div><p class="cap">C・グリーン</p></div>
+  </div>
+
+  <!-- ================= 5) EVENT FRAME ================= -->
+  <h2 class="sec">⑤ イベント用フレーム（集合写真にかぶせる枠）</h2>
+  <p class="note">中央の写真はサンプル。大会名は差し替え可。最終版は透過PNGで書き出します。</p>
+  <div class="row">
+    <!-- frame A: cream bands -->
+    <div class="cell"><div class="thumb"><div class="post">
+      <div class="fphoto"></div>
+      <div class="fband" style="top:0;height:150px;background:var(--paper);border-bottom:6px solid var(--ink);font-size:52px;color:var(--leaf-deep);">🌱 ベジトレClub</div>
+      <img class="mascot" src="/images/vegfit/animals/gorilla.png" style="width:200px;left:24px;bottom:150px;">
+      <img class="mascot" src="/images/vegfit/animals/rabbit.png" style="width:150px;right:30px;bottom:150px;">
+      <div class="fband" style="bottom:0;height:150px;background:var(--paper);border-top:6px solid var(--ink);font-size:42px;color:var(--ink);">#ベジトレ ・ 2026 ○○マラソン</div>
+      <div style="position:absolute;inset:14px;border:8px solid var(--paper);z-index:2;pointer-events:none;"></div>
+    </div></div><p class="cap">A・クリーム帯</p></div>
+
+    <!-- frame B: green gradient border -->
+    <div class="cell"><div class="thumb"><div class="post">
+      <div style="position:absolute;inset:0;background:linear-gradient(158deg,#5FB54B,#2F7A28);z-index:0;"></div>
+      <div style="position:absolute;inset:70px;background:url(/images/vegfit/bg/bg_track2.jpg) center/cover;z-index:1;border:6px solid var(--ink);"></div>
+      <div class="fband" style="top:0;height:78px;color:var(--paper);font-size:40px;">🌱 ベジトレClub ・ #ベジトレ</div>
+      <div class="fband" style="bottom:0;height:78px;color:var(--paper);font-size:40px;">2026 ○○マラソン 🎉</div>
+      <img class="mascot" src="/images/vegfit/animals/gorilla.png" style="width:180px;left:0;bottom:60px;">
+      <img class="mascot" src="/images/vegfit/icons/c_nakama.png" style="width:150px;right:8px;bottom:60px;">
+    </div></div><p class="cap">B・グリーン枠</p></div>
+
+    <!-- frame C: rounded sticker -->
+    <div class="cell"><div class="thumb"><div class="post" style="background:var(--sun);">
+      <div style="position:absolute;inset:40px;border-radius:48px;overflow:hidden;border:8px solid var(--ink);box-shadow:14px 14px 0 var(--ink);z-index:1;">
+        <div style="position:absolute;inset:0;background:url(/images/vegfit/bg/bg_track2.jpg) center/cover;"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:170px;background:linear-gradient(to top,rgba(20,14,8,.8),transparent);"></div>
+        <div style="position:absolute;left:50px;bottom:46px;color:#fff;font-weight:900;font-size:50px;">ベジトレClub 🌱<br><span style="font-size:34px;font-weight:800;">#ベジトレ ・ 2026 ○○マラソン</span></div>
+      </div>
+      <img class="mascot" src="/images/vegfit/animals/gorilla.png" style="width:210px;right:0;top:0;z-index:2;">
+    </div></div><p class="cap">C・丸枠ステッカー</p></div>
+  </div>
+
+</div>
+</body>
+</html>
