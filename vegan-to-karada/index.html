@@ -651,6 +651,16 @@
     .note-toggle summary::-webkit-details-marker { display:none; }
     .note-toggle .chev { transition: transform .25s ease; }
     .note-toggle[open] summary .chev { transform: rotate(180deg); }
+
+    /* ── Furigana (総ルビ) — native ruby; iOS-safe ───────────────────── */
+    ruby { ruby-position: over; -webkit-ruby-position: over; ruby-align: center; }
+    rt {
+      font-size: clamp(7px, 0.5em, 14px);  /* ~half base, capped on big headings */
+      font-weight: 400; line-height: 1; letter-spacing: 0.02em;
+      opacity: 0.7; user-select: none;
+      margin-bottom: -0.25em;              /* tighten gap to kanji (desktop + iOS) */
+    }
+    .heading-with-ruby { line-height: 1.25 !important; }  /* only for very tight headings */
   </style>
 </head>
 
@@ -672,18 +682,18 @@
 
     <div class="relative z-10 max-w-3xl mx-auto text-center pt-12 sm:pt-0">
       <div class="font-jp font-semibold text-ink/70 text-[18px] sm:text-[22px] tracking-[0.05em] mb-5 sm:mb-7" style="text-shadow:0 1px 8px rgba(255,249,238,0.8);">
-        ビーガン王子が教える ——
+        ビーガン<ruby>王子<rt>おうじ</rt></ruby>が<ruby>教<rt>おし</rt></ruby>える ——
       </div>
 
-      <h1 class="font-jp-display font-black display-tight text-[44px] sm:text-[84px] lg:text-[104px] leading-[1.02] text-ink" style="text-shadow:0 2px 14px rgba(255,249,238,0.7);">
-        植物の、<br/>
-        <span class="text-royal">本当のチカラ。</span>
+      <h1 class="heading-with-ruby font-jp-display font-black display-tight text-[44px] sm:text-[84px] lg:text-[104px] leading-[1.02] text-ink" style="text-shadow:0 2px 14px rgba(255,249,238,0.7);">
+        <ruby>植物<rt>しょくぶつ</rt></ruby>の、<br/>
+        <span class="text-royal"><ruby>本当<rt>ほんとう</rt></ruby>のチカラ。</span>
       </h1>
 
       <p class="mt-10 sm:mt-12 max-w-xl mx-auto text-ink-soft font-jp text-[17px] sm:text-[19px] leading-[1.95]" style="text-shadow:0 1px 8px rgba(255,249,238,0.85);">
-        強さも、美しさも、長生きも。<br/>
-        植物で、ぜんぶ叶う。<br/>
-        4つのテーマで、一緒に見てみよう。
+        <ruby>強<rt>つよ</rt></ruby>さも、<ruby>美<rt>うつく</rt></ruby>しさも、<ruby>長生<rt>ながい</rt></ruby>きも。<br/>
+        <ruby>植物<rt>しょくぶつ</rt></ruby>で、ぜんぶ<ruby>叶<rt>かな</rt></ruby>う。<br/>
+        4つのテーマで、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>見<rt>み</rt></ruby>てみよう。
       </p>
 
       <div class="mt-10 sm:mt-12 flex justify-center">
@@ -696,7 +706,7 @@
       </div>
 
       <div class="mt-8 sm:mt-12 inline-flex flex-col items-center gap-2 text-ink/45">
-        <span class="font-jp text-[14px] tracking-[0.06em]">下にスクロール</span>
+        <span class="font-jp text-[14px] tracking-[0.06em]"><ruby>下<rt>した</rt></ruby>にスクロール</span>
         <svg width="14" height="20" viewBox="0 0 14 20" fill="none" class="animate-bounce">
           <path d="M7 2 L7 16 M2 11 L7 16 L12 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
         </svg>
@@ -726,12 +736,12 @@
     <div class="max-w-3xl mx-auto">
 
       <div class="reveal text-center">
-        <h2 class="font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
-          「お肉なしで、<br/>
-          <span style="color: #C9223A;">力は出ない」</span>？
+        <h2 class="heading-with-ruby font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
+          「お<ruby>肉<rt>にく</rt></ruby>なしで、<br/>
+          <span style="color: #C9223A;"><ruby>力<rt>ちから</rt></ruby>は<ruby>出<rt>で</rt></ruby>ない」</span>？
         </h2>
         <p class="mt-6 font-jp text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
-          まず、地球最強の動物たちに聞いてみよう。<br/>
+          まず、<ruby>地球<rt>ちきゅう</rt></ruby><ruby>最強<rt>さいきょう</rt></ruby>の<ruby>動物<rt>どうぶつ</rt></ruby>たちに<ruby>聞<rt>き</rt></ruby>いてみよう。<br/>
           カードをタップしてね！ 👆
         </p>
       </div>
@@ -739,28 +749,28 @@
       <!-- Herbivore stat cards (flip) -->
       <div class="mt-10 sm:mt-12 grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-5">
         <button type="button" class="dex reveal"><div class="dex-in">
-          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/elephant.png" alt="ゾウ" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🐘</span><div class="dex-name">ゾウ</div><div class="dex-sub">鼻で350kg</div></div>
-          <div class="dex-face dex-back"><span class="dex-tag">🌿 主食</span><div class="dex-food">草・木の葉・果実・樹皮</div><div class="dex-fact">体重6t超を支える筋肉。 噛む力2,175 PSI。</div></div>
+          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/elephant.png" alt="ゾウ" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🐘</span><div class="dex-name">ゾウ</div><div class="dex-sub"><ruby>鼻<rt>はな</rt></ruby>で350kg</div></div>
+          <div class="dex-face dex-back"><span class="dex-tag">🌿 <ruby>主食<rt>しゅしょく</rt></ruby></span><div class="dex-food"><ruby>草<rt>くさ</rt></ruby>・<ruby>木<rt>き</rt></ruby>の<ruby>葉<rt>は</rt></ruby>・<ruby>果実<rt>かじつ</rt></ruby>・<ruby>樹皮<rt>じゅひ</rt></ruby></div><div class="dex-fact"><ruby>体重<rt>たいじゅう</rt></ruby>6t<ruby>超<rt>ちょう</rt></ruby>を<ruby>支<rt>ささ</rt></ruby>える<ruby>筋肉<rt>きんにく</rt></ruby>。 <ruby>噛<rt>か</rt></ruby>む<ruby>力<rt>ちから</rt></ruby>2,175 PSI。</div></div>
         </div></button>
         <button type="button" class="dex reveal"><div class="dex-in">
-          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/gorilla.png" alt="ゴリラ" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🦍</span><div class="dex-name">ゴリラ</div><div class="dex-sub">大人20人分の力</div></div>
-          <div class="dex-face dex-back"><span class="dex-tag">🌿 主食</span><div class="dex-food">葉・くき・果実・竹</div><div class="dex-fact">力は体重の約10倍。 噛む力はライオンの2倍。</div></div>
+          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/gorilla.png" alt="ゴリラ" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🦍</span><div class="dex-name">ゴリラ</div><div class="dex-sub"><ruby>大人<rt>おとな</rt></ruby>20<ruby>人分<rt>にんぶん</rt></ruby>の<ruby>力<rt>ちから</rt></ruby></div></div>
+          <div class="dex-face dex-back"><span class="dex-tag">🌿 <ruby>主食<rt>しゅしょく</rt></ruby></span><div class="dex-food"><ruby>葉<rt>は</rt></ruby>・くき・<ruby>果実<rt>かじつ</rt></ruby>・<ruby>竹<rt>たけ</rt></ruby></div><div class="dex-fact"><ruby>力<rt>ちから</rt></ruby>は<ruby>体重<rt>たいじゅう</rt></ruby>の<ruby>約<rt>やく</rt></ruby>10<ruby>倍<rt>ばい</rt></ruby>。 <ruby>噛<rt>か</rt></ruby>む<ruby>力<rt>ちから</rt></ruby>はライオンの2<ruby>倍<rt>ばい</rt></ruby>。</div></div>
         </div></button>
         <button type="button" class="dex reveal"><div class="dex-in">
-          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/hippo.png" alt="カバ" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🦛</span><div class="dex-name">カバ</div><div class="dex-sub">最大4.5t</div></div>
-          <div class="dex-face dex-back"><span class="dex-tag">🌿 主食</span><div class="dex-food">草（夜に約40kg）</div><div class="dex-fact">アフリカで最も危険とされる大型動物。</div></div>
+          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/hippo.png" alt="カバ" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🦛</span><div class="dex-name">カバ</div><div class="dex-sub"><ruby>最大<rt>さいだい</rt></ruby>4.5t</div></div>
+          <div class="dex-face dex-back"><span class="dex-tag">🌿 <ruby>主食<rt>しゅしょく</rt></ruby></span><div class="dex-food"><ruby>草<rt>くさ</rt></ruby>（<ruby>夜<rt>よる</rt></ruby>に<ruby>約<rt>やく</rt></ruby>40kg）</div><div class="dex-fact">アフリカで<ruby>最<rt>もっと</rt></ruby>も<ruby>危険<rt>きけん</rt></ruby>とされる<ruby>大型<rt>おおがた</rt></ruby><ruby>動物<rt>どうぶつ</rt></ruby>。</div></div>
         </div></button>
         <button type="button" class="dex reveal"><div class="dex-in">
-          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/rhino.png" alt="サイ" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🦏</span><div class="dex-name">サイ</div><div class="dex-sub">突進 時速50km</div></div>
-          <div class="dex-face dex-back"><span class="dex-tag">🌿 主食</span><div class="dex-food">草・木の葉・小枝</div><div class="dex-fact">5種すべて草食。 あの巨体も角も、草でつくられてる。</div></div>
+          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/rhino.png" alt="サイ" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🦏</span><div class="dex-name">サイ</div><div class="dex-sub"><ruby>突進<rt>とっしん</rt></ruby> <ruby>時速<rt>じそく</rt></ruby>50km</div></div>
+          <div class="dex-face dex-back"><span class="dex-tag">🌿 <ruby>主食<rt>しゅしょく</rt></ruby></span><div class="dex-food"><ruby>草<rt>くさ</rt></ruby>・<ruby>木<rt>き</rt></ruby>の<ruby>葉<rt>は</rt></ruby>・<ruby>小枝<rt>こえだ</rt></ruby></div><div class="dex-fact">5<ruby>種<rt>しゅ</rt></ruby>すべて<ruby>草食<rt>そうしょく</rt></ruby>。 あの<ruby>巨体<rt>きょたい</rt></ruby>も<ruby>角<rt>つの</rt></ruby>も、<ruby>草<rt>くさ</rt></ruby>でつくられてる。</div></div>
         </div></button>
         <button type="button" class="dex reveal"><div class="dex-in">
-          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/giraffe.png" alt="キリン" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🦒</span><div class="dex-name">キリン</div><div class="dex-sub">1日に植物15kg</div></div>
-          <div class="dex-face dex-back"><span class="dex-tag">🌿 主食</span><div class="dex-food">アカシアの葉（1日約15kg）</div><div class="dex-fact">2mの首も、強い心臓も、葉からつくられている。</div></div>
+          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/giraffe.png" alt="キリン" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🦒</span><div class="dex-name">キリン</div><div class="dex-sub">1<ruby>日<rt>にち</rt></ruby>に<ruby>植物<rt>しょくぶつ</rt></ruby>15kg</div></div>
+          <div class="dex-face dex-back"><span class="dex-tag">🌿 <ruby>主食<rt>しゅしょく</rt></ruby></span><div class="dex-food">アカシアの<ruby>葉<rt>は</rt></ruby>（1<ruby>日<rt>にち</rt></ruby><ruby>約<rt>やく</rt></ruby>15kg）</div><div class="dex-fact">2mの<ruby>首<rt>くび</rt></ruby>も、<ruby>強<rt>つよ</rt></ruby>い<ruby>心臓<rt>しんぞう</rt></ruby>も、<ruby>葉<rt>は</rt></ruby>からつくられている。</div></div>
         </div></button>
         <button type="button" class="dex reveal"><div class="dex-in">
-          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/ox.png" alt="雄牛" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🐂</span><div class="dex-name">雄牛・バイソン</div><div class="dex-sub">あの筋肉</div></div>
-          <div class="dex-face dex-back"><span class="dex-tag">🌿 主食</span><div class="dex-food">牧草</div><div class="dex-fact">ステーキになる筋肉も、もとは草でできてる。</div></div>
+          <div class="dex-face dex-front"><img class="dex-img" src="/images/karada/animals/ox.png" alt="雄牛" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/><span class="dex-emoji" style="display:none;">🐂</span><div class="dex-name"><ruby>雄牛<rt>おうし</rt></ruby>・バイソン</div><div class="dex-sub">あの<ruby>筋肉<rt>きんにく</rt></ruby></div></div>
+          <div class="dex-face dex-back"><span class="dex-tag">🌿 <ruby>主食<rt>しゅしょく</rt></ruby></span><div class="dex-food"><ruby>牧草<rt>ぼくそう</rt></ruby></div><div class="dex-fact">ステーキになる<ruby>筋肉<rt>きんにく</rt></ruby>も、もとは<ruby>草<rt>くさ</rt></ruby>でできてる。</div></div>
         </div></button>
       </div>
 
@@ -773,17 +783,17 @@
           </div>
         </div>
         <p class="font-jp-display text-[19px] sm:text-[27px] leading-[1.5]" style="color:#FFF9EE;">
-          「最も強い動物は、草食動物だ。<br/>ゴリラ、牛、象——<span style="color:#E8C76F;">そして、私だ。</span>」
+          「<ruby>最<rt>もっと</rt></ruby>も<ruby>強<rt>つよ</rt></ruby>い<ruby>動物<rt>どうぶつ</rt></ruby>は、<ruby>草食<rt>そうしょく</rt></ruby><ruby>動物<rt>どうぶつ</rt></ruby>だ。<br/>ゴリラ、<ruby>牛<rt>うし</rt></ruby>、<ruby>象<rt>ぞう</rt></ruby>——<span style="color:#E8C76F;">そして、<ruby>私<rt>わたし</rt></ruby>だ。</span>」
         </p>
-        <div class="mt-4 text-[13px] tracking-[0.08em]" style="color:#D4A847;">— パトリック・バブミアン（ストロングマン世界記録保持者）</div>
+        <div class="mt-4 text-[13px] tracking-[0.08em]" style="color:#D4A847;">— パトリック・バブミアン（ストロングマン<ruby>世界<rt>せかい</rt></ruby><ruby>記録<rt>きろく</rt></ruby><ruby>保持者<rt>ほじしゃ</rt></ruby>）</div>
       </div>
 
       <!-- Protein bars -->
       <div class="reveal mt-14 sm:mt-20 text-center">
         <h3 class="font-jp-display text-[24px] sm:text-[34px] text-ink leading-[1.35]">
-          植物にも、<span style="color:#3F6A3A;">タンパク質</span>は<br/>ちゃんとある。
+          <ruby>植物<rt>しょくぶつ</rt></ruby>にも、<span style="color:#3F6A3A;">タンパク<ruby>質<rt>しつ</rt></ruby></span>は<br/>ちゃんとある。
         </h3>
-        <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px]">100g あたりのタンパク質量<a href="#src-1-3" class="src">3</a></p>
+        <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px]">100g あたりのタンパク<ruby>質<rt>しつ</rt></ruby><ruby>量<rt>りょう</rt></ruby><a href="#src-1-3" class="src">3</a></p>
       </div>
 
       <!-- Oji: dried soy meat can beat meat -->
@@ -791,7 +801,7 @@
         <img src="/images/oji/oji_pointing_up.png" alt="ビーガン王子" class="w-20 sm:w-28 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_excited.png'"/>
         <div class="bubble flex-1 mb-4">
           <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
-            見て見て！ 乾燥タイプの大豆ミートは、なんと<strong>お肉よりタンパク質が多い</strong>ことも。 「お肉じゃないと…」なんて、もう言わせないよ。 💪
+            <ruby>見<rt>み</rt></ruby>て<ruby>見<rt>み</rt></ruby>て！ <ruby>乾燥<rt>かんそう</rt></ruby>タイプの<ruby>大豆<rt>だいず</rt></ruby>ミートは、なんと<strong>お<ruby>肉<rt>にく</rt></ruby>よりタンパク<ruby>質<rt>しつ</rt></ruby>が<ruby>多<rt>おお</rt></ruby>い</strong>ことも。 「お<ruby>肉<rt>にく</rt></ruby>じゃないと…」なんて、もう<ruby>言<rt>い</rt></ruby>わせないよ。 💪
           </p>
         </div>
       </div>
@@ -799,14 +809,14 @@
       <div class="mt-8 sm:mt-10 space-y-4 sm:space-y-5">
         <div class="reveal">
           <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px]">🥇 大豆ミート（乾燥）</span>
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">🥇 <ruby>大豆<rt>だいず</rt></ruby>ミート（<ruby>乾燥<rt>かんそう</rt></ruby>）</span>
             <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">50g</span>
           </div>
           <div class="bar-track"><div class="bar-fill" data-bar-target="100" style="background:#4E9B43;"></div></div>
         </div>
         <div class="reveal">
           <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px]">🥈 高野豆腐</span>
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]">🥈 <ruby>高野<rt>こうや</rt></ruby><ruby>豆腐<rt>どうふ</rt></ruby></span>
             <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">49g</span>
           </div>
           <div class="bar-track"><div class="bar-fill" data-bar-target="98" style="background:#4E9B43;"></div></div>
@@ -820,7 +830,7 @@
         </div>
         <div class="reveal pt-1">
           <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px] text-ink/55">🍗 鶏むね肉（参考）</span>
+            <span class="font-jp font-bold text-[14px] sm:text-[16px] text-ink/55">🍗 <ruby>鶏<rt>とり</rt></ruby>むね<ruby>肉<rt>にく</rt></ruby>（<ruby>参考<rt>さんこう</rt></ruby>）</span>
             <span class="ticker font-bold text-[14px] sm:text-[16px] text-ink/55">23g</span>
           </div>
           <div class="bar-track" style="border-color:rgba(31,24,18,0.4); box-shadow:3px 3px 0 rgba(31,24,18,0.4);"><div class="bar-fill" data-bar-target="46" style="background:#C9B8A0; border-right-color:rgba(31,24,18,0.4);"></div></div>
@@ -834,21 +844,21 @@
         </div>
         <div class="reveal">
           <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px]">納豆</span>
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]"><ruby>納豆<rt>なっとう</rt></ruby></span>
             <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">16.5g</span>
           </div>
           <div class="bar-track"><div class="bar-fill" data-bar-target="33" style="background:#6C9560;"></div></div>
         </div>
         <div class="reveal">
           <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px]">枝豆</span>
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]"><ruby>枝豆<rt>えだまめ</rt></ruby></span>
             <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">11.5g</span>
           </div>
           <div class="bar-track"><div class="bar-fill" data-bar-target="23" style="background:#6C9560;"></div></div>
         </div>
         <div class="reveal">
           <div class="flex items-center justify-between mb-1.5">
-            <span class="font-jp font-bold text-[14px] sm:text-[16px]">木綿豆腐</span>
+            <span class="font-jp font-bold text-[14px] sm:text-[16px]"><ruby>木綿<rt>もめん</rt></ruby><ruby>豆腐<rt>どうふ</rt></ruby></span>
             <span class="ticker font-bold text-[14px] sm:text-[16px]" style="color:#3F6A3A;">7g</span>
           </div>
           <div class="bar-track"><div class="bar-fill" data-bar-target="14" style="background:#6C9560;"></div></div>
@@ -856,7 +866,7 @@
       </div>
 
       <p class="reveal mt-6 font-jp text-ink-soft text-[13.5px] sm:text-[14px] leading-[1.85] text-center max-w-xl mx-auto">
-        ※ 大豆ミート・高野豆腐・きなこは乾燥重量。 水で戻すと量は変わるけど、栄養はしっかりあるよ！ 納豆・豆腐・枝豆は、日本の食卓ではもうなじみ深いね。<a href="#src-1-1" class="src">1</a>
+        ※ <ruby>大豆<rt>だいず</rt></ruby>ミート・<ruby>高野<rt>こうや</rt></ruby><ruby>豆腐<rt>どうふ</rt></ruby>・きなこは<ruby>乾燥<rt>かんそう</rt></ruby><ruby>重量<rt>じゅうりょう</rt></ruby>。 <ruby>水<rt>みず</rt></ruby>で<ruby>戻<rt>もど</rt></ruby>すと<ruby>量<rt>りょう</rt></ruby>は<ruby>変<rt>か</rt></ruby>わるけど、<ruby>栄養<rt>えいよう</rt></ruby>はしっかりあるよ！ <ruby>納豆<rt>なっとう</rt></ruby>・<ruby>豆腐<rt>とうふ</rt></ruby>・<ruby>枝豆<rt>えだまめ</rt></ruby>は、<ruby>日本<rt>にほん</rt></ruby>の<ruby>食卓<rt>しょくたく</rt></ruby>ではもうなじみ<ruby>深<rt>ふか</rt></ruby>いね。<a href="#src-1-1" class="src">1</a>
       </p>
 
       <!-- ════ Nutrition: not just protein ════ -->
