@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Header Lab · ビーガン王子</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-paper: #FFF9EE; --color-cream: #FDF1DA; --color-cream-2: #F6E4BD;
+      --color-royal: #C9223A; --color-royal-deep: #9C1428;
+      --color-gold: #D4A847; --color-gold-soft: #E8C76F; --color-gold-deep: #9C7E2A;
+      --color-ink: #1F1812; --color-ink-soft: #3C2E22; --color-muted: #786148;
+      --color-line: #E9D9B5;
+      --font-jp: "Noto Sans JP", sans-serif;
+    }
+    html, body { background: var(--color-paper); color: var(--color-ink); margin: 0; }
+    body { font-family: var(--font-jp); }
+    .fjp { font-family: var(--font-jp); }
+    .fdisp { font-family: var(--font-jp); font-weight: 900; letter-spacing: -0.02em; }
+
+    .pin {
+      display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+      border: 2.5px solid var(--color-ink); border-radius: 999px; background: var(--color-paper);
+      box-shadow: 3px 3px 0 var(--color-ink); font-weight: 700; font-size: 12.5px;
+    }
+
+    /* lab scaffolding */
+    .lab-banner { background: var(--color-ink); color: var(--color-paper); padding: 30px 24px; text-align: center; }
+    .lab-tag { display:inline-block; font-size:11px; letter-spacing:.24em; color: var(--color-gold-soft); font-weight:800; margin-bottom:8px; }
+    .lab-title { font-family: var(--font-jp); font-weight:900; font-size:24px; margin:0; }
+    .lab-desc { font-size:13px; color: rgba(255,249,238,.72); margin:8px auto 0; max-width:560px; line-height:1.6; }
+    .top { background: var(--color-royal); padding:12px; text-align:center; font-weight:700; font-size:13px; color: var(--color-paper); }
+    .top a { color: var(--color-gold-soft); text-decoration: underline; }
+    .stage { padding: 28px 24px 8px; }
+    .stage-label { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color: var(--color-muted); font-weight:700; margin-bottom:10px; text-align:center; }
+    .phone {
+      width: 380px; max-width: 100%; margin: 0 auto; border: 10px solid var(--color-ink);
+      border-radius: 32px; overflow: hidden; box-shadow: 0 18px 40px -18px rgba(31,24,18,.4);
+    }
+    .desk { max-width: 1100px; margin: 0 auto; border: 1px solid var(--color-line); border-radius: 16px; overflow: hidden; }
+
+    /* mock filter card (shared, so options show in context) */
+    .mock-filter {
+      margin: 18px; background: linear-gradient(180deg, var(--color-cream), var(--color-paper));
+      border: 2px solid var(--color-gold); border-radius: 18px; padding: 14px;
+    }
+    .mock-chips { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+    .mock-chip { font-size:11px; padding:4px 10px; border-radius:999px; background: var(--color-paper); border:1px solid var(--color-line); color: var(--color-ink-soft); }
+    .mock-chip.on { background: var(--color-royal); color: var(--color-paper); border-color: var(--color-royal); }
+  </style>
+</head>
+<body>
+  <div class="top">📰 Blog Header Lab — 「Oji Media.」replacement options (desktop + mobile) · <a href="/blog/">live blog →</a></div>
+
+  <!-- ════ OPTION A — 王子通信 wordmark (clean) ════ -->
+  <div class="lab-banner">
+    <div class="lab-tag">OPTION A — WORDMARK</div>
+    <h2 class="lab-title">王子通信 (clean wordmark)</h2>
+    <p class="lab-desc">日本語タイトルを主役に。英語と合言葉はエックスブロー。王冠アイコンを添えて。シンプルで上品。</p>
+  </div>
+  <div class="stage">
+    <div class="stage-label">Desktop</div>
+    <div class="desk">
+      <section style="background: var(--color-paper); padding: 40px 32px 28px; text-align:center;">
+        <div class="fjp" style="font-size:12px; letter-spacing:.28em; text-transform:uppercase; color: var(--color-royal); font-weight:800;">Oji Media</div>
+        <h1 class="fdisp" style="font-size:60px; color: var(--color-ink); margin:6px 0 0; display:inline-flex; align-items:center; gap:14px;">
+          <img src="/images/ui-icons/crown.png" style="width:48px;height:48px;" alt=""> 王子通信
+        </h1>
+        <p class="fjp" style="font-size:15px; color: var(--color-muted); margin:10px 0 0;">お笑いあり、涙あり、野菜あり ── 王子の日々のことば。</p>
+      </section>
+      <div class="mock-filter"><div class="fjp" style="font-weight:700;font-size:14px;color:var(--color-royal)">カテゴリーから探す</div><div class="mock-chips"><span class="mock-chip on">全て</span><span class="mock-chip">世界のうごき</span><span class="mock-chip">研究室から</span><span class="mock-chip">王子の暮らし</span></div></div>
+    </div>
+    <div class="stage-label" style="margin-top:22px;">Mobile</div>
+    <div class="phone">
+      <section style="background: var(--color-paper); padding: 26px 18px 18px; text-align:center;">
+        <div class="fjp" style="font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color: var(--color-royal); font-weight:800;">Oji Media</div>
+        <h1 class="fdisp" style="font-size:34px; color: var(--color-ink); margin:5px 0 0; display:inline-flex; align-items:center; gap:9px;">
+          <img src="/images/ui-icons/crown.png" style="width:30px;height:30px;" alt=""> 王子通信
+        </h1>
+        <p class="fjp" style="font-size:12.5px; color: var(--color-muted); margin:8px 0 0;">お笑いあり、涙あり、野菜あり</p>
+      </section>
+      <div class="mock-filter"><div class="fjp" style="font-weight:700;font-size:13px;color:var(--color-royal)">カテゴリーから探す</div><div class="mock-chips"><span class="mock-chip on">全て</span><span class="mock-chip">世界のうごき</span><span class="mock-chip">研究室から</span></div></div>
+    </div>
+  </div>
+
+  <!-- ════ OPTION B — reading-prince banner ════ -->
+  <div class="lab-banner">
+    <div class="lab-tag">OPTION B — PRINCE BANNER</div>
+    <h2 class="lab-title">王子通信 + 読書する王子</h2>
+    <p class="lab-desc">読書ポーズの王子をタイトル横に。パーチメント帯。親しみやすく、キャラクター前面。</p>
+  </div>
+  <div class="stage">
+    <div class="stage-label">Desktop</div>
+    <div class="desk">
+      <section style="background:url('/images/decorations/parchment-tile.jpg') center/512px; padding: 28px 32px;">
+        <div style="max-width:980px;margin:0 auto;display:flex;align-items:center;gap:24px;justify-content:center;">
+          <img src="/images/oji/oji_reading.png" style="width:120px;flex-shrink:0;" alt="">
+          <div>
+            <div class="fjp" style="font-size:12px; letter-spacing:.24em; text-transform:uppercase; color: var(--color-royal); font-weight:800;">Oji Media · メディア</div>
+            <h1 class="fdisp" style="font-size:54px; color: var(--color-ink); margin:4px 0 0;">王子通信</h1>
+            <p class="fjp" style="font-size:14.5px; color: var(--color-ink-soft); margin:8px 0 0;">お笑いあり、涙あり、野菜あり ── 王子の日々のことば。</p>
+          </div>
+        </div>
+      </section>
+      <div class="mock-filter"><div class="fjp" style="font-weight:700;font-size:14px;color:var(--color-royal)">カテゴリーから探す</div><div class="mock-chips"><span class="mock-chip on">全て</span><span class="mock-chip">世界のうごき</span><span class="mock-chip">研究室から</span><span class="mock-chip">王子の暮らし</span></div></div>
+    </div>
+    <div class="stage-label" style="margin-top:22px;">Mobile</div>
+    <div class="phone">
+      <section style="background:url('/images/decorations/parchment-tile.jpg') center/400px; padding: 20px 16px; text-align:center;">
+        <img src="/images/oji/oji_reading.png" style="width:88px;margin:0 auto 6px;display:block;" alt="">
+        <div class="fjp" style="font-size:10px; letter-spacing:.2em; text-transform:uppercase; color: var(--color-royal); font-weight:800;">Oji Media</div>
+        <h1 class="fdisp" style="font-size:34px; color: var(--color-ink); margin:3px 0 0;">王子通信</h1>
+        <p class="fjp" style="font-size:12px; color: var(--color-ink-soft); margin:6px 0 0;">お笑いあり、涙あり、野菜あり</p>
+      </section>
+      <div class="mock-filter"><div class="fjp" style="font-weight:700;font-size:13px;color:var(--color-royal)">カテゴリーから探す</div><div class="mock-chips"><span class="mock-chip on">全て</span><span class="mock-chip">世界のうごき</span><span class="mock-chip">研究室から</span></div></div>
+    </div>
+  </div>
+
+  <!-- ════ OPTION C — minimal eyebrow (compact) ════ -->
+  <div class="lab-banner">
+    <div class="lab-tag">OPTION C — COMPACT</div>
+    <h2 class="lab-title">最小限 — すぐ記事へ</h2>
+    <p class="lab-desc">大きなヒーローなし。小さな見出し＋RSSだけで、すぐにフィルターと記事一覧へ。読者をすぐ本題に。</p>
+  </div>
+  <div class="stage">
+    <div class="stage-label">Desktop</div>
+    <div class="desk">
+      <section style="background: var(--color-paper); padding: 22px 32px 6px;">
+        <div style="max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+          <h1 class="fdisp" style="font-size:30px; color: var(--color-ink); margin:0; display:inline-flex; align-items:center; gap:10px;">
+            <img src="/images/ui-icons/crown.png" style="width:30px;height:30px;" alt=""> 王子通信
+            <span class="fjp" style="font-size:12px; letter-spacing:.2em; color: var(--color-muted); font-weight:700; text-transform:uppercase;">Oji Media</span>
+          </h1>
+          <span class="pin"><img src="/images/social/share.png" style="width:18px;height:18px;" alt="">RSS</span>
+        </div>
+      </section>
+      <div class="mock-filter"><div class="fjp" style="font-weight:700;font-size:14px;color:var(--color-royal)">カテゴリーから探す</div><div class="mock-chips"><span class="mock-chip on">全て</span><span class="mock-chip">世界のうごき</span><span class="mock-chip">研究室から</span><span class="mock-chip">王子の暮らし</span></div></div>
+    </div>
+    <div class="stage-label" style="margin-top:22px;">Mobile</div>
+    <div class="phone">
+      <section style="background: var(--color-paper); padding: 18px 16px 4px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+          <h1 class="fdisp" style="font-size:22px; color: var(--color-ink); margin:0; display:inline-flex; align-items:center; gap:7px;">
+            <img src="/images/ui-icons/crown.png" style="width:24px;height:24px;" alt=""> 王子通信
+          </h1>
+          <span class="pin" style="font-size:11px;padding:5px 11px;"><img src="/images/social/share.png" style="width:15px;height:15px;" alt="">RSS</span>
+        </div>
+      </section>
+      <div class="mock-filter"><div class="fjp" style="font-weight:700;font-size:13px;color:var(--color-royal)">カテゴリーから探す</div><div class="mock-chips"><span class="mock-chip on">全て</span><span class="mock-chip">世界のうごき</span><span class="mock-chip">研究室から</span></div></div>
+    </div>
+  </div>
+
+  <!-- ════ OPTION D — generated watercolor banner ════ -->
+  <div class="lab-banner">
+    <div class="lab-tag">OPTION D — ILLUSTRATED BANNER</div>
+    <h2 class="lab-title">水彩バナー + タイトル overlay</h2>
+    <p class="lab-desc">生成した水彩イラスト（手紙・ペン・お茶・葉・王冠）を背景に、タイトルを重ねる。リッチで雑誌的。</p>
+  </div>
+  <div class="stage">
+    <div class="stage-label">Desktop</div>
+    <div class="desk">
+      <section style="position:relative; background:url('/images/decorations/blog-header-banner.jpg') center/cover; min-height:220px; display:flex; align-items:center; justify-content:center; text-align:center;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,249,238,.30), rgba(255,249,238,.55));"></div>
+        <div style="position:relative;">
+          <div class="fjp" style="font-size:12px; letter-spacing:.28em; text-transform:uppercase; color: var(--color-royal); font-weight:800;">Oji Media</div>
+          <h1 class="fdisp" style="font-size:58px; color: var(--color-ink); margin:6px 0 0; text-shadow:0 2px 10px rgba(255,249,238,.7);">王子通信</h1>
+          <p class="fjp" style="font-size:15px; color: var(--color-ink-soft); margin:8px 0 0;">お笑いあり、涙あり、野菜あり</p>
+        </div>
+      </section>
+      <div class="mock-filter"><div class="fjp" style="font-weight:700;font-size:14px;color:var(--color-royal)">カテゴリーから探す</div><div class="mock-chips"><span class="mock-chip on">全て</span><span class="mock-chip">世界のうごき</span><span class="mock-chip">研究室から</span><span class="mock-chip">王子の暮らし</span></div></div>
+    </div>
+    <div class="stage-label" style="margin-top:22px;">Mobile</div>
+    <div class="phone">
+      <section style="position:relative; background:url('/images/decorations/blog-header-banner.jpg') center/cover; min-height:150px; display:flex; align-items:center; justify-content:center; text-align:center;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,249,238,.32), rgba(255,249,238,.6));"></div>
+        <div style="position:relative;">
+          <div class="fjp" style="font-size:10px; letter-spacing:.22em; text-transform:uppercase; color: var(--color-royal); font-weight:800;">Oji Media</div>
+          <h1 class="fdisp" style="font-size:34px; color: var(--color-ink); margin:3px 0 0; text-shadow:0 2px 8px rgba(255,249,238,.7);">王子通信</h1>
+          <p class="fjp" style="font-size:12px; color: var(--color-ink-soft); margin:5px 0 0;">お笑いあり、涙あり、野菜あり</p>
+        </div>
+      </section>
+      <div class="mock-filter"><div class="fjp" style="font-weight:700;font-size:13px;color:var(--color-royal)">カテゴリーから探す</div><div class="mock-chips"><span class="mock-chip on">全て</span><span class="mock-chip">世界のうごき</span><span class="mock-chip">研究室から</span></div></div>
+    </div>
+  </div>
+
+  <div class="lab-banner" style="background: var(--color-paper); color: var(--color-ink); border-top:2px solid var(--color-cream);">
+    <div class="lab-tag" style="color: var(--color-royal);">どれが好き？</div>
+    <h2 class="lab-title">A / B / C / D — または「ヘッダーなし」も可</h2>
+    <p class="lab-desc" style="color: var(--color-muted);">A=シンプル上品 · B=キャラ親しみ · C=最小限すぐ記事 · D=リッチ水彩。組み合わせOK。</p>
+  </div>
+</body>
+</html>
