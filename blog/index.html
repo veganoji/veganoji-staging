@@ -962,19 +962,17 @@
     .filter-chip .count { font-family: var(--font-display); font-size: 11px; opacity: .72; }
     .filter-chip[data-active="true"] .count { opacity: .9; color: var(--color-gold-soft); }
 
-    /* Share toolkit */
-    .share-bar { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    /* Share toolkit — chibi sticker icons (match social-media icon set) */
+    .share-bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
     .share-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-      width: 38px; height: 38px; border-radius: 999px;
-      background: var(--color-paper); border: 1px solid var(--color-line);
-      color: var(--color-ink-soft); cursor: pointer; transition: all .2s ease;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; padding: 0; border: 0; background: none; cursor: pointer;
+      transition: transform .2s cubic-bezier(.22,1,.36,1), filter .2s ease;
+      filter: drop-shadow(0 3px 6px rgba(31,24,18,.12));
     }
-    .share-btn:hover { color: var(--color-royal); border-color: var(--color-royal); transform: translateY(-1px); }
-    .share-btn[data-brand="line"]:hover { background:#06C755; color:white; border-color:#06C755; }
-    .share-btn[data-brand="x"]:hover    { background:#000;     color:white; border-color:#000; }
-    .share-btn[data-brand="hatena"]:hover{ background:#00A4DE; color:white; border-color:#00A4DE; }
-    .share-btn[data-brand="copy"].copied { background:var(--color-leaf-deep); color:white; border-color:var(--color-leaf-deep); }
+    .share-btn img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .share-btn:hover { transform: translateY(-2px) scale(1.09) rotate(-3deg); filter: drop-shadow(0 6px 10px rgba(31,24,18,.2)); }
+    .share-btn[data-brand="copy"].copied { transform: scale(1.12); }
     .share-toast {
       position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
       background: var(--color-ink); color: var(--color-paper);
@@ -1019,9 +1017,9 @@
       border-radius: 22px; overflow: hidden;
       border: 2.5px solid var(--color-ink);
       box-shadow: 0 20px 44px -20px rgba(31,24,18,0.45);
-      aspect-ratio: 16/9; background: var(--color-cream);
+      background: var(--color-cream); line-height: 0;
     }
-    .post-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-hero img { width: 100%; height: auto; display: block; }
     .post-hero .cat-chip {
       position: absolute; top: 14px; left: 14px;
       font-size: 12.5px; padding: 5px 12px;
@@ -1040,24 +1038,13 @@
       margin-top: 0.7rem; letter-spacing: -0.01em;
     }
     @media (min-width: 640px) { .post-title { font-size: 38px; line-height: 1.38; } }
-    .post-lede { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--color-muted); margin-top: 1rem; }
 
-    /* Byline */
-    .post-byline {
+    /* Slim top share row */
+    .post-share-top {
       display: flex; align-items: center; gap: 12px;
-      margin-top: 1.5rem; padding: 0.9rem 0;
-      border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line);
+      margin-top: 1.5rem; padding-top: 1rem;
+      border-top: 1px solid var(--color-line);
     }
-    .post-byline__avatar {
-      width: 44px; height: 44px; border-radius: 999px; flex-shrink: 0;
-      background: linear-gradient(165deg, var(--color-cream), var(--color-paper));
-      border: 2px solid var(--color-ink);
-      display: flex; align-items: center; justify-content: center; overflow: hidden;
-    }
-    .post-byline__avatar img { width: 78%; height: 78%; object-fit: contain; }
-    .post-byline__name { font-family: var(--font-jp-display); font-weight: 700; font-size: 14px; color: var(--color-ink); }
-    .post-byline__sub { font-family: var(--font-jp); font-size: 12px; color: var(--color-muted); margin-top: 1px; }
-    .post-byline .share-bar { margin-left: auto; }
 
     /* rendered markdown body */
     .prose { font-family: var(--font-jp); color: var(--color-ink-soft); line-height: 2.0; font-size: 16px; }
@@ -1095,17 +1082,6 @@
     .prose code { background: var(--color-cream); border-radius: 6px; padding: 2px 7px; font-size: .9em; font-family: ui-monospace, "SFMono-Regular", monospace; }
     .prose figure { margin: 2rem 0; }
     .prose figcaption { font-size: 13px; color: var(--color-muted); text-align: center; margin-top: .5rem; }
-
-    /* Author card */
-    .author-card {
-      display: flex; gap: 18px; align-items: center;
-      margin-top: 3.5rem; padding: 1.5rem 1.6rem;
-      background: linear-gradient(135deg, var(--color-cream), var(--color-paper));
-      border: 2.5px solid var(--color-ink); border-radius: 22px;
-      box-shadow: 5px 5px 0 var(--color-ink);
-    }
-    .author-card__img { width: 88px; flex-shrink: 0; }
-    @media (max-width: 480px) { .author-card { flex-direction: column; text-align: center; } }
 
     /* Related posts */
     .related-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
@@ -1364,11 +1340,11 @@
         const hatenaHref = `https://b.hatena.ne.jp/entry/${url.replace(/^https?:\/\//,'')}`;
         return `
           <div class="share-bar" data-share-bar>
-            <button class="share-btn" data-share-action="native" aria-label="シェア"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16 6l-4-4-4 4M12 2v14M5 14v6h14v-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="share-btn" data-share-action="copy" data-brand="copy" aria-label="リンクをコピー"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V5a2 2 0 00-2-2H5a2 2 0 00-2 2v9a2 2 0 002 2h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
-            <a class="share-btn" data-brand="line" href="${lineHref}" target="_blank" rel="noopener" aria-label="LINEでシェア"><svg width="18" height="18" viewBox="0 0 28 28"><path d="M14 4C7.5 4 2.4 8 2.4 13.2c0 4.6 4.3 8.4 10 9.2-.3.2-.8.7-.9 1-.2.4-.1.9-.1 1.2 0 .3.3.5.6.4 1.5-.6 4.7-2.6 6.3-4.4 4.4-.5 7.3-3.6 7.3-7.4C25.6 8 20.5 4 14 4z" fill="currentColor"/></svg></a>
-            <a class="share-btn" data-brand="x" href="${xHref}" target="_blank" rel="noopener" aria-label="Xでシェア"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M3 3l7.5 10L3.5 21h2.5l5.7-6.5L16.5 21H21l-8-10.8L20 3h-2.5l-5.2 6L8 3H3z" fill="currentColor"/></svg></a>
-            <a class="share-btn" data-brand="hatena" href="${hatenaHref}" target="_blank" rel="noopener" aria-label="はてなブックマーク"><span style="font-family:serif;font-weight:700;font-size:14px;">B!</span></a>
+            <button class="share-btn" data-share-action="native" aria-label="シェア"><img src="/images/social/share.png" alt=""></button>
+            <button class="share-btn" data-share-action="copy" data-brand="copy" aria-label="リンクをコピー"><img src="/images/social/copy.png" alt=""></button>
+            <a class="share-btn" data-brand="line" href="${lineHref}" target="_blank" rel="noopener" aria-label="LINEでシェア"><img src="/images/social/line.png" alt=""></a>
+            <a class="share-btn" data-brand="x" href="${xHref}" target="_blank" rel="noopener" aria-label="Xでシェア"><img src="/images/social/x.png" alt=""></a>
+            <a class="share-btn" data-brand="hatena" href="${hatenaHref}" target="_blank" rel="noopener" aria-label="はてなブックマーク"><img src="/images/social/hatena.png" alt=""></a>
           </div>`;
       }
 
@@ -1571,7 +1547,13 @@
         } catch (e) {}
         // Strip YAML frontmatter before rendering
         md = md.replace(/^---\n[\s\S]*?\n---\n*/, '');
-        const body = (window.marked && md) ? marked.parse(md) : '<p class="text-muted font-jp">本文を読み込めませんでした。</p>';
+        let body = (window.marked && md) ? marked.parse(md) : '<p class="text-muted font-jp">本文を読み込めませんでした。</p>';
+
+        // Remove a leading body image that duplicates the hero (WP exports embed it twice)
+        if (meta.hero) {
+          const heroBase = meta.hero.split('/').pop().replace(/-card(\.[a-z]+)$/i, '$1');
+          body = body.replace(/<p>\s*<img\b[^>]*>\s*<\/p>/i, m => m.includes(heroBase) ? '' : m);
+        }
 
         const rt = readingTime(md);
         const catLabel = esc(meta.category_display || CAT_LABELS[meta.category] || 'ブログ');
@@ -1596,30 +1578,15 @@
               <span class="rt"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>約${rt}分で読めます</span>
             </div>
             <h1 class="post-title">${esc(meta.title)}</h1>
-            ${meta.excerpt ? `<p class="post-lede">${esc(meta.excerpt)}</p>` : ''}
 
-            <div class="post-byline">
-              <span class="post-byline__avatar"><img src="/images/ui-icons/crown.png" alt=""></span>
-              <div>
-                <div class="post-byline__name">ビーガン王子</div>
-                <div class="post-byline__sub">アレックス・デレチ</div>
-              </div>
+            <div class="post-share-top">
+              <span class="font-jp text-[13px] text-muted">シェア</span>
               ${shareBarHTML(meta)}
             </div>
           </header>
 
           <!-- Body -->
           <div class="prose mt-8">${body}</div>
-
-          <!-- Author card -->
-          <aside class="author-card">
-            <img class="author-card__img" src="/images/oji/oji_writing.png" alt="ビーガン王子" loading="lazy">
-            <div>
-              <div class="font-jp text-[12px] tracking-[0.16em] uppercase text-royal" style="font-weight:800">この記事を書いた人</div>
-              <div class="font-jp-display text-[20px] text-ink mt-1" style="font-weight:900">ビーガン王子</div>
-              <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mt-2 max-w-[420px]">国籍は三つ、操る言語は六つ。「お笑いあり、涙あり、野菜あり」を合言葉に、人にも地球にも動物にもやさしい世界を発信中。</p>
-            </div>
-          </aside>
 
           <!-- Share section -->
           <div class="mt-10 pt-8 border-t border-line">
