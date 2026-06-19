@@ -889,8 +889,8 @@
     .post-card { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease; }
     .post-card:hover { transform: translateY(-4px); border-color: var(--color-royal); box-shadow: 0 18px 40px -16px rgba(156,20,40,.28); }
     .post-card:hover .post-card-img img { transform: scale(1.05); }
-    .post-card-img { overflow: hidden; aspect-ratio: 16/10; background: var(--color-cream); }
-    .post-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.22,1,.36,1); }
+    .post-card-img { overflow: hidden; aspect-ratio: 4/3; background: var(--color-cream); display: flex; align-items: center; justify-content: center; }
+    .post-card-img img { width: 100%; height: 100%; object-fit: contain; transition: transform .7s cubic-bezier(.22,1,.36,1); }
 
     /* category color tokens */
     .cat-sekai-no-ugoki   { --cat: #C9223A; --cat-soft:#F8DDE2; }
@@ -930,7 +930,7 @@
     }
     .cat-filter__head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
     .cat-filter__title { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-jp-display); font-weight: 900; font-size: 16px; color: var(--color-ink); }
-    .cat-filter__title img { width: 22px; height: 22px; }
+    .cat-filter__title img { width: 28px; height: 28px; }
     .cat-filter__rss {
       display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0;
       padding: 5px 12px; border-radius: 999px;
@@ -951,7 +951,7 @@
       cursor: pointer; white-space: nowrap;
       transition: transform .16s, box-shadow .16s, background .16s, color .16s;
     }
-    .filter-chip img { width: 20px; height: 20px; flex-shrink: 0; }
+    .filter-chip img { width: 30px; height: 30px; flex-shrink: 0; }
     .filter-chip:hover { transform: translate(1.5px,1.5px); box-shadow: 1.5px 1.5px 0 var(--color-ink); }
     .filter-chip[data-active="true"] {
       background: var(--color-royal); color: var(--color-paper);
@@ -1025,8 +1025,18 @@
       border: 2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink);
     }
 
-    /* Title block */
-    .post-head { margin-top: 1.8rem; }
+    /* Title block — modern card overlapping the hero */
+    .post-head {
+      position: relative; z-index: 2;
+      margin: -46px 14px 0;
+      background: var(--color-paper);
+      border: 2.5px solid var(--color-ink); border-radius: 22px;
+      box-shadow: 5px 5px 0 var(--color-ink);
+      padding: 20px 22px 18px;
+    }
+    @media (min-width: 640px) { .post-head { margin: -58px 36px 0; padding: 26px 32px 22px; } }
+    /* No-hero posts: plain header, no overlap card */
+    .post-head--nohero { margin: 1.6rem 0 0; padding: 0; background: none; border: 0; box-shadow: none; }
     .post-meta { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; font-family: var(--font-jp); font-size: 13px; color: var(--color-muted); }
     .post-meta .dot { width: 3px; height: 3px; border-radius: 999px; background: currentColor; opacity: .5; }
     .post-meta .rt { display: inline-flex; align-items: center; gap: 4px; }
@@ -1132,11 +1142,7 @@
         <div class="cat-filter__head">
           <div class="cat-filter__title"><img src="/images/ui-icons/sparkle.png" alt="">カテゴリー</div>
           <a href="/blog/feed.xml" class="cat-filter__rss" aria-label="RSSフィードを購読">
-            <svg width="11" height="11" viewBox="0 0 11 11" fill="currentColor" aria-hidden="true">
-              <circle cx="2" cy="9" r="1.4"/>
-              <path d="M1 5.6 A4 4 0 0 1 5.4 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-              <path d="M1 1.5 A8 8 0 0 1 9.5 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-            </svg>
+            <img src="/images/social/rss.png" alt="" width="22" height="22">
             <span>RSS</span>
           </a>
         </div>
@@ -1303,7 +1309,6 @@
                 <span class="font-jp text-[11px] text-muted">${fmtDate(p.date)}</span>
               </div>
               <h2 class="font-jp-display text-[17px] text-ink leading-snug line-clamp-3">${esc(p.title)}</h2>
-              <p class="font-jp text-[13px] text-muted mt-2 leading-relaxed line-clamp-3">${esc(p.excerpt || '')}</p>
             </div>
           </a>`).join('');
       }
@@ -1546,8 +1551,8 @@
             <span class="cat-chip cat-${esc(meta.category)}">${catLabel}</span>
           </figure>` : ''}
 
-          <header class="post-head">
-            ${!meta.hero ? `<span class="cat-chip cat-${esc(meta.category)} mb-3">${catLabel}</span>` : ''}
+          <header class="post-head${meta.hero ? '' : ' post-head--nohero'}">
+            ${!meta.hero ? `<span class="cat-chip cat-${esc(meta.category)} mb-3 inline-flex">${catLabel}</span>` : ''}
             <div class="post-meta">
               <span>${fmtDate(meta.date)}</span>
               <span class="dot"></span>
