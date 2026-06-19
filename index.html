@@ -814,6 +814,18 @@
     .tier-card { border: 2px solid var(--color-line); border-radius: 10px; transition: all 0.3s cubic-bezier(0.22,1,0.36,1); }
     .tier-card:hover { transform: translateY(-4px); border-color: var(--color-royal); }
     .tier-card.featured { background: linear-gradient(180deg, var(--color-cream), var(--color-paper)); border-color: var(--color-gold); }
+    /* Support cards (ways to help — chibi sticker) */
+    .support-card {
+      background: var(--color-paper); color: var(--color-ink);
+      border: 2.5px solid var(--color-ink); border-radius: 20px;
+      box-shadow: 5px 5px 0 var(--color-ink);
+      padding: 22px 22px 24px;
+      display: flex; flex-direction: column;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .support-card:hover { transform: translate(2px,2px); box-shadow: 3px 3px 0 var(--color-ink); }
+    .support-card__icon { width: 46px; height: 46px; margin-bottom: 12px; }
+    .support-card .btn-ghost, .support-card .btn-primary { align-self: flex-start; margin-top: auto; }
 
     .scroll-cue { width: 1px; height: 48px; background: linear-gradient(to bottom, transparent, rgba(31,24,18,0.4), transparent); animation: scrollCue 2.4s infinite ease-in-out; }
     @keyframes scrollCue { 0%, 100% { transform: translateY(-6px); opacity: 0.4; } 50% { transform: translateY(6px); opacity: 1; } }
@@ -1884,7 +1896,7 @@
           <p class="font-jp-display text-[20px] text-paper/80 mt-4">王子の活動を、応援してください。</p>
 
           <p class="font-jp text-[15px] leading-[2] text-paper/90 mt-8 max-w-[560px]">
-            ビーガン王子の活動は、レシピ開発、子ども向けワークショップ、ビーガンマップの維持、海外との橋渡し──そのほとんどが<span class="text-gold-soft">自費・小さなパートナーシップ</span>で成り立っています。あなたの支援は、王子業の次の一歩になります。
+            ビーガン王子の活動は、レシピ開発、子ども向けワークショップ、ビーガンマップの維持、海外との橋渡し──そのほとんどが<span class="text-gold-soft">自費・小さなパートナーシップ</span>で成り立っています。あなたの応援が、王子業の次の一歩になります。
           </p>
         </div>
 
@@ -1894,64 +1906,29 @@
       </div>
       </div>
 
-      <div class="mt-10 sm:mt-14 m-scroll m-scroll-3">
+      <!-- Ways to support — real actions that work today (no paid tiers yet) -->
+      <div class="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-3 gap-5">
 
-        <div class="tier-card bg-paper text-ink p-6 sm:p-7 lg:p-8 relative w-[270px] md:w-auto">
-          <div class="font-display italic text-[15px] text-muted">Squire</div>
-          <div class="font-jp-display text-[20px] mt-1 text-ink">見習いの剣士</div>
-          <div class="font-display text-[44px] lg:text-[52px] text-royal mt-4 leading-none">¥1,000<span class="text-[16px] text-muted">/月</span></div>
-          <ul class="mt-6 space-y-3 text-[13px] text-ink-soft font-jp">
-            <li class="flex gap-2"><span class="text-royal">♥</span> 限定ニュースレター</li>
-            <li class="flex gap-2"><span class="text-royal">♥</span> 王子からの月１動画メッセージ</li>
-            <li class="flex gap-2"><span class="text-royal">♥</span> 早期イベント情報</li>
-          </ul>
-          <a href="#" class="btn-ghost mt-7 !text-[13px] !px-5 !py-2.5">
-            <span>支援する</span>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-          </a>
+        <div class="support-card">
+          <img src="/images/social/ig.png" alt="" class="support-card__icon">
+          <div class="font-jp-display text-[18px] text-ink" style="font-weight:900">フォロー＆シェア</div>
+          <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mt-2">SNSで王子をフォローして、好きな投稿をシェア。いちばん手軽で、いちばん力になる応援です。</p>
+          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="btn-primary mt-5 !text-[13px] !px-5 !py-2.5"><span class="font-jp">フォローする</span></a>
         </div>
 
-        <div class="tier-card featured text-ink p-6 sm:p-7 lg:p-8 relative w-[270px] md:w-auto">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 badge-ribbon !text-[11px] !py-1 !px-4">人気</div>
-          <div class="font-display italic text-[15px] text-gold-deep">Knight</div>
-          <div class="font-jp-display text-[20px] mt-1 text-ink">王子の騎士</div>
-          <div class="font-display text-[44px] lg:text-[52px] text-royal mt-4 leading-none">¥3,000<span class="text-[16px] text-muted">/月</span></div>
-          <ul class="mt-6 space-y-3 text-[13px] text-ink-soft font-jp">
-            <li class="flex gap-2"><span class="text-royal">♥</span> Squireの全特典</li>
-            <li class="flex gap-2"><span class="text-royal">♥</span> オリジナルステッカー＋手紙</li>
-            <li class="flex gap-2"><span class="text-royal">♥</span> 月１オンライン茶会への招待</li>
-            <li class="flex gap-2"><span class="text-royal">♥</span> 王子の新レシピ先行公開</li>
-          </ul>
-          <a href="#" class="mt-7 btn-primary !text-[12px] !px-5 !py-2.5">
-            <span class="font-jp">騎士になる</span>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-          </a>
+        <div class="support-card">
+          <img src="/images/ui-icons/note.png" alt="" class="support-card__icon">
+          <div class="font-jp-display text-[18px] text-ink" style="font-weight:900">お便りを受け取る</div>
+          <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mt-2">月に１回、王子からのニュースレター。新しいレシピ、活動報告、ここだけの裏話を。</p>
+          <a href="#newsletter" class="btn-ghost mt-5 !text-[13px] !px-5 !py-2.5"><span class="font-jp">登録する</span></a>
         </div>
 
-        <div class="tier-card bg-paper text-ink p-6 sm:p-7 lg:p-8 relative w-[270px] md:w-auto">
-          <div class="font-display italic text-[15px] text-muted">Royal Court</div>
-          <div class="font-jp-display text-[20px] mt-1 text-ink">王子の宮廷</div>
-          <div class="font-display text-[44px] lg:text-[52px] text-royal mt-4 leading-none">¥10,000<span class="text-[16px] text-muted">/月</span></div>
-          <ul class="mt-6 space-y-3 text-[13px] text-ink-soft font-jp">
-            <li class="flex gap-2"><span class="text-royal">♥</span> Knightの全特典</li>
-            <li class="flex gap-2"><span class="text-royal">♥</span> 年１回、王子とのランチ会</li>
-            <li class="flex gap-2"><span class="text-royal">♥</span> ホームページに名前掲載</li>
-            <li class="flex gap-2"><span class="text-royal">♥</span> 個別相談チケット（年２回）</li>
-          </ul>
-          <a href="#" class="btn-ghost mt-7 !text-[13px] !px-5 !py-2.5">
-            <span>宮廷に入る</span>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-          </a>
+        <div class="support-card">
+          <img src="/images/ui-icons/crown.png" alt="" class="support-card__icon">
+          <div class="font-jp-display text-[18px] text-ink" style="font-weight:900">コラボ・スポンサー</div>
+          <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mt-2">一緒にイベント、商品開発、発信を。協賛・お仕事のご相談はいつでも歓迎です。</p>
+          <a href="#booking" class="btn-ghost mt-5 !text-[13px] !px-5 !py-2.5"><span class="font-jp">相談する</span></a>
         </div>
-      </div>
-
-      <div class="mt-14 flex flex-wrap items-center gap-5 text-[13px] text-paper/75 font-jp">
-        <span class="opacity-80">単発でのご支援も大歓迎です ──</span>
-        <a href="#" class="border-b border-paper/40 hover:text-gold-soft hover:border-gold-soft transition-colors">¥500</a>
-        <a href="#" class="border-b border-paper/40 hover:text-gold-soft hover:border-gold-soft transition-colors">¥3,000</a>
-        <a href="#" class="border-b border-paper/40 hover:text-gold-soft hover:border-gold-soft transition-colors">¥10,000</a>
-        <a href="#" class="border-b border-paper/40 hover:text-gold-soft hover:border-gold-soft transition-colors">自由金額</a>
-        <span class="opacity-60 text-[12px]">· Stripe / PayPal / 銀行振込</span>
       </div>
     </div>
   </section>
@@ -2058,7 +2035,7 @@
       </div>
 
       <!-- Newsletter signup, in footer -->
-      <div class="newsletter-slim" style="margin-top:8px">
+      <div id="newsletter" class="newsletter-slim" style="margin-top:8px; scroll-margin-top:90px">
         <div class="newsletter-label">📬 月１で王子からお手紙、届く？</div>
         <form id="newsletter-form">
           <input type="email" required placeholder="you@example.jp" />

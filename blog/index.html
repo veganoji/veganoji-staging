@@ -907,6 +907,15 @@
     }
     .cat-chip::before { content: ""; width:5px; height:5px; border-radius:999px; background:var(--cat, var(--color-royal)); }
 
+    /* Post-card meta label — solid category tag + date (editorial, on-brand) */
+    .card-tag {
+      display: inline-flex; align-items: center;
+      font-family: var(--font-jp-display); font-weight: 700; font-size: 11px;
+      letter-spacing: 0.02em; padding: 3px 10px; border-radius: 8px;
+      color: var(--color-paper); background: var(--cat, var(--color-royal));
+    }
+    .card-date { font-family: var(--font-jp); font-size: 12px; color: var(--color-muted); font-weight: 500; }
+
     /* Blog hero — Option D watercolor banner */
     .blog-hero {
       position: relative;
@@ -928,20 +937,34 @@
       box-shadow: 5px 5px 0 var(--color-ink);
       padding: 16px 16px 18px;
     }
-    .cat-filter__head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
-    .cat-filter__title { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-jp-display); font-weight: 900; font-size: 16px; color: var(--color-ink); }
-    .cat-filter__title img { width: 28px; height: 28px; }
+    .cat-filter__row { display: flex; align-items: center; gap: 12px; }
     .cat-filter__rss {
       display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0;
-      padding: 5px 12px; border-radius: 999px;
+      padding: 6px 13px; border-radius: 999px;
       border: 2px solid var(--color-ink); background: var(--color-paper);
       box-shadow: 2px 2px 0 var(--color-ink);
-      font-family: var(--font-jp); font-weight: 700; font-size: 11.5px; color: var(--color-ink);
+      font-family: var(--font-jp); font-weight: 700; font-size: 12px; color: var(--color-ink);
       transition: transform .16s, box-shadow .16s, background .16s;
     }
     .cat-filter__rss:hover { transform: translate(1.5px,1.5px); box-shadow: 1px 1px 0 var(--color-ink); background: var(--color-gold-soft); }
 
-    .filter-chips { display: flex; gap: 9px; flex-wrap: wrap; }
+    /* Mobile dropdown (hidden on desktop) */
+    .cat-select {
+      display: none; flex: 1; min-width: 0;
+      font-family: var(--font-jp-display); font-weight: 700; font-size: 14px;
+      color: var(--color-ink); background: var(--color-paper);
+      border: 2px solid var(--color-ink); border-radius: 14px;
+      box-shadow: 3px 3px 0 var(--color-ink);
+      padding: 10px 36px 10px 14px; cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'><path d='M2 4l4 4 4-4' stroke='%231F1812' stroke-width='1.8' stroke-linecap='round'/></svg>");
+      background-repeat: no-repeat; background-position: right 13px center; background-size: 12px;
+    }
+
+    .filter-chips { display: flex; gap: 9px; flex-wrap: wrap; flex: 1; }
+    @media (max-width: 639px) {
+      .filter-chips { display: none; }
+      .cat-select { display: block; }
+    }
     .filter-chip {
       display: inline-flex; align-items: center; gap: 7px;
       padding: 8px 14px; border-radius: 14px;
@@ -1139,19 +1162,27 @@
     <!-- FILTER CHIPS (only shown on list view) -->
     <div id="filter-bar" class="mb-8 sm:mb-10 mt-2 sm:mt-0">
       <div class="cat-filter">
-        <div class="cat-filter__head">
-          <div class="cat-filter__title"><img src="/images/ui-icons/sparkle.png" alt="">カテゴリー</div>
+        <div class="cat-filter__row">
+          <!-- Desktop: chibi chip row -->
+          <div class="filter-chips" id="filter-chips" role="tablist" aria-label="カテゴリーフィルター">
+            <button class="filter-chip" data-cat="all" data-active="true" role="tab"><img src="/images/ui-icons/sparkle.png" alt="">全て <span class="count" id="count-all"></span></button>
+            <button class="filter-chip" data-cat="sekai-no-ugoki"    role="tab"><img src="/images/social/lang.png" alt="">世界のうごき <span class="count" id="count-sekai-no-ugoki"></span></button>
+            <button class="filter-chip" data-cat="kenkyushitsu-kara" role="tab"><img src="/images/ui-icons/book.png" alt="">研究室から <span class="count" id="count-kenkyushitsu-kara"></span></button>
+            <button class="filter-chip" data-cat="oji-no-kurashi"    role="tab"><img src="/images/ui-icons/heart.png" alt="">王子の暮らし <span class="count" id="count-oji-no-kurashi"></span></button>
+            <button class="filter-chip" data-cat="oji-no-tabearuki"  role="tab"><img src="/images/decorations/icon-onigiri.png" alt="">王子の食べ歩き <span class="count" id="count-oji-no-tabearuki"></span></button>
+          </div>
+          <!-- Mobile: compact dropdown -->
+          <select class="cat-select" id="cat-select" aria-label="カテゴリーを選ぶ">
+            <option value="all">全て の記事</option>
+            <option value="sekai-no-ugoki">世界のうごき</option>
+            <option value="kenkyushitsu-kara">研究室から</option>
+            <option value="oji-no-kurashi">王子の暮らし</option>
+            <option value="oji-no-tabearuki">王子の食べ歩き</option>
+          </select>
           <a href="/blog/feed.xml" class="cat-filter__rss" aria-label="RSSフィードを購読">
             <img src="/images/social/rss.png" alt="" width="22" height="22">
             <span>RSS</span>
           </a>
-        </div>
-        <div class="filter-chips" id="filter-chips" role="tablist" aria-label="カテゴリーフィルター">
-          <button class="filter-chip" data-cat="all" data-active="true" role="tab"><img src="/images/ui-icons/sparkle.png" alt="">全て <span class="count" id="count-all"></span></button>
-          <button class="filter-chip" data-cat="sekai-no-ugoki"    role="tab"><img src="/images/social/lang.png" alt="">世界のうごき <span class="count" id="count-sekai-no-ugoki"></span></button>
-          <button class="filter-chip" data-cat="kenkyushitsu-kara" role="tab"><img src="/images/ui-icons/book.png" alt="">研究室から <span class="count" id="count-kenkyushitsu-kara"></span></button>
-          <button class="filter-chip" data-cat="oji-no-kurashi"    role="tab"><img src="/images/ui-icons/heart.png" alt="">王子の暮らし <span class="count" id="count-oji-no-kurashi"></span></button>
-          <button class="filter-chip" data-cat="oji-no-tabearuki"  role="tab"><img src="/images/decorations/icon-onigiri.png" alt="">王子の食べ歩き <span class="count" id="count-oji-no-tabearuki"></span></button>
         </div>
       </div>
     </div>
@@ -1289,10 +1320,11 @@
         const filtered = category === 'all' ? allPosts : allPosts.filter(p => p.category === category);
         document.title = (category === 'all' ? baseTitle : `${CAT_LABELS[category]} · ${baseTitle}`);
 
-        // update chip active states
+        // update chip active states + sync mobile dropdown
         chipsEl.querySelectorAll('.filter-chip').forEach(c => {
           c.dataset.active = (c.dataset.cat === category) ? 'true' : 'false';
         });
+        if (catSelectEl && catSelectEl.value !== category) catSelectEl.value = category;
 
         if (!filtered.length) {
           listEl.innerHTML = '';
@@ -1304,11 +1336,11 @@
           <a href="?post=${encodeURIComponent(p.slug)}" class="post-card block bg-paper border border-line rounded-2xl overflow-hidden">
             <div class="post-card-img">${p.hero ? `<img src="${esc(cardSrc(p.hero))}" alt="" loading="lazy">` : ''}</div>
             <div class="p-5">
-              <div class="flex items-center gap-2 mb-2.5 flex-wrap">
-                <span class="cat-chip cat-${esc(p.category)}">${esc(p.category_display || CAT_LABELS[p.category] || 'ブログ')}</span>
-                <span class="font-jp text-[11px] text-muted">${fmtDate(p.date)}</span>
+              <div class="flex items-center gap-2.5 mb-2.5">
+                <span class="card-tag cat-${esc(p.category)}">${esc(p.category_display || CAT_LABELS[p.category] || 'ブログ')}</span>
+                <span class="card-date">${fmtDate(p.date)}</span>
               </div>
-              <h2 class="font-jp-display text-[17px] text-ink leading-snug line-clamp-3">${esc(p.title)}</h2>
+              <h2 class="font-jp-display text-[17px] text-ink leading-snug line-clamp-3" style="font-weight:700">${esc(p.title)}</h2>
             </div>
           </a>`).join('');
       }
@@ -1630,17 +1662,21 @@
       }
 
       // Filter chip clicks → update URL + re-render
-      chipsEl.addEventListener('click', (e) => {
-        const btn = e.target.closest('.filter-chip');
-        if (!btn) return;
-        const cat = btn.dataset.cat;
+      function selectCategory(cat) {
         const url = new URL(location.href);
         url.searchParams.delete('post');
         if (cat === 'all') url.searchParams.delete('cat');
         else url.searchParams.set('cat', cat);
         history.pushState(null, '', url);
         renderList(cat);
+      }
+      chipsEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-chip');
+        if (!btn) return;
+        selectCategory(btn.dataset.cat);
       });
+      const catSelectEl = document.getElementById('cat-select');
+      if (catSelectEl) catSelectEl.addEventListener('change', () => selectCategory(catSelectEl.value));
 
       window.addEventListener('popstate', () => {
         const params = new URLSearchParams(location.search);
