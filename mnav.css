@@ -1,0 +1,77 @@
+/* ════════ Vegan Oji — mobile hamburger nav (shared) ════════
+   Used on every page. Pair with /mnav.js (injects the sheet markup)
+   and a <button id="mnav-open" class="mnav-burger ..."> in the bar
+   (add .mnav-float for pages with no header bar). */
+
+.mnav-burger{ width:40px; height:40px; border-radius:12px; border:2.5px solid #1F1812;
+  background:#FFF9EE; box-shadow:3px 3px 0 #1F1812; display:inline-flex; align-items:center;
+  justify-content:center; cursor:pointer; padding:0; flex-shrink:0; color:#1F1812; }
+.mnav-burger:active{ transform:translate(2px,2px); box-shadow:1px 1px 0 #1F1812; }
+.mnav-burger.mnav-float{ position:fixed; top:12px; right:12px; z-index:55;
+  background:rgba(255,249,238,.95); -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); }
+body.mnav-lock{ overflow:hidden; }
+
+.mnav-sheet{ position:fixed; inset:0; z-index:60; height:100dvh; overflow-y:auto;
+  -webkit-overflow-scrolling:touch; background:#FDF1DA; padding:0 16px 32px;
+  transform:translateY(-10px); opacity:0; pointer-events:none;
+  transition:transform .26s ease, opacity .26s ease; }
+.mnav-sheet.is-open{ transform:none; opacity:1; pointer-events:auto; }
+
+.mnav-top{ position:sticky; top:0; z-index:2; background:#FDF1DA;
+  display:flex; align-items:center; justify-content:space-between; padding:14px 2px 16px; }
+.mnav-logo{ height:30px; width:auto; }
+.mnav-x{ width:40px; height:40px; border-radius:12px; border:2.5px solid #1F1812; background:#FFF9EE;
+  box-shadow:3px 3px 0 #1F1812; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; padding:0; }
+.mnav-x:active{ transform:translate(2px,2px); box-shadow:1px 1px 0 #1F1812; }
+
+.mnav-soc{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:4px 0 22px; }
+.mnav-soc a{ width:42px; height:42px; display:inline-flex; transition:transform .18s ease; }
+.mnav-soc a:active{ transform:scale(.9); }
+.mnav-soc img{ width:100%; height:100%; object-fit:contain; }
+
+.mnav-label{ display:flex; align-items:center; gap:9px; font-family:'Noto Sans JP',sans-serif;
+  font-weight:900; font-size:11px; letter-spacing:.16em; color:#786148; text-transform:uppercase; margin:0 2px 12px; }
+.mnav-label::after{ content:""; flex:1; height:2px;
+  background:repeating-linear-gradient(90deg,#E9D9B5 0 7px,transparent 7px 12px); }
+
+.mnav-quick{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+.mnav-quick a{ font-family:'Noto Sans JP',sans-serif; font-weight:700; font-size:14px; color:#1F1812;
+  background:#FFFCF6; border:2px solid #1F1812; border-radius:12px; box-shadow:2px 2px 0 #1F1812;
+  padding:9px 13px; text-decoration:none; }
+.mnav-quick a:active{ transform:translate(2px,2px); box-shadow:0 0 0 #1F1812; }
+
+.mnav-card{ display:flex; align-items:center; gap:12px; width:100%; background:#FFFCF6;
+  border:2.5px solid #1F1812; border-radius:16px; box-shadow:4px 4px 0 #1F1812; padding:11px 13px;
+  text-decoration:none; color:#1F1812; margin-bottom:11px; }
+.mnav-card:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 #1F1812; }
+.mnav-card>img{ width:46px; height:46px; flex-shrink:0; object-fit:contain; }
+.mnav-card .b{ flex:1; min-width:0; }
+.mnav-card .t{ display:block; font-family:'Noto Sans JP',sans-serif; font-weight:900; font-size:15px; line-height:1.15; }
+.mnav-card .s{ display:block; font-weight:700; font-size:9.5px; letter-spacing:.07em; color:#9C7E2A; text-transform:uppercase; margin-top:2px; }
+.mnav-card .c{ color:#C9223A; font-weight:900; font-size:19px; flex-shrink:0; }
+
+.mnav-cta{ display:flex; gap:10px; margin:16px 0 4px; }
+.mnav-cta a{ flex:1; display:inline-flex; align-items:center; justify-content:center; gap:7px;
+  font-family:'Noto Sans JP',sans-serif; font-weight:700; font-size:14.5px; border:2.5px solid #1F1812;
+  border-radius:14px; box-shadow:4px 4px 0 #1F1812; padding:13px 14px; text-decoration:none; }
+.mnav-cta a:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 #1F1812; }
+.mnav-cta .primary{ background:#C9223A; color:#FFF9EE; }
+.mnav-cta .gold{ background:#D4A847; color:#1F1812; }
+
+.mnav-oji{ width:116px; height:auto; display:block; margin:14px auto 20px;
+  animation:mnavSnooze 4.6s ease-in-out infinite; filter:drop-shadow(0 8px 10px rgba(31,24,18,.18)); }
+@keyframes mnavSnooze{ 0%,100%{ transform:translateY(0) rotate(-2.5deg);} 50%{ transform:translateY(-7px) rotate(2.5deg);} }
+
+.mnav-lang{ display:flex; align-items:center; gap:7px; flex-wrap:wrap; justify-content:center;
+  border-top:2px dashed #E9D9B5; padding-top:16px; }
+.mnav-lang .lab{ width:100%; text-align:center; font-family:'Noto Sans JP',sans-serif; font-weight:900;
+  font-size:10.5px; letter-spacing:.16em; color:#786148; text-transform:uppercase; margin-bottom:10px; }
+.mnav-lang button{ font-family:'Noto Sans JP',sans-serif; font-weight:700; font-size:12.5px;
+  border:2px solid #1F1812; border-radius:10px; background:#FFFCF6; color:#1F1812; padding:6px 11px;
+  cursor:pointer; display:inline-flex; align-items:center; gap:5px; }
+.mnav-lang button.on{ background:#1F1812; color:#FFF9EE; }
+.mnav-lang button.soon{ opacity:.5; cursor:default; }
+.mnav-lang button .so{ font-size:9px; letter-spacing:.06em; }
+
+@media (min-width:768px){ .mnav-burger, .mnav-sheet{ display:none !important; } }
+@media (prefers-reduced-motion:reduce){ .mnav-oji{ animation:none; } .mnav-sheet{ transition:opacity .2s ease; } }

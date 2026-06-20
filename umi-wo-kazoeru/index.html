@@ -521,9 +521,14 @@
       pointer-events: auto;
     }
   </style>
+  <link rel="stylesheet" href="/mnav.css" />
 </head>
 
 <body class="font-jp text-paper antialiased">
+
+  <button id="mnav-open" type="button" class="mnav-burger mnav-float md:hidden" aria-label="メニューを開く" aria-expanded="false" aria-controls="mnav-sheet">
+    <svg width="22" height="22" viewBox="0 0 22 22"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></g></svg>
+  </button>
 
   <!-- Header intentionally omitted — this page stands by itself.
        Homepage link lives at the bottom of the sources footer. -->
@@ -1522,6 +1527,7 @@
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) close(); });
     })();
   </script>
+  <script src="/mnav.js" defer></script>
 
 </body>
 </html>
