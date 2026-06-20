@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>モバイルヘッダー Lab · ビーガン王子</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#FFF9EE; --cream:#FDF1DA; --cream2:#F6E4BD;
+  --royal:#C9223A; --royal-deep:#9C1428; --royal-soft:#E55063;
+  --gold:#D4A847; --gold-soft:#E8C76F; --gold-deep:#9C7E2A;
+  --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148; --line:#E9D9B5;
+  --leaf:#4E8C3C; --leaf-deep:#3F6A3A; --sky:#B5D5E8;
+}
+*{ box-sizing:border-box; }
+body{
+  margin:0; font-family:'Noto Sans JP',system-ui,sans-serif; color:var(--ink);
+  background:var(--paper);
+  background-image:radial-gradient(var(--cream) 1.1px, transparent 1.2px);
+  background-size:22px 22px;
+  -webkit-font-smoothing:antialiased;
+}
+a{ color:inherit; }
+
+/* ---------- page header ---------- */
+.lab-head{ max-width:1180px; margin:0 auto; padding:38px 22px 8px; text-align:center; }
+.lab-kicker{ font-weight:700; font-size:12px; letter-spacing:.22em; color:var(--royal); text-transform:uppercase; }
+.lab-h1{ font-weight:900; font-size:clamp(26px,5vw,40px); margin:10px 0 6px; letter-spacing:-.01em; }
+.lab-lead{ color:var(--ink-soft); font-size:15px; line-height:1.7; max-width:620px; margin:0 auto; }
+.lab-note{ display:inline-flex; align-items:center; gap:8px; margin-top:16px; background:var(--cream);
+  border:2px solid var(--ink); border-radius:999px; box-shadow:3px 3px 0 var(--ink);
+  padding:8px 16px; font-weight:700; font-size:13px; }
+
+/* ---------- grid of phones ---------- */
+.lab-grid{ max-width:1300px; margin:26px auto 60px; padding:0 22px;
+  display:flex; flex-wrap:wrap; gap:38px 30px; justify-content:center; align-items:flex-start; }
+.lab-item{ margin:0; width:380px; max-width:100%; }
+figcaption{ margin-top:16px; }
+.cap-tag{ display:inline-block; font-weight:900; font-size:11px; letter-spacing:.12em; color:var(--paper);
+  background:var(--ink); border-radius:7px; padding:3px 9px; }
+.cap-title{ font-weight:900; font-size:18px; margin:9px 0 4px; }
+.cap-desc{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
+
+/* ---------- phone frame ---------- */
+.phone{
+  position:relative; width:380px; max-width:100%; height:720px;
+  background:var(--paper); border:3px solid var(--ink); border-radius:38px;
+  box-shadow:7px 7px 0 var(--ink); overflow:hidden;
+}
+.notch{ position:absolute; top:0; left:50%; transform:translateX(-50%); z-index:60;
+  width:128px; height:22px; background:var(--ink); border-radius:0 0 14px 14px; }
+.screen{ position:absolute; inset:0; border-radius:35px; overflow:hidden; }
+
+/* faux page behind the menu */
+.pagebg{ position:absolute; inset:0; padding:74px 18px 18px; overflow:hidden;
+  background:
+    radial-gradient(120% 60% at 50% -8%, var(--cream) 0%, transparent 60%),
+    var(--paper); }
+.pagebg .ph-logo{ height:30px; opacity:.9; display:block; margin:6px auto 18px; }
+.pagebg .ph-hero{ height:150px; border-radius:18px; border:2px dashed var(--line);
+  background:linear-gradient(160deg,var(--cream),#fff); display:flex; align-items:center; justify-content:center; }
+.pagebg .ph-hero img{ height:120px; opacity:.92; }
+.pagebg .ph-line{ height:13px; border-radius:7px; background:var(--cream2); margin:14px 6px; opacity:.7; }
+.pagebg .ph-line.s{ width:55%; }
+
+/* ---------- shared top bar ---------- */
+.bar{ position:absolute; top:0; left:0; right:0; height:60px; z-index:30;
+  display:flex; align-items:center; justify-content:space-between; padding:0 14px;
+  background:rgba(255,249,238,.93); backdrop-filter:blur(8px); border-bottom:1.5px solid var(--line); }
+.bar .logo{ height:30px; width:auto; }
+.bar .right{ display:flex; align-items:center; gap:9px; }
+.glb{ width:40px; height:40px; border-radius:12px; border:2px solid var(--ink);
+  background:var(--paper); display:inline-flex; align-items:center; justify-content:center; box-shadow:2px 2px 0 var(--ink); }
+.glb img{ width:20px; height:20px; }
+.mini-cta{ display:inline-flex; align-items:center; gap:5px; background:var(--royal); color:var(--paper);
+  font-weight:700; font-size:12px; border:2px solid var(--ink); border-radius:11px; box-shadow:2px 2px 0 var(--ink);
+  padding:7px 11px; text-decoration:none; }
+.burger{ width:42px; height:42px; border-radius:12px; border:2.5px solid var(--ink); background:var(--paper);
+  box-shadow:3px 3px 0 var(--ink); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; padding:0; }
+.burger:active{ transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink); }
+.burger.hint{ animation:hintpulse 1.8s ease-in-out infinite; }
+@keyframes hintpulse{ 0%,100%{ box-shadow:3px 3px 0 var(--ink);} 50%{ box-shadow:3px 3px 0 var(--royal);} }
+
+/* ---------- scrim + close ---------- */
+.scrim{ position:absolute; inset:0; background:rgba(31,24,18,.45); opacity:0; pointer-events:none;
+  transition:opacity .25s; z-index:35; }
+.screen.is-open .scrim{ opacity:1; pointer-events:auto; }
+.xclose{ width:38px; height:38px; border-radius:11px; border:2.5px solid var(--ink); background:var(--paper);
+  box-shadow:2px 2px 0 var(--ink); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; padding:0; }
+
+[data-menu]{ position:absolute; z-index:40; }
+
+/* shared small bits used inside menus */
+.sec-label{ display:flex; align-items:center; gap:9px; font-weight:900; font-size:11px; letter-spacing:.16em;
+  color:var(--muted); text-transform:uppercase; margin:4px 2px 11px; }
+.sec-label::after{ content:""; flex:1; height:2px; background:repeating-linear-gradient(90deg,var(--line) 0 7px,transparent 7px 12px); }
+.cta-row{ display:flex; gap:10px; }
+.btn{ flex:1; display:inline-flex; align-items:center; justify-content:center; gap:7px; font-weight:700;
+  font-size:14px; border:2.5px solid var(--ink); border-radius:14px; box-shadow:4px 4px 0 var(--ink);
+  padding:12px 14px; text-decoration:none; cursor:pointer; }
+.btn:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); }
+.btn-primary{ background:var(--royal); color:var(--paper); }
+.btn-gold{ background:var(--gold); color:var(--ink); }
+.socrow{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.socrow a{ width:38px; height:38px; display:inline-flex; }
+.socrow img{ width:100%; height:100%; object-fit:contain; }
+.langrow{ display:flex; gap:7px; flex-wrap:wrap; justify-content:center; }
+.langchip{ font-weight:700; font-size:11.5px; border:2px solid var(--ink); border-radius:9px;
+  background:var(--paper); padding:5px 9px; }
+.langchip.on{ background:var(--ink); color:var(--paper); }
+.langchip.soon{ opacity:.5; }
+
+/* link-card (linktree style) */
+.lcard{ display:flex; align-items:center; gap:12px; width:100%; background:#FFFCF6;
+  border:2.5px solid var(--ink); border-radius:16px; box-shadow:4px 4px 0 var(--ink);
+  padding:11px 13px; text-decoration:none; margin-bottom:11px; }
+.lcard:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); }
+.lthumb{ width:46px; height:46px; flex-shrink:0; object-fit:contain; }
+.lbody{ flex:1; min-width:0; }
+.ltitle{ display:block; font-weight:900; font-size:15px; line-height:1.15; }
+.lsub{ display:block; font-weight:700; font-size:9.5px; letter-spacing:.08em; color:var(--gold-deep); text-transform:uppercase; margin-top:2px; }
+.lchev{ color:var(--royal); font-weight:900; font-size:19px; }
+
+/* ===================================================================
+   V1 — FULL-SCREEN TAKEOVER
+=================================================================== */
+.v1{ inset:0; background:var(--paper); display:flex; flex-direction:column;
+  opacity:0; pointer-events:none; transition:opacity .26s ease; }
+.v1::before{ content:""; position:absolute; inset:0; pointer-events:none; opacity:.05;
+  background:url('/images/ui-icons/crown.png') 0 0/86px 86px; }
+.screen.is-open .v1{ opacity:1; pointer-events:auto; }
+.v1-top{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; position:relative; z-index:2; }
+.v1-top img{ height:30px; }
+.v1-body{ flex:1; overflow-y:auto; padding:6px 22px 22px; position:relative; z-index:2; text-align:center; }
+.v1-nav a{ display:block; font-weight:900; font-size:25px; letter-spacing:-.01em; color:var(--ink);
+  text-decoration:none; padding:12px 0; border-bottom:1.5px dashed var(--line); }
+.v1-nav a .en{ display:block; font-weight:700; font-size:10px; letter-spacing:.18em; color:var(--gold-deep); text-transform:uppercase; margin-top:3px; }
+.v1-feat{ display:flex; gap:9px; justify-content:center; flex-wrap:wrap; margin:18px 0 6px; }
+.v1-feat a{ display:inline-flex; align-items:center; gap:7px; background:var(--cream); border:2px solid var(--ink);
+  border-radius:999px; box-shadow:2px 2px 0 var(--ink); padding:7px 12px; font-weight:700; font-size:12.5px; text-decoration:none; }
+.v1-feat a img{ width:22px; height:22px; object-fit:contain; }
+.v1-cta{ margin:20px auto 16px; max-width:300px; }
+.v1-mascot{ width:88px; height:auto; margin:6px auto 14px; display:block; }
+
+/* ===================================================================
+   V2 — LINKTREE SHEET (drops under the bar)
+=================================================================== */
+.v2{ top:60px; left:0; right:0; bottom:0; background:var(--cream); overflow-y:auto;
+  padding:16px 14px 26px; transform:translateY(-14px); opacity:0; pointer-events:none;
+  transition:transform .24s ease, opacity .24s ease; }
+.screen.is-open .v2{ transform:none; opacity:1; pointer-events:auto; }
+.v2-quick{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+.v2-quick a{ font-weight:700; font-size:13px; background:var(--paper); border:2px solid var(--ink);
+  border-radius:11px; box-shadow:2px 2px 0 var(--ink); padding:8px 12px; text-decoration:none; }
+
+/* ===================================================================
+   V3 — SIDE DRAWER (slides from right)
+=================================================================== */
+.v3{ top:0; right:0; bottom:0; width:80%; max-width:296px; background:var(--paper);
+  border-left:3px solid var(--ink); display:flex; flex-direction:column;
+  transform:translateX(100%); transition:transform .28s cubic-bezier(.3,.7,.3,1); }
+.screen.is-open .v3{ transform:none; }
+.v3-head{ display:flex; align-items:center; justify-content:space-between; padding:13px 14px;
+  border-bottom:2px solid var(--line); }
+.v3-head img{ height:26px; }
+.v3-body{ flex:1; overflow-y:auto; padding:12px 14px; }
+.v3-link{ display:flex; align-items:center; gap:11px; padding:11px 8px; text-decoration:none;
+  font-weight:700; font-size:15px; border-radius:11px; border-bottom:1px solid var(--line); }
+.v3-link:active{ background:var(--cream); }
+.v3-link .ic{ width:24px; text-align:center; font-size:17px; }
+.v3-acc{ border-bottom:1px solid var(--line); }
+.v3-acc summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:11px;
+  padding:11px 8px; font-weight:700; font-size:15px; }
+.v3-acc summary::-webkit-details-marker{ display:none; }
+.v3-acc summary .ic{ width:24px; text-align:center; font-size:17px; }
+.v3-acc summary .arr{ margin-left:auto; color:var(--royal); font-weight:900; transition:transform .2s; }
+.v3-acc[open] summary .arr{ transform:rotate(90deg); }
+.v3-acc .sub a{ display:flex; align-items:center; gap:9px; padding:9px 8px 9px 30px; text-decoration:none;
+  font-weight:700; font-size:13.5px; color:var(--ink-soft); }
+.v3-acc .sub a img{ width:22px; height:22px; object-fit:contain; }
+.v3-foot{ border-top:2px solid var(--line); padding:13px 14px; background:var(--cream); }
+.v3-foot .cta-row{ margin-bottom:12px; }
+
+/* ===================================================================
+   V4 — COMPACT GRID PANEL (anchored under bar)
+=================================================================== */
+.v4{ top:66px; left:12px; right:12px; background:var(--paper); border:2.5px solid var(--ink);
+  border-radius:22px; box-shadow:5px 5px 0 var(--ink); padding:14px; transform-origin:top right;
+  transform:scale(.9); opacity:0; pointer-events:none; transition:transform .2s ease, opacity .2s ease; }
+.screen.is-open .v4{ transform:none; opacity:1; pointer-events:auto; }
+.v4-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px; margin-bottom:12px; }
+.tile{ display:flex; flex-direction:column; align-items:center; gap:6px; padding:11px 6px;
+  border:2px solid var(--ink); border-radius:13px; background:#FFFCF6; box-shadow:3px 3px 0 var(--ink);
+  text-decoration:none; color:var(--ink); font-weight:700; font-size:11.5px; text-align:center; line-height:1.2; }
+.tile:active{ transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink); }
+.tile .ic{ font-size:22px; line-height:1; }
+.tile img{ width:26px; height:26px; object-fit:contain; }
+
+/* ===================================================================
+   V5 — BOTTOM SHEET (slides up, thumb-friendly)
+=================================================================== */
+.v5{ left:0; right:0; bottom:0; max-height:86%; background:var(--paper);
+  border-top:3px solid var(--ink); border-radius:26px 26px 0 0; overflow-y:auto;
+  padding:8px 16px 22px; transform:translateY(100%); transition:transform .3s cubic-bezier(.3,.7,.3,1); }
+.screen.is-open .v5{ transform:none; }
+.grab{ width:46px; height:5px; border-radius:3px; background:var(--line); margin:8px auto 14px; }
+.v5-list a{ display:flex; align-items:center; gap:11px; padding:10px 6px; text-decoration:none;
+  font-weight:700; font-size:14.5px; border-bottom:1px solid var(--line); }
+.v5-list a .ic{ width:22px; text-align:center; font-size:16px; }
+.v5-list a .mini{ margin-left:auto; font-weight:700; font-size:10px; color:var(--muted); }
+.v5 .cta-row{ margin:15px 0 13px; }
+
+@media (max-width:430px){
+  .phone{ height:680px; }
+  .lab-grid{ gap:30px 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="lab-head">
+  <div class="lab-kicker">Mobile Header · Snippet Lab</div>
+  <h1 class="lab-h1">モバイルのメニュー、5案 🍔</h1>
+  <p class="lab-lead">
+    いまスマホのヘッダーはロゴと「依頼」ボタンだけ。ハンバーガー（☰）メニューを足して、
+    主要ページ・とっておきの読みもの・言語切替まで、ぜんぶ届くようにします。
+    どれも実際のページとリンクツリーの素材で組んでいます。
+  </p>
+  <div class="lab-note">👆 各スマホの <strong>☰</strong> をタップすると、その案のメニューが開きます</div>
+</header>
+
+<div class="lab-grid">
+
+  <!-- ============ V1 — FULL SCREEN ============ -->
+  <figure class="lab-item">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="pagebg">
+          <img class="ph-logo" src="/images/voji-logos/vegan-oji-logo.png" alt="">
+          <div class="ph-hero"><img src="/images/oji/oji_greeting.png" alt=""></div>
+          <div class="ph-line"></div><div class="ph-line s"></div>
+        </div>
+        <div class="bar">
+          <img class="logo" src="/images/voji-logos/vegan-oji-logo.png" alt="">
+          <div class="right">
+            <a class="mini-cta" href="#">王子に依頼</a>
+            <button class="burger hint" data-toggle aria-label="メニュー">
+              <svg width="22" height="22" viewBox="0 0 22 22"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></g></svg>
+            </button>
+          </div>
+        </div>
+        <div class="scrim" data-menu-scrim></div>
+        <nav class="v1" data-menu>
+          <div class="v1-top">
+            <img src="/images/voji-logos/vegan-oji-logo.png" alt="">
+            <button class="xclose" data-close aria-label="閉じる">
+              <svg width="20" height="20" viewBox="0 0 20 20"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></g></svg>
+            </button>
+          </div>
+          <div class="v1-body">
+            <div class="v1-nav">
+              <a href="/#top">ホーム<span class="en">Home</span></a>
+              <a href="/#character">プロフィール<span class="en">Profile</span></a>
+              <a href="/#services">できること<span class="en">Services</span></a>
+              <a href="/activity/">活動・出演<span class="en">Activity</span></a>
+              <a href="/blog/">ブログ<span class="en">Blog</span></a>
+              <a href="/links/">リンク集<span class="en">Links</span></a>
+            </div>
+            <div class="v1-feat">
+              <a href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png" alt="">マップ</a>
+              <a href="/vegfit/"><img src="/images/vegfit/logo-icon.png" alt="">ベジトレ</a>
+              <a href="/vegan-to-chikyu/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt="">なぜビーガン？</a>
+            </div>
+            <div class="v1-cta">
+              <div class="cta-row">
+                <a class="btn btn-primary" href="/#booking">王子に依頼</a>
+                <a class="btn btn-gold" href="/#donate">応援する</a>
+              </div>
+            </div>
+            <img class="v1-mascot" src="/images/oji/oji_sleeping_cloud.png" alt="">
+            <div class="socrow" style="margin-bottom:14px">
+              <a href="#"><img src="/images/social/ig.png" alt=""></a>
+              <a href="#"><img src="/images/social/yt.png" alt=""></a>
+              <a href="#"><img src="/images/social/tt.png" alt=""></a>
+              <a href="#"><img src="/images/social/x.png" alt=""></a>
+              <a href="#"><img src="/images/social/li.png" alt=""></a>
+              <a href="#"><img src="/images/social/line.png" alt=""></a>
+            </div>
+            <div class="langrow">
+              <span class="langchip on">日本語</span>
+              <span class="langchip soon">EN</span><span class="langchip soon">FR</span>
+              <span class="langchip soon">ES</span><span class="langchip soon">DE</span><span class="langchip soon">中文</span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <figcaption>
+      <span class="cap-tag">V1</span>
+      <div class="cap-title">フルスクリーン takeover</div>
+      <p class="cap-desc">全画面に大きく展開。雑誌のように堂々と、タップしやすい大きな文字。マスコット＋言語切替まで一望できて、いちばん"王子"らしい。</p>
+    </figcaption>
+  </figure>
+
+  <!-- ============ V2 — LINKTREE SHEET ============ -->
+  <figure class="lab-item">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="pagebg">
+          <img class="ph-logo" src="/images/voji-logos/vegan-oji-logo.png" alt="">
+          <div class="ph-hero"><img src="/images/oji/oji_greeting.png" alt=""></div>
+          <div class="ph-line"></div><div class="ph-line s"></div>
+        </div>
+        <div class="bar">
+          <img class="logo" src="/images/voji-logos/vegan-oji-logo.png" alt="">
+          <div class="right">
+            <div class="glb"><img src="/images/social/lang.png" alt=""></div>
+            <button class="burger hint" data-toggle aria-label="メニュー">
+              <svg width="22" height="22" viewBox="0 0 22 22"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></g></svg>
+            </button>
+          </div>
+        </div>
+        <div class="scrim" data-menu-scrim></div>
+        <nav class="v2" data-menu>
+          <div class="sec-label">メニュー</div>
+          <div class="v2-quick">
+            <a href="/#top">ホーム</a><a href="/#character">プロフィール</a>
+            <a href="/#services">できること</a><a href="/activity/">活動</a>
+            <a href="/blog/">ブログ</a><a href="/links/">リンク集</a>
+          </div>
+          <div class="sec-label">とっておき</div>
+          <a class="lcard" href="https://japanveganmap.org">
+            <img class="lthumb" src="/images/mascot/map-japan.png" alt="">
+            <span class="lbody"><span class="ltitle">日本ビーガンマップ</span><span class="lsub">Japan Vegan Map · 全国2,300店</span></span>
+            <span class="lchev">›</span>
+          </a>
+          <a class="lcard" href="/vegfit/">
+            <img class="lthumb" src="/images/vegfit/logo-icon.png" alt="">
+            <span class="lbody"><span class="ltitle">ベジトレClub</span><span class="lsub">Plant-based fitness</span></span>
+            <span class="lchev">›</span>
+          </a>
+          <a class="lcard" href="/vegan-to-chikyu/">
+            <img class="lthumb" src="/images/vegan-to-chikyu/icon-globe-earth.png" alt="">
+            <span class="lbody"><span class="ltitle">なぜビーガン？</span><span class="lsub">地球・海・体の3つの物語</span></span>
+            <span class="lchev">›</span>
+          </a>
+          <div class="cta-row" style="margin:6px 0 16px">
+            <a class="btn btn-primary" href="/#booking">王子に依頼</a>
+            <a class="btn btn-gold" href="/#donate">応援する</a>
+          </div>
+          <div class="socrow">
+            <a href="#"><img src="/images/social/ig.png" alt=""></a>
+            <a href="#"><img src="/images/social/yt.png" alt=""></a>
+            <a href="#"><img src="/images/social/tt.png" alt=""></a>
+            <a href="#"><img src="/images/social/x.png" alt=""></a>
+            <a href="#"><img src="/images/social/li.png" alt=""></a>
+            <a href="#"><img src="/images/social/line.png" alt=""></a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <figcaption>
+      <span class="cap-tag">V2</span>
+      <div class="cap-title">リンクツリー sheet</div>
+      <p class="cap-desc">/links/ ページと同じ世界観。とっておきのページ（マップ・ベジトレ・物語）をアイコンカードで。リンクツリーから来た人にいちばん馴染む。</p>
+    </figcaption>
+  </figure>
+
+  <!-- ============ V3 — SIDE DRAWER ============ -->
+  <figure class="lab-item">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="pagebg">
+          <img class="ph-logo" src="/images/voji-logos/vegan-oji-logo.png" alt="">
+          <div class="ph-hero"><img src="/images/oji/oji_greeting.png" alt=""></div>
+          <div class="ph-line"></div><div class="ph-line s"></div>
+        </div>
+        <div class="bar">
+          <img class="logo" src="/images/voji-logos/vegan-oji-logo.png" alt="">
+          <div class="right">
+            <div class="glb"><img src="/images/social/lang.png" alt=""></div>
+            <button class="burger hint" data-toggle aria-label="メニュー">
+              <svg width="22" height="22" viewBox="0 0 22 22"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></g></svg>
+            </button>
+          </div>
+        </div>
+        <div class="scrim" data-menu-scrim></div>
+        <nav class="v3" data-menu>
+          <div class="v3-head">
+            <img src="/images/voji-logos/vegan-oji-logo.png" alt="">
+            <button class="xclose" data-close aria-label="閉じる">
+              <svg width="20" height="20" viewBox="0 0 20 20"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></g></svg>
+            </button>
+          </div>
+          <div class="v3-body">
+            <a class="v3-link" href="/#top"><span class="ic">🏠</span>ホーム</a>
+            <a class="v3-link" href="/#character"><span class="ic">👑</span>プロフィール</a>
+            <a class="v3-link" href="/#services"><span class="ic">✨</span>できること</a>
+            <a class="v3-link" href="/activity/"><span class="ic">🎤</span>活動・出演</a>
+            <a class="v3-link" href="/blog/"><span class="ic">📝</span>ブログ</a>
+            <details class="v3-acc">
+              <summary><span class="ic">📖</span>読みもの<span class="arr">›</span></summary>
+              <div class="sub">
+                <a href="/vegan-to-chikyu/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt="">ビーガンと地球</a>
+                <a href="/umi-wo-kazoeru/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png" alt="">海をかぞえる</a>
+                <a href="/vegan-to-karada/"><img src="/images/vegan-to-chikyu/icon-heart.png" alt="">ビーガンと体</a>
+              </div>
+            </details>
+            <a class="v3-link" href="https://japanveganmap.org"><span class="ic">🗾</span>ビーガンマップ</a>
+            <a class="v3-link" href="/vegfit/"><span class="ic">🥦</span>ベジトレClub</a>
+            <a class="v3-link" href="/links/" style="border-bottom:0"><span class="ic">🔗</span>リンク集</a>
+          </div>
+          <div class="v3-foot">
+            <div class="cta-row">
+              <a class="btn btn-primary" href="/#booking">依頼</a>
+              <a class="btn btn-gold" href="/#donate">応援</a>
+            </div>
+            <div class="langrow">
+              <span class="langchip on">日本語</span><span class="langchip soon">EN</span>
+              <span class="langchip soon">FR</span><span class="langchip soon">ES</span>
+              <span class="langchip soon">DE</span><span class="langchip soon">中文</span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <figcaption>
+      <span class="cap-tag">V3</span>
+      <div class="cap-title">サイドドロワー</div>
+      <p class="cap-desc">右からスッと出る定番のアプリ式。コンパクトで迷わない。物語3本はアコーディオンに収納、依頼・応援・言語は下に固定。いちばん"普通に使いやすい"。</p>
+    </figcaption>
+  </figure>
+
+  <!-- ============ V4 — GRID PANEL ============ -->
+  <figure class="lab-item">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="pagebg">
+          <img class="ph-logo" src="/images/voji-logos/vegan-oji-logo.png" alt="">
+          <div class="ph-hero"><img src="/images/oji/oji_greeting.png" alt=""></div>
+          <div class="ph-line"></div><div class="ph-line s"></div>
+        </div>
+        <div class="bar">
+          <img class="logo" src="/images/voji-logos/vegan-oji-logo.png" alt="">
+          <div class="right">
+            <div class="glb"><img src="/images/social/lang.png" alt=""></div>
+            <button class="burger hint" data-toggle aria-label="メニュー">
+              <svg width="22" height="22" viewBox="0 0 22 22"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></g></svg>
+            </button>
+          </div>
+        </div>
+        <div class="scrim" data-menu-scrim></div>
+        <nav class="v4" data-menu>
+          <div class="v4-grid">
+            <a class="tile" href="/#top"><span class="ic">🏠</span>ホーム</a>
+            <a class="tile" href="/#character"><span class="ic">👑</span>プロフィール</a>
+            <a class="tile" href="/#services"><span class="ic">✨</span>できること</a>
+            <a class="tile" href="/activity/"><span class="ic">🎤</span>活動</a>
+            <a class="tile" href="/blog/"><span class="ic">📝</span>ブログ</a>
+            <a class="tile" href="/links/"><span class="ic">🔗</span>リンク集</a>
+            <a class="tile" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png" alt="">マップ</a>
+            <a class="tile" href="/vegfit/"><img src="/images/vegfit/logo-icon.png" alt="">ベジトレ</a>
+            <a class="tile" href="/vegan-to-chikyu/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt="">読みもの</a>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/#booking">王子に依頼</a>
+            <a class="btn btn-gold" href="/#donate">応援する</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <figcaption>
+      <span class="cap-tag">V4</span>
+      <div class="cap-title">グリッドパネル</div>
+      <p class="cap-desc">バーの下にポンッと出る小さなステッカー型パネル。2〜3列のアイコンタイルでサッと選べる。画面を覆わない軽さと遊び心。</p>
+    </figcaption>
+  </figure>
+
+  <!-- ============ V5 — BOTTOM SHEET ============ -->
+  <figure class="lab-item">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="pagebg">
+          <img class="ph-logo" src="/images/voji-logos/vegan-oji-logo.png" alt="">
+          <div class="ph-hero"><img src="/images/oji/oji_greeting.png" alt=""></div>
+          <div class="ph-line"></div><div class="ph-line s"></div>
+        </div>
+        <div class="bar">
+          <img class="logo" src="/images/voji-logos/vegan-oji-logo.png" alt="">
+          <div class="right">
+            <div class="glb"><img src="/images/social/lang.png" alt=""></div>
+            <button class="burger hint" data-toggle aria-label="メニュー">
+              <svg width="22" height="22" viewBox="0 0 22 22"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></g></svg>
+            </button>
+          </div>
+        </div>
+        <div class="scrim" data-menu-scrim></div>
+        <nav class="v5" data-menu>
+          <div class="grab"></div>
+          <div class="sec-label">めぐる</div>
+          <div class="v5-list">
+            <a href="/#top"><span class="ic">🏠</span>ホーム</a>
+            <a href="/#character"><span class="ic">👑</span>プロフィール</a>
+            <a href="/#services"><span class="ic">✨</span>できること</a>
+            <a href="/activity/"><span class="ic">🎤</span>活動・出演</a>
+            <a href="/blog/"><span class="ic">📝</span>ブログ</a>
+          </div>
+          <div class="sec-label" style="margin-top:16px">読みもの・とっておき</div>
+          <div class="v5-list">
+            <a href="https://japanveganmap.org"><span class="ic">🗾</span>日本ビーガンマップ<span class="mini">2,300店</span></a>
+            <a href="/vegfit/"><span class="ic">🥦</span>ベジトレClub</a>
+            <a href="/vegan-to-chikyu/"><span class="ic">📖</span>なぜビーガン？（物語3本）</a>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/#booking">王子に依頼</a>
+            <a class="btn btn-gold" href="/#donate">応援する</a>
+          </div>
+          <div class="socrow">
+            <a href="#"><img src="/images/social/ig.png" alt=""></a>
+            <a href="#"><img src="/images/social/yt.png" alt=""></a>
+            <a href="#"><img src="/images/social/tt.png" alt=""></a>
+            <a href="#"><img src="/images/social/x.png" alt=""></a>
+            <a href="#"><img src="/images/social/li.png" alt=""></a>
+            <a href="#"><img src="/images/social/line.png" alt=""></a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <figcaption>
+      <span class="cap-tag">V5</span>
+      <div class="cap-title">ボトムシート</div>
+      <p class="cap-desc">下からスッと立ち上がる、片手で届くモダンなパターン。グループ分け＋大きめCTA。親指の届く位置にすべて集まる、いちばん今っぽい操作感。</p>
+    </figcaption>
+  </figure>
+
+</div>
+
+<script>
+  // toggle any phone's menu via its ☰
+  document.querySelectorAll('[data-toggle]').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      e.stopPropagation();
+      btn.classList.remove('hint');
+      const screen = btn.closest('.screen');
+      screen.classList.toggle('is-open');
+    });
+  });
+  // close via scrim or X
+  document.querySelectorAll('[data-close],[data-menu-scrim]').forEach(el=>{
+    el.addEventListener('click', ()=> el.closest('.screen').classList.remove('is-open'));
+  });
+  // demo: links inside the mockups shouldn't navigate away from the lab
+  document.querySelectorAll('.screen a').forEach(a=>{
+    a.addEventListener('click', e=>{ e.preventDefault(); });
+  });
+</script>
+</body>
+</html>
