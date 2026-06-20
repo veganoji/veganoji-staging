@@ -50,7 +50,7 @@
       <span class="b"><span class="t">ベジトレClub</span><span class="s">Plant-based fitness</span></span>
       <span class="c">›</span>
     </a>
-    <a class="mnav-card" href="/vegan-to-chikyu/">
+    <a class="mnav-card" href="/vegan-and-earth/">
       <img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt="" />
       <span class="b"><span class="t">なぜビーガン？</span><span class="s">地球・海・体の3つの物語</span></span>
       <span class="c">›</span>

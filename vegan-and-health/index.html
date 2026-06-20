@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ビーガンと体 — 植物の、本当のチカラ</title>
+  <title>ビーガンと健康 — 植物の、本当のチカラ</title>
   <meta name="description" content="植物だけで、強く、美しく、健やかに。 タンパク質、お肌や髪、長生き、そしておいしさ。 ビーガン王子と4つのテーマをめぐる、スクロール型のミニジャーニー。" />
-  <link rel="canonical" href="https://veganoji.jp/vegan-to-karada/" />
-  <meta property="og:url" content="https://veganoji.jp/vegan-to-karada/" />
+  <link rel="canonical" href="https://veganoji.jp/vegan-and-health/" />
+  <meta property="og:url" content="https://veganoji.jp/vegan-and-health/" />
   <meta property="og:site_name" content="ビーガン王子 Vegan Oji" />
   <meta property="og:image" content="https://veganoji.jp/images/social/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ビーガンと体 — 植物の、本当のチカラ" />
+  <meta name="twitter:title" content="ビーガンと健康 — 植物の、本当のチカラ" />
   <meta name="twitter:description" content="植物だけで、強く、美しく、健やかに。 タンパク質、お肌や髪、長生き、そしておいしさ。 ビーガン王子と4つのテーマをめぐる、スクロール型のミニジャーニー。" />
   <meta name="twitter:image" content="https://veganoji.jp/images/social/og-card.jpg" />
-  <meta property="og:title" content="ビーガンと体 — 植物の、本当のチカラ" />
+  <meta property="og:title" content="ビーガンと健康 — 植物の、本当のチカラ" />
   <meta property="og:description" content="強さも、美しさも、長生きも。 植物で、ぜんぶ叶う。 ビーガン王子と4つのテーマを、一緒に歩いてみよう。" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#FFF9EE" />
@@ -26,7 +26,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style type="text/tailwindcss">
-    /* Lead with a regular CSS rule before @theme — matches umi-wo-kazoeru's
+    /* Lead with a regular CSS rule before @theme — matches fish-and-life's
        structure, which Tailwind v4 (browser build) is happiest with. */
     .__seed { color: inherit; }
 
@@ -516,7 +516,7 @@
       padding: 16px 18px;
     }
 
-    /* ── Social rail (chibi-sticker, like umi-wo-kazoeru) ─────────── */
+    /* ── Social rail (chibi-sticker, like fish-and-life) ─────────── */
     .social {
       display: inline-flex; align-items: center; justify-content: center;
       width: 50px; height: 50px;
@@ -1201,11 +1201,11 @@
           ビーガンの記事を読む
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
         </a>
-        <a href="/vegan-to-chikyu/" class="btn-base btn-ghost">
+        <a href="/vegan-and-earth/" class="btn-base btn-ghost">
           ビーガンと地球
         </a>
-        <a href="/umi-wo-kazoeru/" class="btn-base btn-ghost">
-          海をかぞえる
+        <a href="/fish-and-life/" class="btn-base btn-ghost">
+          魚の環境といのち
         </a>
       </div>
 
@@ -1309,7 +1309,7 @@
       'use strict';
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const pageUrl = window.location.href.split('#')[0];
-      const PAGE_TITLE = 'ビーガンと体 — 植物の、本当のチカラ';
+      const PAGE_TITLE = 'ビーガンと健康 — 植物の、本当のチカラ';
 
       // ───────── Hero ambient particles ─────────
       (function buildAmbient() {
@@ -1674,7 +1674,7 @@
           });
         });
         const score = answered === 0 ? 0 : picks.reduce((a, p, i) => a + (p === correct[i] ? 1 : 0), 0);
-        const txt = answered === 0 ? 'ビーガン王子のクイズに挑戦してみて！' : `「ビーガンと体」クイズ：${score}/4 だった！ きみは何問わかる？`;
+        const txt = answered === 0 ? 'ビーガン王子のクイズに挑戦してみて！' : `「ビーガンと健康」クイズ：${score}/4 だった！ きみは何問わかる？`;
         if (quizShareX) quizShareX.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(txt) + '&url=' + encodeURIComponent(pageUrl);
         if (quizShareLine) quizShareLine.href = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(txt);
       }
@@ -1689,9 +1689,9 @@
         quizShareNative.addEventListener('click', async () => {
           const answered = QUIZ.picks.filter(p => p !== null).length;
           const score = answered === 0 ? 0 : QUIZ.picks.reduce((a, p, i) => a + (p === QUIZ.correct[i] ? 1 : 0), 0);
-          const txt = answered === 0 ? 'ビーガン王子のクイズに挑戦してみて！' : `「ビーガンと体」クイズ：${score}/4 だった！\nきみは何問わかる？`;
+          const txt = answered === 0 ? 'ビーガン王子のクイズに挑戦してみて！' : `「ビーガンと健康」クイズ：${score}/4 だった！\nきみは何問わかる？`;
           if (navigator.share) {
-            try { await navigator.share({ title: 'ビーガンと体クイズ', text: txt, url: pageUrl }); } catch (_) {}
+            try { await navigator.share({ title: 'ビーガンと健康クイズ', text: txt, url: pageUrl }); } catch (_) {}
           } else {
             try { await navigator.clipboard.writeText(txt + ' ' + pageUrl); showQuizToast('結果をコピーしたよ！'); } catch (_) {}
           }

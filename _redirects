@@ -18,8 +18,13 @@
 /news-blog-archive/  /blog/  301
 /omotesando-recommended-vegan-vegetarian/  /blog/?post=vegan-vegetarian-cafes-restaurants-recommended-omotesando  301
 /recommended-spots-blog-archive/  /blog/  301
-/vegan-and-the-environment-infographic-japanese/  /vegan-to-chikyu/  301
+/vegan-and-the-environment-infographic-japanese/  /vegan-and-earth/  301
 /vegan-lifestyle-blog/  /blog/  301
+
+# --- Story-page slug renames (2026-06-20) ---
+/vegan-to-chikyu/*  /vegan-and-earth/:splat  301
+/vegan-to-karada/*  /vegan-and-health/:splat  301
+/umi-wo-kazoeru/*   /fish-and-life/:splat  301
 
 # --- Blog posts ---
 /2025-plant-based-fish-products-meeting-goals/  /blog/?post=2025-plant-based-fish-products-meeting-goals  301
