@@ -895,7 +895,7 @@
     .card-date { font-family: var(--font-jp); font-size: 12px; color: var(--color-muted); font-weight: 500; }
 
     /* Watercolor banner hero — match the blog's Option-D header */
-    .act-hero { position: relative; background: url('/images/decorations/hero-bgs/section-recent.jpg') center/cover no-repeat, var(--color-cream); }
+    .act-hero { position: relative; background: url('/images/decorations/activity-bgs/act-fes.jpg') center/cover no-repeat, var(--color-cream); }
     .act-hero__veil { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,249,238,0.30) 0%, rgba(255,249,238,0.54) 100%); }
     .act-hero-rss { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--color-ink); background: var(--color-paper); box-shadow: 2px 2px 0 var(--color-ink); font-family: var(--font-jp); font-weight: 700; font-size: 12px; color: var(--color-ink); transition: transform .16s, box-shadow .16s, background .16s; }
     .act-hero-rss:hover { transform: translate(1.5px,1.5px); box-shadow: 1px 1px 0 var(--color-ink); background: var(--color-gold-soft); }
@@ -966,17 +966,11 @@
   <!-- ─────────────  HERO  ───────────── -->
   <section class="act-hero border-b border-line relative overflow-hidden">
     <div class="act-hero__veil"></div>
-    <div class="relative max-w-[1100px] mx-auto px-6 lg:px-10 py-12 sm:py-16 lg:py-20 text-center">
-      <div class="font-jp text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-royal mb-2" style="font-weight:800">活動アーカイブ · Activity</div>
-      <h1 class="font-display display-tight text-[46px] sm:text-[64px] lg:text-[80px] font-medium text-ink" style="letter-spacing:-0.015em; text-shadow:0 2px 12px rgba(255,249,238,0.7);">
-        Activity <span class="display-italic text-royal">log.</span>
+    <div class="relative max-w-[1100px] mx-auto px-6 lg:px-10 py-16 sm:py-20 lg:py-24 text-center">
+      <div class="font-jp text-[12px] sm:text-[13px] tracking-[0.26em] uppercase text-royal mb-3" style="font-weight:800">Oji in Action</div>
+      <h1 class="font-jp-display text-[46px] sm:text-[62px] lg:text-[76px] text-ink" style="font-weight:900; letter-spacing:0.02em; text-shadow:0 2px 14px rgba(255,249,238,0.78);">
+        <span class="text-royal">王子</span>の活動
       </h1>
-      <p class="font-jp text-[14px] sm:text-[16px] text-ink-soft mt-3" style="text-shadow:0 1px 6px rgba(255,249,238,0.7);">テレビ、フェス、講演、コラボ──王子の歩み、ぜんぶ。</p>
-      <div class="mt-5 inline-flex items-center gap-2.5 text-[12px] text-ink-soft" style="text-shadow:0 1px 6px rgba(255,249,238,0.7);">
-        <a href="/activity/feed.xml" class="act-hero-rss"><img src="/images/social/rss.png" alt=""/>RSS</a>
-        <span class="opacity-40">·</span>
-        <span class="font-jp"><span id="act-count">—</span> 件</span>
-      </div>
     </div>
   </section>
 
@@ -1097,7 +1091,7 @@
         itemEl.classList.add('hidden');
         listEl.classList.remove('hidden');
         document.title = baseTitle;
-        document.getElementById('act-count').textContent = allItems.length;
+        var _ac = document.getElementById('act-count'); if (_ac) _ac.textContent = allItems.length;
         if (!allItems.length) { emptyEl.classList.remove('hidden'); return; }
         emptyEl.classList.add('hidden');
         listEl.innerHTML = allItems.map(p => `
