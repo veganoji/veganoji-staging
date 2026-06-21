@@ -206,7 +206,7 @@ body{ margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink);
 
   <!-- ══════════ D4 — RECEIPT family ══════════ -->
   <h2 class="sec"><span class="n">D4</span>地球へのレシート（3バリエ）</h2>
-  <p class="sub">遊び心・話題性。レシート／地球からの手紙／搭乗券、3つの“紙もの”で。</p>
+  <p class="sub">遊び心・話題性。ぜんぶ“レシート”。本物のレシートっぽく——コンビニ風（地球背景）／スーパー風（いのち・むらさき）。</p>
   <div class="grid">
 
     <!-- D4-A receipt -->
@@ -227,39 +227,71 @@ body{ margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink);
       <button class="dl" onclick="dl('c-d4a','impact_D4A')">DL 1080×1920</button>
     </div>
 
-    <!-- D4-B letter from earth -->
-    <div class="box"><div class="lab"><b>D4-B.</b> 地球からの手紙</div>
-      <div class="s9" id="c-d4b" style="background:var(--paper-soft);">
-        <div style="position:absolute; top:30px; left:28px; right:28px; bottom:74px; background:#FFFDF8; border:2.5px solid var(--ink); border-radius:14px; box-shadow:5px 5px 0 rgba(31,24,18,.12); padding:26px 24px; display:flex; flex-direction:column;">
-          <div style="font-size:13px; letter-spacing:.16em; color:var(--gold-deep); font-weight:800;">FROM 地球</div>
-          <div class="serif" style="font-family:'Noto Serif JP',serif; font-size:22px; font-weight:900; line-height:1.5; margin-top:14px;">この1年、ありがとう。<br>あなたのおかげで——</div>
-          <div style="margin-top:18px; display:flex; flex-direction:column; gap:13px; font-size:16px; font-weight:700;">
-            <div>🌫 CO₂が <b class="num" style="color:var(--leaf-deep)">1.5t</b> へった</div>
-            <div>💧 お水を <b class="num" style="color:var(--leaf-deep)">500万L</b> まもれた</div>
-            <div>🌱 土地が <b class="num" style="color:var(--leaf-deep)">1,500㎡</b> 戻った</div>
-            <div>🐔 <b class="num" style="color:var(--leaf-deep)">200</b> の命にやさしくできた</div>
+    <!-- D4-B conbini receipt on earth bg -->
+    <div class="box"><div class="lab"><b>D4-B.</b> レシート・コンビニ風（地球背景）</div>
+      <div class="s9" id="c-d4b">
+        <div class="bg" style="background-image:url('/images/decorations/share-bgs/diet-earth.jpg')"></div>
+        <div style="position:absolute; inset:0; background:rgba(255,249,238,.42);"></div>
+        <div style="position:absolute; left:50px; right:50px; top:20px; filter:drop-shadow(3px 5px 8px rgba(31,24,18,.30)); font-family:ui-monospace,'Noto Sans JP',monospace; color:var(--ink);">
+          <div style="height:9px; background:linear-gradient(-45deg,#FFFDF8 6px,transparent 0) 0 0/12px 9px repeat-x, linear-gradient(45deg,#FFFDF8 6px,transparent 0) 0 0/12px 9px repeat-x;"></div>
+          <div style="background:#FFFDF8; padding:14px 16px 12px; font-size:12px; line-height:1.5;">
+            <div style="text-align:center; line-height:1.35;">
+              <div style="font-size:16px; font-weight:900; letter-spacing:.06em;">地球マート</div>
+              <div style="font-size:9.5px; color:var(--muted);">ＥＡＲＴＨ ＭＡＲＴ　ＶＥＧＡＮ店</div>
+              <div style="font-size:9.5px; color:var(--muted);">ＴＥＬ 0120-VEGAN-01</div>
+            </div>
+            <div style="border-top:1px dashed rgba(31,24,18,.5); margin:9px 0;"></div>
+            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--ink-soft);"><span>2026/06/21 18:24</span><span>レジ02 王子</span></div>
+            <div style="text-align:center; font-size:11px; font-weight:900; margin:9px 0 3px; letter-spacing:.06em;">＊ ヴィーガン生活 １年分 ＊</div>
+            <div style="border-top:1px dashed rgba(31,24,18,.5); margin:7px 0 9px;"></div>
+            <div style="display:flex; justify-content:space-between; margin:6px 0;"><span>ＣＯ₂ さくげん</span><b style="color:var(--leaf-deep)">-1.5t</b></div>
+            <div style="display:flex; justify-content:space-between; margin:6px 0;"><span>おみず せつやく</span><b style="color:var(--leaf-deep)">-500万L</b></div>
+            <div style="display:flex; justify-content:space-between; margin:6px 0;"><span>だいち かいふく</span><b style="color:var(--leaf-deep)">-1,500㎡</b></div>
+            <div style="display:flex; justify-content:space-between; margin:6px 0;"><span>すくえた いのち</span><b style="color:var(--leaf-deep)">200</b></div>
+            <div style="border-top:1px dashed rgba(31,24,18,.5); margin:9px 0;"></div>
+            <div style="display:flex; justify-content:space-between; font-size:11px;"><span>点 数</span><span>4点</span></div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:5px; border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); padding:6px 0;"><span style="font-size:14px; font-weight:900;">合 計</span><span style="font-size:14px; font-weight:900;">地球が笑顔😊</span></div>
+            <div style="text-align:center; font-size:10px; color:var(--ink-soft); margin-top:10px; line-height:1.6;">またのご来店を、<br>地球はいつでも歓迎です🌏</div>
+            <div style="text-align:center; margin-top:9px; font-size:22px; line-height:.7; letter-spacing:-1px;">▌▏▌▎▌▏▏▌▎▌▏▎▌▏▌▎▏▌</div>
+            <div style="text-align:center; font-size:9px; letter-spacing:.32em; color:var(--ink-soft); margin-top:2px;">498 VEGANOJI 1Y</div>
           </div>
-          <div style="margin-top:auto; text-align:right; font-size:15px; font-weight:900;">— 地球より 💚</div>
+          <div style="height:9px; background:linear-gradient(-135deg,#FFFDF8 6px,transparent 0) 0 3px/12px 9px repeat-x, linear-gradient(135deg,#FFFDF8 6px,transparent 0) 0 3px/12px 9px repeat-x;"></div>
         </div>
-        <div class="inv">🌱 あなたへの手紙は？ <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        <div class="inv">🌱 あなたのレシートは？ <span class="u">veganoji.jp/vegan-and-earth</span></div>
       </div>
       <button class="dl" onclick="dl('c-d4b','impact_D4B')">DL 1080×1920</button>
     </div>
 
-    <!-- D4-C boarding pass -->
-    <div class="box"><div class="lab"><b>D4-C.</b> 地球行きチケット</div>
-      <div class="s9" id="c-d4c" style="background:radial-gradient(ellipse at 50% 16%, rgba(108,149,96,.16), transparent 55%), var(--paper);">
-        <div style="position:absolute; top:54px; left:26px; right:26px; bottom:90px; background:#FFFDF8; border:2.5px solid var(--ink); border-radius:18px; box-shadow:5px 5px 0 rgba(31,24,18,.14); overflow:hidden;">
-          <div style="background:var(--leaf-deep); color:#fff; padding:14px 20px; display:flex; justify-content:space-between; align-items:center;"><span style="font-size:16px; font-weight:900;">🌍 やさしい地球 行き</span><span style="font-size:11px; font-weight:700; letter-spacing:.1em;">VEGAN · 1Y</span></div>
-          <div style="padding:18px 20px; display:grid; grid-template-columns:1fr 1fr; gap:16px 10px;">
-            <div><div style="font-size:11px; color:var(--muted); font-weight:700;">CO₂</div><div class="num" style="font-size:24px; color:var(--leaf-deep)">−1.5t</div></div>
-            <div><div style="font-size:11px; color:var(--muted); font-weight:700;">お水</div><div class="num" style="font-size:24px; color:var(--blue)">−500万L</div></div>
-            <div><div style="font-size:11px; color:var(--muted); font-weight:700;">土地</div><div class="num" style="font-size:24px; color:var(--leaf-deep)">−1,500㎡</div></div>
-            <div><div style="font-size:11px; color:var(--muted); font-weight:700;">いのち</div><div class="num" style="font-size:24px; color:var(--purple)">200</div></div>
+    <!-- D4-C supermarket receipt on inochi/purple bg -->
+    <div class="box"><div class="lab"><b>D4-C.</b> レシート・スーパー風（いのち／むらさき）</div>
+      <div class="s9" id="c-d4c" style="background:radial-gradient(ellipse at 50% 28%, rgba(107,78,140,.32), transparent 62%), #F1EAF6;">
+        <div style="position:absolute; left:50px; right:50px; top:20px; filter:drop-shadow(3px 5px 8px rgba(31,24,18,.28)); font-family:ui-monospace,'Noto Sans JP',monospace; color:var(--ink);">
+          <div style="height:9px; background:linear-gradient(-45deg,#FFFDF8 6px,transparent 0) 0 0/12px 9px repeat-x, linear-gradient(45deg,#FFFDF8 6px,transparent 0) 0 0/12px 9px repeat-x;"></div>
+          <div style="background:#FFFDF8; padding:14px 16px 12px; font-size:12px; line-height:1.5;">
+            <div style="text-align:center; line-height:1.35;">
+              <div style="font-size:16px; font-weight:900; letter-spacing:.04em;">いのち青果店</div>
+              <div style="font-size:9.5px; color:var(--muted);">ＶＥＧＡＮ ＯＪＩ ＳＴＯＲＥ</div>
+              <div style="font-size:9.5px; color:var(--muted);">領収レシート</div>
+            </div>
+            <div style="border-top:1px dashed rgba(31,24,18,.5); margin:9px 0;"></div>
+            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--ink-soft);"><span>2026年6月21日(土)</span><span>No.0621</span></div>
+            <div style="text-align:center; font-size:11px; font-weight:900; margin:9px 0 3px; letter-spacing:.04em;">＊ ヴィーガン１年 お買上げ ＊</div>
+            <div style="border-top:1px dashed rgba(31,24,18,.5); margin:7px 0 9px;"></div>
+            <div style="display:flex; justify-content:space-between; margin:6px 0;"><span>※ＣＯ₂ さくげん</span><b style="color:var(--purple)">-1.5t</b></div>
+            <div style="display:flex; justify-content:space-between; margin:6px 0;"><span>※おみず</span><b style="color:var(--purple)">-500万L</b></div>
+            <div style="display:flex; justify-content:space-between; margin:6px 0;"><span>　だいち</span><b style="color:var(--purple)">-1,500㎡</b></div>
+            <div style="display:flex; justify-content:space-between; margin:6px 0;"><span>※たすけた命</span><b style="color:var(--purple)">200</b></div>
+            <div style="border-top:1px dashed rgba(31,24,18,.5); margin:9px 0;"></div>
+            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--ink-soft);"><span>小計　4点</span><span>(税込)</span></div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:5px; border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); padding:6px 0;"><span style="font-size:14px; font-weight:900;">合 計</span><span style="font-size:14px; font-weight:900; color:var(--purple)">未来へ ＋∞</span></div>
+            <div style="display:flex; justify-content:space-between; font-size:10.5px; margin-top:8px;"><span>地球ポイント</span><b>+200pt</b></div>
+            <div style="text-align:center; font-size:9.5px; color:var(--ink-soft); margin-top:8px; line-height:1.6;">※は、いのちにやさしい商品<br>本日のご応援、ありがとう💜</div>
+            <div style="text-align:center; margin-top:9px; font-size:22px; line-height:.7; letter-spacing:-1px;">▌▎▌▏▌▎▏▌▏▌▎▌▏▎▌▏▌▎</div>
+            <div style="text-align:center; font-size:9px; letter-spacing:.32em; color:var(--ink-soft); margin-top:2px;">いのち 200 ・ 2026</div>
           </div>
-          <div style="border-top:2px dashed rgba(31,24,18,.3); padding:12px 20px; display:flex; justify-content:space-between; align-items:center;"><span style="font-size:13px; font-weight:900;">SEAT 1A</span><span style="font-family:monospace; font-size:18px; letter-spacing:3px;">▮▮▍▮▍▍▮▮</span></div>
+          <div style="height:9px; background:linear-gradient(-135deg,#FFFDF8 6px,transparent 0) 0 3px/12px 9px repeat-x, linear-gradient(135deg,#FFFDF8 6px,transparent 0) 0 3px/12px 9px repeat-x;"></div>
         </div>
-        <div class="inv">🌱 あなたのチケットは？ <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        <div class="inv">🌱 あなたのレシートは？ <span class="u">veganoji.jp/vegan-and-earth</span></div>
       </div>
       <button class="dl" onclick="dl('c-d4c','impact_D4C')">DL 1080×1920</button>
     </div>
@@ -267,56 +299,63 @@ body{ margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink);
 
   <!-- ══════════ D5 — FIRST STEP / LADDER ══════════ -->
   <h2 class="sec"><span class="n">D5</span>はじめの一歩（3バリエ）</h2>
-  <p class="sub">「ビーガンじゃなくてOK、減らすだけで変わる」── ハードルを下げる。</p>
+  <p class="sub">「ビーガンじゃなくてOK、減らすだけで変わる」。棒グラフは <b>1年・1人あたり“食事のCO₂”（目安）</b>＝何を測っているか明示。A＝数値つき／B＝ランニング王子背景に重ねた版。</p>
   <div class="grid">
 
-    <!-- D5-A ladder bars -->
-    <div class="box"><div class="lab"><b>D5-A.</b> ラダー（棒グラフ）</div>
+    <!-- D5-A ladder bars + metric -->
+    <div class="box"><div class="lab"><b>D5-A.</b> CO₂ラダー（棒グラフ・数値つき）</div>
       <div class="s9" id="c-d5a" style="background:var(--paper);">
-        <div style="position:absolute; left:28px; right:28px; top:34px; text-align:center;">
-          <div class="headline" style="font-size:27px;">どこからでも、<br><span style="color:var(--leaf-deep)">はじめられる。</span></div>
+        <div style="position:absolute; left:26px; right:26px; top:30px; text-align:center;">
+          <div class="eyebrow" style="color:var(--leaf-deep)">食べ方 × 地球</div>
+          <div class="headline" style="font-size:23px; margin-top:5px;">食べ方で、<span style="color:var(--red)">CO₂</span>は<br>こんなに変わる</div>
+          <div style="font-size:11px; color:var(--muted); font-weight:700; margin-top:7px;">1年・1人あたり 食事のCO₂（目安）</div>
         </div>
-        <div style="position:absolute; left:30px; right:30px; top:150px; display:flex; flex-direction:column; gap:16px;">
-          <div style="display:flex; align-items:center; gap:10px;"><div style="width:78px; font-size:13px; font-weight:700; text-align:right;">毎食お肉</div><div style="flex:1; height:30px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:100%; background:var(--red);"></div></div></div>
-          <div style="display:flex; align-items:center; gap:10px;"><div style="width:78px; font-size:13px; font-weight:700; text-align:right;">週に数回</div><div style="flex:1; height:30px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:74%; background:var(--orange);"></div></div></div>
-          <div style="display:flex; align-items:center; gap:10px;"><div style="width:78px; font-size:13px; font-weight:700; text-align:right;">ほぼベジ</div><div style="flex:1; height:30px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:50%; background:var(--gold);"></div></div></div>
-          <div style="display:flex; align-items:center; gap:10px;"><div style="width:78px; font-size:13px; font-weight:700; text-align:right;">ビーガン</div><div style="flex:1; height:30px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:38%; background:var(--leaf);"></div></div></div>
+        <div style="position:absolute; left:28px; right:28px; top:172px; display:flex; flex-direction:column; gap:14px;">
+          <div><div style="display:flex; justify-content:space-between; font-size:12.5px; font-weight:800; margin-bottom:4px;"><span>毎食お肉</span><span class="num" style="color:var(--red)">2.5t</span></div><div style="height:20px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:100%; background:var(--red);"></div></div></div>
+          <div><div style="display:flex; justify-content:space-between; font-size:12.5px; font-weight:800; margin-bottom:4px;"><span>週に数回</span><span class="num" style="color:var(--orange)">1.9t</span></div><div style="height:20px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:76%; background:var(--orange);"></div></div></div>
+          <div><div style="display:flex; justify-content:space-between; font-size:12.5px; font-weight:800; margin-bottom:4px;"><span>ほぼベジ</span><span class="num" style="color:var(--gold-deep)">1.4t</span></div><div style="height:20px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:56%; background:var(--gold);"></div></div></div>
+          <div><div style="display:flex; justify-content:space-between; font-size:12.5px; font-weight:800; margin-bottom:4px;"><span>ビーガン</span><span class="num" style="color:var(--leaf-deep)">1.0t 🌱</span></div><div style="height:20px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:40%; background:var(--leaf);"></div></div></div>
         </div>
-        <div style="position:absolute; left:30px; right:30px; bottom:90px; text-align:center; font-size:15px; font-weight:700; color:var(--ink-soft); line-height:1.6;">ビーガンじゃなくてもいい。<br>減らすだけで、地球は変わる。</div>
+        <div style="position:absolute; left:28px; right:28px; bottom:88px; text-align:center; font-size:13.5px; font-weight:800; color:var(--ink-soft); line-height:1.6;">植物性を増やすほど、<span style="color:var(--leaf-deep)">CO₂は減る。</span><br>ビーガンじゃなくても、いい。</div>
         <div class="inv">🌱 自分の影響をみる <span class="u">veganoji.jp/vegan-and-earth</span></div>
       </div>
       <button class="dl" onclick="dl('c-d5a','impact_D5A')">DL 1080×1920</button>
     </div>
 
-    <!-- D5-B running prince -->
-    <div class="box"><div class="lab"><b>D5-B.</b> 一歩から（ランニング王子）</div>
+    <!-- D5-B ladder on running-prince bg (the combo) -->
+    <div class="box"><div class="lab"><b>D5-B.</b> CO₂ラダー × ランニング王子背景</div>
       <div class="s9" id="c-d5b">
-        <div class="bg" style="background-image:url('/images/decorations/activity-bgs/act-run.jpg'); background-position:center 40%;"></div>
-        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,249,238,.5) 0%, rgba(255,249,238,.15) 40%, rgba(31,24,18,.62) 100%);"></div>
-        <div style="position:absolute; left:0; right:0; top:32px; text-align:center;">
+        <div class="bg" style="background-image:url('/images/decorations/activity-bgs/act-run.jpg'); background-position:center 26%;"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,249,238,.28) 0%, rgba(255,249,238,.55) 34%, rgba(255,249,238,.9) 64%);"></div>
+        <div style="position:absolute; left:0; right:0; top:24px; text-align:center;">
           <div class="eyebrow" style="color:var(--leaf-deep)">まずは、一歩から</div>
-          <div class="headline" style="font-size:30px; margin-top:6px;">減らすだけで、<span style="color:var(--red)">いい。</span></div>
+          <div class="headline" style="font-size:21px; margin-top:4px; text-shadow:0 1px 7px rgba(255,249,238,.85);">食べ方で、<span style="color:var(--red)">CO₂</span>は変わる</div>
+          <div style="font-size:10.5px; color:var(--ink-soft); font-weight:700; margin-top:4px; text-shadow:0 1px 5px rgba(255,249,238,.85);">1年・1人あたり 食事のCO₂（目安）</div>
         </div>
-        <div style="position:absolute; left:26px; right:26px; bottom:80px; color:#fff; text-align:center;">
-          <div style="font-size:17px; font-weight:900; line-height:1.6; text-shadow:0 2px 8px rgba(0,0,0,.5);">週に1回お肉をやめるだけで<br>1年で <span class="num" style="color:var(--gold-soft); font-size:24px;">CO₂ −70kg</span></div>
+        <div style="position:absolute; left:20px; right:20px; bottom:76px; background:rgba(255,253,248,.88); border:2.5px solid var(--ink); border-radius:18px; box-shadow:4px 4px 0 rgba(31,24,18,.16); padding:14px 15px 13px; display:flex; flex-direction:column; gap:11px;">
+          <div><div style="display:flex; justify-content:space-between; font-size:12px; font-weight:800; margin-bottom:3px;"><span>毎食お肉</span><span class="num" style="color:var(--red)">2.5t</span></div><div style="height:17px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:100%; background:var(--red);"></div></div></div>
+          <div><div style="display:flex; justify-content:space-between; font-size:12px; font-weight:800; margin-bottom:3px;"><span>週に数回</span><span class="num" style="color:var(--orange)">1.9t</span></div><div style="height:17px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:76%; background:var(--orange);"></div></div></div>
+          <div><div style="display:flex; justify-content:space-between; font-size:12px; font-weight:800; margin-bottom:3px;"><span>ほぼベジ</span><span class="num" style="color:var(--gold-deep)">1.4t</span></div><div style="height:17px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:56%; background:var(--gold);"></div></div></div>
+          <div><div style="display:flex; justify-content:space-between; font-size:12px; font-weight:800; margin-bottom:3px;"><span>ビーガン</span><span class="num" style="color:var(--leaf-deep)">1.0t 🌱</span></div><div style="height:17px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:40%; background:var(--leaf);"></div></div></div>
+          <div style="text-align:center; font-size:12px; font-weight:800; color:var(--leaf-deep); margin-top:1px;">減らすだけで、いい。🌱</div>
         </div>
         <div class="inv">🌱 自分のペースでみる <span class="u">veganoji.jp/vegan-and-earth</span></div>
       </div>
       <button class="dl" onclick="dl('c-d5b','impact_D5B')">DL 1080×1920</button>
     </div>
 
-    <!-- D5-C steps -->
-    <div class="box"><div class="lab"><b>D5-C.</b> 階段（ステップ）</div>
+    <!-- D5-C steps + CO2 delta -->
+    <div class="box"><div class="lab"><b>D5-C.</b> 階段（ステップ・CO₂つき）</div>
       <div class="s9" id="c-d5c" style="background:radial-gradient(ellipse at 80% 12%, rgba(212,168,71,.18), transparent 55%), var(--paper);">
         <div style="position:absolute; left:28px; right:28px; top:32px; text-align:center;">
-          <div class="headline" style="font-size:26px;">一段ずつで、<span style="color:var(--leaf-deep)">いい。</span></div>
+          <div class="headline" style="font-size:25px;">一段ずつで、<span style="color:var(--leaf-deep)">いい。</span></div>
+          <div style="font-size:11px; color:var(--muted); font-weight:700; margin-top:6px;">（　）＝1年でへらせるCO₂（目安）</div>
         </div>
         <div style="position:absolute; left:30px; right:30px; bottom:96px; display:flex; flex-direction:column-reverse; gap:0;">
-          <div style="height:54px; background:#F0E6D2; border:2.5px solid var(--ink); border-bottom:none; border-radius:0; display:flex; align-items:center; padding:0 16px; font-weight:800; font-size:13px; width:55%;">① 週1ベジ</div>
-          <div style="height:54px; background:var(--gold-soft); border:2.5px solid var(--ink); border-bottom:none; display:flex; align-items:center; padding:0 16px; font-weight:800; font-size:13px; width:70%;">② 1日1食</div>
-          <div style="height:54px; background:var(--leaf); color:#fff; border:2.5px solid var(--ink); border-bottom:none; display:flex; align-items:center; padding:0 16px; font-weight:800; font-size:13px; width:88%;">③ ほぼベジ 🌱</div>
+          <div style="height:56px; background:#F0E6D2; border:2.5px solid var(--ink); border-bottom:none; display:flex; align-items:center; justify-content:space-between; padding:0 15px; font-weight:800; font-size:13px; width:56%;"><span>① 週1ベジ</span><span class="num" style="color:var(--leaf-deep); font-size:12px;">−0.1t</span></div>
+          <div style="height:56px; background:var(--gold-soft); border:2.5px solid var(--ink); border-bottom:none; display:flex; align-items:center; justify-content:space-between; padding:0 15px; font-weight:800; font-size:13px; width:74%;"><span>② 1日1食</span><span class="num" style="color:var(--leaf-deep); font-size:12px;">−0.5t</span></div>
+          <div style="height:56px; background:var(--leaf); color:#fff; border:2.5px solid var(--ink); border-bottom:none; display:flex; align-items:center; justify-content:space-between; padding:0 15px; font-weight:800; font-size:13px; width:92%;"><span>③ ほぼベジ 🌱</span><span class="num" style="font-size:12px;">−1.1t</span></div>
         </div>
-        <div style="position:absolute; left:0; right:0; bottom:60px; height:0;"></div>
         <div class="inv">🌱 はじめの一歩を <span class="u">veganoji.jp/vegan-and-earth</span></div>
       </div>
       <button class="dl" onclick="dl('c-d5c','impact_D5C')">DL 1080×1920</button>
@@ -325,56 +364,58 @@ body{ margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink);
 
   <!-- ══════════ SET 2 — QUIZ (Q3 + Q5) ══════════ -->
   <h2 class="sec"><span class="n">Q3</span>3つのドット・スコア（3バリエ）</h2>
-  <p class="sub">「○/3だった！きみは？」と直感的に。点数・マークは仮（本番は自動）。</p>
+  <p class="sub">「ビーガン王子検定、合格！」風に。お祝い背景＋王子（ジャンプ／先生）＋合格・認定の遊び心。点数・マークは仮（本番は自動）。</p>
   <div class="grid">
 
-    <div class="box"><div class="lab"><b>Q3-A.</b> 3ドット（お祝い背景）</div>
+    <div class="box"><div class="lab"><b>Q3-A.</b> 3ドット＋合格（王子ジャンプ）</div>
       <div class="s9" id="c-q3a">
         <div class="bg" style="background-image:url('/images/decorations/share-bgs/quiz-celebrate.jpg')"></div>
-        <div style="position:absolute; left:0; right:0; top:54px; text-align:center;">
-          <div class="eyebrow" style="color:var(--gold-deep)">ビーガン王子クイズ</div>
-          <div style="display:flex; justify-content:center; gap:14px; margin:30px 0 22px;">
-            <div style="width:62px;height:62px;border-radius:50%;border:4px solid var(--ink);background:var(--leaf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;">○</div>
-            <div style="width:62px;height:62px;border-radius:50%;border:4px solid var(--ink);background:var(--leaf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;">○</div>
-            <div style="width:62px;height:62px;border-radius:50%;border:4px solid var(--ink);background:#EDE7E0;color:#BBB0A2;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;">✗</div>
+        <div style="position:absolute; left:0; right:0; top:36px; text-align:center;">
+          <div class="eyebrow" style="color:var(--gold-deep)">ビーガン王子検定</div>
+          <div style="display:inline-block; margin-top:9px; background:var(--red); color:#fff; font-weight:900; font-size:21px; padding:6px 24px; border:3px solid var(--ink); border-radius:999px; box-shadow:3px 3px 0 var(--ink); transform:rotate(-2deg);">合格！🎉</div>
+          <div style="display:flex; justify-content:center; gap:13px; margin:22px 0 12px;">
+            <div style="width:56px;height:56px;border-radius:50%;border:4px solid var(--ink);background:var(--leaf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;box-shadow:2px 2px 0 rgba(31,24,18,.25);">○</div>
+            <div style="width:56px;height:56px;border-radius:50%;border:4px solid var(--ink);background:var(--leaf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;box-shadow:2px 2px 0 rgba(31,24,18,.25);">○</div>
+            <div style="width:56px;height:56px;border-radius:50%;border:4px solid var(--ink);background:#EDE7E0;color:#BBB0A2;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;">✗</div>
           </div>
-          <div class="num" style="font-size:84px; color:var(--leaf-deep);">2<span style="font-size:28px; color:var(--ink);"> / 3 せいかい</span></div>
-          <div class="headline" style="font-size:24px; margin-top:8px;">きみも、やってみて！</div>
+          <div class="num" style="font-size:66px; color:var(--leaf-deep);">2<span style="font-size:23px; color:var(--ink);"> / 3 せいかい</span></div>
         </div>
-        <div class="inv">🌱 挑戦する <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        <img src="/images/oji/oji_excited.png" style="position:absolute; bottom:50px; right:2px; height:186px; filter:drop-shadow(0 6px 12px rgba(31,24,18,.22));">
+        <div class="inv">🌱 きみも挑戦！ <span class="u">veganoji.jp/vegan-and-earth</span></div>
       </div>
       <button class="dl" onclick="dl('c-q3a','quiz_Q3A')">DL 1080×1920</button>
     </div>
 
-    <div class="box"><div class="lab"><b>Q3-B.</b> 設問つきスコア</div>
-      <div class="s9" id="c-q3b" style="background:radial-gradient(ellipse at 50% 14%, rgba(108,149,96,.16), transparent 55%), var(--paper);">
-        <div style="position:absolute; left:0; right:0; top:38px; text-align:center;">
-          <div class="eyebrow" style="color:var(--leaf-deep)">ビーガン王子クイズ</div>
-          <div class="num" style="font-size:72px; color:var(--leaf-deep); margin-top:6px;">2<span style="font-size:26px;color:var(--ink);"> / 3</span></div>
+    <div class="box"><div class="lab"><b>Q3-B.</b> 王子先生＆合格（設問つき）</div>
+      <div class="s9" id="c-q3b">
+        <div class="bg" style="background-image:url('/images/decorations/share-bgs/quiz-celebrate.jpg')"></div>
+        <div style="position:absolute; left:0; right:0; top:32px; text-align:center;">
+          <div style="display:inline-block; background:var(--ink); color:var(--paper); font-size:12px; font-weight:800; letter-spacing:.08em; padding:5px 16px; border-radius:999px;">ビーガン王子検定</div>
+          <div class="headline" style="font-size:25px; margin-top:11px;">きみ、<span style="color:var(--red)">合格</span>！</div>
         </div>
-        <div style="position:absolute; left:28px; right:28px; top:208px; display:flex; flex-direction:column; gap:13px;">
-          <div style="display:flex; align-items:center; justify-content:space-between; background:#FFFDF8; border:2px solid var(--ink); border-radius:14px; padding:13px 16px; font-size:15px; font-weight:700;"><span>① 温暖化のこと</span><span style="color:var(--leaf-deep); font-size:22px; font-weight:900;">○</span></div>
-          <div style="display:flex; align-items:center; justify-content:space-between; background:#FFFDF8; border:2px solid var(--ink); border-radius:14px; padding:13px 16px; font-size:15px; font-weight:700;"><span>② お水のこと</span><span style="color:var(--leaf-deep); font-size:22px; font-weight:900;">○</span></div>
-          <div style="display:flex; align-items:center; justify-content:space-between; background:#FFFDF8; border:2px solid var(--ink); border-radius:14px; padding:13px 16px; font-size:15px; font-weight:700;"><span>③ 食べ物のこと</span><span style="color:var(--red); font-size:22px; font-weight:900;">✗</span></div>
+        <div style="position:absolute; left:26px; right:122px; top:140px; display:flex; flex-direction:column; gap:9px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,253,248,.92); border:2px solid var(--ink); border-radius:12px; padding:9px 13px; font-size:13px; font-weight:700;"><span>① 温暖化</span><span style="color:var(--leaf-deep); font-size:19px; font-weight:900;">○</span></div>
+          <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,253,248,.92); border:2px solid var(--ink); border-radius:12px; padding:9px 13px; font-size:13px; font-weight:700;"><span>② お水</span><span style="color:var(--leaf-deep); font-size:19px; font-weight:900;">○</span></div>
+          <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,253,248,.92); border:2px solid var(--ink); border-radius:12px; padding:9px 13px; font-size:13px; font-weight:700;"><span>③ 食べ物</span><span style="color:var(--red); font-size:19px; font-weight:900;">✗</span></div>
         </div>
-        <div style="position:absolute; left:28px; right:28px; bottom:88px; text-align:center; font-size:16px; font-weight:900;">きみは、何問わかる？</div>
-        <div class="inv">🌱 挑戦する <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        <div style="position:absolute; left:28px; bottom:118px;"><span class="num" style="font-size:50px; color:var(--leaf-deep);">2</span><span style="font-size:20px; font-weight:900;"> / 3</span></div>
+        <img src="/images/oji/oji_teaching.png" style="position:absolute; bottom:46px; right:-8px; height:206px; filter:drop-shadow(0 6px 12px rgba(31,24,18,.22));">
+        <div class="inv">🌱 きみも挑戦！ <span class="u">veganoji.jp/vegan-and-earth</span></div>
       </div>
       <button class="dl" onclick="dl('c-q3b','quiz_Q3B')">DL 1080×1920</button>
     </div>
 
-    <div class="box"><div class="lab"><b>Q3-C.</b> 王子＆スコア</div>
-      <div class="s9" id="c-q3c" style="background:radial-gradient(ellipse at 50% 84%, rgba(212,168,71,.18), transparent 55%), var(--paper);">
-        <div style="position:absolute; left:0; right:0; top:42px; text-align:center;">
-          <div class="eyebrow" style="color:var(--gold-deep)">ビーガン王子クイズ</div>
-          <div style="display:flex; justify-content:center; gap:12px; margin:18px 0;">
-            <div style="width:44px;height:44px;border-radius:50%;border:3px solid var(--ink);background:var(--leaf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;">○</div>
-            <div style="width:44px;height:44px;border-radius:50%;border:3px solid var(--ink);background:var(--leaf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;">○</div>
-            <div style="width:44px;height:44px;border-radius:50%;border:3px solid var(--ink);background:#EDE7E0;color:#BBB0A2;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;">✗</div>
-          </div>
-          <div class="num" style="font-size:76px; color:var(--leaf-deep);">2<span style="font-size:28px;color:var(--ink);"> / 3</span></div>
+    <div class="box"><div class="lab"><b>Q3-C.</b> 王子ジャンプ大＆認定</div>
+      <div class="s9" id="c-q3c">
+        <div class="bg" style="background-image:url('/images/decorations/share-bgs/quiz-celebrate.jpg')"></div>
+        <div style="position:absolute; left:0; right:0; top:34px; text-align:center;">
+          <div class="eyebrow" style="color:var(--gold-deep)">ビーガン王子検定</div>
+          <div class="headline" style="font-size:27px; margin-top:6px;">2/3で<span style="color:var(--red)">合格</span>！</div>
+          <div style="font-size:14px; font-weight:800; color:var(--ink-soft); margin-top:2px;">おめでとう🎉</div>
         </div>
-        <img src="/images/oji/oji_presenting.png" style="position:absolute; bottom:54px; left:50%; transform:translateX(-50%); height:228px;">
+        <img src="/images/oji/oji_excited.png" style="position:absolute; bottom:100px; left:50%; transform:translateX(-50%); height:248px; filter:drop-shadow(0 8px 14px rgba(31,24,18,.24));">
+        <div style="position:absolute; left:14px; top:150px; width:84px; height:84px; border-radius:50%; background:rgba(255,253,248,.82); border:3px solid var(--red); color:var(--red); display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:900; line-height:1; transform:rotate(-12deg); box-shadow:2px 2px 0 rgba(31,24,18,.2);"><span style="font-size:13px;">王子</span><span style="font-size:20px; margin-top:3px;">認定</span></div>
+        <div style="position:absolute; right:14px; bottom:118px; background:var(--gold); border:2.5px solid var(--ink); border-radius:10px; padding:6px 12px; font-size:13px; font-weight:900; box-shadow:2px 2px 0 var(--ink); transform:rotate(4deg);">🏅 地球はかせ</div>
         <div class="inv">🌱 きみも挑戦！ <span class="u">veganoji.jp/vegan-and-earth</span></div>
       </div>
       <button class="dl" onclick="dl('c-q3c','quiz_Q3C')">DL 1080×1920</button>
@@ -382,7 +423,7 @@ body{ margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink);
   </div>
 
   <h2 class="sec"><span class="n">Q5</span>検定証・称号（3バリエ）</h2>
-  <p class="sub">称号つきでコレクション性・シェアしたくなる。称号は点数で変化（仮）。</p>
+  <p class="sub">本物の賞状／証書みたいに、コレクションしたくなる一枚。B＝認定証（横・賞状風）／C＝修了証書（縦書き・本格）。称号は点数で変化（仮）。</p>
   <div class="grid">
 
     <div class="box"><div class="lab"><b>Q5-A.</b> 検定証</div>
@@ -402,34 +443,43 @@ body{ margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink);
       <button class="dl" onclick="dl('c-q5a','quiz_Q5A')">DL 1080×1920</button>
     </div>
 
-    <div class="box"><div class="lab"><b>Q5-B.</b> 認定カード</div>
-      <div class="s9" id="c-q5b" style="background:radial-gradient(ellipse at 50% 16%, rgba(43,122,176,.12), transparent 55%), var(--paper);">
-        <div style="position:absolute; top:56px; left:26px; right:26px; background:#FFFDF8; border:2.5px solid var(--ink); border-radius:18px; box-shadow:5px 5px 0 rgba(31,24,18,.14); overflow:hidden;">
-          <div style="background:var(--ink); color:var(--paper); padding:12px 18px; display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:800; letter-spacing:.06em;"><span>VEGAN OJI · 認定カード</span><span>★★☆</span></div>
-          <div style="padding:20px; display:flex; gap:16px; align-items:center;">
-            <img src="/images/oji/oji_winking.png" style="width:96px; flex-shrink:0;">
-            <div><div style="font-size:11px; color:var(--muted); font-weight:700;">称号</div><div style="font-size:21px; font-weight:900; line-height:1.3;">地球はかせ<br>見習い</div></div>
+    <div class="box"><div class="lab"><b>Q5-B.</b> 認定証（横・賞状風）</div>
+      <div class="s9" id="c-q5b" style="background:repeating-linear-gradient(45deg, rgba(212,168,71,.05) 0 16px, transparent 16px 32px), #FFFDF8;">
+        <div style="position:absolute; inset:20px 20px 68px; border:3px double var(--gold-deep); border-radius:4px;"></div>
+        <div style="position:absolute; inset:27px 27px 75px; border:1px solid rgba(156,126,42,.55);"></div>
+        <div style="position:absolute; left:24px; top:24px; width:17px; height:17px; border-left:3px solid var(--gold-deep); border-top:3px solid var(--gold-deep);"></div>
+        <div style="position:absolute; right:24px; top:24px; width:17px; height:17px; border-right:3px solid var(--gold-deep); border-top:3px solid var(--gold-deep);"></div>
+        <div style="position:absolute; left:24px; bottom:72px; width:17px; height:17px; border-left:3px solid var(--gold-deep); border-bottom:3px solid var(--gold-deep);"></div>
+        <div style="position:absolute; right:24px; bottom:72px; width:17px; height:17px; border-right:3px solid var(--gold-deep); border-bottom:3px solid var(--gold-deep);"></div>
+        <div style="position:absolute; inset:46px 38px 90px; display:flex; flex-direction:column; align-items:center; text-align:center; font-family:'Noto Serif JP',serif;">
+          <div style="font-size:30px; font-weight:900; letter-spacing:.42em; text-indent:.42em;">認定証</div>
+          <div style="font-size:10px; color:var(--muted); letter-spacing:.1em; margin-top:3px;">第 2026 号</div>
+          <div style="font-size:17px; font-weight:700; margin-top:16px;">あなた <span style="font-size:12px;">殿</span></div>
+          <div style="font-size:12.5px; line-height:2; text-align:left; margin-top:12px;">右の者は ビーガン王子検定 において ３問中２問に正解し 地球を想う心が ことのほか立派であることを ここに認定します</div>
+          <div style="margin-top:auto; width:100%;">
+            <div style="font-size:11.5px;">令和八年 六月二十一日</div>
+            <div style="display:flex; align-items:center; justify-content:center; gap:9px; margin-top:7px;">
+              <span style="font-size:12.5px; font-weight:900;">ビーガン王子検定協会</span>
+              <span style="width:38px;height:38px;border:2.5px solid var(--red);color:var(--red);border-radius:7px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;font-weight:900;line-height:1.05;transform:rotate(-7deg);">認定<br>之印</span>
+            </div>
           </div>
-          <div style="border-top:2px dashed rgba(31,24,18,.25); padding:14px 20px; display:flex; justify-content:space-between; align-items:baseline;"><span style="font-size:13px; font-weight:700; color:var(--muted);">スコア</span><span class="num" style="font-size:34px; color:var(--leaf-deep);">2<span style="font-size:16px;color:var(--ink);"> / 3</span></span></div>
         </div>
-        <div style="position:absolute; left:28px; right:28px; bottom:90px; text-align:center; font-size:16px; font-weight:900;">きみのカードは、何級？</div>
         <div class="inv">🌱 受検する <span class="u">veganoji.jp/vegan-and-earth</span></div>
       </div>
       <button class="dl" onclick="dl('c-q5b','quiz_Q5B')">DL 1080×1920</button>
     </div>
 
-    <div class="box"><div class="lab"><b>Q5-C.</b> メダル＆称号（お祝い背景）</div>
-      <div class="s9" id="c-q5c">
-        <div class="bg" style="background-image:url('/images/decorations/share-bgs/quiz-celebrate.jpg')"></div>
-        <div style="position:absolute; left:0; right:0; top:48px; text-align:center;"><div class="eyebrow" style="color:var(--gold-deep)">ビーガン王子検定</div></div>
-        <div style="position:absolute; left:50%; top:146px; transform:translateX(-50%); width:186px; height:186px; border-radius:50%; background:radial-gradient(circle at 50% 38%, #F6E08A, var(--gold)); border:6px solid var(--ink); box-shadow:5px 6px 0 rgba(31,24,18,.25); display:flex; flex-direction:column; align-items:center; justify-content:center;">
-          <div class="num" style="font-size:62px; color:var(--ink);">2<span style="font-size:22px;"> / 3</span></div>
-          <div style="font-size:16px; font-weight:900; color:var(--ink-soft);">せいかい！</div>
+    <div class="box"><div class="lab"><b>Q5-C.</b> 修了証書（縦書き・本格）</div>
+      <div class="s9" id="c-q5c" style="background:repeating-linear-gradient(-45deg, rgba(212,168,71,.05) 0 16px, transparent 16px 32px), #FBF6EA;">
+        <div style="position:absolute; inset:20px 20px 68px; border:3px double var(--gold-deep); border-radius:4px;"></div>
+        <div style="position:absolute; inset:27px 27px 75px; border:1px solid rgba(156,126,42,.55);"></div>
+        <div style="position:absolute; inset:46px 34px 84px; text-align:center; white-space:nowrap; font-family:'Noto Serif JP',serif; color:var(--ink);">
+          <div style="display:inline-block; vertical-align:top; writing-mode:vertical-rl; font-size:12px; font-weight:900; line-height:1; margin-top:168px;">ビーガン王子検定協会</div>
+          <div style="display:inline-block; vertical-align:top; writing-mode:vertical-rl; font-size:11px; line-height:1; margin:168px 12px 0 6px;">令和八年六月二十一日</div>
+          <div style="display:inline-block; vertical-align:top; writing-mode:vertical-rl; font-size:13px; line-height:2.0; letter-spacing:.03em; margin:6px 8px 0;">右の者は ビーガン王子検定 全課程を<br>修め 地球にやさしい王子に<br>なったことを ここに証します</div>
+          <div style="display:inline-block; vertical-align:top; writing-mode:vertical-rl; font-size:28px; font-weight:900; letter-spacing:.22em; margin-top:6px;">修了証書</div>
         </div>
-        <div style="position:absolute; left:30px; right:30px; bottom:116px; text-align:center;">
-          <div style="display:inline-block; background:var(--red); color:#fff; font-size:15px; font-weight:900; padding:8px 20px; border:2px solid var(--ink); border-radius:8px;">称号：地球はかせ 見習い</div>
-        </div>
-        <div style="position:absolute; left:30px; right:30px; bottom:74px; text-align:center; font-size:15px; font-weight:900; color:var(--ink-soft);">きみは、何問わかる？</div>
+        <div style="position:absolute; left:36px; bottom:92px; width:40px;height:40px;border:2.5px solid var(--red);color:var(--red);border-radius:7px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;font-weight:900;line-height:1.05;transform:rotate(-7deg);font-family:'Noto Serif JP',serif;">修了<br>之印</div>
         <div class="inv">🌱 受検する <span class="u">veganoji.jp/vegan-and-earth</span></div>
       </div>
       <button class="dl" onclick="dl('c-q5c','quiz_Q5C')">DL 1080×1920</button>
