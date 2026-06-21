@@ -2070,7 +2070,7 @@
         <div class="support-card">
           <img src="/images/ui-icons/note.png" alt="" class="support-card__icon">
           <div class="font-jp-display text-[18px] text-ink" style="font-weight:900">お便りを受け取る</div>
-          <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mt-2">月に１回、王子からのニュースレター。新しいレシピ、活動報告、ここだけの裏話を。</p>
+          <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mt-2">隔週で、王子からのニュースレター。新しいレシピ、活動報告、最新の動画を、無料でお届け。</p>
           <a href="#newsletter" class="btn-ghost mt-5 !text-[13px] !px-5 !py-2.5"><span class="font-jp">登録する</span></a>
         </div>
 
@@ -2187,9 +2187,10 @@
 
       <!-- Newsletter signup, in footer -->
       <div id="newsletter" class="newsletter-slim" style="margin-top:8px; scroll-margin-top:90px">
-        <div class="newsletter-label">📬 月１で王子からお手紙、届く？</div>
+        <div class="newsletter-label">📬 隔週で、王子からお手紙。届く？</div>
         <form id="newsletter-form">
           <input type="email" required placeholder="you@example.jp" />
+          <input type="text" name="website" id="nl-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
           <button type="submit" class="btn-primary !text-[14px] !px-5 !py-3 justify-center">
             <span>登録</span>
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8.5 3.5M12 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -2261,15 +2262,36 @@
       });
     }
 
-    // ── Newsletter form (display-only mockup) ──
+    // ── Newsletter signup → /api/subscribe (double opt-in) ──
     (function() {
       const form = document.getElementById('newsletter-form');
       const msg  = document.getElementById('newsletter-msg');
       if (!form) return;
-      form.addEventListener('submit', (e) => {
+      const show = (t) => { msg.textContent = t; msg.classList.remove('hidden'); };
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        form.style.display = 'none';
-        msg.classList.remove('hidden');
+        const email = ((form.querySelector('input[type=email]') || {}).value || '').trim();
+        const hp = (document.getElementById('nl-hp') || {}).value || '';
+        const btn = form.querySelector('button');
+        if (btn) btn.disabled = true;
+        try {
+          const r = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email, hp })
+          });
+          const data = await r.json().catch(() => ({}));
+          if (r.ok && data.ok) {
+            form.style.display = 'none';
+            show('確認メールを送りました ✉️ メール内のボタンで登録を完了してね。');
+          } else if (data.error === 'invalid_email') {
+            show('メールアドレスをご確認ください。'); if (btn) btn.disabled = false;
+          } else {
+            show('うまく送れませんでした。少し時間をおいて、もう一度お試しください。'); if (btn) btn.disabled = false;
+          }
+        } catch (_) {
+          show('ネットワークエラーです。もう一度お試しください。'); if (btn) btn.disabled = false;
+        }
       });
     })();
 
