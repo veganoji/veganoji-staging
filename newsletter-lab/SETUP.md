@@ -1,65 +1,56 @@
-# 王子通信 newsletter — setup & activation
+# 王子通信 newsletter — setup & status
 
-The code is built and deployed. These are the **dashboard steps** to switch it on
-(it's inert until the env vars are set — like a built-but-not-wired feature).
+## Architecture (decided after probing the live site)
+veganoji.jp is served by a **Worker**, not a Cloudflare Pages project (there is no
+Pages project for it), so a `functions/` dir would never run. The signup endpoint is
+therefore a **standalone Worker** — same pattern as almostjp / castingoji / distributors.
 
-## What's already done (in code / by Claude)
-- **Generator** `tools/gen_newsletter.py` → draft preview at `/newsletter-lab/` (M1).
-- **Signup endpoint** (Pages Functions, double opt-in, no DB):
-  - `POST /api/subscribe` → validates + emails a confirmation link (honeypot-protected).
-  - `GET /api/confirm?token=…` → verifies the signed token, adds the contact to Resend, redirects to a thank-you page.
-- **Form wired** on the homepage (footer `#newsletter` + the donate "登録する" button scrolls to it).
-- **Thank-you pages**: `/newsletter/confirmed/`, `/newsletter/expired/`, `/newsletter/error/`.
-- **Resend audience created**: `王子通信 / Vegan Oji newsletter`
-  - **id: `052db315-1c1d-4349-bd4b-8b0d6f900499`**
-- Homepage copy updated monthly → **隔週 (bi-weekly)**.
+```
+homepage form  ──POST /subscribe──▶  veganoji-newsletter (Worker)  ──▶ Resend: send confirm email
+   visitor clicks confirm link  ──GET /confirm──▶  same Worker  ──▶ Resend: add contact to audience
+                                                                  └─▶ redirect to /newsletter/confirmed/
+```
+Double opt-in, no database: the pending signup rides in a signed (HMAC) token.
 
-## Steps to activate
+## ✅ Live & tested
+- **Worker**: `veganoji-newsletter` → `https://veganoji-newsletter.alexderycz.workers.dev`
+  (source: `newsletter-worker/`). Secrets `RESEND_API_KEY` + `CONFIRM_SECRET` are set.
+- **Resend audience**: `王子通信 / Vegan Oji newsletter` → id `052db315-1c1d-4349-bd4b-8b0d6f900499`
+- **Homepage form** posts to the Worker (footer `#newsletter` + donate "登録する" scrolls to it). Honeypot added.
+- **Thank-you pages**: `/newsletter/confirmed/`, `/newsletter/expired/`, `/newsletter/error/`
+- Copy reconciled monthly → **隔週 (bi-weekly)**.
+- End-to-end verified (sink addresses, contact added then deleted): health, send, confirm→add, CORS, error paths.
 
-### 1. Verify `veganoji.jp` as a Resend sending domain
-Resend → Domains → Add `veganoji.jp` (only `ojidigital.com` + `inboxoji.com` are verified today).
-Add the DNS records it shows you in **Cloudflare DNS** (DKIM CNAMEs + a `send.veganoji.jp`
-MX/SPF for the return-path + DMARC). Wait for "Verified".
-- Small list → verifying the **root** domain is fine; Resend isolates bounces on `send.veganoji.jp` automatically.
-- If the list grows large, switch to a dedicated subdomain (e.g. `news.veganoji.jp`).
+## ⚠️ Two follow-ups before public launch
+1. **Brand the sender.** Right now the confirmation email is sent **from `oji@ojidigital.com`**
+   (the only veganoji-relevant domain verified in Resend). To send from `@veganoji.jp`:
+   - Resend → Domains → add **`veganoji.jp`** → add the DKIM/return-path DNS records it gives you
+     in Cloudflare DNS → wait "Verified".
+   - Create a Google Workspace alias (e.g. `oji@veganoji.jp` → forwards to `info@`), or use `info@`.
+   - Update the Worker var and redeploy:
+     `newsletter-worker/wrangler.jsonc` → `NEWSLETTER_FROM: "ビーガン王子 Vegan Oji <oji@veganoji.jp>"`
+     then `cd newsletter-worker && npx wrangler deploy`.
+   - **Email address answer:** `oji@veganoji.jp` did **not** exist (I invented it for the sample);
+     `info@veganoji.jp` is the only real mailbox. Good friendly options: `oji@`, `hello@`,
+     `prince@`, `letter@` — all easy aliases to `info@`.
+2. **(Optional) Clean endpoint domain.** The form currently calls the `*.workers.dev` URL
+   (cross-origin, works fine via CORS). For a tidy same-brand endpoint, map a route/subdomain
+   like `news.veganoji.jp` to the Worker (needs a DNS record on the veganoji.jp zone — dashboard,
+   since the local token is zone-read-only here), then update `ENDPOINT` in `index.html` and
+   `ALLOWED_ORIGINS` in `wrangler.jsonc`.
 
-### 2. Pick + create the "From" address (Google Workspace)
-`oji@veganoji.jp` does **not** exist yet — `info@veganoji.jp` is the only real mailbox.
-Recommended: create a Workspace **alias** so the friendly From is real and replies land in `info@`.
-Good options: `oji@`, `hello@`, `prince@`, `letter@`, or just use `info@`.
-(Admin console → Users → info@ → Alternate emails, or a group alias.)
+## SPF note (separate hygiene)
+`veganoji.jp` SPF is `v=spf1 include:_spf.wpcloud.com ~all` — authorizes WordPress.com only,
+not Google Workspace. Resend uses its own DKIM/return-path so the newsletter is unaffected, but
+you may want to fix the root SPF for normal Workspace mail (deliberately — don't break sending).
 
-### 3. Set Pages environment variables
-Pages project → Settings → Environment variables → **Production** (and Preview if you want):
-
-| Name | Type | Value |
-|------|------|-------|
-| `RESEND_API_KEY` | **Secret** | your Resend key (`~/.config/oji-keys/resend`) |
-| `CONFIRM_SECRET` | **Secret** | random string — generate with `openssl rand -hex 32` |
-| `RESEND_AUDIENCE_ID` | Plain | `052db315-1c1d-4349-bd4b-8b0d6f900499` |
-| `NEWSLETTER_FROM` | Plain | `ビーガン王子 Vegan Oji <oji@veganoji.jp>` (or your chosen address) |
-| `NEWSLETTER_REPLY_TO` | Plain | `info@veganoji.jp` |
-| `SITE_URL` | Plain | `https://veganoji.jp` |
-
-Redeploy after setting them (or push any commit).
-
-### 4. SPF note (separate hygiene)
-Current `veganoji.jp` SPF is `v=spf1 include:_spf.wpcloud.com ~all` — it authorizes
-WordPress.com only, **not** Google Workspace. Resend uses its own DKIM/return-path so the
-newsletter is fine, but you may want to fix the root SPF for your normal Workspace mail
-(e.g. `v=spf1 include:_spf.google.com ~all`). Do this deliberately — don't break sending.
-
-### 5. Test the full loop
-1. Submit your own email in the footer form → expect "確認メールを送りました ✉️".
-2. Receive the confirmation email → click **登録を完了する** → lands on `/newsletter/confirmed/`.
-3. Resend → Audiences → confirm your email now appears in the list.
-
-## Health check (before activation)
-`POST /api/subscribe` returns `{"ok":false,"error":"not_configured"}` until step 3 is done —
-that means the function is deployed and running, just waiting for secrets.
+## Operate the Worker
+- Logs: `cd newsletter-worker && npx wrangler tail`
+- Change a var: edit `wrangler.jsonc` → `npx wrangler deploy`
+- Rotate a secret: `printf %s "VALUE" | npx wrangler secret put NAME`
 
 ## Next (M3 — send with approval)
-Worker/Function admin route (behind Cloudflare Access) that takes an approved draft from
+Admin route (behind Cloudflare Access) that takes an approved draft from
 `tools/gen_newsletter.py` and creates a **Resend Broadcast as a draft** to the audience —
 you press send. Unsubscribe/preferences use Resend's managed links (the `{{unsubscribe_url}}`
-tokens already in the template).
+tokens are already in the template).
