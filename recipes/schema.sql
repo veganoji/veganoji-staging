@@ -13,6 +13,7 @@ create table if not exists public.recipes (
   category       text        not null,            -- shusai | fukusai | shirumono | gohanmen | sweets
   time_min       int,
   servings       text,
+  featured       boolean     not null default false,   -- shown in the おすすめ shelf
   ingredients    jsonb       not null default '[]'::jsonb,  -- [{ "item": ruby-html, "amount": ruby-html }]
   steps          jsonb       not null default '[]'::jsonb,  -- [ ruby-html string ]
   source_name    text,

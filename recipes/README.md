@@ -11,7 +11,7 @@ JS, Noto Sans JP, no build step. Export uses html2canvas (same pattern as
 
 | File | What it is |
 |---|---|
-| `index.html` | The page. Fetches `recipes.json`, renders the grid + filters, detail modal, and the html2canvas export card. |
+| `index.html` | The page. Fetches `recipes.json`, renders the sections (おすすめ + category shelves, horizontal scrollers), detail modal, and the html2canvas export card. |
 | `recipes.json` | **Current data source.** Array of recipes in the exact Supabase shape. |
 | `schema.sql` | The `recipes` table DDL for Supabase/Postgres. **Not applied yet.** |
 | `seed.mjs` | Tiny script to upsert `recipes.json` → Supabase. **Not wired yet.** |
@@ -27,13 +27,14 @@ Each recipe (one row of the future `recipes` table):
   "title_jp": "ほうれん草の胡麻和え",
   "hero_image_url": "/images/recipes/spinach-gomaae.jpg",
   "category": "fukusai",                       // shusai | fukusai | shirumono | gohanmen | sweets
+  "featured": true,                            // optional — also shown in the おすすめ shelf
   "time_min": 10,
   "servings": "2人分",
-  "ingredients": [{ "item": "…ruby html…", "amount": "…ruby html…" }],
-  "steps": ["…ruby html…"],
+  "ingredients": [{ "item": "ほうれん草", "amount": "1束（約200g）" }],
+  "steps": ["鍋にお湯を沸かし…"],
   "source_name": "Just One Cookbook — …",
   "source_url": "https://…",                   // ✅ every URL fetch-verified
-  "tips": ["…ruby html…"],                     // Oji's tips
+  "tips": ["…Oji's tip…"],
   "created_at": "2026-06-21",
   "published": true
 }
@@ -43,10 +44,10 @@ No furigana (per request): all text is plain Japanese. The export card runs
 text through a small normalizer (`cardText`) that swaps full-width parens
 （） → () because html2canvas drops the opening （.
 
-Assets: 18 hero photos + 3 chibi-sticker section icons (`icon-zairyo`,
-`icon-tsukurikata`, `icon-sprout`) + 8 watercolor backgrounds live under
+Assets: 36 hero photos + 4 chibi-sticker icons (`icon-zairyo`, `icon-tsukurikata`,
+`icon-sprout`, `icon-timer`) + 8 watercolor backgrounds live under
 `/images/recipes/` (icons are transparent PNG; photos/bgs are JPG). Regenerate
-with `.claude/gen-recipes-batch2.sh`. **Hero uses `bg/bg-1.jpg`, footer uses
+with `.claude/gen-recipes-batch{2,3}.sh`. **Hero uses `bg/bg-1.jpg`, footer uses
 `bg/bg-6.jpg`**; the other `bg-N.jpg` options are kept for reuse. (The bg-lab
 picker page has been removed now that the backgrounds are chosen.)
 

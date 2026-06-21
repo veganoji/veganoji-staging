@@ -3,6 +3,7 @@
     "id": 1,
     "slug": "veg-gyoza",
     "title_jp": "野菜餃子",
+    "featured": true,
     "hero_image_url": "/images/recipes/veg-gyoza.jpg",
     "category": "shusai",
     "time_min": 40,
@@ -41,6 +42,7 @@
     "id": 2,
     "slug": "koya-karaage",
     "title_jp": "高野豆腐の唐揚げ",
+    "featured": true,
     "hero_image_url": "/images/recipes/koya-karaage.jpg",
     "category": "shusai",
     "time_min": 25,
@@ -76,6 +78,7 @@
     "id": 3,
     "slug": "mapo-tofu",
     "title_jp": "麻婆豆腐",
+    "featured": true,
     "hero_image_url": "/images/recipes/mapo-tofu.jpg",
     "category": "shusai",
     "time_min": 20,
@@ -558,6 +561,7 @@
     "id": 17,
     "slug": "mitarashi-dango",
     "title_jp": "みたらし団子",
+    "featured": true,
     "hero_image_url": "/images/recipes/mitarashi-dango.jpg",
     "category": "sweets",
     "time_min": 30,
@@ -615,6 +619,636 @@
     "tips": [
       "寒天はしっかり沸騰させないとかたまらないので、1〜2分を目安に。",
       "なめらかな口当たりが好きなら、寒天をほんの少し減らして、とろっと仕上げても。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 19,
+    "slug": "nikujaga",
+    "title_jp": "肉じゃが",
+    "hero_image_url": "/images/recipes/nikujaga.jpg",
+    "category": "shusai",
+    "time_min": 30,
+    "servings": "3〜4人分",
+    "featured": true,
+    "ingredients": [
+      { "item": "じゃがいも", "amount": "3個（約500g）" },
+      { "item": "玉ねぎ", "amount": "1個" },
+      { "item": "にんじん", "amount": "1本" },
+      { "item": "大豆ミート（ブロック）", "amount": "50g" },
+      { "item": "しらたき", "amount": "100g" },
+      { "item": "さやいんげん", "amount": "5本" },
+      { "item": "ごま油", "amount": "大さじ1" },
+      { "item": "水", "amount": "300ml" },
+      { "item": "きび砂糖", "amount": "大さじ2" },
+      { "item": "しょうゆ", "amount": "大さじ3" },
+      { "item": "みりん", "amount": "大さじ2" },
+      { "item": "酒", "amount": "大さじ2" }
+    ],
+    "steps": [
+      "じゃがいもは大きめ、玉ねぎはくし切り、にんじんは乱切り。しらたきは下ゆでして食べやすく切る。",
+      "大豆ミートは表示どおり戻して絞る。鍋にごま油を熱し、大豆ミートと野菜を炒める。",
+      "水を加えて煮立て、アクを取りながら5分煮る。",
+      "砂糖・しょうゆ・みりん・酒を加え、落としぶたで12〜15分、じゃがいもがやわらかくなるまで煮る。",
+      "さやいんげんを加えてさっと煮て、火を止めて味を含ませる。"
+    ],
+    "source_name": "白ごはん.com — 肉じゃが",
+    "source_url": "https://www.sirogohan.com/recipe/nikujaga/",
+    "tips": [
+      "お肉の代わりに大豆ミートを。だしいらずで、野菜と大豆のうまみがしみるよ。",
+      "火を止めて少しおくと、味がぐっとしみこむ。冷めるときがおいしくなる時間。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 20,
+    "slug": "tofu-hamburg",
+    "title_jp": "豆腐ハンバーグ",
+    "hero_image_url": "/images/recipes/tofu-hamburg.jpg",
+    "category": "shusai",
+    "time_min": 25,
+    "servings": "2人分",
+    "featured": true,
+    "ingredients": [
+      { "item": "木綿豆腐", "amount": "1丁（約300g）" },
+      { "item": "玉ねぎ", "amount": "1/2個" },
+      { "item": "片栗粉", "amount": "大さじ2" },
+      { "item": "塩昆布", "amount": "ひとつまみ（約10g）" },
+      { "item": "パン粉", "amount": "大さじ3" },
+      { "item": "塩・こしょう", "amount": "少々" },
+      { "item": "ごま油", "amount": "大さじ1" },
+      { "item": "しょうゆ・みりん・水（ソース）", "amount": "各大さじ1" },
+      { "item": "きび砂糖（ソース）", "amount": "小さじ1" }
+    ],
+    "steps": [
+      "豆腐はしっかり水切りする。玉ねぎはみじん切りにする。",
+      "ボウルに豆腐・玉ねぎ・片栗粉・パン粉・塩昆布・塩こしょうを入れ、よく練り混ぜる。",
+      "小判形にととのえ、ごま油を熱したフライパンで両面こんがり焼く。",
+      "ふたをして弱火で3〜4分蒸し焼きにし、中まで火を通す。",
+      "ソースの材料を煮立て、ハンバーグにかける。お好みで大根おろしと小ねぎを。"
+    ],
+    "source_name": "ソラレピ（シダックス）— 豆腐ハンバーグ",
+    "source_url": "https://recipe.shidax.co.jp/recipe/outline/1825",
+    "tips": [
+      "たまご不使用。片栗粉と塩昆布が、つなぎとうまみの役割をしてくれるよ。",
+      "豆腐の水切りをしっかりすると、くずれず焼きやすい。重しをのせて10分が目安。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 21,
+    "slug": "veg-tempura",
+    "title_jp": "野菜の天ぷら",
+    "hero_image_url": "/images/recipes/veg-tempura.jpg",
+    "category": "shusai",
+    "time_min": 25,
+    "servings": "2〜3人分",
+    "ingredients": [
+      { "item": "お好みの野菜（さつまいも・なす・かぼちゃ・しいたけ・大葉など）", "amount": "適量" },
+      { "item": "薄力粉", "amount": "50g" },
+      { "item": "冷水", "amount": "90ml" },
+      { "item": "打ち粉用の薄力粉", "amount": "適量" },
+      { "item": "揚げ油", "amount": "適量" },
+      { "item": "塩", "amount": "適量" }
+    ],
+    "steps": [
+      "野菜は食べやすく切る（さつまいも・かぼちゃは薄めに）。",
+      "冷水に薄力粉を加え、菜箸でさっくり混ぜる（混ぜすぎず、少しダマが残るくらい）。",
+      "野菜に薄力粉を薄くまぶし、衣にくぐらせる。",
+      "180℃の油でカラッと揚げる。",
+      "油をきって、塩でいただく。"
+    ],
+    "source_name": "まめな料理帖 — 卵不使用 基本の天ぷら衣",
+    "source_url": "https://mame-ryoricho.com/recipe/tempura/",
+    "tips": [
+      "たまごなしでもサクサク。衣は「冷たい水」と「混ぜすぎない」が二大コツ。",
+      "つゆで食べるなら、昆布と干し椎茸のだしで。お魚なしでもおいしいよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 22,
+    "slug": "okonomiyaki",
+    "title_jp": "お好み焼き",
+    "hero_image_url": "/images/recipes/okonomiyaki.jpg",
+    "category": "shusai",
+    "time_min": 25,
+    "servings": "2枚分",
+    "ingredients": [
+      { "item": "キャベツ", "amount": "1/4個（約300g）" },
+      { "item": "長芋（すりおろし）", "amount": "250g" },
+      { "item": "薄力粉", "amount": "80g" },
+      { "item": "水", "amount": "80ml" },
+      { "item": "昆布だし（または干し椎茸の戻し汁）", "amount": "大さじ1" },
+      { "item": "揚げ玉（卵不使用）", "amount": "大さじ3" },
+      { "item": "塩", "amount": "少々" },
+      { "item": "サラダ油", "amount": "適量" },
+      { "item": "お好み焼きソース・ビーガンマヨ・青のり・紅しょうが", "amount": "適量" }
+    ],
+    "steps": [
+      "キャベツは粗みじん、長芋はすりおろす。",
+      "ボウルに薄力粉・水・だし・長芋・塩を混ぜ、キャベツと揚げ玉を加える。",
+      "油を熱し、生地を2cm厚さの丸形に広げる。",
+      "ふたをして両面を3〜4分ずつ、こんがり焼く。",
+      "ソース・マヨ・青のり・紅しょうがをかける。"
+    ],
+    "source_name": "デリッシュキッチン — 卵なしで作るお好み焼き",
+    "source_url": "https://delishkitchen.tv/recipes/493457791298569345",
+    "tips": [
+      "たまごの代わりに、すりおろした長芋でふわっと。つなぎ要らずでまとまるよ。",
+      "だしは昆布や干し椎茸で。ソース・マヨ・揚げ玉は「ビーガン対応」を選んでね。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 23,
+    "slug": "chinjao-rosu",
+    "title_jp": "青椒肉絲",
+    "hero_image_url": "/images/recipes/chinjao-rosu.jpg",
+    "category": "shusai",
+    "time_min": 20,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "大豆ミート（薄切り・乾燥）", "amount": "80g" },
+      { "item": "ピーマン", "amount": "4個" },
+      { "item": "たけのこ（水煮）", "amount": "150g" },
+      { "item": "おろしにんにく", "amount": "1片" },
+      { "item": "片栗粉", "amount": "大さじ1" },
+      { "item": "ごま油", "amount": "大さじ1" },
+      { "item": "しょうゆ", "amount": "大さじ1.5" },
+      { "item": "酒", "amount": "大さじ1" },
+      { "item": "中濃ソース（または きび砂糖）", "amount": "小さじ1" },
+      { "item": "きび砂糖", "amount": "小さじ1" }
+    ],
+    "steps": [
+      "大豆ミートは戻して絞り、にんにくと片栗粉をまぶす。",
+      "ピーマンとたけのこは細切りにする。",
+      "フライパンにごま油を熱し、大豆ミートをこんがり炒める。",
+      "たけのこ→ピーマンの順に加えて炒める。",
+      "しょうゆ・酒・ソース・砂糖を回し入れ、全体にからめる。"
+    ],
+    "source_name": "心の木の育て方 — ヴィーガン青椒肉絲",
+    "source_url": "https://vegan-kosodate.jp/recipe/chinjao-rosu",
+    "tips": [
+      "オイスターソースの代わりに、中濃ソースでコクをプラス（ビーガン対応のものを）。",
+      "細切りはピーマンの繊維に沿って。シャキッと食感が残るよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 24,
+    "slug": "harumaki",
+    "title_jp": "春巻き",
+    "hero_image_url": "/images/recipes/harumaki.jpg",
+    "category": "shusai",
+    "time_min": 40,
+    "servings": "8〜10本分",
+    "ingredients": [
+      { "item": "春巻きの皮", "amount": "10枚" },
+      { "item": "大豆ミート（ミンチ）", "amount": "80g" },
+      { "item": "たけのこ（水煮）", "amount": "100g" },
+      { "item": "にんじん", "amount": "1/3本" },
+      { "item": "干し椎茸", "amount": "2枚" },
+      { "item": "春雨", "amount": "20g" },
+      { "item": "おろししょうが", "amount": "1片" },
+      { "item": "しょうゆ", "amount": "小さじ2" },
+      { "item": "酒", "amount": "大さじ1" },
+      { "item": "ごま油・水溶き片栗粉・揚げ油", "amount": "各適量" }
+    ],
+    "steps": [
+      "干し椎茸は戻し（戻し汁はとっておく）、たけのこ・にんじん・椎茸は細切り、春雨は戻して刻む。大豆ミートは戻す。",
+      "ごま油でしょうが・大豆ミート・野菜を炒め、しょうゆ・酒・戻し汁で味つけする。",
+      "水溶き片栗粉でとろみをつけ、しっかり冷ます。",
+      "皮で具をきつめに包み、端を小麦粉のり（小麦粉＋水）でとめる。",
+      "170℃の油で、きつね色になるまで揚げる。"
+    ],
+    "source_name": "白ごはん.com — 基本の春巻き",
+    "source_url": "https://www.sirogohan.com/recipe/harumaki/",
+    "tips": [
+      "鶏ひき肉の代わりに大豆ミートで。だしは干し椎茸でとれば、うまみたっぷり。",
+      "あんをしっかり冷ましてから包むと、皮が破れずパリッと揚がるよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 25,
+    "slug": "shira-ae",
+    "title_jp": "白和え",
+    "hero_image_url": "/images/recipes/shira-ae.jpg",
+    "category": "fukusai",
+    "time_min": 20,
+    "servings": "2〜3人分",
+    "ingredients": [
+      { "item": "木綿豆腐", "amount": "1/2丁（約175g）" },
+      { "item": "ほうれん草", "amount": "1/2束" },
+      { "item": "にんじん", "amount": "1/3本" },
+      { "item": "こんにゃく", "amount": "1/4枚" },
+      { "item": "すりごま（白）", "amount": "大さじ1" },
+      { "item": "きび砂糖", "amount": "大さじ1/2" },
+      { "item": "うすくちしょうゆ", "amount": "小さじ2/3" },
+      { "item": "味噌", "amount": "小さじ2/3" },
+      { "item": "昆布と干し椎茸のだし（下煮用）", "amount": "100ml" },
+      { "item": "しょうゆ・みりん（下煮用）", "amount": "各小さじ2.5" }
+    ],
+    "steps": [
+      "豆腐はしっかり水切りして、手で崩れるくらいにする。",
+      "にんじん・こんにゃくは下煮の調味料で煮て、ほうれん草はゆでて水気を絞る。",
+      "すりごまに砂糖・しょうゆ・味噌、崩した豆腐を加えてなめらかに混ぜる。",
+      "食べる直前に、水気をきった野菜を和える。"
+    ],
+    "source_name": "白ごはん.com — 基本の白和え",
+    "source_url": "https://www.sirogohan.com/recipe/siraae/",
+    "tips": [
+      "だしは昆布＋干し椎茸で。味噌も「だし入り」でない素のものを選べばビーガンに。",
+      "豆腐と野菜、それぞれの水気をしっかりきるのが、水っぽくしないコツ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 26,
+    "slug": "sunomono",
+    "title_jp": "きゅうりとわかめの酢の物",
+    "hero_image_url": "/images/recipes/sunomono.jpg",
+    "category": "fukusai",
+    "time_min": 10,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "きゅうり", "amount": "1本" },
+      { "item": "わかめ（乾燥）", "amount": "1g" },
+      { "item": "塩（きゅうり用）", "amount": "少々" },
+      { "item": "米酢", "amount": "大さじ2" },
+      { "item": "きび砂糖", "amount": "大さじ1" },
+      { "item": "しょうゆ", "amount": "小さじ1/2" }
+    ],
+    "steps": [
+      "きゅうりは薄切りにして塩をふり、5分おく。",
+      "わかめは水で戻して水気をきる。",
+      "きゅうりから出た水気を軽くきる（絞りすぎない）。",
+      "米酢・砂糖・しょうゆを混ぜ、きゅうり・わかめを和える。"
+    ],
+    "source_name": "白ごはん.com — いちばん簡単な酢の物",
+    "source_url": "https://www.sirogohan.com/recipe/sunomono/",
+    "tips": [
+      "だし不要の甘酢でさっぱり。あと一品ほしいときに、10分でできるよ。",
+      "きゅうりは絞りすぎないこと。少し水分を残すと、みずみずしく仕上がる。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 27,
+    "slug": "potato-salad",
+    "title_jp": "ポテトサラダ",
+    "hero_image_url": "/images/recipes/potato-salad.jpg",
+    "category": "fukusai",
+    "time_min": 20,
+    "servings": "2〜3人分",
+    "ingredients": [
+      { "item": "じゃがいも", "amount": "3個（約300g）" },
+      { "item": "きゅうり", "amount": "1/2本" },
+      { "item": "玉ねぎ", "amount": "1/6個" },
+      { "item": "にんじん", "amount": "1/3本" },
+      { "item": "ビーガンマヨネーズ", "amount": "大さじ3〜4" },
+      { "item": "粒マスタード（お好みで）", "amount": "小さじ1/2" },
+      { "item": "塩・こしょう", "amount": "少々" }
+    ],
+    "steps": [
+      "じゃがいもは一口大に切り、やわらかくゆでて湯をきり、粉ふきにする。",
+      "きゅうり・玉ねぎは薄切りにして塩水に10分さらし、水気を絞る。にんじんはゆでる。",
+      "じゃがいもを温かいうちに軽くつぶす。",
+      "ビーガンマヨ・マスタード・こしょうを混ぜ、野菜を加えてあえる。"
+    ],
+    "source_name": "白ごはん.com — 基本のポテトサラダ",
+    "source_url": "https://www.sirogohan.com/recipe/potates/",
+    "tips": [
+      "たまごやハムなしでも大満足。ビーガンマヨを少し多めにするとコクが出るよ。",
+      "じゃがいもは温かいうちに味つけすると、味がよくなじむ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 28,
+    "slug": "ratatouille",
+    "title_jp": "ラタトゥイユ",
+    "hero_image_url": "/images/recipes/ratatouille.jpg",
+    "category": "fukusai",
+    "time_min": 30,
+    "servings": "4〜5人分",
+    "ingredients": [
+      { "item": "なす", "amount": "1本" },
+      { "item": "ズッキーニ", "amount": "1/2本" },
+      { "item": "パプリカ（またはピーマン）", "amount": "1個" },
+      { "item": "玉ねぎ", "amount": "1個" },
+      { "item": "トマト（または トマト缶）", "amount": "大2個（缶なら1缶）" },
+      { "item": "にんにく", "amount": "1〜2片" },
+      { "item": "オリーブオイル", "amount": "大さじ2.5" },
+      { "item": "塩", "amount": "小さじ1弱" },
+      { "item": "こしょう・お好みでハーブ", "amount": "少々" }
+    ],
+    "steps": [
+      "野菜はすべて同じくらいの大きさに切る。にんにくはつぶす。",
+      "鍋にオリーブオイルとにんにくを熱し、玉ねぎを2分炒める。",
+      "なす・ズッキーニ→パプリカ→トマトの順に加えて炒める。",
+      "ふたをして10分蒸し煮にし、塩で味をととのえて3〜5分煮詰める。"
+    ],
+    "source_name": "白ごはん.com — ラタトゥイユ",
+    "source_url": "https://www.sirogohan.com/recipe/rata/",
+    "tips": [
+      "オリーブオイルと塩だけで、もともと植物性。冷やしてもおいしい常備菜だよ。",
+      "パンにのせても、パスタにからめても。多めに作って使い回してね。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 29,
+    "slug": "minestrone",
+    "title_jp": "ミネストローネ",
+    "hero_image_url": "/images/recipes/minestrone.jpg",
+    "category": "shirumono",
+    "time_min": 30,
+    "servings": "4〜5人分",
+    "ingredients": [
+      { "item": "トマトピューレ", "amount": "400g" },
+      { "item": "水", "amount": "600ml" },
+      { "item": "じゃがいも", "amount": "150g" },
+      { "item": "にんじん", "amount": "150g" },
+      { "item": "玉ねぎ", "amount": "150g" },
+      { "item": "キャベツ", "amount": "1/4個（約280g）" },
+      { "item": "まいたけ", "amount": "100g" },
+      { "item": "にんにく", "amount": "1片" },
+      { "item": "オリーブオイル", "amount": "大さじ1" },
+      { "item": "しょうゆ", "amount": "大さじ1" },
+      { "item": "塩・こしょう・オレガノ", "amount": "適量" }
+    ],
+    "steps": [
+      "野菜は1.5cm角に切る。",
+      "オリーブオイルでにんにくと玉ねぎを炒める。",
+      "キャベツ以外の野菜を加えてさっと炒める。",
+      "水を加えてやわらかくなるまで煮る。",
+      "キャベツとトマトピューレを加え、しょうゆ・塩・こしょう・オレガノで味をととのえる。"
+    ],
+    "source_name": "心の木の育て方 — コンソメなし！食べるミネストローネ",
+    "source_url": "https://vegan-kosodate.jp/recipe/minestrone",
+    "tips": [
+      "コンソメなしでもOK。まいたけとしょうゆ、トマトのうまみで深い味になるよ。",
+      "野菜はなんでも。冷蔵庫の余り野菜を片づけたいときにも便利。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 30,
+    "slug": "corn-potage",
+    "title_jp": "コーンポタージュ",
+    "hero_image_url": "/images/recipes/corn-potage.jpg",
+    "category": "shirumono",
+    "time_min": 20,
+    "servings": "4人分",
+    "ingredients": [
+      { "item": "とうもろこし（または コーン缶 約400g）", "amount": "2本" },
+      { "item": "じゃがいも", "amount": "2個" },
+      { "item": "玉ねぎ", "amount": "1個" },
+      { "item": "無調整豆乳", "amount": "400ml" },
+      { "item": "水", "amount": "400ml" },
+      { "item": "ビーガンバター（または オリーブオイル）", "amount": "大さじ1" },
+      { "item": "ビーガン顆粒だし（または 昆布だし）", "amount": "小さじ2" },
+      { "item": "塩・こしょう", "amount": "少々" }
+    ],
+    "steps": [
+      "とうもろこしは実をそぐ。じゃがいも・玉ねぎは薄切りにする。",
+      "鍋にバターを熱し、野菜をしんなり炒める。",
+      "水とだしを加え、やわらかくなるまで煮てミキサーにかける（なめらかにしたければこす）。",
+      "豆乳を加えてあたため（沸騰させない）、塩こしょうで味をととのえる。"
+    ],
+    "source_name": "キッコーマン豆乳 — 豆乳ポタージュ",
+    "source_url": "https://www.k-tounyu.jp/soytopics/7299/",
+    "tips": [
+      "牛乳の代わりに豆乳で、やさしい甘さのポタージュに。仕上げに沸騰させないのがコツ。",
+      "バターはビーガン用かオリーブオイル、だしは動物性不使用のものを選んでね。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 31,
+    "slug": "veg-curry",
+    "title_jp": "野菜カレー",
+    "hero_image_url": "/images/recipes/veg-curry.jpg",
+    "category": "gohanmen",
+    "time_min": 35,
+    "servings": "3〜4人分",
+    "featured": true,
+    "ingredients": [
+      { "item": "玉ねぎ", "amount": "1個" },
+      { "item": "にんじん", "amount": "1本" },
+      { "item": "じゃがいも", "amount": "2個" },
+      { "item": "ひよこ豆（水煮）", "amount": "200g" },
+      { "item": "トマト缶", "amount": "1/2缶" },
+      { "item": "おろしにんにく・しょうが", "amount": "各1片" },
+      { "item": "カレー粉", "amount": "大さじ2" },
+      { "item": "ココナッツミルク", "amount": "200ml" },
+      { "item": "水", "amount": "300ml" },
+      { "item": "サラダ油", "amount": "大さじ1" },
+      { "item": "塩・きび砂糖", "amount": "適量" }
+    ],
+    "steps": [
+      "野菜は食べやすく切る。鍋に油を熱し、にんにく・しょうが・玉ねぎを炒める。",
+      "にんじん・じゃがいもを加えて炒め、トマト缶・水・塩・砂糖を入れて10分煮る。",
+      "カレー粉を加えてなじませ、ひよこ豆とココナッツミルクを加える。",
+      "とろみが出るまで5〜10分煮て、ごはんと盛る。"
+    ],
+    "source_name": "Chef JA Cooks — ひよこ豆のカレー（ヴィーガン）",
+    "source_url": "https://chefjacooks.com/chickpea-curry/",
+    "tips": [
+      "市販のカレールウは乳や動物性脂を含むものが多いよ。ビーガン対応ルウか、カレー粉で作るのが安心。",
+      "ココナッツミルクでコクとまろやかさを。豆を入れると食べごたえもアップするよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 32,
+    "slug": "napolitan",
+    "title_jp": "ナポリタン",
+    "hero_image_url": "/images/recipes/napolitan.jpg",
+    "category": "gohanmen",
+    "time_min": 20,
+    "servings": "2人分",
+    "featured": true,
+    "ingredients": [
+      { "item": "スパゲッティ", "amount": "200g" },
+      { "item": "玉ねぎ", "amount": "150g" },
+      { "item": "ピーマン", "amount": "2〜3個" },
+      { "item": "マッシュルーム（または しめじ）", "amount": "5個" },
+      { "item": "にんにく", "amount": "1/2片" },
+      { "item": "トマトケチャップ", "amount": "大さじ6" },
+      { "item": "トマトペースト", "amount": "大さじ1" },
+      { "item": "水", "amount": "大さじ2" },
+      { "item": "オリーブオイル", "amount": "大さじ1" },
+      { "item": "ビーガンバター", "amount": "10g" },
+      { "item": "塩・こしょう", "amount": "少々" }
+    ],
+    "steps": [
+      "玉ねぎ・ピーマン・きのこは5〜6mmに切る。ケチャップ・ペースト・水を混ぜておく。",
+      "スパゲッティは表示時間より1分短くゆでる。",
+      "オリーブオイルでにんにく・玉ねぎ・きのこ・ピーマンを炒める。",
+      "ケチャップソースを加えて炒め、酸味をとばす。",
+      "ゆでたパスタとビーガンバターを加え、からめて塩こしょうでととのえる。"
+    ],
+    "source_name": "白ごはん.com — ナポリタン",
+    "source_url": "https://www.sirogohan.com/recipe/naporitan/",
+    "tips": [
+      "ベーコンやウインナーの代わりに、きのこでうまみを。お肉なしでも満足の一皿。",
+      "ケチャップは先に炒めて酸味をとばすと、コク深い味になるよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 33,
+    "slug": "peperoncino",
+    "title_jp": "ペペロンチーノ",
+    "hero_image_url": "/images/recipes/peperoncino.jpg",
+    "category": "gohanmen",
+    "time_min": 15,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "スパゲッティ", "amount": "160g" },
+      { "item": "にんにく", "amount": "2片" },
+      { "item": "赤とうがらし", "amount": "2本" },
+      { "item": "オリーブオイル", "amount": "大さじ4" },
+      { "item": "ゆで汁", "amount": "大さじ2" },
+      { "item": "塩", "amount": "小さじ1/3" },
+      { "item": "こしょう", "amount": "少々" },
+      { "item": "パセリ（みじん切り）", "amount": "適量" }
+    ],
+    "steps": [
+      "にんにくは薄切り、とうがらしは種を取る。",
+      "スパゲッティは表示より1分短くゆで、ゆで汁を大さじ2とっておく。",
+      "フライパンにオリーブオイル・にんにく・とうがらしを入れ、弱火で香りを出す。",
+      "ゆで汁を加えて軽く乳化させる。",
+      "ゆでたパスタを加えてからめ、塩こしょう・パセリで仕上げる。"
+    ],
+    "source_name": "デリッシュキッチン — 基本のペペロンチーノ",
+    "source_url": "https://delishkitchen.tv/recipes/171524636704506348",
+    "tips": [
+      "にんにくは弱火でじっくり。焦がさず香りを油に移すのが、おいしさの決め手。",
+      "もともと植物性のパスタ。シンプルだから、オイルとにんにくは良いものを使ってね。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 34,
+    "slug": "gapao",
+    "title_jp": "ガパオライス",
+    "hero_image_url": "/images/recipes/gapao.jpg",
+    "category": "gohanmen",
+    "time_min": 20,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "大豆ミート（ミンチ・乾燥）", "amount": "80g" },
+      { "item": "玉ねぎ", "amount": "1/2個" },
+      { "item": "パプリカ（赤・黄）", "amount": "各50g" },
+      { "item": "にんにく", "amount": "1片" },
+      { "item": "赤とうがらし", "amount": "1本" },
+      { "item": "バジル", "amount": "10枚ほど" },
+      { "item": "ごはん", "amount": "2杯分" },
+      { "item": "サラダ油", "amount": "大さじ1" },
+      { "item": "しょうゆ", "amount": "小さじ2" },
+      { "item": "ビーガンオイスターソース（または しょうゆ）", "amount": "小さじ1" },
+      { "item": "みりん", "amount": "大さじ1/2" }
+    ],
+    "steps": [
+      "大豆ミートは戻して絞る。玉ねぎ・パプリカは1.5cm角、にんにく・とうがらしはみじん切り。",
+      "油でにんにく・とうがらし・玉ねぎを炒める。",
+      "大豆ミートを加えて炒め、パプリカも加える。",
+      "しょうゆ・オイスターソース・みりんを入れ、最後にバジルを加えてさっと炒める。",
+      "ごはんにのせて、バジルを飾る。"
+    ],
+    "source_name": "キッコーマン — ガパオライス",
+    "source_url": "https://www.kikkoman.co.jp/homecook/search/recipe/00059229/",
+    "tips": [
+      "ひき肉の代わりに大豆ミート、ナンプラーはしょうゆで代用。バジルの香りで本格タイ風に。",
+      "オイスターソースを使うなら、きのこ由来のビーガンタイプを選んでね。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 35,
+    "slug": "fried-rice",
+    "title_jp": "野菜チャーハン",
+    "hero_image_url": "/images/recipes/fried-rice.jpg",
+    "category": "gohanmen",
+    "time_min": 15,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "ごはん（少し冷ます）", "amount": "茶碗2杯分" },
+      { "item": "にんじん", "amount": "1/3本" },
+      { "item": "長ねぎ", "amount": "1/3本" },
+      { "item": "コーン", "amount": "大さじ3" },
+      { "item": "冷凍グリーンピース", "amount": "大さじ2" },
+      { "item": "木綿豆腐（炒り用・お好みで）", "amount": "1/4丁" },
+      { "item": "サラダ油", "amount": "大さじ1.5" },
+      { "item": "しょうゆ", "amount": "小さじ2" },
+      { "item": "塩・こしょう", "amount": "少々" }
+    ],
+    "steps": [
+      "野菜はみじん切り。豆腐を使うなら、油で炒って軽く塩をふり「いり豆腐」にする。",
+      "フライパンに油を強火で熱し、ごはんを入れてほぐしながら炒める。",
+      "野菜（といり豆腐）を加えて炒め合わせる。",
+      "塩・こしょうで味つけし、鍋肌からしょうゆを回し入れて手早く仕上げる。"
+    ],
+    "source_name": "白ごはん.com — 基本のチャーハン",
+    "source_url": "https://www.sirogohan.com/recipe/cha-han/",
+    "tips": [
+      "たまごの代わりに「いり豆腐」でコクと彩りを。鶏ガラを使わなくても十分おいしいよ。",
+      "ごはんは少し冷ますとパラッと仕上がる。強火で手早く、が鉄則。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 36,
+    "slug": "anmitsu",
+    "title_jp": "あんみつ",
+    "hero_image_url": "/images/recipes/anmitsu.jpg",
+    "category": "sweets",
+    "time_min": 30,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "粉寒天", "amount": "2g" },
+      { "item": "水", "amount": "250ml" },
+      { "item": "こしあん（市販）", "amount": "適量" },
+      { "item": "白玉粉", "amount": "50g" },
+      { "item": "絹ごし豆腐", "amount": "60g" },
+      { "item": "お好みのフルーツ（みかん・キウイ・さくらんぼなど）", "amount": "適量" },
+      { "item": "黒砂糖（黒蜜用）", "amount": "50g" },
+      { "item": "きび砂糖（黒蜜用）", "amount": "50g" },
+      { "item": "水（黒蜜用）", "amount": "50ml" }
+    ],
+    "steps": [
+      "鍋に水と粉寒天を入れて混ぜ、沸騰させて溶かし、容器に流して冷やしかためて角切りにする。",
+      "黒蜜は材料を弱火で煮て、少しとろみがついたら冷ます。",
+      "白玉粉に絹ごし豆腐を加えてこね、丸めて熱湯でゆで、浮いたら冷水にとる。",
+      "器に寒天・あん・白玉・フルーツを盛り、黒蜜をかける。"
+    ],
+    "source_name": "みんなのきょうの料理（NHK）— あんみつ",
+    "source_url": "https://www.kyounoryouri.jp/recipe/17687_%E3%81%82%E3%82%93%E3%81%BF%E3%81%A4.html",
+    "tips": [
+      "寒天は海藻からできたゼリー。ゼラチン不使用で、つるんと植物性のおやつに。",
+      "白玉は水の代わりに絹ごし豆腐でこねると、時間がたってもやわらかいよ。"
     ],
     "created_at": "2026-06-21",
     "published": true
