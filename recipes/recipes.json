@@ -1,0 +1,214 @@
+[
+  {
+    "id": 1,
+    "slug": "spinach-gomaae",
+    "title_jp": "ほうれん草の胡麻和え",
+    "title_furigana": "ほうれん<ruby>草<rt>そう</rt></ruby>の<ruby>胡麻<rt>ごま</rt></ruby><ruby>和<rt>あ</rt></ruby>え",
+    "hero_image_url": "/images/recipes/spinach-gomaae.jpg",
+    "category": "fukusai",
+    "time_min": 10,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "ほうれん<ruby>草<rt>そう</rt></ruby>", "amount": "1<ruby>束<rt>たば</rt></ruby>（<ruby>約<rt>やく</rt></ruby>200g）" },
+      { "item": "すりごま（<ruby>白<rt>しろ</rt></ruby>）", "amount": "<ruby>大<rt>おお</rt></ruby>さじ3" },
+      { "item": "しょうゆ", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "きび<ruby>砂糖<rt>ざとう</rt></ruby>", "amount": "<ruby>小<rt>こ</rt></ruby>さじ2" },
+      { "item": "<ruby>塩<rt>しお</rt></ruby>（ゆで<ruby>用<rt>よう</rt></ruby>）", "amount": "<ruby>少々<rt>しょうしょう</rt></ruby>" }
+    ],
+    "steps": [
+      "<ruby>鍋<rt>なべ</rt></ruby>にお<ruby>湯<rt>ゆ</rt></ruby>を<ruby>沸<rt>わ</rt></ruby>かし、<ruby>塩<rt>しお</rt></ruby><ruby>少々<rt>しょうしょう</rt></ruby>を<ruby>入<rt>い</rt></ruby>れてほうれん<ruby>草<rt>そう</rt></ruby>を<ruby>根元<rt>ねもと</rt></ruby>から30<ruby>秒<rt>びょう</rt></ruby>ほどゆでる。",
+      "<ruby>冷水<rt>れいすい</rt></ruby>にとって<ruby>色<rt>いろ</rt></ruby>どめし、<ruby>水気<rt>みずけ</rt></ruby>をしっかり<ruby>絞<rt>しぼ</rt></ruby>って4cm<ruby>長<rt>なが</rt></ruby>さに<ruby>切<rt>き</rt></ruby>る。",
+      "ボウルにすりごま・しょうゆ・<ruby>砂糖<rt>さとう</rt></ruby>を<ruby>入<rt>い</rt></ruby>れて<ruby>混<rt>ま</rt></ruby>ぜ、たれを<ruby>作<rt>つく</rt></ruby>る。",
+      "ほうれん<ruby>草<rt>そう</rt></ruby>を<ruby>加<rt>くわ</rt></ruby>えてさっと<ruby>和<rt>あ</rt></ruby>え、<ruby>器<rt>うつわ</rt></ruby>に<ruby>盛<rt>も</rt></ruby>る。"
+    ],
+    "source_name": "Just One Cookbook — Spinach Gomaae (胡麻和え)",
+    "source_url": "https://www.justonecookbook.com/spinach-with-sesame-sauce/",
+    "tips": [
+      "ゆでたあとは、<ruby>水気<rt>みずけ</rt></ruby>をぎゅっと<ruby>絞<rt>しぼ</rt></ruby>るのがいちばんのコツ。<ruby>味<rt>あじ</rt></ruby>が<ruby>水<rt>みず</rt></ruby>っぽくならないよ。",
+      "すりごまは<ruby>食<rt>た</rt></ruby>べる<ruby>直前<rt>ちょくぜん</rt></ruby>にすると、<ruby>香<rt>かお</rt></ruby>りがぐんとよくなるんだ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 2,
+    "slug": "kinpira-gobo",
+    "title_jp": "きんぴらごぼう",
+    "title_furigana": "きんぴらごぼう",
+    "hero_image_url": "/images/recipes/kinpira-gobo.jpg",
+    "category": "fukusai",
+    "time_min": 15,
+    "servings": "2〜3人分",
+    "ingredients": [
+      { "item": "ごぼう", "amount": "1<ruby>本<rt>ぽん</rt></ruby>（<ruby>約<rt>やく</rt></ruby>150g）" },
+      { "item": "にんじん", "amount": "1/2<ruby>本<rt>ほん</rt></ruby>" },
+      { "item": "ごま<ruby>油<rt>あぶら</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "しょうゆ", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1.5" },
+      { "item": "みりん", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "きび<ruby>砂糖<rt>ざとう</rt></ruby>", "amount": "<ruby>小<rt>こ</rt></ruby>さじ1" },
+      { "item": "<ruby>赤<rt>あか</rt></ruby>とうがらし（<ruby>輪切<rt>わぎ</rt></ruby>り）", "amount": "<ruby>少々<rt>しょうしょう</rt></ruby>" },
+      { "item": "<ruby>白<rt>しろ</rt></ruby>ごま", "amount": "<ruby>適量<rt>てきりょう</rt></ruby>" }
+    ],
+    "steps": [
+      "ごぼうはささがき、にんじんは<ruby>細切<rt>ほそぎ</rt></ruby>りにする。ごぼうは<ruby>水<rt>みず</rt></ruby>に5<ruby>分<rt>ふん</rt></ruby>さらしてアクをぬく。",
+      "フライパンにごま<ruby>油<rt>あぶら</rt></ruby>を<ruby>熱<rt>ねっ</rt></ruby>し、ごぼう→にんじんの<ruby>順<rt>じゅん</rt></ruby>に<ruby>炒<rt>いた</rt></ruby>める。",
+      "しんなりしたら、しょうゆ・みりん・<ruby>砂糖<rt>さとう</rt></ruby>・とうがらしを<ruby>加<rt>くわ</rt></ruby>える。",
+      "<ruby>汁気<rt>しるけ</rt></ruby>がなくなるまで<ruby>炒<rt>いた</rt></ruby>め、<ruby>白<rt>しろ</rt></ruby>ごまをふる。"
+    ],
+    "source_name": "Just One Cookbook — Kinpira Gobo",
+    "source_url": "https://www.justonecookbook.com/kinpira-gobo-braised-burdock-root/",
+    "tips": [
+      "ごぼうは<ruby>皮<rt>かわ</rt></ruby>に<ruby>香<rt>かお</rt></ruby>りがあるから、たわしでこする<ruby>程度<rt>ていど</rt></ruby>でOK。むきすぎないでね。",
+      "<ruby>辛<rt>から</rt></ruby>いのが<ruby>好<rt>す</rt></ruby>きなら、とうがらしを<ruby>増<rt>ふ</rt></ruby>やしてピリッと。お<ruby>弁当<rt>べんとう</rt></ruby>にもぴったりだよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 3,
+    "slug": "nasu-miso",
+    "title_jp": "なすの味噌炒め",
+    "title_furigana": "なすの<ruby>味噌<rt>みそ</rt></ruby><ruby>炒<rt>いた</rt></ruby>め",
+    "hero_image_url": "/images/recipes/nasu-miso.jpg",
+    "category": "shusai",
+    "time_min": 20,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "なす", "amount": "3<ruby>本<rt>ぼん</rt></ruby>" },
+      { "item": "ピーマン", "amount": "2<ruby>個<rt>こ</rt></ruby>" },
+      { "item": "ごま<ruby>油<rt>あぶら</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ2" },
+      { "item": "しょうが（みじん<ruby>切<rt>ぎ</rt></ruby>り）", "amount": "1<ruby>片<rt>かけ</rt></ruby>" },
+      { "item": "<ruby>味噌<rt>みそ</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1.5" },
+      { "item": "みりん", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "しょうゆ", "amount": "<ruby>小<rt>こ</rt></ruby>さじ1" },
+      { "item": "きび<ruby>砂糖<rt>ざとう</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "<ruby>水<rt>みず</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ2" }
+    ],
+    "steps": [
+      "なすは<ruby>乱切<rt>らんぎ</rt></ruby>り、ピーマンは<ruby>一口大<rt>ひとくちだい</rt></ruby>に<ruby>切<rt>き</rt></ruby>る。なすは<ruby>水<rt>みず</rt></ruby>にさっとさらす。",
+      "<ruby>味噌<rt>みそ</rt></ruby>・みりん・しょうゆ・<ruby>砂糖<rt>さとう</rt></ruby>・<ruby>水<rt>みず</rt></ruby>を<ruby>混<rt>ま</rt></ruby>ぜ、<ruby>合<rt>あ</rt></ruby>わせ<ruby>調味料<rt>ちょうみりょう</rt></ruby>を<ruby>作<rt>つく</rt></ruby>る。",
+      "フライパンにごま<ruby>油<rt>あぶら</rt></ruby>を<ruby>熱<rt>ねっ</rt></ruby>し、なすを<ruby>炒<rt>いた</rt></ruby>める。しんなりしたらピーマンを<ruby>加<rt>くわ</rt></ruby>える。",
+      "しょうがと<ruby>合<rt>あ</rt></ruby>わせ<ruby>調味料<rt>ちょうみりょう</rt></ruby>を<ruby>加<rt>くわ</rt></ruby>え、<ruby>全体<rt>ぜんたい</rt></ruby>にからめて<ruby>照<rt>て</rt></ruby>りが<ruby>出<rt>で</rt></ruby>たらできあがり。"
+    ],
+    "source_name": "白ごはん.com — なすとピーマンの味噌炒め（なべしぎ）",
+    "source_url": "https://www.sirogohan.com/recipe/nabesigi/",
+    "tips": [
+      "なすは<ruby>油<rt>あぶら</rt></ruby>をよく<ruby>吸<rt>す</rt></ruby>うから、<ruby>少<rt>すこ</rt></ruby>し<ruby>多<rt>おお</rt></ruby>めの<ruby>油<rt>あぶら</rt></ruby>でとろっと<ruby>仕上<rt>しあ</rt></ruby>げるとおいしいよ。",
+      "<ruby>味噌<rt>みそ</rt></ruby>の<ruby>塩分<rt>えんぶん</rt></ruby>は<ruby>種類<rt>しゅるい</rt></ruby>でちがうから、<ruby>味<rt>あじ</rt></ruby>をみながら<ruby>量<rt>りょう</rt></ruby>を<ruby>調整<rt>ちょうせい</rt></ruby>してね。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 4,
+    "slug": "veg-miso-soup",
+    "title_jp": "具だくさん味噌汁",
+    "title_furigana": "<ruby>具<rt>ぐ</rt></ruby>だくさん<ruby>味噌汁<rt>みそしる</rt></ruby>",
+    "hero_image_url": "/images/recipes/veg-miso-soup.jpg",
+    "category": "shirumono",
+    "time_min": 15,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "<ruby>水<rt>みず</rt></ruby>", "amount": "400ml" },
+      { "item": "<ruby>昆布<rt>こんぶ</rt></ruby>", "amount": "5cm<ruby>角<rt>かく</rt></ruby>1<ruby>枚<rt>まい</rt></ruby>" },
+      { "item": "<ruby>干<rt>ほ</rt></ruby>し<ruby>椎茸<rt>しいたけ</rt></ruby>", "amount": "2<ruby>枚<rt>まい</rt></ruby>" },
+      { "item": "<ruby>木綿豆腐<rt>もめんどうふ</rt></ruby>", "amount": "1/2<ruby>丁<rt>ちょう</rt></ruby>" },
+      { "item": "<ruby>大根<rt>だいこん</rt></ruby>", "amount": "3cm" },
+      { "item": "にんじん", "amount": "1/3<ruby>本<rt>ほん</rt></ruby>" },
+      { "item": "わかめ（<ruby>乾燥<rt>かんそう</rt></ruby>）", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "<ruby>味噌<rt>みそ</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ2" },
+      { "item": "<ruby>長<rt>なが</rt></ruby>ねぎ", "amount": "<ruby>少々<rt>しょうしょう</rt></ruby>" }
+    ],
+    "steps": [
+      "<ruby>水<rt>みず</rt></ruby>に<ruby>昆布<rt>こんぶ</rt></ruby>と<ruby>干<rt>ほ</rt></ruby>し<ruby>椎茸<rt>しいたけ</rt></ruby>を30<ruby>分<rt>ぷん</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>つけて、<ruby>植物性<rt>しょくぶつせい</rt></ruby>のだしをとる（できれば<ruby>一晩<rt>ひとばん</rt></ruby>）。",
+      "<ruby>大根<rt>だいこん</rt></ruby>・にんじんは<ruby>薄<rt>うす</rt></ruby>いいちょう<ruby>切<rt>ぎ</rt></ruby>り、<ruby>豆腐<rt>とうふ</rt></ruby>はさいの<ruby>目<rt>め</rt></ruby>に<ruby>切<rt>き</rt></ruby>る。",
+      "だしを<ruby>弱火<rt>よわび</rt></ruby>にかけ、<ruby>大根<rt>だいこん</rt></ruby>・にんじんを<ruby>入<rt>い</rt></ruby>れてやわらかくなるまで<ruby>煮<rt>に</rt></ruby>る。",
+      "<ruby>豆腐<rt>とうふ</rt></ruby>とわかめを<ruby>加<rt>くわ</rt></ruby>え、<ruby>火<rt>ひ</rt></ruby>を<ruby>止<rt>と</rt></ruby>めてから<ruby>味噌<rt>みそ</rt></ruby>を<ruby>溶<rt>と</rt></ruby>き<ruby>入<rt>い</rt></ruby>れる。",
+      "<ruby>器<rt>うつわ</rt></ruby>に<ruby>盛<rt>も</rt></ruby>り、<ruby>小口切<rt>こぐちぎ</rt></ruby>りの<ruby>長<rt>なが</rt></ruby>ねぎをのせる。"
+    ],
+    "source_name": "Just One Cookbook — Vegan Miso Soup",
+    "source_url": "https://www.justonecookbook.com/vegan-miso-soup/",
+    "tips": [
+      "<ruby>昆布<rt>こんぶ</rt></ruby>と<ruby>干<rt>ほ</rt></ruby>し<ruby>椎茸<rt>しいたけ</rt></ruby>だけで、お<ruby>魚<rt>さかな</rt></ruby>を<ruby>使<rt>つか</rt></ruby>わない「<ruby>精進<rt>しょうじん</rt></ruby>だし」になるんだ。うまみたっぷりだよ。",
+      "<ruby>味噌<rt>みそ</rt></ruby>は<ruby>煮立<rt>にた</rt></ruby>てると<ruby>香<rt>かお</rt></ruby>りがとんじゃう。<ruby>火<rt>ひ</rt></ruby>を<ruby>止<rt>と</rt></ruby>めてから<ruby>溶<rt>と</rt></ruby>くのが<ruby>大切<rt>たいせつ</rt></ruby>。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 5,
+    "slug": "kinoko-takikomi",
+    "title_jp": "きのこの炊き込みご飯",
+    "title_furigana": "きのこの<ruby>炊<rt>た</rt></ruby>き<ruby>込<rt>こ</rt></ruby>みご<ruby>飯<rt>はん</rt></ruby>",
+    "hero_image_url": "/images/recipes/kinoko-takikomi.jpg",
+    "category": "gohan",
+    "time_min": 60,
+    "servings": "3〜4人分（2合）",
+    "ingredients": [
+      { "item": "<ruby>米<rt>こめ</rt></ruby>", "amount": "2<ruby>合<rt>ごう</rt></ruby>" },
+      { "item": "しめじ", "amount": "1パック" },
+      { "item": "<ruby>椎茸<rt>しいたけ</rt></ruby>", "amount": "3<ruby>枚<rt>まい</rt></ruby>" },
+      { "item": "えのき", "amount": "1/2<ruby>袋<rt>ふくろ</rt></ruby>" },
+      { "item": "にんじん", "amount": "1/3<ruby>本<rt>ほん</rt></ruby>" },
+      { "item": "<ruby>油揚<rt>あぶらあ</rt></ruby>げ", "amount": "1<ruby>枚<rt>まい</rt></ruby>" },
+      { "item": "しょうゆ", "amount": "<ruby>大<rt>おお</rt></ruby>さじ2" },
+      { "item": "みりん", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "<ruby>酒<rt>さけ</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "<ruby>昆布<rt>こんぶ</rt></ruby>", "amount": "5cm<ruby>角<rt>かく</rt></ruby>1<ruby>枚<rt>まい</rt></ruby>" }
+    ],
+    "steps": [
+      "<ruby>米<rt>こめ</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>って30<ruby>分<rt>ぷん</rt></ruby><ruby>浸水<rt>しんすい</rt></ruby>し、ざるにあげる。",
+      "きのこ<ruby>類<rt>るい</rt></ruby>は<ruby>石<rt>いし</rt></ruby>づきを<ruby>取<rt>と</rt></ruby>ってほぐす。にんじんと<ruby>油揚<rt>あぶらあ</rt></ruby>げは<ruby>細切<rt>ほそぎ</rt></ruby>りに。",
+      "<ruby>炊飯器<rt>すいはんき</rt></ruby>に<ruby>米<rt>こめ</rt></ruby>・しょうゆ・みりん・<ruby>酒<rt>さけ</rt></ruby>を<ruby>入<rt>い</rt></ruby>れ、2<ruby>合<rt>ごう</rt></ruby>の<ruby>目盛<rt>めも</rt></ruby>りまで<ruby>水<rt>みず</rt></ruby>を<ruby>注<rt>そそ</rt></ruby>ぐ。",
+      "<ruby>具材<rt>ぐざい</rt></ruby>と<ruby>昆布<rt>こんぶ</rt></ruby>をのせて、ふつうに<ruby>炊<rt>た</rt></ruby>く。",
+      "<ruby>炊<rt>た</rt></ruby>きあがったら<ruby>昆布<rt>こんぶ</rt></ruby>を<ruby>取<rt>と</rt></ruby>り<ruby>出<rt>だ</rt></ruby>し、さっくり<ruby>混<rt>ま</rt></ruby>ぜる。"
+    ],
+    "source_name": "Just One Cookbook — Japanese Mushroom Rice",
+    "source_url": "https://www.justonecookbook.com/japanese-mushroom-rice/",
+    "tips": [
+      "<ruby>調味料<rt>ちょうみりょう</rt></ruby>を<ruby>先<rt>さき</rt></ruby>に<ruby>入<rt>い</rt></ruby>れてから、<ruby>水<rt>みず</rt></ruby>を<ruby>目盛<rt>めも</rt></ruby>りまで<ruby>足<rt>た</rt></ruby>すのがポイント。<ruby>水<rt>みず</rt></ruby>っぽくならないよ。",
+      "きのこは2〜3<ruby>種類<rt>しゅるい</rt></ruby>まぜると、うまみが<ruby>重<rt>かさ</rt></ruby>なってぐっと<ruby>本格的<rt>ほんかくてき</rt></ruby>な<ruby>味<rt>あじ</rt></ruby>になるよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 6,
+    "slug": "veg-gyoza",
+    "title_jp": "野菜餃子",
+    "title_furigana": "<ruby>野菜<rt>やさい</rt></ruby><ruby>餃子<rt>ぎょうざ</rt></ruby>",
+    "hero_image_url": "/images/recipes/veg-gyoza.jpg",
+    "category": "shusai",
+    "time_min": 40,
+    "servings": "約24個分",
+    "ingredients": [
+      { "item": "キャベツ", "amount": "1/4<ruby>個<rt>こ</rt></ruby>（<ruby>約<rt>やく</rt></ruby>250g）" },
+      { "item": "にら", "amount": "1/2<ruby>束<rt>たば</rt></ruby>" },
+      { "item": "<ruby>木綿豆腐<rt>もめんどうふ</rt></ruby>（<ruby>水切<rt>みずき</rt></ruby>り）", "amount": "1/2<ruby>丁<rt>ちょう</rt></ruby>" },
+      { "item": "<ruby>椎茸<rt>しいたけ</rt></ruby>", "amount": "3<ruby>枚<rt>まい</rt></ruby>" },
+      { "item": "しょうが（みじん<ruby>切<rt>ぎ</rt></ruby>り）", "amount": "1<ruby>片<rt>かけ</rt></ruby>" },
+      { "item": "にんにく（みじん<ruby>切<rt>ぎ</rt></ruby>り）", "amount": "1<ruby>片<rt>かけ</rt></ruby>" },
+      { "item": "しょうゆ", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "ごま<ruby>油<rt>あぶら</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "<ruby>片栗粉<rt>かたくりこ</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
+      { "item": "<ruby>餃子<rt>ぎょうざ</rt></ruby>の<ruby>皮<rt>かわ</rt></ruby>", "amount": "24<ruby>枚<rt>まい</rt></ruby>" },
+      { "item": "<ruby>塩<rt>しお</rt></ruby>", "amount": "<ruby>小<rt>こ</rt></ruby>さじ1/2" }
+    ],
+    "steps": [
+      "キャベツはみじん<ruby>切<rt>ぎ</rt></ruby>りにして<ruby>塩<rt>しお</rt></ruby>をふり、10<ruby>分<rt>ぷん</rt></ruby>おいて<ruby>水気<rt>みずけ</rt></ruby>を<ruby>絞<rt>しぼ</rt></ruby>る。",
+      "にら・<ruby>椎茸<rt>しいたけ</rt></ruby>もみじん<ruby>切<rt>ぎ</rt></ruby>りにし、しょうが・にんにくと<ruby>合<rt>あ</rt></ruby>わせる。",
+      "<ruby>野菜<rt>やさい</rt></ruby>とくずした<ruby>豆腐<rt>とうふ</rt></ruby>に、しょうゆ・ごま<ruby>油<rt>あぶら</rt></ruby>・<ruby>片栗粉<rt>かたくりこ</rt></ruby>を<ruby>加<rt>くわ</rt></ruby>えてよく<ruby>混<rt>ま</rt></ruby>ぜ、あんを<ruby>作<rt>つく</rt></ruby>る。",
+      "<ruby>皮<rt>かわ</rt></ruby>にあんをのせ、ふちに<ruby>水<rt>みず</rt></ruby>をつけてひだを<ruby>作<rt>つく</rt></ruby>りながら<ruby>包<rt>つつ</rt></ruby>む。",
+      "<ruby>油<rt>あぶら</rt></ruby>をひいたフライパンで<ruby>焼<rt>や</rt></ruby>き、<ruby>湯<rt>ゆ</rt></ruby>を<ruby>回<rt>まわ</rt></ruby>し<ruby>入<rt>い</rt></ruby>れてふたをし、<ruby>蒸<rt>む</rt></ruby>し<ruby>焼<rt>や</rt></ruby>きにする。",
+      "<ruby>水分<rt>すいぶん</rt></ruby>がとんだら、<ruby>仕上<rt>しあ</rt></ruby>げにごま<ruby>油<rt>あぶら</rt></ruby>を<ruby>回<rt>まわ</rt></ruby>しかけてカリッと<ruby>焼<rt>や</rt></ruby>く。"
+    ],
+    "source_name": "Just One Cookbook — Vegetable Gyoza",
+    "source_url": "https://www.justonecookbook.com/vegetable-gyoza/",
+    "tips": [
+      "キャベツの<ruby>水気<rt>みずけ</rt></ruby>をしっかり<ruby>絞<rt>しぼ</rt></ruby>ると、あんがゆるまずきれいに<ruby>包<rt>つつ</rt></ruby>めるよ。",
+      "<ruby>包<rt>つつ</rt></ruby>んだ<ruby>餃子<rt>ぎょうざ</rt></ruby>は<ruby>冷凍<rt>れいとう</rt></ruby>もOK。<ruby>多<rt>おお</rt></ruby>めに<ruby>作<rt>つく</rt></ruby>って<ruby>常備<rt>じょうび</rt></ruby>すると<ruby>便利<rt>べんり</rt></ruby>。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  }
+]
