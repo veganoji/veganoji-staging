@@ -44,10 +44,11 @@ text through a small normalizer (`cardText`) that swaps full-width parens
 （） → () because html2canvas drops the opening （.
 
 Assets: 18 hero photos + 3 chibi-sticker section icons (`icon-zairyo`,
-`icon-tsukurikata`, `icon-sprout`) + 8 watercolor hero backgrounds live under
+`icon-tsukurikata`, `icon-sprout`) + 8 watercolor backgrounds live under
 `/images/recipes/` (icons are transparent PNG; photos/bgs are JPG). Regenerate
-with `.claude/gen-recipes-batch2.sh`. Pick the hero background in
-`/recipes/bg-lab/` and set the `bg-N.jpg` filename in `index.html`.
+with `.claude/gen-recipes-batch2.sh`. **Hero uses `bg/bg-1.jpg`, footer uses
+`bg/bg-6.jpg`**; the other `bg-N.jpg` options are kept for reuse. (The bg-lab
+picker page has been removed now that the backgrounds are chosen.)
 
 ## Content / legal
 
@@ -72,19 +73,10 @@ with `.claude/gen-recipes-batch2.sh`. Pick the hero background in
 
 Until then, edit `recipes.json` and the page updates — no DB needed.
 
-## ⚠️ Go-live checklist (do these when ready to publish — left undone on purpose)
+## Go-live checklist
 
-These touch **shared root files** outside `/recipes/`, left untouched so this
-build doesn't collide with the parallel `/quiz/` build:
-
-1. **Remove the stale redirect.** `_redirects` still has a line from the old
-   WordPress retirement:
-   ```
-   /recipes/  /blog/  301
-   ```
-   It will redirect the new page away. Delete that one line.
-   (Local preview ignores `_redirects`, so the page tested fine without this.)
-2. **Drop the `noindex`.** `index.html` has
-   `<meta name="robots" content="noindex, nofollow" />` while building — remove
-   it to let the page be indexed.
+1. ~~Remove the stale `/recipes/ → /blog/ 301` in `_redirects`~~ — **done** (the
+   page is now reachable live).
+2. **Drop the `noindex`** in `index.html` (`<meta name="robots" ...>`) when fully
+   launching. Kept ON for now — the page is live-but-unindexed for iteration.
 3. Optional: add `/recipes/` to `sitemap.xml` and a nav entry in `mnav.js`.
