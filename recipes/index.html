@@ -94,33 +94,36 @@
        To switch backgrounds, change the bg-N.jpg filename below (options in /recipes/bg-lab/). */
     .recipe-hero {
       background-size: cover; background-position: center;
-      min-height: clamp(380px, 58vh, 580px);
+      min-height: clamp(440px, 66vh, 620px);
       display: flex; align-items: flex-end; justify-content: center;
-      padding: 70px 24px 34px;
+      padding: 70px 24px 36px;
     }
     @media (min-width: 640px) { .recipe-hero { padding: 90px 40px 54px; } }
     .recipe-hero__inner { max-width: 640px; text-align: center; }
 
-    /* ════════ Filter bar — wraps to fit, no horizontal scroll ════════ */
+    /* ════════ Filter bar — unobtrusive dropdown ════════ */
     .filterbar {
       position: sticky; top: 0; z-index: 30;
-      background: rgba(255,249,238,0.9);
+      background: rgba(255,249,238,0.92);
       -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
       border-bottom: 2px solid rgba(31,24,18,0.08);
     }
-    .chiprow { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 13px 4px; }
-    .chip {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-family: var(--font-noto-sans-jp); font-weight: 700; font-size: 13.5px;
-      color: var(--color-ink); background: var(--color-paper);
-      border: 2px solid var(--color-ink); border-radius: 999px;
-      box-shadow: 2.5px 2.5px 0 var(--color-ink); padding: 7px 14px; cursor: pointer;
-      transition: transform .14s ease, box-shadow .14s ease, background .2s ease, color .2s ease;
-      white-space: nowrap;
+    .filterrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 0; }
+    .filterrow .count { font-family: var(--font-noto-sans-jp); font-weight: 800; font-size: 14px; color: var(--color-muted); }
+    .catpick { position: relative; display: inline-flex; align-items: center; }
+    .catpick__sel {
+      appearance: none; -webkit-appearance: none;
+      font-family: var(--font-noto-sans-jp); font-weight: 700; font-size: 14px; color: var(--color-ink);
+      background: var(--color-paper); border: 2px solid var(--color-ink); border-radius: 999px;
+      box-shadow: 2.5px 2.5px 0 var(--color-ink); padding: 8px 38px 8px 16px; cursor: pointer;
+      transition: transform .14s ease, box-shadow .14s ease;
     }
-    .chip:hover { transform: translate(1px,1px); box-shadow: 1.5px 1.5px 0 var(--color-ink); }
-    .chip[aria-pressed="true"] { color: var(--color-paper); box-shadow: 2.5px 2.5px 0 rgba(31,24,18,0.32); }
-    .chip .em { font-size: 15px; line-height: 1; }
+    .catpick__sel:active { transform: translate(1px,1px); box-shadow: 1.5px 1.5px 0 var(--color-ink); }
+    .catpick::after {
+      content: ""; position: absolute; right: 16px; top: 44%;
+      width: 8px; height: 8px; border-right: 2.5px solid var(--color-ink); border-bottom: 2.5px solid var(--color-ink);
+      transform: translateY(-50%) rotate(45deg); pointer-events: none;
+    }
 
     /* ════════ Recipe grid + cards ════════ */
     .rgrid { display: grid; grid-template-columns: 1fr; gap: 22px; }
@@ -264,10 +267,11 @@
     #export-host { position: fixed; left: -10000px; top: 0; }
     .ecard { width: 432px; min-height: 540px; display: flex; flex-direction: column; position: relative;
       background: #FFF9EE; border: 3px solid #1F1812; color: #1F1812;
-      font-family: "Noto Sans JP", sans-serif; font-feature-settings: normal; letter-spacing: normal; }
+      font-family: "Noto Sans JP", sans-serif; font-feature-settings: normal; letter-spacing: -0.015em; }
     .ecard * { box-sizing: border-box; }
     .ec-hero { height: 210px; position: relative; overflow: hidden; border-bottom: 3px solid #1F1812; flex-shrink: 0; background: #F6E4BD; }
-    .ec-hero img.pic { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    /* background-size:cover — html2canvas honors this correctly (it does NOT honor object-fit on <img>). */
+    .ec-pic { width: 100%; height: 100%; background-size: cover; background-position: center; }
     .ec-tag { position: absolute; top: 14px; left: 14px; font-size: 13px; font-weight: 900; color: #fff;
       border: 2px solid #1F1812; border-radius: 999px; box-shadow: 2px 2px 0 #1F1812; padding: 4px 12px; }
     .ec-time { position: absolute; top: 14px; right: 14px; font-size: 12.5px; font-weight: 800; color: #1F1812;
@@ -285,9 +289,9 @@
       padding: 2px 0; border-bottom: 1px dotted rgba(31,24,18,0.18); }
     .ec-ing .r .a { color: #3F6A3A; font-weight: 800; white-space: nowrap; }
     .ec-steps .s { display: flex; gap: 7px; margin-bottom: 6px; }
-    .ec-steps .s .n { flex-shrink: 0; width: 15px; height: 15px; margin-top: 1px; background: #6C9560; color: #fff;
-      border-radius: 50%; font-size: 9px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
-    .ec-steps .s .t { font-size: 11px; line-height: 1.45; color: #3C2E22; }
+    .ec-steps .s .n { flex-shrink: 0; width: 17px; height: 17px; margin-top: 1px; background: #6C9560; color: #fff;
+      border-radius: 50%; font-size: 10.5px; font-weight: 900; display: flex; align-items: center; justify-content: center; line-height: 1; }
+    .ec-steps .s .t { font-size: 11px; line-height: 1.5; color: #3C2E22; }
     .ec-tail { margin-top: auto; }
     .ec-src { padding: 10px 22px 7px; font-size: 9.5px; color: #786148; line-height: 1.3;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -307,31 +311,32 @@
   <!-- ═══════════════ HERO (custom watercolor background) ═══════════════
        Swap the bg-N.jpg below for any option from /recipes/bg-lab/. -->
   <header class="recipe-hero" id="hero" style="background-image:
-            linear-gradient(to bottom, rgba(255,249,238,0.22) 0%, rgba(255,249,238,0.04) 34%, rgba(255,249,238,0.55) 72%, var(--color-paper) 100%),
+            linear-gradient(to bottom, rgba(255,249,238,0.08) 0%, rgba(255,249,238,0.0) 46%, rgba(255,249,238,0.46) 78%, var(--color-paper) 100%),
             url('/images/recipes/bg/bg-1.jpg');">
     <div class="recipe-hero__inner">
-      <h1 class="reveal font-jp-display display-tight text-[40px] sm:text-[64px] text-ink leading-[1.06]" style="text-shadow:0 2px 14px rgba(255,249,238,0.85);">
+      <h1 class="reveal font-jp-display display-tight text-[40px] sm:text-[64px] text-ink leading-[1.06]" style="text-shadow:0 2px 14px rgba(255,249,238,0.9);">
         ビーガン王子の<br/><span class="text-leaf-deep">かんたんレシピ。</span>
       </h1>
-      <p class="reveal mt-6 max-w-md mx-auto font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.9]" style="text-shadow:0 1px 10px rgba(255,249,238,0.95);">
-        いつもの和食を、植物だけで。<br/>
-        身近な材料で、むりなく作れるものばかり。<br/>
-        気になるレシピは、画像で保存できるよ。
+      <p class="reveal mt-5 max-w-md mx-auto font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.95]" style="text-shadow:0 1px 10px rgba(255,249,238,0.98);">
+        いつもの食卓を、そのまま植物で。<br/>
+        変えるのは素材だけ、おいしさはそのまま。
       </p>
     </div>
   </header>
 
   <!-- ═══════════════ FILTER ═══════════════ -->
-  <div class="filterbar px-4 sm:px-8">
-    <div class="max-w-5xl mx-auto">
-      <div id="chiprow" class="chiprow" role="group" aria-label="カテゴリーでしぼりこむ"></div>
+  <div class="filterbar px-5 sm:px-8">
+    <div class="max-w-5xl mx-auto filterrow">
+      <span id="count" class="count"></span>
+      <div class="catpick">
+        <select id="cat-select" class="catpick__sel" aria-label="カテゴリーでしぼりこむ"></select>
+      </div>
     </div>
   </div>
 
   <!-- ═══════════════ GRID ═══════════════ -->
-  <main class="px-5 sm:px-8 pt-8 sm:pt-10 pb-4">
+  <main class="px-5 sm:px-8 pt-7 sm:pt-9 pb-4">
     <div class="max-w-5xl mx-auto">
-      <p id="count" class="font-jp text-muted text-[13px] font-bold mb-5 px-1"></p>
       <div id="grid" class="rgrid" aria-live="polite"></div>
     </div>
   </main>
@@ -353,14 +358,11 @@
   </section>
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer class="border-t-2 border-ink/15 py-12 sm:py-16 px-6 sm:px-10" style="background-image: linear-gradient(rgba(255,249,238,0.82), rgba(255,249,238,0.90)), url('/images/recipes/bg/bg-6.jpg'); background-size: cover; background-position: center;">
-    <div class="max-w-2xl mx-auto text-center">
-      <p class="font-jp text-muted text-[12.5px] leading-[1.85]">
-        ※ レシピは定番の和食をもとに、ビーガン向けに独自に書き起こしたものです。写真はすべて当サイトの生成画像。各レシピに参考もとを記載しています。
-      </p>
-      <div class="mt-7 pt-6 border-t border-ink/10 flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center text-ink/55 text-[13px]">
+  <footer class="border-t-2 border-ink/15 py-10 sm:py-14 px-6 sm:px-10" style="background-image: linear-gradient(rgba(255,249,238,0.42), rgba(255,249,238,0.60)), url('/images/recipes/bg/bg-6.jpg'); background-size: cover; background-position: center;">
+    <div class="max-w-2xl mx-auto">
+      <div class="flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center font-jp font-bold text-[13.5px] text-ink/75" style="text-shadow:0 1px 6px rgba(255,249,238,0.9);">
         <a href="/" class="hover:text-ink transition-colors">← ビーガン王子へ戻る</a>
-        <span class="font-jp">© ビーガン王子</span>
+        <span>© ビーガン王子</span>
       </div>
     </div>
   </footer>
@@ -452,20 +454,14 @@
         const set = new Set(state.recipes.map(r => r.category));
         return CAT_ORDER.filter(c => set.has(c));
       }
+      function catCount(c) { return c === 'all' ? state.recipes.length : state.recipes.filter(r => r.category === c).length; }
       function renderFilters() {
-        const row = $('chiprow');
-        const chips = [['all', '🌱', 'すべて']].concat(presentCats().map(c => [c, CATS[c].em, CATS[c].jp]));
-        row.innerHTML = chips.map(([key, em, label]) =>
-          `<button type="button" class="chip" data-cat="${key}" aria-pressed="${key === state.filter}"><span class="em">${em}</span>${label}</button>`
-        ).join('');
-        row.querySelectorAll('.chip').forEach(chip => {
-          if (chip.getAttribute('aria-pressed') === 'true') {
-            const k = chip.dataset.cat;
-            chip.style.background = k === 'all' ? '#1F1812' : CATS[k].color;
-            chip.style.color = '#FFF9EE';
-          }
-          chip.addEventListener('click', () => { state.filter = chip.dataset.cat; renderFilters(); renderGrid(); });
-        });
+        const sel = $('cat-select');
+        const opts = [['all', '🌱', 'すべて']].concat(presentCats().map(c => [c, CATS[c].em, CATS[c].jp]));
+        sel.innerHTML = opts.map(([key, em, label]) =>
+          `<option value="${key}">${em} ${label}（${catCount(key)}）</option>`).join('');
+        sel.value = state.filter;
+        sel.onchange = () => { state.filter = sel.value; renderGrid(); };
       }
 
       function visibleRecipes() {
@@ -558,7 +554,7 @@
         const node = document.createElement('div');
         node.className = 'ecard';
         node.innerHTML =
-          `<div class="ec-hero"><img class="pic" src="${r.hero_image_url}" alt=""/>` +
+          `<div class="ec-hero"><div class="ec-pic" style="background-image:url('${r.hero_image_url}')"></div>` +
             `<span class="ec-tag" style="background:${c.color};">${c.em} ${c.jp}</span>` +
             `<span class="ec-time">⏱ ${r.time_min}分</span>` +
             `<img class="ec-oji" src="/images/oji/${pose}.png" alt="" onerror="this.style.display='none';"/></div>` +
@@ -582,8 +578,10 @@
         const node = buildExportNode(r);
         host.appendChild(node);
         try {
-          const img = node.querySelector('.ec-hero img.pic');
-          if (img && !img.complete) await new Promise(res => { img.onload = img.onerror = res; });
+          if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch (_) {} }
+          const ojiSrc = node.querySelector('.ec-oji') ? node.querySelector('.ec-oji').src : null;
+          await Promise.all([r.hero_image_url, ojiSrc].filter(Boolean).map(src =>
+            new Promise(res => { const im = new Image(); im.onload = im.onerror = res; im.src = src; })));
           const canvas = await html2canvas(node, { scale: 1080 / 432, backgroundColor: '#FFF9EE', useCORS: true, logging: false });
           const a = document.createElement('a');
           a.download = 'vegan-oji_' + slug + '.png';
