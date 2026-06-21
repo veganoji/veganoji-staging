@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>クイズ背景スタイル・ラボ — 5方向</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+    @theme {
+      --color-paper: #FFF9EE; --color-paper-soft: #FDF1DA;
+      --color-ink: #1F1812; --color-ink-soft: #3C2E22; --color-muted: #786148;
+      --color-royal: #C9223A; --color-gold: #D4A847; --color-leaf-deep: #3F6A3A;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    }
+    html, body { background: var(--color-paper); color: var(--color-ink); }
+    body { font-family: var(--font-noto-sans-jp); font-feature-settings: "palt"; -webkit-font-smoothing: antialiased; }
+    .font-jp-display { font-weight: 900; }
+
+    /* Phone mockup frame holding a candidate background */
+    .phone {
+      position: relative; aspect-ratio: 1024 / 1536; border-radius: 20px;
+      border: 2.5px solid var(--color-ink); box-shadow: 5px 5px 0 var(--color-ink);
+      overflow: hidden; background-size: cover; background-position: center;
+    }
+    .phone__tag {
+      position: absolute; top: 8px; left: 8px; z-index: 3;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+      padding: 3px 8px; border-radius: 999px; background: rgba(255,249,238,0.9);
+      border: 1.5px solid var(--color-ink); color: var(--color-ink);
+    }
+    /* overlay mock content (shows legibility over the wash) */
+    .ov { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 14px; }
+    .ov-title { font-weight: 900; line-height: 1.25; color: var(--color-ink); font-size: clamp(13px, 4.2vw, 19px); }
+    .ov-title .g { color: var(--color-leaf-deep); }
+    .ov-pill { margin-top: 10px; font-size: 11px; font-weight: 700; color: #fff; background: var(--color-royal); border: 2px solid var(--color-ink); border-radius: 11px; box-shadow: 2px 2px 0 var(--color-ink); padding: 6px 14px; }
+    /* mock question card */
+    .ov-card { width: 86%; background: var(--color-paper); border: 2.5px solid var(--color-ink); border-radius: 14px; box-shadow: 4px 4px 0 var(--color-ink); padding: 12px 12px 14px; }
+    .ov-q { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; height: 22px; padding: 0 8px; border-radius: 7px; border: 2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink); color: #fff; font-weight: 900; font-size: 11px; }
+    .ov-qline { font-weight: 900; font-size: 12px; line-height: 1.5; margin: 8px 0 10px; color: var(--color-ink); }
+    .ov-chip { font-size: 11px; font-weight: 700; padding: 8px; border-radius: 9px; border: 2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-paper-soft); }
+    .ov-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+
+    .pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; border: 2px solid var(--color-ink); background: var(--color-paper); }
+  </style>
+</head>
+<body class="antialiased">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
+
+    <header class="mb-10 sm:mb-14">
+      <div class="pill mb-4">背景スタイル・ラボ · noindex</div>
+      <h1 class="font-jp-display text-[28px] sm:text-[42px] leading-[1.2] text-ink">
+        クイズの背景、5つの方向。
+      </h1>
+      <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.9] max-w-2xl">
+        「しらなかった！ごはんと地球のクイズ」用の水彩背景の候補です。各方向につき
+        <b>イントロ（ヒーロー）</b>・<b>暖色の問題（温暖化）</b>・<b>寒色の問題（海）</b>の3パターンを生成しました。
+        中央は文字やカードが乗るように、わざと淡く空けてあります。気に入った方向を教えてください — その方向で全10問ぶん仕上げます。
+      </p>
+    </header>
+
+    <!-- direction blocks injected by JS -->
+    <div id="dirs" class="flex flex-col gap-12 sm:gap-16"></div>
+
+    <footer class="mt-16 text-ink/45 text-[13px]">
+      生成: gpt-image-1 / 1024×1536 / quality=high — <span class="font-mono">.claude/gen-quiz-bg.py</span>
+    </footer>
+  </div>
+
+  <script>
+    const DIRS = [
+      { k: 'A', jp: 'やわらかパステル', en: 'Soft Pastel',
+        desc: '今のサイトに一番近い、ふんわり淡いにじみ。安心感・統一感。角からそっと色が入る。' },
+      { k: 'B', jp: '和モダン金箔', en: 'Nihonga + Gold',
+        desc: '和紙＋墨のグラデに金箔のきらめき。上品で、ちょっと贅沢。エルメス的な落ち着き。' },
+      { k: 'C', jp: '絵本タッチ', en: 'Storybook',
+        desc: 'もこもこした筆あと。明るく、かわいく、子どもにも親しみやすい絵本の質感。' },
+      { k: 'D', jp: 'ボタニカル', en: 'Botanical',
+        desc: '葉っぱや実のやわらかいフレーム。海の問題では葦と水に変化。食×自然と相性◎。' },
+      { k: 'E', jp: 'ミニマル余白', en: 'Minimal',
+        desc: '大きな色のかたまりと、たっぷりの余白。モダンで洗練、すっきり。' },
+    ];
+    const MOODS = [
+      { m: 'intro', tag: 'INTRO' },
+      { m: 'warm',  tag: '温暖化 Q' },
+      { m: 'cool',  tag: '海 Q' },
+    ];
+    const Q_ACCENT = { warm: '#C9223A', cool: '#2B7AB0' };
+
+    function introOverlay() {
+      return '<div class="ov"><div class="ov-title">しらなかった！<br/><span class="g">ごはんと地球</span>のクイズ</div>' +
+             '<div class="ov-pill">スタート →</div></div>';
+    }
+    function cardOverlay(mood) {
+      const a = Q_ACCENT[mood];
+      const q = mood === 'warm' ? '牛のゲップ、CO₂の約何倍？' : '1年で獲られる魚は何匹？';
+      const c = mood === 'warm' ? ['約2倍','約28倍','約100倍','同じ'] : ['約20億匹','約2,000億匹','約2兆匹','数えきれない'];
+      return '<div class="ov"><div class="ov-card">' +
+        '<span class="ov-q" style="background:' + a + ';">Q</span>' +
+        '<div class="ov-qline">' + q + '</div>' +
+        '<div class="ov-chips">' + c.map(x => '<div class="ov-chip">' + x + '</div>').join('') + '</div>' +
+        '</div></div>';
+    }
+
+    document.getElementById('dirs').innerHTML = DIRS.map(d =>
+      '<section>' +
+        '<div class="flex items-baseline gap-3 flex-wrap mb-1">' +
+          '<h2 class="font-jp-display text-[20px] sm:text-[26px] text-ink">' + d.k + ' · ' + d.jp + '</h2>' +
+          '<span class="text-ink/45 text-[14px] sm:text-[16px]">' + d.en + '</span>' +
+        '</div>' +
+        '<p class="font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.8] mb-5 max-w-2xl">' + d.desc + '</p>' +
+        '<div class="grid grid-cols-3 gap-3 sm:gap-6 max-w-3xl">' +
+          MOODS.map(mo => {
+            const bg = 'img/' + d.k + '-' + mo.m + '.jpg';
+            const ov = mo.m === 'intro' ? introOverlay() : cardOverlay(mo.m);
+            return '<div class="phone" style="background-image:url(' + bg + ');">' +
+                     '<span class="phone__tag">' + mo.tag + '</span>' + ov +
+                   '</div>';
+          }).join('') +
+        '</div>' +
+      '</section>'
+    ).join('');
+  </script>
+</body>
+</html>
