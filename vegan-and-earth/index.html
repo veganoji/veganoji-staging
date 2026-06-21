@@ -793,7 +793,7 @@
        line above a full-width animated bar. Labels match the number's
        weight + size, images bumped up. */
     .stat-row {
-      padding: 16px 0;
+      padding: 9px 0;
       border-bottom: 1px dotted rgba(31,24,18,0.18);
     }
     .stat-row:last-child { border-bottom: none; }
@@ -801,14 +801,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      margin-bottom: 10px;
+      gap: 12px;
+      margin-bottom: 6px;
     }
-    .stat-row__img { width: 58px; height: 58px; object-fit: contain; display: block; flex-shrink: 0; }
+    /* Gentle float on the stat icons — small amplitude so the row stays
+       readable; staggered per stat for a lively, non-uniform feel. */
+    @keyframes statFloat {
+      0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+      50%      { transform: translateY(-4px) rotate(1.5deg); }
+    }
+    .stat-row__img {
+      width: 46px; height: 46px; object-fit: contain; display: block; flex-shrink: 0;
+      animation: statFloat 3.4s ease-in-out infinite;
+    }
+    .stat-row:nth-child(2) .stat-row__img { animation-delay: -0.8s; }
+    .stat-row:nth-child(3) .stat-row__img { animation-delay: -1.6s; }
+    .stat-row:nth-child(4) .stat-row__img { animation-delay: -2.4s; }
     .stat-row__label {
       font-family: var(--font-noto-sans-jp);
       font-weight: 900;
-      font-size: 26px;
+      font-size: 22px;
       letter-spacing: -0.01em;
       line-height: 1;
       color: var(--color-ink);
@@ -816,14 +828,14 @@
     .stat-row__val {
       font-family: var(--font-noto-sans-jp);
       font-weight: 900;
-      font-size: 28px;
+      font-size: 24px;
       line-height: 1;
       letter-spacing: -0.01em;
       font-variant-numeric: tabular-nums;
     }
-    .stat-row__val small { font-size: 16px; color: rgba(31,24,18,0.55); margin-left: 2px; font-weight: 700; }
+    .stat-row__val small { font-size: 14px; color: rgba(31,24,18,0.55); margin-left: 2px; font-weight: 700; }
     .stat-row__bar {
-      height: 24px;
+      height: 22px;
       background: var(--color-paper);
       border: 2px solid var(--color-ink);
       border-radius: 999px;
@@ -837,13 +849,16 @@
       transition: width 0.7s cubic-bezier(.22,.61,.36,1), background 0.4s ease;
     }
     @media (min-width: 640px) {
-      .stat-row { padding: 20px 0; }
-      .stat-row__head { gap: 16px; margin-bottom: 12px; }
-      .stat-row__img { width: 72px; height: 72px; }
-      .stat-row__label { font-size: 34px; }
-      .stat-row__val { font-size: 36px; }
-      .stat-row__val small { font-size: 18px; }
-      .stat-row__bar { height: 30px; }
+      .stat-row { padding: 12px 0; }
+      .stat-row__head { gap: 14px; margin-bottom: 8px; }
+      .stat-row__img { width: 56px; height: 56px; }
+      .stat-row__label { font-size: 28px; }
+      .stat-row__val { font-size: 30px; }
+      .stat-row__val small { font-size: 16px; }
+      .stat-row__bar { height: 26px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .stat-row__img { animation: none; }
     }
 
     /* ── Share card frame ───────────────────────────────────────────── */
@@ -2127,15 +2142,19 @@
           </div>
         </div>
 
-        <p class="mt-6 sm:mt-8 font-jp text-[14px] sm:text-[16px] leading-[1.85] text-ink-soft text-center">
-          <ruby>今<rt>いま</rt></ruby>の<ruby>世界<rt>せかい</rt></ruby><ruby>人口<rt>じんこう</rt></ruby>は<ruby>約<rt>やく</rt></ruby>80<ruby>億人<rt>おくにん</rt></ruby>。<br/>
-          <span class="font-bold">もう、<ruby>全員<rt>ぜんいん</rt></ruby>に<ruby>行<rt>い</rt></ruby>き<ruby>渡<rt>わた</rt></ruby>る<ruby>量<rt>りょう</rt></ruby>はある。</span>
-        </p>
-
-        <!-- Promoted (was hidden in dropdown) — sets up the pies below -->
-        <p class="mt-6 sm:mt-7 font-jp text-[15px] sm:text-[18px] leading-[1.8] text-ink text-center">
-          <ruby>世界中<rt>せかいじゅう</rt></ruby>の <span class="font-bold" style="color: #6B4E8C;"><ruby>大豆<rt>だいず</rt></ruby></span> や <span class="font-bold" style="color: #6B4E8C;"><ruby>穀物<rt>こくもつ</rt></ruby></span> の<ruby>多<rt>おお</rt></ruby>くが、<br class="sm:hidden"/><ruby>動物<rt>どうぶつ</rt></ruby>に<ruby>食<rt>た</rt></ruby>べさせるために。
-        </p>
+        <!-- Supporting prose grouped into a calm inset panel so the dense,
+             furigana-heavy text reads as a quiet secondary note rather than
+             competing with the giant 100億 number above. -->
+        <div class="mt-6 sm:mt-8 rounded-2xl border-2 border-ink/10 px-5 py-5 sm:px-7 sm:py-6" style="background: rgba(255,249,238,0.55);">
+          <p class="font-jp text-[14px] sm:text-[16px] leading-[2.1] text-ink-soft text-center">
+            <ruby>今<rt>いま</rt></ruby>の<ruby>世界<rt>せかい</rt></ruby><ruby>人口<rt>じんこう</rt></ruby>は<ruby>約<rt>やく</rt></ruby>80<ruby>億人<rt>おくにん</rt></ruby>。
+            <span class="font-bold">もう、<ruby>全員<rt>ぜんいん</rt></ruby>に<ruby>行<rt>い</rt></ruby>き<ruby>渡<rt>わた</rt></ruby>る<ruby>量<rt>りょう</rt></ruby>はある。</span>
+          </p>
+          <div class="my-3 sm:my-4 mx-auto w-10 border-t-2 border-ink/10"></div>
+          <p class="font-jp text-[15px] sm:text-[17px] leading-[2.1] text-ink text-center">
+            <ruby>世界中<rt>せかいじゅう</rt></ruby>の <span class="font-bold" style="color: #6B4E8C;"><ruby>大豆<rt>だいず</rt></ruby></span> や <span class="font-bold" style="color: #6B4E8C;"><ruby>穀物<rt>こくもつ</rt></ruby></span> の<ruby>多<rt>おお</rt></ruby>くが、<br class="sm:hidden"/><ruby>動物<rt>どうぶつ</rt></ruby>に<ruby>食<rt>た</rt></ruby>べさせるために。
+          </p>
+        </div>
 
         <!-- Supporting pies — collapsed by default -->
         <details class="group mt-7 -mx-6 sm:-mx-10 px-6 sm:px-10 pt-5 border-t border-ink/10">
@@ -2208,41 +2227,47 @@
 
         <!-- 100 small veg icons vs 1 same-size meat icon, with VS in the
              middle. All units are the SAME pixel size so the imbalance
-             comes from quantity. Labels (植物性食品 13,825キロ + 牛肉 140キロ)
-             live INSIDE the box, vertically aligned. -->
-        <div class="mt-8 grid grid-cols-[1fr_auto_1fr] gap-2 sm:gap-5 items-end px-2 sm:px-5 py-5 sm:py-6 rounded-2xl border-2 border-ink/15"
+             comes from quantity.
+
+             Two flex rows: a LABELS row (植物性食品 + 牛肉 at the same top
+             level) over a CONTENT row. The content row is items-center, so
+             the VS sticker and the lone meat icon both sit on the vertical
+             centre of the veg grid (the tallest item) — guaranteed aligned. -->
+        <div class="mt-8 px-2 sm:px-5 py-5 sm:py-6 rounded-2xl border-2 border-ink/15"
              style="background: rgba(255,249,238,0.6);">
-          <!-- LEFT: 植物性食品 label/number + 100 veg icons -->
-          <div>
-            <div class="text-center mb-2 sm:mb-3">
+          <!-- Labels row -->
+          <div class="flex items-start mb-3 sm:mb-4">
+            <div class="flex-1 text-center">
               <div class="font-jp text-[12px] sm:text-[14px] tracking-[0.06em] text-ink/70 font-bold"><ruby>植物性<rt>しょくぶつせい</rt></ruby><ruby>食品<rt>しょくひん</rt></ruby></div>
               <div class="font-jp-display text-[26px] sm:text-[40px] leading-none mt-1 ticker" style="color: #6B4E8C;">
                 <span data-count-target="13825">0</span>
                 <span class="text-[13px] sm:text-[16px] text-ink/65 font-bold ml-0.5">キロ</span>
               </div>
             </div>
-            <div id="land-veg-grid" class="grid mx-auto"
-                 style="grid-template-columns: repeat(10, 1fr); gap: 2px; max-width: 280px;"></div>
-          </div>
-
-          <!-- VS sticker — floats in the middle -->
-          <img src="/images/vegan-to-chikyu/icon-vs-symbol.png" alt="vs"
-               class="w-12 sm:w-20 anim-bobble drop-shadow-[0_6px_12px_rgba(31,24,18,0.18)] mb-1 sm:mb-2"
-               loading="lazy"/>
-
-          <!-- RIGHT: 牛肉 label/number + 1 meat icon (same cell size as one veg) -->
-          <div>
-            <div class="text-center mb-2 sm:mb-3">
+            <div class="w-12 sm:w-20 flex-shrink-0"></div>
+            <div class="flex-1 text-center">
               <div class="font-jp text-[12px] sm:text-[14px] tracking-[0.06em] text-ink/70 font-bold"><ruby>牛肉<rt>ぎゅうにく</rt></ruby></div>
               <div class="font-jp-display text-[26px] sm:text-[40px] leading-none mt-1 ticker" style="color: #4B3666;">
                 <span data-count-target="140">0</span>
                 <span class="text-[13px] sm:text-[16px] text-ink/65 font-bold ml-0.5">キロ</span>
               </div>
             </div>
-            <div id="land-meat-cell" class="mx-auto" style="width: 28px;">
-              <img src="/images/vegan-to-chikyu/icon-beef-cut.png" alt=""
-                   class="land-unit drop-shadow-[0_3px_8px_rgba(31,24,18,0.18)]"
-                   loading="lazy"/>
+          </div>
+          <!-- Content row — items-center keeps VS + meat on the grid's centre -->
+          <div class="flex items-center gap-2 sm:gap-5">
+            <div class="flex-1 flex justify-center">
+              <div id="land-veg-grid" class="grid"
+                   style="grid-template-columns: repeat(10, 1fr); gap: 2px; max-width: 280px;"></div>
+            </div>
+            <img src="/images/vegan-to-chikyu/icon-vs-symbol.png" alt="vs"
+                 class="w-12 sm:w-20 flex-shrink-0 anim-bobble drop-shadow-[0_6px_12px_rgba(31,24,18,0.18)]"
+                 loading="lazy"/>
+            <div class="flex-1 flex justify-center">
+              <div id="land-meat-cell" style="width: 28px;">
+                <img src="/images/vegan-to-chikyu/icon-beef-cut.png" alt=""
+                     class="land-unit drop-shadow-[0_3px_8px_rgba(31,24,18,0.18)]"
+                     loading="lazy"/>
+              </div>
             </div>
           </div>
         </div>
@@ -2431,7 +2456,7 @@
             </div>
 
             <!-- Compact diet picker inside the card -->
-            <div class="mt-5 sm:mt-6 text-center">
+            <div class="mt-4 sm:mt-5 text-center">
               <div class="font-jp text-ink-soft text-[15px] sm:text-[17px] font-bold mb-2.5">
                 <ruby>普段<rt>ふだん</rt></ruby>のお<ruby>肉<rt>にく</rt></ruby>の<ruby>頻度<rt>ひんど</rt></ruby>は？
               </div>
@@ -2453,7 +2478,7 @@
 
             <!-- 4 stat rows — icon + label + amount centered on ONE line,
                  full-width modern bar below, for each stat. -->
-            <div class="mt-5 sm:mt-6">
+            <div class="mt-3 sm:mt-4">
               <div class="stat-row">
                 <div class="stat-row__head">
                   <img class="stat-row__img" src="/images/vegan-to-chikyu/icon-co2-cloud.png" alt=""/>
@@ -2488,7 +2513,7 @@
               </div>
             </div>
 
-            <p class="mt-4 sm:mt-5 font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.7] text-center" id="result-tagline">
+            <p class="mt-3 sm:mt-4 font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.7] text-center" id="result-tagline">
               これが、<ruby>毎日<rt>まいにち</rt></ruby>のごはんの<ruby>地球<rt>ちきゅう</rt></ruby>への<ruby>影響<rt>えいきょう</rt></ruby>。
             </p>
           </div>
