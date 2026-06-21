@@ -549,7 +549,7 @@
     }
     /* ── 力: Oji speech bubble ─────────────────────────────────────── */
     .bubble { position:relative; background: var(--color-paper); border:2.5px solid var(--color-ink); border-radius:18px; box-shadow:4px 4px 0 var(--color-ink); padding:16px 18px; }
-    .bubble::after { content:''; position:absolute; left:34px; bottom:-13px; width:20px; height:20px; background: var(--color-paper); border-right:2.5px solid var(--color-ink); border-bottom:2.5px solid var(--color-ink); transform: rotate(45deg); }
+    .bubble::after { content:''; position:absolute; left:-12px; bottom:20px; width:20px; height:20px; background: var(--color-paper); border-left:2.5px solid var(--color-ink); border-bottom:2.5px solid var(--color-ink); transform: rotate(45deg); }
 
     /* ── 力: animal stat cards (flip) ──────────────────────────────── */
     .dex { perspective:1000px; cursor:pointer; background:transparent; border:none; padding:0; width:100%; }
@@ -590,12 +590,15 @@
     /* ── 力: polaroid athlete cards ────────────────────────────────── */
     .pola { background:#fff; border:2px solid var(--color-ink); box-shadow:5px 5px 0 var(--color-ink); border-radius:6px; padding:12px 12px 0; cursor:pointer; transition: opacity .9s ease-out, box-shadow .2s ease; width:100%; }
     .pola:hover { box-shadow:7px 7px 0 var(--color-ink); }
-    .pola .photo { position:relative; background:#FDF1DA; border:1.5px solid rgba(31,24,18,.2); border-radius:3px; height:128px; overflow:hidden; }
-    .pola .photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:6px; }
+    .pola .photo { position:relative; background:#FDF1DA; border:1.5px solid rgba(31,24,18,.2); border-radius:3px; aspect-ratio:1/1; overflow:hidden; }
+    .pola .photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
     .pola .ph-emoji { position:absolute; inset:0; display:none; align-items:center; justify-content:center; font-size:52px; }
     .pola .cap { padding:10px 2px 14px; text-align:left; }
     .pola .q { max-height:0; opacity:0; overflow:hidden; margin-top:0; transition: max-height .45s cubic-bezier(.22,1,.36,1), opacity .35s ease, margin-top .4s ease; }
-    .pola.is-open .q { max-height:300px; opacity:1; margin-top:8px; }
+    .pola.is-open .q { max-height:320px; opacity:1; margin-top:8px; }
+    .pola .ath-link { display:inline-flex; align-items:center; gap:5px; margin-top:8px; color:rgba(31,24,18,.5); text-decoration:none; font-size:12px; font-weight:700; letter-spacing:.02em; }
+    .pola .ath-link img { width:14px; height:14px; opacity:.85; }
+    .pola .ath-link:hover { color:var(--color-ink); }
 
     /* ── 健康: clickable benefit cards (accordion) ──────────────────── */
     .hcard { border:2.5px solid var(--color-ink); border-radius:18px; box-shadow:5px 5px 0 var(--color-ink); background: var(--color-paper); overflow:hidden; }
@@ -783,7 +786,7 @@
       <div class="reveal mt-10 sm:mt-12 sticker p-7 sm:p-9 text-center" style="background:#1F1812;">
         <div class="flex justify-center mb-5">
           <div style="width:88px;height:88px;border-radius:50%;border:2.5px solid #D4A847;overflow:hidden;background:#2A2018;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 rgba(0,0,0,0.35);">
-            <img src="/images/karada/athletes/gen4.png" alt="Patrik Baboumian" style="width:100%;height:100%;object-fit:contain;padding:4px;" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/>
+            <img src="/images/karada/athletes/gen4.jpg" alt="Patrik Baboumian" style="width:100%;height:100%;object-fit:contain;padding:4px;" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"/>
             <span style="display:none;font-size:40px;">🏋️</span>
           </div>
         </div>
@@ -870,10 +873,6 @@
         </div>
       </div>
 
-      <p class="reveal mt-6 font-jp text-ink-soft text-[13.5px] sm:text-[14px] leading-[1.85] text-center max-w-xl mx-auto">
-        ※ <ruby>大豆<rt>だいず</rt></ruby>ミート・<ruby>高野<rt>こうや</rt></ruby><ruby>豆腐<rt>どうふ</rt></ruby>・きなこは<ruby>乾燥<rt>かんそう</rt></ruby><ruby>重量<rt>じゅうりょう</rt></ruby>。 <ruby>水<rt>みず</rt></ruby>で<ruby>戻<rt>もど</rt></ruby>すと<ruby>量<rt>りょう</rt></ruby>は<ruby>変<rt>か</rt></ruby>わるけど、<ruby>栄養<rt>えいよう</rt></ruby>はしっかりあるよ！ <ruby>納豆<rt>なっとう</rt></ruby>・<ruby>豆腐<rt>とうふ</rt></ruby>・<ruby>枝豆<rt>えだまめ</rt></ruby>は、<ruby>日本<rt>にほん</rt></ruby>の<ruby>食卓<rt>しょくたく</rt></ruby>ではもうなじみ<ruby>深<rt>ふか</rt></ruby>いね。<a href="#src-1-1" class="src">1</a>
-      </p>
-
       <!-- ════ Nutrition: not just protein ════ -->
       <div class="reveal mt-16 sm:mt-24 text-center">
         <div class="text-[13px] sm:text-[13px] tracking-[0.18em] font-bold" style="color:#9C1428;">NUTRITION SCOREBOARD</div>
@@ -886,7 +885,7 @@
         <img src="/images/oji/oji_idea.png" alt="ビーガン王子" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_explaining.png'"/>
         <div class="bubble flex-1 mb-4">
           <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
-            でもね、栄養って<strong>タンパク質だけ</strong>じゃないんだ。 じつは“タンパク質不足”の人はたった<strong>7%</strong>。 足りていないのは<strong style="color:#C9223A;">食物繊維</strong>（なんと94%が不足）。<a href="#src-greger" class="src">4</a>
+            でもね、<ruby>栄養<rt>えいよう</rt></ruby>って<strong>タンパク<ruby>質<rt>しつ</rt></ruby>だけ</strong>じゃないんだ。 じつは“タンパク<ruby>質<rt>しつ</rt></ruby><ruby>不足<rt>ふそく</rt></ruby>”の<ruby>人<rt>ひと</rt></ruby>はたった<strong>7%</strong>。 <ruby>足<rt>た</rt></ruby>りていないのは<strong style="color:#C9223A;"><ruby>食物<rt>しょくもつ</rt></ruby><ruby>繊維<rt>せんい</rt></ruby></strong>（なんと94%が<ruby>不足<rt>ふそく</rt></ruby>）。<a href="#src-greger" class="src">4</a>
           </p>
         </div>
       </div>
@@ -913,12 +912,12 @@
           <div class="row-label">カロリー密度</div><div class="cell bad"><span class="lab">高い</span></div><div class="cell good"><span class="lab">低め</span></div><div class="cell best"><span class="lab">低い</span></div>
         </div>
 
-        <div class="diffrow"><div class="diffrow-head"><div class="row-label">糞便汚染 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">多い</span></div><div class="cell good"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">牛・七面鳥ひき肉の<strong>85%</strong>、鶏肉の約1/3から腸内細菌（糞便の指標）が検出される。<a href="#src-greger" class="src">4</a></div></div>
-        <div class="diffrow"><div class="diffrow-head"><div class="row-label">サルモネラ等 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">あり</span></div><div class="cell good"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">米国では小売鶏肉の<strong>4個に1個</strong>からサルモネラ。 カンピロバクターは年間<strong>80万人</strong>を発症させる。</div></div>
-        <div class="diffrow"><div class="diffrow-head"><div class="row-label">ホルモン剤 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">あり</span></div><div class="cell good"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">米国の食肉では<strong>7種</strong>のホルモン剤が認可。 EUでは公衆衛生上の理由から全面禁止されている。</div></div>
-        <div class="diffrow"><div class="diffrow-head"><div class="row-label">発がん性分類 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">高い</span></div><div class="cell good"><span class="lab">低い</span></div><div class="cell best"><span class="lab">低い</span></div></div><div class="diff-detail">WHOは加工肉を<strong>グループ1（ヒトに発がん性あり）</strong>、赤身肉を2Aに分類。 加工肉50g/日で大腸がんリスク+18%。</div></div>
-        <div class="diffrow"><div class="diffrow-head"><div class="row-label">TMAO（心血管） <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">高い</span></div><div class="cell good"><span class="lab">低い</span></div><div class="cell best"><span class="lab">低い</span></div></div><div class="diff-detail">肉由来で増えやすいTMAOは、心血管疾患のリスクとの関連が報告されている。</div></div>
-        <div class="diffrow"><div class="diffrow-head"><div class="row-label">乳化剤・カビ毒・アレルゲン <span class="info">ⓘ</span></div><div class="cell good"><span class="lab">少ない</span></div><div class="cell bad"><span class="lab">多い</span></div><div class="cell best"><span class="lab">少ない</span></div></div><div class="diff-detail">正直に言うと、ここは<strong>代替肉がお肉より劣る</strong>こともある数少ない項目。 だからこそ、いちばんの正解は加工前の植物をそのまま食べること。</div></div>
+        <div class="diffrow"><div class="diffrow-head"><div class="row-label">糞便汚染 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">多い</span></div><div class="cell best"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">牛・七面鳥ひき肉の<strong>85%</strong>、鶏肉の約1/3から腸内細菌（糞便の指標）が検出される。<a href="#src-greger" class="src">4</a></div></div>
+        <div class="diffrow"><div class="diffrow-head"><div class="row-label">サルモネラ等 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">あり</span></div><div class="cell best"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">米国では小売鶏肉の<strong>4個に1個</strong>からサルモネラ。 カンピロバクターは年間<strong>80万人</strong>を発症させる。</div></div>
+        <div class="diffrow"><div class="diffrow-head"><div class="row-label">ホルモン剤 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">あり</span></div><div class="cell best"><span class="lab">なし</span></div><div class="cell best"><span class="lab">なし</span></div></div><div class="diff-detail">米国の食肉では<strong>7種</strong>のホルモン剤が認可。 EUでは公衆衛生上の理由から全面禁止されている。</div></div>
+        <div class="diffrow"><div class="diffrow-head"><div class="row-label">発がん性分類 <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">高い</span></div><div class="cell best"><span class="lab">低い</span></div><div class="cell best"><span class="lab">低い</span></div></div><div class="diff-detail">WHOは加工肉を<strong>グループ1（ヒトに発がん性あり）</strong>、赤身肉を2Aに分類。 加工肉50g/日で大腸がんリスク+18%。</div></div>
+        <div class="diffrow"><div class="diffrow-head"><div class="row-label">TMAO（心血管） <span class="info">ⓘ</span></div><div class="cell bad"><span class="lab">高い</span></div><div class="cell best"><span class="lab">低い</span></div><div class="cell best"><span class="lab">低い</span></div></div><div class="diff-detail">肉由来で増えやすいTMAOは、心血管疾患のリスクとの関連が報告されている。</div></div>
+        <div class="diffrow"><div class="diffrow-head"><div class="row-label">乳化剤・カビ毒・アレルゲン <span class="info">ⓘ</span></div><div class="cell best"><span class="lab">少ない</span></div><div class="cell bad"><span class="lab">多い</span></div><div class="cell best"><span class="lab">少ない</span></div></div><div class="diff-detail">正直に言うと、ここは<strong>代替肉がお肉より劣る</strong>こともある数少ない項目。 だからこそ、いちばんの正解は加工前の植物をそのまま食べること。</div></div>
 
         </div>
         <p class="text-center text-[13px] text-ink/45 mt-3">ⓘの行をタップで詳しく ／ 出典：Greger 2025<a href="#src-greger" class="src">4</a></p>
@@ -936,28 +935,28 @@
       <p class="reveal sm:hidden text-center text-ink/40 text-[13.5px] mt-3">← よこにスワイプ →</p>
       <div id="athlete-grid" class="mt-6 sm:mt-10 -mx-6 px-6 sm:mx-0 sm:px-0">
         <button type="button" class="pola reveal" style="transform:rotate(-2deg)">
-          <div class="photo"><img src="/images/karada/athletes/gen1.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🎬</span></div>
-          <div class="cap"><div class="font-jp-display text-[15px]">アーノルド</div><div class="text-ink/55 text-[13px]">元ミスター・オリンピア</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「“男は肉を食え”って広告を、僕らは信じてた。 でもあれはマーケティング。 現実じゃない。」<span class="block text-ink/45 text-[13px] font-normal mt-1">The Game Changers（製作総指揮）<a href="#src-1-2" class="src">2</a></span></p></div>
+          <div class="photo"><img src="/images/karada/athletes/gen1.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🎬</span></div>
+          <div class="cap"><div class="font-jp-display text-[15px]">アーノルド</div><div class="text-ink/55 text-[13px]">元ミスター・オリンピア</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「“男は肉を食え”って広告を、僕らは信じてた。 でもあれはマーケティング。 現実じゃない。」<span class="block text-ink/45 text-[13px] font-normal mt-1">The Game Changers（製作総指揮）<a href="#src-1-2" class="src">2</a></span><a href="https://instagram.com/schwarzenegger" target="_blank" rel="noopener" class="ath-link"><img src="/images/social/ig.png" alt=""/>@schwarzenegger</a></p></div>
         </button>
         <button type="button" class="pola reveal" style="transform:rotate(1.5deg)">
-          <div class="photo"><img src="/images/karada/athletes/gen2.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🏆</span></div>
-          <div class="cap"><div class="font-jp-display text-[15px]">ニマイ・デルガド</div><div class="text-ink/55 text-[13px]">IFBBプロ／生涯ベジ</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「ビーガンにした瞬間、回復もエネルギーも、はっきり変わった。 炎症も筋肉痛も減った。 もう戻る気はない。」<span class="block text-ink/45 text-[13px] font-normal mt-1">Nimai Delgado</span></p></div>
+          <div class="photo"><img src="/images/karada/athletes/gen2.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🏆</span></div>
+          <div class="cap"><div class="font-jp-display text-[15px]">ニマイ・デルガド</div><div class="text-ink/55 text-[13px]">IFBBプロ／生涯ベジ</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「ビーガンにした瞬間、回復もエネルギーも、はっきり変わった。 炎症も筋肉痛も減った。 もう戻る気はない。」<span class="block text-ink/45 text-[13px] font-normal mt-1">Nimai Delgado</span><a href="https://instagram.com/nimai_delgado" target="_blank" rel="noopener" class="ath-link"><img src="/images/social/ig.png" alt=""/>@nimai_delgado</a></p></div>
         </button>
         <button type="button" class="pola reveal" style="transform:rotate(-1deg)">
-          <div class="photo"><img src="/images/karada/athletes/gen3.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">💪</span></div>
-          <div class="cap"><div class="font-jp-display text-[15px]">トーレ・ワシントン</div><div class="text-ink/55 text-[13px]">1998年からビーガン</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「“ダイエット”って言葉は使わない。 死にに来たんじゃない、よりよく生きに来たんだ。」<span class="block text-ink/45 text-[13px] font-normal mt-1">Torre Washington（オリンピア出場）</span></p></div>
+          <div class="photo"><img src="/images/karada/athletes/gen3.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">💪</span></div>
+          <div class="cap"><div class="font-jp-display text-[15px]">トーレ・ワシントン</div><div class="text-ink/55 text-[13px]">1998年からビーガン</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「“ダイエット”って言葉は使わない。 死にに来たんじゃない、よりよく生きに来たんだ。」<span class="block text-ink/45 text-[13px] font-normal mt-1">Torre Washington（オリンピア出場）</span><a href="https://instagram.com/torre.washington" target="_blank" rel="noopener" class="ath-link"><img src="/images/social/ig.png" alt=""/>@torre.washington</a></p></div>
         </button>
         <button type="button" class="pola reveal" style="transform:rotate(2deg)">
-          <div class="photo"><img src="/images/karada/athletes/gen5.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🥇</span></div>
-          <div class="cap"><div class="font-jp-display text-[15px]">ジョーイ・ビロテック</div><div class="text-ink/55 text-[13px]">2026 OCB・クラシックフィジーク優勝</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「同じ大会でビーガンが2人とも優勝。 これ以上ない証拠だよ——筋肉に、肉は要らないって。」<span class="block text-ink/45 text-[13px] font-normal mt-1">舞台裏で“相方”もビーガンだと発覚</span></p></div>
+          <div class="photo"><img src="/images/karada/athletes/gen5.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🥇</span></div>
+          <div class="cap"><div class="font-jp-display text-[15px]">ジョーイ・ビロテック</div><div class="text-ink/55 text-[13px]">2026 OCB・クラシックフィジーク優勝</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「同じ大会でビーガンが2人とも優勝。 これ以上ない証拠だよ——筋肉に、肉は要らないって。」<span class="block text-ink/45 text-[13px] font-normal mt-1">舞台裏で“相方”もビーガンだと発覚</span><a href="https://plantbasednews.org/culture/sport/vegan-bodybuilders-first-ocb-spring-naturals/" target="_blank" rel="noopener" class="ath-link">紹介記事 ↗</a></p></div>
         </button>
         <button type="button" class="pola reveal" style="transform:rotate(-1.5deg)">
-          <div class="photo"><img src="/images/karada/athletes/gen6.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🏅</span></div>
-          <div class="cap"><div class="font-jp-display text-[15px]">"Chuck"・ジーグラー</div><div class="text-ink/55 text-[13px]">ボディビル優勝・プロ昇格</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">ボディビル部門で優勝、10年越しのプロ資格を獲得。 楽屋で連絡先を交換して——はじめて、おたがいビーガンだと判明。<span class="block text-ink/45 text-[13px] font-normal mt-1">Charlie "the Vegan Lifter" Ziegler</span></p></div>
+          <div class="photo"><img src="/images/karada/athletes/gen6.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🏅</span></div>
+          <div class="cap"><div class="font-jp-display text-[15px]">"Chuck"・ジーグラー</div><div class="text-ink/55 text-[13px]">ボディビル優勝・プロ昇格</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">ボディビル部門で優勝、10年越しのプロ資格を獲得。 楽屋で連絡先を交換して——はじめて、おたがいビーガンだと判明。<span class="block text-ink/45 text-[13px] font-normal mt-1">Charlie "the Vegan Lifter" Ziegler</span><a href="https://plantbasednews.org/culture/sport/vegan-bodybuilders-first-ocb-spring-naturals/" target="_blank" rel="noopener" class="ath-link">紹介記事 ↗</a></p></div>
         </button>
         <button type="button" class="pola reveal" style="transform:rotate(1deg)">
-          <div class="photo"><img src="/images/karada/athletes/gen4.png" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🪨</span></div>
-          <div class="cap"><div class="font-jp-display text-[15px]">パトリック・バブミアン</div><div class="text-ink/55 text-[13px]">ストロングマン世界記録</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「最も強い動物は草食動物だ。 ゴリラ、牛、象——そして、私だ。」<span class="block text-ink/45 text-[13px] font-normal mt-1">Patrik Baboumian</span></p></div>
+          <div class="photo"><img src="/images/karada/athletes/gen4.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/><span class="ph-emoji" style="display:none;">🪨</span></div>
+          <div class="cap"><div class="font-jp-display text-[15px]">パトリック・バブミアン</div><div class="text-ink/55 text-[13px]">ストロングマン世界記録</div><p class="q mt-2 text-ink text-[13.5px] leading-[1.65] font-bold">「最も強い動物は草食動物だ。 ゴリラ、牛、象——そして、私だ。」<span class="block text-ink/45 text-[13px] font-normal mt-1">Patrik Baboumian</span><a href="https://instagram.com/patrikbaboumian" target="_blank" rel="noopener" class="ath-link"><img src="/images/social/ig.png" alt=""/>@patrikbaboumian</a></p></div>
         </button>
       </div>
 
@@ -966,7 +965,7 @@
         <img src="/images/oji/oji_happy.png" alt="ビーガン王子" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy"/>
         <div class="bubble flex-1 mb-4">
           <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
-            ね？ 「お肉じゃなきゃ力は出ない」——そう思いがちだけど、じつはそうでもないんだ。 強さも、健やかさも、植物からちゃんと生まれるんだよ。
+            ね？ 「お<ruby>肉<rt>にく</rt></ruby>じゃなきゃ<ruby>力<rt>ちから</rt></ruby>は<ruby>出<rt>で</rt></ruby>ない」——そう<ruby>思<rt>おも</rt></ruby>いがちだけど、じつはそうでもないんだ。 <ruby>強<rt>つよ</rt></ruby>さも、<ruby>健<rt>すこ</rt></ruby>やかさも、<ruby>植物<rt>しょくぶつ</rt></ruby>からちゃんと<ruby>生<rt>う</rt></ruby>まれるんだよ。
           </p>
         </div>
       </div>
@@ -996,13 +995,13 @@
     <div class="max-w-3xl mx-auto">
 
       <div class="reveal text-center">
-        <h2 class="font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
-          植物の力で、<br/>
-          <span style="color: #2B7AB0;">からだは変わる。</span>
+        <h2 class="heading-with-ruby font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
+          <ruby>植物<rt>しょくぶつ</rt></ruby>の<ruby>力<rt>ちから</rt></ruby>で、<br/>
+          <span style="color: #2B7AB0;">からだは<ruby>変<rt>か</rt></ruby>わる。</span>
         </h2>
         <p class="mt-6 font-jp text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
-          気分の問題じゃない。<br/>
-          世界中の研究が、はっきり示している。
+          <ruby>気分<rt>きぶん</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>じゃない。<br/>
+          <ruby>世界中<rt>せかいじゅう</rt></ruby>の<ruby>研究<rt>けんきゅう</rt></ruby>が、はっきり<ruby>示<rt>しめ</rt></ruby>している。
         </p>
       </div>
 
@@ -1011,7 +1010,7 @@
         <img src="/images/oji/oji_teaching.png" alt="ビーガン王子" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_explaining.png'"/>
         <div class="bubble flex-1 mb-4">
           <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
-            じつはね、植物のごはんって、からだにいいことがいっぱいなんだ。 気になるカードをタップして、ひとつずつのぞいてみて！ 👆
+            じつはね、<ruby>植物<rt>しょくぶつ</rt></ruby>のごはんって、からだにいいことがいっぱいなんだ。 <ruby>気<rt>き</rt></ruby>になるカードをタップして、ひとつずつのぞいてみて！ 👆
           </p>
         </div>
       </div>
@@ -1020,48 +1019,48 @@
       <div class="mt-8 space-y-4">
 
         <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/heart.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🫀</span></span><div><div class="hcard-ttl">心臓と血管を、守る。</div><div class="hcard-sub">コレステロール・血圧・心臓病</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/heart.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🫀</span></span><div><div class="hcard-ttl"><ruby>心臓<rt>しんぞう</rt></ruby>と<ruby>血管<rt>けっかん</rt></ruby>を、<ruby>守<rt>まも</rt></ruby>る。</div><div class="hcard-sub">コレステロール・<ruby>血圧<rt>けつあつ</rt></ruby>・<ruby>心臓病<rt>しんぞうびょう</rt></ruby></div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
           <div class="hcard-body"><ul>
-            <li><strong>悪玉(LDL)コレステロールを下げる。</strong> 動物性の脂肪とコレステロールをやめると、LDLが下がる。 スタンフォード大の双子研究では、<strong>わずか8週間でLDLが約14%低下</strong>し、効果は4週間で現れはじめた。<a href="#src-cardio" class="src">5</a></li>
-            <li><strong>血圧を下げる。</strong> ベジタリアン食は収縮期血圧を<strong>平均で約5mmHg</strong>下げると報告。 脳卒中・高血圧のリスクを減らす。<a href="#src-bp" class="src">6</a></li>
-            <li><strong>心臓病のリスクを減らす。</strong> 全粒・ナッツ・豆が動脈を守り、冠動脈疾患のリスクを下げる。<a href="#src-chd" class="src">7</a></li>
+            <li><strong><ruby>悪玉<rt>あくだま</rt></ruby>(LDL)コレステロールを<ruby>下<rt>さ</rt></ruby>げる。</strong> <ruby>動物性<rt>どうぶつせい</rt></ruby>の<ruby>脂肪<rt>しぼう</rt></ruby>とコレステロールをやめると、LDLが<ruby>下<rt>さ</rt></ruby>がる。 スタンフォード<ruby>大<rt>だい</rt></ruby>の<ruby>双子<rt>ふたご</rt></ruby><ruby>研究<rt>けんきゅう</rt></ruby>では、<strong>わずか8<ruby>週間<rt>しゅうかん</rt></ruby>でLDLが<ruby>約<rt>やく</rt></ruby>14%<ruby>低下<rt>ていか</rt></ruby></strong>し、<ruby>効果<rt>こうか</rt></ruby>は4<ruby>週間<rt>しゅうかん</rt></ruby>で<ruby>現<rt>あらわ</rt></ruby>れはじめた。<a href="#src-cardio" class="src">5</a></li>
+            <li><strong><ruby>血圧<rt>けつあつ</rt></ruby>を<ruby>下<rt>さ</rt></ruby>げる。</strong> ベジタリアン<ruby>食<rt>しょく</rt></ruby>は<ruby>収縮期<rt>しゅうしゅくき</rt></ruby><ruby>血圧<rt>けつあつ</rt></ruby>を<strong><ruby>平均<rt>へいきん</rt></ruby>で<ruby>約<rt>やく</rt></ruby>5mmHg</strong><ruby>下<rt>さ</rt></ruby>げると<ruby>報告<rt>ほうこく</rt></ruby>。 <ruby>脳卒中<rt>のうそっちゅう</rt></ruby>・<ruby>高血圧<rt>こうけつあつ</rt></ruby>のリスクを<ruby>減<rt>へ</rt></ruby>らす。<a href="#src-bp" class="src">6</a></li>
+            <li><strong><ruby>心臓病<rt>しんぞうびょう</rt></ruby>のリスクを<ruby>減<rt>へ</rt></ruby>らす。</strong> <ruby>全粒<rt>ぜんりゅう</rt></ruby>・ナッツ・<ruby>豆<rt>まめ</rt></ruby>が<ruby>動脈<rt>どうみゃく</rt></ruby>を<ruby>守<rt>まも</rt></ruby>り、<ruby>冠動脈<rt>かんどうみゃく</rt></ruby><ruby>疾患<rt>しっかん</rt></ruby>のリスクを<ruby>下<rt>さ</rt></ruby>げる。<a href="#src-chd" class="src">7</a></li>
           </ul></div>
         </div>
 
         <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/energy.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">⚡</span></span><div><div class="hcard-ttl">代謝・体重・エネルギー。</div><div class="hcard-sub">血糖・ダイエット・軽やかさ</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/energy.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">⚡</span></span><div><div class="hcard-ttl"><ruby>代謝<rt>たいしゃ</rt></ruby>・<ruby>体重<rt>たいじゅう</rt></ruby>・エネルギー。</div><div class="hcard-sub"><ruby>血糖<rt>けっとう</rt></ruby>・ダイエット・<ruby>軽<rt>かろ</rt></ruby>やかさ</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
           <div class="hcard-body"><ul>
-            <li><strong>インスリン感受性を高める。</strong> まるごと植物は糖の吸収をゆるやかにする。 30万人規模の研究で、健康的な植物性食は<strong>2型糖尿病のリスクを下げる</strong>と確認された。<a href="#src-t2d" class="src">8</a></li>
-            <li><strong>無理のない減量。</strong> カロリー密度が低く、食物繊維で満腹が続く。 双子研究では植物性の側が平均で多く減量した。<a href="#src-cardio" class="src">5</a></li>
-            <li><strong>一日を、軽やかに。</strong> 炎症が減り、鉄分豊富な植物（豆・全粒・緑黄色野菜）が体を動かす燃料に。 多くのアスリートが「回復が速くなった」と語る。<a href="#src-inflam" class="src">15</a></li>
+            <li><strong>インスリン<ruby>感受性<rt>かんじゅせい</rt></ruby>を<ruby>高<rt>たか</rt></ruby>める。</strong> まるごと<ruby>植物<rt>しょくぶつ</rt></ruby>は<ruby>糖<rt>とう</rt></ruby>の<ruby>吸収<rt>きゅうしゅう</rt></ruby>をゆるやかにする。 30<ruby>万人<rt>まんにん</rt></ruby><ruby>規模<rt>きぼ</rt></ruby>の<ruby>研究<rt>けんきゅう</rt></ruby>で、<ruby>健康的<rt>けんこうてき</rt></ruby>な<ruby>植物性<rt>しょくぶつせい</rt></ruby><ruby>食<rt>しょく</rt></ruby>は<strong>2<ruby>型<rt>がた</rt></ruby><ruby>糖尿病<rt>とうにょうびょう</rt></ruby>のリスクを<ruby>下<rt>さ</rt></ruby>げる</strong>と<ruby>確認<rt>かくにん</rt></ruby>された。<a href="#src-t2d" class="src">8</a></li>
+            <li><strong><ruby>無理<rt>むり</rt></ruby>のない<ruby>減量<rt>げんりょう</rt></ruby>。</strong> カロリー<ruby>密度<rt>みつど</rt></ruby>が<ruby>低<rt>ひく</rt></ruby>く、<ruby>食物<rt>しょくもつ</rt></ruby><ruby>繊維<rt>せんい</rt></ruby>で<ruby>満腹<rt>まんぷく</rt></ruby>が<ruby>続<rt>つづ</rt></ruby>く。 <ruby>双子<rt>ふたご</rt></ruby><ruby>研究<rt>けんきゅう</rt></ruby>では<ruby>植物性<rt>しょくぶつせい</rt></ruby>の<ruby>側<rt>がわ</rt></ruby>が<ruby>平均<rt>へいきん</rt></ruby>で<ruby>多<rt>おお</rt></ruby>く<ruby>減量<rt>げんりょう</rt></ruby>した。<a href="#src-cardio" class="src">5</a></li>
+            <li><strong><ruby>一日<rt>いちにち</rt></ruby>を、<ruby>軽<rt>かろ</rt></ruby>やかに。</strong> <ruby>炎症<rt>えんしょう</rt></ruby>が<ruby>減<rt>へ</rt></ruby>り、<ruby>鉄分<rt>てつぶん</rt></ruby><ruby>豊富<rt>ほうふ</rt></ruby>な<ruby>植物<rt>しょくぶつ</rt></ruby>（<ruby>豆<rt>まめ</rt></ruby>・<ruby>全粒<rt>ぜんりゅう</rt></ruby>・<ruby>緑黄色<rt>りょくおうしょく</rt></ruby><ruby>野菜<rt>やさい</rt></ruby>）が<ruby>体<rt>からだ</rt></ruby>を<ruby>動<rt>うご</rt></ruby>かす<ruby>燃料<rt>ねんりょう</rt></ruby>に。 <ruby>多<rt>おお</rt></ruby>くのアスリートが「<ruby>回復<rt>かいふく</rt></ruby>が<ruby>速<rt>はや</rt></ruby>くなった」と<ruby>語<rt>かた</rt></ruby>る。<a href="#src-inflam" class="src">15</a></li>
           </ul></div>
         </div>
 
         <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/shield.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🛡️</span></span><div><div class="hcard-ttl">がんから、細胞を守る。</div><div class="hcard-sub">大腸がん・抗酸化・ホルモン</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/shield.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🛡️</span></span><div><div class="hcard-ttl">がんから、<ruby>細胞<rt>さいぼう</rt></ruby>を<ruby>守<rt>まも</rt></ruby>る。</div><div class="hcard-sub"><ruby>大腸<rt>だいちょう</rt></ruby>がん・<ruby>抗酸化<rt>こうさんか</rt></ruby>・ホルモン</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
           <div class="hcard-body"><ul>
-            <li><strong>大腸がんのリスクを下げる。</strong> 豆類・食物繊維をしっかり摂ると、大腸がんのリスクが<strong>約9〜18%下がる</strong>と報告。<a href="#src-fibcrc" class="src">9</a></li>
-            <li><strong>抗酸化成分が豊富。</strong> ビタミンA・C・Eが、細胞を傷つける活性酸素を中和する。</li>
-            <li><strong>ホルモンバランスを整える。</strong> 大豆（イソフラボン）を多くとり、体脂肪を低く保つことが、乳がん・前立腺がんのリスク低下と関連する。</li>
+            <li><strong><ruby>大腸<rt>だいちょう</rt></ruby>がんのリスクを<ruby>下<rt>さ</rt></ruby>げる。</strong> <ruby>豆類<rt>まめるい</rt></ruby>・<ruby>食物<rt>しょくもつ</rt></ruby><ruby>繊維<rt>せんい</rt></ruby>をしっかり<ruby>摂<rt>と</rt></ruby>ると、<ruby>大腸<rt>だいちょう</rt></ruby>がんのリスクが<strong><ruby>約<rt>やく</rt></ruby>9〜18%<ruby>下<rt>さ</rt></ruby>がる</strong>と<ruby>報告<rt>ほうこく</rt></ruby>。<a href="#src-fibcrc" class="src">9</a></li>
+            <li><strong><ruby>抗酸化<rt>こうさんか</rt></ruby><ruby>成分<rt>せいぶん</rt></ruby>が<ruby>豊富<rt>ほうふ</rt></ruby>。</strong> ビタミンA・C・Eが、<ruby>細胞<rt>さいぼう</rt></ruby>を<ruby>傷<rt>きず</rt></ruby>つける<ruby>活性<rt>かっせい</rt></ruby><ruby>酸素<rt>さんそ</rt></ruby>を<ruby>中和<rt>ちゅうわ</rt></ruby>する。</li>
+            <li><strong>ホルモンバランスを<ruby>整<rt>ととの</rt></ruby>える。</strong> <ruby>大豆<rt>だいず</rt></ruby>（イソフラボン）を<ruby>多<rt>おお</rt></ruby>くとり、<ruby>体脂肪<rt>たいしぼう</rt></ruby>を<ruby>低<rt>ひく</rt></ruby>く<ruby>保<rt>たも</rt></ruby>つことが、<ruby>乳<rt>にゅう</rt></ruby>がん・<ruby>前立腺<rt>ぜんりつせん</rt></ruby>がんのリスク<ruby>低下<rt>ていか</rt></ruby>と<ruby>関連<rt>かんれん</rt></ruby>する。</li>
           </ul></div>
         </div>
 
         <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/gut.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🌀</span></span><div><div class="hcard-ttl">腸を育て、お通じを整える。</div><div class="hcard-sub">腸内環境・便秘・関節の痛み</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/gut.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">🌀</span></span><div><div class="hcard-ttl"><ruby>腸<rt>ちょう</rt></ruby>を<ruby>育<rt>そだ</rt></ruby>て、お<ruby>通<rt>つう</rt></ruby>じを<ruby>整<rt>ととの</rt></ruby>える。</div><div class="hcard-sub"><ruby>腸内<rt>ちょうない</rt></ruby><ruby>環境<rt>かんきょう</rt></ruby>・<ruby>便秘<rt>べんぴ</rt></ruby>・<ruby>関節<rt>かんせつ</rt></ruby>の<ruby>痛<rt>いた</rt></ruby>み</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
           <div class="hcard-body"><ul>
-            <li><strong>腸内細菌を多様にする。</strong> 複雑な植物の繊維が、善玉菌のエサになる。<a href="#src-fiber" class="src">10</a></li>
-            <li><strong>お通じをスムーズに。</strong> お肉・卵・乳製品の食物繊維はゼロ。 植物の繊維が、毎日のリズムを整える。<a href="#src-fiber" class="src">10</a></li>
-            <li><strong>関節の痛みをやわらげる。</strong> 植物中心の食事は炎症マーカーをはっきり下げ、関節の痛みを軽くすると報告されている。<a href="#src-multi" class="src">11</a></li>
+            <li><strong><ruby>腸内<rt>ちょうない</rt></ruby><ruby>細菌<rt>さいきん</rt></ruby>を<ruby>多様<rt>たよう</rt></ruby>にする。</strong> <ruby>複雑<rt>ふくざつ</rt></ruby>な<ruby>植物<rt>しょくぶつ</rt></ruby>の<ruby>繊維<rt>せんい</rt></ruby>が、<ruby>善玉菌<rt>ぜんだまきん</rt></ruby>のエサになる。<a href="#src-fiber" class="src">10</a></li>
+            <li><strong>お<ruby>通<rt>つう</rt></ruby>じをスムーズに。</strong> お<ruby>肉<rt>にく</rt></ruby>・<ruby>卵<rt>たまご</rt></ruby>・<ruby>乳製品<rt>にゅうせいひん</rt></ruby>の<ruby>食物<rt>しょくもつ</rt></ruby><ruby>繊維<rt>せんい</rt></ruby>はゼロ。 <ruby>植物<rt>しょくぶつ</rt></ruby>の<ruby>繊維<rt>せんい</rt></ruby>が、<ruby>毎日<rt>まいにち</rt></ruby>のリズムを<ruby>整<rt>ととの</rt></ruby>える。<a href="#src-fiber" class="src">10</a></li>
+            <li><strong><ruby>関節<rt>かんせつ</rt></ruby>の<ruby>痛<rt>いた</rt></ruby>みをやわらげる。</strong> <ruby>植物<rt>しょくぶつ</rt></ruby><ruby>中心<rt>ちゅうしん</rt></ruby>の<ruby>食事<rt>しょくじ</rt></ruby>は<ruby>炎症<rt>えんしょう</rt></ruby>マーカーをはっきり<ruby>下<rt>さ</rt></ruby>げ、<ruby>関節<rt>かんせつ</rt></ruby>の<ruby>痛<rt>いた</rt></ruby>みを<ruby>軽<rt>かる</rt></ruby>くすると<ruby>報告<rt>ほうこく</rt></ruby>されている。<a href="#src-multi" class="src">11</a></li>
           </ul></div>
         </div>
 
         <div class="hcard reveal">
-          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/glow.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">✨</span></span><div><div class="hcard-ttl">美容・アンチエイジング。</div><div class="hcard-sub">肌・髪・爪・若々しさ</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="hcard-head"><span class="hcard-ico"><img src="/images/karada/health/glow.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"/><span class="fb" style="display:none;">✨</span></span><div><div class="hcard-ttl"><ruby>美容<rt>びよう</rt></ruby>・アンチエイジング。</div><div class="hcard-sub"><ruby>肌<rt>はだ</rt></ruby>・<ruby>髪<rt>かみ</rt></ruby>・<ruby>爪<rt>つめ</rt></ruby>・<ruby>若々<rt>わかわか</rt></ruby>しさ</div></div><svg class="hcard-chev" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6 L8 10 L12 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
           <div class="hcard-body"><ul>
-            <li><strong>肌のハリを支える。</strong> コラーゲンづくりに欠かせない<strong>ビタミンC</strong>は、赤ピーマン・ブロッコリー・柑橘にたっぷり。<a href="#src-skin" class="src">14</a></li>
-            <li><strong>髪と爪の材料に。</strong> タンパク質・鉄・亜鉛が、大豆・レンズ豆・ナッツ・全粒から摂れる。</li>
-            <li><strong>細胞の老化をゆるめる。</strong> 植物中心の生活習慣が、細胞の“寿命”を測るテロメアを保つことと関連する（オーニッシュ研究）。<a href="#src-telo" class="src">12</a></li>
-            <li><strong>長寿の食卓。</strong> かつて長寿日本一だった沖縄の伝統食も、芋・大豆・野菜が中心の“まるごと植物”だった。<a href="#src-oki" class="src">13</a></li>
+            <li><strong><ruby>肌<rt>はだ</rt></ruby>のハリを<ruby>支<rt>ささ</rt></ruby>える。</strong> コラーゲンづくりに<ruby>欠<rt>か</rt></ruby>かせない<strong>ビタミンC</strong>は、<ruby>赤<rt>あか</rt></ruby>ピーマン・ブロッコリー・<ruby>柑橘<rt>かんきつ</rt></ruby>にたっぷり。<a href="#src-skin" class="src">14</a></li>
+            <li><strong><ruby>髪<rt>かみ</rt></ruby>と<ruby>爪<rt>つめ</rt></ruby>の<ruby>材料<rt>ざいりょう</rt></ruby>に。</strong> タンパク<ruby>質<rt>しつ</rt></ruby>・<ruby>鉄<rt>てつ</rt></ruby>・<ruby>亜鉛<rt>あえん</rt></ruby>が、<ruby>大豆<rt>だいず</rt></ruby>・レンズ<ruby>豆<rt>まめ</rt></ruby>・ナッツ・<ruby>全粒<rt>ぜんりゅう</rt></ruby>から<ruby>摂<rt>と</rt></ruby>れる。</li>
+            <li><strong><ruby>細胞<rt>さいぼう</rt></ruby>の<ruby>老化<rt>ろうか</rt></ruby>をゆるめる。</strong> <ruby>植物<rt>しょくぶつ</rt></ruby><ruby>中心<rt>ちゅうしん</rt></ruby>の<ruby>生活<rt>せいかつ</rt></ruby><ruby>習慣<rt>しゅうかん</rt></ruby>が、<ruby>細胞<rt>さいぼう</rt></ruby>の“<ruby>寿命<rt>じゅみょう</rt></ruby>”を<ruby>測<rt>はか</rt></ruby>るテロメアを<ruby>保<rt>たも</rt></ruby>つことと<ruby>関連<rt>かんれん</rt></ruby>する（オーニッシュ<ruby>研究<rt>けんきゅう</rt></ruby>）。<a href="#src-telo" class="src">12</a></li>
+            <li><strong><ruby>長寿<rt>ちょうじゅ</rt></ruby>の<ruby>食卓<rt>しょくたく</rt></ruby>。</strong> かつて<ruby>長寿<rt>ちょうじゅ</rt></ruby><ruby>日本一<rt>にほんいち</rt></ruby>だった<ruby>沖縄<rt>おきなわ</rt></ruby>の<ruby>伝統食<rt>でんとうしょく</rt></ruby>も、<ruby>芋<rt>いも</rt></ruby>・<ruby>大豆<rt>だいず</rt></ruby>・<ruby>野菜<rt>やさい</rt></ruby>が<ruby>中心<rt>ちゅうしん</rt></ruby>の“まるごと<ruby>植物<rt>しょくぶつ</rt></ruby>”だった。<a href="#src-oki" class="src">13</a></li>
           </ul></div>
         </div>
 
@@ -1070,11 +1069,11 @@
       <!-- Disclaimer (collapsible) -->
       <details class="reveal mt-10 note-box note-toggle">
         <summary class="cursor-pointer flex items-center gap-2 font-jp font-bold text-ink-soft text-[13.5px] sm:text-[14px]">
-          <span>⚠️</span><span>ご利用にあたって（注意）</span>
+          <span>⚠️</span><span><ruby>健康<rt>けんこう</rt></ruby>に<ruby>関<rt>かん</rt></ruby>するご<ruby>注意<rt>ちゅうい</rt></ruby></span>
           <svg class="chev ml-auto" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3.5 5 L6.5 8 L9.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
         </summary>
         <p class="font-jp text-ink-soft text-[13px] sm:text-[13.5px] leading-[1.9] mt-3">
-          効果や数値は、引用した研究で報告されたもの。 個人差があり、すべての人に同じ結果を約束するものではありません。 持病のある方、妊娠・授乳中の方、お子さま・ご高齢の方の食事は、医師や管理栄養士にご相談ください。 植物性中心の食事では、ビタミン B12 などを意識して補うと安心です。<a href="#src-b12" class="src">16</a>
+          <ruby>効果<rt>こうか</rt></ruby>や<ruby>数値<rt>すうち</rt></ruby>は、<ruby>引用<rt>いんよう</rt></ruby>した<ruby>研究<rt>けんきゅう</rt></ruby>で<ruby>報告<rt>ほうこく</rt></ruby>されたもの。 <ruby>個人差<rt>こじんさ</rt></ruby>があり、すべての<ruby>人<rt>ひと</rt></ruby>に<ruby>同<rt>おな</rt></ruby>じ<ruby>結果<rt>けっか</rt></ruby>を<ruby>約束<rt>やくそく</rt></ruby>するものではありません。 <ruby>持病<rt>じびょう</rt></ruby>のある<ruby>方<rt>かた</rt></ruby>、<ruby>妊娠<rt>にんしん</rt></ruby>・<ruby>授乳中<rt>じゅにゅうちゅう</rt></ruby>の<ruby>方<rt>かた</rt></ruby>、お<ruby>子<rt>こ</rt></ruby>さま・ご<ruby>高齢<rt>こうれい</rt></ruby>の<ruby>方<rt>かた</rt></ruby>の<ruby>食事<rt>しょくじ</rt></ruby>は、<ruby>医師<rt>いし</rt></ruby>や<ruby>管理<rt>かんり</rt></ruby><ruby>栄養士<rt>えいようし</rt></ruby>にご<ruby>相談<rt>そうだん</rt></ruby>ください。 <ruby>植物性<rt>しょくぶつせい</rt></ruby><ruby>中心<rt>ちゅうしん</rt></ruby>の<ruby>食事<rt>しょくじ</rt></ruby>では、ビタミン B12 などを<ruby>意識<rt>いしき</rt></ruby>して<ruby>補<rt>おぎな</rt></ruby>うと<ruby>安心<rt>あんしん</rt></ruby>です。<a href="#src-b12" class="src">16</a>
         </p>
       </details>
 
@@ -1102,13 +1101,13 @@
     <div class="max-w-3xl mx-auto">
 
       <div class="reveal text-center">
-        <h2 class="font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
-          ビーガン＝草、<br/>
+        <h2 class="heading-with-ruby font-jp-display display-tight text-[34px] sm:text-[58px] lg:text-[68px] text-ink leading-[1.06]">
+          ビーガン＝<ruby>草<rt>くさ</rt></ruby>、<br/>
           <span style="color: #3F6A3A;">じゃない。</span>
         </h2>
         <p class="mt-6 font-jp text-ink-soft text-[16px] sm:text-[19px] leading-[1.95] max-w-xl mx-auto">
-          我慢でも、修行でもない。<br/>
-          好きなものは、たいてい植物性でつくれる。
+          <ruby>我慢<rt>がまん</rt></ruby>でも、<ruby>修行<rt>しゅぎょう</rt></ruby>でもない。<br/>
+          <ruby>好<rt>す</rt></ruby>きなものは、たいてい<ruby>植物性<rt>しょくぶつせい</rt></ruby>でつくれる。
         </p>
       </div>
 
@@ -1117,7 +1116,7 @@
         <img src="/images/mascot/chef-prince.png" alt="ビーガン王子 — 料理" class="w-44 sm:w-56 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.16)]" loading="lazy" onerror="this.src='/images/oji/oji_happy.png'"/>
         <div class="bubble flex-1 mb-4">
           <p class="font-jp text-ink text-[14px] sm:text-[16px] leading-[1.85]">
-            ここまでお疲れさま！ じつはビーガン料理って、こんなにおいしそうなんだ。 まずは、見て！ 👀
+            ここまでお<ruby>疲<rt>つか</rt></ruby>れさま！ じつはビーガン<ruby>料理<rt>りょうり</rt></ruby>って、こんなにおいしそうなんだ。 まずは、<ruby>見<rt>み</rt></ruby>て！ 👀
           </p>
         </div>
       </div>
@@ -1127,22 +1126,22 @@
         <div class="gallery-track" id="food-track"></div>
       </div>
       <p class="reveal mt-5 font-jp text-ink-soft text-[13px] sm:text-[15px] text-center">
-        ぜんぶ、植物だけでつくれる料理。 「草」のイメージ、変わったかな？ 😋
+        ぜんぶ、<ruby>植物<rt>しょくぶつ</rt></ruby>だけでつくれる<ruby>料理<rt>りょうり</rt></ruby>。 「<ruby>草<rt>くさ</rt></ruby>」のイメージ、<ruby>変<rt>か</rt></ruby>わったかな？ 😋
       </p>
 
       <!-- Swap cards intro -->
       <div class="reveal mt-16 sm:mt-20 text-center">
         <h3 class="font-jp-display text-[24px] sm:text-[34px] text-ink leading-[1.3]">
-          おうちでも、かんたん。<br/><span style="color:#3F6A3A;">置きかえるだけ。</span>
+          おうちでも、かんたん。<br/><span style="color:#3F6A3A;"><ruby>置<rt>お</rt></ruby>きかえるだけ。</span>
         </h3>
-        <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px]">いつもの材料、じつは選べるものがたくさん。 タップしてね！（手に入りやすい順）👆</p>
+        <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px]">いつもの<ruby>材料<rt>ざいりょう</rt></ruby>、じつは<ruby>選<rt>えら</rt></ruby>べるものがたくさん。 タップしてね！（<ruby>手<rt>て</rt></ruby>に<ruby>入<rt>はい</rt></ruby>りやすい<ruby>順<rt>じゅん</rt></ruby>）👆</p>
       </div>
 
       <!-- Swap flip cards (built by JS) -->
       <div id="oishisa-grid" class="mt-8 sm:mt-10 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6"></div>
 
       <p class="reveal mt-10 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] text-center max-w-xl mx-auto">
-        がまんするんじゃなくて、まずは選択肢を増やしてみよう！ 体調も少しずつ軽く感じ始めるかも。
+        がまんするんじゃなくて、まずは<ruby>選択肢<rt>せんたくし</rt></ruby>を<ruby>増<rt>ふ</rt></ruby>やしてみよう！ <ruby>体調<rt>たいちょう</rt></ruby>も<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>軽<rt>かる</rt></ruby>く<ruby>感<rt>かん</rt></ruby>じ<ruby>始<rt>はじ</rt></ruby>めるかも。
       </p>
 
       <!-- Vegan map CTA (end of おいしさ) -->
@@ -1151,10 +1150,10 @@
         <div class="flex-1">
           <div class="text-[13px] sm:text-[13px] tracking-[0.18em] font-bold mb-2" style="color:#3F6A3A;">VEGAN MAP</div>
           <h3 class="font-jp-display text-[22px] sm:text-[30px] text-ink leading-[1.3] mb-3">
-            お店でも、食べてみよう。
+            お<ruby>店<rt>みせ</rt></ruby>でも、<ruby>食<rt>た</rt></ruby>べてみよう。
           </h3>
           <p class="font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.85] mb-5">
-            日本全国の、ビーガン対応のお店をマップでチェック。 近くの一軒から、気軽に行ってみよう！
+            <ruby>日本<rt>にほん</rt></ruby><ruby>全国<rt>ぜんこく</rt></ruby>の、ビーガン<ruby>対応<rt>たいおう</rt></ruby>のお<ruby>店<rt>みせ</rt></ruby>をマップでチェック。 <ruby>近<rt>ちか</rt></ruby>くの<ruby>一軒<rt>いっけん</rt></ruby>から、<ruby>気軽<rt>きがる</rt></ruby>に<ruby>行<rt>い</rt></ruby>ってみよう！
           </p>
           <a href="https://japanveganmap.ojidigital.com/" target="_blank" rel="noopener" class="btn-base btn-leaf">
             日本ビーガンマップを見る
@@ -1185,15 +1184,15 @@
              loading="lazy" />
       </div>
 
-      <h2 class="reveal font-jp-display display-tight text-[36px] sm:text-[60px] lg:text-[72px] text-ink leading-[1.05]" style="text-shadow:0 2px 12px rgba(255,249,238,0.7);">
-        全部変えなくて、<br/>
+      <h2 class="reveal heading-with-ruby font-jp-display display-tight text-[36px] sm:text-[60px] lg:text-[72px] text-ink leading-[1.05]" style="text-shadow:0 2px 12px rgba(255,249,238,0.7);">
+        <ruby>全部<rt>ぜんぶ</rt></ruby><ruby>変<rt>か</rt></ruby>えなくて、<br/>
         <span class="text-leaf-deep display-italic">いい。</span>
       </h2>
 
       <p class="reveal mt-8 sm:mt-10 max-w-xl mx-auto font-jp text-ink-soft text-[16px] sm:text-[18px] leading-[2]" style="text-shadow:0 1px 8px rgba(255,249,238,0.9);">
-        毎食ぜんぶビーガンにしなくて、大丈夫。<br/>
-        週に一食から。 いつもの一品を、植物性に。<br/>
-        体は、ちゃんと応えてくれる。
+        <ruby>毎食<rt>まいしょく</rt></ruby>ぜんぶビーガンにしなくて、<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>。<br/>
+        <ruby>週<rt>しゅう</rt></ruby>に<ruby>一食<rt>いっしょく</rt></ruby>から。 いつもの<ruby>一品<rt>いっぴん</rt></ruby>を、<ruby>植物性<rt>しょくぶつせい</rt></ruby>に。<br/>
+        <ruby>体<rt>からだ</rt></ruby>は、ちゃんと<ruby>応<rt>こた</rt></ruby>えてくれる。
       </p>
 
       <div class="reveal mt-12 sm:mt-14 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -1210,7 +1209,7 @@
       </div>
 
       <div class="reveal mt-14 sm:mt-16 flex flex-col items-center gap-4">
-        <span class="text-ink/55 text-[14px] sm:text-[16px] font-jp">王子の発信はこちらでも</span>
+        <span class="text-ink/55 text-[14px] sm:text-[16px] font-jp"><ruby>王子<rt>おうじ</rt></ruby>の<ruby>発信<rt>はっしん</rt></ruby>はこちらでも</span>
         <div class="flex items-center gap-3 sm:gap-4">
           <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="social"><img src="/images/social/ig.png" alt=""/></a>
           <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="social"><img src="/images/social/x.png" alt=""/></a>
@@ -1221,7 +1220,7 @@
       </div>
 
       <p class="reveal mt-14 font-jp text-ink/45 text-[14px] sm:text-[15px]">
-        最後まで、ありがとう。
+        <ruby>最後<rt>さいご</rt></ruby>まで、ありがとう。
       </p>
     </div>
   </section>
@@ -1406,12 +1405,12 @@
         const grid = document.getElementById('oishisa-grid');
         if (!grid) return;
         const SWAPS = [
-          { s: 'milk',   a: 'soymilk',     e: '🥛', ae: '🥛', name: '牛乳',   alt: '<b>豆乳</b>・アーモンド・オーツ・ライス・ココナッツ・カシュー <em>…など</em>' },
-          { s: 'meat',   a: 'soymeat',     e: '🥩', ae: '🍱', name: 'お肉',   alt: '<b>豆腐</b>・厚揚げ・高野豆腐・大豆ミート・きのこ・車麩(麩) <em>…など</em>' },
-          { s: 'egg',    a: 'tofu',        e: '🥚', ae: '🍳', name: 'たまご', alt: '<b>豆腐</b>・おから・片栗粉・バナナ・かぼちゃ・アクアファバ <em>…など</em>' },
-          { s: 'cheese', a: 'plantcheese', e: '🧀', ae: '🌱', name: 'チーズ', alt: '<b>植物性チーズ</b>・豆乳・カシュー・栄養酵母・酒粕・白味噌 <em>…など</em>' },
-          { s: 'butter', a: 'plantbutter', e: '🧈', ae: '🌱', name: 'バター', alt: '<b>マーガリン</b>・米油・なたね油・オリーブ油・ココナッツ油 <em>…など</em>' },
-          { s: 'honey',  a: 'maple',       e: '🍯', ae: '🍁', name: 'はちみつ', alt: '<b>メープル</b>・甘酒・米飴・黒蜜・アガベ・デーツ <em>…など</em>' },
+          { s: 'milk',   a: 'soymilk',     e: '🥛', ae: '🥛', name: '牛乳',   alt: '<b>豆乳</b>・アーモンドミルク・オーツミルク・ライスミルク・ココナッツミルク・カシューミルク <em>…など</em>' },
+          { s: 'meat',   a: 'soymeat',     e: '🥩', ae: '🍱', name: 'お肉',   alt: '<b>豆腐</b>・厚揚げ・高野豆腐・大豆ミート・豆・きのこ・車麩(麩) <em>…など</em>' },
+          { s: 'egg',    a: 'tofu',        e: '🥚', ae: '🍳', name: 'たまご', alt: '<b>料理に</b>：豆腐・豆乳ヨーグルト・おから<br><b>お菓子に</b>：バナナ・アクアファバ <em>…など</em>' },
+          { s: 'cheese', a: 'plantcheese', e: '🧀', ae: '🌱', name: 'チーズ', alt: '<b>植物性チーズ</b>・豆乳チーズ・カシュー・栄養酵母・酒粕・白味噌 <em>…など</em>' },
+          { s: 'butter', a: 'plantbutter', e: '🧈', ae: '🌱', name: 'バター', alt: '<b>ビーガンバター</b>・マーガリン・米油・なたね油・オリーブ油・ココナッツ油 <em>…など</em>' },
+          { s: 'honey',  a: 'maple',       e: '🍯', ae: '🍁', name: 'はちみつ', alt: '<b>アガベ</b>・メープル・黒蜜・デーツ・甘酒・米飴 <em>…など</em>' },
         ];
         const swapIco = (slug, fb, cls) =>
           '<img class="flip-ico' + (cls || '') + '" src="/images/karada/swap/' + slug + '.png" alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\';"/><span class="flip-emoji' + (cls || '') + '" style="display:none;">' + fb + '</span>';
@@ -1721,7 +1720,7 @@
           c.classList.toggle('is-open', willOpen);
         });
       });
-      document.querySelectorAll('.diffrow-head').forEach(function(h){ h.addEventListener('click', function(){ h.parentElement.classList.toggle('is-open'); }); });
+      document.querySelectorAll('.diffrow-head').forEach(function(h){ h.addEventListener('click', function(){ var row = h.parentElement; var willOpen = !row.classList.contains('is-open'); document.querySelectorAll('.diffrow.is-open').forEach(function(o){ if (o !== row) o.classList.remove('is-open'); }); row.classList.toggle('is-open', willOpen); }); });
       document.querySelectorAll('.hcard-head').forEach(function(h){
         h.addEventListener('click', function(){
           var card = h.parentElement;
