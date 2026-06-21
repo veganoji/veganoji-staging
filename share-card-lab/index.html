@@ -1,153 +1,402 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="noindex,nofollow" />
-<title>シェア画像 Lab · ビーガン王子</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet" />
-<style>
-:root{
-  --paper:#FFF9EE; --cream:#FDF1DA; --cream2:#F6E4BD;
-  --royal:#C9223A; --royal-deep:#9C1428; --royal-soft:#E55063;
-  --gold:#D4A847; --gold-soft:#E8C76F; --gold-deep:#9C7E2A;
-  --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148; --line:#E9D9B5;
-  --leaf:#4E8C3C; --leaf-deep:#3F6A3A;
-}
-*{ box-sizing:border-box; }
-body{ margin:0; font-family:'Noto Sans JP',system-ui,sans-serif; color:var(--ink);
-  background:var(--paper); background-image:radial-gradient(var(--cream) 1.1px, transparent 1.2px); background-size:22px 22px; -webkit-font-smoothing:antialiased; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>シェアカード・ラボ — Vegan Oji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    :root{
+      --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148;
+      --paper:#FFF9EE; --paper-soft:#FDF1DA; --paper-dim:#F6E4BD;
+      --red:#C9223A; --red-deep:#9C1428;
+      --gold:#D4A847; --gold-deep:#9C7E2A; --gold-soft:#E8C76F;
+      --leaf:#6C9560; --leaf-deep:#3F6A3A;
+      --blue:#2B7AB0; --purple:#6B4E8C; --orange:#C9532C;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink);
+      background:
+        radial-gradient(ellipse at 12% 0%, rgba(108,149,96,0.12), transparent 45%),
+        radial-gradient(ellipse at 90% 8%, rgba(43,122,176,0.10), transparent 45%),
+        #F4EAD6;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:980px; margin:0 auto; padding:40px 20px 100px;}
+    .page-head{text-align:center; margin-bottom:14px;}
+    .page-eyebrow{font-size:13px; letter-spacing:0.22em; font-weight:700; color:var(--leaf-deep);}
+    .page-title{font-size:30px; font-weight:900; margin:8px 0 0; line-height:1.3;}
+    .page-note{max-width:640px; margin:14px auto 0; font-size:14px; line-height:1.85; color:var(--ink-soft);
+      background:#FFFDF8; border:2px solid rgba(31,24,18,0.12); border-radius:16px; padding:14px 18px; text-align:left;}
+    .page-note b{color:var(--red-deep);}
+    .sec-title{font-size:21px; font-weight:900; margin:54px 0 6px; display:flex; align-items:center; gap:10px;}
+    .sec-title .num{display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:var(--ink); color:var(--paper); font-size:15px; flex-shrink:0;}
+    .sec-sub{font-size:14px; color:var(--muted); margin:0 0 26px; line-height:1.6;}
+    .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(420px,1fr)); gap:34px 30px; justify-items:center;}
+    @media (max-width:480px){ .grid{grid-template-columns:1fr;} .wrap{padding:28px 12px 80px;} }
 
-.lab-head{ max-width:1180px; margin:0 auto; padding:40px 22px 8px; text-align:center; }
-.lab-kicker{ font-weight:700; font-size:12px; letter-spacing:.22em; color:var(--royal); text-transform:uppercase; }
-.lab-h1{ font-weight:900; font-size:clamp(26px,5vw,40px); margin:10px 0 6px; letter-spacing:-.01em; }
-.lab-lead{ color:var(--ink-soft); font-size:15px; line-height:1.7; max-width:660px; margin:0 auto; }
-.lab-note{ display:inline-flex; align-items:center; gap:8px; margin-top:16px; background:var(--cream);
-  border:2px solid var(--ink); border-radius:999px; box-shadow:3px 3px 0 var(--ink); padding:8px 16px; font-weight:700; font-size:13px; }
+    .cardbox{display:flex; flex-direction:column; align-items:center; gap:12px;}
+    .cardbox__label{font-size:13px; font-weight:700; color:var(--muted); letter-spacing:0.04em; text-align:center;}
+    .cardbox__label b{color:var(--ink); font-size:14px;}
+    .dlbtn{
+      font-family:inherit; cursor:pointer; font-weight:700; font-size:13px;
+      background:var(--ink); color:var(--paper); border:none; border-radius:999px;
+      padding:8px 18px; transition:transform .15s, opacity .15s;
+    }
+    .dlbtn:hover{transform:translateY(-1px); opacity:0.9;}
+    .dlbtn:active{transform:translateY(1px);}
 
-.lab-grid{ max-width:1320px; margin:30px auto 70px; padding:0 22px; display:flex; flex-wrap:wrap; gap:42px 34px; justify-content:center; align-items:flex-start; }
-.lab-item{ width:360px; max-width:100%; }
-figcaption{ margin-top:16px; }
-.cap-tag{ display:inline-block; font-weight:900; font-size:11px; letter-spacing:.12em; color:var(--paper); background:var(--ink); border-radius:7px; padding:3px 9px; }
-.cap-tag.oji{ background:var(--royal); }
-.cap-title{ font-weight:900; font-size:18px; margin:9px 0 4px; }
-.cap-desc{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
+    /* ───────── shared share-card base (authored at 420×420 → exports 1080) ───────── */
+    .scard{
+      width:420px; height:420px; position:relative; overflow:hidden;
+      border-radius:30px; border:3px solid var(--ink); box-shadow:7px 7px 0 var(--ink);
+      background:var(--paper); font-family:"Noto Sans JP",sans-serif;
+      flex-shrink:0;
+    }
+    .scard *{box-sizing:border-box;}
+    .num-f{font-weight:900; font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-0.02em;}
 
-/* ---- the 360px display frame holding a 1080px design scaled 1/3 ---- */
-.card-frame{ width:360px; height:360px; border:3px solid var(--ink); border-radius:22px; box-shadow:7px 7px 0 var(--ink); overflow:hidden; background:#fff; }
-.sc{ position:relative; width:1080px; height:1080px; transform:scale(0.33333); transform-origin:top left; overflow:hidden; }
-.sc img{ display:block; }
-.serif{ font-family:'Noto Serif JP', serif; }
-.abs{ position:absolute; }
-</style>
+    /* invite bar shared by most cards */
+    .invite{
+      position:absolute; left:0; right:0; bottom:0; height:50px;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      background:var(--ink); color:var(--paper); font-size:13px; font-weight:700; letter-spacing:0.01em;
+    }
+    .invite .u{color:var(--gold-soft);}
+    .invite .leaf{font-size:15px;}
+
+    /* ════ D1 — 4-stat grid ════ */
+    .d1{background:radial-gradient(ellipse at 85% 12%, rgba(212,168,71,0.18), transparent 55%), var(--paper);}
+    .d1 .eyebrow{position:absolute; top:26px; left:30px; font-size:14px; font-weight:700; letter-spacing:0.12em; color:var(--leaf-deep);}
+    .d1 .ttl{position:absolute; top:46px; left:30px; right:120px; font-size:25px; font-weight:900; line-height:1.32;}
+    .d1 .oji{position:absolute; top:18px; right:14px; width:104px; filter:drop-shadow(0 6px 12px rgba(31,24,18,.18));}
+    .d1 .tiles{position:absolute; top:150px; left:24px; right:24px; display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+    .d1 .tile{background:#FFFDF8; border:2.5px solid var(--ink); border-radius:18px; padding:12px; display:flex; align-items:center; gap:10px; box-shadow:3px 3px 0 rgba(31,24,18,.14);}
+    .d1 .tile img{width:38px; height:38px; object-fit:contain; flex-shrink:0;}
+    .d1 .tlab{font-size:12px; font-weight:700; color:var(--muted); line-height:1;}
+    .d1 .tnum{font-size:21px; margin-top:4px; white-space:nowrap;}
+    .d1 .tsub{font-size:10px; color:var(--muted); margin-top:4px; line-height:1.2;}
+
+    /* ════ D2 — before → after ════ */
+    .d2{background:var(--paper);}
+    .d2 .ttl{position:absolute; top:24px; left:28px; right:28px; text-align:center; font-size:22px; font-weight:900; line-height:1.3;}
+    .d2 .heads{position:absolute; top:86px; left:24px; right:24px; display:flex; justify-content:space-between; padding:0 14px;}
+    .d2 .h{font-size:14px; font-weight:900; text-align:center; width:44%;}
+    .d2 .h .pill{display:inline-block; padding:3px 14px; border-radius:999px; border:2px solid var(--ink);}
+    .d2 .h.meat .pill{background:#EDE7E0; color:var(--muted);}
+    .d2 .h.veg .pill{background:var(--leaf); color:#fff;}
+    .d2 .rows{position:absolute; top:122px; left:24px; right:24px; display:flex; flex-direction:column; gap:7px;}
+    .d2 .row{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; background:#FFFDF8; border:2px solid rgba(31,24,18,.16); border-radius:14px; padding:6px 12px;}
+    .d2 .row .lab{grid-column:1 / -1; font-size:11px; font-weight:700; color:var(--muted); margin-bottom:2px; text-align:center;}
+    .d2 .row .from{font-size:19px; color:var(--muted); text-align:center;}
+    .d2 .row .ar{font-size:16px; color:var(--red); font-weight:900; padding:0 8px;}
+    .d2 .row .to{font-size:21px; color:var(--leaf-deep); text-align:center;}
+
+    /* ════ D3 — いのち hero ════ */
+    .d3{background:radial-gradient(ellipse at 50% 36%, rgba(107,78,140,0.16), transparent 60%), var(--paper);}
+    .d3 .eyebrow{position:absolute; top:26px; left:0; right:0; text-align:center; font-size:14px; font-weight:700; letter-spacing:0.1em; color:var(--purple);}
+    .d3 .herd{position:absolute; top:58px; left:0; right:0; display:flex; justify-content:center; gap:6px; opacity:0.92;}
+    .d3 .herd img{width:46px; height:46px; object-fit:contain;}
+    .d3 .big{position:absolute; top:116px; left:0; right:0; text-align:center; font-size:116px; color:var(--purple);}
+    .d3 .big small{font-size:34px; font-weight:900; color:var(--ink); margin-left:4px;}
+    .d3 .cap{position:absolute; top:248px; left:30px; right:30px; text-align:center; font-size:21px; font-weight:900; line-height:1.34;}
+    .d3 .strip{position:absolute; bottom:64px; left:24px; right:24px; display:flex; justify-content:center; gap:8px; font-size:12px; font-weight:700; color:var(--muted);}
+    .d3 .strip span{background:#FFFDF8; border:2px solid rgba(31,24,18,.14); border-radius:999px; padding:5px 10px;}
+    .d3 .oji{position:absolute; bottom:56px; right:12px; width:78px;}
+
+    /* ════ D4 — receipt ════ */
+    .d4{background:repeating-linear-gradient(0deg,#FFFDF8,#FFFDF8 2px,#FBF3E2 2px,#FBF3E2 4px);}
+    .d4 .sheet{position:absolute; top:22px; left:34px; right:34px; bottom:64px; background:#FFFDF8; border:2.5px dashed rgba(31,24,18,.4); border-radius:8px; padding:20px 22px;}
+    .d4 .rhead{text-align:center; border-bottom:2px dashed rgba(31,24,18,.25); padding-bottom:12px;}
+    .d4 .rhead .t{font-size:21px; font-weight:900;}
+    .d4 .rhead .s{font-size:12px; letter-spacing:0.18em; color:var(--muted); margin-top:3px; font-weight:700;}
+    .d4 .li{display:flex; align-items:baseline; justify-content:space-between; margin-top:14px; font-size:16px; font-weight:700;}
+    .d4 .li .dots{flex:1; border-bottom:2px dotted rgba(31,24,18,.3); margin:0 8px; transform:translateY(-4px);}
+    .d4 .li .v{color:var(--leaf-deep); font-weight:900;}
+    .d4 .total{display:flex; justify-content:space-between; align-items:center; border-top:2px dashed rgba(31,24,18,.25); margin-top:18px; padding-top:12px; font-size:17px; font-weight:900;}
+    .d4 .stamp{position:absolute; top:36px; right:48px; width:78px; height:78px; border:3px solid var(--red); color:var(--red); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:900; transform:rotate(-14deg); opacity:0.8; text-align:center; line-height:1.1;}
+
+    /* ════ D5 — ladder ════ */
+    .d5{background:var(--paper);}
+    .d5 .ttl{position:absolute; top:26px; left:28px; right:28px; text-align:center; font-size:23px; font-weight:900; line-height:1.3;}
+    .d5 .bars{position:absolute; top:98px; left:30px; right:30px; display:flex; flex-direction:column; gap:13px;}
+    .d5 .bar{display:flex; align-items:center; gap:10px;}
+    .d5 .bar .lab{width:84px; font-size:13px; font-weight:700; text-align:right; flex-shrink:0;}
+    .d5 .bar .track{flex:1; height:26px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;}
+    .d5 .bar .fill{height:100%; border-right:2px solid var(--ink);}
+    .d5 .cap{position:absolute; bottom:66px; left:30px; right:118px; font-size:14px; font-weight:700; color:var(--ink-soft); line-height:1.6;}
+    .d5 .oji{position:absolute; bottom:50px; right:14px; width:96px;}
+
+    /* ════ Q1 — medallion ════ */
+    .q1{background:radial-gradient(ellipse at 50% 30%, rgba(212,168,71,0.22), transparent 60%), var(--paper);}
+    .q1 .eyebrow{position:absolute; top:28px; left:0; right:0; text-align:center; font-size:15px; font-weight:900; letter-spacing:0.06em; color:var(--gold-deep);}
+    .q1 .medal{position:absolute; top:74px; left:50%; transform:translateX(-50%); width:170px; height:170px; border-radius:50%; background:radial-gradient(circle at 50% 38%, #F6E08A, var(--gold)); border:5px solid var(--ink); box-shadow:5px 6px 0 rgba(31,24,18,.25); display:flex; flex-direction:column; align-items:center; justify-content:center;}
+    .q1 .medal .sc{font-size:60px; color:var(--ink);}
+    .q1 .medal .of{font-size:18px; font-weight:900; color:var(--ink-soft); margin-top:-2px;}
+    .q1 .oji{position:absolute; top:206px; right:28px; width:96px;}
+    .q1 .cap{position:absolute; bottom:74px; left:30px; right:30px; text-align:center; font-size:23px; font-weight:900; line-height:1.32;}
+
+    /* ════ Q2 — report card ════ */
+    .q2{background:var(--paper-soft);}
+    .q2 .sheet{position:absolute; top:22px; left:26px; right:26px; bottom:64px; background:#FFFDF8; border:2.5px solid var(--ink); border-radius:16px; box-shadow:4px 4px 0 rgba(31,24,18,.15); padding:18px 20px;}
+    .q2 .rh{display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid rgba(31,24,18,.18); padding-bottom:10px;}
+    .q2 .rh .t{font-size:19px; font-weight:900;}
+    .q2 .rh .sc{font-size:30px;} .q2 .rh .sc small{font-size:15px; color:var(--muted);}
+    .q2 .qrow{display:flex; align-items:center; justify-content:space-between; font-size:15px; font-weight:700; padding:9px 4px; border-bottom:1px dotted rgba(31,24,18,.2);}
+    .q2 .qrow .mk{font-size:20px; font-weight:900;}
+    .q2 .ok{color:var(--leaf-deep);} .q2 .ng{color:var(--red);}
+    .q2 .foot{display:flex; align-items:center; gap:10px; margin-top:12px;}
+    .q2 .foot .stamp{flex-shrink:0; width:74px; height:74px; border:3px solid var(--red); color:var(--red); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:900; transform:rotate(-12deg); text-align:center; line-height:1.15;}
+    .q2 .foot .ch{font-size:15px; font-weight:900; line-height:1.4;}
+
+    /* ════ Q3 — 3-dot scoreboard ════ */
+    .q3{background:radial-gradient(ellipse at 50% 80%, rgba(108,149,96,0.16), transparent 60%), var(--paper);}
+    .q3 .eyebrow{position:absolute; top:30px; left:0; right:0; text-align:center; font-size:15px; font-weight:900; letter-spacing:0.06em; color:var(--leaf-deep);}
+    .q3 .dots{position:absolute; top:78px; left:0; right:0; display:flex; justify-content:center; gap:20px;}
+    .q3 .dot{width:78px; height:78px; border-radius:50%; border:4px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:34px; font-weight:900;}
+    .q3 .dot.y{background:var(--leaf); color:#fff;} .q3 .dot.n{background:#EDE7E0; color:#BBB0A2;}
+    .q3 .sc{position:absolute; top:184px; left:0; right:0; text-align:center; font-size:52px; color:var(--leaf-deep);}
+    .q3 .sc small{font-size:24px; color:var(--ink); font-weight:900;}
+    .q3 .oji{position:absolute; bottom:54px; left:22px; width:90px;}
+    .q3 .cap{position:absolute; bottom:92px; left:120px; right:24px; text-align:center; font-size:20px; font-weight:900; line-height:1.3;}
+
+    /* ════ Q4 — speech-bubble challenge ════ */
+    .q4{background:radial-gradient(ellipse at 78% 80%, rgba(201,34,58,0.10), transparent 55%), var(--paper);}
+    .q4 .oji{position:absolute; bottom:48px; right:4px; width:190px; filter:drop-shadow(0 8px 16px rgba(31,24,18,.2));}
+    .q4 .bub{position:absolute; top:52px; left:30px; width:236px; background:#fff; border:3px solid var(--ink); border-radius:24px; box-shadow:4px 4px 0 var(--ink); padding:20px 22px;}
+    .q4 .bub:after{content:""; position:absolute; right:-18px; bottom:30px; width:0; height:0; border:14px solid transparent; border-left-color:var(--ink); border-right:0;}
+    .q4 .bub:before{content:""; position:absolute; right:-12px; bottom:32px; z-index:2; width:0; height:0; border:11px solid transparent; border-left-color:#fff; border-right:0;}
+    .q4 .bub .l1{font-size:16px; font-weight:700; color:var(--ink-soft);}
+    .q4 .bub .sc{font-size:62px; color:var(--red); margin:2px 0;}
+    .q4 .bub .sc small{font-size:26px; color:var(--ink); font-weight:900;}
+    .q4 .bub .l2{font-size:20px; font-weight:900; line-height:1.3;}
+
+    /* ════ Q5 — 検定 certificate ════ */
+    .q5{background:repeating-linear-gradient(45deg, rgba(212,168,71,.06) 0 12px, transparent 12px 24px), var(--paper-soft);}
+    .q5 .frame{position:absolute; top:22px; left:24px; right:24px; bottom:64px; border:3px double var(--gold-deep); border-radius:10px; background:#FFFDF8; padding:20px; text-align:center;}
+    .q5 .kicker{font-size:13px; letter-spacing:0.2em; font-weight:700; color:var(--gold-deep);}
+    .q5 .t{font-size:25px; font-weight:900; margin-top:6px;}
+    .q5 .tier{font-size:19px; font-weight:900; color:var(--purple); margin-top:16px; padding:8px; border-top:1px solid rgba(31,24,18,.15); border-bottom:1px solid rgba(31,24,18,.15);}
+    .q5 .sc{font-size:46px; color:var(--ink); margin-top:14px;} .q5 .sc small{font-size:20px; color:var(--muted); font-weight:900;}
+    .q5 .seal{position:absolute; bottom:80px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:12px;}
+    .q5 .seal .s{width:62px; height:62px; border-radius:50%; background:var(--red); color:#fff; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:900; border:2px solid var(--ink); transform:rotate(-8deg);}
+    .q5 .seal .ch{font-size:14px; font-weight:900; line-height:1.35;}
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="page-head">
+      <div class="page-eyebrow">VEGAN OJI · SHARE CARD LAB</div>
+      <h1 class="page-title">シェアカード・ラボ 🌱</h1>
+      <p class="page-note">
+        <b>2セット × 5案</b>のシェア画像コンセプト。各カードは <b>1080×1080</b> で書き出せます（カード下の「PNGダウンロード」）。<br>
+        ・数字は「ビーガンを<b>1年</b>つづけた場合」の節約量（毎食お肉→ビーガン）。本ページの数値と最終的に揃えます。<br>
+        ・クイズ点数（<b>2/3</b>）や正解マークは<b>仮の例</b>。本番ではユーザーの結果が自動で入ります。<br>
+        ・気に入った方向性を教えてください → 仕上げ＋共有ボタンに組み込みます。
+      </p>
+    </div>
 
-<header class="lab-head">
-  <div class="lab-kicker">Share Image · Snippet Lab</div>
-  <h1 class="lab-h1">「シェア画像」5案 📥</h1>
-  <p class="lab-lead">記事をシェアしたときにダウンロードできる画像（1080×1080・Instagram正方形）の見た目を5パターン。同じ記事サンプルで比較しています。王子もいろんな登場のしかたで。</p>
-  <div class="lab-note">🎨 どれも実寸（1080px）を 1/3 で表示 · 選んだ案をcanvas生成に実装します</div>
-</header>
+    <!-- ════════════════ SET 1 — DIET IMPACT ════════════════ -->
+    <h2 class="sec-title"><span class="num">1</span>食事のインパクト（「あなたの一週間は、どうかな？」のシェア）</h2>
+    <p class="sec-sub">CO₂・お水・土地・いのち、どれだけ地球にやさしいかを見せる → このページで自分の影響をチェックして、と誘う。</p>
+    <div class="grid">
 
-<div class="lab-grid">
-
-  <!-- ════════ V1 — REFINED CLASSIC ════════ -->
-  <figure class="lab-item">
-    <div class="card-frame"><div class="sc" style="background:#FFF9EE;">
-      <div class="abs" style="left:50px; top:54px; width:980px; height:512px; border-radius:30px; overflow:hidden; border:8px solid #1F1812; box-shadow:16px 16px 0 rgba(31,24,18,.10);">
-        <img src="/images/profile/alex-mc.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
-      </div>
-      <div class="abs" style="left:60px; top:606px; padding:10px 24px; background:#F8DDE2; color:#C9223A; border-radius:999px; font-weight:600; font-size:28px;">世界のうごき</div>
-      <div class="abs serif" style="left:60px; top:680px; width:960px; font-weight:700; font-size:58px; line-height:1.28; color:#1F1812;">培養肉スタートアップが世界初の規制承認を取得</div>
-      <div class="abs" style="left:62px; top:864px; font-weight:500; font-size:24px; color:#786148;">2026年6月20日</div>
-      <div class="abs" style="left:0; bottom:0; width:1080px; height:150px; background:#C9223A;"></div>
-      <img src="/images/oji/oji_greeting.png" alt="" class="abs" style="left:44px; bottom:8px; height:226px; width:auto;">
-      <div class="abs serif" style="right:60px; bottom:86px; font-weight:700; font-size:36px; color:#FFF9EE;">王子通信</div>
-      <div class="abs" style="right:60px; bottom:42px; font-weight:500; font-size:23px; color:#F4EDDD;">veganoji.jp · @veganoji</div>
-    </div></div>
-    <figcaption><span class="cap-tag oji">V1 · oji</span>
-      <div class="cap-title">リファイン・クラシック</div>
-      <p class="cap-desc">いまの形を磨いた版。写真をステッカー枠に、赤いフッターに王子＋「王子通信」。安定感があって読みやすい王道。</p></figcaption>
-  </figure>
-
-  <!-- ════════ V2 — MAGAZINE COVER ════════ -->
-  <figure class="lab-item">
-    <div class="card-frame"><div class="sc">
-      <img src="/images/profile/alex-talent.jpg" alt="" class="abs" style="left:0; top:0; width:1080px; height:1080px; object-fit:cover;">
-      <div class="abs" style="left:0; bottom:0; width:1080px; height:620px; background:linear-gradient(180deg, rgba(31,24,18,0) 0%, rgba(31,24,18,.45) 45%, rgba(31,24,18,.9) 100%);"></div>
-      <div class="abs serif" style="left:60px; top:54px; font-weight:700; font-size:36px; color:#FFF9EE; text-shadow:0 2px 14px rgba(0,0,0,.5);">王子通信</div>
-      <div class="abs" style="left:60px; top:600px; padding:9px 22px; background:rgba(255,249,238,.95); color:#C9223A; border-radius:999px; font-weight:700; font-size:26px;">世界のうごき</div>
-      <div class="abs serif" style="left:60px; top:678px; width:780px; font-weight:700; font-size:64px; line-height:1.3; color:#FFF9EE; text-shadow:0 3px 18px rgba(0,0,0,.55);">培養肉、世界初の規制承認へ。食の未来が動き出す</div>
-      <div class="abs" style="left:62px; bottom:54px; font-weight:500; font-size:24px; color:#F4EDDD; text-shadow:0 2px 10px rgba(0,0,0,.5);">2026年6月20日 · veganoji.jp</div>
-      <img src="/images/oji/oji_pointing_up.png" alt="" class="abs" style="right:24px; bottom:30px; height:330px; width:auto; filter:drop-shadow(0 10px 22px rgba(0,0,0,.4));">
-    </div></div>
-    <figcaption><span class="cap-tag oji">V2 · oji</span>
-      <div class="cap-title">マガジン・カバー</div>
-      <p class="cap-desc">写真を全面に、下のグラデに白文字でタイトル。雑誌の表紙みたいに強い。隅から王子がちょこっと。いちばん"映える"。</p></figcaption>
-  </figure>
-
-  <!-- ════════ V3 — PRINCE PRESENTS ════════ -->
-  <figure class="lab-item">
-    <div class="card-frame"><div class="sc" style="background:#FFF9EE;">
-      <div class="abs" style="inset:0; background:url('/images/decorations/crown-pattern.svg'); background-size:300px; opacity:.05;"></div>
-      <!-- content card -->
-      <div class="abs" style="left:56px; top:150px; width:600px; height:778px; background:#FFFCF6; border:9px solid #1F1812; border-radius:38px; box-shadow:18px 18px 0 #1F1812; overflow:hidden;">
-        <img src="/images/profile/alex.jpg" alt="" style="width:100%; height:320px; object-fit:cover; display:block;">
-        <div style="padding:30px 34px;">
-          <div style="display:inline-block; padding:8px 20px; background:#F8DDE2; color:#C9223A; border-radius:999px; font-weight:600; font-size:25px;">世界のうごき</div>
-          <div class="serif" style="font-weight:700; font-size:46px; line-height:1.3; color:#1F1812; margin-top:22px;">培養肉が世界初の規制承認を取得</div>
-          <div style="font-weight:500; font-size:23px; color:#786148; margin-top:22px;">2026年6月20日</div>
+      <!-- D1 -->
+      <div class="cardbox">
+        <div class="cardbox__label"><b>D1.</b> 4スタットグリッド（王道・情報量◎）</div>
+        <div class="scard d1" id="card-d1">
+          <div class="eyebrow">VEGAN なら、1年で</div>
+          <div class="ttl">地球にこれだけ、<br>やさしい。</div>
+          <img class="oji" src="/images/oji/oji_winking.png" alt="">
+          <div class="tiles">
+            <div class="tile"><img src="/images/vegan-to-chikyu/icon-co2-cloud.png"><div><div class="tlab">CO₂</div><div class="tnum num-f" style="color:var(--red)">−1.5t</div><div class="tsub">スギ約100本分</div></div></div>
+            <div class="tile"><img src="/images/vegan-to-chikyu/icon-water-drop.png"><div><div class="tlab">お水</div><div class="tnum num-f" style="color:var(--blue)">−500万L</div><div class="tsub">ペット250万本</div></div></div>
+            <div class="tile"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><div><div class="tlab">土地</div><div class="tnum num-f" style="color:var(--leaf-deep)">−1,500㎡</div><div class="tsub">テニス約6面</div></div></div>
+            <div class="tile"><img src="/images/vegan-to-chikyu/icon-chicken-solo.png"><div><div class="tlab">いのち</div><div class="tnum num-f" style="color:var(--purple)">200</div><div class="tsub">の命にやさしく</div></div></div>
+          </div>
+          <div class="invite"><span class="leaf">🌱</span> 自分の影響をチェック <span class="u">veganoji.jp/vegan-and-earth</span></div>
         </div>
+        <button class="dlbtn" onclick="dl('card-d1','vegan-oji_diet_D1')">PNGダウンロード (1080px)</button>
       </div>
-      <!-- speech bubble -->
-      <div class="abs serif" style="right:70px; top:120px; background:#C9223A; color:#FFF9EE; font-weight:700; font-size:34px; padding:18px 30px; border-radius:26px 26px 4px 26px; box-shadow:8px 8px 0 rgba(31,24,18,.15);">読んでみて！</div>
-      <img src="/images/oji/oji_presenting.png" alt="" class="abs" style="right:-6px; bottom:0; height:720px; width:auto;">
-      <div class="abs" style="left:60px; bottom:36px; font-weight:700; font-size:25px; color:#9C1428;">王子通信 · veganoji.jp</div>
-    </div></div>
-    <figcaption><span class="cap-tag oji">V3 · oji 主役</span>
-      <div class="cap-title">プリンス・プレゼンツ</div>
-      <p class="cap-desc">王子が記事カードを「紹介」するレイアウト。吹き出し付きで親しみMAX。キャラを主役にしたいならこれ。</p></figcaption>
-  </figure>
 
-  <!-- ════════ V4 — BOLD QUOTE (NO PHOTO) ════════ -->
-  <figure class="lab-item">
-    <div class="card-frame"><div class="sc" style="background:#C9223A;">
-      <div class="abs" style="inset:0; background:url('/images/decorations/crown-pattern.svg'); background-size:300px; opacity:.06; filter:brightness(0) invert(1);"></div>
-      <img src="/images/decorations/sparkle-cluster.png" alt="" class="abs" style="right:40px; top:40px; width:200px; opacity:.85;">
-      <div class="abs" style="left:80px; top:96px; padding:10px 26px; background:#FFF9EE; color:#C9223A; border-radius:999px; font-weight:700; font-size:28px;">世界のうごき</div>
-      <div class="abs serif" style="left:80px; top:226px; width:920px; font-weight:900; font-size:80px; line-height:1.34; color:#FFF9EE;">培養肉、<br>世界初の規制承認へ。</div>
-      <div class="abs" style="left:84px; top:600px; width:120px; height:8px; background:#E8C76F; border-radius:4px;"></div>
-      <img src="/images/oji/oji_idea.png" alt="" class="abs" style="right:36px; bottom:34px; height:368px; width:auto; filter:drop-shadow(0 10px 20px rgba(0,0,0,.25));">
-      <div class="abs serif" style="left:80px; bottom:96px; font-weight:700; font-size:40px; color:#FFF9EE;">王子通信</div>
-      <div class="abs" style="left:82px; bottom:54px; font-weight:500; font-size:24px; color:#F8C8D2;">veganoji.jp · @veganoji</div>
-    </div></div>
-    <figcaption><span class="cap-tag oji">V4 · oji</span>
-      <div class="cap-title">ボールド・コピー（写真なし）</div>
-      <p class="cap-desc">赤地に大きな見出しタイポだけ。写真が弱い記事でも強く出せる。ひらめき顔の王子＋金のアクセント。引用ポスト向き。</p></figcaption>
-  </figure>
-
-  <!-- ════════ V5 — STICKER SPLIT ════════ -->
-  <figure class="lab-item">
-    <div class="card-frame"><div class="sc" style="background:#FDF1DA;">
-      <img src="/images/decorations/sparkle-cluster.png" alt="" class="abs" style="right:40px; top:600px; width:150px; opacity:.6;">
-      <div class="abs" style="left:54px; top:54px; width:972px; height:584px; border-radius:38px; overflow:hidden; border:9px solid #1F1812; box-shadow:18px 18px 0 #1F1812;">
-        <img src="/images/profile/alex-mc.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
-        <div style="position:absolute; left:32px; top:32px; padding:9px 22px; background:#FFF9EE; color:#C9223A; border:4px solid #1F1812; border-radius:999px; font-weight:700; font-size:26px;">世界のうごき</div>
+      <!-- D2 -->
+      <div class="cardbox">
+        <div class="cardbox__label"><b>D2.</b> ビフォー→アフター（変化が一目で分かる）</div>
+        <div class="scard d2" id="card-d2">
+          <div class="ttl">食事を変えると、<br>ここまで変わる。</div>
+          <div class="heads">
+            <div class="h meat"><span class="pill">毎食お肉</span></div>
+            <div class="h veg"><span class="pill">ビーガン</span></div>
+          </div>
+          <div class="rows">
+            <div class="row"><div class="lab">CO₂（1年）</div><div class="from num-f">2.5t</div><div class="ar">→</div><div class="to num-f">1.0t</div></div>
+            <div class="row"><div class="lab">お水（1年）</div><div class="from num-f">550万L</div><div class="ar">→</div><div class="to num-f">50万L</div></div>
+            <div class="row"><div class="lab">土地</div><div class="from num-f">3,000㎡</div><div class="ar">→</div><div class="to num-f">1,500㎡</div></div>
+            <div class="row"><div class="lab">いのち（1年）</div><div class="from num-f">200</div><div class="ar">→</div><div class="to num-f">0</div></div>
+          </div>
+          <div class="invite"><span class="leaf">🌱</span> あなたの影響は？ <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        </div>
+        <button class="dlbtn" onclick="dl('card-d2','vegan-oji_diet_D2')">PNGダウンロード (1080px)</button>
       </div>
-      <div class="abs serif" style="left:60px; top:700px; width:960px; font-weight:700; font-size:58px; line-height:1.28; color:#1F1812;">培養肉スタートアップが世界初の規制承認を取得</div>
-      <div class="abs" style="left:62px; top:884px; font-weight:500; font-size:24px; color:#786148;">2026年6月20日</div>
-      <img src="/images/oji/oji_happy.png" alt="" class="abs" style="left:40px; bottom:24px; height:180px; width:auto;">
-      <div class="abs serif" style="right:60px; bottom:84px; font-weight:700; font-size:34px; color:#9C1428;">王子通信</div>
-      <div class="abs" style="right:60px; bottom:44px; font-weight:500; font-size:22px; color:#786148;">veganoji.jp · @veganoji</div>
-    </div></div>
-    <figcaption><span class="cap-tag oji">V5 · oji</span>
-      <div class="cap-title">ステッカー・スプリット</div>
-      <p class="cap-desc">サイトと同じチビ・ステッカー言語。写真を太枠＋影のシールに、下にタイトル＋王子。いちばん"らしい"統一感。</p></figcaption>
-  </figure>
 
-</div>
+      <!-- D3 -->
+      <div class="cardbox">
+        <div class="cardbox__label"><b>D3.</b> いのち・ヒーロー（感情に訴える）</div>
+        <div class="scard d3" id="card-d3">
+          <div class="eyebrow">ビーガンを1年つづけると</div>
+          <div class="herd">
+            <img src="/images/vegan-to-chikyu/icon-chicken-solo.png">
+            <img src="/images/vegan-to-chikyu/icon-cow-solo.png">
+            <img src="/images/vegan-to-chikyu/icon-pig-solo.png">
+            <img src="/images/vegan-to-chikyu/icon-fish-wild.png">
+          </div>
+          <div class="big num-f">200<small>の命</small></div>
+          <div class="cap">に、やさしくできる。</div>
+          <div class="strip"><span>CO₂ −1.5t</span><span>水 −500万L</span><span>土地 −1,500㎡</span></div>
+          <img class="oji" src="/images/oji/oji_happy.png" alt="">
+          <div class="invite"><span class="leaf">🌱</span> くわしくは <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        </div>
+        <button class="dlbtn" onclick="dl('card-d3','vegan-oji_diet_D3')">PNGダウンロード (1080px)</button>
+      </div>
+
+      <!-- D4 -->
+      <div class="cardbox">
+        <div class="cardbox__label"><b>D4.</b> 地球へのレシート（遊び心・話題性◎）</div>
+        <div class="scard d4" id="card-d4">
+          <div class="sheet">
+            <div class="rhead"><div class="t">🌏 地球へのレシート</div><div class="s">VEGAN ・ 1年分</div></div>
+            <div class="li"><span>CO₂</span><span class="dots"></span><span class="v">−1.5 t</span></div>
+            <div class="li"><span>お水</span><span class="dots"></span><span class="v">−500万 L</span></div>
+            <div class="li"><span>土地</span><span class="dots"></span><span class="v">−1,500 ㎡</span></div>
+            <div class="li"><span>いのち</span><span class="dots"></span><span class="v">200</span></div>
+            <div class="total"><span>合計</span><span>地球が笑顔 😊</span></div>
+          </div>
+          <div class="stamp">あり<br>がとう</div>
+          <div class="invite"><span class="leaf">🌱</span> あなたのレシートは？ <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        </div>
+        <button class="dlbtn" onclick="dl('card-d4','vegan-oji_diet_D4')">PNGダウンロード (1080px)</button>
+      </div>
+
+      <!-- D5 -->
+      <div class="cardbox">
+        <div class="cardbox__label"><b>D5.</b> はじめの一歩・ラダー（ハードルを下げる）</div>
+        <div class="scard d5" id="card-d5">
+          <div class="ttl">どこからでも、<br>はじめられる。</div>
+          <div class="bars">
+            <div class="bar"><div class="lab">毎食お肉</div><div class="track"><div class="fill" style="width:100%; background:var(--red)"></div></div></div>
+            <div class="bar"><div class="lab">週に数回</div><div class="track"><div class="fill" style="width:76%; background:var(--orange)"></div></div></div>
+            <div class="bar"><div class="lab">ほぼベジ</div><div class="track"><div class="fill" style="width:52%; background:var(--gold)"></div></div></div>
+            <div class="bar"><div class="lab">ビーガン</div><div class="track"><div class="fill" style="width:40%; background:var(--leaf)"></div></div></div>
+          </div>
+          <div class="cap">ビーガンじゃなくてもいい。<br>減らすだけで、地球は変わる。</div>
+          <img class="oji" src="/images/oji/oji_pointing_up.png" alt="">
+          <div class="invite"><span class="leaf">🌱</span> 自分の影響をみる <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        </div>
+        <button class="dlbtn" onclick="dl('card-d5','vegan-oji_diet_D5')">PNGダウンロード (1080px)</button>
+      </div>
+
+    </div>
+
+    <!-- ════════════════ SET 2 — QUIZ SCORE ════════════════ -->
+    <h2 class="sec-title"><span class="num">2</span>クイズの結果（「さあ、何問わかった？」のシェア）</h2>
+    <p class="sec-sub">「○/3だったよ。きみは？」と挑戦をうながす。点数・正解マークは仮（本番は自動）。</p>
+    <div class="grid">
+
+      <!-- Q1 -->
+      <div class="cardbox">
+        <div class="cardbox__label"><b>Q1.</b> メダル（シンプル・力強い）</div>
+        <div class="scard q1" id="card-q1">
+          <div class="eyebrow">ビーガン王子クイズ</div>
+          <div class="medal"><div class="sc num-f">2/3</div><div class="of">正解！</div></div>
+          <img class="oji" src="/images/oji/oji_excited.png" alt="">
+          <div class="cap">きみは、何問わかる？</div>
+          <div class="invite"><span class="leaf">🌱</span> 挑戦する <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        </div>
+        <button class="dlbtn" onclick="dl('card-q1','vegan-oji_quiz_Q1')">PNGダウンロード (1080px)</button>
+      </div>
+
+      <!-- Q2 -->
+      <div class="cardbox">
+        <div class="cardbox__label"><b>Q2.</b> 通信簿（かわいい・どの問題かも見せる）</div>
+        <div class="scard q2" id="card-q2">
+          <div class="sheet">
+            <div class="rh"><div class="t">📋 せいせき通信簿</div><div class="sc num-f">2<small>/3</small></div></div>
+            <div class="qrow"><span>① 温暖化のこと</span><span class="mk ok">○</span></div>
+            <div class="qrow"><span>② お水のこと</span><span class="mk ok">○</span></div>
+            <div class="qrow" style="border-bottom:none;"><span>③ 食べ物のこと</span><span class="mk ng">✗</span></div>
+            <div class="foot"><div class="stamp">よく<br>できま<br>した</div><div class="ch">きみの成績は…？<br>挑戦してみて！</div></div>
+          </div>
+          <div class="invite"><span class="leaf">🌱</span> やってみる <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        </div>
+        <button class="dlbtn" onclick="dl('card-q2','vegan-oji_quiz_Q2')">PNGダウンロード (1080px)</button>
+      </div>
+
+      <!-- Q3 -->
+      <div class="cardbox">
+        <div class="cardbox__label"><b>Q3.</b> 3つのドット（直感的・スコアボード）</div>
+        <div class="scard q3" id="card-q3">
+          <div class="eyebrow">ビーガン王子クイズ</div>
+          <div class="dots"><div class="dot y">○</div><div class="dot y">○</div><div class="dot n">✗</div></div>
+          <div class="sc num-f">2<small> / 3 せいかい</small></div>
+          <img class="oji" src="/images/oji/oji_presenting.png" alt="">
+          <div class="cap">きみも、やってみて！</div>
+          <div class="invite"><span class="leaf">🌱</span> 挑戦する <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        </div>
+        <button class="dlbtn" onclick="dl('card-q3','vegan-oji_quiz_Q3')">PNGダウンロード (1080px)</button>
+      </div>
+
+      <!-- Q4 -->
+      <div class="cardbox">
+        <div class="cardbox__label"><b>Q4.</b> 吹き出しチャレンジ（王子主役・最も拡散向き）</div>
+        <div class="scard q4" id="card-q4">
+          <div class="bub">
+            <div class="l1">わたしは</div>
+            <div class="sc num-f">2<small>/3</small></div>
+            <div class="l2">きみは、何問<br>わかるかな？</div>
+          </div>
+          <img class="oji" src="/images/oji/oji_idea.png" alt="">
+          <div class="invite"><span class="leaf">🌱</span> 挑戦する <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        </div>
+        <button class="dlbtn" onclick="dl('card-q4','vegan-oji_quiz_Q4')">PNGダウンロード (1080px)</button>
+      </div>
+
+      <!-- Q5 -->
+      <div class="cardbox">
+        <div class="cardbox__label"><b>Q5.</b> 検定証（称号つき・コレクション性）</div>
+        <div class="scard q5" id="card-q5">
+          <div class="frame">
+            <div class="kicker">CERTIFICATE</div>
+            <div class="t">ビーガン王子検定</div>
+            <div class="tier">称号：地球はかせ 見習い</div>
+            <div class="sc num-f">2<small> / 3</small></div>
+          </div>
+          <div class="seal"><div class="s">認定</div><div class="ch">きみも<br>受けてみる？</div></div>
+          <div class="invite"><span class="leaf">🌱</span> 受検する <span class="u">veganoji.jp/vegan-and-earth</span></div>
+        </div>
+        <button class="dlbtn" onclick="dl('card-q5','vegan-oji_quiz_Q5')">PNGダウンロード (1080px)</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    async function dl(id, name){
+      const node = document.getElementById(id);
+      const btn = event.currentTarget; const old = btn.textContent; btn.textContent = '生成中…';
+      try{
+        const canvas = await html2canvas(node, { scale: 1080/420, backgroundColor:null, useCORS:true, logging:false });
+        const a = document.createElement('a');
+        a.download = name + '.png';
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+      }catch(e){ alert('書き出しに失敗：' + e.message); }
+      btn.textContent = old;
+    }
+  </script>
 </body>
 </html>
