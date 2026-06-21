@@ -366,9 +366,8 @@
         ビーガン<ruby>王子<rt>おうじ</rt></ruby>からの、<ruby>全<rt>ぜん</rt></ruby>10<ruby>問<rt>もん</rt></ruby>
       </div>
 
-      <h1 class="reveal heading-with-ruby font-jp-display display-tight text-[40px] sm:text-[66px] lg:text-[80px] leading-[1.08] text-ink" data-delay="1">
-        しらなかった！<br/>
-        <span class="text-leaf-deep">ごはんと<ruby>地球<rt>ちきゅう</rt></ruby></span>の<br class="sm:hidden"/>クイズ
+      <h1 class="reveal" data-delay="1">
+        <img src="/images/quiz-bg/title.png" alt="しらなかった！ごはんと地球のクイズ" class="w-[290px] sm:w-[430px] max-w-full h-auto mx-auto drop-shadow-[0_6px_14px_rgba(31,24,18,0.12)]"/>
       </h1>
 
       <!-- Connection-question subtitle (option H) -->
@@ -398,10 +397,6 @@
           <svg width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
         </button>
       </div>
-
-      <p class="reveal mt-6 font-jp text-ink/45 text-[13px]" data-delay="3">
-        <ruby>正解<rt>せいかい</rt></ruby>するたびに、<ruby>王子<rt>おうじ</rt></ruby>が<ruby>解説<rt>かいせつ</rt></ruby>してくれるよ。
-      </p>
     </div>
   </section>
 
@@ -733,16 +728,16 @@
             { src: 'icon-fish-wild', style: 'width:48px; bottom:6%; right:8%;', cls: 'anim-twinkle' },
           ]),
           q: '<ruby>世界<rt>せかい</rt></ruby>で1<ruby>年間<rt>ねんかん</rt></ruby>に<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby>は、およそ<ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby>？',
-          choices: ['約2,000,000,000匹', '約200,000,000,000匹', '約2,000,000,000,000匹'], correct: 2,
+          choices: ['約200,000,000匹', '約2,000,000,000匹', '約200,000,000,000匹', '約2,000,000,000,000匹'], correct: 3,
           reveal:
             '<div class="flex items-center justify-center gap-4">' +
               '<img src="' + IMG + 'icon-fish-wild.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
               '<div class="leading-none"><span class="font-jp-display text-[22px] opacity-70"><ruby>約<rt>やく</rt></ruby></span> ' +
-              '<span class="big-number ticker text-[64px] sm:text-[88px]" data-count-target="2" style="color:#E8C76F;">0</span>' +
+              '<span class="big-number ticker text-[64px] sm:text-[88px]" data-count-target="2" style="color:#2B7AB0;">0</span>' +
               '<span class="font-jp-display text-[30px]"><ruby>兆<rt>ちょう</rt>匹<rt>びき</rt></ruby></span></div>' +
             '</div>' +
             '<div class="text-center text-[12px] opacity-60 mt-1">= 2,000,000,000,000 <ruby>匹<rt>びき</rt></ruby></div>' +
-            '<p class="mt-4 font-jp text-[15px] sm:text-[16px] leading-[1.85] text-center" style="color:#E7F3FA;">' +
+            '<p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[16px] leading-[1.85] text-center">' +
               '<ruby>約<rt>やく</rt></ruby>2<ruby>兆<rt>ちょう</rt>匹<rt>びき</rt></ruby>。<ruby>海<rt>うみ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>では、<ruby>想像<rt>そうぞう</rt></ruby>できないことが<ruby>起<rt>お</rt></ruby>きてるんだ。</p>',
         },
         // ───────────────────────────── Q9 · bycatch 4割 (OCEAN) ──────────
@@ -758,10 +753,10 @@
             '<div class="flex items-center justify-center gap-4">' +
               '<img src="' + IMG + 'icon-fishing-net.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
               '<div class="leading-none"><span class="font-jp-display text-[22px] opacity-70"><ruby>約<rt>やく</rt></ruby></span> ' +
-              '<span class="big-number ticker text-[64px] sm:text-[88px]" data-count-target="4" style="color:#E8C76F;">0</span>' +
+              '<span class="big-number ticker text-[64px] sm:text-[88px]" data-count-target="4" style="color:#2B7AB0;">0</span>' +
               '<span class="font-jp-display text-[30px]"><ruby>割<rt>わり</rt></ruby></span></div>' +
             '</div>' +
-            '<p class="mt-4 font-jp text-[15px] sm:text-[16px] leading-[1.85] text-center" style="color:#E7F3FA;">' +
+            '<p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[16px] leading-[1.85] text-center">' +
               '<ruby>約<rt>やく</rt></ruby>4<ruby>割<rt>わり</rt></ruby>。<ruby>狙<rt>ねら</rt></ruby>った<ruby>魚<rt>さかな</rt></ruby>じゃない<ruby>命<rt>いのち</rt></ruby>も、<ruby>巻<rt>ま</rt></ruby>きこまれてしまうんだ（<ruby>混獲<rt>こんかく</rt></ruby>）。</p>',
         },
         // ───────────────────────────── Q10 · feed 100億人 ────────────────
@@ -906,8 +901,8 @@
 
         // inject reveal
         const tag = isCorrect
-          ? '<img src="/images/quiz-bg/seikai.png" alt="せいかい" class="h-16 sm:h-20 w-auto mx-auto"/>'
-          : '<img src="/images/quiz-bg/zannen.png" alt="ざんねん" class="h-16 sm:h-20 w-auto mx-auto"/>';
+          ? '<div class="flex items-center justify-center gap-2 sm:gap-3"><img src="/images/vegan-to-chikyu/icon-check-social.png" alt="" class="h-14 sm:h-16 w-auto shrink-0"/><img src="/images/quiz-bg/seikai.png" alt="せいかい" class="h-20 sm:h-24 w-auto"/></div>'
+          : '<div class="flex items-center justify-center gap-2 sm:gap-3"><img src="/images/vegan-to-chikyu/icon-x-social.png" alt="" class="h-14 sm:h-16 w-auto shrink-0"/><img src="/images/quiz-bg/zannen.png" alt="ざんねん" class="h-20 sm:h-24 w-auto"/></div>';
         const box = $('q-reveal');
         box.innerHTML =
           '<div class="reveal-box reveal-rise">' +

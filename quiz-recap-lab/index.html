@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>recap section — 5案</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    .__seed { color: inherit; }
+    @theme {
+      --color-paper:#FFF9EE; --color-paper-soft:#FDF1DA; --color-ink:#1F1812; --color-ink-soft:#3C2E22;
+      --color-muted:#786148; --color-royal:#C9223A; --color-royal-deep:#9C1428; --color-leaf:#6C9560; --color-leaf-deep:#3F6A3A; --color-gold-deep:#9C7E2A;
+      --font-noto-sans-jp:"Noto Sans JP",sans-serif;
+    }
+    html,body{background:#EFE6D2;color:var(--color-ink);} body{font-family:var(--font-noto-sans-jp);font-feature-settings:"palt";-webkit-font-smoothing:antialiased;}
+    .font-jp-display{font-weight:900;}
+    ruby{ruby-position:over;-webkit-ruby-position:over;} rt{font-size:0.5em;opacity:0.7;font-weight:400;user-select:none;margin-bottom:-0.25em;}
+    .phone{max-width:430px;margin:0 auto;background:var(--color-paper);border:2.5px solid var(--color-ink);border-radius:24px;box-shadow:6px 6px 0 var(--color-ink);padding:22px 16px;}
+    .seclabel{font-weight:900;font-size:20px;margin-bottom:6px;}
+    .more{display:inline-flex;align-items:center;gap:3px;font-weight:700;color:var(--color-leaf-deep);text-decoration:none;white-space:nowrap;}
+    .hdr{text-align:center;font-weight:900;letter-spacing:0.06em;color:var(--color-ink);}
+    /* shared bits */
+    .mk{flex-shrink:0;object-fit:contain;}
+    .numbadge{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;border:2px solid var(--color-ink);color:#fff;font-weight:900;font-size:12px;}
+    .ans-ok{color:var(--color-leaf-deep);font-weight:700;}
+    .ans-no{color:var(--color-royal-deep);font-weight:700;}
+    .strike{text-decoration:line-through;opacity:0.7;}
+  </style>
+</head>
+<body>
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-10">
+    <h1 class="font-jp-display text-[26px] sm:text-[36px] mb-2">「もっと知りたくなったら」— 5案</h1>
+    <p class="text-ink-soft text-[14px] mb-10 max-w-2xl">いまの版は文字が小さく縦に長いので、<b>大きめの文字・コンパクト・見やすさ</b>を狙った5案です。サンプルは7/10（Q2・Q5・Q9 を不正解に）。気に入った番号を教えてください。</p>
+    <div id="lab" class="flex flex-col gap-12"></div>
+  </div>
+
+  <script>
+    const CHK = 'https://veganoji.jp/images/vegan-to-chikyu/icon-check-social.png';
+    const XMK = 'https://veganoji.jp/images/vegan-to-chikyu/icon-x-social.png';
+    const D = [
+      {n:1,a:'#C9223A',t:'<ruby>牛<rt>うし</rt></ruby>のゲップとメタンのはなし',c:'約28倍',k:'約28倍',h:'/vegan-and-earth/#ch1',ok:true},
+      {n:2,a:'#2B7AB0',t:'<ruby>牛肉<rt>ぎゅうにく</rt></ruby>と<ruby>水<rt>みず</rt></ruby>のはなし',c:'約300L',k:'約3,000L',h:'/vegan-and-earth/#ch2',ok:false},
+      {n:3,a:'#C9532C',t:'<ruby>畜産<rt>ちくさん</rt></ruby>の<ruby>排泄物<rt>はいせつぶつ</rt></ruby>のはなし',c:'約40,000kg',k:'約40,000kg',h:'/vegan-and-earth/#ch3',ok:true},
+      {n:4,a:'#3F6A3A',t:'アマゾンと<ruby>森林<rt>しんりん</rt></ruby>のはなし',c:'家畜の農地拡張',k:'家畜の農地拡張',h:'/vegan-and-earth/#ch3',ok:true},
+      {n:5,a:'#6B4E8C',t:'<ruby>畜産<rt>ちくさん</rt></ruby>が<ruby>使<rt>つか</rt></ruby>う<ruby>土地<rt>とち</rt></ruby>のはなし',c:'約10%',k:'約30%',h:'/vegan-and-earth/#ch3',ok:false},
+      {n:6,a:'#9C7E2A',t:'<ruby>農地<rt>のうち</rt></ruby>とカロリーのはなし',c:'約2割',k:'約2割',h:'/vegan-and-earth/#ch3',ok:true},
+      {n:7,a:'#6C9560',t:'<ruby>土地<rt>とち</rt></ruby>と<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>の<ruby>効率<rt>こうりつ</rt></ruby>のはなし',c:'約100倍',k:'約100倍',h:'/vegan-and-earth/#ch3',ok:true},
+      {n:8,a:'#2B7AB0',t:'<ruby>海<rt>うみ</rt></ruby>と<ruby>漁<rt>りょう</rt></ruby>のはなし',c:'約2,000,000,000,000匹',k:'約2,000,000,000,000匹',h:'/fish-and-life/',ok:true},
+      {n:9,a:'#2B7AB0',t:'<ruby>混獲<rt>こんかく</rt></ruby>のはなし',c:'約2割',k:'約4割',h:'/fish-and-life/',ok:false},
+      {n:10,a:'#3F6A3A',t:'<ruby>食料<rt>しょくりょう</rt></ruby>とエサのはなし',c:'約10,000,000,000人分',k:'約10,000,000,000人分',h:'/fish-and-life/',ok:true},
+    ];
+    const arrow = '<span aria-hidden="true">→</span>';
+    const mk = (ok,s) => '<img class="mk" style="height:'+s+'px;width:'+s+'px" src="'+(ok?CHK:XMK)+'" alt="">';
+    const head = (txt) => '<div class="hdr text-[13px] tracking-[0.18em] text-ink/60 mb-1">RESULT</div><div class="hdr font-jp-display text-[22px] mb-5">'+txt+'</div>';
+
+    // ── V1 · 2-column compact cards ───────────────────────────────
+    function v1(){
+      return '<div class="phone">'+head('もっと知りたくなったら')+
+        '<div class="grid grid-cols-2 gap-2.5">'+ D.map(o=>
+          '<div class="rounded-2xl border-2 border-ink p-3" style="box-shadow:3px 3px 0 var(--color-ink);background:rgba(255,249,238,0.7);">'+
+            '<div class="flex items-center gap-2 mb-1.5">'+mk(o.ok,24)+'<span class="numbadge" style="background:'+o.a+'">'+o.n+'</span></div>'+
+            '<div class="font-jp-display text-[14.5px] leading-[1.45] mb-1.5">'+o.t+'</div>'+
+            (o.ok?'':'<div class="text-[12px] leading-tight mb-1"><span class="ans-no strike">'+o.c+'</span> → <span class="ans-ok">'+o.k+'</span></div>')+
+            '<a class="more text-[13px]" href="'+o.h+'">もっと知る '+arrow+'</a>'+
+          '</div>').join('')+
+        '</div></div>';
+    }
+    // ── V2 · tight single-column, bigger type ─────────────────────
+    function v2(){
+      return '<div class="phone">'+head('もっと知りたくなったら')+
+        '<div class="flex flex-col gap-2">'+ D.map(o=>
+          '<div class="flex items-center gap-3 py-2 px-2 rounded-xl" style="background:rgba(255,249,238,0.6);border:2px solid rgba(31,24,18,0.12);">'+
+            mk(o.ok,30)+
+            '<div class="flex-1 min-w-0">'+
+              '<div class="font-jp-display text-[16px] leading-[1.35]">'+o.t+'</div>'+
+              (o.ok?'<div class="text-[12.5px] ans-ok">正解 '+o.k+'</div>':'<div class="text-[12.5px]"><span class="ans-no">あなた '+o.c+'</span> ／ <span class="ans-ok">正解 '+o.k+'</span></div>')+
+            '</div>'+
+            '<a class="more text-[14px]" href="'+o.h+'">'+arrow+'</a>'+
+          '</div>').join('')+
+        '</div></div>';
+    }
+    // ── V3 · review-focused (wrong as cards, right as chips) ──────
+    function v3(){
+      const wrong = D.filter(o=>!o.ok), right = D.filter(o=>o.ok);
+      return '<div class="phone">'+head('もっと知りたくなったら')+
+        '<div class="font-jp-display text-[16px] mb-2" style="color:var(--color-royal-deep)">ここを<ruby>復習<rt>ふくしゅう</rt></ruby> 👀</div>'+
+        '<div class="flex flex-col gap-2.5 mb-5">'+ wrong.map(o=>
+          '<div class="rounded-2xl border-2 p-3.5" style="border-color:var(--color-royal-deep);box-shadow:3px 3px 0 var(--color-royal-deep);background:#FBEDED;">'+
+            '<div class="flex items-center gap-2.5">'+mk(false,28)+'<div class="font-jp-display text-[16px] leading-[1.35] flex-1">'+o.t+'</div></div>'+
+            '<div class="text-[13px] mt-1.5 ml-[38px]"><span class="ans-no strike">'+o.c+'</span> → <span class="ans-ok">'+o.k+'</span></div>'+
+            '<a class="more text-[14px] mt-2 ml-[38px]" href="'+o.h+'">もっと知る '+arrow+'</a>'+
+          '</div>').join('')+
+        '</div>'+
+        '<div class="font-jp-display text-[15px] mb-2" style="color:var(--color-leaf-deep)">できた！ ✓</div>'+
+        '<div class="flex flex-wrap gap-1.5">'+ right.map(o=>
+          '<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-[13px] font-bold" style="background:#E4F1DE;border:1.5px solid var(--color-leaf-deep);color:var(--color-leaf-deep)">'+mk(true,18)+'Q'+o.n+'</span>').join('')+
+        '</div></div>';
+    }
+    // ── V4 · grouped by theme, one link per group ─────────────────
+    function v4(){
+      const groups = [
+        {label:'<ruby>温暖化<rt>おんだんか</rt></ruby>・<ruby>水<rt>みず</rt></ruby>',c:'#C9223A',ns:[1,2],h:'/vegan-and-earth/'},
+        {label:'<ruby>土地<rt>とち</rt></ruby>と<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>',c:'#6B4E8C',ns:[3,4,5,6,7,10],h:'/vegan-and-earth/#ch3'},
+        {label:'<ruby>海<rt>うみ</rt></ruby>のはなし',c:'#2B7AB0',ns:[8,9],h:'/fish-and-life/'},
+      ];
+      return '<div class="phone">'+head('もっと知りたくなったら')+
+        '<div class="flex flex-col gap-4">'+ groups.map(g=>
+          '<div class="rounded-2xl border-2 border-ink p-4" style="box-shadow:4px 4px 0 var(--color-ink);background:rgba(255,249,238,0.7)">'+
+            '<div class="flex items-center justify-between mb-2.5">'+
+              '<div class="font-jp-display text-[17px]" style="color:'+g.c+'">'+g.label+'</div>'+
+              '<a class="more text-[14px]" href="'+g.h+'">もっと知る '+arrow+'</a></div>'+
+            '<div class="flex flex-wrap gap-1.5">'+ g.ns.map(n=>{const o=D[n-1];return '<span class="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[12.5px] font-bold" style="background:#fff;border:1.5px solid rgba(31,24,18,0.2)">'+mk(o.ok,18)+'Q'+o.n+'</span>';}).join('')+'</div>'+
+          '</div>').join('')+
+        '</div></div>';
+    }
+    // ── V5 · horizontal scroll cards ──────────────────────────────
+    function v5(){
+      return '<div class="phone" style="overflow:hidden">'+head('もっと知りたくなったら')+
+        '<div class="text-center text-[12px] text-ink/45 mb-2">← スワイプ →</div>'+
+        '<div class="flex gap-3 overflow-x-auto pb-3" style="scroll-snap-type:x mandatory">'+ D.map(o=>
+          '<div class="shrink-0 rounded-2xl border-2 border-ink p-3.5" style="width:170px;box-shadow:3px 3px 0 var(--color-ink);background:rgba(255,249,238,0.8);scroll-snap-align:start">'+
+            '<div class="flex items-center gap-2 mb-2">'+mk(o.ok,28)+'<span class="numbadge" style="background:'+o.a+'">'+o.n+'</span></div>'+
+            '<div class="font-jp-display text-[15px] leading-[1.4] mb-2" style="min-height:42px">'+o.t+'</div>'+
+            (o.ok?'<div class="text-[12px] ans-ok mb-2">正解 '+o.k+'</div>':'<div class="text-[12px] mb-2"><span class="ans-no strike">'+o.c+'</span><br><span class="ans-ok">→ '+o.k+'</span></div>')+
+            '<a class="more text-[13.5px]" href="'+o.h+'">もっと知る '+arrow+'</a>'+
+          '</div>').join('')+
+        '</div></div>';
+    }
+    const VS = [['V1 · 2列カード（コンパクト）',v1],['V2 · 1列・文字大きめ（すっきり）',v2],['V3 · 復習フォーカス（間違いを大きく / 正解はチップ）',v3],['V4 · テーマ別まとめ（リンク集約）',v4],['V5 · 横スクロール・カード',v5]];
+    document.getElementById('lab').innerHTML = VS.map(([label,fn])=>
+      '<section><div class="seclabel">'+label+'</div>'+fn()+'</section>').join('');
+  </script>
+</body>
+</html>
