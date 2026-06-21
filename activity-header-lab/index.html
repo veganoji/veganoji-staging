@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>活動ヘッダー Lab · ビーガン王子</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#FFF9EE; --cream:#FDF1DA; --cream2:#F6E4BD;
+  --royal:#C9223A; --royal-deep:#9C1428; --gold:#D4A847; --gold-soft:#E8C76F; --gold-deep:#9C7E2A;
+  --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148; --line:#E9D9B5; --leaf-deep:#3F6A3A;
+}
+*{ box-sizing:border-box; }
+body{ margin:0; font-family:'Noto Sans JP',system-ui,sans-serif; color:var(--ink);
+  background:var(--paper); background-image:radial-gradient(var(--cream) 1.1px, transparent 1.2px); background-size:22px 22px; -webkit-font-smoothing:antialiased; }
+
+.lab-head{ max-width:1000px; margin:0 auto; padding:40px 22px 8px; text-align:center; }
+.lab-kicker{ font-weight:700; font-size:12px; letter-spacing:.22em; color:var(--royal); text-transform:uppercase; }
+.lab-h1{ font-weight:900; font-size:clamp(26px,5vw,38px); margin:10px 0 6px; }
+.lab-lead{ color:var(--ink-soft); font-size:15px; line-height:1.7; max-width:640px; margin:0 auto; }
+.lab-note{ display:inline-flex; align-items:center; gap:8px; margin-top:16px; background:var(--cream);
+  border:2px solid var(--ink); border-radius:999px; box-shadow:3px 3px 0 var(--ink); padding:8px 16px; font-weight:700; font-size:13px; }
+
+.stack{ max-width:1000px; margin:30px auto 70px; padding:0 22px; display:flex; flex-direction:column; gap:42px; }
+.item__cap{ margin:0 4px 12px; }
+.cap-tag{ display:inline-block; font-weight:900; font-size:11px; letter-spacing:.1em; color:var(--paper); background:var(--ink); border-radius:7px; padding:3px 9px; }
+.cap-title{ font-weight:900; font-size:17px; margin:8px 0 3px; }
+.cap-desc{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
+
+/* ── the header banner (mirrors the real /activity/ hero) ── */
+.ahero{ position:relative; overflow:hidden; border:2.5px solid var(--ink); border-radius:22px;
+  box-shadow:6px 6px 0 var(--ink); background:var(--cream); }
+.ahero__bg{ position:absolute; inset:0; background-size:cover; background-position:center; }
+.ahero__veil{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,249,238,0.34) 0%, rgba(255,249,238,0.58) 100%); }
+.ahero__in{ position:relative; padding:46px 28px 40px; text-align:center; }
+.eyebrow{ font-weight:800; font-size:13px; letter-spacing:.26em; text-transform:uppercase; color:var(--royal); margin-bottom:10px; }
+.jp{ font-weight:900; font-size:clamp(38px,7vw,62px); line-height:1.1; letter-spacing:.02em; color:var(--ink);
+  text-shadow:0 2px 14px rgba(255,249,238,0.75); }
+.jp .accent{ color:var(--royal); }
+.serif{ font-family:'Noto Serif JP', serif; }
+.sub{ font-size:14px; color:var(--ink-soft); margin-top:12px; text-shadow:0 1px 6px rgba(255,249,238,0.7); }
+.meta{ display:inline-flex; align-items:center; gap:10px; margin-top:16px; font-size:12px; color:var(--ink-soft);
+  background:var(--paper); border:2px solid var(--ink); border-radius:999px; box-shadow:2px 2px 0 var(--ink); padding:5px 13px; font-weight:700; }
+</style>
+</head>
+<body>
+
+<header class="lab-head">
+  <div class="lab-kicker">Activity Header · Snippet Lab</div>
+  <h1 class="lab-h1">活動ヘッダー、5案 🎤</h1>
+  <p class="lab-lead">ブログの「王子通信」と同じ作り方 ── <b>大きな日本語タイトル＋小さな英語</b>に。背景は王子が「活動」している水彩を image-gen で生成（ランニング・MC・フェス・トーク）。タイトルと背景は自由に組み合わせOK。</p>
+  <div class="lab-note">🎨 背景＝生成した水彩 · どのタイトル × どの背景がお好みか教えてください</div>
+</header>
+
+<div class="stack">
+
+  <!-- H1 -->
+  <figure class="item">
+    <figcaption class="item__cap"><span class="cap-tag">H1</span>
+      <div class="cap-title">活動の記録 — ランニング背景</div>
+      <p class="cap-desc">いちばん素直で読みやすい。小英語「ACTIVITY」＋大きく「活動の記録」。躍動感のある背景と好相性。</p></figcaption>
+    <div class="ahero">
+      <div class="ahero__bg" style="background-image:url('/images/decorations/activity-bgs/act-run.jpg')"></div>
+      <div class="ahero__veil"></div>
+      <div class="ahero__in">
+        <div class="eyebrow">Activity</div>
+        <div class="jp">活動の<span class="accent">記録</span></div>
+        <div class="sub">テレビ、フェス、講演、コラボ──王子の歩み、ぜんぶ。</div>
+        <div class="meta">📡 RSS · 22件</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- H2 -->
+  <figure class="item">
+    <figcaption class="item__cap"><span class="cap-tag">H2</span>
+      <div class="cap-title">王子の活動 — MC背景</div>
+      <p class="cap-desc">主役感。「OJI IN ACTION」＋「王子の活動」。ステージMCの背景で“出てる人”っぽさ。</p></figcaption>
+    <div class="ahero">
+      <div class="ahero__bg" style="background-image:url('/images/decorations/activity-bgs/act-mc.jpg')"></div>
+      <div class="ahero__veil"></div>
+      <div class="ahero__in">
+        <div class="eyebrow">Oji in Action</div>
+        <div class="jp"><span class="accent">王子</span>の活動</div>
+        <div class="sub">MC・出演・講演・コラボ──ぜんぶ、ここに。</div>
+        <div class="meta">📡 RSS · 22件</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- H3 -->
+  <figure class="item">
+    <figcaption class="item__cap"><span class="cap-tag">H3</span>
+      <div class="cap-title">これまでの歩み — フェス背景（英語なし・明朝）</div>
+      <p class="cap-desc">英語ゼロ、明朝体でぐっと品よく。物語っぽい「これまでの歩み」。いちばん和・上質。</p></figcaption>
+    <div class="ahero">
+      <div class="ahero__bg" style="background-image:url('/images/decorations/activity-bgs/act-fes.jpg')"></div>
+      <div class="ahero__veil"></div>
+      <div class="ahero__in">
+        <div class="jp serif">これまでの<span class="accent">歩み</span></div>
+        <div class="sub">王子が歩いてきた、すべての記録。</div>
+        <div class="meta">📡 RSS · 22件</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- H4 -->
+  <figure class="item">
+    <figcaption class="item__cap"><span class="cap-tag">H4</span>
+      <div class="cap-title">活動アーカイブ — トーク背景</div>
+      <p class="cap-desc">いまの名前を主役に。「ACTIVITY LOG」＋「活動アーカイブ」。安心・王道。</p></figcaption>
+    <div class="ahero">
+      <div class="ahero__bg" style="background-image:url('/images/decorations/activity-bgs/act-talk.jpg')"></div>
+      <div class="ahero__veil"></div>
+      <div class="ahero__in">
+        <div class="eyebrow">Activity Log</div>
+        <div class="jp">活動<span class="accent">アーカイブ</span></div>
+        <div class="sub">テレビ、フェス、講演、コラボ──王子の歩み、ぜんぶ。</div>
+        <div class="meta">📡 RSS · 22件</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- H5 -->
+  <figure class="item">
+    <figcaption class="item__cap"><span class="cap-tag">H5</span>
+      <div class="cap-title">王子、活動中。— 既存の水彩背景（遊び心）</div>
+      <p class="cap-desc">ちょっと茶目っ気。「王子、活動中。」で“いま動いてる感”。句点までデザイン。</p></figcaption>
+    <div class="ahero">
+      <div class="ahero__bg" style="background-image:url('/images/decorations/hero-bgs/section-recent.jpg')"></div>
+      <div class="ahero__veil"></div>
+      <div class="ahero__in">
+        <div class="eyebrow">Oji, Now</div>
+        <div class="jp">王子、<span class="accent">活動中</span>。</div>
+        <div class="sub">テレビからフェスまで。今日もどこかで、王子。</div>
+        <div class="meta">📡 RSS · 22件</div>
+      </div>
+    </div>
+  </figure>
+
+</div>
+</body>
+</html>
