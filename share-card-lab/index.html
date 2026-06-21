@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>シェア画像 Lab · ビーガン王子</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#FFF9EE; --cream:#FDF1DA; --cream2:#F6E4BD;
+  --royal:#C9223A; --royal-deep:#9C1428; --royal-soft:#E55063;
+  --gold:#D4A847; --gold-soft:#E8C76F; --gold-deep:#9C7E2A;
+  --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148; --line:#E9D9B5;
+  --leaf:#4E8C3C; --leaf-deep:#3F6A3A;
+}
+*{ box-sizing:border-box; }
+body{ margin:0; font-family:'Noto Sans JP',system-ui,sans-serif; color:var(--ink);
+  background:var(--paper); background-image:radial-gradient(var(--cream) 1.1px, transparent 1.2px); background-size:22px 22px; -webkit-font-smoothing:antialiased; }
+
+.lab-head{ max-width:1180px; margin:0 auto; padding:40px 22px 8px; text-align:center; }
+.lab-kicker{ font-weight:700; font-size:12px; letter-spacing:.22em; color:var(--royal); text-transform:uppercase; }
+.lab-h1{ font-weight:900; font-size:clamp(26px,5vw,40px); margin:10px 0 6px; letter-spacing:-.01em; }
+.lab-lead{ color:var(--ink-soft); font-size:15px; line-height:1.7; max-width:660px; margin:0 auto; }
+.lab-note{ display:inline-flex; align-items:center; gap:8px; margin-top:16px; background:var(--cream);
+  border:2px solid var(--ink); border-radius:999px; box-shadow:3px 3px 0 var(--ink); padding:8px 16px; font-weight:700; font-size:13px; }
+
+.lab-grid{ max-width:1320px; margin:30px auto 70px; padding:0 22px; display:flex; flex-wrap:wrap; gap:42px 34px; justify-content:center; align-items:flex-start; }
+.lab-item{ width:360px; max-width:100%; }
+figcaption{ margin-top:16px; }
+.cap-tag{ display:inline-block; font-weight:900; font-size:11px; letter-spacing:.12em; color:var(--paper); background:var(--ink); border-radius:7px; padding:3px 9px; }
+.cap-tag.oji{ background:var(--royal); }
+.cap-title{ font-weight:900; font-size:18px; margin:9px 0 4px; }
+.cap-desc{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
+
+/* ---- the 360px display frame holding a 1080px design scaled 1/3 ---- */
+.card-frame{ width:360px; height:360px; border:3px solid var(--ink); border-radius:22px; box-shadow:7px 7px 0 var(--ink); overflow:hidden; background:#fff; }
+.sc{ position:relative; width:1080px; height:1080px; transform:scale(0.33333); transform-origin:top left; overflow:hidden; }
+.sc img{ display:block; }
+.serif{ font-family:'Noto Serif JP', serif; }
+.abs{ position:absolute; }
+</style>
+</head>
+<body>
+
+<header class="lab-head">
+  <div class="lab-kicker">Share Image · Snippet Lab</div>
+  <h1 class="lab-h1">「シェア画像」5案 📥</h1>
+  <p class="lab-lead">記事をシェアしたときにダウンロードできる画像（1080×1080・Instagram正方形）の見た目を5パターン。同じ記事サンプルで比較しています。王子もいろんな登場のしかたで。</p>
+  <div class="lab-note">🎨 どれも実寸（1080px）を 1/3 で表示 · 選んだ案をcanvas生成に実装します</div>
+</header>
+
+<div class="lab-grid">
+
+  <!-- ════════ V1 — REFINED CLASSIC ════════ -->
+  <figure class="lab-item">
+    <div class="card-frame"><div class="sc" style="background:#FFF9EE;">
+      <div class="abs" style="left:50px; top:54px; width:980px; height:512px; border-radius:30px; overflow:hidden; border:8px solid #1F1812; box-shadow:16px 16px 0 rgba(31,24,18,.10);">
+        <img src="/images/profile/alex-mc.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="abs" style="left:60px; top:606px; padding:10px 24px; background:#F8DDE2; color:#C9223A; border-radius:999px; font-weight:600; font-size:28px;">世界のうごき</div>
+      <div class="abs serif" style="left:60px; top:680px; width:960px; font-weight:700; font-size:58px; line-height:1.28; color:#1F1812;">培養肉スタートアップが世界初の規制承認を取得</div>
+      <div class="abs" style="left:62px; top:864px; font-weight:500; font-size:24px; color:#786148;">2026年6月20日</div>
+      <div class="abs" style="left:0; bottom:0; width:1080px; height:150px; background:#C9223A;"></div>
+      <img src="/images/oji/oji_greeting.png" alt="" class="abs" style="left:44px; bottom:8px; height:226px; width:auto;">
+      <div class="abs serif" style="right:60px; bottom:86px; font-weight:700; font-size:36px; color:#FFF9EE;">王子通信</div>
+      <div class="abs" style="right:60px; bottom:42px; font-weight:500; font-size:23px; color:#F4EDDD;">veganoji.jp · @veganoji</div>
+    </div></div>
+    <figcaption><span class="cap-tag oji">V1 · oji</span>
+      <div class="cap-title">リファイン・クラシック</div>
+      <p class="cap-desc">いまの形を磨いた版。写真をステッカー枠に、赤いフッターに王子＋「王子通信」。安定感があって読みやすい王道。</p></figcaption>
+  </figure>
+
+  <!-- ════════ V2 — MAGAZINE COVER ════════ -->
+  <figure class="lab-item">
+    <div class="card-frame"><div class="sc">
+      <img src="/images/profile/alex-talent.jpg" alt="" class="abs" style="left:0; top:0; width:1080px; height:1080px; object-fit:cover;">
+      <div class="abs" style="left:0; bottom:0; width:1080px; height:620px; background:linear-gradient(180deg, rgba(31,24,18,0) 0%, rgba(31,24,18,.45) 45%, rgba(31,24,18,.9) 100%);"></div>
+      <div class="abs serif" style="left:60px; top:54px; font-weight:700; font-size:36px; color:#FFF9EE; text-shadow:0 2px 14px rgba(0,0,0,.5);">王子通信</div>
+      <div class="abs" style="left:60px; top:600px; padding:9px 22px; background:rgba(255,249,238,.95); color:#C9223A; border-radius:999px; font-weight:700; font-size:26px;">世界のうごき</div>
+      <div class="abs serif" style="left:60px; top:678px; width:780px; font-weight:700; font-size:64px; line-height:1.3; color:#FFF9EE; text-shadow:0 3px 18px rgba(0,0,0,.55);">培養肉、世界初の規制承認へ。食の未来が動き出す</div>
+      <div class="abs" style="left:62px; bottom:54px; font-weight:500; font-size:24px; color:#F4EDDD; text-shadow:0 2px 10px rgba(0,0,0,.5);">2026年6月20日 · veganoji.jp</div>
+      <img src="/images/oji/oji_pointing_up.png" alt="" class="abs" style="right:24px; bottom:30px; height:330px; width:auto; filter:drop-shadow(0 10px 22px rgba(0,0,0,.4));">
+    </div></div>
+    <figcaption><span class="cap-tag oji">V2 · oji</span>
+      <div class="cap-title">マガジン・カバー</div>
+      <p class="cap-desc">写真を全面に、下のグラデに白文字でタイトル。雑誌の表紙みたいに強い。隅から王子がちょこっと。いちばん"映える"。</p></figcaption>
+  </figure>
+
+  <!-- ════════ V3 — PRINCE PRESENTS ════════ -->
+  <figure class="lab-item">
+    <div class="card-frame"><div class="sc" style="background:#FFF9EE;">
+      <div class="abs" style="inset:0; background:url('/images/decorations/crown-pattern.svg'); background-size:300px; opacity:.05;"></div>
+      <!-- content card -->
+      <div class="abs" style="left:56px; top:150px; width:600px; height:778px; background:#FFFCF6; border:9px solid #1F1812; border-radius:38px; box-shadow:18px 18px 0 #1F1812; overflow:hidden;">
+        <img src="/images/profile/alex.jpg" alt="" style="width:100%; height:320px; object-fit:cover; display:block;">
+        <div style="padding:30px 34px;">
+          <div style="display:inline-block; padding:8px 20px; background:#F8DDE2; color:#C9223A; border-radius:999px; font-weight:600; font-size:25px;">世界のうごき</div>
+          <div class="serif" style="font-weight:700; font-size:46px; line-height:1.3; color:#1F1812; margin-top:22px;">培養肉が世界初の規制承認を取得</div>
+          <div style="font-weight:500; font-size:23px; color:#786148; margin-top:22px;">2026年6月20日</div>
+        </div>
+      </div>
+      <!-- speech bubble -->
+      <div class="abs serif" style="right:70px; top:120px; background:#C9223A; color:#FFF9EE; font-weight:700; font-size:34px; padding:18px 30px; border-radius:26px 26px 4px 26px; box-shadow:8px 8px 0 rgba(31,24,18,.15);">読んでみて！</div>
+      <img src="/images/oji/oji_presenting.png" alt="" class="abs" style="right:-6px; bottom:0; height:720px; width:auto;">
+      <div class="abs" style="left:60px; bottom:36px; font-weight:700; font-size:25px; color:#9C1428;">王子通信 · veganoji.jp</div>
+    </div></div>
+    <figcaption><span class="cap-tag oji">V3 · oji 主役</span>
+      <div class="cap-title">プリンス・プレゼンツ</div>
+      <p class="cap-desc">王子が記事カードを「紹介」するレイアウト。吹き出し付きで親しみMAX。キャラを主役にしたいならこれ。</p></figcaption>
+  </figure>
+
+  <!-- ════════ V4 — BOLD QUOTE (NO PHOTO) ════════ -->
+  <figure class="lab-item">
+    <div class="card-frame"><div class="sc" style="background:#C9223A;">
+      <div class="abs" style="inset:0; background:url('/images/decorations/crown-pattern.svg'); background-size:300px; opacity:.06; filter:brightness(0) invert(1);"></div>
+      <img src="/images/decorations/sparkle-cluster.png" alt="" class="abs" style="right:40px; top:40px; width:200px; opacity:.85;">
+      <div class="abs" style="left:80px; top:96px; padding:10px 26px; background:#FFF9EE; color:#C9223A; border-radius:999px; font-weight:700; font-size:28px;">世界のうごき</div>
+      <div class="abs serif" style="left:80px; top:226px; width:920px; font-weight:900; font-size:80px; line-height:1.34; color:#FFF9EE;">培養肉、<br>世界初の規制承認へ。</div>
+      <div class="abs" style="left:84px; top:600px; width:120px; height:8px; background:#E8C76F; border-radius:4px;"></div>
+      <img src="/images/oji/oji_idea.png" alt="" class="abs" style="right:36px; bottom:34px; height:368px; width:auto; filter:drop-shadow(0 10px 20px rgba(0,0,0,.25));">
+      <div class="abs serif" style="left:80px; bottom:96px; font-weight:700; font-size:40px; color:#FFF9EE;">王子通信</div>
+      <div class="abs" style="left:82px; bottom:54px; font-weight:500; font-size:24px; color:#F8C8D2;">veganoji.jp · @veganoji</div>
+    </div></div>
+    <figcaption><span class="cap-tag oji">V4 · oji</span>
+      <div class="cap-title">ボールド・コピー（写真なし）</div>
+      <p class="cap-desc">赤地に大きな見出しタイポだけ。写真が弱い記事でも強く出せる。ひらめき顔の王子＋金のアクセント。引用ポスト向き。</p></figcaption>
+  </figure>
+
+  <!-- ════════ V5 — STICKER SPLIT ════════ -->
+  <figure class="lab-item">
+    <div class="card-frame"><div class="sc" style="background:#FDF1DA;">
+      <img src="/images/decorations/sparkle-cluster.png" alt="" class="abs" style="right:40px; top:600px; width:150px; opacity:.6;">
+      <div class="abs" style="left:54px; top:54px; width:972px; height:584px; border-radius:38px; overflow:hidden; border:9px solid #1F1812; box-shadow:18px 18px 0 #1F1812;">
+        <img src="/images/profile/alex-mc.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
+        <div style="position:absolute; left:32px; top:32px; padding:9px 22px; background:#FFF9EE; color:#C9223A; border:4px solid #1F1812; border-radius:999px; font-weight:700; font-size:26px;">世界のうごき</div>
+      </div>
+      <div class="abs serif" style="left:60px; top:700px; width:960px; font-weight:700; font-size:58px; line-height:1.28; color:#1F1812;">培養肉スタートアップが世界初の規制承認を取得</div>
+      <div class="abs" style="left:62px; top:884px; font-weight:500; font-size:24px; color:#786148;">2026年6月20日</div>
+      <img src="/images/oji/oji_happy.png" alt="" class="abs" style="left:40px; bottom:24px; height:180px; width:auto;">
+      <div class="abs serif" style="right:60px; bottom:84px; font-weight:700; font-size:34px; color:#9C1428;">王子通信</div>
+      <div class="abs" style="right:60px; bottom:44px; font-weight:500; font-size:22px; color:#786148;">veganoji.jp · @veganoji</div>
+    </div></div>
+    <figcaption><span class="cap-tag oji">V5 · oji</span>
+      <div class="cap-title">ステッカー・スプリット</div>
+      <p class="cap-desc">サイトと同じチビ・ステッカー言語。写真を太枠＋影のシールに、下にタイトル＋王子。いちばん"らしい"統一感。</p></figcaption>
+  </figure>
+
+</div>
+</body>
+</html>
