@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>シェアカード Lab v2 — 食事インパクト（ストーリー版）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{
+  --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148;
+  --paper:#FFF9EE; --paper-soft:#FDF1DA; --paper-dim:#F6E4BD;
+  --red:#C9223A; --red-deep:#9C1428; --gold:#D4A847; --gold-deep:#9C7E2A; --gold-soft:#E8C76F;
+  --leaf:#6C9560; --leaf-deep:#3F6A3A; --blue:#2B7AB0; --purple:#6B4E8C; --orange:#C9532C;
+}
+*{box-sizing:border-box;}
+body{ margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink);
+  background:radial-gradient(ellipse at 12% 0%, rgba(108,149,96,.12), transparent 45%), radial-gradient(ellipse at 90% 8%, rgba(43,122,176,.10), transparent 45%), #F4EAD6; -webkit-font-smoothing:antialiased; }
+.wrap{max-width:1180px; margin:0 auto; padding:40px 20px 90px;}
+.ph{text-align:center; margin-bottom:8px;}
+.ph .eb{font-size:13px; letter-spacing:.22em; font-weight:700; color:var(--leaf-deep);}
+.ph h1{font-size:30px; font-weight:900; margin:8px 0 0;}
+.ph p{max-width:680px; margin:14px auto 0; font-size:14px; line-height:1.8; color:var(--ink-soft); background:#FFFDF8; border:2px solid rgba(31,24,18,.12); border-radius:16px; padding:14px 18px; text-align:left;}
+.ph p b{color:var(--red-deep);}
+.sec{font-size:21px; font-weight:900; margin:50px 0 4px; display:flex; align-items:center; gap:10px;}
+.sec .n{display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:var(--ink); color:var(--paper); font-size:14px;}
+.sub{font-size:13.5px; color:var(--muted); margin:0 0 22px;}
+.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:30px 26px; justify-items:center;}
+.box{display:flex; flex-direction:column; align-items:center; gap:11px;}
+.box .lab{font-size:12.5px; font-weight:700; color:var(--muted); text-align:center;}
+.box .lab b{color:var(--ink); font-size:13.5px;}
+.dl{font-family:inherit; cursor:pointer; font-weight:700; font-size:12px; background:var(--ink); color:var(--paper); border:none; border-radius:999px; padding:7px 16px;}
+.dl:hover{opacity:.9;}
+
+/* ── story card: authored 360×640 (9:16) → exports 1080×1920 ── */
+.s9{ width:360px; height:640px; position:relative; overflow:hidden; border-radius:26px; border:3px solid var(--ink);
+  box-shadow:7px 7px 0 var(--ink); background:var(--paper); flex-shrink:0; }
+.s9 *{box-sizing:border-box;}
+.s9 .bg{position:absolute; inset:0; background-size:cover; background-position:center;}
+.s9 .num{font-weight:900; font-variant-numeric:tabular-nums; line-height:1; letter-spacing:-.02em;}
+.s9 .inv{position:absolute; left:0; right:0; bottom:0; height:54px; background:var(--ink); color:var(--paper);
+  display:flex; align-items:center; justify-content:center; gap:7px; font-size:12.5px; font-weight:700;}
+.s9 .inv .u{color:var(--gold-soft);}
+.eyebrow{font-size:14px; font-weight:800; letter-spacing:.06em;}
+.headline{font-weight:900; line-height:1.28;}
+
+/* frequency selector */
+.freq{display:flex; gap:6px; justify-content:center;}
+.freq span{font-size:13px; font-weight:800; padding:6px 12px; border-radius:999px; border:2px solid var(--ink); background:#FFFDF8; color:var(--muted);}
+.freq span.on{background:var(--leaf); color:#fff;}
+
+/* stat tile */
+.tile{background:#FFFDF8; border:2.5px solid var(--ink); border-radius:18px; padding:11px; display:flex; align-items:center; gap:9px; box-shadow:3px 3px 0 rgba(31,24,18,.14);}
+.tile img{width:38px; height:38px; object-fit:contain; flex-shrink:0;}
+.tile .tl{font-size:12px; font-weight:700; color:var(--muted);}
+.tile .tn{font-size:20px; margin-top:2px; white-space:nowrap;}
+.tile .ts{font-size:10px; color:var(--muted); margin-top:2px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="ph">
+    <div class="eb">SHARE CARD LAB · V2 · STORY SIZE</div>
+    <h1>食事のインパクト — 3 × 4案 🌍</h1>
+    <p>D1 / D3 / D4 / D5 をそれぞれ <b>3パターン</b>、ぜんぶ <b>ストーリー比率（1080×1920）</b>で。背景は image-gen の水彩。数字は<b>仮（毎食ビーガン1年＝目安）</b>、本番で一本化。各カード下の「DL」で1080×1920 PNG。<br>★ D1には「<b>1日1食／週1</b>」の頻度ちがい、D3には「<b>4カテゴリから選ぶ</b>」案を入れています。</p>
+  </div>
+
+  <!-- ══════════ D1 — 4-STAT GRID (+frequency) ══════════ -->
+  <h2 class="sec"><span class="n">D1</span>4スタットグリッド ＋ 頻度ちがい</h2>
+  <p class="sub">「毎食ビーガン」だけでなく「1日1食」「週1」でもこれだけ、と見せて<b>ハードルを下げる</b>。</p>
+  <div class="grid">
+
+    <!-- D1-A full vegan, earth bg -->
+    <div class="box"><div class="lab"><b>D1-A.</b> 毎食ビーガン（地球の水彩背景）</div>
+      <div class="s9" id="c-d1a">
+        <div class="bg" style="background-image:url('/images/decorations/share-bgs/diet-earth.jpg')"></div>
+        <div style="position:absolute; left:0; right:0; top:30px; text-align:center;">
+          <div class="eyebrow" style="color:var(--leaf-deep)">VEGAN なら、1年で</div>
+          <div class="headline" style="font-size:30px; margin-top:6px;">地球に、<span style="color:var(--red)">これだけ。</span></div>
+        </div>
+        <div style="position:absolute; left:22px; right:22px; bottom:78px; display:grid; grid-template-columns:1fr 1fr; gap:11px;">
+          <div class="tile"><img src="/images/vegan-to-chikyu/icon-co2-cloud.png"><div><div class="tl">CO₂</div><div class="tn num" style="color:var(--red)">−1.5t</div><div class="ts">スギ約100本分</div></div></div>
+          <div class="tile"><img src="/images/vegan-to-chikyu/icon-water-drop.png"><div><div class="tl">お水</div><div class="tn num" style="color:var(--blue)">−500万L</div><div class="ts">ペット250万本</div></div></div>
+          <div class="tile"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><div><div class="tl">土地</div><div class="tn num" style="color:var(--leaf-deep)">−1,500㎡</div><div class="ts">テニス約6面</div></div></div>
+          <div class="tile"><img src="/images/vegan-to-chikyu/icon-chicken-solo.png"><div><div class="tl">いのち</div><div class="tn num" style="color:var(--purple)">200</div><div class="ts">の命にやさしく</div></div></div>
+        </div>
+        <div class="inv">🌱 自分の影響をチェック <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d1a','impact_D1A')">DL 1080×1920</button>
+    </div>
+
+    <!-- D1-B 1 meal / day + selector -->
+    <div class="box"><div class="lab"><b>D1-B.</b> 1日1食 ＋ 頻度セレクター</div>
+      <div class="s9" id="c-d1b" style="background:var(--paper-soft);">
+        <div style="position:absolute; left:0; right:0; top:28px; text-align:center;">
+          <div class="eyebrow" style="color:var(--leaf-deep)">1日1食を植物性に。1年で</div>
+          <div class="headline" style="font-size:27px; margin:8px 0 12px;">毎食じゃなくて、<span style="color:var(--red)">いい。</span></div>
+          <div class="freq"><span>週1</span><span class="on">1日1食</span><span>毎食</span></div>
+        </div>
+        <div style="position:absolute; left:22px; right:22px; bottom:78px; display:grid; grid-template-columns:1fr 1fr; gap:11px;">
+          <div class="tile"><img src="/images/vegan-to-chikyu/icon-co2-cloud.png"><div><div class="tl">CO₂</div><div class="tn num" style="color:var(--red)">−0.5t</div><div class="ts">スギ約33本分</div></div></div>
+          <div class="tile"><img src="/images/vegan-to-chikyu/icon-water-drop.png"><div><div class="tl">お水</div><div class="tn num" style="color:var(--blue)">−170万L</div><div class="ts">ペット85万本</div></div></div>
+          <div class="tile"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><div><div class="tl">土地</div><div class="tn num" style="color:var(--leaf-deep)">−500㎡</div><div class="ts">テニス約2面</div></div></div>
+          <div class="tile"><img src="/images/vegan-to-chikyu/icon-chicken-solo.png"><div><div class="tl">いのち</div><div class="tn num" style="color:var(--purple)">65</div><div class="ts">の命にやさしく</div></div></div>
+        </div>
+        <div class="inv">🌱 自分のペースでチェック <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d1b','impact_D1B')">DL 1080×1920</button>
+    </div>
+
+    <!-- D1-C hero number + 3, on prince-earth bg -->
+    <div class="box"><div class="lab"><b>D1-C.</b> 主役数字＋3つ（王子＆地球の背景）</div>
+      <div class="s9" id="c-d1c">
+        <div class="bg" style="background-image:url('/images/decorations/share-bgs/diet-hold-earth.jpg'); opacity:.5;"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,249,238,.4), rgba(255,249,238,.85));"></div>
+        <div style="position:absolute; left:24px; right:24px; top:34px; text-align:center;">
+          <div class="eyebrow" style="color:var(--leaf-deep)">毎食ビーガン・1年で</div>
+          <div class="num" style="font-size:96px; color:var(--purple); margin-top:6px;">200<span style="font-size:30px; color:var(--ink);">の命</span></div>
+          <div class="headline" style="font-size:22px; margin-top:2px;">に、やさしくできる。</div>
+        </div>
+        <div style="position:absolute; left:26px; right:26px; bottom:80px; display:flex; flex-direction:column; gap:9px;">
+          <div class="tile" style="padding:10px 14px;"><img src="/images/vegan-to-chikyu/icon-co2-cloud.png" style="width:34px;height:34px;"><div style="flex:1; display:flex; justify-content:space-between; align-items:baseline;"><span class="tl">CO₂</span><span class="num" style="font-size:20px;color:var(--red)">−1.5t</span></div></div>
+          <div class="tile" style="padding:10px 14px;"><img src="/images/vegan-to-chikyu/icon-water-drop.png" style="width:34px;height:34px;"><div style="flex:1; display:flex; justify-content:space-between; align-items:baseline;"><span class="tl">お水</span><span class="num" style="font-size:20px;color:var(--blue)">−500万L</span></div></div>
+          <div class="tile" style="padding:10px 14px;"><img src="/images/vegan-to-chikyu/icon-globe-earth.png" style="width:34px;height:34px;"><div style="flex:1; display:flex; justify-content:space-between; align-items:baseline;"><span class="tl">土地</span><span class="num" style="font-size:20px;color:var(--leaf-deep)">−1,500㎡</span></div></div>
+        </div>
+        <div class="inv">🌱 くわしくは <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d1c','impact_D1C')">DL 1080×1920</button>
+    </div>
+  </div>
+
+  <!-- ══════════ D3 — CATEGORY HERO (pick one of 4) ══════════ -->
+  <h2 class="sec"><span class="n">D3</span>カテゴリ・ヒーロー（4つから選ぶ）</h2>
+  <p class="sub">同じ作りで<b>CO₂／お水／土地／いのち</b>を切替。みんなが「いちばん刺さる」を選んでシェア → バリエ豊富。</p>
+  <div class="grid">
+
+    <!-- D3-A いのち -->
+    <div class="box"><div class="lab"><b>D3-A.</b> いのち（むらさき）</div>
+      <div class="s9" id="c-d3a">
+        <div class="bg" style="background-image:url('/images/decorations/share-bgs/diet-hold-earth.jpg'); opacity:.42;"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,249,238,.55), rgba(255,249,238,.9));"></div>
+        <div style="position:absolute; left:0; right:0; top:40px; text-align:center;">
+          <div class="eyebrow" style="color:var(--purple)">ビーガンを1年つづけると</div>
+          <div style="display:flex; justify-content:center; gap:6px; margin:14px 0;">
+            <img src="/images/vegan-to-chikyu/icon-chicken-solo.png" style="width:48px;"><img src="/images/vegan-to-chikyu/icon-cow-solo.png" style="width:48px;"><img src="/images/vegan-to-chikyu/icon-pig-solo.png" style="width:48px;"><img src="/images/vegan-to-chikyu/icon-fish-wild.png" style="width:48px;">
+          </div>
+          <div class="num" style="font-size:120px; color:var(--purple);">200<span style="font-size:36px; color:var(--ink);">の命</span></div>
+          <div class="headline" style="font-size:24px; margin-top:4px;">に、やさしくできる。</div>
+        </div>
+        <div style="position:absolute; left:0; right:0; bottom:74px; display:flex; justify-content:center; gap:8px; font-size:12px; font-weight:700; color:var(--muted);">
+          <span style="background:#FFFDF8;border:2px solid rgba(31,24,18,.14);border-radius:999px;padding:5px 11px;">CO₂ −1.5t</span>
+          <span style="background:#FFFDF8;border:2px solid rgba(31,24,18,.14);border-radius:999px;padding:5px 11px;">水 −500万L</span>
+        </div>
+        <div class="inv">🌱 4つから選べる <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d3a','impact_D3A')">DL 1080×1920</button>
+    </div>
+
+    <!-- D3-B CO2 -->
+    <div class="box"><div class="lab"><b>D3-B.</b> CO₂（あか）</div>
+      <div class="s9" id="c-d3b" style="background:radial-gradient(ellipse at 50% 32%, rgba(201,34,58,.12), transparent 60%), var(--paper);">
+        <div style="position:absolute; left:0; right:0; top:40px; text-align:center;">
+          <div class="eyebrow" style="color:var(--red)">ビーガンを1年つづけると</div>
+          <div style="display:flex; justify-content:center; gap:8px; margin:16px 0;">
+            <img src="/images/vegan-to-chikyu/icon-smoke-cloud.png" style="width:54px;"><img src="/images/vegan-to-chikyu/icon-co2-cloud.png" style="width:54px;">
+          </div>
+          <div class="num" style="font-size:104px; color:var(--red);">−1.5<span style="font-size:42px;">t</span></div>
+          <div class="headline" style="font-size:23px; margin-top:4px;">CO₂を、へらせる。</div>
+          <div style="font-size:14px; font-weight:700; color:var(--muted); margin-top:8px;">＝ スギの木 約100本が1年で吸う量</div>
+        </div>
+        <div style="position:absolute; left:0; right:0; bottom:74px; display:flex; justify-content:center; gap:7px; font-size:11.5px; font-weight:800; color:var(--muted);">
+          <span style="border:2px solid var(--ink);border-radius:999px;padding:4px 10px;background:var(--red);color:#fff;">CO₂</span>
+          <span style="border:2px solid rgba(31,24,18,.2);border-radius:999px;padding:4px 10px;">水</span>
+          <span style="border:2px solid rgba(31,24,18,.2);border-radius:999px;padding:4px 10px;">土地</span>
+          <span style="border:2px solid rgba(31,24,18,.2);border-radius:999px;padding:4px 10px;">いのち</span>
+        </div>
+        <div class="inv">🌱 4つから選べる <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d3b','impact_D3B')">DL 1080×1920</button>
+    </div>
+
+    <!-- D3-C water -->
+    <div class="box"><div class="lab"><b>D3-C.</b> お水（あお）</div>
+      <div class="s9" id="c-d3c" style="background:radial-gradient(ellipse at 50% 30%, rgba(43,122,176,.14), transparent 60%), var(--paper);">
+        <div style="position:absolute; left:0; right:0; top:40px; text-align:center;">
+          <div class="eyebrow" style="color:var(--blue)">ビーガンを1年つづけると</div>
+          <div style="margin:14px 0;"><img src="/images/vegan-to-chikyu/icon-water-drop.png" style="width:78px;"></div>
+          <div class="num" style="font-size:88px; color:var(--blue);">−500<span style="font-size:34px;">万L</span></div>
+          <div class="headline" style="font-size:23px; margin-top:6px;">お水を、まもれる。</div>
+          <div style="font-size:14px; font-weight:700; color:var(--muted); margin-top:8px;">＝ 25mプール 約14杯分</div>
+        </div>
+        <div style="position:absolute; left:0; right:0; bottom:74px; display:flex; justify-content:center; gap:7px; font-size:11.5px; font-weight:800; color:var(--muted);">
+          <span style="border:2px solid rgba(31,24,18,.2);border-radius:999px;padding:4px 10px;">CO₂</span>
+          <span style="border:2px solid var(--ink);border-radius:999px;padding:4px 10px;background:var(--blue);color:#fff;">水</span>
+          <span style="border:2px solid rgba(31,24,18,.2);border-radius:999px;padding:4px 10px;">土地</span>
+          <span style="border:2px solid rgba(31,24,18,.2);border-radius:999px;padding:4px 10px;">いのち</span>
+        </div>
+        <div class="inv">🌱 4つから選べる <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d3c','impact_D3C')">DL 1080×1920</button>
+    </div>
+  </div>
+
+  <!-- ══════════ D4 — RECEIPT family ══════════ -->
+  <h2 class="sec"><span class="n">D4</span>地球へのレシート（3バリエ）</h2>
+  <p class="sub">遊び心・話題性。レシート／地球からの手紙／搭乗券、3つの“紙もの”で。</p>
+  <div class="grid">
+
+    <!-- D4-A receipt -->
+    <div class="box"><div class="lab"><b>D4-A.</b> レシート</div>
+      <div class="s9" id="c-d4a" style="background:repeating-linear-gradient(0deg,#FFFDF8,#FFFDF8 3px,#FBF3E2 3px,#FBF3E2 6px);">
+        <div style="position:absolute; top:30px; left:30px; right:30px; bottom:74px; background:#FFFDF8; border:2.5px dashed rgba(31,24,18,.4); border-radius:8px; padding:26px 26px;">
+          <div style="text-align:center; border-bottom:2px dashed rgba(31,24,18,.25); padding-bottom:14px;"><div style="font-size:24px; font-weight:900;">🌏 地球へのレシート</div><div style="font-size:12px; letter-spacing:.18em; color:var(--muted); margin-top:4px; font-weight:700;">VEGAN ・ 1年分</div></div>
+          <div style="margin-top:22px; display:flex; flex-direction:column; gap:18px; font-size:18px; font-weight:700;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline;"><span>CO₂</span><span class="num" style="color:var(--leaf-deep)">−1.5 t</span></div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline;"><span>お水</span><span class="num" style="color:var(--leaf-deep)">−500万 L</span></div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline;"><span>土地</span><span class="num" style="color:var(--leaf-deep)">−1,500 ㎡</span></div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline;"><span>いのち</span><span class="num" style="color:var(--leaf-deep)">200</span></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; border-top:2px dashed rgba(31,24,18,.25); margin-top:22px; padding-top:14px; font-size:18px; font-weight:900;"><span>合計</span><span>地球が笑顔 😊</span></div>
+        </div>
+        <div class="inv">🌱 あなたのレシートは？ <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d4a','impact_D4A')">DL 1080×1920</button>
+    </div>
+
+    <!-- D4-B letter from earth -->
+    <div class="box"><div class="lab"><b>D4-B.</b> 地球からの手紙</div>
+      <div class="s9" id="c-d4b" style="background:var(--paper-soft);">
+        <div style="position:absolute; top:30px; left:28px; right:28px; bottom:74px; background:#FFFDF8; border:2.5px solid var(--ink); border-radius:14px; box-shadow:5px 5px 0 rgba(31,24,18,.12); padding:26px 24px; display:flex; flex-direction:column;">
+          <div style="font-size:13px; letter-spacing:.16em; color:var(--gold-deep); font-weight:800;">FROM 地球</div>
+          <div class="serif" style="font-family:'Noto Serif JP',serif; font-size:22px; font-weight:900; line-height:1.5; margin-top:14px;">この1年、ありがとう。<br>あなたのおかげで——</div>
+          <div style="margin-top:18px; display:flex; flex-direction:column; gap:13px; font-size:16px; font-weight:700;">
+            <div>🌫 CO₂が <b class="num" style="color:var(--leaf-deep)">1.5t</b> へった</div>
+            <div>💧 お水を <b class="num" style="color:var(--leaf-deep)">500万L</b> まもれた</div>
+            <div>🌱 土地が <b class="num" style="color:var(--leaf-deep)">1,500㎡</b> 戻った</div>
+            <div>🐔 <b class="num" style="color:var(--leaf-deep)">200</b> の命にやさしくできた</div>
+          </div>
+          <div style="margin-top:auto; text-align:right; font-size:15px; font-weight:900;">— 地球より 💚</div>
+        </div>
+        <div class="inv">🌱 あなたへの手紙は？ <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d4b','impact_D4B')">DL 1080×1920</button>
+    </div>
+
+    <!-- D4-C boarding pass -->
+    <div class="box"><div class="lab"><b>D4-C.</b> 地球行きチケット</div>
+      <div class="s9" id="c-d4c" style="background:radial-gradient(ellipse at 50% 16%, rgba(108,149,96,.16), transparent 55%), var(--paper);">
+        <div style="position:absolute; top:54px; left:26px; right:26px; bottom:90px; background:#FFFDF8; border:2.5px solid var(--ink); border-radius:18px; box-shadow:5px 5px 0 rgba(31,24,18,.14); overflow:hidden;">
+          <div style="background:var(--leaf-deep); color:#fff; padding:14px 20px; display:flex; justify-content:space-between; align-items:center;"><span style="font-size:16px; font-weight:900;">🌍 やさしい地球 行き</span><span style="font-size:11px; font-weight:700; letter-spacing:.1em;">VEGAN · 1Y</span></div>
+          <div style="padding:18px 20px; display:grid; grid-template-columns:1fr 1fr; gap:16px 10px;">
+            <div><div style="font-size:11px; color:var(--muted); font-weight:700;">CO₂</div><div class="num" style="font-size:24px; color:var(--leaf-deep)">−1.5t</div></div>
+            <div><div style="font-size:11px; color:var(--muted); font-weight:700;">お水</div><div class="num" style="font-size:24px; color:var(--blue)">−500万L</div></div>
+            <div><div style="font-size:11px; color:var(--muted); font-weight:700;">土地</div><div class="num" style="font-size:24px; color:var(--leaf-deep)">−1,500㎡</div></div>
+            <div><div style="font-size:11px; color:var(--muted); font-weight:700;">いのち</div><div class="num" style="font-size:24px; color:var(--purple)">200</div></div>
+          </div>
+          <div style="border-top:2px dashed rgba(31,24,18,.3); padding:12px 20px; display:flex; justify-content:space-between; align-items:center;"><span style="font-size:13px; font-weight:900;">SEAT 1A</span><span style="font-family:monospace; font-size:18px; letter-spacing:3px;">▮▮▍▮▍▍▮▮</span></div>
+        </div>
+        <div class="inv">🌱 あなたのチケットは？ <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d4c','impact_D4C')">DL 1080×1920</button>
+    </div>
+  </div>
+
+  <!-- ══════════ D5 — FIRST STEP / LADDER ══════════ -->
+  <h2 class="sec"><span class="n">D5</span>はじめの一歩（3バリエ）</h2>
+  <p class="sub">「ビーガンじゃなくてOK、減らすだけで変わる」── ハードルを下げる。</p>
+  <div class="grid">
+
+    <!-- D5-A ladder bars -->
+    <div class="box"><div class="lab"><b>D5-A.</b> ラダー（棒グラフ）</div>
+      <div class="s9" id="c-d5a" style="background:var(--paper);">
+        <div style="position:absolute; left:28px; right:28px; top:34px; text-align:center;">
+          <div class="headline" style="font-size:27px;">どこからでも、<br><span style="color:var(--leaf-deep)">はじめられる。</span></div>
+        </div>
+        <div style="position:absolute; left:30px; right:30px; top:150px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; align-items:center; gap:10px;"><div style="width:78px; font-size:13px; font-weight:700; text-align:right;">毎食お肉</div><div style="flex:1; height:30px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:100%; background:var(--red);"></div></div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="width:78px; font-size:13px; font-weight:700; text-align:right;">週に数回</div><div style="flex:1; height:30px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:74%; background:var(--orange);"></div></div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="width:78px; font-size:13px; font-weight:700; text-align:right;">ほぼベジ</div><div style="flex:1; height:30px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:50%; background:var(--gold);"></div></div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="width:78px; font-size:13px; font-weight:700; text-align:right;">ビーガン</div><div style="flex:1; height:30px; background:#F0E6D2; border:2px solid var(--ink); border-radius:999px; overflow:hidden;"><div style="height:100%; width:38%; background:var(--leaf);"></div></div></div>
+        </div>
+        <div style="position:absolute; left:30px; right:30px; bottom:90px; text-align:center; font-size:15px; font-weight:700; color:var(--ink-soft); line-height:1.6;">ビーガンじゃなくてもいい。<br>減らすだけで、地球は変わる。</div>
+        <div class="inv">🌱 自分の影響をみる <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d5a','impact_D5A')">DL 1080×1920</button>
+    </div>
+
+    <!-- D5-B running prince -->
+    <div class="box"><div class="lab"><b>D5-B.</b> 一歩から（ランニング王子）</div>
+      <div class="s9" id="c-d5b">
+        <div class="bg" style="background-image:url('/images/decorations/activity-bgs/act-run.jpg'); background-position:center 40%;"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,249,238,.5) 0%, rgba(255,249,238,.15) 40%, rgba(31,24,18,.62) 100%);"></div>
+        <div style="position:absolute; left:0; right:0; top:32px; text-align:center;">
+          <div class="eyebrow" style="color:var(--leaf-deep)">まずは、一歩から</div>
+          <div class="headline" style="font-size:30px; margin-top:6px;">減らすだけで、<span style="color:var(--red)">いい。</span></div>
+        </div>
+        <div style="position:absolute; left:26px; right:26px; bottom:80px; color:#fff; text-align:center;">
+          <div style="font-size:17px; font-weight:900; line-height:1.6; text-shadow:0 2px 8px rgba(0,0,0,.5);">週に1回お肉をやめるだけで<br>1年で <span class="num" style="color:var(--gold-soft); font-size:24px;">CO₂ −70kg</span></div>
+        </div>
+        <div class="inv">🌱 自分のペースでみる <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d5b','impact_D5B')">DL 1080×1920</button>
+    </div>
+
+    <!-- D5-C steps -->
+    <div class="box"><div class="lab"><b>D5-C.</b> 階段（ステップ）</div>
+      <div class="s9" id="c-d5c" style="background:radial-gradient(ellipse at 80% 12%, rgba(212,168,71,.18), transparent 55%), var(--paper);">
+        <div style="position:absolute; left:28px; right:28px; top:32px; text-align:center;">
+          <div class="headline" style="font-size:26px;">一段ずつで、<span style="color:var(--leaf-deep)">いい。</span></div>
+        </div>
+        <div style="position:absolute; left:30px; right:30px; bottom:96px; display:flex; flex-direction:column-reverse; gap:0;">
+          <div style="height:54px; background:#F0E6D2; border:2.5px solid var(--ink); border-bottom:none; border-radius:0; display:flex; align-items:center; padding:0 16px; font-weight:800; font-size:13px; width:55%;">① 週1ベジ</div>
+          <div style="height:54px; background:var(--gold-soft); border:2.5px solid var(--ink); border-bottom:none; display:flex; align-items:center; padding:0 16px; font-weight:800; font-size:13px; width:70%;">② 1日1食</div>
+          <div style="height:54px; background:var(--leaf); color:#fff; border:2.5px solid var(--ink); border-bottom:none; display:flex; align-items:center; padding:0 16px; font-weight:800; font-size:13px; width:88%;">③ ほぼベジ 🌱</div>
+        </div>
+        <div style="position:absolute; left:0; right:0; bottom:60px; height:0;"></div>
+        <div class="inv">🌱 はじめの一歩を <span class="u">veganoji.jp/vegan-and-earth</span></div>
+      </div>
+      <button class="dl" onclick="dl('c-d5c','impact_D5C')">DL 1080×1920</button>
+    </div>
+  </div>
+
+</div>
+<script>
+  async function dl(id,name){
+    const node=document.getElementById(id); const btn=event.currentTarget; const old=btn.textContent; btn.textContent='生成中…';
+    try{
+      const canvas=await html2canvas(node,{scale:1080/360, backgroundColor:null, useCORS:true, logging:false});
+      const a=document.createElement('a'); a.download=name+'.png'; a.href=canvas.toDataURL('image/png'); a.click();
+    }catch(e){ alert('書き出し失敗: '+e.message); }
+    btn.textContent=old;
+  }
+</script>
+</body>
+</html>
