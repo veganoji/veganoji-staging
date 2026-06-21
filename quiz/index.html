@@ -213,6 +213,13 @@
       font-weight: 900; font-size: 15px; line-height: 1; letter-spacing: 0.02em;
     }
     .ocean .q-badge { border-color: #010912; box-shadow: 3px 3px 0 #010912; }
+    /* progress: colored Q-number + thick percentage bar */
+    .q-num { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; min-width:56px; height:36px; padding:0 14px; border-radius:11px; border:2.5px solid var(--color-ink); box-shadow:3px 3px 0 var(--color-ink); background:var(--accent,#C9223A); color:#fff; font-weight:900; font-size:16px; line-height:1; }
+    .q-prog { flex:1; height:32px; border-radius:999px; border:2.5px solid var(--color-ink); background:var(--color-paper-soft); box-shadow:3px 3px 0 var(--color-ink); overflow:hidden; }
+    .q-prog__fill { height:100%; width:0%; min-width:40px; background:var(--accent,#C9223A); border-radius:999px; display:flex; align-items:center; justify-content:flex-end; transition:width 0.6s cubic-bezier(.22,1,.36,1), background 0.4s ease; }
+    .q-prog__pct { color:#fff; font-weight:900; font-size:13px; line-height:1; padding-right:11px; white-space:nowrap; }
+    .ocean .q-num { border-color:#010912; box-shadow:3px 3px 0 #010912; }
+    .ocean .q-prog { border-color:#010912; box-shadow:3px 3px 0 #010912; background:#0b3553; }
 
     /* Speech bubble — Oji "asks" the question. Tail points left toward Oji. */
     .bubble {
@@ -406,12 +413,10 @@
   <section id="screen-quiz" class="screen" style="--accent:#C9223A;">
     <div class="max-w-xl mx-auto relative">
 
-      <!-- progress meta -->
-      <div class="flex items-center justify-between mb-6 relative z-10">
-        <div class="font-jp-display text-[15px] sm:text-[16px] q-meta-label">
-          <span id="q-counter">Q1</span> <span class="q-meta-sep">/ 10</span>
-        </div>
-        <div class="q-dots" id="q-dots" aria-hidden="true"></div>
+      <!-- progress: colored Q-number + thick % bar to the page edge -->
+      <div class="flex items-center gap-3 mb-6 relative z-10">
+        <span id="q-counter" class="q-num">Q1</span>
+        <div class="q-prog"><div id="q-prog-fill" class="q-prog__fill"><span id="q-prog-pct" class="q-prog__pct">10%</span></div></div>
       </div>
 
       <!-- the card (built by JS) -->
@@ -439,11 +444,13 @@
 
       <div class="text-center">
         <div class="inline-flex items-center gap-3" style="color:#9C7E2A;">
-          <span class="text-[13px] sm:text-[14px] tracking-[0.2em] font-bold">FINAL SCORE</span>
+          <span class="text-[14px] sm:text-[15px] tracking-[0.12em] font-bold"><ruby>結果<rt>けっか</rt></ruby><ruby>発表<rt>はっぴょう</rt></ruby></span>
         </div>
         <div class="mt-5 flex justify-center">
           <img id="end-oji" src="/images/oji/oji_presenting.png" alt="ビーガン王子 — 結果発表" class="w-32 sm:w-40 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.15)]"/>
         </div>
+        <!-- per-question result marks (✓/✗) -->
+        <div id="end-marks" class="mt-4 grid grid-cols-10 gap-1 max-w-[340px] mx-auto"></div>
       </div>
 
       <!-- score card -->
@@ -451,7 +458,7 @@
         <div class="relative z-10">
           <div class="flex items-center justify-between mb-3">
             <div class="text-[13px] sm:text-[14px] tracking-[0.14em] text-ink/55">あなたの<ruby>正解数<rt>せいかいすう</rt></ruby></div>
-            <div class="text-[13px] sm:text-[14px] tracking-[0.14em] font-bold" style="color:#9C7E2A;">QUIZ RESULT</div>
+            <div class="text-[13px] sm:text-[14px] font-bold" style="color:#9C7E2A;"><ruby>王子<rt>おうじ</rt></ruby>の<ruby>採点<rt>さいてん</rt></ruby></div>
           </div>
           <div class="flex items-baseline justify-center gap-2 mt-2 mb-4">
             <span id="end-score" class="big-number ticker text-[92px] sm:text-[132px] leading-none" style="color:#C9223A;">0</span>
@@ -522,12 +529,6 @@
     </div>
   </section>
 
-  <!-- Persistent poop ticker (appears on START, keeps growing) -->
-  <div class="poop-bar" id="poop-bar" aria-hidden="true">
-    <div class="poop-bar__inner">
-      このクイズを<ruby>始<rt>はじ</rt></ruby>めてから、<ruby>世界<rt>せかい</rt></ruby>の<ruby>畜産<rt>ちくさん</rt></ruby>は 💩 <span class="font-bold ticker" id="poop-global" style="color:#C9532C;">0</span> トンのフンを<ruby>出<rt>だ</rt></ruby>しました
-    </div>
-  </div>
 
   <script>
     (function () {
@@ -607,7 +608,7 @@
             { src: 'food-hamburger', style: 'width:72px; top:6%; left:-10px;', cls: 'anim-twinkle' },
           ]),
           q: 'ハンバーガー1<ruby>個<rt>こ</rt></ruby>を<ruby>作<rt>つく</rt></ruby>るのに<ruby>必要<rt>ひつよう</rt></ruby>なお<ruby>水<rt>みず</rt></ruby>は？',
-          choices: ['約30L', '約300L', '約3,000L', '約3万L'], correct: 2,
+          choices: ['約3L', '約30L', '約300L', '約3,000L'], correct: 3,
           reveal:
             '<div class="flex items-center justify-center gap-4">' +
               '<img src="' + IMG + 'icon-water-drop.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
@@ -684,8 +685,7 @@
               '<span class="font-jp-display text-[30px] text-ink">%</span></div>' +
             '</div>' +
             '<p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[16px] leading-[1.85] text-center">' +
-              '<ruby>約<rt>やく</rt></ruby>30%。<ruby>月<rt>つき</rt></ruby>よりも<ruby>広<rt>ひろ</rt></ruby>いんだ。</p>' +
-            '<p class="mt-1 text-center text-ink/50 text-[12px]">（出典: FAO・全陸地ベース）</p>',
+              '<ruby>約<rt>やく</rt></ruby>30%。<ruby>月<rt>つき</rt></ruby>よりも<ruby>広<rt>ひろ</rt></ruby>いんだ。</p>',
         },
         // ───────────────────────────── Q6 · calories 2割 ─────────────────
         {
@@ -735,7 +735,7 @@
             { src: 'icon-fish-wild', style: 'width:48px; bottom:6%; right:8%;', cls: 'anim-twinkle' },
           ]),
           q: '<ruby>世界<rt>せかい</rt></ruby>で1<ruby>年間<rt>ねんかん</rt></ruby>に<ruby>獲<rt>と</rt></ruby>られる<ruby>魚<rt>さかな</rt></ruby>は、およそ<ruby>何<rt>なん</rt>匹<rt>びき</rt></ruby>？',
-          choices: ['約20億匹', '約2,000億匹', '約2兆匹', '数えきれない'], correct: 2,
+          choices: ['約2,000,000,000匹', '約200,000,000,000匹', '約2,000,000,000,000匹'], correct: 2,
           reveal:
             '<div class="flex items-center justify-center gap-4">' +
               '<img src="' + IMG + 'icon-fish-wild.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
@@ -755,7 +755,7 @@
             { src: 'icon-fishing-gear-bundle', style: 'width:88px; top:-8px; right:-10px;', cls: 'anim-twinkle' },
           ]),
           q: '<ruby>漁<rt>りょう</rt></ruby>で<ruby>獲<rt>と</rt></ruby>られた<ruby>生<rt>い</rt></ruby>きもののうち、"<ruby>食<rt>た</rt></ruby>べるためですらない"のは<ruby>約<rt>やく</rt></ruby>どれくらい？',
-          choices: ['約1割', '約4割', 'ほとんどない', '約7割'], correct: 1,
+          choices: ['約1割', '約2割', '約4割', '約6割'], correct: 2,
           reveal:
             '<div class="flex items-center justify-center gap-4">' +
               '<img src="' + IMG + 'icon-fishing-net.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
@@ -774,7 +774,7 @@
             { src: 'icon-grain-sack', style: 'width:84px; top:-8px; left:-12px;', cls: 'anim-twinkle' },
           ]),
           q: '<ruby>家畜<rt>かちく</rt></ruby>のエサに<ruby>回<rt>まわ</rt></ruby>されている<ruby>食料<rt>しょくりょう</rt></ruby>は、<ruby>何<rt>なん</rt></ruby><ruby>人分<rt>にんぶん</rt></ruby>？',
-          choices: ['約10億人分', '約50億人分', '約100億人分', '約200億人分'], correct: 2,
+          choices: ['約1,000,000,000人分', '約5,000,000,000人分', '約10,000,000,000人分'], correct: 2,
           reveal:
             '<div class="flex items-center justify-center gap-4">' +
               '<img src="' + IMG + 'icon-people-group.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
@@ -814,29 +814,13 @@
       const qNext = $('q-next');
       const qNextLabel = $('q-next-label');
       const qCounter = $('q-counter');
-      const qDots = $('q-dots');
-      const progressBar = $('q-progress-bar');
-
-      // build dots once
-      qDots.innerHTML = QUESTIONS.map((_, i) => '<span class="q-dot" data-i="' + i + '"></span>').join('');
-      const dotEls = qDots.querySelectorAll('.q-dot');
+      const progFill = $('q-prog-fill');
+      const progPct = $('q-prog-pct');
 
       // ───────── live counters ─────────
-      let poopGlobal = { start: null, raf: 0 };       // tons, 40 t/s, since START
       let q3 = { start: null, raf: 0, running: false }; // kg, 40000 kg/s
       let q4 = { start: null, raf: 0, running: false }; // m², 100 m²/s (≈6,000/min)
 
-      function startGlobalPoop() {
-        poopGlobal.start = performance.now();
-        const el = $('poop-global');
-        const loop = (now) => {
-          const sec = (now - poopGlobal.start) / 1000;
-          el.textContent = Math.floor(sec * 40).toLocaleString('ja-JP');
-          poopGlobal.raf = requestAnimationFrame(loop);
-        };
-        cancelAnimationFrame(poopGlobal.raf);
-        poopGlobal.raf = requestAnimationFrame(loop);
-      }
       function startQ3() {
         q3.running = true; q3.start = performance.now();
         const num = $('q3-live'); const img = $('q3-poo');
@@ -844,7 +828,7 @@
           if (!q3.running) return;
           const sec = (now - q3.start) / 1000;
           if (num) num.textContent = Math.floor(sec * 40000).toLocaleString('ja-JP');
-          if (img) img.style.width = Math.min(168, 84 + sec * 20) + 'px';
+          if (img) img.style.width = Math.min(420, 78 + sec * 7) + 'px';
           q3.raf = requestAnimationFrame(loop);
         };
         q3.raf = requestAnimationFrame(loop);
@@ -870,11 +854,9 @@
         screenQuiz.classList.toggle('ocean', qd.bg === 'ocean');
 
         qCounter.textContent = 'Q' + (i + 1);
-        dotEls.forEach((d, k) => {
-          d.classList.toggle('is-active', k === i);
-          d.classList.toggle('is-done', answers[k] !== null && k !== i);
-        });
-        progressBar.style.width = ((i) / N * 100) + '%';
+        const pct = Math.round((i + 1) / N * 100);
+        progFill.style.width = pct + '%';
+        progPct.textContent = pct + '%';
 
         const longest = Math.max.apply(null, qd.choices.map(c => c.replace(/<[^>]+>/g, '').length));
         const colClass = longest > 6 ? '' : 'cols-2';
@@ -886,7 +868,6 @@
               '<div class="flex items-start gap-3 sm:gap-4">' +
                 '<img id="q-oji" src="' + OJI + qd.poseAsk + '.png" alt="ビーガン王子" class="w-20 sm:w-28 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.18)]"/>' +
                 '<div class="bubble flex-1 mt-2">' +
-                  '<div class="flex items-center gap-2 mb-2"><span class="q-badge">Q' + (i + 1) + '</span></div>' +
                   '<h2 class="font-jp-display text-[18px] sm:text-[22px] leading-[1.65]' + (qd.bg === 'ocean' ? ' text-paper' : ' text-ink') + '">' + qd.q + '</h2>' +
                 '</div>' +
               '</div>' +
@@ -946,8 +927,6 @@
         if (qd.live === 'forest') startQ4();
 
         // show next
-        dotEls[idx].classList.add('is-done');
-        progressBar.style.width = ((idx + 1) / N * 100) + '%';
         qNextWrap.style.display = 'flex';
         requestAnimationFrame(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
       }
@@ -964,20 +943,17 @@
         screenHero.classList.remove('is-on');
         screenEnd.classList.remove('is-on');
         screenQuiz.classList.add('is-on');
-        $('q-progress').style.display = '';
-        $('poop-bar').classList.add('is-on');
-        if (poopGlobal.start === null) startGlobalPoop();
         showQuestion(0);
       }
       $('start-btn').addEventListener('click', startQuiz);
 
       // ───────── grading ─────────
       function gradeFor(score) {
-        if (score === 10) return { pose: 'oji_excited', title: 'パーフェクト！', sub: 'もう<ruby>立派<rt>りっぱ</rt></ruby>な<ruby>地球<rt>ちきゅう</rt></ruby>はかせ。<ruby>友達<rt>ともだち</rt></ruby>にも<ruby>教<rt>おし</rt></ruby>えてあげて。' };
-        if (score >= 7)  return { pose: 'oji_happy', title: 'さすが！', sub: 'ほとんど<ruby>知<rt>し</rt></ruby>っていたね。<ruby>残<rt>のこ</rt></ruby>りも、もっと<ruby>知<rt>し</rt></ruby>ってみよう。' };
-        if (score >= 4)  return { pose: 'oji_curious', title: 'いいかんじ！', sub: '<ruby>半分<rt>はんぶん</rt></ruby>くらいは<ruby>正解<rt>せいかい</rt></ruby>。<ruby>意外<rt>いがい</rt></ruby>な<ruby>数字<rt>すうじ</rt></ruby>、もっとあるよ。' };
-        if (score >= 1)  return { pose: 'oji_wondering', title: 'これから！', sub: 'ここからが<ruby>面白<rt>おもしろ</rt></ruby>いところ。<ruby>下<rt>した</rt></ruby>のリンクをのぞいてみて。' };
-        return { pose: 'oji_questioning', title: 'むずかしかった！', sub: 'だいじょうぶ、<ruby>学校<rt>がっこう</rt></ruby>では<ruby>習<rt>なら</rt></ruby>わないことばかり。<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>知<rt>し</rt></ruby>っていこう。' };
+        if (score === 10) return { pose: 'oji_excited', title: '<ruby>満点<rt>まんてん</rt></ruby>！', sub: '10<ruby>問<rt>もん</rt></ruby>ぜんぶ<ruby>正解<rt>せいかい</rt></ruby>。もう<ruby>立派<rt>りっぱ</rt></ruby>な<ruby>地球<rt>ちきゅう</rt></ruby>はかせだね。<ruby>友達<rt>ともだち</rt></ruby>にも<ruby>教<rt>おし</rt></ruby>えてあげて！' };
+        if (score >= 7)  return { pose: 'oji_happy', title: 'あっぱれ！', sub: 'ほとんど<ruby>正解<rt>せいかい</rt></ruby>。よく<ruby>知<rt>し</rt></ruby>ってるね、その<ruby>調子<rt>ちょうし</rt></ruby>！<ruby>残<rt>のこ</rt></ruby>りももう<ruby>少<rt>すこ</rt></ruby>し。' };
+        if (score >= 4)  return { pose: 'oji_curious', title: 'いいかんじ！', sub: '<ruby>半分<rt>はんぶん</rt></ruby>くらい<ruby>正解<rt>せいかい</rt></ruby>。<ruby>意外<rt>いがい</rt></ruby>な<ruby>数字<rt>すうじ</rt></ruby>、まだまだあるよ。' };
+        if (score >= 1)  return { pose: 'oji_wondering', title: 'これからだね！', sub: '<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>、ここからが<ruby>面白<rt>おもしろ</rt></ruby>いところ。<ruby>下<rt>した</rt></ruby>のリンクものぞいてみて。' };
+        return { pose: 'oji_questioning', title: 'ドンマイ！', sub: '<ruby>学校<rt>がっこう</rt></ruby>では<ruby>習<rt>なら</rt></ruby>わないことばかり。<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>知<rt>し</rt></ruby>っていこう！' };
       }
 
       const pageUrl = window.location.href.split('#')[0];
@@ -991,16 +967,31 @@
         $('end-message').innerHTML = g.title;
         $('end-sub').innerHTML = g.sub;
 
-        // recap rows
+        // per-question result marks (✓/✗) under Oji
+        $('end-marks').innerHTML = answers.map((p, i) => {
+          const got = p === QUESTIONS[i].correct;
+          return '<img src="' + IMG + (got ? 'icon-check-social' : 'icon-x-social') + '.png" alt="" class="w-full h-auto"/>';
+        }).join('');
+
+        // recap rows — with the user's pick + the correct answer
         $('recap-list').innerHTML = RECAP.map((r, i) => {
-          const got = answers[i] === QUESTIONS[i].correct;
+          const Q = QUESTIONS[i];
+          const got = answers[i] === Q.correct;
           const icon = got
             ? '<img src="' + IMG + 'icon-check-social.png" alt="正解" class="w-9 h-9 sm:w-10 sm:h-10 shrink-0"/>'
             : '<img src="' + IMG + 'icon-x-social.png" alt="不正解" class="w-9 h-9 sm:w-10 sm:h-10 shrink-0"/>';
+          const chosen = answers[i] !== null ? Q.choices[answers[i]] : '—';
+          const correct = Q.choices[Q.correct];
+          const ansLine = got
+            ? '<span style="color:#3F6A3A;">正解: ' + correct + '</span>'
+            : '<span style="color:#9C1428;">あなた: ' + chosen + '</span> <span class="text-ink/35">／</span> <span style="color:#3F6A3A;">正解: ' + correct + '</span>';
           return '<div class="recap-row">' +
-            '<span class="recap-num" style="background:' + QUESTIONS[i].accent + ';">' + (i + 1) + '</span>' +
+            '<span class="recap-num" style="background:' + Q.accent + ';">' + (i + 1) + '</span>' +
             icon +
-            '<div class="flex-1 font-jp text-ink text-[14px] sm:text-[15px] leading-[1.5]">' + r.t + '</div>' +
+            '<div class="flex-1 min-w-0">' +
+              '<div class="font-jp text-ink text-[14px] sm:text-[15px] leading-[1.5]">' + r.t + '</div>' +
+              '<div class="font-jp text-[11px] sm:text-[12px] leading-[1.5] mt-0.5">' + ansLine + '</div>' +
+            '</div>' +
             '<a class="morelink" href="' + r.href + '">もっと知る <span aria-hidden="true">→</span></a>' +
           '</div>';
         }).join('');
@@ -1037,12 +1028,8 @@
       $('retry-btn').addEventListener('click', () => {
         for (let i = 0; i < N; i++) answers[i] = null;
         idx = 0;
-        // restart the global poop ticker from zero
-        cancelAnimationFrame(poopGlobal.raf); poopGlobal.start = null;
-        startGlobalPoop();
         screenEnd.classList.remove('is-on');
         screenQuiz.classList.add('is-on');
-        $('q-progress').style.display = '';
         showQuestion(0);
       });
     })();

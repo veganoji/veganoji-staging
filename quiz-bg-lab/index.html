@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>クイズ背景ラボ — 絵本タッチ（問題ごと）</title>
+  <title>クイズ背景ラボ — 絵本タッチ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
@@ -20,120 +20,125 @@
     html, body { background: var(--color-paper); color: var(--color-ink); }
     body { font-family: var(--font-noto-sans-jp); font-feature-settings: "palt"; -webkit-font-smoothing: antialiased; }
     .font-jp-display { font-weight: 900; }
-
-    .phone {
-      position: relative; aspect-ratio: 1024 / 1536; border-radius: 20px;
-      border: 2.5px solid var(--color-ink); box-shadow: 5px 5px 0 var(--color-ink);
-      overflow: hidden; background-size: cover; background-position: center;
-    }
-    .phone__tag {
-      position: absolute; top: 8px; left: 8px; z-index: 4;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
-      padding: 3px 8px; border-radius: 999px; background: rgba(255,249,238,0.92);
-      border: 1.5px solid var(--color-ink); color: var(--color-ink);
-    }
-    /* Oji standing in the scene (real on-model pose PNG) */
-    .phone__oji { position: absolute; left: 4%; bottom: 3%; width: 30%; z-index: 3; filter: drop-shadow(0 4px 8px rgba(31,24,18,0.25)); }
-    /* compact question card over the open upper area */
-    .ov-card { position: absolute; top: 12%; left: 50%; transform: translateX(-50%); z-index: 2; width: 80%;
-      background: rgba(255,249,238,0.95); border: 2.5px solid var(--color-ink); border-radius: 13px; box-shadow: 4px 4px 0 var(--color-ink); padding: 10px 11px 12px; }
+    .phone { position: relative; aspect-ratio: 1024 / 1536; border-radius: 20px; border: 2.5px solid var(--color-ink); box-shadow: 5px 5px 0 var(--color-ink); overflow: hidden; background-size: cover; background-position: center; }
+    .phone__tag { position: absolute; top: 8px; left: 8px; z-index: 4; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 3px 8px; border-radius: 999px; background: rgba(255,249,238,0.92); border: 1.5px solid var(--color-ink); color: var(--color-ink); }
+    .ov-card { position: absolute; top: 11%; left: 50%; transform: translateX(-50%); z-index: 2; width: 80%; background: rgba(255,249,238,0.95); border: 2.5px solid var(--color-ink); border-radius: 13px; box-shadow: 4px 4px 0 var(--color-ink); padding: 10px 11px 12px; }
     .ov-q { display: inline-flex; align-items: center; justify-content: center; min-width: 30px; height: 20px; padding: 0 7px; border-radius: 6px; border: 2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink); color: #fff; font-weight: 900; font-size: 10px; }
     .ov-qline { font-weight: 900; font-size: 11px; line-height: 1.45; margin: 7px 0 8px; color: var(--color-ink); }
     .ov-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
     .ov-chip { font-size: 10px; font-weight: 700; padding: 6px 4px; text-align: center; border-radius: 8px; border: 2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-paper-soft); }
-
-    /* intro overlay (for the 5-direction reference grid) */
-    .ov { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 14px; }
+    .ov { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 16px; }
     .ov-title { font-weight: 900; line-height: 1.25; color: var(--color-ink); font-size: clamp(12px, 4vw, 18px); }
     .ov-title .g { color: var(--color-leaf-deep); }
     .ov-pill { margin-top: 9px; font-size: 11px; font-weight: 700; color: #fff; background: var(--color-royal); border: 2px solid var(--color-ink); border-radius: 11px; box-shadow: 2px 2px 0 var(--color-ink); padding: 6px 14px; }
+    .ov-score { background: rgba(255,249,238,0.95); border: 2.5px solid var(--color-ink); border-radius: 14px; box-shadow: 4px 4px 0 var(--color-ink); padding: 12px 18px; }
+    .word { aspect-ratio: 1536/1024; border-radius: 16px; border: 2px solid var(--color-ink); box-shadow: 4px 4px 0 var(--color-ink); background: #fff; background-size: contain; background-repeat: no-repeat; background-position: center; }
     .pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; border: 2px solid var(--color-ink); background: var(--color-paper); }
+    h2.sec { font-weight: 900; font-size: 22px; margin-bottom: 4px; }
+    @media (min-width:640px){ h2.sec{ font-size: 26px; } }
   </style>
 </head>
 <body class="antialiased">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
 
-    <header class="mb-10 sm:mb-12">
+    <header class="mb-10">
       <div class="pill mb-4">背景ラボ · 絵本タッチ · noindex</div>
-      <h1 class="font-jp-display text-[28px] sm:text-[42px] leading-[1.2] text-ink">
-        方向C・絵本タッチで決定！<br class="sm:hidden"/>問題ごとのオリジナル背景。
-      </h1>
-      <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[16px] leading-[1.9] max-w-3xl">
-        各問題のテーマ（牛とメタンの雲、ハンバーガーと水、魚の群れ、麦畑…）を絵本タッチの水彩で1枚ずつ描きました。
-        まるで絵本のページをめくるように。中央上は淡く空けてあるので、王子の吹き出しと問題カードがそのまま乗ります。
-      </p>
-      <p class="mt-3 font-jp text-ink-soft text-[13px] sm:text-[14px] leading-[1.85] max-w-3xl bg-paper-soft border-2 border-ink/15 rounded-xl px-4 py-3">
-        <b>王子について：</b>背景には王子を「描き込まない」方針です（AI生成だと公式の王子と顔が変わってしまうため）。
-        王子は今まで通り本物のポーズPNGを上から重ねます — 下のモックでは王子が実際に絵本のシーンに立っている様子を確認できます。
-        <br/><b>海の問題（Q8・Q9）：</b>絵本タッチだと明るい海になります（今のダークな没入演出は無くなります）。どちらが良いか教えてください。
+      <h1 class="font-jp-display text-[26px] sm:text-[40px] leading-[1.2] text-ink">クイズの<ruby>絵<rt>え</rt></ruby>づくり・候補いろいろ</h1>
+      <p class="mt-3 font-jp text-ink-soft text-[14px] sm:text-[15px] leading-[1.85] max-w-3xl bg-paper-soft border-2 border-ink/15 rounded-xl px-4 py-3">
+        <b>更新：</b> Q2（ハンバーガー）と Q5（地球）から<b>顔を消しました</b>。問題の背景からは<b>王子を外しました</b>（王子は質問するときに登場するため）。
+        新しく <b>イントロ画面 3案</b>・<b>結果発表画面 3案</b>・<b>「せいかい / ざんねん」文字 各3案</b> を追加。気に入ったものを教えてください。
       </p>
     </header>
 
-    <!-- per-question storybook backgrounds -->
-    <div id="qgrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-7"></div>
+    <!-- intro candidates -->
+    <section class="mb-12">
+      <h2 class="sec text-ink">イントロ画面（3案）</h2>
+      <p class="font-jp text-ink-soft text-[13px] mb-5">タイトル＋スタートが乗る最初の画面。</p>
+      <div id="intro" class="grid grid-cols-3 gap-4 sm:gap-6 max-w-3xl"></div>
+    </section>
 
-    <!-- reference: the original 5 directions -->
-    <div class="mt-16 pt-10 border-t-2 border-ink/10">
-      <h2 class="font-jp-display text-[20px] sm:text-[26px] text-ink mb-1">参考：さいしょの5方向</h2>
-      <p class="font-jp text-ink-soft text-[13px] sm:text-[14px] mb-6">最初に比べた5スタイル（Cを選択）。イントロ・暖色Q・寒色Q。</p>
-      <div id="dirs" class="flex flex-col gap-10"></div>
+    <!-- score candidates -->
+    <section class="mb-12">
+      <h2 class="sec text-ink">結果発表画面（3案）</h2>
+      <p class="font-jp text-ink-soft text-[13px] mb-5">スコアと王子のコメントが乗る最後の画面。</p>
+      <div id="score" class="grid grid-cols-3 gap-4 sm:gap-6 max-w-3xl"></div>
+    </section>
+
+    <!-- seikai / zannen word art -->
+    <section class="mb-12">
+      <h2 class="sec text-ink">「せいかい」「ざんねん」文字（各3案）</h2>
+      <p class="font-jp text-ink-soft text-[13px] mb-5">正解／不正解のときに出す手描き文字。選んだものを実装します。</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div><div class="font-jp-display text-[15px] mb-2" style="color:#3F6A3A;">せいかい</div><div id="seikai" class="grid grid-cols-1 gap-3"></div></div>
+        <div><div class="font-jp-display text-[15px] mb-2" style="color:#9C1428;">ざんねん</div><div id="zannen" class="grid grid-cols-1 gap-3"></div></div>
+      </div>
+    </section>
+
+    <!-- per-question storybook backgrounds (no Oji) -->
+    <section class="mb-12">
+      <h2 class="sec text-ink">問題ごとの絵本背景（全10問）</h2>
+      <p class="font-jp text-ink-soft text-[13px] mb-5">テーマごとの背景。王子はこの上に重なって質問します。</p>
+      <div id="qgrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-7"></div>
+    </section>
+
+    <!-- reference -->
+    <div class="mt-12 pt-8 border-t-2 border-ink/10">
+      <h2 class="sec text-ink/70">参考：さいしょの5方向</h2>
+      <div id="dirs" class="flex flex-col gap-8 mt-5"></div>
     </div>
-
-    <footer class="mt-16 text-ink/45 text-[13px]">
-      生成: gpt-image-1 / 1024×1536 / quality=high — <span class="font-mono">.claude/gen-quiz-storybook.py</span>
-    </footer>
   </div>
 
   <script>
-    // ── per-question storybook mockups ────────────────────────────────
+    function titleOverlay() {
+      return '<div class="ov"><div class="ov-title">しらなかった！<br/><span class="g">ごはんと地球</span>のクイズ</div><div class="ov-pill">スタート →</div></div>';
+    }
+    function scoreOverlay() {
+      return '<div class="ov"><div class="ov-score"><div class="text-[10px] font-bold tracking-wider" style="color:#9C7E2A;">結果発表</div>' +
+             '<div class="font-jp-display leading-none mt-1" style="color:#C9223A; font-size:38px;">8<span class="text-ink/45" style="font-size:18px;"> / 10</span></div>' +
+             '<div class="font-jp-display text-[13px] mt-1 text-ink">あっぱれ！</div></div></div>';
+    }
+    const INTRO = [['intro-v1','道・はじまり'],['intro-v2','食卓スプレッド'],['intro-v3','地球＋食べ物']];
+    const SCORE = [['score-v1','紙吹雪'],['score-v2','夕日＋旗'],['score-v3','星＋メダル']];
+    document.getElementById('intro').innerHTML = INTRO.map(([k,n]) =>
+      '<div class="phone" style="background-image:url(img/'+k+'.jpg);"><span class="phone__tag">'+n+'</span>'+titleOverlay()+'</div>').join('');
+    document.getElementById('score').innerHTML = SCORE.map(([k,n]) =>
+      '<div class="phone" style="background-image:url(img/'+k+'.jpg);"><span class="phone__tag">'+n+'</span>'+scoreOverlay()+'</div>').join('');
+
+    document.getElementById('seikai').innerHTML = ['seikai-1','seikai-2','seikai-3'].map((k,i) =>
+      '<div class="word" style="background-image:url(img/'+k+'.jpg);"></div>').join('');
+    document.getElementById('zannen').innerHTML = ['zannen-1','zannen-2','zannen-3'].map((k,i) =>
+      '<div class="word" style="background-image:url(img/'+k+'.jpg);"></div>').join('');
+
     const QS = [
-      { n:1,  topic:'温暖化',  accent:'#C9223A', oji:'oji_curious',     q:'牛のゲップ、CO₂の約何倍？',        chips:['約2倍','約28倍'] },
-      { n:2,  topic:'水',      accent:'#2B7AB0', oji:'oji_questioning', q:'ハンバーガー1個に必要な水は？',    chips:['約300L','約3,000L'] },
-      { n:3,  topic:'排泄物',  accent:'#C9532C', oji:'oji_thinking',    q:'畜産が1秒で出すフンの量は？',      chips:['約4,000kg','約40,000kg'] },
-      { n:4,  topic:'森林',    accent:'#3F6A3A', oji:'oji_wondering',   q:'アマゾン伐採、一番の理由は？',      chips:['住宅開発','家畜の農地'] },
-      { n:5,  topic:'土地',    accent:'#6B4E8C', oji:'oji_reading',     q:'陸地の何%が畜産に？',             chips:['約10%','約30%'] },
-      { n:6,  topic:'カロリー',accent:'#9C7E2A', oji:'oji_explaining',  q:'農地8割→カロリーは何%？',         chips:['約5割','約2割'] },
-      { n:7,  topic:'効率',    accent:'#6C9560', oji:'oji_confident',   q:'同じ土地、植物は何倍作れる？',      chips:['約10倍','約100倍'] },
-      { n:8,  topic:'海',      accent:'#2B7AB0', oji:'oji_curious_2',   q:'1年で獲られる魚は何匹？',          chips:['約2,000億匹','約2兆匹'] },
-      { n:9,  topic:'混獲',    accent:'#2B7AB0', oji:'oji_questioning', q:'食べるためですらない割合は？',      chips:['約1割','約4割'] },
-      { n:10, topic:'食料',    accent:'#3F6A3A', oji:'oji_presenting',  q:'家畜のエサ、何人分？',             chips:['約50億人分','約100億人分'] },
+      { n:1,  topic:'温暖化',  accent:'#C9223A', q:'牛のゲップ、CO₂の約何倍？',        chips:['約2倍','約28倍'] },
+      { n:2,  topic:'水',      accent:'#2B7AB0', q:'ハンバーガー1個に必要な水は？',    chips:['約300L','約3,000L'] },
+      { n:3,  topic:'排泄物',  accent:'#C9532C', q:'畜産が1秒で出すフンの量は？',      chips:['約4,000kg','約40,000kg'] },
+      { n:4,  topic:'森林',    accent:'#3F6A3A', q:'アマゾン伐採、一番の理由は？',      chips:['住宅開発','家畜の農地'] },
+      { n:5,  topic:'土地',    accent:'#6B4E8C', q:'陸地の何%が畜産に？',             chips:['約10%','約30%'] },
+      { n:6,  topic:'カロリー',accent:'#9C7E2A', q:'農地8割→カロリーは何%？',         chips:['約5割','約2割'] },
+      { n:7,  topic:'効率',    accent:'#6C9560', q:'同じ土地、植物は何倍作れる？',      chips:['約10倍','約100倍'] },
+      { n:8,  topic:'海',      accent:'#2B7AB0', q:'1年で獲られる魚は何匹？',          chips:['約20億匹','約2兆匹'] },
+      { n:9,  topic:'混獲',    accent:'#2B7AB0', q:'食べるためですらない割合は？',      chips:['約2割','約4割'] },
+      { n:10, topic:'食料',    accent:'#3F6A3A', q:'家畜のエサ、何人分？',             chips:['約50億人分','約100億人分'] },
     ];
     document.getElementById('qgrid').innerHTML = QS.map(o => {
       const bg = 'img/q' + String(o.n).padStart(2,'0') + '.jpg';
-      return '<div>' +
-        '<div class="phone" style="background-image:url(' + bg + ');">' +
+      return '<div class="phone" style="background-image:url(' + bg + ');">' +
           '<span class="phone__tag">Q' + o.n + ' · ' + o.topic + '</span>' +
-          '<div class="ov-card">' +
-            '<span class="ov-q" style="background:' + o.accent + ';">Q' + o.n + '</span>' +
+          '<div class="ov-card"><span class="ov-q" style="background:' + o.accent + ';">Q' + o.n + '</span>' +
             '<div class="ov-qline">' + o.q + '</div>' +
             '<div class="ov-chips">' + o.chips.map(c => '<div class="ov-chip">' + c + '</div>').join('') + '</div>' +
           '</div>' +
-          '<img class="phone__oji" src="/images/oji/' + o.oji + '.png" alt="" loading="lazy"/>' +
-        '</div>' +
-      '</div>';
+        '</div>';
     }).join('');
 
-    // ── reference: original 5 directions ──────────────────────────────
-    const DIRS = [
-      { k:'A', jp:'やわらかパステル', en:'Soft Pastel' },
-      { k:'B', jp:'和モダン金箔',     en:'Nihonga + Gold' },
-      { k:'C', jp:'絵本タッチ ✓',     en:'Storybook (chosen)' },
-      { k:'D', jp:'ボタニカル',       en:'Botanical' },
-      { k:'E', jp:'ミニマル余白',     en:'Minimal' },
-    ];
-    const MOODS = [ {m:'intro',tag:'INTRO'}, {m:'warm',tag:'温暖化'}, {m:'cool',tag:'海'} ];
-    document.getElementById('dirs').innerHTML = DIRS.map(d =>
-      '<section>' +
-        '<div class="flex items-baseline gap-3 flex-wrap mb-3">' +
-          '<h3 class="font-jp-display text-[17px] sm:text-[20px] text-ink">' + d.k + ' · ' + d.jp + '</h3>' +
-          '<span class="text-ink/45 text-[13px]">' + d.en + '</span>' +
-        '</div>' +
+    const DIRS = [['A','やわらかパステル'],['B','和モダン金箔'],['C','絵本タッチ ✓'],['D','ボタニカル'],['E','ミニマル余白']];
+    const MOODS = [['intro','INTRO'],['warm','温暖化'],['cool','海']];
+    document.getElementById('dirs').innerHTML = DIRS.map(([k,jp]) =>
+      '<section><div class="font-jp-display text-[17px] text-ink mb-3">' + k + ' · ' + jp + '</div>' +
         '<div class="grid grid-cols-3 gap-3 sm:gap-5 max-w-xl">' +
-          MOODS.map(mo => '<div class="phone" style="background-image:url(img/' + d.k + '-' + mo.m + '.jpg);">' +
-            '<span class="phone__tag">' + mo.tag + '</span></div>').join('') +
-        '</div>' +
-      '</section>'
-    ).join('');
+          MOODS.map(([m,tag]) => '<div class="phone" style="background-image:url(img/' + k + '-' + m + '.jpg);"><span class="phone__tag">' + tag + '</span></div>').join('') +
+        '</div></section>').join('');
   </script>
 </body>
 </html>
