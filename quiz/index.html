@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>しらなかった！地球とごはんのクイズ ｜ ビーガン王子</title>
+  <title>しらなかった！ごはんと地球のクイズ ｜ ビーガン王子</title>
   <meta name="description" content="えっ、なんで学校で習わなかったんだろう！？ 食べ物と地球の、ちょっと意外な基本のはなし。ビーガン王子と全10問のクイズで、一緒にたしかめてみよう。" />
   <link rel="canonical" href="https://veganoji.jp/quiz/" />
   <meta property="og:url" content="https://veganoji.jp/quiz/" />
   <meta property="og:site_name" content="ビーガン王子 Vegan Oji" />
-  <meta property="og:title" content="しらなかった！地球とごはんのクイズ" />
+  <meta property="og:title" content="しらなかった！ごはんと地球のクイズ" />
   <meta property="og:description" content="食べ物と地球の、ちょっと意外な基本のはなし。全10問、きみは何問わかる？" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://veganoji.jp/images/social/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="しらなかった！地球とごはんのクイズ" />
+  <meta name="twitter:title" content="しらなかった！ごはんと地球のクイズ" />
   <meta name="twitter:description" content="食べ物と地球の、ちょっと意外な基本のはなし。全10問、きみは何問わかる？" />
   <meta name="twitter:image" content="https://veganoji.jp/images/social/og-card.jpg" />
   <meta name="theme-color" content="#FFF9EE" />
@@ -363,8 +363,13 @@
 
       <h1 class="reveal heading-with-ruby font-jp-display display-tight text-[40px] sm:text-[66px] lg:text-[80px] leading-[1.08] text-ink" data-delay="1">
         しらなかった！<br/>
-        <span class="text-leaf-deep"><ruby>地球<rt>ちきゅう</rt></ruby>とごはん</span>の<br class="sm:hidden"/>クイズ
+        <span class="text-leaf-deep">ごはんと<ruby>地球<rt>ちきゅう</rt></ruby></span>の<br class="sm:hidden"/>クイズ
       </h1>
+
+      <!-- Connection-question subtitle (option H) -->
+      <p class="reveal mt-5 sm:mt-6 font-jp-display text-[18px] sm:text-[23px] text-ink-soft leading-[1.5]" data-delay="1">
+        ごはんと<ruby>地球<rt>ちきゅう</rt></ruby>は、つながってる？
+      </p>
 
       <!-- The emotional hook, as an Oji speech bubble -->
       <div class="reveal mt-9 sm:mt-11 flex items-start justify-center gap-3 sm:gap-4 text-left max-w-md mx-auto" data-delay="2">
@@ -378,7 +383,7 @@
       </div>
 
       <p class="reveal mt-9 sm:mt-10 font-jp text-ink-soft text-[16px] sm:text-[18px] leading-[1.95] max-w-md mx-auto" data-delay="2">
-        <ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>と<ruby>地球<rt>ちきゅう</rt></ruby>の、ちょっと<ruby>意外<rt>いがい</rt></ruby>な<ruby>基本<rt>きほん</rt></ruby>のはなし。<br/>
+        ちょっと<ruby>意外<rt>いがい</rt></ruby>な、<ruby>基本<rt>きほん</rt></ruby>のはなし。<br/>
         <span class="font-bold text-ink"><ruby>全<rt>ぜん</rt></ruby>10<ruby>問<rt>もん</rt></ruby>。きみは<ruby>何問<rt>なんもん</rt></ruby>わかる？</span>
       </p>
 
@@ -457,7 +462,7 @@
 
           <div class="mt-7 pt-5 border-t border-ink/15 flex items-center justify-between text-[12px] sm:text-[13px] text-ink/55">
             <span class="tracking-[0.1em]">veganoji.jp / quiz</span>
-            <span class="font-jp"><ruby>地球<rt>ちきゅう</rt></ruby>とごはんのクイズ</span>
+            <span class="font-jp">ごはんと<ruby>地球<rt>ちきゅう</rt></ruby>のクイズ</span>
           </div>
         </div>
       </div>
@@ -976,7 +981,7 @@
       }
 
       const pageUrl = window.location.href.split('#')[0];
-      function shareText(score) { return '「しらなかった！地球とごはんのクイズ」' + score + '/10 だった！ きみは何問わかる？'; }
+      function shareText(score) { return '「しらなかった！ごはんと地球のクイズ」' + score + '/10 だった！ きみは何問わかる？'; }
 
       function showEnd() {
         stopLiveCounters();
@@ -1024,7 +1029,7 @@
       $('share-native').addEventListener('click', async () => {
         const score = answers.reduce((a, p, i) => a + (p === QUESTIONS[i].correct ? 1 : 0), 0);
         const txt = shareText(score);
-        if (navigator.share) { try { await navigator.share({ title: '地球とごはんのクイズ', text: txt, url: pageUrl }); } catch (_) {} }
+        if (navigator.share) { try { await navigator.share({ title: 'ごはんと地球のクイズ', text: txt, url: pageUrl }); } catch (_) {} }
         else { try { await navigator.clipboard.writeText(txt + ' ' + pageUrl); toast('結果をコピーしたよ！'); } catch (_) {} }
       });
 
