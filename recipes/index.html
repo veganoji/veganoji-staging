@@ -19,7 +19,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   <style type="text/tailwindcss">
     .__seed { color: inherit; }
@@ -107,6 +106,8 @@
     .shelf__badge { width: 32px; height: 32px; border-radius: 10px; border: 2.5px solid var(--color-ink);
       box-shadow: 2px 2px 0 var(--color-ink); display: inline-flex; align-items: center; justify-content: center;
       font-size: 17px; line-height: 1; flex-shrink: 0; }
+    .shelf__ico { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0;
+      filter: drop-shadow(0 2px 3px rgba(31,24,18,0.12)); }
     .shelf__title { font-family: var(--font-noto-sans-jp); font-weight: 900; font-size: 21px; color: var(--color-ink); }
     .scroller { display: flex; gap: 16px; overflow-x: auto; overflow-y: hidden;
       padding: 4px 2px 16px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
@@ -247,47 +248,8 @@
       padding: 11px 20px; border-radius: 999px; box-shadow: 4px 4px 0 rgba(31,24,18,0.3);
       opacity: 0; pointer-events: none; transition: opacity .3s ease; z-index: 90; }
 
-    /* ════════ Export card (authored 432 wide → html2canvas ×2.5 = 1080 wide).
-       Flex column + min-height so it never clips: short recipes = 1350 tall,
-       dense recipes grow downward instead of cropping. Literal hex, palt off. ════════ */
-    #export-host { position: fixed; left: -10000px; top: 0; }
-    .ecard { width: 432px; min-height: 540px; display: flex; flex-direction: column; position: relative;
-      background: #FFF9EE; border: 3px solid #1F1812; color: #1F1812;
-      font-family: "Noto Sans JP", sans-serif; font-feature-settings: normal; letter-spacing: -0.015em; }
-    .ecard * { box-sizing: border-box; }
-    .ec-hero { height: 210px; position: relative; overflow: hidden; border-bottom: 3px solid #1F1812; flex-shrink: 0; background: #F6E4BD; }
-    /* background-size:cover — html2canvas honors this correctly (it does NOT honor object-fit on <img>). */
-    .ec-pic { width: 100%; height: 100%; background-size: cover; background-position: center; }
-    .ec-tag { position: absolute; top: 14px; left: 14px; font-size: 13px; font-weight: 900; color: #fff;
-      border: 2px solid #1F1812; border-radius: 999px; box-shadow: 2px 2px 0 #1F1812; padding: 4px 12px; }
-    .ec-time { position: absolute; top: 14px; right: 14px; display: inline-flex; align-items: center; gap: 4px;
-      white-space: nowrap; font-size: 12.5px; font-weight: 800; color: #1F1812;
-      background: rgba(255,249,238,0.95); border: 2px solid #1F1812; border-radius: 999px;
-      box-shadow: 2px 2px 0 #1F1812; padding: 3px 11px; }
-    .ec-oji { position: absolute; left: 11px; bottom: 10px; width: 66px; filter: drop-shadow(0 4px 7px rgba(31,24,18,0.32)); }
-    .ec-body { flex: 1; display: flex; flex-direction: column; padding: 15px 22px 0; }
-    .ec-title { font-size: 23px; font-weight: 900; line-height: 1.25; }
-    .ec-sub { font-size: 12px; font-weight: 700; color: #786148; margin-top: 4px; }
-    .ec-cols { display: flex; gap: 18px; margin-top: 13px; }
-    .ec-ing { flex: 0 0 43%; }
-    .ec-steps { flex: 1 1 0; min-width: 0; }
-    .ec-lab { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 900; margin-bottom: 7px; }
-    .ec-lab .bar { display: inline-block; width: 14px; height: 3px; border-radius: 2px; }
-    .ec-ing .r { display: flex; justify-content: space-between; gap: 6px; font-size: 11px; line-height: 1.4;
-      padding: 2px 0; border-bottom: 1px dotted rgba(31,24,18,0.18); }
-    .ec-ing .r .a { color: #3F6A3A; font-weight: 800; white-space: nowrap; }
-    .ec-steps .s { display: flex; gap: 7px; margin-bottom: 6px; }
-    /* line-height centering (not flex) — html2canvas places the digit reliably this way */
-    .ec-steps .s .n { flex-shrink: 0; width: 17px; height: 17px; margin-top: 1px; background: #6C9560; color: #fff;
-      border-radius: 50%; font-size: 10.5px; font-weight: 900; display: inline-block; text-align: center; line-height: 17px; }
-    .ec-time img { width: 13px; height: 13px; vertical-align: -2px; }
-    .ec-steps .s .t { font-size: 11px; line-height: 1.5; color: #3C2E22; }
-    .ec-tail { margin-top: auto; }
-    .ec-src { padding: 10px 22px 7px; font-size: 9.5px; color: #786148; line-height: 1.3;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .ec-foot { height: 42px; background: #1F1812; color: #FFF9EE; display: flex; align-items: center;
-      justify-content: center; gap: 8px; font-size: 13px; font-weight: 700; }
-    .ec-foot .u { color: #E8C76F; }
+    /* The export "save image" card is drawn directly on a <canvas> in JS
+       (drawExportCard) for pixel-perfect text — no DOM template / CSS needed. */
   </style>
   <link rel="stylesheet" href="/mnav.css" />
 </head>
@@ -391,7 +353,6 @@
   </div>
 
   <div id="toast" class="toast"></div>
-  <div id="export-host" aria-hidden="true"></div>
 
   <!-- ═══════════════ SCRIPT ═══════════════ -->
   <script>
@@ -411,8 +372,6 @@
 
       const state = { recipes: [], filter: 'all' };
       const $ = (id) => document.getElementById(id);
-      // Normalize full-width punctuation that html2canvas drops (export card only).
-      const cardText = (s) => String(s).replace(/（/g, '(').replace(/）/g, ')');
 
       async function loadRecipes() {
         try {
@@ -435,10 +394,17 @@
         return CAT_ORDER.filter(c => set.has(c));
       }
       // Section shelves: おすすめ (featured, or first 8 as fallback) then each present category.
-      const SECTIONS = [{ key: 'reco', name: 'おすすめ', em: '⭐', color: '#D4A847' }]
-        .concat(CAT_ORDER.map(c => ({ key: c, name: CATS[c].jp, em: CATS[c].em, color: CATS[c].color })));
+      // おすすめ leads with a non-主菜 dish so it doesn't visually repeat the first 主菜 card.
+      const RECO_ORDER = ['veg-curry', 'koya-karaage', 'napolitan', 'nikujaga', 'mapo-tofu', 'tofu-hamburg', 'veg-gyoza', 'mitarashi-dango'];
+      const SECTIONS = [{ key: 'reco', name: 'おすすめ', icon: '/images/recipes/icon-sec-osusume.png' }]
+        .concat(CAT_ORDER.map(c => ({ key: c, name: CATS[c].jp, icon: `/images/recipes/icon-sec-${c}.png` })));
       function shelfRecipes(key) {
-        if (key === 'reco') { const f = state.recipes.filter(r => r.featured); return f.length ? f : state.recipes.slice(0, 8); }
+        if (key === 'reco') {
+          const f = state.recipes.filter(r => r.featured);
+          if (!f.length) return state.recipes.slice(0, 8);
+          const rank = s => { const i = RECO_ORDER.indexOf(s); return i < 0 ? 99 : i; };
+          return f.slice().sort((a, b) => rank(a.slug) - rank(b.slug));
+        }
         return state.recipes.filter(r => r.category === key);
       }
       function cardHTML(r, i) {
@@ -473,7 +439,7 @@
           if (!list.length) return '';
           const cards = list.map(r => cardHTML(r, gi++)).join('');
           return `<section class="shelf">` +
-            `<div class="shelf__head"><span class="shelf__badge" style="background:${sec.color};">${sec.em}</span><span class="shelf__title">${sec.name}</span></div>` +
+            `<div class="shelf__head"><img class="shelf__ico" src="${sec.icon}" alt="" onerror="this.style.display='none'"/><span class="shelf__title">${sec.name}</span></div>` +
             `<div class="scroller">${cards}</div>` +
           `</section>`;
         }).join('');
@@ -518,58 +484,141 @@
       $('modal').addEventListener('click', (e) => { if (e.target === $('modal')) closeModal(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && $('modal').classList.contains('is-open')) closeModal(); });
 
-      // ───────── Export card (html2canvas → 1080-wide PNG, never clips) ─────────
-      function buildExportNode(r) {
+      // ───────── Export card — drawn directly on a <canvas> (pixel-perfect) ─────────
+      // We deliberately do NOT use html2canvas. html2canvas re-implements CSS layout +
+      // text rendering in JS, and its font metrics are approximations, so glyphs land a
+      // few px off (the recurring "text out of its element"). Drawing with the Canvas 2D
+      // API places every element at coordinates we compute, and textAlign/textBaseline
+      // give exact centering. Deterministic and correct.
+      const EXC = { INK: '#1F1812', INKSOFT: '#3C2E22', PAPER: '#FFF9EE', PAPERDIM: '#F6E4BD',
+        MUTED: '#786148', LEAF: '#6C9560', LEAFDEEP: '#3F6A3A', GOLD: '#E8C76F' };
+      function loadImg(src) { return new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = src; }); }
+      function rrect(ctx, x, y, w, h, r) { r = Math.min(r, w / 2, h / 2); ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+      function drawCover(ctx, img, dx, dy, dw, dh) { const ir = img.width / img.height, dr = dw / dh; let sw, sh, sx, sy; if (ir > dr) { sh = img.height; sw = sh * dr; sx = (img.width - sw) / 2; sy = 0; } else { sw = img.width; sh = sw / dr; sx = 0; sy = (img.height - sh) / 2; } ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh); }
+      function wrapJP(ctx, text, maxW) { const out = []; let line = ''; for (const ch of String(text)) { const t = line + ch; if (ctx.measureText(t).width > maxW && line) { out.push(line); line = ch; } else line = t; } if (line) out.push(line); return out; }
+      function truncW(ctx, text, maxW) { if (ctx.measureText(text).width <= maxW) return text; let t = text; while (t.length && ctx.measureText(t + '…').width > maxW) t = t.slice(0, -1); return t + '…'; }
+
+      async function drawExportCard(r) {
         const c = CATS[r.category] || { jp: r.category, em: '🍽', color: '#786148' };
         const pose = OJI[(r.id - 1) % OJI.length];
-        const ing = r.ingredients.map(x =>
-          `<div class="r"><span>${cardText(x.item)}</span><span class="a">${cardText(x.amount)}</span></div>`).join('');
-        const steps = r.steps.map(s => `<div class="s"><span class="n"></span><span class="t">${cardText(s)}</span></div>`)
-          .map((html, i) => html.replace('class="n">', 'class="n">' + (i + 1))).join('');
-        const node = document.createElement('div');
-        node.className = 'ecard';
-        node.innerHTML =
-          `<div class="ec-hero"><div class="ec-pic" style="background-image:url('${r.hero_image_url}')"></div>` +
-            `<span class="ec-tag" style="background:${c.color};">${c.em} ${c.jp}</span>` +
-            `<span class="ec-time"><img class="ec-ticon" src="/images/recipes/icon-timer.png" alt=""/> ${r.time_min}分</span>` +
-            `<img class="ec-oji" src="/images/oji/${pose}.png" alt="" onerror="this.style.display='none';"/></div>` +
-          `<div class="ec-body">` +
-            `<div><div class="ec-title">${cardText(r.title_jp)}</div>` +
-              `<div class="ec-sub">${cardText(r.servings)}　／　ビーガン(植物性100%)</div></div>` +
-            `<div class="ec-cols">` +
-              `<div class="ec-ing"><div class="ec-lab"><span class="bar" style="background:${c.color};"></span>材料</div>${ing}</div>` +
-              `<div class="ec-steps"><div class="ec-lab"><span class="bar" style="background:#6C9560;"></span>作り方</div>${steps}</div>` +
-            `</div>` +
-            `<div class="ec-tail"><div class="ec-src">${r.source_name ? '参考：' + cardText(r.source_name) : '定番の和食をビーガン向けにアレンジ'}</div></div>` +
-          `</div>` +
-          `<div class="ec-foot">🌱 ビーガン王子のレシピ <span class="u">veganoji.jp/recipes</span></div>`;
-        return node;
+        if (document.fonts) { try { await Promise.all(['900', '800', '700', '600', '500'].map(w => document.fonts.load(w + ' 24px "Noto Sans JP"'))); await document.fonts.ready; } catch (_) {} }
+        const [hero, oji, timer] = await Promise.all([loadImg(r.hero_image_url), loadImg('/images/oji/' + pose + '.png'), loadImg('/images/recipes/icon-timer.png')]);
+
+        const W = 1080, PAD = 56, HERO_H = 520, FOOT_H = 104;
+        const innerW = W - PAD * 2, GAP = 44;
+        const ingW = Math.round(innerW * 0.43), stepW = innerW - ingW - GAP;
+        const ingX = PAD, stepX = PAD + ingW + GAP;
+        const m = document.createElement('canvas').getContext('2d');
+
+        m.font = '900 56px "Noto Sans JP"';
+        const titleLines = wrapJP(m, r.title_jp, innerW);
+        const TITLE_TOP = HERO_H + 32, NT = titleLines.length;
+        const subBaseline = TITLE_TOP + 50 + (NT - 1) * 64 + 46;
+
+        const ingRowH = 44;
+        const ingColH = 48 + r.ingredients.length * ingRowH;
+
+        m.font = '500 27px "Noto Sans JP"';
+        const stepLineH = 40, stepTextW = stepW - 52;
+        let stepsBodyH = 0;
+        const stepWrapped = r.steps.map(s => { const lines = wrapJP(m, s, stepTextW); stepsBodyH += Math.max(40, lines.length * stepLineH) + 16; return lines; });
+        const stepsColH = 48 + stepsBodyH;
+
+        const colsTop = subBaseline + 36;
+        const srcTop = colsTop + Math.max(ingColH, stepsColH) + 16;
+        const totalH = Math.max(1350, Math.round(srcTop + 40 + FOOT_H));
+
+        const cv = document.createElement('canvas'); cv.width = W; cv.height = totalH;
+        const ctx = cv.getContext('2d');
+
+        ctx.fillStyle = EXC.PAPER; ctx.fillRect(0, 0, W, totalH);
+        if (hero) drawCover(ctx, hero, 0, 0, W, HERO_H); else { ctx.fillStyle = EXC.PAPERDIM; ctx.fillRect(0, 0, W, HERO_H); }
+        ctx.fillStyle = EXC.INK; ctx.fillRect(0, HERO_H - 7, W, 7);
+
+        // tag pill
+        ctx.font = '900 30px "Noto Sans JP"';
+        const tagTxt = c.em + ' ' + c.jp, tagW = ctx.measureText(tagTxt).width + 44, tagH = 50;
+        rrect(ctx, 34, 34, tagW, tagH, tagH / 2); ctx.fillStyle = c.color; ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = EXC.INK; ctx.stroke();
+        ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(tagTxt, 56, 34 + tagH / 2 + 1);
+
+        // time pill
+        ctx.font = '800 30px "Noto Sans JP"';
+        const tTxt = r.time_min + '分', icoS = 30, tGap = 8;
+        const timeW = (timer ? icoS + tGap : 0) + ctx.measureText(tTxt).width + 40, timeH = 50, timeX = W - 34 - timeW;
+        rrect(ctx, timeX, 34, timeW, timeH, timeH / 2); ctx.fillStyle = 'rgba(255,249,238,0.96)'; ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = EXC.INK; ctx.stroke();
+        let tcx = timeX + 20;
+        if (timer) { ctx.drawImage(timer, tcx, 34 + timeH / 2 - icoS / 2, icoS, icoS); tcx += icoS + tGap; }
+        ctx.fillStyle = EXC.INK; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(tTxt, tcx, 34 + timeH / 2 + 1);
+
+        // oji sticker
+        if (oji) { const ow = 158, oh = ow * (oji.height / oji.width); ctx.drawImage(oji, 26, HERO_H - 7 - oh - 16, ow, oh); }
+
+        // title + sub
+        ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = EXC.INK; ctx.font = '900 56px "Noto Sans JP"';
+        let ty = TITLE_TOP + 50;
+        titleLines.forEach(l => { ctx.fillText(l, PAD, ty); ty += 64; });
+        ctx.fillStyle = EXC.MUTED; ctx.font = '700 27px "Noto Sans JP"';
+        ctx.fillText(r.servings + '　／　ビーガン(植物性100%)', PAD, subBaseline);
+
+        // 材料 column
+        ctx.fillStyle = c.color; rrect(ctx, ingX, colsTop + 6, 34, 8, 4); ctx.fill();
+        ctx.fillStyle = EXC.INK; ctx.font = '900 31px "Noto Sans JP"'; ctx.fillText('材料', ingX + 44, colsTop + 26);
+        let iy = colsTop + 48;
+        r.ingredients.forEach(ing => {
+          ctx.textAlign = 'right'; ctx.fillStyle = EXC.LEAFDEEP; ctx.font = '800 26px "Noto Sans JP"';
+          const amW = ctx.measureText(ing.amount).width; ctx.fillText(ing.amount, ingX + ingW, iy + 27);
+          ctx.textAlign = 'left'; ctx.fillStyle = EXC.INK; ctx.font = '700 26px "Noto Sans JP"';
+          ctx.fillText(truncW(ctx, ing.item, ingW - amW - 16), ingX, iy + 27);
+          ctx.strokeStyle = 'rgba(31,24,18,0.16)'; ctx.lineWidth = 1.5; ctx.setLineDash([2, 3]);
+          ctx.beginPath(); ctx.moveTo(ingX, iy + ingRowH - 3); ctx.lineTo(ingX + ingW, iy + ingRowH - 3); ctx.stroke(); ctx.setLineDash([]);
+          iy += ingRowH;
+        });
+
+        // 作り方 column
+        ctx.fillStyle = EXC.LEAF; rrect(ctx, stepX, colsTop + 6, 34, 8, 4); ctx.fill();
+        ctx.fillStyle = EXC.INK; ctx.font = '900 31px "Noto Sans JP"'; ctx.textAlign = 'left'; ctx.fillText('作り方', stepX + 44, colsTop + 26);
+        let scy = colsTop + 48;
+        stepWrapped.forEach((lines, i) => {
+          const cd = 40, ccx = stepX + cd / 2, ccy = scy + cd / 2;
+          ctx.beginPath(); ctx.arc(ccx, ccy, cd / 2, 0, Math.PI * 2); ctx.fillStyle = EXC.LEAF; ctx.fill();
+          ctx.fillStyle = '#fff'; ctx.font = '900 23px "Noto Sans JP"'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(i + 1), ccx, ccy + 1);
+          ctx.fillStyle = EXC.INKSOFT; ctx.font = '500 27px "Noto Sans JP"'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+          let ly = scy + 28;
+          lines.forEach(l => { ctx.fillText(l, stepX + cd + 12, ly); ly += stepLineH; });
+          scy += Math.max(cd, lines.length * stepLineH) + 16;
+        });
+
+        // source
+        ctx.fillStyle = EXC.MUTED; ctx.font = '500 23px "Noto Sans JP"'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+        ctx.fillText(truncW(ctx, r.source_name ? '参考：' + r.source_name : '定番の和食をビーガン向けにアレンジ', innerW), PAD, srcTop + 22);
+
+        // footer bar
+        const fy = totalH - FOOT_H;
+        ctx.fillStyle = EXC.INK; ctx.fillRect(0, fy, W, FOOT_H);
+        ctx.textBaseline = 'middle'; ctx.font = '700 30px "Noto Sans JP"';
+        const f1 = '🌱 ビーガン王子のレシピ  ', f2 = 'veganoji.jp/recipes';
+        const w1 = ctx.measureText(f1).width, fx = (W - (w1 + ctx.measureText(f2).width)) / 2;
+        ctx.textAlign = 'left'; ctx.fillStyle = EXC.PAPER; ctx.fillText(f1, fx, fy + FOOT_H / 2 + 1);
+        ctx.fillStyle = EXC.GOLD; ctx.fillText(f2, fx + w1, fy + FOOT_H / 2 + 1);
+
+        // outer ink border
+        ctx.strokeStyle = EXC.INK; ctx.lineWidth = 8; ctx.strokeRect(4, 4, W - 8, totalH - 8);
+        return cv;
       }
+
       async function exportCard(slug, btn) {
         const r = bySlug(slug); if (!r) return;
         const label = btn ? btn.innerHTML : null;
         if (btn) { btn.disabled = true; btn.innerHTML = '生成中…'; }
-        const host = $('export-host');
-        const node = buildExportNode(r);
-        host.appendChild(node);
         try {
-          if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch (_) {} }
-          const ojiSrc = node.querySelector('.ec-oji') ? node.querySelector('.ec-oji').src : null;
-          await Promise.all([r.hero_image_url, ojiSrc, '/images/recipes/icon-timer.png'].filter(Boolean).map(src =>
-            new Promise(res => { const im = new Image(); im.onload = im.onerror = res; im.src = src; })));
-          const canvas = await html2canvas(node, { scale: 1080 / 432, backgroundColor: '#FFF9EE', useCORS: true, logging: false });
+          const canvas = await drawExportCard(r);
           const a = document.createElement('a');
           a.download = 'vegan-oji_' + slug + '.png';
           a.href = canvas.toDataURL('image/png');
           a.click();
           showToast('画像を保存したよ！🌱');
-        } catch (e) {
-          console.error('export failed', e);
-          showToast('保存に失敗しちゃった…');
-        } finally {
-          host.removeChild(node);
-          if (btn) { btn.disabled = false; btn.innerHTML = label; }
-        }
+        } catch (e) { console.error('export failed', e); showToast('保存に失敗しちゃった…'); }
+        finally { if (btn) { btn.disabled = false; btn.innerHTML = label; } }
       }
 
       let toastT;
@@ -602,7 +651,7 @@
       loadRecipes();
       window.__recipes = state;
       window.__exportCard = exportCard;
-      window.__buildExportNode = buildExportNode;
+      window.__drawExportCard = drawExportCard;
     })();
   </script>
   <script src="/mnav.js" defer></script>

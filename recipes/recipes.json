@@ -1252,5 +1252,323 @@
     ],
     "created_at": "2026-06-21",
     "published": true
+  },
+  {
+    "id": 37,
+    "slug": "dorayaki",
+    "title_jp": "どら焼き",
+    "hero_image_url": "/images/recipes/dorayaki.jpg",
+    "category": "sweets",
+    "time_min": 30,
+    "servings": "4〜5個分",
+    "ingredients": [
+      { "item": "薄力粉", "amount": "100g" },
+      { "item": "ベーキングパウダー", "amount": "小さじ1" },
+      { "item": "重曹", "amount": "少々" },
+      { "item": "きび砂糖", "amount": "50g" },
+      { "item": "無調整豆乳", "amount": "100ml" },
+      { "item": "みりん", "amount": "小さじ2" },
+      { "item": "サラダ油", "amount": "少々" },
+      { "item": "こしあん（またはつぶあん）", "amount": "適量" }
+    ],
+    "steps": [
+      "ボウルに砂糖・豆乳・みりんを混ぜる。",
+      "薄力粉・ベーキングパウダー・重曹をふるい入れ、なめらかに混ぜて30分ほど休ませる。",
+      "油をうすくひいた弱めの中火のフライパンに、生地を丸く流す。",
+      "表面にプツプツ穴があいたら裏返し、両面こんがり焼く。",
+      "2枚であんをはさむ。"
+    ],
+    "source_name": "オーガニックプレス — ヴィーガンどら焼き",
+    "source_url": "https://recipe.organic-press.com/recipe_289/",
+    "tips": [
+      "たまごの代わりにベーキングパウダー＋重曹でふっくら。生地を休ませると、しっとり焼けるよ。",
+      "はちみつ不使用で。あんは砂糖だけで炊いたものを選べば、しっかりビーガン。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 38,
+    "slug": "ichigo-daifuku",
+    "title_jp": "いちご大福",
+    "hero_image_url": "/images/recipes/ichigo-daifuku.jpg",
+    "category": "sweets",
+    "time_min": 30,
+    "servings": "6個分",
+    "ingredients": [
+      { "item": "白玉粉", "amount": "100g" },
+      { "item": "きび砂糖", "amount": "30g" },
+      { "item": "水", "amount": "140ml" },
+      { "item": "こしあん", "amount": "150g" },
+      { "item": "いちご", "amount": "6個" },
+      { "item": "片栗粉（打ち粉）", "amount": "適量" }
+    ],
+    "steps": [
+      "いちごはヘタを取り、こしあんを6等分してそれぞれ包む。",
+      "耐熱ボウルに白玉粉と砂糖を入れ、水を少しずつ加えて混ぜる。",
+      "ふんわりラップをして電子レンジ600Wで3分、混ぜてさらに2分、半透明になるまで加熱する。",
+      "片栗粉をひろげた上に取り出し、6等分する。",
+      "平たくのばしてあん包みいちごをのせ、口を閉じて丸める。"
+    ],
+    "source_name": "DELISH KITCHEN — いちご大福",
+    "source_url": "https://delishkitchen.tv/recipes/185146138368672800",
+    "tips": [
+      "白玉粉のおもちはレンジで簡単。熱いので片栗粉をたっぷりつけて扱ってね。",
+      "大福はその日のうちに食べるのがいちばん。おもちはかたくなりやすいよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 39,
+    "slug": "warabimochi",
+    "title_jp": "わらび餅",
+    "hero_image_url": "/images/recipes/warabimochi.jpg",
+    "category": "sweets",
+    "time_min": 20,
+    "servings": "2〜3人分",
+    "ingredients": [
+      { "item": "わらび餅粉", "amount": "60g" },
+      { "item": "きび砂糖", "amount": "70g" },
+      { "item": "水", "amount": "300ml" },
+      { "item": "きな粉", "amount": "大さじ4" },
+      { "item": "きび砂糖（きな粉用）", "amount": "大さじ1" },
+      { "item": "黒蜜", "amount": "適量" }
+    ],
+    "steps": [
+      "鍋にわらび餅粉・砂糖・水を入れ、よく混ぜて溶かす。",
+      "中火にかけ、絶えず混ぜながら4〜5分、とろみがついて透明になるまで練る。",
+      "水でぬらしたバットに流し（または氷水に落とし）、冷やす。",
+      "食べやすく切り、砂糖を混ぜたきな粉をまぶす。",
+      "黒蜜をかける。"
+    ],
+    "source_name": "白ごはん.com — わらび餅",
+    "source_url": "https://www.sirogohan.com/recipe/warabimoti/",
+    "tips": [
+      "火にかけたら混ぜ続けるのがコツ。透明になってからさらに練ると、もちもちに。",
+      "黒蜜は砂糖だけのものを。はちみつ入りでないか確認してね。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 40,
+    "slug": "daigakuimo",
+    "title_jp": "大学芋",
+    "hero_image_url": "/images/recipes/daigakuimo.jpg",
+    "category": "sweets",
+    "time_min": 25,
+    "servings": "3〜4人分",
+    "ingredients": [
+      { "item": "さつまいも", "amount": "500g" },
+      { "item": "きび砂糖", "amount": "大さじ5" },
+      { "item": "しょうゆ", "amount": "大さじ1" },
+      { "item": "水", "amount": "大さじ2" },
+      { "item": "揚げ油", "amount": "適量" },
+      { "item": "黒ごま", "amount": "大さじ2" }
+    ],
+    "steps": [
+      "さつまいもは乱切りにして水にさらし、水気をふく。",
+      "160℃→180℃の油で、中までやわらかく外はカリッと二度揚げする。",
+      "別の鍋に砂糖・しょうゆ・水を入れ、とろりと煮詰めてみつを作る。",
+      "火を止めて揚げたさつまいもをからめ、黒ごまをふる。"
+    ],
+    "source_name": "DELISH KITCHEN — 大学芋",
+    "source_url": "https://delishkitchen.tv/recipes/201068209099506022",
+    "tips": [
+      "はちみつや水あめがなくても、砂糖＋しょうゆのみつでツヤツヤに仕上がるよ。",
+      "揚げずに、少なめの油で砂糖・しょうゆと一緒に炒めてもOK。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 41,
+    "slug": "ohagi",
+    "title_jp": "おはぎ",
+    "hero_image_url": "/images/recipes/ohagi.jpg",
+    "category": "sweets",
+    "time_min": 60,
+    "servings": "約15個分",
+    "ingredients": [
+      { "item": "もち米", "amount": "2合" },
+      { "item": "こしあん（またはつぶあん）", "amount": "約350g" },
+      { "item": "きな粉", "amount": "大さじ4" },
+      { "item": "きび砂糖", "amount": "大さじ2" },
+      { "item": "塩", "amount": "少々" }
+    ],
+    "steps": [
+      "もち米を洗って30分浸水し、白米と同じ水加減に塩少々を加えて炊く。",
+      "炊けたら軽くつぶし（半殺し）、15個に分けて丸める。",
+      "あん用：あんを手で平たくのばし、ごはん玉を包む。",
+      "きな粉用：ごはんであんの玉を包み、砂糖を混ぜたきな粉をまぶす。"
+    ],
+    "source_name": "マエダ — おはぎの作り方",
+    "source_url": "https://an-maeda.co.jp/blogs/recipe/ohagi",
+    "tips": [
+      "ごはんは半分くらいつぶす「半殺し」が定番。粒感が残っておいしいよ。",
+      "もち米にうるち米を1/3ほど混ぜると、軽くて包みやすくなる。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 42,
+    "slug": "zenzai",
+    "title_jp": "ぜんざい",
+    "hero_image_url": "/images/recipes/zenzai.jpg",
+    "category": "sweets",
+    "time_min": 90,
+    "servings": "4人分",
+    "ingredients": [
+      { "item": "小豆", "amount": "200g" },
+      { "item": "きび砂糖", "amount": "150g" },
+      { "item": "塩", "amount": "ひとつまみ" },
+      { "item": "水", "amount": "約1L" },
+      { "item": "切り餅", "amount": "4個" }
+    ],
+    "steps": [
+      "小豆を洗い、5分ほどゆでてゆでこぼす（渋切り）。",
+      "新しい水約1Lで弱火で1時間ほど、指でつぶれるまで煮る（湯が減ったら足す）。",
+      "砂糖を2〜3回に分けて加え、塩も入れて5〜6分煮る。好みのとろみに調整する。",
+      "餅を焼いて、器に盛ったぜんざいにのせる。"
+    ],
+    "source_name": "白ごはん.com — ぜんざい",
+    "source_url": "https://www.sirogohan.com/recipe/zenzai/",
+    "tips": [
+      "最初の「渋切り」でえぐみが抜けて、すっきり上品な甘さに。",
+      "ひとつまみの塩が、甘さをぐっと引き立てるよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 43,
+    "slug": "banana-muffin",
+    "title_jp": "バナナマフィン",
+    "hero_image_url": "/images/recipes/banana-muffin.jpg",
+    "category": "sweets",
+    "time_min": 35,
+    "servings": "6〜8個分",
+    "ingredients": [
+      { "item": "バナナ（完熟）", "amount": "2本" },
+      { "item": "薄力粉", "amount": "200g" },
+      { "item": "ベーキングパウダー", "amount": "小さじ2" },
+      { "item": "無調整豆乳", "amount": "150ml" },
+      { "item": "メープルシロップ", "amount": "大さじ4" },
+      { "item": "サラダ油", "amount": "大さじ3.5" },
+      { "item": "塩", "amount": "少々" }
+    ],
+    "steps": [
+      "バナナをフォークでつぶし、豆乳・メープル・油を加えて混ぜる。",
+      "薄力粉・ベーキングパウダー・塩をふるい入れ、さっくり混ぜる（混ぜすぎない）。",
+      "マフィン型に流し、お好みでバナナスライスをのせる。",
+      "180℃のオーブンで20〜22分焼く。"
+    ],
+    "source_name": "Chef JA Cooks — ヴィーガンバナナケーキ",
+    "source_url": "https://chefjacooks.com/en/vegan-banana-cake-en/",
+    "tips": [
+      "たまご・バター・牛乳なし。完熟バナナの甘みと、ベーキングパウダーでふっくら。",
+      "混ぜすぎるとかたくなるよ。粉が見えなくなったらストップでOK。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 44,
+    "slug": "gateau-chocolat",
+    "title_jp": "ガトーショコラ",
+    "hero_image_url": "/images/recipes/gateau-chocolat.jpg",
+    "category": "sweets",
+    "time_min": 45,
+    "servings": "15cm型1台分",
+    "ingredients": [
+      { "item": "充填（絹）豆腐", "amount": "150g" },
+      { "item": "米粉", "amount": "120g" },
+      { "item": "ココアパウダー（無糖）", "amount": "30g" },
+      { "item": "きび砂糖", "amount": "60g" },
+      { "item": "サラダ油", "amount": "30g" },
+      { "item": "無調整豆乳", "amount": "40ml" },
+      { "item": "ベーキングパウダー", "amount": "小さじ1.5" }
+    ],
+    "steps": [
+      "豆腐をなめらかになるまで混ぜ、油と豆乳を加える。",
+      "砂糖を混ぜ、米粉・ココア・ベーキングパウダーをふるい入れる。",
+      "全体を混ぜて、クッキングシートを敷いた15cm型に流す。",
+      "180℃のオーブンで約30分焼く。冷ますとしっとり濃厚に。"
+    ],
+    "source_name": "管理栄養士nami — 豆腐ガトーショコラ",
+    "source_url": "https://shuhueiyosi.com/riceflourgateauchocolat-tofu-komeko/",
+    "tips": [
+      "たまご・バター・生クリームなし。豆腐がしっとり食感の秘密だよ。",
+      "冷蔵庫で冷やすと、ぎゅっと濃厚なガトーショコラになる。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 45,
+    "slug": "vegan-scone",
+    "title_jp": "ビーガンスコーン",
+    "hero_image_url": "/images/recipes/vegan-scone.jpg",
+    "category": "sweets",
+    "time_min": 35,
+    "servings": "約6個分",
+    "ingredients": [
+      { "item": "薄力粉", "amount": "150g" },
+      { "item": "全粒粉", "amount": "100g" },
+      { "item": "ベーキングパウダー", "amount": "大さじ1" },
+      { "item": "きび砂糖", "amount": "30g" },
+      { "item": "塩", "amount": "ひとつまみ" },
+      { "item": "ごま油（またはなたね油）", "amount": "80ml" },
+      { "item": "無調整豆乳", "amount": "60ml" },
+      { "item": "レーズン", "amount": "60g" }
+    ],
+    "steps": [
+      "粉類・砂糖・塩・ベーキングパウダーを混ぜ、油を加えて手ですり混ぜ、そぼろ状にする。",
+      "豆乳とレーズンを加え、こねすぎないようにまとめて30分ほど休ませる。",
+      "2cm厚さにのばし、型で抜く（または三角に切る）。",
+      "180℃のオーブンで約20分焼く。"
+    ],
+    "source_name": "オーガニックプレス — ヴィーガンスコーン",
+    "source_url": "https://recipe.organic-press.com/recipe_340/",
+    "tips": [
+      "バター・牛乳・たまごなし。植物油でほろっと軽い食感に。",
+      "こねすぎないのがコツ。さっくりまとめると、口どけよく焼けるよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 46,
+    "slug": "kabocha-pudding",
+    "title_jp": "かぼちゃプリン",
+    "hero_image_url": "/images/recipes/kabocha-pudding.jpg",
+    "category": "sweets",
+    "time_min": 25,
+    "servings": "3〜4個分",
+    "ingredients": [
+      { "item": "かぼちゃ（正味）", "amount": "200g" },
+      { "item": "無調整豆乳", "amount": "200ml" },
+      { "item": "きび砂糖（またはココナッツシュガー）", "amount": "40g" },
+      { "item": "粉寒天", "amount": "4g" },
+      { "item": "水", "amount": "50ml" },
+      { "item": "黒蜜またはメープル", "amount": "適量" }
+    ],
+    "steps": [
+      "かぼちゃは種とわたを取り、やわらかく蒸して（またはゆでて）皮を除く。",
+      "かぼちゃ・豆乳・砂糖をミキサーでなめらかにする。",
+      "小鍋に水と粉寒天を入れて混ぜ、沸騰させて1〜2分しっかり溶かす。",
+      "かぼちゃ液を加えて混ぜ、ひと煮立ちさせる。",
+      "器に流し、冷蔵庫で冷やしかためる。お好みで黒蜜をかける。"
+    ],
+    "source_name": "IN YOU（マクロビオティック）— かぼちゃ豆乳プリン",
+    "source_url": "https://macrobiotic-daisuki.jp/recipe/kabotyapurin0926-215538.html",
+    "tips": [
+      "ゼラチン不使用。海藻からできた寒天でかためる、やさしいプリンだよ。",
+      "寒天はしっかり沸騰させて溶かすのがポイント。なめらかにしたいときは少し減らして。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
   }
 ]

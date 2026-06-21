@@ -4,14 +4,15 @@ Cute, mobile-first page of simple plant-based **washoku** recipes, hosted by the
 ビーガン王子 (Oji). Each recipe card exports a clean 1080×1350 share image.
 
 Stack matches the rest of the site: plain HTML + Tailwind v4 browser CDN + inline
-JS, Noto Sans JP, no build step. Export uses html2canvas (same pattern as
-`/share-card-lab/`).
+JS, Noto Sans JP, no build step. The "save image" card is **drawn directly on a
+`<canvas>`** (Canvas 2D API in `drawExportCard`) for pixel-perfect text — NOT
+html2canvas, which re-implements layout in JS and lands glyphs a few px off.
 
 ## Files
 
 | File | What it is |
 |---|---|
-| `index.html` | The page. Fetches `recipes.json`, renders the sections (おすすめ + category shelves, horizontal scrollers), detail modal, and the html2canvas export card. |
+| `index.html` | The page. Fetches `recipes.json`, renders the sections (おすすめ + category shelves, horizontal scrollers, themed `icon-sec-*` badges), detail modal, and the canvas-drawn export card. |
 | `recipes.json` | **Current data source.** Array of recipes in the exact Supabase shape. |
 | `schema.sql` | The `recipes` table DDL for Supabase/Postgres. **Not applied yet.** |
 | `seed.mjs` | Tiny script to upsert `recipes.json` → Supabase. **Not wired yet.** |
@@ -44,10 +45,11 @@ No furigana (per request): all text is plain Japanese. The export card runs
 text through a small normalizer (`cardText`) that swaps full-width parens
 （） → () because html2canvas drops the opening （.
 
-Assets: 36 hero photos + 4 chibi-sticker icons (`icon-zairyo`, `icon-tsukurikata`,
-`icon-sprout`, `icon-timer`) + 8 watercolor backgrounds live under
-`/images/recipes/` (icons are transparent PNG; photos/bgs are JPG). Regenerate
-with `.claude/gen-recipes-batch{2,3}.sh`. **Hero uses `bg/bg-1.jpg`, footer uses
+Assets: 46 hero photos + 4 inline icons (`icon-zairyo`, `icon-tsukurikata`,
+`icon-sprout`, `icon-timer`) + 6 section icons (`icon-sec-*`) + 8 watercolor
+backgrounds live under `/images/recipes/` (icons are transparent PNG; photos/bgs
+are JPG). Regenerate with `.claude/gen-recipes-batch{2,3,4}.sh`. **Hero uses
+`bg/bg-1.jpg`, footer uses
 `bg/bg-6.jpg`**; the other `bg-N.jpg` options are kept for reuse. (The bg-lab
 picker page has been removed now that the backgrounds are chosen.)
 
