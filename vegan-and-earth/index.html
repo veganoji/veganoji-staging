@@ -2711,35 +2711,50 @@
       <!-- Explore more — same horizontal link-card style as /links/ page:
            thumb + title + eyebrow + teaser + arrow on the right. -->
       <div class="reveal mt-14 sm:mt-16 max-w-xl mx-auto">
-        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] font-bold text-ink/65 mb-5 text-center">もっと<ruby>知<rt>し</rt></ruby>る</div>
-        <div class="flex flex-col gap-3.5">
-          <a href="/fish-and-life/" class="link-card-vc">
-            <img class="lcv-thumb" src="/images/oji/oji_reading.png" alt=""/>
-            <div class="lcv-body">
-              <div class="lcv-title">ビーガンと<ruby>海<rt>うみ</rt></ruby></div>
-              <div class="lcv-sub" style="color: #1B5C8B;">UMI · OCEAN</div>
-              <div class="lcv-teaser"><ruby>毎年<rt>まいとし</rt></ruby>2<ruby>兆匹<rt>ちょうびき</rt></ruby>の<ruby>魚<rt>さかな</rt></ruby>が<ruby>消<rt>き</rt></ruby>える。<ruby>海<rt>うみ</rt></ruby>の<ruby>今<rt>いま</rt></ruby>を<ruby>数字<rt>すうじ</rt></ruby>でチェック。</div>
+        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] font-bold text-ink/65 mb-6 text-center">もっと<ruby>知<rt>し</rt></ruby>る</div>
+        <!-- Explore cards in the お店でも、食べてみよう。 CTA style: a friendly
+             .sticker panel per topic with Oji + eyebrow + heading + teaser +
+             a leaf pill button (stacked & centered on mobile, image-left on desktop). -->
+        <div class="flex flex-col gap-5 sm:gap-6">
+          <!-- 海 / OCEAN -->
+          <div class="sticker p-5 sm:p-7 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left" style="background:#E8F1F7;">
+            <img src="/images/oji/oji_reading.png" alt="" class="w-24 sm:w-28 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.15)]" loading="lazy"/>
+            <div class="flex-1">
+              <div class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold mb-1.5" style="color:#1B5C8B;">UMI · OCEAN</div>
+              <h3 class="font-jp-display text-[21px] sm:text-[27px] text-ink leading-[1.3] mb-2">ビーガンと<ruby>海<rt>うみ</rt></ruby></h3>
+              <p class="font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.8] mb-4"><ruby>毎年<rt>まいとし</rt></ruby>2<ruby>兆匹<rt>ちょうびき</rt></ruby>の<ruby>魚<rt>さかな</rt></ruby>が<ruby>消<rt>き</rt></ruby>える。<ruby>海<rt>うみ</rt></ruby>の<ruby>今<rt>いま</rt></ruby>を<ruby>数字<rt>すうじ</rt></ruby>でチェック。</p>
+              <a href="/fish-and-life/" class="btn-base btn-leaf">
+                <ruby>海<rt>うみ</rt></ruby>のはなしを<ruby>読<rt>よ</rt></ruby>む
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </a>
             </div>
-            <span class="lcv-arrow">→</span>
-          </a>
-          <a href="/vegan-and-health/" class="link-card-vc">
-            <img class="lcv-thumb" src="/images/oji/oji_happy.png" alt=""/>
-            <div class="lcv-body">
-              <div class="lcv-title">ビーガンと<ruby>体<rt>からだ</rt></ruby></div>
-              <div class="lcv-sub" style="color: #9C1428;">KARADA · BODY</div>
-              <div class="lcv-teaser"><ruby>健康<rt>けんこう</rt></ruby>への<ruby>影響<rt>えいきょう</rt></ruby>、<ruby>栄養<rt>えいよう</rt></ruby>、<ruby>力<rt>ちから</rt></ruby>。<ruby>植物性<rt>しょくぶつせい</rt></ruby>の<ruby>体<rt>からだ</rt></ruby>のはなし。</div>
+          </div>
+          <!-- 体 / BODY -->
+          <div class="sticker p-5 sm:p-7 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left" style="background:#FBE9E9;">
+            <img src="/images/oji/oji_happy.png" alt="" class="w-24 sm:w-28 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.15)]" loading="lazy"/>
+            <div class="flex-1">
+              <div class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold mb-1.5" style="color:#9C1428;">KARADA · BODY</div>
+              <h3 class="font-jp-display text-[21px] sm:text-[27px] text-ink leading-[1.3] mb-2">ビーガンと<ruby>体<rt>からだ</rt></ruby></h3>
+              <p class="font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.8] mb-4"><ruby>健康<rt>けんこう</rt></ruby>への<ruby>影響<rt>えいきょう</rt></ruby>、<ruby>栄養<rt>えいよう</rt></ruby>、<ruby>力<rt>ちから</rt></ruby>。<ruby>植物性<rt>しょくぶつせい</rt></ruby>の<ruby>体<rt>からだ</rt></ruby>のはなし。</p>
+              <a href="/vegan-and-health/" class="btn-base btn-leaf">
+                <ruby>体<rt>からだ</rt></ruby>のはなしを<ruby>読<rt>よ</rt></ruby>む
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </a>
             </div>
-            <span class="lcv-arrow">→</span>
-          </a>
-          <a href="https://japanveganmap.ojidigital.com/" target="_blank" rel="noopener" class="link-card-vc">
-            <img class="lcv-thumb" src="/images/oji/oji_exploring.png" alt=""/>
-            <div class="lcv-body">
-              <div class="lcv-title"><ruby>全国<rt>ぜんこく</rt></ruby>ビーガンマップ</div>
-              <div class="lcv-sub" style="color: #9C7E2A;">MAP</div>
-              <div class="lcv-teaser"><ruby>日本中<rt>にほんじゅう</rt></ruby>のビーガンに<ruby>優<rt>やさ</rt></ruby>しいお<ruby>店<rt>みせ</rt></ruby>をマップでチェック！</div>
+          </div>
+          <!-- マップ / MAP -->
+          <div class="sticker p-5 sm:p-7 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left" style="background:#FBF1DA;">
+            <img src="/images/oji/oji_exploring.png" alt="" class="w-24 sm:w-28 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.15)]" loading="lazy"/>
+            <div class="flex-1">
+              <div class="text-[12px] sm:text-[13px] tracking-[0.18em] font-bold mb-1.5" style="color:#9C7E2A;">MAP</div>
+              <h3 class="font-jp-display text-[21px] sm:text-[27px] text-ink leading-[1.3] mb-2"><ruby>全国<rt>ぜんこく</rt></ruby>ビーガンマップ</h3>
+              <p class="font-jp text-ink-soft text-[13px] sm:text-[15px] leading-[1.8] mb-4"><ruby>日本中<rt>にほんじゅう</rt></ruby>のビーガンに<ruby>優<rt>やさ</rt></ruby>しいお<ruby>店<rt>みせ</rt></ruby>をマップでチェック！</p>
+              <a href="https://japanveganmap.ojidigital.com/" target="_blank" rel="noopener" class="btn-base btn-leaf">
+                マップを<ruby>見<rt>み</rt></ruby>る
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </a>
             </div>
-            <span class="lcv-arrow">→</span>
-          </a>
+          </div>
         </div>
       </div>
 
@@ -2752,7 +2767,7 @@
   <!-- ═══════════════════════════════════════════════════════════════════════
        ░  SOURCES
        ═══════════════════════════════════════════════════════════════════════ -->
-  <footer class="bg-paper border-t-2 border-ink/15 py-14 sm:py-20 px-6 sm:px-10">
+  <footer class="border-t-2 border-ink/15 py-14 sm:py-20 px-6 sm:px-10" style="background: url(/images/decorations/parchment-tile.jpg) repeat, #FBF3DF;">
     <div class="max-w-3xl mx-auto">
 
       <details class="group">
