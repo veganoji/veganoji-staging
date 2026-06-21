@@ -24,10 +24,9 @@ Each recipe (one row of the future `recipes` table):
 {
   "id": 1,
   "slug": "spinach-gomaae",
-  "title_jp": "ほうれん草の胡麻和え",          // plain — used by the export card
-  "title_furigana": "ほうれん<ruby>草<rt>そう</rt></ruby>…", // ruby HTML — page heading
-  "hero_image_url": "/images/recipes/spinach-gomaae.png",
-  "category": "fukusai",                       // shusai | fukusai | shirumono | gohan | sweets
+  "title_jp": "ほうれん草の胡麻和え",
+  "hero_image_url": "/images/recipes/spinach-gomaae.jpg",
+  "category": "fukusai",                       // shusai | fukusai | shirumono | gohanmen | sweets
   "time_min": 10,
   "servings": "2人分",
   "ingredients": [{ "item": "…ruby html…", "amount": "…ruby html…" }],
@@ -40,10 +39,15 @@ Each recipe (one row of the future `recipes` table):
 }
 ```
 
-Furigana note: `title_furigana`, `ingredients[].item/amount`, `steps[]`, and
-`tips[]` hold native `<ruby>` HTML (house style — see
-`.claude/furigana-guidelines.md`). The page injects them as HTML; the export
-card strips `<ruby>`/`<rt>` to plain kanji so html2canvas renders cleanly.
+No furigana (per request): all text is plain Japanese. The export card runs
+text through a small normalizer (`cardText`) that swaps full-width parens
+（） → () because html2canvas drops the opening （.
+
+Assets: 18 hero photos + 3 chibi-sticker section icons (`icon-zairyo`,
+`icon-tsukurikata`, `icon-sprout`) + 8 watercolor hero backgrounds live under
+`/images/recipes/` (icons are transparent PNG; photos/bgs are JPG). Regenerate
+with `.claude/gen-recipes-batch2.sh`. Pick the hero background in
+`/recipes/bg-lab/` and set the `bg-N.jpg` filename in `index.html`.
 
 ## Content / legal
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>背景ラボ — Recipes hero background options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{ --ink:#1F1812; --paper:#FFF9EE; --muted:#786148; --leaf-deep:#3F6A3A; --gold-deep:#9C7E2A; }
+    *{box-sizing:border-box;}
+    body{ margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink); background:#F4EAD6;
+      -webkit-font-smoothing:antialiased; }
+    .wrap{ max-width:1100px; margin:0 auto; padding:38px 18px 90px; }
+    .head{ text-align:center; margin-bottom:8px; }
+    .eyebrow{ font-size:12px; letter-spacing:.22em; font-weight:900; color:var(--leaf-deep); }
+    h1{ font-size:28px; font-weight:900; margin:8px 0 0; }
+    .note{ max-width:680px; margin:14px auto 0; font-size:14px; line-height:1.85; color:#3C2E22;
+      background:#FFFDF8; border:2px solid rgba(31,24,18,.12); border-radius:16px; padding:14px 18px; text-align:left; }
+    .note b{ color:#9C1428; }
+    .note code{ background:#F6E4BD; border-radius:6px; padding:1px 6px; font-size:13px; }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:26px; margin-top:34px; }
+    .opt{ background:#FFFDF8; border:2.5px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var(--ink); overflow:hidden; }
+    /* Mobile-hero preview: same gradient + title as the real /recipes/ hero */
+    .prev{ position:relative; height:300px; background-size:cover; background-position:center;
+      display:flex; align-items:flex-end; justify-content:center; border-bottom:2.5px solid var(--ink); }
+    .prev .ovl{ position:absolute; inset:0;
+      background:linear-gradient(to bottom, rgba(255,249,238,0.22) 0%, rgba(255,249,238,0.04) 34%, rgba(255,249,238,0.55) 72%, var(--paper) 100%); }
+    .prev .t{ position:relative; text-align:center; padding:0 18px 18px; }
+    .prev .t h2{ margin:0; font-size:26px; font-weight:900; line-height:1.08; letter-spacing:-0.02em;
+      text-shadow:0 2px 12px rgba(255,249,238,.9); }
+    .prev .t h2 .g{ color:var(--leaf-deep); }
+    .prev .t p{ margin:6px 0 0; font-size:12px; color:#3C2E22; line-height:1.6; text-shadow:0 1px 8px rgba(255,249,238,.95); }
+    .meta{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 15px 14px; }
+    .meta .lab{ font-weight:900; font-size:16px; }
+    .meta .lab span{ color:var(--muted); font-weight:700; font-size:12.5px; }
+    .meta .file{ font-size:12px; color:var(--gold-deep); font-weight:800; background:#FBF3DF; border-radius:8px; padding:4px 9px; }
+    .desc{ padding:0 15px 15px; font-size:13px; color:#3C2E22; line-height:1.6; }
+    .full{ display:block; width:100%; border-top:1px dashed rgba(31,24,18,.2); }
+    .full img{ width:100%; display:block; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">VEGAN OJI · RECIPES</div>
+      <h1>背景ラボ 🎨 — ヒーロー背景えらび</h1>
+      <p class="note">
+        <b>8案</b>の手描き水彩背景。各カードは <b>/recipes/ のヒーローそのまま</b>（グラデ＋タイトル重ね、スマホ幅）でプレビューしています。<br>
+        気に入った番号を教えてください。下部に元画像も表示。<br>
+        反映は <code>recipes/index.html</code> の <code>bg-1.jpg</code> を選んだ番号に差し替えるだけ。
+      </p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <script>
+    const OPTS = [
+      { n:1, kind:'王子が料理', desc:'エプロン姿の王子が中華鍋で野菜を炒める、いちばん「料理してる」案。' },
+      { n:2, kind:'王子＋お料理', desc:'王子のまわりに和の植物性料理がふわり。キャラ＋品数で楽しい雰囲気。' },
+      { n:3, kind:'食材フラットレイ', desc:'なす・大根・きのこ・豆腐…新鮮な食材を並べた、食材主役の一枚。' },
+      { n:4, kind:'食卓スプレッド', desc:'小鉢がずらり。品数たっぷりで食欲をそそる、フード主役の俯瞰。' },
+      { n:5, kind:'主役の一杯', desc:'湯気立つ一杯を中心に、野菜と箸。あたたかく主役感のある構図。' },
+      { n:6, kind:'採れたて野菜', desc:'窓辺のかごに採れたて野菜。明るくフレッシュなガーデン感。' },
+      { n:7, kind:'王子＋お鍋', desc:'ぐつぐつ煮込み鍋から王子がひょっこり。やわらかパステルでかわいい。' },
+      { n:8, kind:'みずみずしい食材', desc:'トマト・葉野菜・豆腐・アボカド…みずみずしさ全開のフード水彩。' },
+    ];
+    const grid = document.getElementById('grid');
+    grid.innerHTML = OPTS.map(o => `
+      <div class="opt">
+        <div class="prev" style="background-image:url('/images/recipes/bg/bg-${o.n}.jpg')">
+          <div class="ovl"></div>
+          <div class="t">
+            <h2>ビーガン王子の<br><span class="g">かんたんレシピ。</span></h2>
+            <p>いつもの和食を、植物だけで。</p>
+          </div>
+        </div>
+        <div class="meta"><div class="lab">bg-${o.n} <span>· ${o.kind}</span></div><div class="file">bg-${o.n}.jpg</div></div>
+        <div class="desc">${o.desc}</div>
+        <a class="full" href="/images/recipes/bg/bg-${o.n}.jpg" target="_blank" rel="noopener"><img src="/images/recipes/bg/bg-${o.n}.jpg" alt="bg-${o.n} 元画像" loading="lazy"></a>
+      </div>`).join('');
+  </script>
+</body>
+</html>

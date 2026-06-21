@@ -1,212 +1,620 @@
 [
   {
     "id": 1,
-    "slug": "spinach-gomaae",
-    "title_jp": "ほうれん草の胡麻和え",
-    "title_furigana": "ほうれん<ruby>草<rt>そう</rt></ruby>の<ruby>胡麻<rt>ごま</rt></ruby><ruby>和<rt>あ</rt></ruby>え",
-    "hero_image_url": "/images/recipes/spinach-gomaae.jpg",
-    "category": "fukusai",
-    "time_min": 10,
-    "servings": "2人分",
+    "slug": "veg-gyoza",
+    "title_jp": "野菜餃子",
+    "hero_image_url": "/images/recipes/veg-gyoza.jpg",
+    "category": "shusai",
+    "time_min": 40,
+    "servings": "約24個分",
     "ingredients": [
-      { "item": "ほうれん<ruby>草<rt>そう</rt></ruby>", "amount": "1<ruby>束<rt>たば</rt></ruby>（<ruby>約<rt>やく</rt></ruby>200g）" },
-      { "item": "すりごま（<ruby>白<rt>しろ</rt></ruby>）", "amount": "<ruby>大<rt>おお</rt></ruby>さじ3" },
-      { "item": "しょうゆ", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "きび<ruby>砂糖<rt>ざとう</rt></ruby>", "amount": "<ruby>小<rt>こ</rt></ruby>さじ2" },
-      { "item": "<ruby>塩<rt>しお</rt></ruby>（ゆで<ruby>用<rt>よう</rt></ruby>）", "amount": "<ruby>少々<rt>しょうしょう</rt></ruby>" }
+      { "item": "キャベツ", "amount": "1/4個（約250g）" },
+      { "item": "にら", "amount": "1/2束" },
+      { "item": "木綿豆腐（水切り）", "amount": "1/2丁" },
+      { "item": "椎茸", "amount": "3枚" },
+      { "item": "しょうが（みじん切り）", "amount": "1片" },
+      { "item": "にんにく（みじん切り）", "amount": "1片" },
+      { "item": "しょうゆ", "amount": "大さじ1" },
+      { "item": "ごま油", "amount": "大さじ1" },
+      { "item": "片栗粉", "amount": "大さじ1" },
+      { "item": "餃子の皮", "amount": "24枚" },
+      { "item": "塩", "amount": "小さじ1/2" }
     ],
     "steps": [
-      "<ruby>鍋<rt>なべ</rt></ruby>にお<ruby>湯<rt>ゆ</rt></ruby>を<ruby>沸<rt>わ</rt></ruby>かし、<ruby>塩<rt>しお</rt></ruby><ruby>少々<rt>しょうしょう</rt></ruby>を<ruby>入<rt>い</rt></ruby>れてほうれん<ruby>草<rt>そう</rt></ruby>を<ruby>根元<rt>ねもと</rt></ruby>から30<ruby>秒<rt>びょう</rt></ruby>ほどゆでる。",
-      "<ruby>冷水<rt>れいすい</rt></ruby>にとって<ruby>色<rt>いろ</rt></ruby>どめし、<ruby>水気<rt>みずけ</rt></ruby>をしっかり<ruby>絞<rt>しぼ</rt></ruby>って4cm<ruby>長<rt>なが</rt></ruby>さに<ruby>切<rt>き</rt></ruby>る。",
-      "ボウルにすりごま・しょうゆ・<ruby>砂糖<rt>さとう</rt></ruby>を<ruby>入<rt>い</rt></ruby>れて<ruby>混<rt>ま</rt></ruby>ぜ、たれを<ruby>作<rt>つく</rt></ruby>る。",
-      "ほうれん<ruby>草<rt>そう</rt></ruby>を<ruby>加<rt>くわ</rt></ruby>えてさっと<ruby>和<rt>あ</rt></ruby>え、<ruby>器<rt>うつわ</rt></ruby>に<ruby>盛<rt>も</rt></ruby>る。"
+      "キャベツはみじん切りにして塩をふり、10分おいて水気を絞る。",
+      "にら・椎茸もみじん切りにし、しょうが・にんにくと合わせる。",
+      "野菜とくずした豆腐に、しょうゆ・ごま油・片栗粉を加えてよく混ぜ、あんを作る。",
+      "皮にあんをのせ、ふちに水をつけてひだを作りながら包む。",
+      "油をひいたフライパンで焼き、湯を回し入れてふたをし、蒸し焼きにする。",
+      "水分がとんだら、仕上げにごま油を回しかけてカリッと焼く。"
     ],
-    "source_name": "Just One Cookbook — Spinach Gomaae (胡麻和え)",
-    "source_url": "https://www.justonecookbook.com/spinach-with-sesame-sauce/",
+    "source_name": "Just One Cookbook — Vegetable Gyoza",
+    "source_url": "https://www.justonecookbook.com/vegetable-gyoza/",
     "tips": [
-      "ゆでたあとは、<ruby>水気<rt>みずけ</rt></ruby>をぎゅっと<ruby>絞<rt>しぼ</rt></ruby>るのがいちばんのコツ。<ruby>味<rt>あじ</rt></ruby>が<ruby>水<rt>みず</rt></ruby>っぽくならないよ。",
-      "すりごまは<ruby>食<rt>た</rt></ruby>べる<ruby>直前<rt>ちょくぜん</rt></ruby>にすると、<ruby>香<rt>かお</rt></ruby>りがぐんとよくなるんだ。"
+      "キャベツの水気をしっかり絞ると、あんがゆるまずきれいに包めるよ。",
+      "包んだ餃子は冷凍もOK。多めに作って常備すると便利。"
     ],
     "created_at": "2026-06-21",
     "published": true
   },
   {
     "id": 2,
-    "slug": "kinpira-gobo",
-    "title_jp": "きんぴらごぼう",
-    "title_furigana": "きんぴらごぼう",
-    "hero_image_url": "/images/recipes/kinpira-gobo.jpg",
-    "category": "fukusai",
-    "time_min": 15,
-    "servings": "2〜3人分",
+    "slug": "koya-karaage",
+    "title_jp": "高野豆腐の唐揚げ",
+    "hero_image_url": "/images/recipes/koya-karaage.jpg",
+    "category": "shusai",
+    "time_min": 25,
+    "servings": "2人分",
     "ingredients": [
-      { "item": "ごぼう", "amount": "1<ruby>本<rt>ぽん</rt></ruby>（<ruby>約<rt>やく</rt></ruby>150g）" },
-      { "item": "にんじん", "amount": "1/2<ruby>本<rt>ほん</rt></ruby>" },
-      { "item": "ごま<ruby>油<rt>あぶら</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "しょうゆ", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1.5" },
-      { "item": "みりん", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "きび<ruby>砂糖<rt>ざとう</rt></ruby>", "amount": "<ruby>小<rt>こ</rt></ruby>さじ1" },
-      { "item": "<ruby>赤<rt>あか</rt></ruby>とうがらし（<ruby>輪切<rt>わぎ</rt></ruby>り）", "amount": "<ruby>少々<rt>しょうしょう</rt></ruby>" },
-      { "item": "<ruby>白<rt>しろ</rt></ruby>ごま", "amount": "<ruby>適量<rt>てきりょう</rt></ruby>" }
+      { "item": "高野豆腐", "amount": "3枚" },
+      { "item": "しょうゆ", "amount": "大さじ2" },
+      { "item": "酒", "amount": "大さじ2" },
+      { "item": "みりん", "amount": "大さじ1" },
+      { "item": "おろししょうが", "amount": "小さじ1" },
+      { "item": "おろしにんにく", "amount": "小さじ1/2" },
+      { "item": "片栗粉", "amount": "大さじ4" },
+      { "item": "揚げ油", "amount": "適量" },
+      { "item": "レモン", "amount": "適量" }
     ],
     "steps": [
-      "ごぼうはささがき、にんじんは<ruby>細切<rt>ほそぎ</rt></ruby>りにする。ごぼうは<ruby>水<rt>みず</rt></ruby>に5<ruby>分<rt>ふん</rt></ruby>さらしてアクをぬく。",
-      "フライパンにごま<ruby>油<rt>あぶら</rt></ruby>を<ruby>熱<rt>ねっ</rt></ruby>し、ごぼう→にんじんの<ruby>順<rt>じゅん</rt></ruby>に<ruby>炒<rt>いた</rt></ruby>める。",
-      "しんなりしたら、しょうゆ・みりん・<ruby>砂糖<rt>さとう</rt></ruby>・とうがらしを<ruby>加<rt>くわ</rt></ruby>える。",
-      "<ruby>汁気<rt>しるけ</rt></ruby>がなくなるまで<ruby>炒<rt>いた</rt></ruby>め、<ruby>白<rt>しろ</rt></ruby>ごまをふる。"
+      "高野豆腐をぬるま湯で戻し、水気を絞って一口大にちぎる。",
+      "しょうゆ・酒・みりん・しょうが・にんにくを混ぜ、高野豆腐を10分ほど漬けてしっかり吸わせる。",
+      "軽く汁気をきり、片栗粉をたっぷりまぶす。",
+      "170℃の油で、両面2分ずつこんがり揚げる。",
+      "油をきって器に盛り、レモンを添える。"
     ],
-    "source_name": "Just One Cookbook — Kinpira Gobo",
-    "source_url": "https://www.justonecookbook.com/kinpira-gobo-braised-burdock-root/",
+    "source_name": "クラシル — 高野豆腐の唐揚げ",
+    "source_url": "https://www.kurashiru.com/recipes/6f024c29-4c9e-41f2-8ae4-5bc1752e0680",
     "tips": [
-      "ごぼうは<ruby>皮<rt>かわ</rt></ruby>に<ruby>香<rt>かお</rt></ruby>りがあるから、たわしでこする<ruby>程度<rt>ていど</rt></ruby>でOK。むきすぎないでね。",
-      "<ruby>辛<rt>から</rt></ruby>いのが<ruby>好<rt>す</rt></ruby>きなら、とうがらしを<ruby>増<rt>ふ</rt></ruby>やしてピリッと。お<ruby>弁当<rt>べんとう</rt></ruby>にもぴったりだよ。"
+      "高野豆腐はスポンジみたいに下味を吸うよ。ぎゅっと押して、味をしっかりしみこませて。",
+      "ちぎって表面をデコボコにすると、衣がカリッとついて食感がアップするよ。"
     ],
     "created_at": "2026-06-21",
     "published": true
   },
   {
     "id": 3,
-    "slug": "nasu-miso",
-    "title_jp": "なすの味噌炒め",
-    "title_furigana": "なすの<ruby>味噌<rt>みそ</rt></ruby><ruby>炒<rt>いた</rt></ruby>め",
-    "hero_image_url": "/images/recipes/nasu-miso.jpg",
+    "slug": "mapo-tofu",
+    "title_jp": "麻婆豆腐",
+    "hero_image_url": "/images/recipes/mapo-tofu.jpg",
     "category": "shusai",
     "time_min": 20,
     "servings": "2人分",
     "ingredients": [
-      { "item": "なす", "amount": "3<ruby>本<rt>ぼん</rt></ruby>" },
-      { "item": "ピーマン", "amount": "2<ruby>個<rt>こ</rt></ruby>" },
-      { "item": "ごま<ruby>油<rt>あぶら</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ2" },
-      { "item": "しょうが（みじん<ruby>切<rt>ぎ</rt></ruby>り）", "amount": "1<ruby>片<rt>かけ</rt></ruby>" },
-      { "item": "<ruby>味噌<rt>みそ</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1.5" },
-      { "item": "みりん", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "しょうゆ", "amount": "<ruby>小<rt>こ</rt></ruby>さじ1" },
-      { "item": "きび<ruby>砂糖<rt>ざとう</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "<ruby>水<rt>みず</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ2" }
+      { "item": "木綿豆腐", "amount": "1丁（約350g）" },
+      { "item": "大豆ミート（ミンチ）", "amount": "50g" },
+      { "item": "長ねぎ", "amount": "1/3本" },
+      { "item": "おろししょうが", "amount": "1片" },
+      { "item": "おろしにんにく", "amount": "1片" },
+      { "item": "豆板醤", "amount": "小さじ1" },
+      { "item": "甜麺醤（または味噌）", "amount": "大さじ1" },
+      { "item": "しょうゆ", "amount": "小さじ1" },
+      { "item": "酒", "amount": "大さじ1" },
+      { "item": "きび砂糖", "amount": "小さじ1" },
+      { "item": "水", "amount": "200ml" },
+      { "item": "片栗粉（同量の水で溶く）", "amount": "大さじ1" },
+      { "item": "ごま油", "amount": "大さじ2" },
+      { "item": "花椒・ラー油", "amount": "お好みで" }
     ],
     "steps": [
-      "なすは<ruby>乱切<rt>らんぎ</rt></ruby>り、ピーマンは<ruby>一口大<rt>ひとくちだい</rt></ruby>に<ruby>切<rt>き</rt></ruby>る。なすは<ruby>水<rt>みず</rt></ruby>にさっとさらす。",
-      "<ruby>味噌<rt>みそ</rt></ruby>・みりん・しょうゆ・<ruby>砂糖<rt>さとう</rt></ruby>・<ruby>水<rt>みず</rt></ruby>を<ruby>混<rt>ま</rt></ruby>ぜ、<ruby>合<rt>あ</rt></ruby>わせ<ruby>調味料<rt>ちょうみりょう</rt></ruby>を<ruby>作<rt>つく</rt></ruby>る。",
-      "フライパンにごま<ruby>油<rt>あぶら</rt></ruby>を<ruby>熱<rt>ねっ</rt></ruby>し、なすを<ruby>炒<rt>いた</rt></ruby>める。しんなりしたらピーマンを<ruby>加<rt>くわ</rt></ruby>える。",
-      "しょうがと<ruby>合<rt>あ</rt></ruby>わせ<ruby>調味料<rt>ちょうみりょう</rt></ruby>を<ruby>加<rt>くわ</rt></ruby>え、<ruby>全体<rt>ぜんたい</rt></ruby>にからめて<ruby>照<rt>て</rt></ruby>りが<ruby>出<rt>で</rt></ruby>たらできあがり。"
+      "豆腐は2cm角に切り、さっと下ゆでして水気をきる。大豆ミートは表示どおり戻す。",
+      "フライパンにごま油を熱し、大豆ミートを炒める。",
+      "しょうが・にんにく・豆板醤を加えて香りを出し、甜麺醤・しょうゆ・酒・砂糖・水を入れる。",
+      "豆腐を加えてやさしく混ぜ、3分ほど煮る。",
+      "水溶き片栗粉でとろみをつけ、長ねぎを加える。仕上げにごま油、お好みで花椒とラー油をかける。"
     ],
-    "source_name": "白ごはん.com — なすとピーマンの味噌炒め（なべしぎ）",
-    "source_url": "https://www.sirogohan.com/recipe/nabesigi/",
+    "source_name": "weeeat!（東京ガス）— 大豆ミートのうま辛麻婆豆腐",
+    "source_url": "https://weeeat.tokyogas-com.co.jp/recipe/c-00041.html",
     "tips": [
-      "なすは<ruby>油<rt>あぶら</rt></ruby>をよく<ruby>吸<rt>す</rt></ruby>うから、<ruby>少<rt>すこ</rt></ruby>し<ruby>多<rt>おお</rt></ruby>めの<ruby>油<rt>あぶら</rt></ruby>でとろっと<ruby>仕上<rt>しあ</rt></ruby>げるとおいしいよ。",
-      "<ruby>味噌<rt>みそ</rt></ruby>の<ruby>塩分<rt>えんぶん</rt></ruby>は<ruby>種類<rt>しゅるい</rt></ruby>でちがうから、<ruby>味<rt>あじ</rt></ruby>をみながら<ruby>量<rt>りょう</rt></ruby>を<ruby>調整<rt>ちょうせい</rt></ruby>してね。"
+      "鶏がらスープの代わりに、香味野菜と豆板醤・甜麺醤のうまみで深い味に。お肉なしでも本格的だよ。",
+      "豆腐は下ゆですると、くずれにくく水っぽくならない。花椒を足すと、しびれる本場の味に。"
     ],
     "created_at": "2026-06-21",
     "published": true
   },
   {
     "id": 4,
-    "slug": "veg-miso-soup",
-    "title_jp": "具だくさん味噌汁",
-    "title_furigana": "<ruby>具<rt>ぐ</rt></ruby>だくさん<ruby>味噌汁<rt>みそしる</rt></ruby>",
-    "hero_image_url": "/images/recipes/veg-miso-soup.jpg",
-    "category": "shirumono",
+    "slug": "veggie-yakisoba",
+    "title_jp": "野菜焼きそば",
+    "hero_image_url": "/images/recipes/veggie-yakisoba.jpg",
+    "category": "gohanmen",
     "time_min": 15,
     "servings": "2人分",
     "ingredients": [
-      { "item": "<ruby>水<rt>みず</rt></ruby>", "amount": "400ml" },
-      { "item": "<ruby>昆布<rt>こんぶ</rt></ruby>", "amount": "5cm<ruby>角<rt>かく</rt></ruby>1<ruby>枚<rt>まい</rt></ruby>" },
-      { "item": "<ruby>干<rt>ほ</rt></ruby>し<ruby>椎茸<rt>しいたけ</rt></ruby>", "amount": "2<ruby>枚<rt>まい</rt></ruby>" },
-      { "item": "<ruby>木綿豆腐<rt>もめんどうふ</rt></ruby>", "amount": "1/2<ruby>丁<rt>ちょう</rt></ruby>" },
-      { "item": "<ruby>大根<rt>だいこん</rt></ruby>", "amount": "3cm" },
-      { "item": "にんじん", "amount": "1/3<ruby>本<rt>ほん</rt></ruby>" },
-      { "item": "わかめ（<ruby>乾燥<rt>かんそう</rt></ruby>）", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "<ruby>味噌<rt>みそ</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ2" },
-      { "item": "<ruby>長<rt>なが</rt></ruby>ねぎ", "amount": "<ruby>少々<rt>しょうしょう</rt></ruby>" }
+      { "item": "焼きそば麺", "amount": "2玉" },
+      { "item": "キャベツ", "amount": "1/4個" },
+      { "item": "玉ねぎ", "amount": "1/4個" },
+      { "item": "にんじん", "amount": "1/3本" },
+      { "item": "しいたけ（または厚揚げ）", "amount": "3枚" },
+      { "item": "おろししょうが", "amount": "1片" },
+      { "item": "しょうゆ", "amount": "大さじ1＋仕上げ大さじ1" },
+      { "item": "酒・みりん", "amount": "各大さじ1" },
+      { "item": "きび砂糖", "amount": "小さじ1/2" },
+      { "item": "サラダ油", "amount": "大さじ1" },
+      { "item": "紅しょうが・青のり", "amount": "適量" }
     ],
     "steps": [
-      "<ruby>水<rt>みず</rt></ruby>に<ruby>昆布<rt>こんぶ</rt></ruby>と<ruby>干<rt>ほ</rt></ruby>し<ruby>椎茸<rt>しいたけ</rt></ruby>を30<ruby>分<rt>ぷん</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>つけて、<ruby>植物性<rt>しょくぶつせい</rt></ruby>のだしをとる（できれば<ruby>一晩<rt>ひとばん</rt></ruby>）。",
-      "<ruby>大根<rt>だいこん</rt></ruby>・にんじんは<ruby>薄<rt>うす</rt></ruby>いいちょう<ruby>切<rt>ぎ</rt></ruby>り、<ruby>豆腐<rt>とうふ</rt></ruby>はさいの<ruby>目<rt>め</rt></ruby>に<ruby>切<rt>き</rt></ruby>る。",
-      "だしを<ruby>弱火<rt>よわび</rt></ruby>にかけ、<ruby>大根<rt>だいこん</rt></ruby>・にんじんを<ruby>入<rt>い</rt></ruby>れてやわらかくなるまで<ruby>煮<rt>に</rt></ruby>る。",
-      "<ruby>豆腐<rt>とうふ</rt></ruby>とわかめを<ruby>加<rt>くわ</rt></ruby>え、<ruby>火<rt>ひ</rt></ruby>を<ruby>止<rt>と</rt></ruby>めてから<ruby>味噌<rt>みそ</rt></ruby>を<ruby>溶<rt>と</rt></ruby>き<ruby>入<rt>い</rt></ruby>れる。",
-      "<ruby>器<rt>うつわ</rt></ruby>に<ruby>盛<rt>も</rt></ruby>り、<ruby>小口切<rt>こぐちぎ</rt></ruby>りの<ruby>長<rt>なが</rt></ruby>ねぎをのせる。"
+      "野菜としいたけは食べやすく切る。しょうゆ大さじ1・酒・みりん・砂糖・水大さじ2を混ぜておく。",
+      "小鍋にしいたけ（または厚揚げ）としょうが、合わせ調味料を入れ、3〜4分煮てうまみを出す。",
+      "フライパンに油を熱し、にんじん・玉ねぎ→キャベツの順に炒める。",
+      "麺を加え、2の煮汁ごと回し入れ、ふたをして1分蒸らしてからほぐし炒める。",
+      "仕上げのしょうゆで味をととのえ、紅しょうがと青のりを添える。"
     ],
-    "source_name": "Just One Cookbook — Vegan Miso Soup",
-    "source_url": "https://www.justonecookbook.com/vegan-miso-soup/",
+    "source_name": "白ごはん.com — 焼きそば（醤油味）",
+    "source_url": "https://www.sirogohan.com/recipe/yakisoba/",
     "tips": [
-      "<ruby>昆布<rt>こんぶ</rt></ruby>と<ruby>干<rt>ほ</rt></ruby>し<ruby>椎茸<rt>しいたけ</rt></ruby>だけで、お<ruby>魚<rt>さかな</rt></ruby>を<ruby>使<rt>つか</rt></ruby>わない「<ruby>精進<rt>しょうじん</rt></ruby>だし」になるんだ。うまみたっぷりだよ。",
-      "<ruby>味噌<rt>みそ</rt></ruby>は<ruby>煮立<rt>にた</rt></ruby>てると<ruby>香<rt>かお</rt></ruby>りがとんじゃう。<ruby>火<rt>ひ</rt></ruby>を<ruby>止<rt>と</rt></ruby>めてから<ruby>溶<rt>と</rt></ruby>くのが<ruby>大切<rt>たいせつ</rt></ruby>。"
+      "お肉の代わりに、しいたけや厚揚げを煮てうまみを移すのがコツ。コクが出るよ。",
+      "醤油味だからオイスターソースは不要。ソース味にするなら、ビーガン対応のソースを選んでね。"
     ],
     "created_at": "2026-06-21",
     "published": true
   },
   {
     "id": 5,
-    "slug": "kinoko-takikomi",
-    "title_jp": "きのこの炊き込みご飯",
-    "title_furigana": "きのこの<ruby>炊<rt>た</rt></ruby>き<ruby>込<rt>こ</rt></ruby>みご<ruby>飯<rt>はん</rt></ruby>",
-    "hero_image_url": "/images/recipes/kinoko-takikomi.jpg",
-    "category": "gohan",
-    "time_min": 60,
-    "servings": "3〜4人分（2合）",
+    "slug": "nasu-miso",
+    "title_jp": "なすの味噌炒め",
+    "hero_image_url": "/images/recipes/nasu-miso.jpg",
+    "category": "shusai",
+    "time_min": 20,
+    "servings": "2人分",
     "ingredients": [
-      { "item": "<ruby>米<rt>こめ</rt></ruby>", "amount": "2<ruby>合<rt>ごう</rt></ruby>" },
-      { "item": "しめじ", "amount": "1パック" },
-      { "item": "<ruby>椎茸<rt>しいたけ</rt></ruby>", "amount": "3<ruby>枚<rt>まい</rt></ruby>" },
-      { "item": "えのき", "amount": "1/2<ruby>袋<rt>ふくろ</rt></ruby>" },
-      { "item": "にんじん", "amount": "1/3<ruby>本<rt>ほん</rt></ruby>" },
-      { "item": "<ruby>油揚<rt>あぶらあ</rt></ruby>げ", "amount": "1<ruby>枚<rt>まい</rt></ruby>" },
-      { "item": "しょうゆ", "amount": "<ruby>大<rt>おお</rt></ruby>さじ2" },
-      { "item": "みりん", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "<ruby>酒<rt>さけ</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "<ruby>昆布<rt>こんぶ</rt></ruby>", "amount": "5cm<ruby>角<rt>かく</rt></ruby>1<ruby>枚<rt>まい</rt></ruby>" }
+      { "item": "なす", "amount": "3本" },
+      { "item": "ピーマン", "amount": "2個" },
+      { "item": "ごま油", "amount": "大さじ2" },
+      { "item": "しょうが（みじん切り）", "amount": "1片" },
+      { "item": "味噌", "amount": "大さじ1.5" },
+      { "item": "みりん", "amount": "大さじ1" },
+      { "item": "しょうゆ", "amount": "小さじ1" },
+      { "item": "きび砂糖", "amount": "大さじ1" },
+      { "item": "水", "amount": "大さじ2" }
     ],
     "steps": [
-      "<ruby>米<rt>こめ</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>って30<ruby>分<rt>ぷん</rt></ruby><ruby>浸水<rt>しんすい</rt></ruby>し、ざるにあげる。",
-      "きのこ<ruby>類<rt>るい</rt></ruby>は<ruby>石<rt>いし</rt></ruby>づきを<ruby>取<rt>と</rt></ruby>ってほぐす。にんじんと<ruby>油揚<rt>あぶらあ</rt></ruby>げは<ruby>細切<rt>ほそぎ</rt></ruby>りに。",
-      "<ruby>炊飯器<rt>すいはんき</rt></ruby>に<ruby>米<rt>こめ</rt></ruby>・しょうゆ・みりん・<ruby>酒<rt>さけ</rt></ruby>を<ruby>入<rt>い</rt></ruby>れ、2<ruby>合<rt>ごう</rt></ruby>の<ruby>目盛<rt>めも</rt></ruby>りまで<ruby>水<rt>みず</rt></ruby>を<ruby>注<rt>そそ</rt></ruby>ぐ。",
-      "<ruby>具材<rt>ぐざい</rt></ruby>と<ruby>昆布<rt>こんぶ</rt></ruby>をのせて、ふつうに<ruby>炊<rt>た</rt></ruby>く。",
-      "<ruby>炊<rt>た</rt></ruby>きあがったら<ruby>昆布<rt>こんぶ</rt></ruby>を<ruby>取<rt>と</rt></ruby>り<ruby>出<rt>だ</rt></ruby>し、さっくり<ruby>混<rt>ま</rt></ruby>ぜる。"
+      "なすは乱切り、ピーマンは一口大に切る。なすは水にさっとさらす。",
+      "味噌・みりん・しょうゆ・砂糖・水を混ぜ、合わせ調味料を作る。",
+      "フライパンにごま油を熱し、なすを炒める。しんなりしたらピーマンを加える。",
+      "しょうがと合わせ調味料を加え、全体にからめて照りが出たらできあがり。"
     ],
-    "source_name": "Just One Cookbook — Japanese Mushroom Rice",
-    "source_url": "https://www.justonecookbook.com/japanese-mushroom-rice/",
+    "source_name": "白ごはん.com — なすとピーマンの味噌炒め（なべしぎ）",
+    "source_url": "https://www.sirogohan.com/recipe/nabesigi/",
     "tips": [
-      "<ruby>調味料<rt>ちょうみりょう</rt></ruby>を<ruby>先<rt>さき</rt></ruby>に<ruby>入<rt>い</rt></ruby>れてから、<ruby>水<rt>みず</rt></ruby>を<ruby>目盛<rt>めも</rt></ruby>りまで<ruby>足<rt>た</rt></ruby>すのがポイント。<ruby>水<rt>みず</rt></ruby>っぽくならないよ。",
-      "きのこは2〜3<ruby>種類<rt>しゅるい</rt></ruby>まぜると、うまみが<ruby>重<rt>かさ</rt></ruby>なってぐっと<ruby>本格的<rt>ほんかくてき</rt></ruby>な<ruby>味<rt>あじ</rt></ruby>になるよ。"
+      "なすは油をよく吸うから、少し多めの油でとろっと仕上げるとおいしいよ。",
+      "味噌の塩分は種類でちがうから、味をみながら量を調整してね。"
     ],
     "created_at": "2026-06-21",
     "published": true
   },
   {
     "id": 6,
-    "slug": "veg-gyoza",
-    "title_jp": "野菜餃子",
-    "title_furigana": "<ruby>野菜<rt>やさい</rt></ruby><ruby>餃子<rt>ぎょうざ</rt></ruby>",
-    "hero_image_url": "/images/recipes/veg-gyoza.jpg",
-    "category": "shusai",
+    "slug": "inari-zushi",
+    "title_jp": "いなり寿司",
+    "hero_image_url": "/images/recipes/inari-zushi.jpg",
+    "category": "gohanmen",
     "time_min": 40,
-    "servings": "約24個分",
+    "servings": "約10個",
     "ingredients": [
-      { "item": "キャベツ", "amount": "1/4<ruby>個<rt>こ</rt></ruby>（<ruby>約<rt>やく</rt></ruby>250g）" },
-      { "item": "にら", "amount": "1/2<ruby>束<rt>たば</rt></ruby>" },
-      { "item": "<ruby>木綿豆腐<rt>もめんどうふ</rt></ruby>（<ruby>水切<rt>みずき</rt></ruby>り）", "amount": "1/2<ruby>丁<rt>ちょう</rt></ruby>" },
-      { "item": "<ruby>椎茸<rt>しいたけ</rt></ruby>", "amount": "3<ruby>枚<rt>まい</rt></ruby>" },
-      { "item": "しょうが（みじん<ruby>切<rt>ぎ</rt></ruby>り）", "amount": "1<ruby>片<rt>かけ</rt></ruby>" },
-      { "item": "にんにく（みじん<ruby>切<rt>ぎ</rt></ruby>り）", "amount": "1<ruby>片<rt>かけ</rt></ruby>" },
-      { "item": "しょうゆ", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "ごま<ruby>油<rt>あぶら</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "<ruby>片栗粉<rt>かたくりこ</rt></ruby>", "amount": "<ruby>大<rt>おお</rt></ruby>さじ1" },
-      { "item": "<ruby>餃子<rt>ぎょうざ</rt></ruby>の<ruby>皮<rt>かわ</rt></ruby>", "amount": "24<ruby>枚<rt>まい</rt></ruby>" },
-      { "item": "<ruby>塩<rt>しお</rt></ruby>", "amount": "<ruby>小<rt>こ</rt></ruby>さじ1/2" }
+      { "item": "油揚げ", "amount": "5枚" },
+      { "item": "ごはん（温かいもの）", "amount": "茶碗3杯分" },
+      { "item": "昆布と干し椎茸のだし", "amount": "200ml" },
+      { "item": "きび砂糖", "amount": "大さじ4" },
+      { "item": "しょうゆ", "amount": "大さじ2.5" },
+      { "item": "米酢", "amount": "大さじ2" },
+      { "item": "砂糖（すし酢用）", "amount": "小さじ1" },
+      { "item": "塩", "amount": "小さじ1/2" },
+      { "item": "白ごま", "amount": "適量" }
     ],
     "steps": [
-      "キャベツはみじん<ruby>切<rt>ぎ</rt></ruby>りにして<ruby>塩<rt>しお</rt></ruby>をふり、10<ruby>分<rt>ぷん</rt></ruby>おいて<ruby>水気<rt>みずけ</rt></ruby>を<ruby>絞<rt>しぼ</rt></ruby>る。",
-      "にら・<ruby>椎茸<rt>しいたけ</rt></ruby>もみじん<ruby>切<rt>ぎ</rt></ruby>りにし、しょうが・にんにくと<ruby>合<rt>あ</rt></ruby>わせる。",
-      "<ruby>野菜<rt>やさい</rt></ruby>とくずした<ruby>豆腐<rt>とうふ</rt></ruby>に、しょうゆ・ごま<ruby>油<rt>あぶら</rt></ruby>・<ruby>片栗粉<rt>かたくりこ</rt></ruby>を<ruby>加<rt>くわ</rt></ruby>えてよく<ruby>混<rt>ま</rt></ruby>ぜ、あんを<ruby>作<rt>つく</rt></ruby>る。",
-      "<ruby>皮<rt>かわ</rt></ruby>にあんをのせ、ふちに<ruby>水<rt>みず</rt></ruby>をつけてひだを<ruby>作<rt>つく</rt></ruby>りながら<ruby>包<rt>つつ</rt></ruby>む。",
-      "<ruby>油<rt>あぶら</rt></ruby>をひいたフライパンで<ruby>焼<rt>や</rt></ruby>き、<ruby>湯<rt>ゆ</rt></ruby>を<ruby>回<rt>まわ</rt></ruby>し<ruby>入<rt>い</rt></ruby>れてふたをし、<ruby>蒸<rt>む</rt></ruby>し<ruby>焼<rt>や</rt></ruby>きにする。",
-      "<ruby>水分<rt>すいぶん</rt></ruby>がとんだら、<ruby>仕上<rt>しあ</rt></ruby>げにごま<ruby>油<rt>あぶら</rt></ruby>を<ruby>回<rt>まわ</rt></ruby>しかけてカリッと<ruby>焼<rt>や</rt></ruby>く。"
+      "油揚げは半分に切って袋状にひらき、熱湯で油抜きして軽く絞る。",
+      "鍋にだし・砂糖・しょうゆを入れ、油揚げを落としぶたで10〜12分、汁気が少なくなるまで煮含めて冷ます。",
+      "米酢・砂糖・塩を混ぜてすし酢を作り、温かいごはんに切るように混ぜ、白ごまも加える。",
+      "油揚げの汁気を軽く絞り、すし飯を詰めて形をととのえる。"
     ],
-    "source_name": "Just One Cookbook — Vegetable Gyoza",
-    "source_url": "https://www.justonecookbook.com/vegetable-gyoza/",
+    "source_name": "白ごはん.com — いなり寿司",
+    "source_url": "https://www.sirogohan.com/recipe/inari/",
     "tips": [
-      "キャベツの<ruby>水気<rt>みずけ</rt></ruby>をしっかり<ruby>絞<rt>しぼ</rt></ruby>ると、あんがゆるまずきれいに<ruby>包<rt>つつ</rt></ruby>めるよ。",
-      "<ruby>包<rt>つつ</rt></ruby>んだ<ruby>餃子<rt>ぎょうざ</rt></ruby>は<ruby>冷凍<rt>れいとう</rt></ruby>もOK。<ruby>多<rt>おお</rt></ruby>めに<ruby>作<rt>つく</rt></ruby>って<ruby>常備<rt>じょうび</rt></ruby>すると<ruby>便利<rt>べんり</rt></ruby>。"
+      "だしは昆布＋干し椎茸でとれば、お魚なしでもうまみたっぷりの精進いなりに。",
+      "油揚げはめん棒を転がしてから開くと、破れずきれいな袋になるよ。冷めてもおいしい。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 7,
+    "slug": "atsuage-teriyaki",
+    "title_jp": "厚揚げの照り焼き",
+    "hero_image_url": "/images/recipes/atsuage-teriyaki.jpg",
+    "category": "shusai",
+    "time_min": 15,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "厚揚げ", "amount": "2枚" },
+      { "item": "しょうゆ", "amount": "大さじ1" },
+      { "item": "みりん", "amount": "大さじ1" },
+      { "item": "酒", "amount": "大さじ1" },
+      { "item": "きび砂糖", "amount": "小さじ2" },
+      { "item": "サラダ油", "amount": "大さじ1" },
+      { "item": "白ごま", "amount": "大さじ1" },
+      { "item": "小ねぎ", "amount": "適量" }
+    ],
+    "steps": [
+      "厚揚げは熱湯をかけて油抜きし、一口大に切る。",
+      "しょうゆ・みりん・酒・砂糖を混ぜておく。",
+      "フライパンに油を熱し、厚揚げを全面こんがり焼く。",
+      "合わせ調味料を加え、からめながら照りが出るまで煮詰める。",
+      "白ごまをふり、小ねぎを散らす。"
+    ],
+    "source_name": "クラシル — 厚揚げのごま照り焼き",
+    "source_url": "https://www.kurashiru.com/recipes/d6b661d5-626c-45a3-a56e-390a4b62dd6c",
+    "tips": [
+      "油抜きすると味がしみやすく、軽い口当たりに。熱湯をさっと回しかけるだけでOK。",
+      "厚揚げはしっかり焼き目をつけると、香ばしくて食べごたえが出るよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 8,
+    "slug": "soy-shogayaki",
+    "title_jp": "大豆ミートの生姜焼き",
+    "hero_image_url": "/images/recipes/soy-shogayaki.jpg",
+    "category": "shusai",
+    "time_min": 20,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "大豆ミート（薄切りタイプ・乾燥）", "amount": "80g" },
+      { "item": "玉ねぎ", "amount": "1/2個" },
+      { "item": "おろししょうが", "amount": "大さじ1" },
+      { "item": "しょうゆ", "amount": "大さじ1" },
+      { "item": "みりん", "amount": "小さじ2" },
+      { "item": "酒", "amount": "大さじ1" },
+      { "item": "きび砂糖", "amount": "小さじ1" },
+      { "item": "ごま油", "amount": "大さじ1" },
+      { "item": "キャベツ（千切り）", "amount": "適量" }
+    ],
+    "steps": [
+      "大豆ミートを表示どおり戻し、水でよく洗ってからしっかり絞る。",
+      "玉ねぎは薄切り。しょうが・しょうゆ・みりん・酒・砂糖を混ぜてたれを作る。",
+      "フライパンにごま油を熱し、大豆ミートと玉ねぎを炒める。",
+      "玉ねぎがしんなりしたらたれを加え、汁気がなくなるまでからめる。",
+      "千切りキャベツを添えて器に盛る。"
+    ],
+    "source_name": "クラシル — 大豆ミートのこってり生姜焼き",
+    "source_url": "https://www.kurashiru.com/recipes/e6cb2748-471b-4805-8058-73dcd088c820",
+    "tips": [
+      "大豆ミートは戻したあと、水でよく洗って絞ると気になる香りがやわらぐよ。",
+      "しょうがはたっぷりが good。ごはんがすすむ、しっかり味に仕上がる。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 9,
+    "slug": "kinoko-takikomi",
+    "title_jp": "きのこの炊き込みご飯",
+    "hero_image_url": "/images/recipes/kinoko-takikomi.jpg",
+    "category": "gohanmen",
+    "time_min": 60,
+    "servings": "3〜4人分（2合）",
+    "ingredients": [
+      { "item": "米", "amount": "2合" },
+      { "item": "しめじ", "amount": "1パック" },
+      { "item": "椎茸", "amount": "3枚" },
+      { "item": "えのき", "amount": "1/2袋" },
+      { "item": "にんじん", "amount": "1/3本" },
+      { "item": "油揚げ", "amount": "1枚" },
+      { "item": "しょうゆ", "amount": "大さじ2" },
+      { "item": "みりん", "amount": "大さじ1" },
+      { "item": "酒", "amount": "大さじ1" },
+      { "item": "昆布", "amount": "5cm角1枚" }
+    ],
+    "steps": [
+      "米を洗って30分浸水し、ざるにあげる。",
+      "きのこ類は石づきを取ってほぐす。にんじんと油揚げは細切りに。",
+      "炊飯器に米・しょうゆ・みりん・酒を入れ、2合の目盛りまで水を注ぐ。",
+      "具材と昆布をのせて、ふつうに炊く。",
+      "炊きあがったら昆布を取り出し、さっくり混ぜる。"
+    ],
+    "source_name": "Just One Cookbook — Japanese Mushroom Rice",
+    "source_url": "https://www.justonecookbook.com/japanese-mushroom-rice/",
+    "tips": [
+      "調味料を先に入れてから、水を目盛りまで足すのがポイント。水っぽくならないよ。",
+      "きのこは2〜3種類まぜると、うまみが重なってぐっと本格的な味になるよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 10,
+    "slug": "kenchin-jiru",
+    "title_jp": "けんちん汁",
+    "hero_image_url": "/images/recipes/kenchin-jiru.jpg",
+    "category": "shirumono",
+    "time_min": 30,
+    "servings": "3〜4人分",
+    "ingredients": [
+      { "item": "木綿豆腐", "amount": "1/2丁" },
+      { "item": "大根", "amount": "100g" },
+      { "item": "にんじん", "amount": "1/3本" },
+      { "item": "ごぼう", "amount": "1/2本" },
+      { "item": "里いも", "amount": "2個" },
+      { "item": "こんにゃく", "amount": "1/4枚" },
+      { "item": "長ねぎ", "amount": "1本" },
+      { "item": "昆布と干し椎茸のだし", "amount": "700ml" },
+      { "item": "しょうゆ", "amount": "大さじ2" },
+      { "item": "塩", "amount": "小さじ1/3" },
+      { "item": "ごま油", "amount": "大さじ1" }
+    ],
+    "steps": [
+      "野菜とこんにゃくは食べやすく切る。ごぼうは水にさらす。",
+      "鍋にごま油を熱し、豆腐をくずしながら入れ、野菜とこんにゃくを炒める。",
+      "だしを加え、アクを取りながら野菜がやわらかくなるまで8〜9分煮る。",
+      "長ねぎを加え、しょうゆ・塩で味をととのえる。"
+    ],
+    "source_name": "白ごはん.com — 基本のけんちん汁",
+    "source_url": "https://www.sirogohan.com/recipe/kentin/",
+    "tips": [
+      "けんちん汁はもともとお寺の精進料理。昆布と椎茸のだしが、いちばん本来の味だよ。",
+      "具をごま油で炒めてから煮るのが、コクを出す最大のコツ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 11,
+    "slug": "kinpira-gobo",
+    "title_jp": "きんぴらごぼう",
+    "hero_image_url": "/images/recipes/kinpira-gobo.jpg",
+    "category": "fukusai",
+    "time_min": 15,
+    "servings": "2〜3人分",
+    "ingredients": [
+      { "item": "ごぼう", "amount": "1本（約150g）" },
+      { "item": "にんじん", "amount": "1/2本" },
+      { "item": "ごま油", "amount": "大さじ1" },
+      { "item": "しょうゆ", "amount": "大さじ1.5" },
+      { "item": "みりん", "amount": "大さじ1" },
+      { "item": "きび砂糖", "amount": "小さじ1" },
+      { "item": "赤とうがらし（輪切り）", "amount": "少々" },
+      { "item": "白ごま", "amount": "適量" }
+    ],
+    "steps": [
+      "ごぼうはささがき、にんじんは細切りにする。ごぼうは水に5分さらしてアクをぬく。",
+      "フライパンにごま油を熱し、ごぼう→にんじんの順に炒める。",
+      "しんなりしたら、しょうゆ・みりん・砂糖・とうがらしを加える。",
+      "汁気がなくなるまで炒め、白ごまをふる。"
+    ],
+    "source_name": "Just One Cookbook — Kinpira Gobo",
+    "source_url": "https://www.justonecookbook.com/kinpira-gobo-braised-burdock-root/",
+    "tips": [
+      "ごぼうは皮に香りがあるから、たわしでこする程度でOK。むきすぎないでね。",
+      "辛いのが好きなら、とうがらしを増やしてピリッと。お弁当にもぴったりだよ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 12,
+    "slug": "spinach-gomaae",
+    "title_jp": "ほうれん草の胡麻和え",
+    "hero_image_url": "/images/recipes/spinach-gomaae.jpg",
+    "category": "fukusai",
+    "time_min": 10,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "ほうれん草", "amount": "1束（約200g）" },
+      { "item": "すりごま（白）", "amount": "大さじ3" },
+      { "item": "しょうゆ", "amount": "大さじ1" },
+      { "item": "きび砂糖", "amount": "小さじ2" },
+      { "item": "塩（ゆで用）", "amount": "少々" }
+    ],
+    "steps": [
+      "鍋にお湯を沸かし、塩少々を入れてほうれん草を根元から30秒ほどゆでる。",
+      "冷水にとって色どめし、水気をしっかり絞って4cm長さに切る。",
+      "ボウルにすりごま・しょうゆ・砂糖を入れて混ぜ、たれを作る。",
+      "ほうれん草を加えてさっと和え、器に盛る。"
+    ],
+    "source_name": "Just One Cookbook — Spinach Gomaae (胡麻和え)",
+    "source_url": "https://www.justonecookbook.com/spinach-with-sesame-sauce/",
+    "tips": [
+      "ゆでたあとは、水気をぎゅっと絞るのがいちばんのコツ。味が水っぽくならないよ。",
+      "すりごまは食べる直前にすると、香りがぐんとよくなるんだ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 13,
+    "slug": "kabocha-nimono",
+    "title_jp": "かぼちゃの煮物",
+    "hero_image_url": "/images/recipes/kabocha-nimono.jpg",
+    "category": "fukusai",
+    "time_min": 20,
+    "servings": "3〜4人分",
+    "ingredients": [
+      { "item": "かぼちゃ", "amount": "1/4個（約500g）" },
+      { "item": "水", "amount": "400ml" },
+      { "item": "きび砂糖", "amount": "大さじ2" },
+      { "item": "しょうゆ", "amount": "大さじ1" },
+      { "item": "みりん", "amount": "大さじ1" },
+      { "item": "塩", "amount": "少々" }
+    ],
+    "steps": [
+      "かぼちゃは種とわたを取り、一口大に切る。皮を所々そぐと味がしみやすい。",
+      "鍋にかぼちゃを皮を下にして並べ、水・砂糖・みりんを入れて中火にかける。",
+      "煮立ったら落としぶたをして、10分ほど煮る。",
+      "しょうゆと塩を加え、やわらかくなるまでさらに5〜7分煮て、そのまま冷まして味を含ませる。"
+    ],
+    "source_name": "白ごはん.com — かぼちゃの煮物",
+    "source_url": "https://www.sirogohan.com/recipe/kabocha/",
+    "tips": [
+      "皮を下にして煮ると、煮くずれしにくくきれいに仕上がるよ。",
+      "火を止めて冷ます間に味がしみこむから、少し早めに作っておくのがおすすめ。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 14,
+    "slug": "hijiki-nimono",
+    "title_jp": "ひじきの煮物",
+    "hero_image_url": "/images/recipes/hijiki-nimono.jpg",
+    "category": "fukusai",
+    "time_min": 25,
+    "servings": "3〜4人分",
+    "ingredients": [
+      { "item": "芽ひじき（乾燥）", "amount": "20g" },
+      { "item": "にんじん", "amount": "1/3本" },
+      { "item": "油揚げ", "amount": "1/2枚" },
+      { "item": "大豆（水煮・お好みで）", "amount": "50g" },
+      { "item": "昆布と干し椎茸のだし", "amount": "150ml" },
+      { "item": "きび砂糖", "amount": "大さじ1.5" },
+      { "item": "しょうゆ", "amount": "大さじ2" },
+      { "item": "みりん", "amount": "大さじ1" },
+      { "item": "ごま油", "amount": "小さじ1" }
+    ],
+    "steps": [
+      "ひじきはたっぷりの水で30分戻し、水気をきる。にんじん・油揚げは細切りに。",
+      "鍋にごま油を熱し、にんじん→ひじきの順に1分ほど炒める。",
+      "だし・砂糖・しょうゆ・みりん・油揚げ（と大豆）を加える。",
+      "中弱火で、汁気が少なくなるまで7〜8分煮る。"
+    ],
+    "source_name": "白ごはん.com — ひじきの煮物",
+    "source_url": "https://www.sirogohan.com/recipe/hijiki/",
+    "tips": [
+      "だしは昆布＋干し椎茸でOK。お魚を使わなくても、うまみしっかり。",
+      "大豆を加えると栄養も食べごたえもアップ。常備菜やお弁当にぴったり。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 15,
+    "slug": "kiriboshi-daikon",
+    "title_jp": "切り干し大根の煮物",
+    "hero_image_url": "/images/recipes/kiriboshi-daikon.jpg",
+    "category": "fukusai",
+    "time_min": 25,
+    "servings": "3〜4人分",
+    "ingredients": [
+      { "item": "切り干し大根", "amount": "25g" },
+      { "item": "にんじん", "amount": "1/3本" },
+      { "item": "油揚げ", "amount": "1/2枚" },
+      { "item": "戻し汁＋昆布だし", "amount": "合わせて200ml" },
+      { "item": "きび砂糖", "amount": "小さじ2" },
+      { "item": "しょうゆ", "amount": "大さじ1" },
+      { "item": "みりん", "amount": "大さじ1" },
+      { "item": "ごま油", "amount": "小さじ1" }
+    ],
+    "steps": [
+      "切り干し大根を水で15分戻し、水気を絞って食べやすく切る（戻し汁はとっておく）。",
+      "にんじん・油揚げは細切りにする。",
+      "鍋にごま油を熱し、全体を1分炒める。",
+      "戻し汁＋昆布だし・砂糖・しょうゆ・みりんを加え、落としぶたで10〜12分、汁気が少なくなるまで煮る。"
+    ],
+    "source_name": "白ごはん.com — 切り干し大根の煮物",
+    "source_url": "https://www.sirogohan.com/recipe/kiribosi/",
+    "tips": [
+      "戻し汁には甘みとうまみがたっぷり。だしに使うと、ぐっと味に深みが出るよ。",
+      "戻しすぎると食感がなくなるので、15分くらいを目安にね。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 16,
+    "slug": "veg-miso-soup",
+    "title_jp": "具だくさん味噌汁",
+    "hero_image_url": "/images/recipes/veg-miso-soup.jpg",
+    "category": "shirumono",
+    "time_min": 15,
+    "servings": "2人分",
+    "ingredients": [
+      { "item": "水", "amount": "400ml" },
+      { "item": "昆布", "amount": "5cm角1枚" },
+      { "item": "干し椎茸", "amount": "2枚" },
+      { "item": "木綿豆腐", "amount": "1/2丁" },
+      { "item": "大根", "amount": "3cm" },
+      { "item": "にんじん", "amount": "1/3本" },
+      { "item": "わかめ（乾燥）", "amount": "大さじ1" },
+      { "item": "味噌", "amount": "大さじ2" },
+      { "item": "長ねぎ", "amount": "少々" }
+    ],
+    "steps": [
+      "水に昆布と干し椎茸を30分以上つけて、植物性のだしをとる（できれば一晩）。",
+      "大根・にんじんは薄いいちょう切り、豆腐はさいの目に切る。",
+      "だしを弱火にかけ、大根・にんじんを入れてやわらかくなるまで煮る。",
+      "豆腐とわかめを加え、火を止めてから味噌を溶き入れる。",
+      "器に盛り、小口切りの長ねぎをのせる。"
+    ],
+    "source_name": "Just One Cookbook — Vegan Miso Soup",
+    "source_url": "https://www.justonecookbook.com/vegan-miso-soup/",
+    "tips": [
+      "昆布と干し椎茸だけで、お魚を使わない「精進だし」になるんだ。うまみたっぷりだよ。",
+      "味噌は煮立てると香りがとんじゃう。火を止めてから溶くのが大切。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 17,
+    "slug": "mitarashi-dango",
+    "title_jp": "みたらし団子",
+    "hero_image_url": "/images/recipes/mitarashi-dango.jpg",
+    "category": "sweets",
+    "time_min": 30,
+    "servings": "6本分",
+    "ingredients": [
+      { "item": "上新粉", "amount": "90g" },
+      { "item": "白玉粉", "amount": "30g" },
+      { "item": "きび砂糖", "amount": "小さじ1.5" },
+      { "item": "ぬるま湯", "amount": "90〜100ml" },
+      { "item": "しょうゆ（たれ）", "amount": "大さじ1" },
+      { "item": "きび砂糖（たれ）", "amount": "大さじ3" },
+      { "item": "水（たれ）", "amount": "大さじ4" },
+      { "item": "片栗粉（たれ）", "amount": "小さじ2" }
+    ],
+    "steps": [
+      "上新粉・白玉粉・砂糖を混ぜ、ぬるま湯を少しずつ加えて耳たぶくらいのかたさにこねる。",
+      "18個に丸め、熱湯でゆでる。浮いてきたらもう1分ゆで、冷水にとる。",
+      "3個ずつ串にさし、お好みで軽く焼き目をつける。",
+      "小鍋にたれの材料をすべて入れ、混ぜながら中弱火でとろみがつくまで加熱する。",
+      "団子にたれをたっぷりからめる。"
+    ],
+    "source_name": "白ごはん.com — みたらし団子",
+    "source_url": "https://www.sirogohan.com/recipe/mitarasi/",
+    "tips": [
+      "上新粉に白玉粉を混ぜると、もちっとしつつ歯切れのよい本格的な食感に。",
+      "たれはとろみがついたらすぐ火を止めて。焦がさないよう弱火でね。"
+    ],
+    "created_at": "2026-06-21",
+    "published": true
+  },
+  {
+    "id": 18,
+    "slug": "soy-pudding",
+    "title_jp": "豆乳プリン",
+    "hero_image_url": "/images/recipes/soy-pudding.jpg",
+    "category": "sweets",
+    "time_min": 15,
+    "servings": "4個分",
+    "ingredients": [
+      { "item": "無調整豆乳", "amount": "400ml" },
+      { "item": "水", "amount": "200ml" },
+      { "item": "粉寒天", "amount": "2g" },
+      { "item": "きび砂糖", "amount": "大さじ2" },
+      { "item": "きな粉", "amount": "適量" },
+      { "item": "黒蜜", "amount": "適量" }
+    ],
+    "steps": [
+      "小鍋に水と粉寒天を入れてよく混ぜ、中火にかけて混ぜながら1〜2分しっかり沸騰させて溶かす。",
+      "砂糖を加えて溶かし、豆乳を加えてあたためる（沸騰させない）。",
+      "器に流し入れ、あら熱がとれたら冷蔵庫で2時間以上冷やしかためる。",
+      "きな粉と黒蜜をかけていただく。"
+    ],
+    "source_name": "クラシル — 簡単豆乳寒天",
+    "source_url": "https://www.kurashiru.com/recipes/8725457b-9b2d-40c8-ab41-5f0c7b0034b6",
+    "tips": [
+      "寒天はしっかり沸騰させないとかたまらないので、1〜2分を目安に。",
+      "なめらかな口当たりが好きなら、寒天をほんの少し減らして、とろっと仕上げても。"
     ],
     "created_at": "2026-06-21",
     "published": true
