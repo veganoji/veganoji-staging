@@ -144,6 +144,10 @@
     .rcard__body { display: flex; flex-direction: column; flex: 1; padding: 15px 16px 16px; }
     .rcard__title { font-family: var(--font-noto-sans-jp); font-weight: 900; font-size: 20px; line-height: 1.35; color: var(--color-ink); }
     .rcard__meta { margin-top: 6px; font-size: 12.5px; font-weight: 700; color: var(--color-muted); display: flex; align-items: center; gap: 12px; }
+    .rcard__meta span { display: inline-flex; align-items: center; gap: 4px; }
+    /* small icons replacing emoji in tags + meta */
+    .tagico { width: 17px; height: 17px; object-fit: contain; flex-shrink: 0; }
+    .mico   { width: 16px; height: 16px; object-fit: contain; flex-shrink: 0; }
     .rcard__tip {
       margin-top: 12px; display: flex; align-items: flex-start; gap: 9px;
       background: var(--color-paper-soft); border: 2px solid rgba(31,24,18,0.14);
@@ -361,12 +365,13 @@
       const PAGE_URL = 'https://veganoji.jp/recipes/';
 
       const CATS = {
-        shusai:    { jp: '主菜',     em: '🍛', color: '#C9223A' },
-        fukusai:   { jp: '副菜',     em: '🥗', color: '#6C9560' },
-        shirumono: { jp: '汁物',     em: '🍲', color: '#2B7AB0' },
-        gohanmen:  { jp: 'ごはん・麺', em: '🍚', color: '#9C7E2A' },
-        sweets:    { jp: 'スイーツ',  em: '🍡', color: '#B8456A' },
+        shusai:    { jp: '主菜',     color: '#C9223A', icon: '/images/recipes/icon-sec-shusai.png' },
+        fukusai:   { jp: '副菜',     color: '#6C9560', icon: '/images/recipes/icon-sec-fukusai.png' },
+        shirumono: { jp: '汁物',     color: '#2B7AB0', icon: '/images/recipes/icon-sec-shirumono.png' },
+        gohanmen:  { jp: 'ごはん・麺', color: '#9C7E2A', icon: '/images/recipes/icon-sec-gohanmen.png' },
+        sweets:    { jp: 'スイーツ',  color: '#B8456A', icon: '/images/recipes/icon-sec-sweets.png' },
       };
+      const SERV_ICON = '/images/recipes/icon-servings.png', COUNT_ICON = '/images/recipes/icon-zairyo.png';
       const CAT_ORDER = ['shusai', 'fukusai', 'shirumono', 'gohanmen', 'sweets'];
       const OJI = ['oji_happy', 'oji_excited', 'oji_pointing_up', 'oji_teaching', 'oji_idea', 'oji_presenting', 'oji_winking', 'oji_explaining', 'oji_curious', 'oji_thinking'];
 
@@ -414,12 +419,12 @@
         return `<article class="rcard reveal" data-delay="${(i % 3) + 1}">
           <div class="rcard__imgwrap">
             <img class="rcard__img" src="${r.hero_image_url}" alt="${r.title_jp}" loading="lazy" onerror="this.style.opacity=0.35;this.alt='';"/>
-            <span class="rcard__tag" style="background:${c.color};"><span>${c.em}</span>${c.jp}</span>
+            <span class="rcard__tag" style="background:${c.color};"><img class="tagico" src="${c.icon}" alt="" onerror="this.style.display='none'"/>${c.jp}</span>
             <span class="rcard__time"><img class="ticon" src="/images/recipes/icon-timer.png" alt="" onerror="this.style.display='none'"/> ${r.time_min}<span style="font-size:10px;">分</span></span>
           </div>
           <div class="rcard__body">
             <h3 class="rcard__title">${r.title_jp}</h3>
-            <div class="rcard__meta"><span>🍽 ${r.servings}</span><span>🧺 ${r.ingredients.length}<span style="font-weight:600;">品</span></span></div>
+            <div class="rcard__meta"><span><img class="mico" src="${SERV_ICON}" alt="" onerror="this.style.display='none'"/>${r.servings}</span><span><img class="mico" src="${COUNT_ICON}" alt="" onerror="this.style.display='none'"/>${r.ingredients.length}<span style="font-weight:600;">品</span></span></div>
             <div class="rcard__tip"><img class="oji" src="/images/oji/${pose}.png" alt="" loading="lazy" onerror="this.style.display='none';"/><p>${tip}</p></div>
             <div class="rcard__actions">
               <button type="button" class="b b-view" data-slug="${r.slug}">作り方をみる</button>
@@ -455,11 +460,11 @@
         const c = CATS[r.category] || { jp: r.category, em: '🍽', color: '#786148' };
         lastFocus = document.activeElement;
         $('modal-img').src = r.hero_image_url; $('modal-img').alt = r.title_jp;
-        $('modal-tag').innerHTML = `<span>${c.em}</span>${c.jp}`; $('modal-tag').style.background = c.color;
+        $('modal-tag').innerHTML = `<img class="tagico" src="${c.icon}" alt="" onerror="this.style.display='none'"/>${c.jp}`; $('modal-tag').style.background = c.color;
         $('modal-title').textContent = r.title_jp;
         $('modal-meta').innerHTML =
-          `<span class="m"><img class="ticon" src="/images/recipes/icon-timer.png" alt="" onerror="this.style.display='none'"/> ${r.time_min}分</span><span class="m">🍽 ${r.servings}</span>` +
-          `<span class="m" style="color:${c.color};border-color:${c.color};">${c.em} ${c.jp}</span>`;
+          `<span class="m"><img class="ticon" src="/images/recipes/icon-timer.png" alt="" onerror="this.style.display='none'"/> ${r.time_min}分</span><span class="m"><img class="mico" src="${SERV_ICON}" alt="" onerror="this.style.display='none'"/> ${r.servings}</span>` +
+          `<span class="m" style="color:${c.color};border-color:${c.color};"><img class="tagico" src="${c.icon}" alt="" onerror="this.style.display='none'"/> ${c.jp}</span>`;
         $('modal-serv').textContent = '（' + r.servings + '）';
         $('modal-ing').innerHTML = r.ingredients.map(ing =>
           `<div class="row"><span class="it">${ing.item}</span><span class="am">${ing.amount}</span></div>`).join('');
@@ -502,7 +507,7 @@
         const c = CATS[r.category] || { jp: r.category, em: '🍽', color: '#786148' };
         const pose = OJI[(r.id - 1) % OJI.length];
         if (document.fonts) { try { await Promise.all(['900', '800', '700', '600', '500'].map(w => document.fonts.load(w + ' 24px "Noto Sans JP"'))); await document.fonts.ready; } catch (_) {} }
-        const [hero, oji, timer] = await Promise.all([loadImg(r.hero_image_url), loadImg('/images/oji/' + pose + '.png'), loadImg('/images/recipes/icon-timer.png')]);
+        const [hero, oji, timer, catIcon, sprout] = await Promise.all([loadImg(r.hero_image_url), loadImg('/images/oji/' + pose + '.png'), loadImg('/images/recipes/icon-timer.png'), loadImg(c.icon || ''), loadImg('/images/recipes/icon-sprout.png')]);
 
         const W = 1080, PAD = 56, HERO_H = 520, FOOT_H = 104;
         const innerW = W - PAD * 2, GAP = 44;
@@ -528,18 +533,22 @@
         const srcTop = colsTop + Math.max(ingColH, stepsColH) + 16;
         const totalH = Math.max(1350, Math.round(srcTop + 40 + FOOT_H));
 
-        const cv = document.createElement('canvas'); cv.width = W; cv.height = totalH;
-        const ctx = cv.getContext('2d');
+        const S = 2; // render at 2× resolution for a crisp, high-res saved image
+        const cv = document.createElement('canvas'); cv.width = W * S; cv.height = totalH * S;
+        const ctx = cv.getContext('2d'); ctx.scale(S, S);
 
         ctx.fillStyle = EXC.PAPER; ctx.fillRect(0, 0, W, totalH);
         if (hero) drawCover(ctx, hero, 0, 0, W, HERO_H); else { ctx.fillStyle = EXC.PAPERDIM; ctx.fillRect(0, 0, W, HERO_H); }
         ctx.fillStyle = EXC.INK; ctx.fillRect(0, HERO_H - 7, W, 7);
 
-        // tag pill
+        // tag pill (category icon + name)
         ctx.font = '900 30px "Noto Sans JP"';
-        const tagTxt = c.em + ' ' + c.jp, tagW = ctx.measureText(tagTxt).width + 44, tagH = 50;
+        const tagIcoS = catIcon ? 36 : 0, tagGap = catIcon ? 7 : 0;
+        const tagW = 20 + tagIcoS + tagGap + ctx.measureText(c.jp).width + 20, tagH = 50;
         rrect(ctx, 34, 34, tagW, tagH, tagH / 2); ctx.fillStyle = c.color; ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = EXC.INK; ctx.stroke();
-        ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(tagTxt, 56, 34 + tagH / 2 + 1);
+        let tagcx = 34 + 20;
+        if (catIcon) { ctx.drawImage(catIcon, tagcx, 34 + tagH / 2 - tagIcoS / 2, tagIcoS, tagIcoS); tagcx += tagIcoS + tagGap; }
+        ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(c.jp, tagcx, 34 + tagH / 2 + 1);
 
         // time pill
         ctx.font = '800 30px "Noto Sans JP"';
@@ -596,10 +605,13 @@
         const fy = totalH - FOOT_H;
         ctx.fillStyle = EXC.INK; ctx.fillRect(0, fy, W, FOOT_H);
         ctx.textBaseline = 'middle'; ctx.font = '700 30px "Noto Sans JP"';
-        const f1 = '🌱 ビーガン王子のレシピ  ', f2 = 'veganoji.jp/recipes';
-        const w1 = ctx.measureText(f1).width, fx = (W - (w1 + ctx.measureText(f2).width)) / 2;
-        ctx.textAlign = 'left'; ctx.fillStyle = EXC.PAPER; ctx.fillText(f1, fx, fy + FOOT_H / 2 + 1);
-        ctx.fillStyle = EXC.GOLD; ctx.fillText(f2, fx + w1, fy + FOOT_H / 2 + 1);
+        const f1 = 'ビーガン王子のレシピ  ', f2 = 'veganoji.jp/recipes';
+        const spS = sprout ? 34 : 0, spGap = sprout ? 8 : 0;
+        const w1 = ctx.measureText(f1).width, w2 = ctx.measureText(f2).width, fcy = fy + FOOT_H / 2;
+        let fx = (W - (spS + spGap + w1 + w2)) / 2;
+        if (sprout) { ctx.drawImage(sprout, fx, fcy - spS / 2, spS, spS); fx += spS + spGap; }
+        ctx.textAlign = 'left'; ctx.fillStyle = EXC.PAPER; ctx.fillText(f1, fx, fcy + 1); fx += w1;
+        ctx.fillStyle = EXC.GOLD; ctx.fillText(f2, fx, fcy + 1);
 
         // outer ink border
         ctx.strokeStyle = EXC.INK; ctx.lineWidth = 8; ctx.strokeRect(4, 4, W - 8, totalH - 8);

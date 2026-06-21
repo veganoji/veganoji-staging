@@ -45,10 +45,11 @@ No furigana (per request): all text is plain Japanese. The export card runs
 text through a small normalizer (`cardText`) that swaps full-width parens
 （） → () because html2canvas drops the opening （.
 
-Assets: 46 hero photos + 4 inline icons (`icon-zairyo`, `icon-tsukurikata`,
-`icon-sprout`, `icon-timer`) + 6 section icons (`icon-sec-*`) + 8 watercolor
-backgrounds live under `/images/recipes/` (icons are transparent PNG; photos/bgs
-are JPG). Regenerate with `.claude/gen-recipes-batch{2,3,4}.sh`. **Hero uses
+Assets: 71 hero photos + 5 inline icons (`icon-zairyo`, `icon-tsukurikata`,
+`icon-sprout`, `icon-timer`, `icon-servings`) + 6 section icons (`icon-sec-*`) +
+8 watercolor backgrounds live under `/images/recipes/` (icons are transparent
+PNG; photos/bgs are JPG). All emoji in tags/meta/sections are replaced by these
+icons. Regenerate with `.claude/gen-recipes-batch{2,3,4,5}.sh`. **Hero uses
 `bg/bg-1.jpg`, footer uses
 `bg/bg-6.jpg`**; the other `bg-N.jpg` options are kept for reuse. (The bg-lab
 picker page has been removed now that the backgrounds are chosen.)
