@@ -168,14 +168,13 @@
     /* The quiz stage takes a per-question --accent; ocean Qs flip dark. */
     #screen-quiz {
       min-height: 100svh;
-      padding: 84px 20px 96px;
-      background:
-        radial-gradient(ellipse at 100% 0%, rgba(212,168,71,0.16), transparent 55%),
-        radial-gradient(ellipse at 0% 100%, rgba(108,149,96,0.14), transparent 60%),
-        var(--color-paper);
-      transition: background 0.7s ease-out, color 0.7s ease-out;
+      padding: 84px 20px 120px;
+      background: var(--color-paper);
     }
-    @media (min-width: 640px) { #screen-quiz { padding: 96px 24px 104px; } }
+    @media (min-width: 640px) { #screen-quiz { padding: 96px 24px 128px; } }
+    /* Frosted content panel that floats over the storybook scene */
+    .q-panel { background: rgba(255,249,238,0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); border: 2.5px solid var(--color-ink); border-radius: 24px; box-shadow: 6px 6px 0 var(--color-ink); padding: 20px 16px; }
+    @media (min-width: 640px) { .q-panel { padding: 26px 24px; } }
     /* Ocean immersive mode (Q8 / Q9) — borrows the fish-and-life palette. */
     #screen-quiz.ocean {
       color: var(--color-paper);
@@ -358,9 +357,8 @@
        ════════════════════════════════════════════════════════════════════ -->
   <section id="screen-hero" class="screen is-on relative min-h-[100svh] flex items-center justify-center px-6 sm:px-10 overflow-hidden"
            style="background:
-             radial-gradient(ellipse at 50% 12%, rgba(232,199,111,0.22), transparent 55%),
-             radial-gradient(ellipse at 80% 90%, rgba(108,149,96,0.18), transparent 55%),
-             radial-gradient(ellipse at 10% 80%, rgba(181,213,232,0.20), transparent 55%),
+             linear-gradient(180deg, rgba(255,249,238,0.55), rgba(255,249,238,0.4) 50%, rgba(255,249,238,0.7)),
+             url('/images/quiz-bg/intro.jpg') center top / cover no-repeat,
              var(--color-paper);">
     <div class="relative z-10 max-w-2xl mx-auto text-center pt-10 sm:pt-0">
 
@@ -437,8 +435,8 @@
        ════════════════════════════════════════════════════════════════════ -->
   <section id="screen-end" class="screen min-h-[100svh] px-6 sm:px-10 pt-20 pb-24"
            style="background:
-             radial-gradient(ellipse at 100% 0%, rgba(212,168,71,0.25), transparent 55%),
-             radial-gradient(ellipse at 0% 100%, rgba(108,149,96,0.20), transparent 60%),
+             linear-gradient(180deg, rgba(255,249,238,0.62), rgba(255,249,238,0.5) 50%, rgba(255,249,238,0.72)),
+             url('/images/quiz-bg/score.jpg') center top / cover no-repeat,
              var(--color-paper-soft);">
     <div class="max-w-2xl mx-auto">
 
@@ -728,7 +726,7 @@
         },
         // ───────────────────────────── Q8 · fish 2兆 (OCEAN) ─────────────
         {
-          accent: '#3FA7D6', bg: 'ocean', poseAsk: 'oji_curious_2', poseReveal: 'oji_shocked',
+          accent: '#2B7AB0', poseAsk: 'oji_curious_2', poseReveal: 'oji_shocked',
           motif: motif([
             { src: 'icon-fish-wild', style: 'width:96px; top:-8px; right:-12px;', cls: 'anim-float' },
             { src: 'icon-fish-eyed', style: 'width:60px; top:38%; left:-10px;', cls: 'anim-drift' },
@@ -749,7 +747,7 @@
         },
         // ───────────────────────────── Q9 · bycatch 4割 (OCEAN) ──────────
         {
-          accent: '#3FA7D6', bg: 'ocean', poseAsk: 'oji_questioning', poseReveal: 'oji_sad',
+          accent: '#2B7AB0', poseAsk: 'oji_questioning', poseReveal: 'oji_sad',
           motif: motif([
             { src: 'icon-fishing-net', style: 'width:120px; bottom:-16px; left:-16px;', cls: 'anim-float' },
             { src: 'icon-fishing-gear-bundle', style: 'width:88px; top:-8px; right:-10px;', cls: 'anim-twinkle' },
@@ -851,7 +849,8 @@
         idx = i;
         const qd = QUESTIONS[i];
         screenQuiz.style.setProperty('--accent', qd.accent);
-        screenQuiz.classList.toggle('ocean', qd.bg === 'ocean');
+        const qbg = '/images/quiz-bg/q' + String(i + 1).padStart(2, '0') + '.jpg';
+        screenQuiz.style.background = "linear-gradient(rgba(255,249,238,0.22), rgba(255,249,238,0.18)), url('" + qbg + "') center top / cover no-repeat, var(--color-paper)";
 
         qCounter.textContent = 'Q' + (i + 1);
         const pct = Math.round((i + 1) / N * 100);
@@ -862,20 +861,17 @@
         const colClass = longest > 6 ? '' : 'cols-2';
 
         qCard.innerHTML =
-          '<div class="relative sticker p-5 sm:p-7 overflow-hidden reveal-rise"' + (qd.bg === 'ocean' ? ' style="background:rgba(6,35,56,0.55); border-color:#0b3553; box-shadow:6px 6px 0 #010912;"' : '') + '>' +
-            qd.motif +
-            '<div class="relative z-10">' +
-              '<div class="flex items-start gap-3 sm:gap-4">' +
-                '<img id="q-oji" src="' + OJI + qd.poseAsk + '.png" alt="ビーガン王子" class="w-20 sm:w-28 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.18)]"/>' +
-                '<div class="bubble flex-1 mt-2">' +
-                  '<h2 class="font-jp-display text-[18px] sm:text-[22px] leading-[1.65]' + (qd.bg === 'ocean' ? ' text-paper' : ' text-ink') + '">' + qd.q + '</h2>' +
-                '</div>' +
+          '<div class="q-panel reveal-rise">' +
+            '<div class="flex items-start gap-3 sm:gap-4">' +
+              '<img id="q-oji" src="' + OJI + qd.poseAsk + '.png" alt="ビーガン王子" class="w-20 sm:w-28 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.18)]"/>' +
+              '<div class="bubble flex-1 mt-2">' +
+                '<h2 class="font-jp-display text-[18px] sm:text-[22px] leading-[1.65] text-ink">' + qd.q + '</h2>' +
               '</div>' +
-              '<div class="choices ' + colClass + ' mt-6" id="q-choices">' +
-                qd.choices.map((c, k) => '<button type="button" class="choice" data-i="' + k + '">' + c + '</button>').join('') +
-              '</div>' +
-              '<div id="q-reveal" class="mt-6" style="display:none;"></div>' +
             '</div>' +
+            '<div class="choices ' + colClass + ' mt-6" id="q-choices">' +
+              qd.choices.map((c, k) => '<button type="button" class="choice" data-i="' + k + '">' + c + '</button>').join('') +
+            '</div>' +
+            '<div id="q-reveal" class="mt-6" style="display:none;"></div>' +
           '</div>';
 
         // bind choice clicks
@@ -910,8 +906,8 @@
 
         // inject reveal
         const tag = isCorrect
-          ? '<span class="result-tag ok">せいかい！</span>'
-          : '<span class="result-tag ng">ざんねん…</span>';
+          ? '<img src="/images/quiz-bg/seikai.png" alt="せいかい" class="h-16 sm:h-20 w-auto mx-auto"/>'
+          : '<img src="/images/quiz-bg/zannen.png" alt="ざんねん" class="h-16 sm:h-20 w-auto mx-auto"/>';
         const box = $('q-reveal');
         box.innerHTML =
           '<div class="reveal-box reveal-rise">' +
