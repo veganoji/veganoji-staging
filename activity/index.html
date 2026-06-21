@@ -887,8 +887,19 @@
     .act-card { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease; }
     .act-card:hover { transform: translateY(-4px); border-color: var(--color-royal); box-shadow: 0 18px 40px -16px rgba(156,20,40,.28); }
     .act-card:hover .act-card-img img { transform: scale(1.05); }
-    .act-card-img { overflow: hidden; aspect-ratio: 4/3; background: var(--color-cream); }
-    .act-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.22,1,.36,1); }
+    .act-card-img { overflow: hidden; aspect-ratio: 4/3; background: var(--color-cream); display: flex; align-items: center; justify-content: center; }
+    .act-card-img img { width: 100%; height: 100%; object-fit: contain; transition: transform .7s cubic-bezier(.22,1,.36,1); }
+
+    /* Card label set — match the modern blog cards */
+    .card-tag { display: inline-flex; align-items: center; font-family: var(--font-jp-display); font-weight: 700; font-size: 11px; letter-spacing: 0.02em; padding: 3px 10px; border-radius: 8px; color: var(--color-paper); background: var(--color-royal); }
+    .card-date { font-family: var(--font-jp); font-size: 12px; color: var(--color-muted); font-weight: 500; }
+
+    /* Watercolor banner hero — match the blog's Option-D header */
+    .act-hero { position: relative; background: url('/images/decorations/hero-bgs/section-recent.jpg') center/cover no-repeat, var(--color-cream); }
+    .act-hero__veil { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,249,238,0.30) 0%, rgba(255,249,238,0.54) 100%); }
+    .act-hero-rss { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--color-ink); background: var(--color-paper); box-shadow: 2px 2px 0 var(--color-ink); font-family: var(--font-jp); font-weight: 700; font-size: 12px; color: var(--color-ink); transition: transform .16s, box-shadow .16s, background .16s; }
+    .act-hero-rss:hover { transform: translate(1.5px,1.5px); box-shadow: 1px 1px 0 var(--color-ink); background: var(--color-gold-soft); }
+    .act-hero-rss img { width: 16px; height: 16px; }
 
     /* Share toolkit (same as blog) */
     .share-bar { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
@@ -953,23 +964,17 @@
   </header>
 
   <!-- ─────────────  HERO  ───────────── -->
-  <section class="bg-cream border-b border-line py-10 sm:py-14 lg:py-18 relative overflow-hidden">
-    <svg class="absolute top-10 left-[8%] w-7 h-7 text-gold opacity-50 anim-sparkle"><use href="#sparkle"/></svg>
-    <svg class="absolute bottom-10 right-[10%] w-9 h-9 text-royal-soft opacity-40 anim-sparkle" style="animation-delay:1s"><use href="#sparkle"/></svg>
-    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 text-center relative">
-      <a href="/#work" class="inline-flex items-center gap-1.5 text-royal text-[12px] font-jp hover:gap-2.5 transition-all mb-4">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2m0 0l3.5-3.5M2 7l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        ホームへ
-      </a>
-      <div class="ornament justify-center mb-3"><span>活動アーカイブ</span></div>
-      <h1 class="font-display display-tight text-[40px] sm:text-[56px] lg:text-[72px] font-medium text-ink">
+  <section class="act-hero border-b border-line relative overflow-hidden">
+    <div class="act-hero__veil"></div>
+    <div class="relative max-w-[1100px] mx-auto px-6 lg:px-10 py-12 sm:py-16 lg:py-20 text-center">
+      <div class="font-jp text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-royal mb-2" style="font-weight:800">活動アーカイブ · Activity</div>
+      <h1 class="font-display display-tight text-[46px] sm:text-[64px] lg:text-[80px] font-medium text-ink" style="letter-spacing:-0.015em; text-shadow:0 2px 12px rgba(255,249,238,0.7);">
         Activity <span class="display-italic text-royal">log.</span>
       </h1>
-      <p class="font-jp text-[14px] sm:text-[15px] text-muted mt-3">テレビ、フェス、講演、コラボ──王子の歩み、ぜんぶ。</p>
-      <div class="mt-4 inline-flex items-center gap-2 text-[11px] text-muted">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 10c0 5 6 5 6 0M9 14c1 1 5 1 6 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <a href="/activity/feed.xml" class="font-jp underline underline-offset-2 hover:text-royal">RSSフィード</a>
-        <span>·</span>
+      <p class="font-jp text-[14px] sm:text-[16px] text-ink-soft mt-3" style="text-shadow:0 1px 6px rgba(255,249,238,0.7);">テレビ、フェス、講演、コラボ──王子の歩み、ぜんぶ。</p>
+      <div class="mt-5 inline-flex items-center gap-2.5 text-[12px] text-ink-soft" style="text-shadow:0 1px 6px rgba(255,249,238,0.7);">
+        <a href="/activity/feed.xml" class="act-hero-rss"><img src="/images/social/rss.png" alt=""/>RSS</a>
+        <span class="opacity-40">·</span>
         <span class="font-jp"><span id="act-count">—</span> 件</span>
       </div>
     </div>
@@ -1099,12 +1104,11 @@
           <a href="?item=${encodeURIComponent(p.slug)}" class="act-card block bg-paper border border-line rounded-2xl overflow-hidden">
             <div class="act-card-img">${p.hero ? `<img src="${esc(cardSrc(p.hero))}" alt="" loading="lazy">` : ''}</div>
             <div class="p-5">
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <span class="chip !text-[10px] !px-2.5 !py-1 border-royal/30 text-royal bg-royal/5">活動</span>
-                <span class="font-jp text-[11px] text-muted">${fmtDate(p.date)}</span>
+              <div class="flex items-center gap-2 mb-2.5 flex-wrap">
+                <span class="card-tag">${esc(p.category_display || '活動報告')}</span>
+                <span class="card-date">${fmtDate(p.date)}</span>
               </div>
-              <h2 class="font-jp-display text-[16px] text-ink leading-snug line-clamp-3">${esc(p.title)}</h2>
-              ${p.excerpt ? `<p class="font-jp text-[14px] sm:text-[15px] text-muted mt-2 leading-relaxed line-clamp-2">${esc(p.excerpt)}</p>` : ''}
+              <h2 class="font-jp-display text-[16.5px] text-ink leading-snug line-clamp-3" style="font-weight:700">${esc(p.title)}</h2>
             </div>
           </a>`).join('');
       }
@@ -1130,11 +1134,11 @@
             活動一覧へ
           </a>
           <div class="flex items-center gap-2.5 mb-3 flex-wrap">
-            <span class="chip !text-[10px] !px-2.5 !py-1 border-royal/30 text-royal bg-royal/5">活動</span>
+            <span class="card-tag">${esc(meta.category_display || '活動報告')}</span>
             <span class="font-jp text-[14px] sm:text-[15px] text-muted">${fmtDate(meta.date)}</span>
           </div>
           <h1 class="font-jp-display text-[26px] sm:text-[36px] font-medium text-ink leading-[1.45]">${esc(meta.title)}</h1>
-          ${meta.hero ? `<img src="${esc(meta.hero)}" alt="" class="w-full rounded-2xl mt-6 border border-line">` : ''}
+          ${meta.hero ? `<img src="${esc(meta.hero)}" alt="" class="w-full rounded-2xl mt-6" style="border:2.5px solid var(--color-ink); box-shadow:0 18px 40px -20px rgba(31,24,18,0.45);">` : ''}
 
           <div class="mt-7 pt-5 border-t border-line/60 flex items-center gap-3 flex-wrap">
             <span class="font-jp text-[14px] sm:text-[15px] text-muted">この活動をシェア</span>
