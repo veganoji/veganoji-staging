@@ -1,0 +1,35 @@
+{
+  "issue": 1,
+  "date": "2026-06-21",
+  "generated_at": "2026-06-21T13:20:55.588596+00:00",
+  "subjects": [
+    "🌱 王子通信 第1号｜野菜餃子と、今週の王子",
+    "ビーガン王子からお手紙が届きました（今週のレシピ＆動画）"
+  ],
+  "preheader": "今週の王子：野菜餃子／【実家】ロサンゼルスのスーパ…／函館マラソンまであと少し。",
+  "activity": [
+    {
+      "slug": "onetime-appearance-mote-ranking-6",
+      "title": "ONETIME「モテランキング6」2本に出演｜“日本でモテるのか？”も本気で語った回に"
+    },
+    {
+      "slug": "tbs-monitoring-snowboard-coach",
+      "title": "TBS『モニタリング』再出演 — 雪山ロケで「コーチマイケル」を演じて"
+    }
+  ],
+  "news": {
+    "slug": "mewery-czech-startup-raises-3m-euros-for-cultivated-meat",
+    "title": "チェコのスタートアップMewery、培養肉開発に300万ユーロの資金調達を実現"
+  },
+  "recipe": {
+    "slug": "veg-gyoza",
+    "title": "野菜餃子"
+  },
+  "video": {
+    "title": "【実家】ロサンゼルスのスーパーで買ったビーガン食品を実家でひたすら食べ比べる🇺🇸",
+    "videoId": "wclHrcL0Ggc",
+    "url": "https://www.youtube.com/watch?v=wclHrcL0Ggc",
+    "thumb": "https://i.ytimg.com/vi/wclHrcL0Ggc/maxresdefault.jpg"
+  },
+  "include_bonus": false
+}
