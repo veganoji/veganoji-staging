@@ -338,6 +338,39 @@
     .social img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .social:hover { transform: translateY(-3px) rotate(-4deg) scale(1.08); }
     @media (min-width: 640px) { .social { width: 56px; height: 56px; } }
+
+    /* ── gentle idle animations (title image, badge, recap icons) ── */
+    @keyframes titlefloat { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} }
+    .anim-title { animation: titlefloat 4s ease-in-out infinite; }
+    @keyframes softbob { 0%,100%{ transform: translateY(0) rotate(-1.5deg);} 50%{ transform: translateY(-6px) rotate(1.5deg);} }
+    .anim-bob { animation: softbob 3.2s ease-in-out infinite; }
+    @keyframes softpulse { 0%,100%{ transform: scale(1);} 50%{ transform: scale(1.07);} }
+    .anim-pulse { animation: softpulse 2.6s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce){ .anim-title,.anim-bob,.anim-pulse{ animation:none !important; } }
+
+    /* ── End-screen recap: flip cards (Q# outside, horizontal flip) ── */
+    .rc-row { display: flex; align-items: center; gap: 9px; }
+    .rc-qnum { flex-shrink: 0; width: 44px; font-weight: 800; font-size: 23px; color: var(--color-ink); text-align: right; letter-spacing: -0.02em; }
+    .rc-wrap { flex: 1; perspective: 1100px; }
+    .rc-card { position: relative; width: 100%; background: var(--color-paper); border: 2.5px solid var(--color-ink); border-radius: 16px; box-shadow: 4px 4px 0 var(--color-ink); padding: 14px 16px; cursor: pointer; transition: transform 0.22s ease, box-shadow 0.18s ease; }
+    .rc-card:hover { box-shadow: 2px 2px 0 var(--color-ink); }
+    .rc-card.ok { background: #F3FAF0; }
+    .rc-card.ng { background: #FDF3F3; }
+    .rc-flipic { position: absolute; top: 9px; right: 11px; color: var(--color-muted); opacity: 0.6; pointer-events: none; }
+    .rc-front { display: flex; align-items: center; gap: 14px; padding-right: 18px; }
+    .rc-ic { width: 54px; height: 54px; flex-shrink: 0; }
+    @media (min-width:640px){ .rc-ic { width: 62px; height: 62px; } }
+    .rc-q { font-weight: 700; font-size: 16.5px; line-height: 1.5; color: var(--color-ink); }
+    @media (min-width:640px){ .rc-q { font-size: 18px; } }
+    .rc-back { display: flex; align-items: center; gap: 11px; }
+    .rc-ans { flex: 1 1 auto; min-width: 0; }
+    .rc-line { font-size: 14.5px; line-height: 1.5; font-weight: 700; }
+    @media (min-width:640px){ .rc-line { font-size: 16px; } }
+    .rc-label { font-size: 11px; font-weight: 700; color: var(--color-muted); margin-right: 5px; }
+    .rc-you { color: var(--color-royal-deep); }
+    .rc-ok { color: var(--color-leaf-deep); }
+    .rc-more { flex-shrink: 0; display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:700; color:#fff; background:var(--color-leaf); border:2px solid var(--color-ink); border-radius:10px; box-shadow:3px 3px 0 var(--color-ink); padding:8px 12px; text-decoration:none; white-space:nowrap; }
+    .rc-more:hover { background: var(--color-leaf-deep); }
   </style>
 </head>
 
@@ -367,7 +400,7 @@
       </div>
 
       <h1 class="reveal" data-delay="1">
-        <img src="/images/quiz-bg/title.png" alt="しらなかった！ごはんと地球のクイズ" class="w-[290px] sm:w-[430px] max-w-full h-auto mx-auto drop-shadow-[0_6px_14px_rgba(31,24,18,0.12)]"/>
+        <img src="/images/quiz-bg/title.png" alt="しらなかった！ごはんと地球のクイズ" class="w-[290px] sm:w-[430px] max-w-full h-auto mx-auto anim-title drop-shadow-[0_6px_14px_rgba(31,24,18,0.12)]"/>
       </h1>
 
       <!-- Connection-question subtitle (option H) -->
@@ -436,35 +469,17 @@
     <div class="max-w-2xl mx-auto">
 
       <div class="text-center">
-        <div class="inline-flex items-center gap-3" style="color:#9C7E2A;">
-          <span class="text-[14px] sm:text-[15px] tracking-[0.12em] font-bold"><ruby>結果<rt>けっか</rt></ruby><ruby>発表<rt>はっぴょう</rt></ruby></span>
-        </div>
-        <div class="mt-5 flex justify-center">
+        <div class="flex justify-center">
           <img id="end-oji" src="/images/oji/oji_presenting.png" alt="ビーガン王子 — 結果発表" class="w-32 sm:w-40 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.15)]"/>
         </div>
-        <!-- per-question result marks (✓/✗) -->
-        <div id="end-marks" class="mt-4 grid grid-cols-10 gap-1 max-w-[340px] mx-auto"></div>
-      </div>
-
-      <!-- score card -->
-      <div class="mt-8 share-card p-7 sm:p-10">
-        <div class="relative z-10">
-          <div class="flex items-center justify-between mb-3">
-            <div class="text-[13px] sm:text-[14px] tracking-[0.14em] text-ink/55">あなたの<ruby>正解数<rt>せいかいすう</rt></ruby></div>
-            <div class="text-[13px] sm:text-[14px] font-bold" style="color:#9C7E2A;"><ruby>王子<rt>おうじ</rt></ruby>の<ruby>採点<rt>さいてん</rt></ruby></div>
-          </div>
-          <div class="flex items-baseline justify-center gap-2 mt-2 mb-4">
-            <span id="end-score" class="big-number ticker text-[92px] sm:text-[132px] leading-none" style="color:#C9223A;">0</span>
-            <span class="font-jp-display text-[36px] sm:text-[56px] text-ink/60"> / 10</span>
-          </div>
-          <div id="end-message" class="font-jp-display text-[22px] sm:text-[28px] text-ink leading-[1.4] text-center mb-2"></div>
-          <div id="end-sub" class="font-jp text-ink-soft text-[14px] sm:text-[15px] leading-[1.75] text-center"></div>
-
-          <div class="mt-7 pt-5 border-t border-ink/15 flex items-center justify-between text-[12px] sm:text-[13px] text-ink/55">
-            <span class="tracking-[0.1em]">veganoji.jp / quiz</span>
-            <span class="font-jp">ごはんと<ruby>地球<rt>ちきゅう</rt></ruby>のクイズ</span>
-          </div>
+        <img id="end-badge" src="/images/quiz-bg/badge.png" alt="ビーガン王子認定" class="w-32 sm:w-40 mx-auto -mt-1 anim-bob drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]" onerror="this.style.display='none'"/>
+        <div class="font-jp-display text-[15px] tracking-[0.14em]" style="color:#9C7E2A;">結果発表</div>
+        <div class="flex items-baseline justify-center gap-2 mt-1">
+          <span id="end-score" class="big-number ticker leading-none" style="color:#C9223A; font-size:72px;">0</span>
+          <span class="font-jp-display text-ink/55" style="font-size:34px;"> / 10</span>
         </div>
+        <div id="end-message" class="font-jp-display text-[22px] sm:text-[26px] text-ink leading-[1.4] mt-3"></div>
+        <div id="end-sub" class="font-jp text-ink-soft text-[14px] sm:text-[15px] leading-[1.7] mt-1 max-w-md mx-auto"></div>
       </div>
 
       <!-- share row (placeholder buttons — share images wired later) -->
@@ -483,11 +498,8 @@
         <div id="share-toast" class="text-[13px] text-leaf-deep opacity-0 transition-opacity duration-300">コピーしたよ！</div>
       </div>
 
-      <!-- recap list with もっと知る links -->
-      <div class="mt-12">
-        <div class="text-[13px] sm:text-[14px] tracking-[0.18em] font-bold text-ink/65 mb-5 text-center">
-          もっと<ruby>知<rt>し</rt></ruby>りたくなったら
-        </div>
+      <!-- recap: flip cards (rendered by JS) -->
+      <div class="mt-10">
         <div id="recap-list" class="flex flex-col gap-3"></div>
       </div>
 
@@ -958,34 +970,40 @@
         $('end-message').innerHTML = g.title;
         $('end-sub').innerHTML = g.sub;
 
-        // per-question result marks (✓/✗) under Oji
-        $('end-marks').innerHTML = answers.map((p, i) => {
-          const got = p === QUESTIONS[i].correct;
-          return '<img src="' + IMG + (got ? 'icon-check-social' : 'icon-x-social') + '.png" alt="" class="w-full h-auto"/>';
-        }).join('');
-
-        // recap rows — with the user's pick + the correct answer
+        // recap: flip cards — front = full question; tap (horizontal flip) →
+        // きみの答え + 正解 + くわしく見る. Questions stripped of furigana.
+        const strip = (s) => s.replace(/<rt>.*?<\/rt>/g, '').replace(/<\/?ruby>/g, '');
+        const ARROW = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>';
+        const FLIP = '<svg class="rc-flipic" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
         $('recap-list').innerHTML = RECAP.map((r, i) => {
           const Q = QUESTIONS[i];
           const got = answers[i] === Q.correct;
-          const icon = got
-            ? '<img src="' + IMG + 'icon-check-social.png" alt="正解" class="w-9 h-9 sm:w-10 sm:h-10 shrink-0"/>'
-            : '<img src="' + IMG + 'icon-x-social.png" alt="不正解" class="w-9 h-9 sm:w-10 sm:h-10 shrink-0"/>';
           const chosen = answers[i] !== null ? Q.choices[answers[i]] : '—';
           const correct = Q.choices[Q.correct];
-          const ansLine = got
-            ? '<span style="color:#3F6A3A;">正解: ' + correct + '</span>'
-            : '<span style="color:#9C1428;">あなた: ' + chosen + '</span> <span class="text-ink/35">／</span> <span style="color:#3F6A3A;">正解: ' + correct + '</span>';
-          return '<div class="recap-row">' +
-            '<span class="recap-num" style="background:' + Q.accent + ';">' + (i + 1) + '</span>' +
-            icon +
-            '<div class="flex-1 min-w-0">' +
-              '<div class="font-jp text-ink text-[14px] sm:text-[15px] leading-[1.5]">' + r.t + '</div>' +
-              '<div class="font-jp text-[11px] sm:text-[12px] leading-[1.5] mt-0.5">' + ansLine + '</div>' +
-            '</div>' +
-            '<a class="morelink" href="' + r.href + '">もっと知る <span aria-hidden="true">→</span></a>' +
-          '</div>';
+          const front = '<div class="rc-front">' + FLIP +
+              '<img class="rc-ic anim-pulse" src="' + IMG + (got ? 'icon-check-social' : 'icon-x-social') + '.png" alt="' + (got ? '正解' : '不正解') + '"/>' +
+              '<p class="rc-q">' + strip(Q.q) + '</p></div>';
+          const youLine = got ? '' : '<div class="rc-line"><span class="rc-label">きみの答え</span><span class="rc-you">' + chosen + '</span></div>';
+          const back = '<div class="rc-back" style="display:none">' +
+              '<div class="rc-ans">' + youLine +
+                '<div class="rc-line"><span class="rc-label">正解</span><span class="rc-ok">' + correct + '</span></div></div>' +
+              '<a class="rc-more" href="' + r.href + '" onclick="event.stopPropagation()">くわしく見る ' + ARROW + '</a></div>';
+          return '<div class="rc-row"><div class="rc-qnum">Q' + (i + 1) + '</div>' +
+              '<div class="rc-wrap"><div class="rc-card ' + (got ? 'ok' : 'ng') + '" data-rc>' + front + back + '</div></div></div>';
         }).join('');
+        // flip on tap (horizontal axis): edge-on → swap → back
+        $('recap-list').querySelectorAll('[data-rc]').forEach(card => {
+          card.addEventListener('click', () => {
+            const f = card.querySelector('.rc-front'), b = card.querySelector('.rc-back');
+            card.style.transform = 'rotateX(90deg)';
+            setTimeout(() => {
+              const showBack = f.style.display !== 'none';
+              f.style.display = showBack ? 'none' : '';
+              b.style.display = showBack ? '' : 'none';
+              card.style.transform = 'rotateX(0deg)';
+            }, 210);
+          });
+        });
 
         // share links
         const txt = shareText(score);

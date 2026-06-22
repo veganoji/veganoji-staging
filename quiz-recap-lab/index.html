@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>もっと知りたくなったら — V2 flip</title>
+  <title>結果発表 — recap flip</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
@@ -23,38 +23,49 @@
     .font-jp-display { font-weight: 900; }
     .pill { display:inline-block; font-size:12px; font-weight:700; padding:3px 10px; border-radius:999px; border:2px solid var(--color-ink); background:var(--color-paper); }
 
-    /* recap row: Q-number OUTSIDE the card (left), uncolored bold; then the flip card */
-    .row { display: flex; align-items: stretch; gap: 12px; }
-    .qnum { flex-shrink: 0; width: 38px; padding-top: 18px; font-weight: 700; font-size: 16px; color: var(--color-ink); text-align: right; }
+    /* gentle idle animations */
+    @keyframes softbob { 0%,100%{ transform: translateY(0) rotate(-1.5deg);} 50%{ transform: translateY(-6px) rotate(1.5deg);} }
+    .anim-bob { animation: softbob 3.2s ease-in-out infinite; }
+    @keyframes softpulse { 0%,100%{ transform: scale(1);} 50%{ transform: scale(1.07);} }
+    .anim-pulse { animation: softpulse 2.6s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce){ .anim-bob,.anim-pulse{ animation:none !important; } }
+
+    /* recap row: BIG uncolored Q-number outside the card (left), vertically centered */
+    .row { display: flex; align-items: center; gap: 9px; }
+    .qnum { flex-shrink: 0; width: 44px; font-weight: 800; font-size: 23px; color: var(--color-ink); text-align: right; letter-spacing: -0.02em; }
     .flipwrap { flex: 1; perspective: 1100px; }
     .card {
       position: relative; width: 100%;
       background: var(--color-paper); border: 2.5px solid var(--color-ink);
       border-radius: 16px; box-shadow: 4px 4px 0 var(--color-ink);
-      padding: 16px; cursor: pointer;
-      transition: transform 0.23s ease, box-shadow 0.18s ease;
+      padding: 14px 16px; cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.18s ease;
     }
     .card:hover { box-shadow: 2px 2px 0 var(--color-ink); }
     .card.is-correct { background: #F3FAF0; }
     .card.is-wrong   { background: #FDF3F3; }
+    /* flip indicator (top-right) — replaces the "タップで答え" line */
+    .flip-ic { position: absolute; top: 9px; right: 11px; color: var(--color-muted); opacity: 0.6; pointer-events: none; }
 
-    .front { display: flex; align-items: center; gap: 14px; }
-    .result-ic { width: 52px; height: 52px; flex-shrink: 0; }   /* larger icons */
-    @media (min-width:640px){ .result-ic { width: 60px; height: 60px; } }
-    .q-text { font-weight: 700; font-size: 16.5px; line-height: 1.55; color: var(--color-ink); }
+    .front { display: flex; align-items: center; gap: 14px; padding-right: 18px; }
+    .result-ic { width: 54px; height: 54px; flex-shrink: 0; }
+    @media (min-width:640px){ .result-ic { width: 62px; height: 62px; } }
+    .q-text { font-weight: 700; font-size: 16.5px; line-height: 1.5; color: var(--color-ink); }
     @media (min-width:640px){ .q-text { font-size: 18px; } }
-    .hint { display:inline-flex; align-items:center; gap:4px; margin-top:8px; font-size:12.5px; font-weight:700; color: var(--color-muted); }
 
-    .ans-line { font-size: 16px; line-height: 1.7; font-weight: 700; }
-    @media (min-width:640px){ .ans-line { font-size: 17px; } }
-    .ans-label { font-size: 12.5px; font-weight: 700; color: var(--color-muted); margin-right: 6px; }
+    /* back: answers LEFT, compact button RIGHT (beside, not below) → shorter card */
+    .back { display: flex; align-items: center; gap: 11px; }
+    .back-ans { flex: 1 1 auto; min-width: 0; }
+    .ans-line { font-size: 14.5px; line-height: 1.5; font-weight: 700; }
+    @media (min-width:640px){ .ans-line { font-size: 16px; } }
+    .ans-label { font-size: 11px; font-weight: 700; color: var(--color-muted); margin-right: 5px; }
     .ans-you-wrong { color: var(--color-royal-deep); }
     .ans-ok { color: var(--color-leaf-deep); }
     .more {
-      display:inline-flex; align-items:center; gap:6px; margin-top:12px;
-      font-size:14px; font-weight:700; color:#fff; background:var(--color-leaf);
-      border:2px solid var(--color-ink); border-radius:11px; box-shadow:3px 3px 0 var(--color-ink);
-      padding:8px 16px; text-decoration:none;
+      flex-shrink: 0; display:inline-flex; align-items:center; gap:5px;
+      font-size:12.5px; font-weight:700; color:#fff; background:var(--color-leaf);
+      border:2px solid var(--color-ink); border-radius:10px; box-shadow:3px 3px 0 var(--color-ink);
+      padding:8px 12px; text-decoration:none; white-space:nowrap;
     }
     .more:hover { background: var(--color-leaf-deep); }
   </style>
@@ -63,31 +74,26 @@
   <div class="max-w-xl mx-auto px-5 sm:px-7 py-10 sm:py-14">
 
     <header class="mb-7">
-      <div class="pill mb-4">recap V2 · flip · noindex</div>
-      <p class="font-jp text-ink-soft text-[14px] leading-[1.85] bg-paper-soft border-2 border-ink/15 rounded-xl px-4 py-3">
-        V2（1列・文字大きめ）の改良版。各カードは<b>最初に問題文だけ</b>を表示 →
-        <b>タップでめくると</b>「きみの答え」と「正解」、そして「もっと知る」が出ます。文字を大きく、すっきり。サンプルは <b>7/10</b>。
+      <div class="pill mb-4">recap · flip(横軸) · noindex</div>
+      <p class="font-jp text-ink-soft text-[13.5px] leading-[1.8] bg-paper-soft border-2 border-ink/15 rounded-xl px-4 py-3">
+        改良版：横軸でめくる／答えは左・ボタンは右でカードを低く／Qタグ大きめ・縦中央／「タップで答え」は消して右上にめくりアイコン／バッジとアイコンを軽くアニメ。
       </p>
     </header>
 
-    <!-- score + certification badge -->
+    <!-- badge + 結果発表 + score -->
     <div class="text-center mb-9">
-      <img id="badge" src="/images/quiz-bg/badge.png" alt="ビーガン王子認定" class="w-36 sm:w-44 mx-auto mb-3 drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]"
-           onerror="this.style.display='none'"/>
-      <div class="font-jp-display text-[15px] tracking-[0.06em]" style="color:var(--color-gold-deep);">けっか</div>
+      <img id="badge" src="/images/quiz-bg/badge.png" alt="ビーガン王子認定" class="w-36 sm:w-44 mx-auto mb-2 anim-bob drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]" onerror="this.style.display='none'"/>
+      <div class="font-jp-display text-[15px] tracking-[0.14em]" style="color:var(--color-gold-deep);">結果発表</div>
       <div class="font-jp-display leading-none mt-1">
-        <span style="font-size:64px; color:var(--color-royal);">7</span><span class="text-ink/55" style="font-size:30px;"> / 10</span>
+        <span style="font-size:66px; color:var(--color-royal);">7</span><span class="text-ink/55" style="font-size:30px;"> / 10</span>
       </div>
-      <div class="font-jp-display text-[20px] mt-1">10問中 7問 せいかい！</div>
     </div>
-
-    <div class="text-[13px] sm:text-[14px] tracking-[0.16em] font-bold text-ink/55 mb-4 text-center">もっと知りたくなったら</div>
 
     <div id="list" class="flex flex-col gap-3"></div>
   </div>
 
   <script>
-    // sample data — full question text, NO furigana. 7/10 (Q2/Q5/Q9 wrong)
+    // sample data — full question, NO furigana. 7/10 (Q2/Q5/Q9 wrong)
     const Q = [
       { n:1, ok:true,  q:'牛のゲップに含まれるメタン。温室効果はCO₂の約何倍？', you:'約28倍', ans:'約28倍', href:'/vegan-and-earth/#ch1' },
       { n:2, ok:false, q:'ハンバーガー1個を作るのに必要なお水は？', you:'約300L', ans:'約3,000L', href:'/vegan-and-earth/#ch2' },
@@ -100,24 +106,27 @@
       { n:9, ok:false, q:'漁で獲られた生きもののうち、"食べるためですらない"のは約どれくらい？', you:'約1割', ans:'約4割', href:'/fish-and-life/' },
       { n:10,ok:true,  q:'家畜のエサに回されている食料は、何人分？', you:'約10,000,000,000人分', ans:'約10,000,000,000人分', href:'/vegan-and-earth/#ch4' },
     ];
-    const ARROW = '<svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>';
+    const ARROW = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>';
+    // little "flip me" indicator (rotating arrows)
+    const FLIP = '<svg class="flip-ic" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     const CHECK = 'https://veganoji.jp/images/vegan-to-chikyu/icon-check-social.png';
     const XMARK = 'https://veganoji.jp/images/vegan-to-chikyu/icon-x-social.png';
 
     document.getElementById('list').innerHTML = Q.map(o => {
       const front =
-        '<div class="front">' +
-          '<img class="result-ic" src="' + (o.ok ? CHECK : XMARK) + '" alt="' + (o.ok?'正解':'不正解') + '"/>' +
-          '<div><p class="q-text">' + o.q + '</p>' +
-          '<span class="hint">タップで答え ' + ARROW + '</span></div>' +
+        '<div class="front">' + FLIP +
+          '<img class="result-ic anim-pulse" src="' + (o.ok ? CHECK : XMARK) + '" alt="' + (o.ok?'正解':'不正解') + '"/>' +
+          '<p class="q-text">' + o.q + '</p>' +
         '</div>';
       const youLine = o.ok ? ''
         : '<div class="ans-line"><span class="ans-label">きみの答え</span><span class="ans-you-wrong">' + o.you + '</span></div>';
       const back =
         '<div class="back" style="display:none">' +
-          youLine +
-          '<div class="ans-line"><span class="ans-label">正解</span><span class="ans-ok">' + o.ans + '</span></div>' +
-          '<a class="more" href="' + o.href + '" onclick="event.stopPropagation()">もっと知る ' + ARROW + '</a>' +
+          '<div class="back-ans">' +
+            youLine +
+            '<div class="ans-line"><span class="ans-label">正解</span><span class="ans-ok">' + o.ans + '</span></div>' +
+          '</div>' +
+          '<a class="more" href="' + o.href + '" onclick="event.stopPropagation()">くわしく見る ' + ARROW + '</a>' +
         '</div>';
       return '<div class="row">' +
           '<div class="qnum">Q' + o.n + '</div>' +
@@ -125,18 +134,18 @@
         '</div>';
     }).join('');
 
-    // flip: rotate edge-on, swap front/back at the midpoint, rotate back
+    // flip on the HORIZONTAL axis (rotateX): edge-on, swap, rotate back
     document.querySelectorAll('[data-card]').forEach(card => {
       card.addEventListener('click', () => {
         const front = card.querySelector('.front');
         const back = card.querySelector('.back');
-        card.style.transform = 'rotateY(90deg)';
+        card.style.transform = 'rotateX(90deg)';
         setTimeout(() => {
           const showBack = front.style.display !== 'none';
           front.style.display = showBack ? 'none' : '';
           back.style.display = showBack ? '' : 'none';
-          card.style.transform = 'rotateY(0deg)';
-        }, 230);
+          card.style.transform = 'rotateX(0deg)';
+        }, 210);
       });
     });
   </script>
