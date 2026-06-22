@@ -2267,8 +2267,8 @@
       const form = document.getElementById('newsletter-form');
       const msg  = document.getElementById('newsletter-msg');
       if (!form) return;
-      // Newsletter signup API (standalone Worker; swap to news.veganoji.jp once DNS is set)
-      const ENDPOINT = 'https://veganoji-newsletter.alexderycz.workers.dev/subscribe';
+      // Newsletter signup API (standalone Worker, served at the news.veganoji.jp custom domain)
+      const ENDPOINT = 'https://news.veganoji.jp/subscribe';
       const show = (t) => { msg.textContent = t; msg.classList.remove('hidden'); };
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
