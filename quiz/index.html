@@ -352,12 +352,11 @@
     .rc-row { display: flex; align-items: center; gap: 6px; }
     .rc-qnum { flex-shrink: 0; width: 34px; font-weight: 800; font-size: 22px; color: var(--color-ink); text-align: right; letter-spacing: -0.03em; }
     .rc-wrap { flex: 1; perspective: 1100px; }
-    .rc-card { position: relative; width: 100%; background: var(--color-paper); border: 2.5px solid var(--color-ink); border-radius: 16px; box-shadow: 4px 4px 0 var(--color-ink); padding: 14px 16px; cursor: pointer; transition: transform 0.22s ease, box-shadow 0.18s ease; }
+    .rc-card { position: relative; width: 100%; background: var(--color-paper); border: 2.5px solid var(--color-ink); border-radius: 16px; box-shadow: 4px 4px 0 var(--color-ink); padding: 11px 12px; cursor: pointer; transition: transform 0.22s ease, box-shadow 0.18s ease; }
     .rc-card:hover { box-shadow: 2px 2px 0 var(--color-ink); }
     .rc-card.ok { background: #F3FAF0; }
     .rc-card.ng { background: #FDF3F3; }
-    .rc-flipic { position: absolute; top: 9px; right: 11px; color: var(--color-muted); opacity: 0.6; pointer-events: none; }
-    .rc-front { display: flex; align-items: center; gap: 14px; padding-right: 18px; }
+    .rc-front { display: flex; align-items: center; gap: 11px; padding-right: 2px; }
     .rc-ic { width: 54px; height: 54px; flex-shrink: 0; }
     @media (min-width:640px){ .rc-ic { width: 62px; height: 62px; } }
     .rc-q { font-weight: 700; font-size: 16.5px; line-height: 1.5; color: var(--color-ink); }
@@ -482,22 +481,20 @@
 
       <!-- share row (placeholder buttons — share images wired later) -->
       <div class="mt-8 flex flex-col items-center gap-4">
-        <p class="font-jp text-ink-soft text-[14px] text-center">
-          <ruby>結果<rt>けっか</rt></ruby>をシェアして、<ruby>友達<rt>ともだち</rt></ruby>も<ruby>試<rt>ため</rt></ruby>してみよう。
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-3">
+        <div class="flex flex-wrap items-center justify-center gap-4">
           <button type="button" id="share-native" class="btn-base btn-leaf">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2 L8 11 M5 5 L8 2 L11 5 M3 8 L3 14 L13 14 L13 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
             結果をシェア
           </button>
-          <a id="share-x" target="_blank" rel="noopener" class="btn-base btn-ghost" href="#" aria-label="Xでシェア" style="padding:11px 18px;"><img src="/images/social/x.png" alt="X" class="w-6 h-6"/></a>
-          <a id="share-line" target="_blank" rel="noopener" class="btn-base btn-ghost" href="#" aria-label="LINEでシェア" style="padding:11px 18px;"><img src="/images/social/line.png" alt="LINE" class="w-6 h-6"/></a>
+          <a id="share-x" target="_blank" rel="noopener" href="#" aria-label="Xでシェア" class="shrink-0 transition-transform duration-150 hover:scale-110 active:scale-95"><img src="/images/social/x.png" alt="X" class="w-12 h-12 sm:w-[52px] sm:h-[52px]"/></a>
+          <a id="share-line" target="_blank" rel="noopener" href="#" aria-label="LINEでシェア" class="shrink-0 transition-transform duration-150 hover:scale-110 active:scale-95"><img src="/images/social/line.png" alt="LINE" class="w-12 h-12 sm:w-[52px] sm:h-[52px]"/></a>
         </div>
         <div id="share-toast" class="text-[13px] text-leaf-deep opacity-0 transition-opacity duration-300">コピーしたよ！</div>
       </div>
 
       <!-- recap: flip cards (rendered by JS) -->
       <div class="mt-10">
+        <p class="text-center font-jp text-muted text-[13.5px] sm:text-[14px] font-medium mb-3">カードをタップして<ruby>答<rt>こた</rt></ruby>え<ruby>合<rt>あ</rt></ruby>わせ！</p>
         <div id="recap-list" class="flex flex-col gap-3"></div>
       </div>
 
@@ -514,21 +511,6 @@
         </div>
       </div>
 
-      <!-- social rail -->
-      <div class="mt-12 flex flex-col items-center gap-4">
-        <span class="text-ink/55 text-[14px] font-jp"><ruby>王子<rt>おうじ</rt></ruby>の<ruby>発信<rt>はっしん</rt></ruby>はこちらでも</span>
-        <div class="flex items-center gap-3 sm:gap-4">
-          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="social"><img src="/images/social/ig.png" alt=""/></a>
-          <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="social"><img src="/images/social/x.png" alt=""/></a>
-          <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="social"><img src="/images/social/yt.png" alt=""/></a>
-          <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="social"><img src="/images/social/tt.png" alt=""/></a>
-        </div>
-      </div>
-
-      <p class="mt-10 font-jp text-ink/45 text-[13px] text-center leading-[1.9]">
-        <ruby>数字<rt>すうじ</rt></ruby>の<ruby>出典<rt>しゅってん</rt></ruby>は、<ruby>各<rt>かく</rt></ruby><ruby>記事<rt>きじ</rt></ruby>の<ruby>末尾<rt>まつび</rt></ruby>にまとめてあります。<br/>
-        <ruby>最後<rt>さいご</rt></ruby>まで、ありがとう。
-      </p>
     </div>
   </section>
 
@@ -778,11 +760,11 @@
           q: '<ruby>家畜<rt>かちく</rt></ruby>のエサに<ruby>回<rt>まわ</rt></ruby>されている<ruby>食料<rt>しょくりょう</rt></ruby>は、<ruby>何<rt>なん</rt></ruby><ruby>人分<rt>にんぶん</rt></ruby>？',
           choices: ['約100,000,000人分', '約1,000,000,000人分', '約5,000,000,000人分', '約10,000,000,000人分'], correct: 3,
           reveal:
-            '<div class="flex items-center justify-center gap-4">' +
-              '<img src="/images/quiz-bg/q10.png" alt="" class="w-16 h-16 sm:w-20 sm:h-20"/>' +
-              '<div class="leading-none"><span class="font-jp-display text-[22px] text-ink/65"><ruby>約<rt>やく</rt></ruby></span> ' +
-              '<span class="big-number ticker text-[58px] sm:text-[80px]" data-count-target="100" style="color:#3F6A3A;">0</span>' +
-              '<span class="font-jp-display text-[26px] text-ink"><ruby>億<rt>おく</rt></ruby><ruby>人分<rt>にんぶん</rt></ruby></span></div>' +
+            '<div class="flex items-center justify-center gap-2.5 sm:gap-4">' +
+              '<img src="/images/quiz-bg/q10.png" alt="" class="w-14 h-14 sm:w-20 sm:h-20 shrink-0"/>' +
+              '<div class="leading-none whitespace-nowrap"><span class="font-jp-display text-[19px] sm:text-[22px] text-ink/65"><ruby>約<rt>やく</rt></ruby></span> ' +
+              '<span class="big-number ticker text-[50px] sm:text-[80px]" data-count-target="100" style="color:#3F6A3A;">0</span>' +
+              '<span class="font-jp-display text-[21px] sm:text-[26px] text-ink"><ruby>億<rt>おく</rt></ruby><ruby>人分<rt>にんぶん</rt></ruby></span></div>' +
             '</div>' +
             '<p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[16px] leading-[1.85] text-center">' +
               '<ruby>約<rt>やく</rt></ruby>100<ruby>億<rt>おく</rt></ruby><ruby>人分<rt>にんぶん</rt></ruby>。<ruby>今<rt>いま</rt></ruby>の<ruby>人口<rt>じんこう</rt></ruby>は80<ruby>億<rt>おく</rt></ruby><ruby>人<rt>にん</rt></ruby>。<br class="sm:hidden"/>…もう、<ruby>足<rt>た</rt></ruby>りているのかもね。</p>',
@@ -979,20 +961,21 @@
         const score = answers.reduce((a, p, i) => a + (p === QUESTIONS[i].correct ? 1 : 0), 0);
         const g = gradeFor(score);
         $('end-oji').src = OJI + g.pose + '.png';
-        $('end-msg').innerHTML = g.msg;
+        $('end-msg').innerHTML = g.msg +
+          '<span class="block mt-2 text-[13.5px] sm:text-[14.5px] font-jp font-medium text-ink-soft">' +
+          '<ruby>結果<rt>けっか</rt></ruby>をシェアして、<ruby>友達<rt>ともだち</rt></ruby>にも<ruby>挑戦<rt>ちょうせん</rt></ruby>してもらおう！</span>';
         $('end-marks').innerHTML = answers.map((p, i) => '<img src="' + IMG + (p === QUESTIONS[i].correct ? 'icon-check-social' : 'icon-x-social') + '.png" alt="" class="w-full h-auto"/>').join('');
 
         // recap: flip cards — front = full question; tap (horizontal flip) →
         // きみの答え + 正解 + くわしく見る. Questions stripped of furigana.
         const strip = (s) => s.replace(/<rt>.*?<\/rt>/g, '').replace(/<\/?ruby>/g, '');
         const ARROW = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L11 7 M7 3 L11 7 L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>';
-        const FLIP = '<svg class="rc-flipic" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
         $('recap-list').innerHTML = RECAP.map((r, i) => {
           const Q = QUESTIONS[i];
           const got = answers[i] === Q.correct;
           const chosen = answers[i] !== null ? Q.choices[answers[i]] : '—';
           const correct = Q.choices[Q.correct];
-          const front = '<div class="rc-front">' + FLIP +
+          const front = '<div class="rc-front">' +
               '<img class="rc-ic anim-pulse" src="' + IMG + (got ? 'icon-check-social' : 'icon-x-social') + '.png" alt="' + (got ? '正解' : '不正解') + '"/>' +
               '<p class="rc-q">' + strip(Q.q) + '</p></div>';
           const youLine = got ? '' : '<div class="rc-line"><span class="rc-label">きみの答え</span><span class="rc-you">' + chosen + '</span></div>';

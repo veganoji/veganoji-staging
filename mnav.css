@@ -50,6 +50,21 @@ body.mnav-lock{ overflow:hidden; }
 .mnav-card .s{ display:block; font-weight:700; font-size:9.5px; letter-spacing:.07em; color:#9C7E2A; text-transform:uppercase; margin-top:2px; }
 .mnav-card .c{ color:#C9223A; font-weight:900; font-size:19px; flex-shrink:0; }
 
+/* "なぜビーガン？" accordion → submenu of the 3 story pages */
+.mnav-acc{ cursor:pointer; text-align:left; font:inherit; }
+.mnav-chev{ display:inline-block; transition:transform .22s ease; }
+.mnav-acc[aria-expanded="true"]{ margin-bottom:7px; }
+.mnav-acc[aria-expanded="true"] .mnav-chev{ transform:rotate(90deg); }
+.mnav-sub{ overflow:hidden; max-height:0; opacity:0; padding-left:10px; margin-bottom:0;
+  display:flex; flex-direction:column; gap:7px; transition:max-height .3s ease, opacity .22s ease, margin-bottom .3s ease; }
+.mnav-sub.is-open{ max-height:340px; opacity:1; margin-bottom:11px; }
+.mnav-sub a{ display:flex; align-items:center; gap:10px; background:#FFFCF6; color:#1F1812; text-decoration:none;
+  border:2px solid #1F1812; border-radius:13px; box-shadow:3px 3px 0 #1F1812; padding:8px 12px; }
+.mnav-sub a:active{ transform:translate(2px,2px); box-shadow:1px 1px 0 #1F1812; }
+.mnav-sub img{ width:32px; height:32px; flex-shrink:0; object-fit:contain; }
+.mnav-sub .st{ flex:1; min-width:0; font-family:'Noto Sans JP',sans-serif; font-weight:900; font-size:13.5px; }
+.mnav-sub .sg{ flex-shrink:0; font-weight:700; font-size:9px; letter-spacing:.07em; color:#9C7E2A; }
+
 .mnav-cta{ display:flex; gap:10px; margin:16px 0 4px; }
 .mnav-cta a{ flex:1; display:inline-flex; align-items:center; justify-content:center; gap:7px;
   font-family:'Noto Sans JP',sans-serif; font-weight:700; font-size:14.5px; border:2.5px solid #1F1812;

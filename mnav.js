@@ -50,11 +50,16 @@
       <span class="b"><span class="t">ベジトレClub</span><span class="s">Plant-based fitness</span></span>
       <span class="c">›</span>
     </a>
-    <a class="mnav-card" href="/vegan-and-earth/">
+    <button type="button" class="mnav-card mnav-acc" aria-expanded="false" aria-controls="mnav-why">
       <img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt="" />
       <span class="b"><span class="t">なぜビーガン？</span><span class="s">地球・海・体の3つの物語</span></span>
-      <span class="c">›</span>
-    </a>
+      <span class="c mnav-chev">›</span>
+    </button>
+    <div class="mnav-sub" id="mnav-why">
+      <a href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt="" /><span class="st">ビーガンと地球</span><span class="sg">PLANET</span></a>
+      <a href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png" alt="" /><span class="st">魚の環境といのち</span><span class="sg">OCEAN</span></a>
+      <a href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png" alt="" /><span class="st">ビーガンと健康</span><span class="sg">BODY</span></a>
+    </div>
 
     <div class="mnav-cta">
       <a class="primary" href="/#booking">王子に依頼</a>
@@ -83,6 +88,17 @@
   openBtn.addEventListener('click', function () { set(openBtn.getAttribute('aria-expanded') !== 'true'); });
   if (closeBtn) closeBtn.addEventListener('click', function () { set(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+
+  // "なぜビーガン？" accordion → reveals the 3 story pages (planet / ocean / body)
+  var acc = sheet.querySelector('.mnav-acc');
+  if (acc) {
+    var sub = sheet.querySelector('#' + acc.getAttribute('aria-controls'));
+    acc.addEventListener('click', function () {
+      var open = acc.getAttribute('aria-expanded') === 'true';
+      acc.setAttribute('aria-expanded', open ? 'false' : 'true');
+      if (sub) sub.classList.toggle('is-open', !open);
+    });
+  }
 
   sheet.querySelectorAll('a[href]').forEach(function (a) {
     a.addEventListener('click', function (e) {
