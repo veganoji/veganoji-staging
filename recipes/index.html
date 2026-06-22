@@ -400,7 +400,7 @@
       }
       // Section shelves: おすすめ (featured, or first 8 as fallback) then each present category.
       // おすすめ leads with a non-主菜 dish so it doesn't visually repeat the first 主菜 card.
-      const RECO_ORDER = ['veg-curry', 'koya-karaage', 'napolitan', 'nikujaga', 'mapo-tofu', 'tofu-hamburg', 'veg-gyoza', 'mitarashi-dango'];
+      const RECO_ORDER = ['veg-curry', 'koya-karaage', 'napolitan', 'nikujaga', 'ichigo-daifuku', 'potato-salad', 'veg-gyoza', 'corn-potage', 'mitarashi-dango'];
       const SECTIONS = [{ key: 'reco', name: 'おすすめ', icon: '/images/recipes/icon-sec-osusume.png' }]
         .concat(CAT_ORDER.map(c => ({ key: c, name: CATS[c].jp, icon: `/images/recipes/icon-sec-${c}.png` })));
       function shelfRecipes(key) {
