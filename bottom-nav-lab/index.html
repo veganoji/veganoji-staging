@@ -4,211 +4,207 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>ページ下ナビ・ラボ — Vegan Oji</title>
+  <title>ページ下ナビ・ラボ（B案 5変化）— Vegan Oji</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <style>
     :root{
       --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148;
-      --paper:#FFF9EE; --paper-soft:#FDF1DA; --paper-dim:#F6E4BD;
-      --red:#C9223A; --gold:#D4A847; --gold-deep:#9C7E2A;
-      --leaf:#6C9560; --leaf-deep:#3F6A3A; --blue:#2B7AB0; --purple:#6B4E8C; --orange:#C9532C;
+      --paper:#FFF9EE; --paper-soft:#FDF1DA;
+      --red:#C9223A; --red-deep:#9C1428;
+      --gold:#D4A847; --gold-deep:#9C7E2A;
+      --leaf:#6C9560; --leaf-deep:#3F6A3A; --leaf-soft:#A3C49A;
+      --blue:#2B7AB0; --blue-deep:#1B5C8B; --purple:#6B4E8C;
     }
     *{box-sizing:border-box;}
     body{margin:0;font-family:"Noto Sans JP",sans-serif;color:var(--ink);
       background:radial-gradient(ellipse at 12% 0%,rgba(108,149,96,.12),transparent 45%),#F4EAD6;-webkit-font-smoothing:antialiased;}
-    .wrap{max-width:1280px;margin:0 auto;padding:40px 20px 100px;}
+    .wrap{max-width:1320px;margin:0 auto;padding:40px 20px 100px;}
     .head{text-align:center;margin-bottom:8px;}
     .eyebrow{font-size:13px;letter-spacing:.22em;font-weight:700;color:var(--leaf-deep);}
-    h1{font-size:30px;font-weight:900;margin:8px 0 0;}
-    .note{max-width:760px;margin:14px auto 0;font-size:14px;line-height:1.85;color:var(--ink-soft);
-      background:#FFFDF8;border:2px solid rgba(31,24,18,.12);border-radius:16px;padding:14px 18px;text-align:left;}
+    h1{font-size:28px;font-weight:900;margin:8px 0 0;}
+    .note{max-width:740px;margin:14px auto 0;font-size:14px;line-height:1.8;color:var(--ink-soft);
+      background:#FFFDF8;border:2px solid rgba(31,24,18,.12);border-radius:16px;padding:13px 18px;text-align:left;}
     .note b{color:var(--red);}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:30px;margin-top:34px;justify-items:center;}
-    .demo{width:100%;max-width:420px;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:30px;margin-top:32px;justify-items:center;}
+    .demo{width:100%;max-width:400px;}
     .demo__tag{font-size:13px;font-weight:700;color:var(--muted);text-align:center;margin-bottom:10px;}
     .demo__tag b{color:var(--ink);font-size:14px;}
-    /* phone frame — these blocks sit at the BOTTOM of a mobile page */
     .phone{background:var(--paper);border:3px solid var(--ink);border-radius:26px;box-shadow:6px 6px 0 var(--ink);
       padding:22px 16px 26px;overflow:hidden;}
-    .navhead{text-align:center;margin-bottom:16px;}
-    .navhead .e{font-size:11px;letter-spacing:.2em;font-weight:700;color:var(--muted);}
-    .navhead .t{font-size:20px;font-weight:900;margin-top:3px;}
+    .navhead{text-align:center;font-size:21px;font-weight:900;margin-bottom:18px;}
 
-    /* ========= A · mnav card list (hamburger とっておき style) ========= */
-    .A-card{display:flex;align-items:center;gap:13px;width:100%;background:#FFFCF6;border:2px solid var(--ink);
-      border-radius:16px;box-shadow:3px 3px 0 var(--ink);padding:12px 14px;text-decoration:none;color:var(--ink);margin-bottom:10px;}
-    .A-card img{width:42px;height:42px;object-fit:contain;flex-shrink:0;}
-    .A-card .b{flex:1;min-width:0;display:flex;flex-direction:column;}
-    .A-card .t{font-weight:900;font-size:15.5px;line-height:1.2;}
-    .A-card .s{font-size:11px;color:var(--muted);font-weight:700;margin-top:2px;letter-spacing:.02em;}
-    .A-card .c{color:var(--leaf-deep);font-weight:900;font-size:20px;}
-    .A-sub{margin:-4px 0 10px 14px;padding-left:14px;border-left:2px dashed rgba(31,24,18,.18);}
-    .A-sub a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);padding:8px 0;}
-    .A-sub img{width:30px;height:30px;object-fit:contain;}
-    .A-sub .st{font-weight:700;font-size:14px;flex:1;}
-    .A-sub .sg{font-size:10px;letter-spacing:.14em;color:var(--muted);font-weight:700;}
+    /* ---- shared chibi button base ---- */
+    .bbtn{display:flex;align-items:center;gap:14px;width:100%;border:2.5px solid var(--ink);
+      border-radius:18px;box-shadow:4px 4px 0 var(--ink);padding:13px 18px;text-decoration:none;color:var(--ink);
+      margin-bottom:13px;font-weight:900;font-size:17px;background:var(--paper);}
+    .bbtn img{width:46px;height:46px;object-fit:contain;flex-shrink:0;}
+    .bbtn .ar{margin-left:auto;font-size:19px;opacity:.85;}
 
-    /* ========= B · chibi-sticker pill buttons ========= */
-    .B-btn{display:flex;align-items:center;gap:12px;width:100%;background:var(--paper);border:2.5px solid var(--ink);
-      border-radius:16px;box-shadow:4px 4px 0 var(--ink);padding:13px 16px;text-decoration:none;color:var(--ink);margin-bottom:12px;font-weight:900;font-size:16px;}
-    .B-btn img{width:34px;height:34px;object-fit:contain;}
-    .B-btn.lead{background:var(--leaf);color:#fff;border-color:var(--ink);}
-    .B-btn .ar{margin-left:auto;font-size:18px;}
-    .B-why{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;}
-    .B-why a{display:flex;flex-direction:column;align-items:center;gap:5px;background:var(--paper);border:2.5px solid var(--ink);
-      border-radius:14px;box-shadow:3px 3px 0 var(--ink);padding:11px 4px;text-decoration:none;color:var(--ink);}
-    .B-why img{width:32px;height:32px;object-fit:contain;}
-    .B-why span{font-size:11px;font-weight:900;}
-    .B-lbl{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.1em;margin:2px 0 7px 2px;}
+    /* ---- なぜビーガン trio (shared) ---- */
+    .trilabel{text-align:center;margin:10px 0 13px;}
+    .trilabel .m{font-size:18px;font-weight:900;color:var(--ink);}
+    .trilabel .s{display:block;font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.12em;margin-top:2px;}
+    .tri{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:13px;}
+    .tri a{display:flex;flex-direction:column;align-items:center;gap:6px;border:2.5px solid var(--ink);
+      border-radius:16px;box-shadow:3px 3px 0 var(--ink);padding:13px 4px 11px;text-decoration:none;color:var(--ink);}
+    .tri img{width:42px;height:42px;object-fit:contain;}
+    .tri .t{font-size:13px;font-weight:900;}
+    .tri .g{font-size:9px;font-weight:700;letter-spacing:.12em;opacity:.7;}
 
-    /* ========= C · icon-tile grid (app-launcher) ========= */
-    .C-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-    .C-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;aspect-ratio:1/1;
-      background:#FFFCF6;border:2.5px solid var(--ink);border-radius:18px;box-shadow:3px 3px 0 var(--ink);text-decoration:none;color:var(--ink);padding:8px;}
-    .C-tile img{width:42px;height:42px;object-fit:contain;}
-    .C-tile span{font-size:12px;font-weight:900;text-align:center;line-height:1.15;}
-    .C-tile .sg{font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.1em;}
-    .C-tile.wide{aspect-ratio:auto;flex-direction:row;grid-column:span 3;justify-content:flex-start;gap:12px;padding:12px 16px;background:var(--leaf);border-color:var(--ink);}
-    .C-tile.wide img{width:36px;height:36px;}
-    .C-tile.wide span{color:#fff;font-size:15px;}
+    /* ============ V1 · SOLID COLOR ============ */
+    .v1 .bbtn{color:#fff;border-color:var(--ink);}
+    .v1 .bbtn img{background:rgba(255,255,255,.9);border-radius:50%;padding:5px;}
+    .v1 .recipe{background:var(--leaf);} .v1 .map{background:var(--gold);color:var(--ink);} .v1 .vegfit{background:var(--leaf-deep);} .v1 .blog{background:var(--purple);}
+    .v1 .tri a{color:#fff;} .v1 .tri img{background:rgba(255,255,255,.9);border-radius:50%;padding:4px;}
+    .v1 .earth{background:var(--leaf);} .v1 .ocean{background:var(--blue);} .v1 .body{background:var(--red);}
 
-    /* ========= D · link-card-vc (links-page style, w/ teaser) ========= */
-    .D-card{display:flex;align-items:center;gap:14px;width:100%;background:#FFFCF6;border:2.5px solid var(--ink);
-      border-radius:18px;box-shadow:4px 4px 0 var(--ink);padding:13px 15px;text-decoration:none;color:var(--ink);margin-bottom:12px;}
-    .D-card img{width:54px;height:54px;object-fit:contain;flex-shrink:0;}
-    .D-card .b{flex:1;min-width:0;text-align:left;display:flex;flex-direction:column;}
-    .D-card .t{font-weight:900;font-size:16px;line-height:1.2;}
-    .D-card .sg{font-weight:700;font-size:10px;letter-spacing:.14em;margin-top:2px;}
-    .D-card .ts{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5;}
-    .D-card .ar{color:var(--leaf-deep);font-weight:900;font-size:20px;flex-shrink:0;}
+    /* ============ V2 · WATERCOLOR ============ */
+    .v2 .bbtn,.v2 .tri a{position:relative;color:var(--ink);}
+    .wc{background-blend-mode:multiply;}
+    .wc-leaf{background:radial-gradient(ellipse at 18% 20%,rgba(108,149,96,.55),transparent 60%),radial-gradient(ellipse at 85% 75%,rgba(163,196,154,.6),transparent 55%),url(/images/decorations/parchment-tile.jpg);background-size:auto,auto,180px;}
+    .wc-earth{background:radial-gradient(ellipse at 20% 25%,rgba(78,140,106,.5),transparent 60%),radial-gradient(ellipse at 80% 70%,rgba(108,149,96,.5),transparent 55%),url(/images/decorations/parchment-tile.jpg);background-size:auto,auto,180px;}
+    .wc-blue{background:radial-gradient(ellipse at 18% 22%,rgba(43,122,176,.5),transparent 60%),radial-gradient(ellipse at 82% 72%,rgba(120,180,215,.55),transparent 55%),url(/images/decorations/parchment-tile.jpg);background-size:auto,auto,180px;}
+    .wc-red{background:radial-gradient(ellipse at 18% 22%,rgba(201,34,58,.42),transparent 60%),radial-gradient(ellipse at 82% 72%,rgba(229,80,99,.5),transparent 55%),url(/images/decorations/parchment-tile.jpg);background-size:auto,auto,180px;}
+    .wc-gold{background:radial-gradient(ellipse at 18% 22%,rgba(212,168,71,.55),transparent 60%),radial-gradient(ellipse at 82% 72%,rgba(232,199,111,.6),transparent 55%),url(/images/decorations/parchment-tile.jpg);background-size:auto,auto,180px;}
+    .wc-purple{background:radial-gradient(ellipse at 18% 22%,rgba(107,78,140,.45),transparent 60%),radial-gradient(ellipse at 82% 72%,rgba(150,120,180,.5),transparent 55%),url(/images/decorations/parchment-tile.jpg);background-size:auto,auto,180px;}
 
-    /* ========= E · featured + grid hybrid ========= */
-    .E-feat{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:14px;}
-    .E-feat a{display:flex;flex-direction:column;gap:8px;border:2.5px solid var(--ink);border-radius:18px;
-      box-shadow:4px 4px 0 var(--ink);padding:15px;text-decoration:none;color:var(--ink);}
-    .E-feat a.recipe{background:#EAF3E4;} .E-feat a.quiz{background:#FBF1DA;}
-    .E-feat img{width:46px;height:46px;object-fit:contain;}
-    .E-feat .t{font-weight:900;font-size:16px;} .E-feat .s{font-size:11px;color:var(--muted);font-weight:700;}
-    .E-lbl{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.12em;text-align:center;margin:4px 0 8px;}
-    .E-why{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:14px;}
-    .E-why a{display:flex;flex-direction:column;align-items:center;gap:5px;background:#FFFCF6;border:2px solid var(--ink);
-      border-radius:14px;box-shadow:2px 2px 0 var(--ink);padding:11px 4px;text-decoration:none;color:var(--ink);}
-    .E-why img{width:34px;height:34px;object-fit:contain;} .E-why span{font-size:11.5px;font-weight:900;}
-    .E-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;}
-    .E-row a{display:flex;flex-direction:column;align-items:center;gap:5px;background:var(--paper);border:2px solid rgba(31,24,18,.25);
-      border-radius:14px;padding:10px 4px;text-decoration:none;color:var(--ink);}
-    .E-row img{width:30px;height:30px;object-fit:contain;} .E-row span{font-size:11px;font-weight:700;}
+    /* ============ V3 · PASTEL + COLOR FRAME ============ */
+    .v3 .bbtn{border-width:2.5px;}
+    .v3 .recipe{background:#EAF3E4;border-color:var(--leaf-deep);box-shadow:4px 4px 0 var(--leaf);color:var(--leaf-deep);}
+    .v3 .map{background:#FAF1D7;border-color:var(--gold-deep);box-shadow:4px 4px 0 var(--gold);color:var(--gold-deep);}
+    .v3 .vegfit{background:#E7F1E2;border-color:var(--leaf-deep);box-shadow:4px 4px 0 var(--leaf-soft);color:var(--leaf-deep);}
+    .v3 .blog{background:#EFE9F4;border-color:var(--purple);box-shadow:4px 4px 0 #B7A6CE;color:var(--purple);}
+    .v3 .earth{background:#EAF3E4;border-color:var(--leaf-deep);box-shadow:3px 3px 0 var(--leaf);color:var(--leaf-deep);}
+    .v3 .ocean{background:#E3EFF6;border-color:var(--blue-deep);box-shadow:3px 3px 0 var(--blue);color:var(--blue-deep);}
+    .v3 .body{background:#FBE9EB;border-color:var(--red-deep);box-shadow:3px 3px 0 var(--red);color:var(--red-deep);}
+
+    /* ============ V4 · ICON CHIP ============ */
+    .v4 .bbtn{background:#FFFCF6;gap:13px;}
+    .v4 .bbtn img{width:38px;height:38px;padding:7px;border-radius:13px;border:2px solid var(--ink);}
+    .v4 .recipe img{background:var(--leaf);} .v4 .map img{background:var(--gold);} .v4 .vegfit img{background:var(--leaf-soft);} .v4 .blog img{background:#C9BBDD;}
+    .v4 .recipe{color:var(--leaf-deep);} .v4 .map{color:var(--gold-deep);} .v4 .vegfit{color:var(--leaf-deep);} .v4 .blog{color:var(--purple);}
+    .v4 .tri a{background:#FFFCF6;}
+    .v4 .tri img{padding:6px;border-radius:12px;border:2px solid var(--ink);}
+    .v4 .earth img{background:var(--leaf);} .v4 .ocean img{background:var(--blue);} .v4 .body img{background:var(--red);}
+    .v4 .earth .t{color:var(--leaf-deep);} .v4 .ocean .t{color:var(--blue-deep);} .v4 .body .t{color:var(--red-deep);}
+
+    /* ============ V5 · GRADIENT ============ */
+    .v5 .bbtn{color:#fff;}
+    .v5 .bbtn img{filter:drop-shadow(0 1px 2px rgba(0,0,0,.25));}
+    .v5 .recipe{background:linear-gradient(135deg,#86AD79,#3F6A3A);}
+    .v5 .map{background:linear-gradient(135deg,#E8C76F,#B98F2E);color:#fff;}
+    .v5 .vegfit{background:linear-gradient(135deg,#A3C49A,#5C8451);}
+    .v5 .blog{background:linear-gradient(135deg,#9477B5,#574277);}
+    .v5 .tri a{color:#fff;}
+    .v5 .earth{background:linear-gradient(135deg,#86AD79,#3F6A3A);}
+    .v5 .ocean{background:linear-gradient(135deg,#5AA0CE,#1B5C8B);}
+    .v5 .body{background:linear-gradient(135deg,#E5728A,#9C1428);}
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">VEGAN OJI · BOTTOM-NAV LAB</div>
-      <h1>ページ下ナビ・5案 🧭</h1>
+      <h1>ページ下ナビ・B案の5変化 🎨</h1>
       <p class="note">
-        各ページ下部の標準ナビ案（「<b>詳しく計算してみる / ビーガンの記事を読む</b>」の置きかえ）。
-        ハンバーガーメニューの「とっておき」を基準に、サイト内の色々な見せ方を5パターンにしました。<br>
-        リンクは全案<b>共通</b>：① レシピ（新規・先頭）② クイズ（新規・おすすめ追加）③ なぜビーガン？＝地球／海／体
-        ④ 日本ビーガンマップ ⑤ ベジトレClub ⑥ ブログ。<br>
-        <b>追加候補</b>：王子通信（ニュースレター登録）も入れられます。気に入った案を教えてください → 全ページに反映します。
+        「<b>B. チビ・ステッカーボタン</b>」をベースに、色づかいを5パターン。共通の調整：アイコン大きめ・
+        「なぜビーガン？」ラベル大きめ・<b>EXPLORE MORE 削除</b>・<b>クイズ削除</b>・レシピ先頭。<br>
+        リンク：レシピ → なぜビーガン？(地球/海/体) → ビーガンマップ → ベジトレClub → ブログ。<br>
+        気に入った色味を教えてください（混ぜてもOK）。
       </p>
     </div>
 
     <div class="grid">
 
-      <!-- ===================== A ===================== -->
+      <!-- V1 SOLID -->
       <div class="demo">
-        <div class="demo__tag"><b>A.</b> メニュー・カード（ハンバーガーと同じ見た目／一貫性◎）</div>
-        <div class="phone">
-          <div class="navhead"><div class="e">EXPLORE MORE</div><div class="t">つぎは、どこへ？</div></div>
-          <a class="A-card" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png"><span class="b"><span class="t">レシピ</span><span class="s">かんたん植物性レシピ</span></span><span class="c">›</span></a>
-          <a class="A-card" href="/quiz/"><img src="/images/oji/oji_questioning.png"><span class="b"><span class="t">クイズ</span><span class="s">しらなかった！ごはんと地球</span></span><span class="c">›</span></a>
-          <a class="A-card" href="#"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span class="b"><span class="t">なぜビーガン？</span><span class="s">地球・海・体の3つの物語</span></span><span class="c">›</span></a>
-          <div class="A-sub">
-            <a href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span class="st">ビーガンと地球</span><span class="sg">PLANET</span></a>
-            <a href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png"><span class="st">魚の環境といのち</span><span class="sg">OCEAN</span></a>
-            <a href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png"><span class="st">ビーガンと健康</span><span class="sg">BODY</span></a>
+        <div class="demo__tag"><b>V1.</b> ソリッド・カラフル（はっきり・元気）</div>
+        <div class="phone v1">
+          <div class="navhead">つぎは、どこへ？</div>
+          <a class="bbtn recipe" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png">レシピを見る<span class="ar">→</span></a>
+          <div class="trilabel"><span class="m">なぜビーガン？</span><span class="s">— 3つの物語 —</span></div>
+          <div class="tri">
+            <a class="earth" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span class="t">地球</span><span class="g">PLANET</span></a>
+            <a class="ocean" href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png"><span class="t">海</span><span class="g">OCEAN</span></a>
+            <a class="body" href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png"><span class="t">体</span><span class="g">BODY</span></a>
           </div>
-          <a class="A-card" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png"><span class="b"><span class="t">日本ビーガンマップ</span><span class="s">全国2,300店</span></span><span class="c">›</span></a>
-          <a class="A-card" href="/vegfit/"><img src="/images/vegfit/logo-icon.png"><span class="b"><span class="t">ベジトレClub</span><span class="s">Plant-based fitness</span></span><span class="c">›</span></a>
-          <a class="A-card" href="/blog/" style="margin-bottom:0;"><img src="/images/oji/oji_writing.png"><span class="b"><span class="t">ブログ</span><span class="s">活動・レシピ・お知らせ</span></span><span class="c">›</span></a>
+          <a class="bbtn map" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png">ビーガンマップ<span class="ar">→</span></a>
+          <a class="bbtn vegfit" href="/vegfit/"><img src="/images/vegfit/logo-icon.png">ベジトレClub<span class="ar">→</span></a>
+          <a class="bbtn blog" href="/blog/" style="margin-bottom:0;"><img src="/images/oji/oji_writing.png">ブログ<span class="ar">→</span></a>
         </div>
       </div>
 
-      <!-- ===================== B ===================== -->
+      <!-- V2 WATERCOLOR -->
       <div class="demo">
-        <div class="demo__tag"><b>B.</b> チビ・ステッカーボタン（ページの既存ボタンと同じ／元気）</div>
-        <div class="phone">
-          <div class="navhead"><div class="e">EXPLORE MORE</div><div class="t">つぎは、どこへ？</div></div>
-          <a class="B-btn lead" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png">レシピを見る<span class="ar">→</span></a>
-          <a class="B-btn" href="/quiz/"><img src="/images/oji/oji_questioning.png">クイズに挑戦<span class="ar">→</span></a>
-          <div class="B-lbl">なぜビーガン？ — 3つの物語</div>
-          <div class="B-why">
-            <a href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span>地球</span></a>
-            <a href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png"><span>海</span></a>
-            <a href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png"><span>体</span></a>
+        <div class="demo__tag"><b>V2.</b> 水彩バックグラウンド（やわらかい・味わい）</div>
+        <div class="phone v2">
+          <div class="navhead">つぎは、どこへ？</div>
+          <a class="bbtn wc wc-leaf" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png">レシピを見る<span class="ar">→</span></a>
+          <div class="trilabel"><span class="m">なぜビーガン？</span><span class="s">— 3つの物語 —</span></div>
+          <div class="tri">
+            <a class="wc wc-earth" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span class="t">地球</span><span class="g">PLANET</span></a>
+            <a class="wc wc-blue" href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png"><span class="t">海</span><span class="g">OCEAN</span></a>
+            <a class="wc wc-red" href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png"><span class="t">体</span><span class="g">BODY</span></a>
           </div>
-          <a class="B-btn" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png">ビーガンマップ<span class="ar">→</span></a>
-          <a class="B-btn" href="/vegfit/"><img src="/images/vegfit/logo-icon.png">ベジトレClub<span class="ar">→</span></a>
-          <a class="B-btn" href="/blog/" style="margin-bottom:0;"><img src="/images/oji/oji_writing.png">ブログ<span class="ar">→</span></a>
+          <a class="bbtn wc wc-gold" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png">ビーガンマップ<span class="ar">→</span></a>
+          <a class="bbtn wc wc-leaf" href="/vegfit/"><img src="/images/vegfit/logo-icon.png">ベジトレClub<span class="ar">→</span></a>
+          <a class="bbtn wc wc-purple" href="/blog/" style="margin-bottom:0;"><img src="/images/oji/oji_writing.png">ブログ<span class="ar">→</span></a>
         </div>
       </div>
 
-      <!-- ===================== C ===================== -->
+      <!-- V3 PASTEL + COLOR FRAME -->
       <div class="demo">
-        <div class="demo__tag"><b>C.</b> アイコン・タイル（アプリ風グリッド／コンパクト）</div>
-        <div class="phone">
-          <div class="navhead"><div class="e">EXPLORE MORE</div><div class="t">つぎは、どこへ？</div></div>
-          <div class="C-grid">
-            <a class="C-tile wide" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png"><span>レシピを見る →</span></a>
-            <a class="C-tile" href="/quiz/"><img src="/images/oji/oji_questioning.png"><span>クイズ</span></a>
-            <a class="C-tile" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png"><span>マップ</span></a>
-            <a class="C-tile" href="/vegfit/"><img src="/images/vegfit/logo-icon.png"><span>ベジトレ</span></a>
-            <a class="C-tile" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span>地球</span><span class="sg">PLANET</span></a>
-            <a class="C-tile" href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png"><span>海</span><span class="sg">OCEAN</span></a>
-            <a class="C-tile" href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png"><span>体</span><span class="sg">BODY</span></a>
-            <a class="C-tile" href="/blog/"><img src="/images/oji/oji_writing.png"><span>ブログ</span></a>
-            <a class="C-tile" href="/" style="opacity:.5;"><img src="/images/oji/oji_greeting.png"><span>ホーム</span></a>
+        <div class="demo__tag"><b>V3.</b> パステル＋カラー枠（やさしい・上品）</div>
+        <div class="phone v3">
+          <div class="navhead">つぎは、どこへ？</div>
+          <a class="bbtn recipe" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png">レシピを見る<span class="ar">→</span></a>
+          <div class="trilabel"><span class="m">なぜビーガン？</span><span class="s">— 3つの物語 —</span></div>
+          <div class="tri">
+            <a class="earth" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span class="t">地球</span><span class="g">PLANET</span></a>
+            <a class="ocean" href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png"><span class="t">海</span><span class="g">OCEAN</span></a>
+            <a class="body" href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png"><span class="t">体</span><span class="g">BODY</span></a>
           </div>
+          <a class="bbtn map" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png">ビーガンマップ<span class="ar">→</span></a>
+          <a class="bbtn vegfit" href="/vegfit/"><img src="/images/vegfit/logo-icon.png">ベジトレClub<span class="ar">→</span></a>
+          <a class="bbtn blog" href="/blog/" style="margin-bottom:0;"><img src="/images/oji/oji_writing.png">ブログ<span class="ar">→</span></a>
         </div>
       </div>
 
-      <!-- ===================== D ===================== -->
+      <!-- V4 ICON CHIP -->
       <div class="demo">
-        <div class="demo__tag"><b>D.</b> リンクカード（/links/ 風・説明つき／読ませる）</div>
-        <div class="phone">
-          <div class="navhead"><div class="e">EXPLORE MORE</div><div class="t">つぎは、どこへ？</div></div>
-          <a class="D-card" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png"><span class="b"><span class="t">レシピ</span><span class="sg" style="color:var(--leaf-deep)">RECIPES</span><span class="ts">かんたんで美味しい、植物性のごはん。</span></span><span class="ar">→</span></a>
-          <a class="D-card" href="/quiz/"><img src="/images/oji/oji_questioning.png"><span class="b"><span class="t">クイズ</span><span class="sg" style="color:var(--gold-deep)">QUIZ</span><span class="ts">しらなかった！ごはんと地球の全10問。</span></span><span class="ar">→</span></a>
-          <a class="D-card" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span class="b"><span class="t">なぜビーガン？</span><span class="sg" style="color:var(--leaf-deep)">PLANET · OCEAN · BODY</span><span class="ts">地球・海・体。3つの物語で見てみよう。</span></span><span class="ar">→</span></a>
-          <a class="D-card" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png"><span class="b"><span class="t">日本ビーガンマップ</span><span class="sg" style="color:var(--gold-deep)">MAP</span><span class="ts">全国2,300店。近くのお店を探そう。</span></span><span class="ar">→</span></a>
-          <a class="D-card" href="/vegfit/"><img src="/images/vegfit/logo-icon.png"><span class="b"><span class="t">ベジトレClub</span><span class="sg" style="color:var(--leaf-deep)">FITNESS</span><span class="ts">植物性で、からだを動かすコミュニティ。</span></span><span class="ar">→</span></a>
-          <a class="D-card" href="/blog/" style="margin-bottom:0;"><img src="/images/oji/oji_writing.png"><span class="b"><span class="t">ブログ</span><span class="sg" style="color:var(--purple)">BLOG</span><span class="ts">王子の活動・レシピ・お知らせ。</span></span><span class="ar">→</span></a>
+        <div class="demo__tag"><b>V4.</b> アイコン・チップ（すっきり・色は差し色）</div>
+        <div class="phone v4">
+          <div class="navhead">つぎは、どこへ？</div>
+          <a class="bbtn recipe" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png">レシピを見る<span class="ar">→</span></a>
+          <div class="trilabel"><span class="m">なぜビーガン？</span><span class="s">— 3つの物語 —</span></div>
+          <div class="tri">
+            <a class="earth" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span class="t">地球</span><span class="g">PLANET</span></a>
+            <a class="ocean" href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png"><span class="t">海</span><span class="g">OCEAN</span></a>
+            <a class="body" href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png"><span class="t">体</span><span class="g">BODY</span></a>
+          </div>
+          <a class="bbtn map" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png">ビーガンマップ<span class="ar">→</span></a>
+          <a class="bbtn vegfit" href="/vegfit/"><img src="/images/vegfit/logo-icon.png">ベジトレClub<span class="ar">→</span></a>
+          <a class="bbtn blog" href="/blog/" style="margin-bottom:0;"><img src="/images/oji/oji_writing.png">ブログ<span class="ar">→</span></a>
         </div>
       </div>
 
-      <!-- ===================== E ===================== -->
+      <!-- V5 GRADIENT -->
       <div class="demo">
-        <div class="demo__tag"><b>E.</b> 注目＋グリッド（新ページを主役に／メリハリ）</div>
-        <div class="phone">
-          <div class="navhead"><div class="e">EXPLORE MORE</div><div class="t">つぎは、どこへ？</div></div>
-          <div class="E-feat">
-            <a class="recipe" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png"><span class="t">レシピ</span><span class="s">かんたん植物性ごはん</span></a>
-            <a class="quiz" href="/quiz/"><img src="/images/oji/oji_questioning.png"><span class="t">クイズ</span><span class="s">ごはんと地球の全10問</span></a>
+        <div class="demo__tag"><b>V5.</b> グラデーション（モダン・つやっぽい）</div>
+        <div class="phone v5">
+          <div class="navhead">つぎは、どこへ？</div>
+          <a class="bbtn recipe" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png">レシピを見る<span class="ar">→</span></a>
+          <div class="trilabel"><span class="m">なぜビーガン？</span><span class="s">— 3つの物語 —</span></div>
+          <div class="tri">
+            <a class="earth" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span class="t">地球</span><span class="g">PLANET</span></a>
+            <a class="ocean" href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png"><span class="t">海</span><span class="g">OCEAN</span></a>
+            <a class="body" href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png"><span class="t">体</span><span class="g">BODY</span></a>
           </div>
-          <div class="E-lbl">なぜビーガン？ — 地球・海・体の3つの物語</div>
-          <div class="E-why">
-            <a href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span>地球</span></a>
-            <a href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png"><span>海</span></a>
-            <a href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png"><span>体</span></a>
-          </div>
-          <div class="E-row">
-            <a href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png"><span>マップ</span></a>
-            <a href="/vegfit/"><img src="/images/vegfit/logo-icon.png"><span>ベジトレ</span></a>
-            <a href="/blog/"><img src="/images/oji/oji_writing.png"><span>ブログ</span></a>
-          </div>
+          <a class="bbtn map" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png">ビーガンマップ<span class="ar">→</span></a>
+          <a class="bbtn vegfit" href="/vegfit/"><img src="/images/vegfit/logo-icon.png">ベジトレClub<span class="ar">→</span></a>
+          <a class="bbtn blog" href="/blog/" style="margin-bottom:0;"><img src="/images/oji/oji_writing.png">ブログ<span class="ar">→</span></a>
         </div>
       </div>
 
