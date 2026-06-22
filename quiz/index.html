@@ -349,8 +349,8 @@
     @media (prefers-reduced-motion: reduce){ .anim-title,.anim-bob,.anim-pulse{ animation:none !important; } }
 
     /* ── End-screen recap: flip cards (Q# outside, horizontal flip) ── */
-    .rc-row { display: flex; align-items: center; gap: 9px; }
-    .rc-qnum { flex-shrink: 0; width: 44px; font-weight: 800; font-size: 23px; color: var(--color-ink); text-align: right; letter-spacing: -0.02em; }
+    .rc-row { display: flex; align-items: center; gap: 6px; }
+    .rc-qnum { flex-shrink: 0; width: 34px; font-weight: 800; font-size: 22px; color: var(--color-ink); text-align: right; letter-spacing: -0.03em; }
     .rc-wrap { flex: 1; perspective: 1100px; }
     .rc-card { position: relative; width: 100%; background: var(--color-paper); border: 2.5px solid var(--color-ink); border-radius: 16px; box-shadow: 4px 4px 0 var(--color-ink); padding: 14px 16px; cursor: pointer; transition: transform 0.22s ease, box-shadow 0.18s ease; }
     .rc-card:hover { box-shadow: 2px 2px 0 var(--color-ink); }
@@ -413,16 +413,11 @@
         <img src="/images/oji/oji_greeting.png" alt="ビーガン王子" class="w-24 sm:w-32 shrink-0 anim-bobble drop-shadow-[0_10px_24px_rgba(31,24,18,0.18)]" loading="eager"/>
         <div class="bubble flex-1 mt-3">
           <p class="font-jp text-ink-soft text-[15px] sm:text-[17px] leading-[1.85]">
-            「えっ、なんで<ruby>学校<rt>がっこう</rt></ruby>で<ruby>習<rt>なら</rt></ruby>わなかったんだろう！？」<br/>
-            …って、なるかも。
+            <ruby>全部<rt>ぜんぶ</rt></ruby>で10<ruby>問<rt>もん</rt></ruby>。<ruby>行<rt>い</rt></ruby>けるかな？<br/>
+            <ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>挑戦<rt>ちょうせん</rt></ruby>しましょう！
           </p>
         </div>
       </div>
-
-      <p class="reveal mt-9 sm:mt-10 font-jp text-ink-soft text-[16px] sm:text-[18px] leading-[1.95] max-w-md mx-auto" data-delay="2">
-        ちょっと<ruby>意外<rt>いがい</rt></ruby>な、<ruby>基本<rt>きほん</rt></ruby>のはなし。<br/>
-        <span class="font-bold text-ink"><ruby>全<rt>ぜん</rt></ruby>10<ruby>問<rt>もん</rt></ruby>。きみは<ruby>何問<rt>なんもん</rt></ruby>わかる？</span>
-      </p>
 
       <div class="reveal mt-10 sm:mt-12 flex justify-center" data-delay="3">
         <button id="start-btn" type="button" class="btn-base btn-primary btn-lg">
@@ -461,26 +456,33 @@
   <!-- ════════════════════════════════════════════════════════════════════
        SCREEN 3 · END / SCORE
        ════════════════════════════════════════════════════════════════════ -->
-  <section id="screen-end" class="screen min-h-[100svh] px-6 sm:px-10 pt-20 pb-24"
+  <section id="screen-end" class="screen min-h-[100svh] px-3 sm:px-6 pt-20 pb-24"
            style="background:
              linear-gradient(180deg, rgba(255,249,238,0.62), rgba(255,249,238,0.5) 50%, rgba(255,249,238,0.72)),
              url('/images/quiz-bg/score.jpg') center top / cover no-repeat,
              var(--color-paper-soft);">
     <div class="max-w-2xl mx-auto">
 
-      <div class="text-center">
-        <div class="flex justify-center">
-          <img id="end-oji" src="/images/oji/oji_presenting.png" alt="ビーガン王子 — 結果発表" class="w-32 sm:w-40 anim-bobble drop-shadow-[0_8px_20px_rgba(31,24,18,0.15)]"/>
+      <!-- Oji + grade speech bubble (concise, varies by score) -->
+      <div class="flex items-start gap-3 max-w-md mx-auto text-left">
+        <img id="end-oji" src="/images/oji/oji_presenting.png" alt="ビーガン王子 — 結果発表" class="w-24 sm:w-28 shrink-0 anim-bobble drop-shadow-[0_8px_18px_rgba(31,24,18,0.15)]"/>
+        <div class="bubble flex-1 mt-2">
+          <p id="end-msg" class="font-jp-display text-[16px] sm:text-[19px] leading-[1.6] text-ink"></p>
         </div>
-        <img id="end-badge" src="/images/quiz-bg/badge.png" alt="ビーガン王子認定" class="w-32 sm:w-40 mx-auto -mt-1 anim-bob drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]" onerror="this.style.display='none'"/>
-        <div class="font-jp-display text-[15px] tracking-[0.14em]" style="color:#9C7E2A;">結果発表</div>
-        <div class="flex items-baseline justify-center gap-2 mt-1">
-          <span id="end-score" class="big-number ticker leading-none" style="color:#C9223A; font-size:72px;">0</span>
-          <span class="font-jp-display text-ink/55" style="font-size:34px;"> / 10</span>
-        </div>
-        <div id="end-message" class="font-jp-display text-[22px] sm:text-[26px] text-ink leading-[1.4] mt-3"></div>
-        <div id="end-sub" class="font-jp text-ink-soft text-[14px] sm:text-[15px] leading-[1.7] mt-1 max-w-md mx-auto"></div>
       </div>
+
+      <!-- badge next to score (compact, horizontal) + ✓/✗ marks under the score -->
+      <div class="mt-6 flex items-center justify-center gap-4 sm:gap-5">
+        <img id="end-badge" src="/images/quiz-bg/badge.png" alt="ビーガン王子認定" class="w-24 sm:w-28 anim-bob drop-shadow-[0_6px_14px_rgba(31,24,18,0.15)]" onerror="this.style.display='none'"/>
+        <div class="text-left">
+          <div class="font-jp-display text-[14px] tracking-[0.14em]" style="color:#9C7E2A;">結果発表</div>
+          <div class="flex items-baseline gap-1.5">
+            <span id="end-score" class="big-number ticker leading-none" style="color:#C9223A; font-size:64px;">0</span>
+            <span class="font-jp-display text-ink/55" style="font-size:28px;"> / 10</span>
+          </div>
+        </div>
+      </div>
+      <div id="end-marks" class="mt-3 grid grid-cols-10 gap-1 max-w-[330px] mx-auto"></div>
 
       <!-- share row (placeholder buttons — share images wired later) -->
       <div class="mt-8 flex flex-col items-center gap-4">
@@ -743,7 +745,7 @@
           choices: ['約200,000,000匹', '約2,000,000,000匹', '約200,000,000,000匹', '約2,000,000,000,000匹'], correct: 3,
           reveal:
             '<div class="flex items-center justify-center gap-4">' +
-              '<img src="' + IMG + 'icon-fish-wild.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
+              '<img src="' + IMG + 'icon-fish-eyed.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
               '<div class="leading-none"><span class="font-jp-display text-[22px] opacity-70"><ruby>約<rt>やく</rt></ruby></span> ' +
               '<span class="big-number ticker text-[64px] sm:text-[88px]" data-count-target="2" style="color:#2B7AB0;">0</span>' +
               '<span class="font-jp-display text-[30px]"><ruby>兆<rt>ちょう</rt>匹<rt>びき</rt></ruby></span></div>' +
@@ -779,7 +781,7 @@
             { src: 'icon-grain-sack', style: 'width:84px; top:-8px; left:-12px;', cls: 'anim-twinkle' },
           ]),
           q: '<ruby>家畜<rt>かちく</rt></ruby>のエサに<ruby>回<rt>まわ</rt></ruby>されている<ruby>食料<rt>しょくりょう</rt></ruby>は、<ruby>何<rt>なん</rt></ruby><ruby>人分<rt>にんぶん</rt></ruby>？',
-          choices: ['約1,000,000,000人分', '約5,000,000,000人分', '約10,000,000,000人分'], correct: 2,
+          choices: ['約100,000,000人分', '約1,000,000,000人分', '約5,000,000,000人分', '約10,000,000,000人分'], correct: 3,
           reveal:
             '<div class="flex items-center justify-center gap-4">' +
               '<img src="' + IMG + 'icon-people-group.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
@@ -857,7 +859,7 @@
         const qd = QUESTIONS[i];
         screenQuiz.style.setProperty('--accent', qd.accent);
         const qbg = '/images/quiz-bg/q' + String(i + 1).padStart(2, '0') + '.jpg';
-        screenQuiz.style.background = "linear-gradient(rgba(255,249,238,0.22), rgba(255,249,238,0.18)), url('" + qbg + "') center top / cover no-repeat, var(--color-paper)";
+        screenQuiz.style.background = "linear-gradient(rgba(255,249,238,0.30), rgba(255,249,238,0.20)), url('" + qbg + "') center bottom / cover no-repeat, var(--color-paper)";
 
         qCounter.textContent = 'Q' + (i + 1);
         const pct = Math.round((i + 1) / N * 100);
@@ -952,11 +954,11 @@
 
       // ───────── grading ─────────
       function gradeFor(score) {
-        if (score === 10) return { pose: 'oji_excited', title: '<ruby>満点<rt>まんてん</rt></ruby>！', sub: '10<ruby>問<rt>もん</rt></ruby>ぜんぶ<ruby>正解<rt>せいかい</rt></ruby>。もう<ruby>立派<rt>りっぱ</rt></ruby>な<ruby>地球<rt>ちきゅう</rt></ruby>はかせだね。<ruby>友達<rt>ともだち</rt></ruby>にも<ruby>教<rt>おし</rt></ruby>えてあげて！' };
-        if (score >= 7)  return { pose: 'oji_happy', title: 'あっぱれ！', sub: 'ほとんど<ruby>正解<rt>せいかい</rt></ruby>。よく<ruby>知<rt>し</rt></ruby>ってるね、その<ruby>調子<rt>ちょうし</rt></ruby>！<ruby>残<rt>のこ</rt></ruby>りももう<ruby>少<rt>すこ</rt></ruby>し。' };
-        if (score >= 4)  return { pose: 'oji_curious', title: 'いいかんじ！', sub: '<ruby>半分<rt>はんぶん</rt></ruby>くらい<ruby>正解<rt>せいかい</rt></ruby>。<ruby>意外<rt>いがい</rt></ruby>な<ruby>数字<rt>すうじ</rt></ruby>、まだまだあるよ。' };
-        if (score >= 1)  return { pose: 'oji_wondering', title: 'これからだね！', sub: '<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>、ここからが<ruby>面白<rt>おもしろ</rt></ruby>いところ。<ruby>下<rt>した</rt></ruby>のリンクものぞいてみて。' };
-        return { pose: 'oji_questioning', title: 'ドンマイ！', sub: '<ruby>学校<rt>がっこう</rt></ruby>では<ruby>習<rt>なら</rt></ruby>わないことばかり。<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>知<rt>し</rt></ruby>っていこう！' };
+        if (score === 10) return { pose: 'oji_excited', msg: 'ぜんぶ<ruby>正解<rt>せいかい</rt></ruby>！もう<ruby>地球<rt>ちきゅう</rt></ruby>はかせだね！' };
+        if (score >= 7)  return { pose: 'oji_happy', msg: 'あっぱれ！ほとんど<ruby>正解<rt>せいかい</rt></ruby>だね。' };
+        if (score >= 4)  return { pose: 'oji_curious', msg: 'いいかんじ！<ruby>半分<rt>はんぶん</rt></ruby>こえたよ。' };
+        if (score >= 1)  return { pose: 'oji_wondering', msg: 'ナイス<ruby>挑戦<rt>ちょうせん</rt></ruby>！ここからが<ruby>面白<rt>おもしろ</rt></ruby>いよ。' };
+        return { pose: 'oji_questioning', msg: 'ドンマイ！<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>知<rt>し</rt></ruby>っていこう。' };
       }
 
       const pageUrl = window.location.href.split('#')[0];
@@ -967,8 +969,8 @@
         const score = answers.reduce((a, p, i) => a + (p === QUESTIONS[i].correct ? 1 : 0), 0);
         const g = gradeFor(score);
         $('end-oji').src = OJI + g.pose + '.png';
-        $('end-message').innerHTML = g.title;
-        $('end-sub').innerHTML = g.sub;
+        $('end-msg').innerHTML = g.msg;
+        $('end-marks').innerHTML = answers.map((p, i) => '<img src="' + IMG + (p === QUESTIONS[i].correct ? 'icon-check-social' : 'icon-x-social') + '.png" alt="" class="w-full h-auto"/>').join('');
 
         // recap: flip cards — front = full question; tap (horizontal flip) →
         // きみの答え + 正解 + くわしく見る. Questions stripped of furigana.
