@@ -5,12 +5,12 @@
   "observability": { "enabled": true },
   "vars": {
     "RESEND_AUDIENCE_ID": "052db315-1c1d-4349-bd4b-8b0d6f900499",
-    "NEWSLETTER_FROM": "ビーガン王子 Vegan Oji <oji@ojidigital.com>",
+    "NEWSLETTER_FROM": "ビーガン王子 Vegan Oji <hello@veganoji.jp>",
     "NEWSLETTER_REPLY_TO": "info@veganoji.jp",
     "SITE_URL": "https://veganoji.jp",
     "ALLOWED_ORIGINS": "https://veganoji.jp,https://veganoji-staging.ojidigital.com"
   }
   // Secrets (set with `wrangler secret put`): RESEND_API_KEY, CONFIRM_SECRET
-  // NOTE: NEWSLETTER_FROM uses ojidigital.com (verified in Resend) until
-  // veganoji.jp is verified — then switch to oji@veganoji.jp. See newsletter-lab/SETUP.md.
+  // NOTE: veganoji.jp is now verified in Resend (DKIM + send. SPF/return-path),
+  // so NEWSLETTER_FROM sends as hello@veganoji.jp. See newsletter-lab/SETUP.md.
 }
