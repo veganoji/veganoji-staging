@@ -19,6 +19,50 @@
     t2000: 'https://buy.stripe.com/00g03z59Vawl2Ck8wx'       // ¥2,000/月 (price_1OfzIK…)
   };
 
+  // ---- Language strings — picked by <html lang>. Default = ja.
+  //      EN reviewed; DE/ES/FR/ZH are machine-quality → have a native check the copy. ----
+  var DICT = {
+    ja: { next:'つぎは、どこへ？', recipe:'美味しいレシピ', map:'全国のビーガンマップ', why:'なぜビーガン？',
+          earth:'地球', ocean:'海', body:'体', other:'その他', vegfit:'ベジトレClubに参加',
+          news:'ベジー<wbr>ニュース', activity:'活動報告', nl:'ビーガン王子通信に購読', email:'メールアドレス',
+          sub:'登録', support:'王子の活動を支援する',
+          okHtml:'<ruby>確認<rt>かくにん</rt></ruby>メールを<ruby>送<rt>おく</rt></ruby>りました！📧<br><span style="font-weight:700;color:#786148;font-size:12px;">メール<ruby>内<rt>ない</rt></ruby>のリンクで<ruby>登録<rt>とうろく</rt></ruby><ruby>完了<rt>かんりょう</rt></ruby>です。</span>',
+          bad:'メールアドレスを確認してね', errMsg:'うまく送れませんでした。少し後でもう一度。' },
+    en: { next:'Where to next?', recipe:'Tasty recipes', map:'Japan Vegan Map', why:'Why vegan?',
+          earth:'Planet', ocean:'Ocean', body:'Body', other:'More', vegfit:'Join VegFit Club',
+          news:'Veggie News', activity:'Activity log', nl:'Subscribe to the newsletter', email:'Email address',
+          sub:'Sign up', support:'Support the prince',
+          okHtml:'Check your inbox! 📧<br><span style="font-weight:700;color:#786148;font-size:12px;">Click the link in the email to confirm.</span>',
+          bad:'Please check your email address', errMsg:"Couldn't send — please try again." },
+    de: { next:'Wohin als Nächstes?', recipe:'Leckere Rezepte', map:'Japan Vegan Map', why:'Warum vegan?',
+          earth:'Erde', ocean:'Meer', body:'Körper', other:'Mehr', vegfit:'VegFit Club beitreten',
+          news:'Veggie-News', activity:'Aktivitäten', nl:'Newsletter abonnieren', email:'E-Mail-Adresse',
+          sub:'Anmelden', support:'Den Prinzen unterstützen',
+          okHtml:'Bitte E-Mails prüfen! 📧<br><span style="font-weight:700;color:#786148;font-size:12px;">Über den Link in der E-Mail bestätigen.</span>',
+          bad:'Bitte E-Mail-Adresse prüfen', errMsg:'Senden fehlgeschlagen – bitte erneut versuchen.' },
+    es: { next:'¿A dónde ahora?', recipe:'Recetas ricas', map:'Mapa Vegano de Japón', why:'¿Por qué vegano?',
+          earth:'Planeta', ocean:'Océano', body:'Cuerpo', other:'Más', vegfit:'Únete a VegFit Club',
+          news:'Veggie News', activity:'Actividad', nl:'Suscríbete al boletín', email:'Correo electrónico',
+          sub:'Suscribir', support:'Apoya al príncipe',
+          okHtml:'¡Revisa tu correo! 📧<br><span style="font-weight:700;color:#786148;font-size:12px;">Confirma con el enlace del correo.</span>',
+          bad:'Revisa tu correo electrónico', errMsg:'No se pudo enviar — inténtalo de nuevo.' },
+    fr: { next:'Et après ?', recipe:'Recettes gourmandes', map:'Carte Végane du Japon', why:'Pourquoi vegan ?',
+          earth:'Planète', ocean:'Océan', body:'Corps', other:'Plus', vegfit:'Rejoindre VegFit Club',
+          news:'Veggie News', activity:'Activités', nl:'S\'abonner à la newsletter', email:'Adresse e-mail',
+          sub:'S\'inscrire', support:'Soutenir le prince',
+          okHtml:'Vérifiez vos e-mails ! 📧<br><span style="font-weight:700;color:#786148;font-size:12px;">Confirmez via le lien dans l\'e-mail.</span>',
+          bad:'Vérifiez votre adresse e-mail', errMsg:'Échec de l\'envoi — réessayez.' },
+    zh: { next:'接下来去哪？', recipe:'美味食谱', map:'日本素食地图', why:'为什么吃素？',
+          earth:'地球', ocean:'海洋', body:'身体', other:'更多', vegfit:'加入VegFit俱乐部',
+          news:'素食新闻', activity:'活动报告', nl:'订阅王子通讯', email:'电子邮箱',
+          sub:'订阅', support:'支持王子的活动',
+          okHtml:'请查收邮件！📧<br><span style="font-weight:700;color:#786148;font-size:12px;">点击邮件中的链接完成订阅。</span>',
+          bad:'请检查电子邮箱', errMsg:'发送失败，请稍后再试。' }
+  };
+  var LANG = (document.documentElement.lang || 'ja').slice(0, 2).toLowerCase();
+  var t = DICT[LANG] || DICT.ja;
+  var NL_LANG = (LANG === 'ja' || LANG === 'en') ? LANG : 'both'; // Worker accepts ja/en/both
+
   var css = `
   .ojf-card{box-sizing:border-box;max-width:440px;margin:0 auto;
     font-family:"Noto Sans JP",sans-serif;color:#1F1812;text-align:left;
@@ -97,7 +141,7 @@
 
   var html =
     '<div class="ojf-card">' +
-      '<div class="ojf-h">つぎは、どこへ？</div>' +
+      '<div class="ojf-h">' + t.next + '</div>' +
       '<div class="ojf-social">' +
         '<a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram"><img src="/images/social/ig.png" alt=""></a>' +
         '<a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X"><img src="/images/social/x.png" alt=""></a>' +
@@ -105,30 +149,30 @@
         '<a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok"><img src="/images/social/tt.png" alt=""></a>' +
         '<a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/images/social/li.png" alt=""></a>' +
       '</div>' +
-      '<a class="ojf-btn ojf-recipe" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png" alt="">美味しいレシピ<span class="ojf-ar">→</span></a>' +
-      '<a class="ojf-btn ojf-map" href="https://japanveganmap.org" target="_blank" rel="noopener"><img src="/images/mascot/map-japan.png" alt="">全国のビーガンマップ<span class="ojf-ar">→</span></a>' +
-      '<div class="ojf-sectitle">なぜビーガン？</div>' +
+      '<a class="ojf-btn ojf-recipe" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png" alt="">' + t.recipe + '<span class="ojf-ar">→</span></a>' +
+      '<a class="ojf-btn ojf-map" href="https://japanveganmap.org" target="_blank" rel="noopener"><img src="/images/mascot/map-japan.png" alt="">' + t.map + '<span class="ojf-ar">→</span></a>' +
+      '<div class="ojf-sectitle">' + t.why + '</div>' +
       '<div class="ojf-tri">' +
-        '<a class="ojf-earth" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt=""><span class="ojf-t">地球</span><span class="ojf-g">PLANET</span></a>' +
-        '<a class="ojf-ocean" href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png" alt=""><span class="ojf-t">海</span><span class="ojf-g">OCEAN</span></a>' +
-        '<a class="ojf-body" href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png" alt=""><span class="ojf-t">体</span><span class="ojf-g">BODY</span></a>' +
+        '<a class="ojf-earth" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt=""><span class="ojf-t">' + t.earth + '</span><span class="ojf-g">PLANET</span></a>' +
+        '<a class="ojf-ocean" href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png" alt=""><span class="ojf-t">' + t.ocean + '</span><span class="ojf-g">OCEAN</span></a>' +
+        '<a class="ojf-body" href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png" alt=""><span class="ojf-t">' + t.body + '</span><span class="ojf-g">BODY</span></a>' +
       '</div>' +
-      '<div class="ojf-sectitle">その他</div>' +
-      '<a class="ojf-btn ojf-vegfit" href="/vegfit/"><img src="/images/vegfit/logo-icon.png" alt="">ベジトレClubに参加<span class="ojf-ar">→</span></a>' +
+      '<div class="ojf-sectitle">' + t.other + '</div>' +
+      '<a class="ojf-btn ojf-vegfit" href="/vegfit/"><img src="/images/vegfit/logo-icon.png" alt="">' + t.vegfit + '<span class="ojf-ar">→</span></a>' +
       '<div class="ojf-duo">' +
-        '<a class="ojf-btn ojf-news" href="/blog/"><img src="/images/oji/oji_writing.png" alt="">ベジー<wbr>ニュース</a>' +
-        '<a class="ojf-btn ojf-report" href="/activity/"><img src="/images/oji/oji_presenting.png" alt="">活動報告</a>' +
+        '<a class="ojf-btn ojf-news" href="/blog/"><img src="/images/oji/oji_writing.png" alt="">' + t.news + '</a>' +
+        '<a class="ojf-btn ojf-report" href="/activity/"><img src="/images/oji/oji_presenting.png" alt="">' + t.activity + '</a>' +
       '</div>' +
       '<div class="ojf-nl">' +
-        '<div class="ojf-nl-lbl"><img src="/images/vegan-to-chikyu/icon-leaf-vegan.png" alt="">ビーガン王子通信に購読</div>' +
+        '<div class="ojf-nl-lbl"><img src="/images/vegan-to-chikyu/icon-leaf-vegan.png" alt="">' + t.nl + '</div>' +
         '<form id="ojf-nl-form">' +
           '<input type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">' +
-          '<input type="email" placeholder="メールアドレス" required autocomplete="email">' +
-          '<button type="submit">登録</button>' +
+          '<input type="email" placeholder="' + t.email + '" required autocomplete="email">' +
+          '<button type="submit">' + t.sub + '</button>' +
         '</form>' +
       '</div>' +
       '<div class="ojf-support">' +
-        '<div class="ojf-support-head"><img src="/images/oji/oji_greeting.png" alt="">王子の活動を支援する</div>' +
+        '<div class="ojf-support-head"><img src="/images/oji/oji_greeting.png" alt="">' + t.support + '</div>' +
         '<div class="ojf-tiers">' +
           '<a class="ojf-tier" href="' + STRIPE.t500  + '" target="_blank" rel="noopener"><b>¥500</b><span>/月</span></a>' +
           '<a class="ojf-tier" href="' + STRIPE.t1000 + '" target="_blank" rel="noopener"><b>¥1,000</b><span>/月</span></a>' +
@@ -160,32 +204,31 @@
     if (!email) return;
     var box = form.parentElement;
     function err(text) {
-      btn.disabled = false; btn.textContent = '登録';
+      btn.disabled = false; btn.textContent = t.sub;
       var old = box.querySelector('.ojf-nl-err'); if (old) old.remove();
       var m = document.createElement('div'); m.className = 'ojf-nl-err';
       m.style.cssText = 'text-align:center;font-size:12px;font-weight:700;color:#9C1428;margin-top:8px;';
       m.textContent = text; box.appendChild(m);
     }
-    btn.disabled = true; btn.textContent = '送信中…';
+    btn.disabled = true; btn.textContent = '…';
     fetch('https://news.veganoji.jp/subscribe', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ email: email, lang: 'ja', hp: hpEl ? hpEl.value : '' })
+      body: JSON.stringify({ email: email, lang: NL_LANG, hp: hpEl ? hpEl.value : '' })
     })
       .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
       .then(function (d) {
         if (d && d.ok) {
           form.remove();
           var done = document.createElement('div'); done.className = 'ojf-nl-done';
-          done.innerHTML = '<ruby>確認<rt>かくにん</rt></ruby>メールを<ruby>送<rt>おく</rt></ruby>りました！📧'
-            + '<br><span style="font-weight:700;color:#786148;font-size:12px;">メール<ruby>内<rt>ない</rt></ruby>のリンクで<ruby>登録<rt>とうろく</rt></ruby><ruby>完了<rt>かんりょう</rt></ruby>です。</span>';
+          done.innerHTML = t.okHtml;
           box.appendChild(done);
         } else if (d && d.error === 'invalid_email') {
-          err('メールアドレスを確認してね');
+          err(t.bad);
         } else {
-          err('うまく送れませんでした。少し後でもう一度。');
+          err(t.errMsg);
         }
       })
-      .catch(function () { err('うまく送れませんでした。少し後でもう一度。'); });
+      .catch(function () { err(t.errMsg); });
   });
 })();
