@@ -11,11 +11,12 @@
 (function () {
   if (document.getElementById('ojf-style')) return; // guard against double-include
 
-  // ---- Stripe subscription links (verified active, JPY, monthly · product "ベジトレClub") ----
+  // ---- Stripe support links — product "支援金額" (verified active, JPY, monthly recurring).
+  //      NOT the ベジトレClub product. Edit here to change the support tiers. ----
   var STRIPE = {
-    t500:  'https://buy.stripe.com/cNi00i7UebILfWjaKvao807',
-    t1000: 'https://buy.stripe.com/aFa00i3DY6or6lJf0Lao808',
-    t2000: 'https://buy.stripe.com/fZu8wO5M6cMP4dB5qbao80a'
+    t500:  'https://buy.stripe.com/6oU5kC6QadQT39xf0Lao80e', // ¥500/月  (price_1TlMd5…)
+    t1000: 'https://buy.stripe.com/7sI03zbyj33T7WE144',      // ¥1,000/月 (price_1OfzCL…)
+    t2000: 'https://buy.stripe.com/00g03z59Vawl2Ck8wx'       // ¥2,000/月 (price_1OfzIK…)
   };
 
   var css = `
@@ -121,6 +122,7 @@
       '<div class="ojf-nl">' +
         '<div class="ojf-nl-lbl"><img src="/images/vegan-to-chikyu/icon-leaf-vegan.png" alt="">ビーガン王子通信に購読</div>' +
         '<form id="ojf-nl-form">' +
+          '<input type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">' +
           '<input type="email" placeholder="メールアドレス" required autocomplete="email">' +
           '<button type="submit">登録</button>' +
         '</form>' +
@@ -145,15 +147,45 @@
   }
   mount.innerHTML = html;
 
-  // Newsletter form — design stub. TODO: POST email to the news.veganoji.jp signup Worker.
+  // Newsletter form → POST to the news.veganoji.jp signup Worker (double opt-in).
+  //   Contract: POST /subscribe  JSON {email, lang, hp}  → {ok:true} sends a confirm email.
+  //   (Needs veganoji.jp listed in the Worker's ALLOWED_ORIGINS for the cross-origin POST.)
   var form = mount.querySelector('#ojf-nl-form');
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
+    var emailEl = form.querySelector('input[type="email"]');
+    var hpEl = form.querySelector('input[name="hp"]');
+    var btn = form.querySelector('button');
+    var email = (emailEl && emailEl.value || '').trim();
+    if (!email) return;
     var box = form.parentElement;
-    form.remove();
-    var d = document.createElement('div');
-    d.className = 'ojf-nl-done';
-    d.textContent = '登録ありがとう！🌱（※デモ表示）';
-    box.appendChild(d);
+    function err(text) {
+      btn.disabled = false; btn.textContent = '登録';
+      var old = box.querySelector('.ojf-nl-err'); if (old) old.remove();
+      var m = document.createElement('div'); m.className = 'ojf-nl-err';
+      m.style.cssText = 'text-align:center;font-size:12px;font-weight:700;color:#9C1428;margin-top:8px;';
+      m.textContent = text; box.appendChild(m);
+    }
+    btn.disabled = true; btn.textContent = '送信中…';
+    fetch('https://news.veganoji.jp/subscribe', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ email: email, lang: 'ja', hp: hpEl ? hpEl.value : '' })
+    })
+      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (d) {
+        if (d && d.ok) {
+          form.remove();
+          var done = document.createElement('div'); done.className = 'ojf-nl-done';
+          done.innerHTML = '<ruby>確認<rt>かくにん</rt></ruby>メールを<ruby>送<rt>おく</rt></ruby>りました！📧'
+            + '<br><span style="font-weight:700;color:#786148;font-size:12px;">メール<ruby>内<rt>ない</rt></ruby>のリンクで<ruby>登録<rt>とうろく</rt></ruby><ruby>完了<rt>かんりょう</rt></ruby>です。</span>';
+          box.appendChild(done);
+        } else if (d && d.error === 'invalid_email') {
+          err('メールアドレスを確認してね');
+        } else {
+          err('うまく送れませんでした。少し後でもう一度。');
+        }
+      })
+      .catch(function () { err('うまく送れませんでした。少し後でもう一度。'); });
   });
 })();

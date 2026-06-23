@@ -504,20 +504,10 @@
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13 8 a5 5 0 1 1 -1.5 -3.6 M13 2 v3 h-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
           もう一度あそぶ
         </button>
-
-        <div class="mt-4 flex flex-col sm:flex-row gap-3 justify-center w-full">
-          <a href="/vegan-and-earth/" class="btn-base btn-leaf flex-1">地球のはなしを読む</a>
-          <a href="/fish-and-life/" class="btn-base btn-ghost flex-1">海のはなしを読む</a>
-        </div>
       </div>
 
-      <!-- social icons (label removed per user request) -->
-      <div class="mt-12 flex items-center justify-center gap-3 sm:gap-4">
-        <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram" class="social"><img src="/images/social/ig.png" alt=""/></a>
-        <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X" class="social"><img src="/images/social/x.png" alt=""/></a>
-        <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube" class="social"><img src="/images/social/yt.png" alt=""/></a>
-        <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok" class="social"><img src="/images/social/tt.png" alt=""/></a>
-      </div>
+      <!-- Shared bottom-of-page nav card — only shows on this results screen (edit /oji-footer.js to update every page) -->
+      <div class="mt-12"><div id="oji-footer-nav"></div></div>
 
     </div>
   </section>
@@ -1055,5 +1045,6 @@
     })();
   </script>
   <script src="/mnav.js" defer></script>
+  <script src="/oji-footer.js" defer></script>
 </body>
 </html>
