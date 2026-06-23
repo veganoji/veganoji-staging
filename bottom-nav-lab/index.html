@@ -4,173 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>ページ下ナビ・V5（確定案）— Vegan Oji</title>
+  <title>ページ下ナビ — ライブプレビュー — Vegan Oji</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148;
-      --paper:#FFF9EE; --paper-soft:#FDF1DA;
-      --red:#C9223A; --red-deep:#9C1428;
-      --gold:#D4A847; --gold-deep:#9C7E2A;
-      --leaf:#6C9560; --leaf-deep:#3F6A3A;
-      --blue:#2B7AB0; --blue-deep:#1B5C8B; --purple:#6B4E8C; --orange:#C9532C;
-    }
-    *{box-sizing:border-box;}
-    body{margin:0;font-family:"Noto Sans JP",sans-serif;color:var(--ink);
-      background:radial-gradient(ellipse at 12% 0%,rgba(108,149,96,.12),transparent 45%),#F4EAD6;-webkit-font-smoothing:antialiased;}
-    .wrap{max-width:560px;margin:0 auto;padding:40px 20px 100px;}
-    .head{text-align:center;margin-bottom:18px;}
-    .eyebrow{font-size:13px;letter-spacing:.22em;font-weight:700;color:var(--leaf-deep);}
-    h1{font-size:26px;font-weight:900;margin:8px 0 0;}
-    .note{margin:13px auto 0;font-size:13.5px;line-height:1.8;color:var(--ink-soft);
-      background:#FFFDF8;border:2px solid rgba(31,24,18,.12);border-radius:16px;padding:13px 18px;text-align:left;}
-    .note b{color:var(--red);}
-
-    /* ===== phone frame (this block sits at the bottom of a mobile page) ===== */
-    .phone{background:var(--paper);border:3px solid var(--ink);border-radius:28px;box-shadow:7px 7px 0 var(--ink);
-      padding:24px 18px 28px;overflow:hidden;}
-    .navhead{text-align:center;font-size:22px;font-weight:900;margin-bottom:14px;}
-
-    /* social row */
-    .social-row{display:flex;justify-content:center;gap:14px;margin-bottom:20px;}
-    .social-row a{display:block;transition:transform .15s ease;}
-    .social-row a:hover{transform:translateY(-3px) scale(1.08);}
-    .social-row img{width:42px;height:42px;object-fit:contain;}
-
-    /* shared chibi gradient button */
-    .bbtn{display:flex;align-items:center;gap:14px;width:100%;border:2.5px solid var(--ink);
-      border-radius:18px;box-shadow:4px 4px 0 var(--ink);padding:14px 18px;text-decoration:none;color:#fff;
-      margin-bottom:13px;font-weight:900;font-size:17px;
-      transition:transform .14s ease, box-shadow .14s ease, filter .14s ease;}
-    .bbtn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);filter:brightness(1.06) saturate(1.05);}
-    .bbtn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink);}
-    .bbtn img{width:46px;height:46px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(0,0,0,.22));}
-    .bbtn .ar{margin-left:auto;font-size:19px;opacity:.9;}
-
-    .recipe{background:linear-gradient(135deg,#86AD79,#3F6A3A);}
-    .map{background:linear-gradient(135deg,#E8C76F,#B98F2E);}
-    .vegfit{background:linear-gradient(135deg,#A3C49A,#5C8451);}
-
-    /* section title (なぜビーガン？ / その他) */
-    .sectitle{text-align:center;font-size:18px;font-weight:900;color:var(--ink);margin:14px 0 12px;}
-
-    /* なぜビーガン trio */
-    .tri{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;margin-bottom:6px;}
-    .tri a{display:flex;flex-direction:column;align-items:center;gap:6px;border:2.5px solid var(--ink);
-      border-radius:16px;box-shadow:3px 3px 0 var(--ink);padding:14px 4px 12px;text-decoration:none;color:#fff;
-      transition:transform .14s ease, box-shadow .14s ease, filter .14s ease;}
-    .tri a:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);filter:brightness(1.07);}
-    .tri a:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink);}
-    .tri img{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.22));}
-    .tri .t{font-size:14px;font-weight:900;}
-    .tri .g{font-size:9px;font-weight:700;letter-spacing:.12em;opacity:.8;}
-    .earth{background:linear-gradient(135deg,#86AD79,#3F6A3A);}
-    .ocean{background:linear-gradient(135deg,#5AA0CE,#1B5C8B);}
-    .body{background:linear-gradient(135deg,#E5728A,#9C1428);}
-
-    /* news + activity 2-up row */
-    .duo{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:13px;}
-    .duo .bbtn{margin-bottom:0;font-size:15px;gap:9px;padding:13px 14px;}
-    .duo .bbtn img{width:38px;height:38px;}
-    .news{background:linear-gradient(135deg,#9477B5,#574277);}
-    .report{background:linear-gradient(135deg,#E0915A,#C9532C);}
-
-    /* newsletter form */
-    .news-form{background:var(--paper-soft);border:2.5px solid var(--ink);border-radius:18px;
-      box-shadow:4px 4px 0 var(--ink);padding:15px 16px;margin-bottom:13px;}
-    .news-form .lbl{font-size:14px;font-weight:900;color:var(--ink);text-align:center;margin-bottom:3px;}
-    .news-form .sub{font-size:11px;color:var(--muted);text-align:center;margin-bottom:11px;}
-    .news-form form{display:flex;gap:8px;}
-    .news-form input{flex:1;min-width:0;border:2px solid var(--ink);border-radius:12px;padding:11px 13px;
-      font-family:inherit;font-size:14px;background:#fff;color:var(--ink);}
-    .news-form input:focus{outline:none;box-shadow:0 0 0 3px rgba(108,149,96,.3);}
-    .news-form button{border:2.5px solid var(--ink);border-radius:12px;background:linear-gradient(135deg,#86AD79,#3F6A3A);
-      color:#fff;font-family:inherit;font-weight:900;font-size:14px;padding:0 18px;cursor:pointer;white-space:nowrap;
-      box-shadow:3px 3px 0 var(--ink);transition:transform .14s ease, box-shadow .14s ease, filter .14s ease;}
-    .news-form button:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);filter:brightness(1.06);}
-    .news-form button:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink);}
-    .news-form .done{text-align:center;font-weight:900;color:var(--leaf-deep);padding:6px 0;}
-
-    /* support CTA */
-    .support{background:linear-gradient(135deg,#E5728A,#9C1428);margin-bottom:0;}
+    body{margin:0;font-family:"Noto Sans JP",sans-serif;color:#1F1812;
+      background:radial-gradient(ellipse at 12% 0%,rgba(108,149,96,.12),transparent 45%),#F4EAD6;
+      -webkit-font-smoothing:antialiased;}
+    .wrap{max-width:480px;margin:0 auto;padding:40px 18px 100px;}
+    .note{font-size:13.5px;line-height:1.8;color:#3C2E22;background:#FFFDF8;
+      border:2px solid rgba(31,24,18,.12);border-radius:16px;padding:13px 18px;margin-bottom:26px;text-align:left;}
+    .note b{color:#C9223A;}
+    .note code{background:#F1E7D2;padding:1px 6px;border-radius:6px;font-size:12.5px;}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="head">
-      <div class="eyebrow">VEGAN OJI · BOTTOM-NAV · V5 確定案</div>
-      <h1>ページ下ナビ（グラデーション）🎨</h1>
-      <p class="note">
-        V5をベースに反映済み：SNS5つを<b>見出しの下</b>に・ビーガンマップを<b>レシピの直下</b>へ・「— 3つの物語 —」削除・
-        <b>その他</b>の見出し追加・ボタン文言変更・<b>活動報告</b>追加・<b>ニュースレター登録フォーム</b>・<b>支援ボタン</b>追加・
-        ホバー/タップで<b>少し動く</b>アニメ。<br>
-        ※ メール登録フォームは見た目のみ（送信は news.veganoji.jp に接続予定）。
-      </p>
-    </div>
-
-    <div class="phone">
-      <div class="navhead">つぎは、どこへ？</div>
-
-      <!-- social icons (same 5 as the page footer) -->
-      <div class="social-row">
-        <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram"><img src="/images/social/ig.png" alt=""></a>
-        <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X"><img src="/images/social/x.png" alt=""></a>
-        <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube"><img src="/images/social/yt.png" alt=""></a>
-        <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok"><img src="/images/social/tt.png" alt=""></a>
-        <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/images/social/li.png" alt=""></a>
-      </div>
-
-      <!-- recipe (lead) -->
-      <a class="bbtn recipe" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png">美味しいレシピ<span class="ar">→</span></a>
-      <!-- map, moved directly below recipes -->
-      <a class="bbtn map" href="https://japanveganmap.org"><img src="/images/mascot/map-japan.png">全国のビーガンマップ<span class="ar">→</span></a>
-
-      <!-- なぜビーガン？ trio -->
-      <div class="sectitle">なぜビーガン？</div>
-      <div class="tri">
-        <a class="earth" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png"><span class="t">地球</span><span class="g">PLANET</span></a>
-        <a class="ocean" href="/fish-and-life/"><img src="/images/vegan-to-chikyu/icon-fish-eyed.png"><span class="t">海</span><span class="g">OCEAN</span></a>
-        <a class="body" href="/vegan-and-health/"><img src="/images/vegan-to-chikyu/icon-heart.png"><span class="t">体</span><span class="g">BODY</span></a>
-      </div>
-
-      <!-- その他 -->
-      <div class="sectitle">その他</div>
-      <a class="bbtn vegfit" href="/vegfit/"><img src="/images/vegfit/logo-icon.png">ベジトレClubに参加<span class="ar">→</span></a>
-
-      <div class="duo">
-        <a class="bbtn news" href="/blog/"><img src="/images/oji/oji_writing.png">ベジーニュース</a>
-        <a class="bbtn report" href="/activity/"><img src="/images/oji/oji_presenting.png">活動報告</a>
-      </div>
-
-      <!-- newsletter signup -->
-      <div class="news-form">
-        <div class="lbl">🌱 ベジ王子通信（無料）</div>
-        <div class="sub">最新のレシピやお知らせを、ときどきお届け。いつでも解除OK。</div>
-        <form id="nl-form" onsubmit="return nlSubmit(event)">
-          <input type="email" id="nl-email" placeholder="メールアドレス" required autocomplete="email">
-          <button type="submit">登録</button>
-        </form>
-      </div>
-
-      <!-- support CTA -->
-      <a class="bbtn support" href="/#donate"><img src="/images/oji/oji_greeting.png">王子の活動を支援する<span class="ar">♡</span></a>
-    </div>
+    <p class="note">
+      これは共通フッターカード <b><code>/oji-footer.js</code></b> の<b>ライブプレビュー</b>です。<br>
+      このファイルを1か所編集すれば、読み込んでいる<b>全ページ</b>のカードが同時に更新されます。
+    </p>
+    <!-- The shared component renders itself into this div -->
+    <div id="oji-footer-nav"></div>
   </div>
-
-  <script>
-    // Design stub — on ship, POST the email to the news.veganoji.jp signup Worker.
-    function nlSubmit(e){
-      e.preventDefault();
-      var box = e.target.parentElement;
-      box.querySelector('form').remove();
-      var d = document.createElement('div');
-      d.className = 'done';
-      d.textContent = '登録ありがとう！🌱（※デモ表示）';
-      box.appendChild(d);
-      return false;
-    }
-  </script>
+  <script src="/oji-footer.js" defer></script>
 </body>
 </html>
