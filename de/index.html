@@ -2052,37 +2052,73 @@
             Rezeptentwicklung, Workshops für Kinder, die vegane Landkarte am Leben halten, Brücken zur Welt bauen — das Vegan-Oji-Projekt finanziert sich größtenteils aus <span class="text-gold-soft">eigenen Mitteln und ein paar kleinen Partnerschaften</span>. Deine Unterstützung wird zum nächsten Schritt des Prinzen.
           </p>
         </div>
-
-        <img src="/images/mascot/treasure-chest.png" alt="Vegan Oji und seine Unterstützer"
-             class="hidden md:block w-36 lg:w-44 h-auto anim-bobble drop-shadow-2xl"
-             loading="lazy"/>
       </div>
       </div>
 
-      <!-- Ways to support — real actions that work today (no paid tiers yet) -->
-      <div class="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-3 gap-5">
-
-        <div class="support-card">
-          <img src="/images/social/ig.png" alt="" class="support-card__icon">
-          <div class="font-jp-display text-[18px] text-ink" style="font-weight:900">Folgen &amp; teilen</div>
-          <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mt-2">Folge dem Prinzen in den sozialen Medien und teile die Beiträge, die du liebst. Das ist die einfachste Art zu helfen — und eine der wirkungsvollsten.</p>
-          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="btn-primary mt-5 !text-[13px] !px-5 !py-2.5"><span class="font-jp">Folgen</span></a>
-        </div>
-
-        <div class="support-card">
-          <img src="/images/ui-icons/note.png" alt="" class="support-card__icon">
-          <div class="font-jp-display text-[18px] text-ink" style="font-weight:900">Den Brief erhalten</div>
-          <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mt-2">Einmal im Monat ein Newsletter vom Prinzen — neue Rezepte, Neuigkeiten von unterwegs und Geschichten, die du nur hier hörst.</p>
-          <a href="#newsletter" class="btn-ghost mt-5 !text-[13px] !px-5 !py-2.5"><span class="font-jp">Anmelden</span></a>
-        </div>
-
-        <div class="support-card">
-          <img src="/images/ui-icons/crown.png" alt="" class="support-card__icon">
-          <div class="font-jp-display text-[18px] text-ink" style="font-weight:900">Kooperieren &amp; sponsern</div>
-          <p class="font-jp text-[13.5px] text-ink-soft leading-relaxed mt-2">Lass uns gemeinsam Events, Produktentwicklung und Inhalte gestalten. Sponsoring- und Projektanfragen sind jederzeit willkommen.</p>
-          <a href="#booking" class="btn-ghost mt-5 !text-[13px] !px-5 !py-2.5"><span class="font-jp">Sprechen wir</span></a>
+      <!-- Monthly support widget — same 3 Stripe links (checkout auto-localizes) -->
+      <style>
+        .dwidget{box-sizing:border-box;max-width:580px;margin:0 auto;font-family:"Noto Sans JP",sans-serif;color:#1F1812;background:#FFF9EE;border:2.5px solid #1F1812;border-radius:26px;box-shadow:6px 6px 0 rgba(31,24,18,.28);padding:26px 26px 24px;}
+        .dwidget *{box-sizing:border-box;}
+        .dw-title{text-align:center;font-size:21px;font-weight:900;color:#1F1812;margin-bottom:22px;}
+        .dw-body{display:flex;align-items:center;gap:22px;}
+        .dw-left{flex:1;min-width:0;}
+        .dw-right{flex-shrink:0;}
+        @keyframes dwBob{0%,100%{transform:translateY(0) rotate(-1.2deg);}50%{transform:translateY(-4px) rotate(1.2deg);}}
+        .dw-right img{width:160px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(31,24,18,.25));animation:dwBob 4.5s ease-in-out infinite;transform-origin:bottom center;}
+        @media(prefers-reduced-motion:reduce){.dw-right img{animation:none;}}
+        .dw-seg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;}
+        .dw-seg button{font-family:inherit;cursor:pointer;font-weight:900;font-size:14px;padding:12px 4px;border-radius:13px;border:2px solid #1F1812;background:#fff;color:#1F1812;transition:transform .12s,background .15s;}
+        .dw-seg button:hover{transform:translateY(-1px);}
+        .dw-seg button.on{background:#C9223A;color:#fff;}
+        .dw-amt{display:flex;align-items:baseline;justify-content:center;gap:1px;margin-bottom:16px;color:#C9223A;}
+        .dw-amt .yen{font-size:26px;font-weight:900;}
+        .dw-amt .val{font-size:34px;font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+        .dw-amt .vin{width:108px;border:none;background:transparent;font-family:inherit;font-weight:900;font-size:34px;letter-spacing:-.02em;color:#C9223A;outline:none;padding:0 2px;border-bottom:2.5px solid #C9223A;font-variant-numeric:tabular-nums;}
+        .dw-amt .vin::-webkit-outer-spin-button,.dw-amt .vin::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+        .dw-amt .per{font-size:15px;font-weight:700;color:#786148;margin-left:2px;}
+        .dw-btn{display:flex;align-items:center;justify-content:center;width:100%;cursor:pointer;font-family:inherit;font-weight:900;font-size:16px;text-decoration:none;border-radius:14px;background:#C9223A;color:#fff;border:2.5px solid #1F1812;box-shadow:3px 3px 0 #1F1812;padding:13px;transition:transform .14s,box-shadow .14s;}
+        .dw-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 #1F1812;}
+        .dw-btn:active{transform:translate(3px,3px);box-shadow:0 0 0 #1F1812;}
+        .dw-fine{text-align:center;font-size:11.5px;color:#786148;font-weight:600;margin-top:11px;}
+        @media(max-width:560px){.dw-body{flex-direction:column-reverse;gap:10px;}.dw-right img{width:128px;}}
+      </style>
+      <div class="mt-10 sm:mt-14">
+        <div class="dwidget">
+          <div class="dw-title">Den Prinzen unterstützen</div>
+          <div class="dw-body">
+            <div class="dw-left">
+              <div class="dw-seg">
+                <button type="button" data-amt="1,000" data-link="https://buy.stripe.com/7sI03zbyj33T7WE144">¥1,000</button>
+                <button type="button" data-amt="3,000" data-link="https://buy.stripe.com/eVq7sKa2maEH8tRaKvao80f" class="on">¥3,000</button>
+                <button type="button" data-custom data-link="https://buy.stripe.com/28E28qb6qaEH25t3i3ao80g">Frei</button>
+              </div>
+              <div class="dw-amt">
+                <span class="yen">¥</span><span class="val">3,000</span><input class="vin" type="text" inputmode="numeric" placeholder="5,000" style="display:none" aria-label="amount"><span class="per">/Mon.</span>
+              </div>
+              <a class="dw-btn" href="https://buy.stripe.com/eVq7sKa2maEH8tRaKvao80f" target="_blank" rel="noopener">Unterstützen</a>
+              <div class="dw-fine">Jederzeit änder- oder kündbar · Sichere Zahlung über Stripe</div>
+            </div>
+            <div class="dw-right"><img src="/images/mascot/treasure-chest.png" alt="Vegan Oji" loading="lazy"/></div>
+          </div>
         </div>
       </div>
+      <script>
+        (function(){
+          var seg = document.querySelectorAll('#donate .dw-seg button');
+          var val = document.querySelector('#donate .dw-amt .val');
+          var vin = document.querySelector('#donate .dw-amt .vin');
+          var btn = document.querySelector('#donate .dw-btn');
+          seg.forEach(function(b){
+            b.addEventListener('click', function(){
+              seg.forEach(function(x){ x.classList.remove('on'); });
+              b.classList.add('on');
+              btn.href = b.getAttribute('data-link');
+              if (b.hasAttribute('data-custom')) { val.style.display='none'; vin.style.display='inline-block'; vin.value=''; vin.focus(); }
+              else { vin.style.display='none'; val.style.display='inline'; val.textContent = b.getAttribute('data-amt'); }
+            });
+          });
+        })();
+      </script>
     </div>
   </section>
 
