@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>支援カード・ラボ（5案）— Vegan Oji</title>
+  <title>支援カード — 金額セレクター（更新版）— Vegan Oji</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
@@ -12,186 +12,129 @@
     :root{
       --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148;
       --paper:#FFF9EE; --paper-soft:#FDF1DA;
-      --royal:#C9223A; --royal-deep:#9C1428; --royal-soft:#E5556A;
-      --gold:#D4A847; --gold-deep:#9C7E2A; --gold-soft:#E8C76F;
-      --leaf:#6C9560; --leaf-deep:#3F6A3A;
+      --royal:#C9223A; --royal-deep:#9C1428; --gold:#D4A847; --gold-soft:#E8C76F;
     }
     *{box-sizing:border-box;}
     body{margin:0;font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:#F4EAD6;-webkit-font-smoothing:antialiased;}
-    .wrap{max-width:1080px;margin:0 auto;padding:36px 18px 90px;}
+    .wrap{max-width:820px;margin:0 auto;padding:36px 18px 90px;}
     .head{text-align:center;margin-bottom:8px;}
     .eyebrow{font-size:13px;letter-spacing:.22em;font-weight:700;color:var(--royal-deep);}
-    h1{font-size:27px;font-weight:900;margin:8px 0 0;}
-    .note{max-width:680px;margin:13px auto 0;font-size:13.5px;line-height:1.85;color:var(--ink-soft);
+    h1{font-size:25px;font-weight:900;margin:8px 0 0;}
+    .note{max-width:640px;margin:13px auto 0;font-size:13.5px;line-height:1.85;color:var(--ink-soft);
       background:#FFFDF8;border:2px solid rgba(31,24,18,.12);border-radius:16px;padding:13px 18px;text-align:left;}
     .note b{color:var(--royal);}
-    .vlabel{font-size:13px;font-weight:800;color:var(--muted);margin:40px 0 12px;}
-    .vlabel b{color:var(--ink);}
 
-    /* red donate band each version sits in (mirrors the live #donate section) */
-    .band{background:var(--royal);border-radius:24px;padding:34px 22px 38px;
+    /* red donate band (mirrors live #donate) */
+    .band{margin-top:26px;background:var(--royal);border-radius:24px;padding:40px 22px;
       background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 11px);}
-    .band h2{color:#fff;text-align:center;font-size:22px;font-weight:900;margin:0 0 4px;}
-    .band p.sub{color:rgba(255,249,238,.82);text-align:center;font-size:13.5px;margin:0 0 24px;}
-    .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:760px;margin:0 auto;}
-    @media(max-width:640px){ .row3{grid-template-columns:1fr;max-width:340px;} }
-    .amt{font-variant-numeric:tabular-nums;font-weight:900;letter-spacing:-.02em;}
-    .donate-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:100%;cursor:pointer;
-      font-family:inherit;font-weight:900;text-decoration:none;border-radius:14px;}
 
-    /* custom amount input (shared look, tuned per version) */
-    .amtin{display:flex;align-items:center;gap:4px;justify-content:center;}
-    .amtin span{font-weight:900;}
-    .amtin input{width:88px;border:none;background:transparent;font-family:inherit;font-weight:900;
-      font-size:26px;text-align:right;color:inherit;outline:none;border-bottom:2px solid currentColor;padding-bottom:1px;}
-    .amtin input::-webkit-outer-spin-button,.amtin input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+    .widget{max-width:580px;margin:0 auto;background:var(--paper);border:2.5px solid var(--ink);
+      border-radius:26px;box-shadow:6px 6px 0 rgba(31,24,18,.28);padding:26px 26px 24px;}
 
-    /* ───── V1 minimal ───── */
-    .v1 .card{background:var(--paper);border:2px solid rgba(31,24,18,.14);border-radius:20px;padding:24px 18px 22px;text-align:center;display:flex;flex-direction:column;}
-    .v1 .card img.ic{width:34px;height:34px;margin:0 auto 10px;object-fit:contain;}
-    .v1 .lab{font-size:12.5px;font-weight:800;color:var(--muted);letter-spacing:.04em;}
-    .v1 .amt{font-size:36px;color:var(--royal);margin:6px 0 2px;}
-    .v1 .per{font-size:13px;color:var(--muted);font-weight:700;}
-    .v1 .amtin{color:var(--royal);margin:8px 0 0;} .v1 .amtin input{font-size:30px;}
-    .v1 .donate-btn{margin-top:18px;background:var(--royal);color:#fff;border:2px solid var(--royal);padding:11px;font-size:15px;}
+    /* heart + title (title on its own line) */
+    .wtop{text-align:center;margin-bottom:22px;}
+    .wtop .heart{width:40px;height:40px;object-fit:contain;display:block;margin:0 auto 6px;}
+    .wtop .wtitle{font-size:21px;font-weight:900;color:var(--ink);}
 
-    /* ───── V2 warm ───── */
-    .v2 .card{background:linear-gradient(180deg,#FFFDF8,#FBE9DE);border:2px solid #1F1812;border-radius:26px;
-      box-shadow:5px 5px 0 rgba(31,24,18,.22);padding:24px 18px 22px;text-align:center;display:flex;flex-direction:column;}
-    .v2 .card img.ic{width:40px;height:40px;margin:0 auto 8px;object-fit:contain;}
-    .v2 .lab{font-size:12.5px;font-weight:800;color:var(--royal-deep);}
-    .v2 .amt{font-size:38px;color:var(--royal);margin:4px 0 0;}
-    .v2 .per{font-size:13px;color:var(--muted);font-weight:700;}
-    .v2 .amtin{color:var(--royal);margin:6px 0 0;} .v2 .amtin input{font-size:30px;}
-    .v2 .donate-btn{margin-top:18px;background:linear-gradient(135deg,#E5728A,#9C1428);color:#fff;border:2.5px solid #1F1812;box-shadow:3px 3px 0 #1F1812;padding:11px;font-size:15px;}
+    /* body: amount controls on the LEFT, oji-with-golden-hearts on the RIGHT */
+    .wbody{display:flex;align-items:center;gap:22px;}
+    .wleft{flex:1;min-width:0;}
+    .wright{flex-shrink:0;}
+    .wright img{width:160px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(31,24,18,.25));}
 
-    /* ───── V3 selector widget ───── */
-    .v3 .widget{max-width:380px;margin:0 auto;background:var(--paper);border:2.5px solid var(--ink);border-radius:24px;box-shadow:6px 6px 0 rgba(31,24,18,.25);padding:26px 22px;}
-    .v3 .wtitle{text-align:center;font-weight:900;font-size:17px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;}
-    .v3 .wtitle img{width:26px;height:26px;}
-    .v3 .seg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;}
-    .v3 .seg button{font-family:inherit;cursor:pointer;font-weight:900;font-size:15px;padding:13px 4px;border-radius:13px;border:2px solid var(--ink);background:#fff;color:var(--ink);}
-    .v3 .seg button.on{background:var(--royal);color:#fff;}
-    .v3 .custombox{display:none;margin-bottom:14px;text-align:center;color:var(--royal);}
-    .v3 .custombox.show{display:block;}
-    .v3 .donate-btn{background:var(--royal);color:#fff;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:13px;font-size:16px;}
-    .v3 .perm{text-align:center;font-size:11.5px;color:var(--muted);margin-top:10px;}
+    .seg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}
+    .seg button{font-family:inherit;cursor:pointer;font-weight:900;font-size:14px;padding:12px 4px;
+      border-radius:13px;border:2px solid var(--ink);background:#fff;color:var(--ink);transition:transform .12s,background .15s;}
+    .seg button:hover{transform:translateY(-1px);}
+    .seg button.on{background:var(--royal);color:#fff;}
 
-    /* ───── V4 Oji thank-you ───── */
-    .v4 .card{background:var(--paper);border:2.5px solid var(--ink);border-radius:22px;box-shadow:4px 4px 0 var(--ink);padding:18px 16px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;}
-    .v4 .card img.oji{width:88px;height:88px;object-fit:contain;margin-top:-44px;filter:drop-shadow(0 6px 12px rgba(31,24,18,.2));}
-    .v4 .lab{font-size:12.5px;font-weight:800;color:var(--muted);margin-top:4px;}
-    .v4 .amt{font-size:34px;color:var(--royal);margin:2px 0 0;}
-    .v4 .per{font-size:13px;color:var(--muted);font-weight:700;}
-    .v4 .amtin{color:var(--royal);margin:4px 0 0;} .v4 .amtin input{font-size:28px;}
-    .v4 .donate-btn{margin-top:16px;background:var(--gold);color:var(--ink);border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:10px;font-size:14.5px;}
-    .v4 .row3{margin-top:46px;}
+    /* always-visible amount line: ¥ [value] / 月 — read-only for presets, editable for 自由記入 */
+    .amt-line{display:flex;align-items:baseline;gap:4px;margin-bottom:18px;color:var(--royal);}
+    .amt-line .yen{font-size:26px;font-weight:900;}
+    .amt-line .amt-val{width:130px;border:none;background:transparent;font-family:inherit;font-weight:900;
+      font-size:34px;letter-spacing:-.02em;color:var(--royal);outline:none;padding:0;
+      font-variant-numeric:tabular-nums;}
+    .amt-line .amt-val:read-only{cursor:default;}
+    .amt-line .amt-val:not(:read-only){border-bottom:2.5px solid var(--royal);}
+    .amt-line .amt-val::-webkit-outer-spin-button,.amt-line .amt-val::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+    .amt-line .per{font-size:15px;font-weight:700;color:var(--muted);}
 
-    /* ───── V5 gradient chibi (footer-cohesive) ───── */
-    .v5 .card{border:2.5px solid var(--ink);border-radius:22px;box-shadow:5px 5px 0 var(--ink);padding:22px 16px 20px;text-align:center;display:flex;flex-direction:column;color:#fff;}
-    .v5 .c1{background:linear-gradient(135deg,#E5728A,#9C1428);}
-    .v5 .c2{background:linear-gradient(135deg,#E8C76F,#B98F2E);color:var(--ink);}
-    .v5 .c3{background:linear-gradient(135deg,#86AD79,#3F6A3A);}
-    .v5 .card img.ic{width:34px;height:34px;margin:0 auto 8px;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25));}
-    .v5 .lab{font-size:12.5px;font-weight:800;opacity:.9;}
-    .v5 .amt{font-size:36px;margin:4px 0 0;}
-    .v5 .per{font-size:13px;font-weight:700;opacity:.85;}
-    .v5 .amtin{margin:4px 0 0;} .v5 .amtin input{font-size:28px;}
-    .v5 .donate-btn{margin-top:16px;background:#fff;color:var(--ink);border:2.5px solid var(--ink);box-shadow:3px 3px 0 rgba(31,24,18,.3);padding:11px;font-size:15px;}
+    .donate-btn{display:flex;align-items:center;justify-content:center;width:100%;cursor:pointer;
+      font-family:inherit;font-weight:900;font-size:16px;text-decoration:none;border-radius:14px;
+      background:var(--royal);color:#fff;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:13px;
+      transition:transform .14s,box-shadow .14s;}
+    .donate-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
+    .donate-btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink);}
+    .fineprint{text-align:center;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:11px;}
+
+    @media(max-width:560px){
+      .wbody{flex-direction:column-reverse;gap:10px;}
+      .wright img{width:128px;}
+      .amt-line{justify-content:center;}
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">VEGAN OJI · DONATE CARD LAB</div>
-      <h1>支援カード・5案 ♡</h1>
+      <div class="eyebrow">VEGAN OJI · DONATE WIDGET</div>
+      <h1>支援カード（金額セレクター・更新版）</h1>
       <p class="note">
-        ホームページ <b>#donate</b> の新デザイン案。<b>特典・見返りは書かない</b>シンプルな支援カード。
-        金額は <b>¥1,000/月 ・ ¥3,000/月 ・ 好きな金額/月</b> の3つ。<br>
-        ✅ <b>Stripeで「毎月・好きな金額」も可能</b>です（recurring price + <code>custom_unit_amount</code>。寄付者が金額を決めて毎月課金）。<br>
-        気に入った案を教えてください → 仕上げてStripeに接続します。
+        V3ベースの更新版。<b>¥3,000/月が初期選択</b>、金額行は常に表示（プリセットは固定表示、<b>自由記入</b>のときだけ入力可）。
+        金額は左・<b>王子と金のハート</b>の画像は右。<br>
+        気に入ったらこのままホームページ <b>#donate</b> に入れて、3つともStripeに接続します。
       </p>
     </div>
 
-    <!-- V1 -->
-    <div class="vlabel"><b>V1.</b> ミニマル（すっきり・現代的）</div>
-    <div class="band v1">
-      <h2>王子の活動を応援する</h2>
-      <p class="sub">毎月のサポートが、活動の支えになります。</p>
-      <div class="row3">
-        <div class="card"><img class="ic" src="/images/ui-icons/heart.png" alt=""><div class="lab">そっと応援</div><div class="amt">¥1,000</div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する</a></div>
-        <div class="card"><img class="ic" src="/images/ui-icons/heart.png" alt=""><div class="lab">しっかり応援</div><div class="amt">¥3,000</div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する</a></div>
-        <div class="card"><img class="ic" src="/images/ui-icons/heart.png" alt=""><div class="lab">好きな金額で</div><div class="amtin"><span>¥</span><input type="number" placeholder="2,000"></div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する</a></div>
-      </div>
-    </div>
-
-    <!-- V2 -->
-    <div class="vlabel"><b>V2.</b> あたたかカード（やわらかい・親しみ）</div>
-    <div class="band v2">
-      <h2>王子の活動を応援する</h2>
-      <p class="sub">あなたの応援が、いちばんの力になります。</p>
-      <div class="row3">
-        <div class="card"><img class="ic" src="/images/vegan-to-chikyu/icon-heart.png" alt=""><div class="lab">そっと応援</div><div class="amt">¥1,000</div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する ♡</a></div>
-        <div class="card"><img class="ic" src="/images/vegan-to-chikyu/icon-heart.png" alt=""><div class="lab">しっかり応援</div><div class="amt">¥3,000</div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する ♡</a></div>
-        <div class="card"><img class="ic" src="/images/vegan-to-chikyu/icon-heart.png" alt=""><div class="lab">好きな金額で</div><div class="amtin"><span>¥</span><input type="number" placeholder="2,000"></div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する ♡</a></div>
-      </div>
-    </div>
-
-    <!-- V3 -->
-    <div class="vlabel"><b>V3.</b> 金額セレクター（1枚・コンパクト・いちばん今風）</div>
-    <div class="band v3">
-      <h2>王子の活動を応援する</h2>
-      <p class="sub">毎月、好きな金額で。いつでも変更・解除OK。</p>
+    <div class="band">
       <div class="widget">
-        <div class="wtitle"><img src="/images/ui-icons/heart.png" alt="">毎月の支援</div>
-        <div class="seg">
-          <button type="button">¥1,000</button>
-          <button type="button" class="on">¥3,000</button>
-          <button type="button" data-custom>自由</button>
+        <div class="wtop">
+          <img class="heart" src="/images/vegan-to-chikyu/icon-heart.png" alt="">
+          <div class="wtitle">王子の活動を応援する</div>
         </div>
-        <div class="custombox"><div class="amtin"><span>¥</span><input type="number" placeholder="5,000"></div><div style="font-size:12px;color:var(--muted);font-weight:700;margin-top:2px;">/ 月</div></div>
-        <a class="donate-btn" href="#">支援する</a>
-        <div class="perm">Stripeの安全な決済ページへ進みます</div>
+        <div class="wbody">
+          <div class="wleft">
+            <div class="seg">
+              <button type="button" data-amt="1,000">¥1,000</button>
+              <button type="button" data-amt="3,000" class="on">¥3,000</button>
+              <button type="button" data-custom>自由記入</button>
+            </div>
+            <div class="amt-line">
+              <span class="yen">¥</span>
+              <input class="amt-val" type="text" inputmode="numeric" value="3,000" readonly aria-label="毎月の支援金額">
+              <span class="per">/ 月</span>
+            </div>
+            <a class="donate-btn" href="#">支援する</a>
+            <div class="fineprint">いつでも変更・解除OK ・ Stripeの安全な決済ページへ</div>
+          </div>
+          <div class="wright">
+            <img src="/images/mascot/treasure-chest.png" alt="ビーガン王子" />
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- V4 -->
-    <div class="vlabel"><b>V4.</b> 王子のお礼（キャラ主役・かわいい）</div>
-    <div class="band v4">
-      <h2>王子の活動を応援する</h2>
-      <p class="sub">ひとつひとつの応援に、王子より感謝を込めて。</p>
-      <div class="row3">
-        <div class="card"><img class="oji" src="/images/oji/oji_happy.png" alt=""><div class="lab">そっと応援</div><div class="amt">¥1,000</div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する</a></div>
-        <div class="card"><img class="oji" src="/images/oji/oji_winking.png" alt=""><div class="lab">しっかり応援</div><div class="amt">¥3,000</div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する</a></div>
-        <div class="card"><img class="oji" src="/images/oji/oji_greeting.png" alt=""><div class="lab">好きな金額で</div><div class="amtin"><span>¥</span><input type="number" placeholder="2,000"></div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する</a></div>
-      </div>
-    </div>
-
-    <!-- V5 -->
-    <div class="vlabel"><b>V5.</b> グラデ・チビ（フッターのカードと統一感）</div>
-    <div class="band v5">
-      <h2>王子の活動を応援する</h2>
-      <p class="sub">サイトのボタンとおそろいの、元気なカード。</p>
-      <div class="row3">
-        <div class="card c1"><img class="ic" src="/images/vegan-to-chikyu/icon-heart.png" alt=""><div class="lab">そっと応援</div><div class="amt">¥1,000</div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する</a></div>
-        <div class="card c2"><img class="ic" src="/images/ui-icons/crown.png" alt=""><div class="lab">しっかり応援</div><div class="amt">¥3,000</div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する</a></div>
-        <div class="card c3"><img class="ic" src="/images/ui-icons/sparkle.png" alt=""><div class="lab">好きな金額で</div><div class="amtin"><span>¥</span><input type="number" placeholder="2,000"></div><div class="per">/ 月</div><a class="donate-btn" href="#">支援する</a></div>
-      </div>
-    </div>
-
   </div>
+
   <script>
-    // V3 selector demo interactivity
-    document.querySelectorAll('.v3 .seg').forEach(function(seg){
-      var box = seg.parentElement.querySelector('.custombox');
-      seg.querySelectorAll('button').forEach(function(b){
+    (function(){
+      var seg = document.querySelectorAll('.seg button');
+      var amt = document.querySelector('.amt-val');
+      seg.forEach(function(b){
         b.addEventListener('click', function(){
-          seg.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+          seg.forEach(function(x){ x.classList.remove('on'); });
           b.classList.add('on');
-          box.classList.toggle('show', b.hasAttribute('data-custom'));
+          if (b.hasAttribute('data-custom')) {
+            amt.readOnly = false;
+            amt.value = '';
+            amt.placeholder = '5,000';
+            amt.focus();
+          } else {
+            amt.readOnly = true;
+            amt.value = b.getAttribute('data-amt'); // "1,000" or "3,000"
+          }
         });
       });
-    });
+    })();
   </script>
 </body>
 </html>
