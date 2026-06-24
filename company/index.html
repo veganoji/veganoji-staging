@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>会社概要 — ビーガン王子株式会社 | Vegan Oji Inc.</title>
+  <meta name="description" content="ビーガン王子株式会社の会社概要。社名、代表者、所在地、設立、事業内容など。「ビーガンを楽しく、美味しく、そして可愛く！」がミッションの会社です。" />
+  <link rel="canonical" href="https://veganoji.jp/company/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://veganoji.jp/company/" />
+  <meta property="og:site_name" content="ビーガン王子 Vegan Oji" />
+  <meta property="og:title" content="会社概要 — ビーガン王子株式会社 | Vegan Oji Inc." />
+  <meta property="og:description" content="ビーガン王子株式会社の会社概要。社名、代表者、所在地、設立、事業内容など。" />
+  <meta property="og:image" content="https://veganoji.jp/images/social/og-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="会社概要 — ビーガン王子株式会社" />
+  <meta name="twitter:description" content="ビーガン王子株式会社の会社概要。" />
+  <meta name="twitter:image" content="https://veganoji.jp/images/social/og-card.jpg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/crown-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/crown-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --color-paper: #FFF9EE;
+      --color-cream: #FDF1DA;
+      --color-cream-2: #F6E4BD;
+      --color-royal: #C9223A;
+      --color-royal-soft: #E55063;
+      --color-royal-deep: #9C1428;
+      --color-gold: #D4A847;
+      --color-gold-soft: #E8C76F;
+      --color-gold-deep: #9C7E2A;
+      --color-ink: #1F1812;
+      --color-ink-soft: #3C2E22;
+      --color-muted: #786148;
+      --color-sky: #B5D5E8;
+      --color-leaf: #6C9560;
+      --color-leaf-deep: #3F6A3A;
+      --color-line: #E9D9B5;
+
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+      --font-display:    var(--font-noto-sans-jp);
+      --font-jp-display: var(--font-noto-sans-jp);
+      --font-sans:       var(--font-noto-sans-jp);
+      --font-jp:         var(--font-noto-sans-jp);
+      --font-cute-jp:    var(--font-noto-sans-jp);
+    }
+
+    html, body { background: var(--color-paper); color: var(--color-ink); }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body { font-family: var(--font-sans); font-feature-settings: "ss01", "ss02", "cv11"; }
+
+    .font-jp-display  { font-family: var(--font-jp-display); }
+    .font-jp          { font-family: var(--font-jp); }
+
+    @utility eyebrow {
+      @apply text-[11px] tracking-[0.32em] uppercase text-royal font-medium;
+    }
+    @utility btn-primary {
+      @apply inline-flex items-center gap-2 rounded-2xl bg-royal text-paper px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
+      font-family: var(--font-cute-jp); font-weight: 700;
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+    @utility btn-ghost {
+      @apply inline-flex items-center gap-2 rounded-2xl bg-paper text-royal px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
+      font-family: var(--font-cute-jp); font-weight: 700;
+      border: 2.5px solid var(--color-ink);
+      box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+    .btn-primary:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal-deep); }
+    .btn-primary:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    .btn-ghost:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal); color: var(--color-paper); }
+    .btn-ghost:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--color-ink); }
+    button, .btn-primary, .btn-ghost, [class*="btn-"] { font-weight: 700 !important; }
+
+    /* ─── 会社概要 hero ─── */
+    .gaiyou-hero {
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% -10%, var(--color-cream) 0%, transparent 60%),
+        var(--color-paper);
+    }
+    .gaiyou-hero::after {
+      content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, var(--color-royal) 0%, var(--color-gold) 50%, var(--color-royal) 100%);
+    }
+    .crest { width: 54px; height: auto; filter: drop-shadow(0 6px 12px rgba(31,24,18,.18)); }
+
+    /* ─── profile table ─── */
+    .gaiyou { max-width: 780px; margin: 0 auto; }
+    .gaiyou-card {
+      background: linear-gradient(180deg, #FFFDF8, var(--color-cream));
+      border: 2.5px solid var(--color-ink); border-radius: 22px;
+      box-shadow: 7px 7px 0 var(--color-ink); overflow: hidden;
+    }
+    .grow { display: grid; grid-template-columns: 148px 1fr; border-bottom: 1.5px solid var(--color-line); }
+    .grow:last-child { border-bottom: none; }
+    .grow dt {
+      background: rgba(212,168,71,.12); padding: 16px 18px;
+      font-weight: 800; font-size: 13.5px; color: var(--color-gold-deep);
+      border-right: 1.5px solid var(--color-line); display: flex; align-items: center; letter-spacing: .02em;
+    }
+    .grow dd { margin: 0; padding: 16px 20px; font-size: 15px; line-height: 1.75; color: var(--color-ink); }
+    .grow dd a { color: var(--color-royal); font-weight: 700; text-decoration: none; }
+    .grow dd a:hover { text-decoration: underline; }
+    .grow dd .en { display: block; font-size: 12px; color: var(--color-muted); margin-top: 3px; letter-spacing: .01em; }
+    .grow dd .sns { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+    .grow dd .sns a { font-size: 13.5px; }
+    @media (max-width: 560px) {
+      .grow { grid-template-columns: 1fr; }
+      .grow dt { border-right: none; border-bottom: 1.5px solid var(--color-line); }
+    }
+    .en-summary {
+      max-width: 780px; margin: 22px auto 0;
+      background: var(--color-paper); border: 2px dashed var(--color-line); border-radius: 18px;
+      padding: 22px 24px; color: var(--color-ink-soft); font-size: 13.5px; line-height: 1.8;
+    }
+    .en-summary h2 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-gold-deep); font-weight: 800; margin: 0 0 10px; }
+    .en-summary b { color: var(--color-ink); }
+
+    /* ─── Footer (Variation B — "Big Hug Goodbye") ─── */
+    .footer-hug {
+      position: relative; overflow: hidden;
+      background: linear-gradient(180deg, var(--color-paper) 0%, var(--color-cream-2) 100%);
+      padding: 56px 24px 32px;
+    }
+    .footer-hug::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 18px;
+      background-image: radial-gradient(circle at 12px 0, var(--color-cream) 12px, transparent 13px);
+      background-size: 24px 18px; background-repeat: repeat-x; pointer-events: none;
+    }
+    .footer-hug::after {
+      content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
+      background: linear-gradient(90deg, var(--color-royal) 0%, var(--color-gold) 50%, var(--color-royal) 100%);
+    }
+    .hug-inner {
+      max-width: 880px; margin: 0 auto; position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;
+    }
+    .hug-prince { width: 200px; height: auto; filter: drop-shadow(0 14px 26px rgba(31,24,18,.18)); animation: hug-bobble 4s ease-in-out infinite; }
+    @media (max-width: 640px) { .hug-prince { width: 150px; } }
+    @keyframes hug-bobble { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-6px) rotate(-2deg); } }
+    .hug-mata { font-size: 110px; font-weight: 900; color: var(--color-royal); line-height: 0.9; letter-spacing: -0.04em; font-family: var(--font-cute-jp); }
+    @media (max-width: 640px) { .hug-mata { font-size: 78px; } }
+    .hug-thanks { font-size: 16.5px; color: var(--color-ink-soft); margin-top: 8px; font-weight: 500; }
+    .hug-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 4px; }
+    .hug-social { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hug-social a { display: inline-flex; width: 56px; height: 56px; transition: transform .25s ease, filter .25s ease; filter: drop-shadow(0 4px 8px rgba(31,24,18,.10)); }
+    .hug-social a:hover { transform: translateY(-3px) rotate(-4deg) scale(1.08); }
+    .hug-social img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .hug-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-top: 8px; font-size: 14.5px; font-weight: 700; color: var(--color-ink-soft); }
+    .hug-nav a { color: inherit; text-decoration: none; transition: color .18s ease; }
+    .hug-nav a:hover { color: var(--color-royal); }
+    .hug-extra { font-size: 13.5px; color: var(--color-muted); margin-top: -4px; }
+    .hug-extra a { color: var(--color-royal); text-decoration: none; font-weight: 600; }
+    .hug-extra a:hover { text-decoration: underline; }
+    .hug-credit { font-size: 12.5px; color: var(--color-muted); margin-top: 18px; letter-spacing: 0.04em; }
+  </style>
+  <link rel="stylesheet" href="/mnav.css" />
+</head>
+<body class="font-sans">
+
+  <!-- ─────────────  PAGE HEADER  ───────────── -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-paper/90 border-b border-line/60">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center" aria-label="ビーガン王子 — ホーム">
+        <img src="/images/voji-logos/vegan-oji-logo.png" alt="ビーガン王子" class="h-9 sm:h-10 lg:h-11 w-auto" loading="eager"/>
+      </a>
+      <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-[13px] tracking-wide text-ink-soft">
+        <a href="/#about"    class="hover:text-royal transition-colors">王子について</a>
+        <a href="/#services" class="hover:text-royal transition-colors">サービス</a>
+        <a href="/#work"     class="hover:text-royal transition-colors">活動</a>
+        <a href="/tools/"    class="hover:text-royal transition-colors">ツール</a>
+        <a href="/blog/"     class="hover:text-royal transition-colors">ブログ</a>
+        <a href="/#donate"   class="hover:text-royal transition-colors">応援する</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="/#booking" class="btn-primary text-[12px] px-3 sm:px-4 py-2 whitespace-nowrap">
+          <span class="font-jp">王子に依頼</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="hidden sm:block"><path d="M2 6h8m0 0L7 3m3 3L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </a>
+        <button id="mnav-open" type="button" class="mnav-burger md:hidden" aria-label="メニューを開く" aria-expanded="false" aria-controls="mnav-sheet">
+          <svg width="22" height="22" viewBox="0 0 22 22"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></g></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─────────────  HERO  ───────────── -->
+  <section class="gaiyou-hero">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 pt-14 sm:pt-20 pb-10 sm:pb-14 text-center">
+      <img src="/images/favicons/crown-180.png" alt="" class="crest mx-auto mb-4" />
+      <div class="eyebrow mb-3">Company Profile</div>
+      <h1 class="font-jp-display text-[40px] sm:text-[56px] text-ink" style="font-weight:900; letter-spacing:.02em;">会社<span class="text-royal">概要</span></h1>
+      <p class="font-jp text-[14px] sm:text-[15px] text-ink-soft mt-4 max-w-[580px] mx-auto leading-relaxed">
+        「ビーガンを楽しく、美味しく、そして可愛く！」<br class="hidden sm:block" />
+        ビーガン王子株式会社について。
+      </p>
+    </div>
+  </section>
+
+  <!-- ─────────────  PROFILE TABLE  ───────────── -->
+  <main class="px-6 lg:px-10 py-14 sm:py-16">
+    <div class="gaiyou">
+      <dl class="gaiyou-card">
+        <div class="grow">
+          <dt>社名</dt>
+          <dd>ビーガン王子株式会社<span class="en">Vegan Oji Inc.</span></dd>
+        </div>
+        <div class="grow">
+          <dt>代表取締役</dt>
+          <dd>Alex Derycz（アレックス・デレチ）<span class="en">Founder &amp; CEO</span></dd>
+        </div>
+        <div class="grow">
+          <dt>設立</dt>
+          <dd>2020年12月24日<span class="en">Established December 24, 2020</span></dd>
+        </div>
+        <div class="grow">
+          <dt>所在地</dt>
+          <dd>
+            〒101-0054<br />東京都千代田区３－１５ 錦精社神田ビル ２階２４８号室
+            <span class="en"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E9%8C%A6%E7%B2%BE%E7%A4%BE%E7%A5%9E%E7%94%B0%E3%83%93%E3%83%AB" target="_blank" rel="noopener">📍 Googleマップで見る</a></span>
+          </dd>
+        </div>
+        <div class="grow">
+          <dt>事業内容</dt>
+          <dd>D2Cブランド事業／コミュニティーサービス事業／コンサルティングサービス事業<span class="en">D2C brand · community services · consulting</span></dd>
+        </div>
+        <div class="grow">
+          <dt>ミッション</dt>
+          <dd>ビーガンを楽しく、美味しく、そして可愛く！<span class="en">Make veganism fun, delicious, and cute.</span></dd>
+        </div>
+        <div class="grow">
+          <dt>パーパス</dt>
+          <dd>地球環境と共存しながら、誰もが豊かな人生を送れる未来を作りたい<span class="en">A future where everyone thrives in harmony with the planet.</span></dd>
+        </div>
+        <div class="grow">
+          <dt>企業HP</dt>
+          <dd><a href="https://veganoji.jp/">veganoji.jp</a></dd>
+        </div>
+        <div class="grow">
+          <dt>お問い合わせ</dt>
+          <dd><a href="mailto:info@veganoji.jp">info@veganoji.jp</a></dd>
+        </div>
+        <div class="grow">
+          <dt>公式SNS</dt>
+          <dd>
+            <div class="sns">
+              <a href="https://instagram.com/veganoji" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://x.com/VeganOji" target="_blank" rel="noopener">X (Twitter)</a>
+              <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener">YouTube</a>
+              <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener">TikTok</a>
+              <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener">LINE</a>
+            </div>
+          </dd>
+        </div>
+      </dl>
+
+      <!-- English mirror -->
+      <div class="en-summary">
+        <h2>Company Profile (English)</h2>
+        <b>Vegan Oji Inc.</b> — Founded December 24, 2020 by <b>Alex Derycz</b> (Founder &amp; CEO), a Tokyo-based company on a mission to make veganism <b>“fun, delicious, and cute.”</b> We work across D2C brand products, community services, and consulting.<br />
+        📍 Room 248, 2F Kinseisha Kanda Bldg, 3-15, Chiyoda-ku, Tokyo 101-0054 ・ ✉️ <a href="mailto:info@veganoji.jp" style="color:var(--color-royal);font-weight:700;text-decoration:none;">info@veganoji.jp</a>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/" class="btn-ghost">← ホームへ戻る</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared bottom-of-page nav card (edit /oji-footer.js to update every page) -->
+  <section class="px-6 py-14 sm:py-16"><div id="oji-footer-nav"></div></section>
+
+  <footer class="footer-hug">
+    <div class="hug-inner">
+      <img class="hug-prince" src="/images/oji/oji_greeting.png" alt="ビーガン王子" loading="lazy" />
+      <div>
+        <div class="hug-mata">またね！</div>
+        <div class="hug-thanks">最後まで読んでくれて、ありがとう ♡</div>
+      </div>
+      <div class="hug-actions">
+        <a href="/#donate" class="btn-primary !text-[15px]">応援する</a>
+        <a href="/#booking" class="btn-ghost !text-[15px]">お仕事相談</a>
+      </div>
+      <div class="hug-social" aria-label="王子に会える場所">
+        <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" aria-label="Instagram"><img src="/images/social/ig.png" alt=""/></a>
+        <a href="https://x.com/VeganOji" target="_blank" rel="noopener" aria-label="X"><img src="/images/social/x.png" alt=""/></a>
+        <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener" aria-label="YouTube"><img src="/images/social/yt.png" alt=""/></a>
+        <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener" aria-label="TikTok"><img src="/images/social/tt.png" alt=""/></a>
+        <a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/images/social/li.png" alt=""/></a>
+      </div>
+      <nav class="hug-nav" aria-label="フッターナビゲーション">
+        <a href="/#about">王子について</a>
+        <a href="/#services">サービス</a>
+        <a href="/tools/">王子のツール</a>
+        <a href="/vegan-and-earth/">ビーガンと地球</a>
+        <a href="/fish-and-life/">魚の環境といのち</a>
+        <a href="/#work">活動</a>
+        <a href="/blog/">ブログ</a>
+        <a href="/#character">プロフィール</a>
+      </nav>
+      <div class="hug-extra">
+        <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener">LINEスタンプ発売中</a>
+      </div>
+      <div class="hug-credit">
+        会社概要 ・ © 2026 ビーガン王子株式会社
+      </div>
+    </div>
+  </footer>
+
+  <script src="/mnav.js" defer></script>
+  <script src="/oji-footer.js" defer></script>
+</body>
+</html>
