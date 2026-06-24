@@ -55,24 +55,19 @@
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     body { font-family: var(--font-sans); font-feature-settings: "ss01", "ss02", "cv11"; }
 
-    .font-jp-display  { font-family: var(--font-jp-display); }
-    .font-jp          { font-family: var(--font-jp); }
+    .font-jp-display { font-family: var(--font-jp-display); }
+    .font-jp         { font-family: var(--font-jp); }
 
-    @utility eyebrow {
-      @apply text-[11px] tracking-[0.32em] uppercase text-royal font-medium;
-    }
     @utility btn-primary {
-      @apply inline-flex items-center gap-2 rounded-2xl bg-royal text-paper px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
+      @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-royal text-paper px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
       font-family: var(--font-cute-jp); font-weight: 700;
-      border: 2.5px solid var(--color-ink);
-      box-shadow: 4px 4px 0 var(--color-ink);
+      border: 2.5px solid var(--color-ink); box-shadow: 4px 4px 0 var(--color-ink);
       transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
     }
     @utility btn-ghost {
-      @apply inline-flex items-center gap-2 rounded-2xl bg-paper text-royal px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
+      @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-paper text-royal px-5 sm:px-6 py-2.5 sm:py-3 text-[14px] sm:text-[15px];
       font-family: var(--font-cute-jp); font-weight: 700;
-      border: 2.5px solid var(--color-ink);
-      box-shadow: 4px 4px 0 var(--color-ink);
+      border: 2.5px solid var(--color-ink); box-shadow: 4px 4px 0 var(--color-ink);
       transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
     }
     .btn-primary:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--color-ink); background: var(--color-royal-deep); }
@@ -81,70 +76,68 @@
     .btn-ghost:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--color-ink); }
     button, .btn-primary, .btn-ghost, [class*="btn-"] { font-weight: 700 !important; }
 
-    /* ─── 会社概要 hero ─── */
-    .gaiyou-hero {
-      position: relative; overflow: hidden;
-      background:
-        radial-gradient(ellipse at 50% -10%, var(--color-cream) 0%, transparent 60%),
-        var(--color-paper);
-    }
-    .gaiyou-hero::after {
-      content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 5px;
-      background: linear-gradient(90deg, var(--color-royal) 0%, var(--color-gold) 50%, var(--color-royal) 100%);
-    }
-    .crest { width: 54px; height: auto; filter: drop-shadow(0 6px 12px rgba(31,24,18,.18)); }
+    /* ── hero ── */
+    .gaiyou-hero { position: relative; overflow: hidden;
+      background: radial-gradient(120% 90% at 50% -20%, var(--color-cream) 0%, transparent 62%), var(--color-paper); }
+    .gaiyou-hero::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--color-royal) 0%, var(--color-gold) 50%, var(--color-royal) 100%); opacity: .85; }
+    .crest { width: 50px; height: auto; filter: drop-shadow(0 6px 12px rgba(31,24,18,.16)); }
 
-    /* ─── profile table ─── */
-    .gaiyou { max-width: 780px; margin: 0 auto; }
-    .gaiyou-card {
-      background: linear-gradient(180deg, #FFFDF8, var(--color-cream));
-      border: 2.5px solid var(--color-ink); border-radius: 22px;
-      box-shadow: 7px 7px 0 var(--color-ink); overflow: hidden;
-    }
-    .grow { display: grid; grid-template-columns: 148px 1fr; border-bottom: 1.5px solid var(--color-line); }
-    .grow:last-child { border-bottom: none; }
-    .grow dt {
-      background: rgba(212,168,71,.12); padding: 16px 18px;
-      font-weight: 800; font-size: 13.5px; color: var(--color-gold-deep);
-      border-right: 1.5px solid var(--color-line); display: flex; align-items: center; letter-spacing: .02em;
-    }
-    .grow dd { margin: 0; padding: 16px 20px; font-size: 15px; line-height: 1.75; color: var(--color-ink); }
-    .grow dd a { color: var(--color-royal); font-weight: 700; text-decoration: none; }
-    .grow dd a:hover { text-decoration: underline; }
-    .grow dd .en { display: block; font-size: 12px; color: var(--color-muted); margin-top: 3px; letter-spacing: .01em; }
-    .grow dd .sns { display: flex; flex-wrap: wrap; gap: 8px 14px; }
-    .grow dd .sns a { font-size: 13.5px; }
-    @media (max-width: 560px) {
-      .grow { grid-template-columns: 1fr; }
-      .grow dt { border-right: none; border-bottom: 1.5px solid var(--color-line); }
-    }
-    .en-summary {
-      max-width: 780px; margin: 22px auto 0;
-      background: var(--color-paper); border: 2px dashed var(--color-line); border-radius: 18px;
-      padding: 22px 24px; color: var(--color-ink-soft); font-size: 13.5px; line-height: 1.8;
-    }
-    .en-summary h2 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-gold-deep); font-weight: 800; margin: 0 0 10px; }
-    .en-summary b { color: var(--color-ink); }
+    /* ── layout ── */
+    .gaiyou-wrap { max-width: 1080px; margin: 0 auto; }
+    .gaiyou-grid { display: grid; gap: 30px; align-items: start; }
+    @media (min-width: 1024px) { .gaiyou-grid { grid-template-columns: 332px 1fr; gap: 48px; } }
 
-    /* ─── Footer (Variation B — "Big Hug Goodbye") ─── */
-    .footer-hug {
-      position: relative; overflow: hidden;
-      background: linear-gradient(180deg, var(--color-paper) 0%, var(--color-cream-2) 100%);
-      padding: 56px 24px 32px;
+    /* ── identity card (left) ── */
+    .id-card {
+      position: relative; overflow: hidden; text-align: center;
+      background: linear-gradient(168deg, #FFFFFF 0%, var(--color-cream) 100%);
+      border: 1.5px solid var(--color-line); border-radius: 26px;
+      box-shadow: 0 26px 50px -34px rgba(31,24,18,.55); padding: 34px 26px 30px;
     }
-    .footer-hug::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 18px;
+    @media (min-width: 1024px) { .id-card { position: sticky; top: 100px; } }
+    .id-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, var(--color-royal), var(--color-gold) 55%, var(--color-royal)); }
+    .id-crest { width: 64px; height: auto; margin: 4px auto 14px; filter: drop-shadow(0 8px 16px rgba(31,24,18,.18)); }
+    .id-name { font-size: 22px; font-weight: 900; letter-spacing: .01em; line-height: 1.35; }
+    .id-name-en { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-muted); font-weight: 700; margin-top: 5px; }
+    .id-badge { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
+      font-size: 12px; font-weight: 800; letter-spacing: .04em; color: var(--color-gold-deep);
+      background: rgba(212,168,71,.14); border: 1.5px solid var(--color-gold-soft); border-radius: 999px; padding: 5px 14px; }
+    .id-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 22px; }
+    .id-actions .btn-primary, .id-actions .btn-ghost { width: 100%; box-shadow: 3px 3px 0 var(--color-ink); }
+
+    /* ── detail list (right) ── */
+    .detail-card {
+      background: #FFFFFF; border: 1.5px solid var(--color-line); border-radius: 24px;
+      box-shadow: 0 26px 50px -34px rgba(31,24,18,.5); overflow: hidden;
+    }
+    .d-row { display: grid; grid-template-columns: 1fr; gap: 2px;
+      padding: 20px 26px; border-bottom: 1px solid var(--color-line); transition: background .18s ease; }
+    .d-row:last-child { border-bottom: none; }
+    .d-row:hover { background: rgba(253,241,218,.5); }
+    @media (min-width: 600px) { .d-row { grid-template-columns: 150px 1fr; gap: 18px; align-items: baseline; padding: 22px 30px; } }
+    .d-row dt { font-size: 11.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--color-gold-deep); display: flex; align-items: center; }
+    .d-row dt .jp { font-size: 14px; letter-spacing: .02em; text-transform: none; color: var(--color-ink-soft); }
+    .d-row dd { margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--color-ink); font-weight: 500; }
+    .d-row dd .en { display: block; font-size: 12px; color: var(--color-muted); margin-top: 3px; font-weight: 500; letter-spacing: .01em; }
+    .d-row dd a { color: var(--color-royal); font-weight: 700; text-decoration: none; }
+    .d-row dd a:hover { text-decoration: underline; }
+    .d-row dd .map { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 13px; }
+    .sns { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+    .sns a { font-size: 14px; }
+
+    /* ── footer (Big Hug Goodbye — shared) ── */
+    .footer-hug { position: relative; overflow: hidden;
+      background: linear-gradient(180deg, var(--color-paper) 0%, var(--color-cream-2) 100%); padding: 56px 24px 32px; }
+    .footer-hug::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 18px;
       background-image: radial-gradient(circle at 12px 0, var(--color-cream) 12px, transparent 13px);
-      background-size: 24px 18px; background-repeat: repeat-x; pointer-events: none;
-    }
-    .footer-hug::after {
-      content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
-      background: linear-gradient(90deg, var(--color-royal) 0%, var(--color-gold) 50%, var(--color-royal) 100%);
-    }
-    .hug-inner {
-      max-width: 880px; margin: 0 auto; position: relative; z-index: 2;
-      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;
-    }
+      background-size: 24px 18px; background-repeat: repeat-x; pointer-events: none; }
+    .footer-hug::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
+      background: linear-gradient(90deg, var(--color-royal) 0%, var(--color-gold) 50%, var(--color-royal) 100%); }
+    .hug-inner { max-width: 880px; margin: 0 auto; position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }
     .hug-prince { width: 200px; height: auto; filter: drop-shadow(0 14px 26px rgba(31,24,18,.18)); animation: hug-bobble 4s ease-in-out infinite; }
     @media (max-width: 640px) { .hug-prince { width: 150px; } }
     @keyframes hug-bobble { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-6px) rotate(-2deg); } }
@@ -168,7 +161,7 @@
 </head>
 <body class="font-sans">
 
-  <!-- ─────────────  PAGE HEADER  ───────────── -->
+  <!-- ─────────────  PAGE HEADER (same as other content pages)  ───────────── -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-paper/90 border-b border-line/60">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center" aria-label="ビーガン王子 — ホーム">
@@ -178,7 +171,6 @@
         <a href="/#about"    class="hover:text-royal transition-colors">王子について</a>
         <a href="/#services" class="hover:text-royal transition-colors">サービス</a>
         <a href="/#work"     class="hover:text-royal transition-colors">活動</a>
-        <a href="/tools/"    class="hover:text-royal transition-colors">ツール</a>
         <a href="/blog/"     class="hover:text-royal transition-colors">ブログ</a>
         <a href="/#donate"   class="hover:text-royal transition-colors">応援する</a>
       </nav>
@@ -196,83 +188,82 @@
 
   <!-- ─────────────  HERO  ───────────── -->
   <section class="gaiyou-hero">
-    <div class="max-w-[1100px] mx-auto px-6 lg:px-10 pt-14 sm:pt-20 pb-10 sm:pb-14 text-center">
-      <img src="/images/favicons/crown-180.png" alt="" class="crest mx-auto mb-4" />
-      <div class="eyebrow mb-3">Company Profile</div>
-      <h1 class="font-jp-display text-[40px] sm:text-[56px] text-ink" style="font-weight:900; letter-spacing:.02em;">会社<span class="text-royal">概要</span></h1>
-      <p class="font-jp text-[14px] sm:text-[15px] text-ink-soft mt-4 max-w-[580px] mx-auto leading-relaxed">
-        「ビーガンを楽しく、美味しく、そして可愛く！」<br class="hidden sm:block" />
-        ビーガン王子株式会社について。
-      </p>
+    <div class="max-w-[1080px] mx-auto px-6 lg:px-10 pt-12 sm:pt-16 pb-9 sm:pb-12 text-center">
+      <img src="/images/favicons/crown-180.png" alt="" class="crest mx-auto mb-3" />
+      <h1 class="font-jp-display text-[38px] sm:text-[54px] text-ink" style="font-weight:900; letter-spacing:.02em;">会社<span class="text-royal">概要</span></h1>
     </div>
   </section>
 
-  <!-- ─────────────  PROFILE TABLE  ───────────── -->
-  <main class="px-6 lg:px-10 py-14 sm:py-16">
-    <div class="gaiyou">
-      <dl class="gaiyou-card">
-        <div class="grow">
-          <dt>社名</dt>
-          <dd>ビーガン王子株式会社<span class="en">Vegan Oji Inc.</span></dd>
-        </div>
-        <div class="grow">
-          <dt>代表取締役</dt>
-          <dd>Alex Derycz（アレックス・デレチ）<span class="en">Founder &amp; CEO</span></dd>
-        </div>
-        <div class="grow">
-          <dt>設立</dt>
-          <dd>2020年12月24日<span class="en">Established December 24, 2020</span></dd>
-        </div>
-        <div class="grow">
-          <dt>所在地</dt>
-          <dd>
-            〒101-0054<br />東京都千代田区３－１５ 錦精社神田ビル ２階２４８号室
-            <span class="en"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E9%8C%A6%E7%B2%BE%E7%A4%BE%E7%A5%9E%E7%94%B0%E3%83%93%E3%83%AB" target="_blank" rel="noopener">📍 Googleマップで見る</a></span>
-          </dd>
-        </div>
-        <div class="grow">
-          <dt>事業内容</dt>
-          <dd>D2Cブランド事業／コミュニティーサービス事業／コンサルティングサービス事業<span class="en">D2C brand · community services · consulting</span></dd>
-        </div>
-        <div class="grow">
-          <dt>ミッション</dt>
-          <dd>ビーガンを楽しく、美味しく、そして可愛く！<span class="en">Make veganism fun, delicious, and cute.</span></dd>
-        </div>
-        <div class="grow">
-          <dt>パーパス</dt>
-          <dd>地球環境と共存しながら、誰もが豊かな人生を送れる未来を作りたい<span class="en">A future where everyone thrives in harmony with the planet.</span></dd>
-        </div>
-        <div class="grow">
-          <dt>企業HP</dt>
-          <dd><a href="https://veganoji.jp/">veganoji.jp</a></dd>
-        </div>
-        <div class="grow">
-          <dt>お問い合わせ</dt>
-          <dd><a href="mailto:info@veganoji.jp">info@veganoji.jp</a></dd>
-        </div>
-        <div class="grow">
-          <dt>公式SNS</dt>
-          <dd>
-            <div class="sns">
-              <a href="https://instagram.com/veganoji" target="_blank" rel="noopener">Instagram</a>
-              <a href="https://x.com/VeganOji" target="_blank" rel="noopener">X (Twitter)</a>
-              <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener">YouTube</a>
-              <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener">TikTok</a>
-              <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener">LINE</a>
+  <!-- ─────────────  CONTENT  ───────────── -->
+  <main class="px-6 lg:px-10 py-12 sm:py-16">
+    <div class="gaiyou-wrap">
+      <div class="gaiyou-grid">
+
+        <!-- identity (left) -->
+        <aside>
+          <div class="id-card">
+            <img src="/images/favicons/crown-180.png" alt="" class="id-crest" />
+            <div class="id-name">ビーガン王子株式会社</div>
+            <div class="id-name-en">Vegan Oji Inc.</div>
+            <div class="id-badge">👑 Established 2020.12.24</div>
+            <div class="id-actions">
+              <a href="mailto:info@veganoji.jp" class="btn-primary !text-[14px]">お問い合わせ</a>
+              <a href="/" class="btn-ghost !text-[14px]">ホームへ戻る</a>
             </div>
-          </dd>
-        </div>
-      </dl>
+          </div>
+        </aside>
 
-      <!-- English mirror -->
-      <div class="en-summary">
-        <h2>Company Profile (English)</h2>
-        <b>Vegan Oji Inc.</b> — Founded December 24, 2020 by <b>Alex Derycz</b> (Founder &amp; CEO), a Tokyo-based company on a mission to make veganism <b>“fun, delicious, and cute.”</b> We work across D2C brand products, community services, and consulting.<br />
-        📍 Room 248, 2F Kinseisha Kanda Bldg, 3-15, Chiyoda-ku, Tokyo 101-0054 ・ ✉️ <a href="mailto:info@veganoji.jp" style="color:var(--color-royal);font-weight:700;text-decoration:none;">info@veganoji.jp</a>
-      </div>
+        <!-- details (right) -->
+        <dl class="detail-card">
+          <div class="d-row">
+            <dt><span class="jp">代表取締役</span></dt>
+            <dd>Alex Derycz（アレックス・デレチ）<span class="en">Founder &amp; CEO</span></dd>
+          </div>
+          <div class="d-row">
+            <dt><span class="jp">設立</span></dt>
+            <dd>2020年12月24日</dd>
+          </div>
+          <div class="d-row">
+            <dt><span class="jp">所在地</span></dt>
+            <dd>
+              〒101-0054<br />東京都千代田区３－１５ 錦精社神田ビル ２階２４８号室
+              <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E9%8C%A6%E7%B2%BE%E7%A4%BE%E7%A5%9E%E7%94%B0%E3%83%93%E3%83%AB" target="_blank" rel="noopener">📍 Googleマップで見る</a>
+            </dd>
+          </div>
+          <div class="d-row">
+            <dt><span class="jp">事業内容</span></dt>
+            <dd>D2Cブランド事業／コミュニティーサービス事業／コンサルティングサービス事業<span class="en">D2C brand · community services · consulting</span></dd>
+          </div>
+          <div class="d-row">
+            <dt><span class="jp">ミッション</span></dt>
+            <dd>ビーガンを楽しく、美味しく、そして可愛く！<span class="en">Make veganism fun, delicious, and cute.</span></dd>
+          </div>
+          <div class="d-row">
+            <dt><span class="jp">パーパス</span></dt>
+            <dd>地球環境と共存しながら、誰もが豊かな人生を送れる未来を作りたい<span class="en">A future where everyone thrives in harmony with the planet.</span></dd>
+          </div>
+          <div class="d-row">
+            <dt><span class="jp">企業HP</span></dt>
+            <dd><a href="https://veganoji.jp/">veganoji.jp</a></dd>
+          </div>
+          <div class="d-row">
+            <dt><span class="jp">お問い合わせ</span></dt>
+            <dd><a href="mailto:info@veganoji.jp">info@veganoji.jp</a></dd>
+          </div>
+          <div class="d-row">
+            <dt><span class="jp">公式SNS</span></dt>
+            <dd>
+              <div class="sns">
+                <a href="https://instagram.com/veganoji" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://x.com/VeganOji" target="_blank" rel="noopener">X (Twitter)</a>
+                <a href="https://www.youtube.com/@veganoji" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://www.tiktok.com/@veganoji" target="_blank" rel="noopener">TikTok</a>
+                <a href="https://store.line.me/stickershop/author/veganoji" target="_blank" rel="noopener">LINE</a>
+              </div>
+            </dd>
+          </div>
+        </dl>
 
-      <div class="text-center mt-12">
-        <a href="/" class="btn-ghost">← ホームへ戻る</a>
       </div>
     </div>
   </main>
