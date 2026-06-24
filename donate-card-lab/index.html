@@ -24,53 +24,45 @@
       background:#FFFDF8;border:2px solid rgba(31,24,18,.12);border-radius:16px;padding:13px 18px;text-align:left;}
     .note b{color:var(--royal);}
 
-    /* red donate band (mirrors live #donate) */
     .band{margin-top:26px;background:var(--royal);border-radius:24px;padding:40px 22px;
       background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 11px);}
 
-    .widget{max-width:580px;margin:0 auto;background:var(--paper);border:2.5px solid var(--ink);
+    .dwidget{max-width:580px;margin:0 auto;background:var(--paper);border:2.5px solid var(--ink);
       border-radius:26px;box-shadow:6px 6px 0 rgba(31,24,18,.28);padding:26px 26px 24px;}
+    .dw-title{text-align:center;font-size:21px;font-weight:900;color:var(--ink);margin-bottom:22px;}
 
-    /* heart + title (title on its own line) */
-    .wtop{text-align:center;margin-bottom:22px;}
-    .wtop .heart{width:40px;height:40px;object-fit:contain;display:block;margin:0 auto 6px;}
-    .wtop .wtitle{font-size:21px;font-weight:900;color:var(--ink);}
+    .dw-body{display:flex;align-items:center;gap:22px;}
+    .dw-left{flex:1;min-width:0;}
+    .dw-right{flex-shrink:0;}
+    .dw-right img{width:160px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(31,24,18,.25));}
 
-    /* body: amount controls on the LEFT, oji-with-golden-hearts on the RIGHT */
-    .wbody{display:flex;align-items:center;gap:22px;}
-    .wleft{flex:1;min-width:0;}
-    .wright{flex-shrink:0;}
-    .wright img{width:160px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(31,24,18,.25));}
-
-    .seg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}
-    .seg button{font-family:inherit;cursor:pointer;font-weight:900;font-size:14px;padding:12px 4px;
+    .dw-seg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;}
+    .dw-seg button{font-family:inherit;cursor:pointer;font-weight:900;font-size:14px;padding:12px 4px;
       border-radius:13px;border:2px solid var(--ink);background:#fff;color:var(--ink);transition:transform .12s,background .15s;}
-    .seg button:hover{transform:translateY(-1px);}
-    .seg button.on{background:var(--royal);color:#fff;}
+    .dw-seg button:hover{transform:translateY(-1px);}
+    .dw-seg button.on{background:var(--royal);color:#fff;}
 
-    /* always-visible amount line: ¥ [value] / 月 — read-only for presets, editable for 自由記入 */
-    .amt-line{display:flex;align-items:baseline;gap:4px;margin-bottom:18px;color:var(--royal);}
-    .amt-line .yen{font-size:26px;font-weight:900;}
-    .amt-line .amt-val{width:130px;border:none;background:transparent;font-family:inherit;font-weight:900;
-      font-size:34px;letter-spacing:-.02em;color:var(--royal);outline:none;padding:0;
+    /* amount line — centered over the 支援する button, "/月" tight to the number */
+    .dw-amt{display:flex;align-items:baseline;justify-content:center;gap:1px;margin-bottom:16px;color:var(--royal);}
+    .dw-amt .yen{font-size:26px;font-weight:900;}
+    .dw-amt .val{font-size:34px;font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+    .dw-amt .vin{width:108px;border:none;background:transparent;font-family:inherit;font-weight:900;font-size:34px;
+      letter-spacing:-.02em;color:var(--royal);outline:none;padding:0 2px;border-bottom:2.5px solid var(--royal);
       font-variant-numeric:tabular-nums;}
-    .amt-line .amt-val:read-only{cursor:default;}
-    .amt-line .amt-val:not(:read-only){border-bottom:2.5px solid var(--royal);}
-    .amt-line .amt-val::-webkit-outer-spin-button,.amt-line .amt-val::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
-    .amt-line .per{font-size:15px;font-weight:700;color:var(--muted);}
+    .dw-amt .vin::-webkit-outer-spin-button,.dw-amt .vin::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+    .dw-amt .per{font-size:15px;font-weight:700;color:var(--muted);margin-left:2px;}
 
-    .donate-btn{display:flex;align-items:center;justify-content:center;width:100%;cursor:pointer;
+    .dw-btn{display:flex;align-items:center;justify-content:center;width:100%;cursor:pointer;
       font-family:inherit;font-weight:900;font-size:16px;text-decoration:none;border-radius:14px;
       background:var(--royal);color:#fff;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:13px;
       transition:transform .14s,box-shadow .14s;}
-    .donate-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
-    .donate-btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink);}
-    .fineprint{text-align:center;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:11px;}
+    .dw-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
+    .dw-btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink);}
+    .dw-fine{text-align:center;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:11px;}
 
     @media(max-width:560px){
-      .wbody{flex-direction:column-reverse;gap:10px;}
-      .wright img{width:128px;}
-      .amt-line{justify-content:center;}
+      .dw-body{flex-direction:column-reverse;gap:10px;}
+      .dw-right img{width:128px;}
     }
   </style>
 </head>
@@ -80,34 +72,31 @@
       <div class="eyebrow">VEGAN OJI · DONATE WIDGET</div>
       <h1>支援カード（金額セレクター・更新版）</h1>
       <p class="note">
-        V3ベースの更新版。<b>¥3,000/月が初期選択</b>、金額行は常に表示（プリセットは固定表示、<b>自由記入</b>のときだけ入力可）。
-        金額は左・<b>王子と金のハート</b>の画像は右。<br>
-        気に入ったらこのままホームページ <b>#donate</b> に入れて、3つともStripeに接続します。
+        ¥3,000/月が初期選択。金額行は常に表示で <b>支援するボタンの上に中央寄せ</b>、ハート画像は削除（王子の画像で十分）。<br>
+        ✅ 3つともStripe接続済み（実リンク）。<b>自由記入</b>はStripeの仕様上、¥100きざみの数量調整で金額を決めます（決済ページで変更可）。
       </p>
     </div>
 
     <div class="band">
-      <div class="widget">
-        <div class="wtop">
-          <img class="heart" src="/images/vegan-to-chikyu/icon-heart.png" alt="">
-          <div class="wtitle">王子の活動を応援する</div>
-        </div>
-        <div class="wbody">
-          <div class="wleft">
-            <div class="seg">
-              <button type="button" data-amt="1,000">¥1,000</button>
-              <button type="button" data-amt="3,000" class="on">¥3,000</button>
-              <button type="button" data-custom>自由記入</button>
+      <div class="dwidget">
+        <div class="dw-title">王子の活動を応援する</div>
+        <div class="dw-body">
+          <div class="dw-left">
+            <div class="dw-seg">
+              <button type="button" data-amt="1,000" data-link="https://buy.stripe.com/7sI03zbyj33T7WE144">¥1,000</button>
+              <button type="button" data-amt="3,000" data-link="https://buy.stripe.com/eVq7sKa2maEH8tRaKvao80f" class="on">¥3,000</button>
+              <button type="button" data-custom data-link="https://buy.stripe.com/28E28qb6qaEH25t3i3ao80g">自由記入</button>
             </div>
-            <div class="amt-line">
+            <div class="dw-amt">
               <span class="yen">¥</span>
-              <input class="amt-val" type="text" inputmode="numeric" value="3,000" readonly aria-label="毎月の支援金額">
-              <span class="per">/ 月</span>
+              <span class="val">3,000</span>
+              <input class="vin" type="text" inputmode="numeric" placeholder="5,000" style="display:none" aria-label="毎月の支援金額">
+              <span class="per">/月</span>
             </div>
-            <a class="donate-btn" href="#">支援する</a>
-            <div class="fineprint">いつでも変更・解除OK ・ Stripeの安全な決済ページへ</div>
+            <a class="dw-btn" href="https://buy.stripe.com/eVq7sKa2maEH8tRaKvao80f" target="_blank" rel="noopener">支援する</a>
+            <div class="dw-fine">いつでも変更・解除OK ・ Stripeの安全な決済ページへ</div>
           </div>
-          <div class="wright">
+          <div class="dw-right">
             <img src="/images/mascot/treasure-chest.png" alt="ビーガン王子" />
           </div>
         </div>
@@ -117,20 +106,24 @@
 
   <script>
     (function(){
-      var seg = document.querySelectorAll('.seg button');
-      var amt = document.querySelector('.amt-val');
+      var seg = document.querySelectorAll('.dw-seg button');
+      var val = document.querySelector('.dw-amt .val');
+      var vin = document.querySelector('.dw-amt .vin');
+      var btn = document.querySelector('.dw-btn');
       seg.forEach(function(b){
         b.addEventListener('click', function(){
           seg.forEach(function(x){ x.classList.remove('on'); });
           b.classList.add('on');
+          btn.href = b.getAttribute('data-link');
           if (b.hasAttribute('data-custom')) {
-            amt.readOnly = false;
-            amt.value = '';
-            amt.placeholder = '5,000';
-            amt.focus();
+            val.style.display = 'none';
+            vin.style.display = 'inline-block';
+            vin.value = '';
+            vin.focus();
           } else {
-            amt.readOnly = true;
-            amt.value = b.getAttribute('data-amt'); // "1,000" or "3,000"
+            vin.style.display = 'none';
+            val.style.display = 'inline';
+            val.textContent = b.getAttribute('data-amt');
           }
         });
       });
