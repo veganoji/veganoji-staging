@@ -2063,7 +2063,9 @@
         .dw-body{display:flex;align-items:center;gap:22px;}
         .dw-left{flex:1;min-width:0;}
         .dw-right{flex-shrink:0;}
-        .dw-right img{width:160px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(31,24,18,.25));}
+        @keyframes dwBob{0%,100%{transform:translateY(0) rotate(-1.2deg);}50%{transform:translateY(-4px) rotate(1.2deg);}}
+        .dw-right img{width:160px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(31,24,18,.25));animation:dwBob 4.5s ease-in-out infinite;transform-origin:bottom center;}
+        @media(prefers-reduced-motion:reduce){.dw-right img{animation:none;}}
         .dw-seg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;}
         .dw-seg button{font-family:inherit;cursor:pointer;font-weight:900;font-size:14px;padding:12px 4px;border-radius:13px;
           border:2px solid #1F1812;background:#fff;color:#1F1812;transition:transform .12s,background .15s;}
