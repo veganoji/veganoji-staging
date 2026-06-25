@@ -1697,7 +1697,27 @@
         emptyEl.classList.add('hidden');
         filterEl.classList.add('hidden');
         postEl.classList.remove('hidden');
-        const meta = allPosts.find(p => p.slug === slug);
+        let meta = allPosts.find(p => p.slug === slug);
+        // Preview fallback: render an unlisted draft straight from its .md frontmatter,
+        // for /blog/?post=<slug>&preview=1 before the post is added to posts.json.
+        if (!meta && new URLSearchParams(location.search).get('preview') === '1') {
+          try {
+            const raw = await fetch('/blog/posts/' + slug + '.md', { cache: 'no-cache' }).then(r => r.ok ? r.text() : '');
+            const fm = raw.match(/^---\n([\s\S]*?)\n---/);
+            if (fm) {
+              meta = { slug };
+              for (const line of fm[1].split('\n')) {
+                const i = line.indexOf(':'); if (i < 0) continue;
+                const k = line.slice(0, i).trim();
+                let v = line.slice(i + 1).trim();
+                if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1, -1);
+                meta[k] = v;
+              }
+              const rb = document.querySelector('meta[name="robots"]') || document.head.appendChild(Object.assign(document.createElement('meta'), { name: 'robots' }));
+              rb.content = 'noindex,nofollow';
+            }
+          } catch (e) {}
+        }
         if (!meta) {
           postEl.innerHTML = '<p class="font-jp text-center text-muted py-20">記事が見つかりませんでした。<br/><a href="/blog/" class="text-royal underline">ブログ一覧へ戻る</a></p>';
           return;
