@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ===========================================================================
+     Vegan Oji blog banner — "Editorial" (design #2). 1200×900.
+     Reusable + category-coloured. Driven entirely by URL query params:
+       cat     category slug (sets accent colour + label)   default sekai-no-ugoki
+       title   headline; "|" = line break                   default 肉なしで、|こんなに強い。
+       kicker  small line above the title                   default ビーガン vs 肉食、どっちが強い？
+       photo   background image URL (cover-fit)              default the demo thumbnail
+       focus   photo object-position                         default "center 28%"
+       mascot  mascot image URL ("none" hides it)            default /images/oji/oji_confident.png
+       eyebrow top eyebrow text                              default VEGANOJI.JP
+       play    "1" shows the ▶ video badge, "0" hides it      default 1
+     Render it with tools/gen_banner.mjs → 1200×900 PNG.
+     =========================================================================== */
+  html,body{margin:0;padding:0;background:#777;}
+  .banner{position:relative;width:1200px;height:900px;overflow:hidden;font-family:'Noto Sans JP',sans-serif;}
+  .photo{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;}
+  .scrim{position:absolute;inset:0;background:linear-gradient(180deg,
+          rgba(15,9,0,.50) 0%, rgba(15,9,0,0) 26%, rgba(15,9,0,0) 46%, rgba(15,9,0,.86) 100%);}
+  .top{position:absolute;top:48px;left:56px;display:flex;align-items:center;gap:18px;z-index:3;}
+  .pill{font-weight:800;font-size:23px;padding:11px 24px;border-radius:999px;white-space:nowrap;}
+  .eye{color:rgba(255,255,255,.92);font-weight:700;font-size:22px;letter-spacing:.28em;}
+  .play{position:absolute;top:332px;left:538px;width:124px;height:124px;border-radius:50%;
+        background:rgba(255,255,255,.94);display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.30);z-index:4;}
+  .play::before{content:'';width:0;height:0;border-style:solid;border-width:24px 0 24px 40px;
+        border-color:transparent transparent transparent #C9223A;margin-left:9px;}
+  .text{position:absolute;left:56px;right:300px;bottom:64px;z-index:3;}
+  .kicker{font-weight:800;font-size:30px;margin-bottom:16px;}
+  .title{color:#fff;font-weight:900;font-size:90px;line-height:1.07;text-shadow:0 3px 20px rgba(0,0,0,.5);}
+  .title .ln{display:block;}
+  .mascot{position:absolute;height:196px;right:26px;bottom:8px;z-index:5;filter:drop-shadow(0 7px 12px rgba(0,0,0,.20));}
+</style>
+</head>
+<body>
+<div class="banner" id="bn">
+  <div class="photo" id="photo"></div>
+  <div class="scrim"></div>
+  <div class="top"><span class="pill" id="pill"></span><span class="eye" id="eye"></span></div>
+  <div class="play" id="play"></div>
+  <div class="text"><div class="kicker" id="kicker"></div><div class="title" id="title"></div></div>
+  <img class="mascot" id="mascot" alt="">
+</div>
+<script>
+  // Category palette: accent = pill bg + (bright) kicker tint; pillText = text on the pill.
+  const PAL = {
+    'sekai-no-ugoki':    { accent:'#FFD661', pillText:'#241B0C', kicker:'#FFD661', label:'世界のうごき' },
+    'kenkyushitsu-kara': { accent:'#3F6A3A', pillText:'#FFFFFF', kicker:'#A9DD8E', label:'研究室から' },
+    'oji-no-kurashi':    { accent:'#9C7E2A', pillText:'#FFFFFF', kicker:'#F2D48A', label:'王子の暮らし' },
+    'oji-no-tabearuki':  { accent:'#E55063', pillText:'#FFFFFF', kicker:'#FFAEB8', label:'王子の食べ歩き' },
+    'katsudou':          { accent:'#C9223A', pillText:'#FFFFFF', kicker:'#FF94A1', label:'活動報告' },
+  };
+  const P = new URLSearchParams(location.search);
+  const esc = s => (s||'').replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+  const cat = P.get('cat') || 'sekai-no-ugoki';
+  const c = PAL[cat] || PAL['sekai-no-ugoki'];
+
+  const photoUrl = P.get('photo') || 'https://i.ytimg.com/vi/udaA0bz-LI0/maxresdefault.jpg';
+  const focus    = P.get('focus') || 'center 28%';
+  const title    = P.get('title') || '肉なしで、|こんなに強い。';
+  const kicker   = P.get('kicker'); // may be empty
+  const eyebrow  = P.get('eyebrow') || 'VEGANOJI.JP';
+  const mascot   = P.get('mascot') || '/images/oji/oji_confident.png';
+  const showPlay = (P.get('play') || '1') !== '0';
+
+  const photoEl = document.getElementById('photo');
+  photoEl.style.backgroundImage = `url("${photoUrl}")`;
+  photoEl.style.backgroundPosition = focus;
+
+  const pill = document.getElementById('pill');
+  pill.textContent = c.label;
+  pill.style.background = c.accent;
+  pill.style.color = c.pillText;
+
+  document.getElementById('eye').textContent = eyebrow;
+
+  const kEl = document.getElementById('kicker');
+  if (kicker) { kEl.textContent = kicker; kEl.style.color = c.kicker; } else { kEl.style.display = 'none'; }
+
+  const titleEl = document.getElementById('title');
+  titleEl.innerHTML = title.split('|').map(l => `<span class="ln">${esc(l)}</span>`).join('');
+
+  if (!showPlay) document.getElementById('play').style.display = 'none';
+
+  const mEl = document.getElementById('mascot');
+  let mascotPending = false;
+  if (mascot && mascot !== 'none') { mEl.src = mascot; mascotPending = true; } else { mEl.style.display = 'none'; }
+
+  // auto-shrink the title so the widest line fits the text column
+  function fitTitle() {
+    const maxW = titleEl.clientWidth;
+    let fs = 90;
+    titleEl.style.fontSize = fs + 'px';
+    while (fs > 46) {
+      const widest = Math.max(...[...titleEl.children].map(s => s.scrollWidth));
+      if (widest <= maxW) break;
+      fs -= 3; titleEl.style.fontSize = fs + 'px';
+    }
+  }
+
+  // signal readiness to the rasterizer once fonts + images are in
+  async function ready() {
+    try { await document.fonts.ready; } catch (e) {}
+    const waits = [];
+    const pimg = new Image(); waits.push(new Promise(r => { pimg.onload = pimg.onerror = r; pimg.src = photoUrl; }));
+    if (mascotPending && !mEl.complete) waits.push(new Promise(r => { mEl.onload = mEl.onerror = r; }));
+    await Promise.all(waits);
+    fitTitle();
+    await new Promise(r => setTimeout(r, 120));
+    window.__bannerReady = true;
+  }
+  ready();
+</script>
+</body>
+</html>
