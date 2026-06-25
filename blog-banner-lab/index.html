@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ニュースバナー案 5種 · ビーガン王子 Design Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --s: .60;                 /* preview scale: 1200×900 → 720×540 */
+    --yellow:#FFD661;
+    --yellow-deep:#F6B82E;
+    --paper:#FFF9EE;
+    --ink:#241B0C;
+    --red:#C9223A;
+    --thumb: url('https://i.ytimg.com/vi/udaA0bz-LI0/maxresdefault.jpg');
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:#ECE7DC; color:var(--ink);
+    font-family:'Noto Sans JP',sans-serif; -webkit-font-smoothing:antialiased;
+    padding:48px 24px 96px;
+  }
+  .wrap{max-width:840px; margin:0 auto;}
+
+  /* ---- page header ---- */
+  .page-eye{font-weight:800; letter-spacing:.34em; font-size:13px; color:var(--red); margin-bottom:12px;}
+  h1{font-size:34px; font-weight:900; margin:0 0 14px; line-height:1.3;}
+  .lead{font-size:16px; line-height:1.9; color:#4a4030; margin:0 0 22px;}
+  .tokens{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:8px;}
+  .tok{display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid #e0d9c8;
+       border-radius:999px; padding:7px 14px; font-size:13px; font-weight:600;}
+  .sw{width:16px; height:16px; border-radius:5px; border:1px solid rgba(0,0,0,.12);}
+  hr.div{border:0; border-top:1px solid #ddd5c4; margin:40px 0;}
+
+  /* ---- case cards ---- */
+  .case{margin:0 0 44px;}
+  .case-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px; flex-wrap:wrap;}
+  .num{display:grid; place-items:center; width:30px; height:30px; border-radius:9px;
+       background:var(--ink); color:var(--yellow); font-weight:900; font-size:15px; flex:none;}
+  .case-name{font-size:20px; font-weight:900;}
+  .case-note{flex-basis:100%; font-size:14px; line-height:1.8; color:#5a5040; margin-top:2px;}
+
+  /* ---- preview stage: holds a true 1200×900 banner scaled down ---- */
+  .stage{
+    position:relative; width:calc(1200px * var(--s)); height:calc(900px * var(--s));
+    border-radius:16px; overflow:hidden; box-shadow:0 14px 34px rgba(40,30,10,.18);
+  }
+  .banner{
+    position:absolute; top:0; left:0; width:1200px; height:900px;
+    transform:scale(var(--s)); transform-origin:top left; overflow:hidden;
+    font-family:'Noto Sans JP',sans-serif;
+  }
+  .thumb{background:var(--thumb) center 28% / cover no-repeat;}
+  .tracked{letter-spacing:.30em;}
+
+  /* play badge (signals it's a video) */
+  .play{position:absolute; display:grid; place-items:center; width:116px; height:116px;
+        border-radius:50%; background:rgba(255,255,255,.94); box-shadow:0 10px 26px rgba(0,0,0,.30); z-index:4;}
+  .play::before{content:''; width:0; height:0; border-style:solid;
+        border-width:24px 0 24px 40px; border-color:transparent transparent transparent var(--red); margin-left:9px;}
+
+  .mascot{position:absolute; filter:drop-shadow(0 7px 12px rgba(0,0,0,.18)); z-index:5;}
+
+  /* ============ 1 · CLASSIC+ ============ */
+  .b1{background:var(--paper);}
+  .b1-band{height:300px; background:var(--yellow); display:flex; flex-direction:column;
+           align-items:center; justify-content:center; gap:16px; padding:24px 60px;}
+  .b1-eye{font-weight:700; font-size:22px; color:rgba(36,27,12,.60);}
+  .b1-title{font-weight:900; font-size:64px; line-height:1.22; text-align:center; color:#FFFDF6;
+            text-shadow:0 2px 0 rgba(170,125,15,.30);}
+  .b1-label{font-weight:600; font-size:23px; color:rgba(36,27,12,.62);}
+  .b1-photo{position:absolute; top:300px; left:0; width:1200px; height:600px;}
+  .b1 .play{top:542px; left:542px;}
+  .b1 .mascot{height:216px; right:14px; bottom:-8px;}
+
+  /* ============ 2 · EDITORIAL (full-bleed) ============ */
+  .b2-photo{position:absolute; inset:0;}
+  .b2-scrim{position:absolute; inset:0; background:linear-gradient(180deg,
+            rgba(15,9,0,.50) 0%, rgba(15,9,0,0) 26%, rgba(15,9,0,0) 46%, rgba(15,9,0,.86) 100%);}
+  .b2-top{position:absolute; top:48px; left:56px; display:flex; align-items:center; gap:18px; z-index:3;}
+  .b2-pill{background:var(--yellow); color:var(--ink); font-weight:800; font-size:23px;
+           padding:11px 24px; border-radius:999px;}
+  .b2-eye{color:rgba(255,255,255,.92); font-weight:700; font-size:22px; letter-spacing:.28em;}
+  .b2 .play{top:328px; left:540px; width:124px; height:124px;}
+  .b2-text{position:absolute; left:56px; bottom:64px; z-index:3;}
+  .b2-kicker{color:var(--yellow); font-weight:800; font-size:30px; margin-bottom:16px;}
+  .b2-title{color:#fff; font-weight:900; font-size:90px; line-height:1.06; text-shadow:0 3px 20px rgba(0,0,0,.5);}
+  .b2 .mascot{height:196px; right:26px; bottom:8px;}
+
+  /* ============ 3 · MAGAZINE SPLIT ============ */
+  .b3{display:flex;}
+  .b3-left{position:relative; width:524px; height:900px; background:var(--yellow);
+           padding:72px 54px; display:flex; flex-direction:column;}
+  .b3-eye{font-weight:700; font-size:22px; color:rgba(36,27,12,.60);}
+  .b3-title{margin-top:38px; color:var(--ink); font-weight:900; font-size:56px; line-height:1.24;}
+  .b3-kicker{margin-top:24px; color:rgba(36,27,12,.78); font-weight:700; font-size:29px; line-height:1.55;}
+  .b3-label{align-self:flex-start; margin-top:32px; background:var(--ink); color:var(--yellow);
+            font-weight:700; font-size:22px; padding:10px 22px; border-radius:999px;}
+  .b3-right{position:relative; width:676px; height:900px;}
+  .b3 .play{top:388px; left:278px; width:124px; height:124px;}
+  .b3 .mascot{height:236px; right:18px; bottom:-6px;}
+
+  /* ============ 4 · BOTTOM CAPTION BAR ============ */
+  .b4-photo{position:absolute; top:0; left:0; width:1200px; height:560px;}
+  .b4-tab{position:absolute; top:0; left:56px; display:flex; align-items:center; gap:14px;
+          background:var(--yellow); color:var(--ink); padding:15px 28px; border-radius:0 0 20px 20px; z-index:3;}
+  .b4-tab b{font-weight:800; letter-spacing:.16em; font-size:22px;}
+  .b4-tab span{font-weight:600; font-size:21px; opacity:.78;}
+  .b4 .play{top:198px; left:540px; width:124px; height:124px;}
+  .b4-band{position:absolute; top:560px; left:0; width:1200px; height:340px; background:var(--yellow);
+           display:flex; flex-direction:column; justify-content:center; align-items:center; gap:16px; padding:0 80px;}
+  .b4-title{color:var(--ink); font-weight:900; font-size:70px; text-align:center; line-height:1.2;}
+  .b4-kicker{color:rgba(36,27,12,.78); font-weight:700; font-size:29px;}
+  .b4 .mascot{height:238px; right:46px; top:432px;}
+
+  /* ============ 5 · CHIBI STICKER FRAME ============ */
+  .b5{background:var(--paper); overflow:hidden;}
+  .b5::before{content:''; position:absolute; inset:0;
+    background-image:radial-gradient(rgba(36,27,12,.06) 2.2px, transparent 2.2px); background-size:32px 32px;}
+  .b5-chip{position:absolute; top:50px; left:62px; z-index:3; background:var(--yellow); color:var(--ink);
+           font-size:23px; padding:12px 26px; border-radius:999px; border:3px solid var(--ink); box-shadow:5px 5px 0 var(--ink);}
+  .b5-chip b{font-weight:800; letter-spacing:.12em;}
+  .b5-frame{position:absolute; top:150px; left:80px; width:770px; height:434px; border-radius:30px;
+            border:4px solid var(--ink); box-shadow:12px 12px 0 var(--ink); overflow:hidden; z-index:2;}
+  .b5-frame .thumb{position:absolute; inset:0;}
+  .b5 .play{top:159px; left:325px; width:120px; height:120px;}
+  .b5-title{position:absolute; left:82px; top:632px; z-index:3; font-weight:900; font-size:72px;
+            color:var(--ink); line-height:1.22;}
+  .b5-hl{background:linear-gradient(transparent 58%, var(--yellow) 58%); padding:0 8px; border-radius:4px;}
+  .b5 .mascot{height:308px; right:26px; bottom:-8px;}
+  .b5-veg{position:absolute; z-index:3; line-height:1;}
+  .b5-veg.v1{font-size:62px; top:118px; right:150px; transform:rotate(-12deg);}
+  .b5-veg.v2{font-size:54px; top:520px; right:470px; transform:rotate(10deg);}
+  .b5-veg.v3{font-size:50px; top:706px; left:548px; transform:rotate(-6deg);}
+
+  @media (max-width:780px){ :root{ --s:.42; } h1{font-size:26px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="page-eye">VEGANOJI.JP · DESIGN LAB</div>
+  <h1>ニュース記事バナー — 5案</h1>
+  <p class="lead">
+    既存の黄色ニュースバナー（帯 <b>#FFD661</b> ／ Noto Sans JP ／「VEGANOJI.JP」＋見出し＋カテゴリ＋王子）を
+    踏襲しつつ、今回の<b>動画サムネイル</b>を主役に、少しだけモダンにした5案です。すべて 1200×900。
+    気に入った番号を教えていただければ、その案を 1200×900 の PNG に書き出してヒーロー画像に差し替えます。
+  </p>
+  <div class="tokens">
+    <span class="tok"><span class="sw" style="background:#FFD661"></span>帯 #FFD661</span>
+    <span class="tok"><span class="sw" style="background:#FFF9EE"></span>地 #FFF9EE</span>
+    <span class="tok"><span class="sw" style="background:#241B0C"></span>インク #241B0C</span>
+    <span class="tok"><span class="sw" style="background:#C9223A"></span>▶ #C9223A</span>
+    <span class="tok">Noto Sans JP 900</span>
+  </div>
+
+  <hr class="div">
+
+  <!-- 1 -->
+  <div class="case">
+    <div class="case-head">
+      <span class="num">1</span><span class="case-name">クラシック＋</span>
+      <span class="case-note">既存バナーにいちばん忠実。上に黄色帯、下にサムネ、王子は右下。動画とわかるよう ▶ を一つ足しただけ。いちばん安全な王道。</span>
+    </div>
+    <div class="stage"><div class="banner b1">
+      <div class="b1-band">
+        <div class="b1-eye tracked">VEGANOJI.JP</div>
+        <div class="b1-title">肉なしで、こんなに強い。</div>
+        <div class="b1-label tracked">世界のうごき</div>
+      </div>
+      <div class="b1-photo thumb"></div>
+      <div class="play"></div>
+      <img class="mascot" src="/images/oji/oji_confident.png" alt="">
+    </div></div>
+  </div>
+
+  <!-- 2 -->
+  <div class="case">
+    <div class="case-head">
+      <span class="num">2</span><span class="case-name">エディトリアル（全面）</span>
+      <span class="case-note">サムネを全面に敷き、下グラデで見出しを白抜き。黄色はカテゴリのピルとキッカーにアクセント使い。雑誌の表紙みたいで“動画感”がいちばん強い。</span>
+    </div>
+    <div class="stage"><div class="banner b2">
+      <div class="b2-photo thumb"></div>
+      <div class="b2-scrim"></div>
+      <div class="b2-top"><span class="b2-pill">世界のうごき</span><span class="b2-eye">VEGANOJI.JP</span></div>
+      <div class="play"></div>
+      <div class="b2-text">
+        <div class="b2-kicker">ビーガン vs 肉食、どっちが強い？</div>
+        <div class="b2-title">肉なしで、<br>こんなに強い。</div>
+      </div>
+      <img class="mascot" src="/images/oji/oji_confident.png" alt="">
+    </div></div>
+  </div>
+
+  <!-- 3 -->
+  <div class="case">
+    <div class="case-head">
+      <span class="num">3</span><span class="case-name">マガジン分割</span>
+      <span class="case-note">左に黄色パネル（濃いインク文字で視認性アップ＝既存より読みやすい）、右にサムネ。すっきりして大人っぽいモダン版。</span>
+    </div>
+    <div class="stage"><div class="banner b3">
+      <div class="b3-left">
+        <div class="b3-eye tracked">VEGANOJI.JP</div>
+        <div class="b3-title">肉なしで、<br>こんなに強い。</div>
+        <div class="b3-kicker">ビーガン vs 肉食、<br>どっちが強い？</div>
+        <span class="b3-label">世界のうごき</span>
+      </div>
+      <div class="b3-right thumb">
+        <div class="play"></div>
+        <img class="mascot" src="/images/oji/oji_confident.png" alt="">
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 4 -->
+  <div class="case">
+    <div class="case-head">
+      <span class="num">4</span><span class="case-name">下に黄色帯（上下反転）</span>
+      <span class="case-note">クラシックの反転。写真を主役に大きく見せて、見出しは下の黄色帯へ。王子が境目から覗いてシール感を出す。</span>
+    </div>
+    <div class="stage"><div class="banner b4">
+      <div class="b4-photo thumb"></div>
+      <div class="b4-tab"><b>VEGANOJI.JP</b><span>世界のうごき</span></div>
+      <div class="play"></div>
+      <div class="b4-band">
+        <div class="b4-title">肉なしで、こんなに強い。</div>
+        <div class="b4-kicker">ビーガン vs 肉食、どっちが強い？</div>
+      </div>
+      <img class="mascot" src="/images/oji/oji_confident.png" alt="">
+    </div></div>
+  </div>
+
+  <!-- 5 -->
+  <div class="case">
+    <div class="case-head">
+      <span class="num">5</span><span class="case-name">ちびシール枠</span>
+      <span class="case-note">クリーム地に、サイト共通の“シール”ボタン意匠（極太インク枠＋オフセット影）でサムネを囲む。黄色マーカーの見出し＋野菜ステッカー。いちばん遊び心のあるビーガン王子らしい案。</span>
+    </div>
+    <div class="stage"><div class="banner b5">
+      <div class="b5-chip"><b>VEGANOJI.JP</b> · 世界のうごき</div>
+      <div class="b5-frame"><div class="thumb"></div><div class="play"></div></div>
+      <div class="b5-title">肉なしで、<span class="b5-hl">こんなに強い。</span></div>
+      <div class="b5-veg v1">🥦</div>
+      <div class="b5-veg v2">🎃</div>
+      <div class="b5-veg v3">🌱</div>
+      <img class="mascot" src="/images/oji/oji_confident.png" alt="">
+    </div></div>
+  </div>
+
+</div>
+</body>
+</html>
