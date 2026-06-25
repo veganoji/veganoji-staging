@@ -2,3 +2,8 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Unlisted KB pages for LLM context — keep out of search indexes (still fetchable by anyone with the link)
+/kb/*
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
