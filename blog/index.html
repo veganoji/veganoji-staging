@@ -1115,10 +1115,10 @@
     }
     .post-hero img { width: 100%; height: auto; display: block; }
     .post-hero .cat-chip {
-      position: absolute; top: 14px; left: 14px;
-      font-size: 12.5px; padding: 5px 12px;
-      background: var(--color-paper); color: var(--cat, var(--color-royal));
-      border: 2px solid var(--color-ink); box-shadow: 2px 2px 0 var(--color-ink);
+      /* The category label is baked into the banner hero (see tools/banner/),
+         so this overlay chip would duplicate it — hide it on the post page.
+         (List cards still show their own category tag below the thumbnail.) */
+      display: none;
     }
 
     /* Title block — modern card overlapping the hero */
