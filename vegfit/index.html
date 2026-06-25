@@ -134,8 +134,8 @@
     .hero-slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1.5s ease; }
     .hero-slide.on { opacity:1; }
     .hero-veil { position:absolute; inset:0; z-index:1; pointer-events:none;
-      background:linear-gradient(105deg, rgba(255,249,238,.95) 0%, rgba(255,249,238,.8) 38%, rgba(255,249,238,.55) 100%); }
-    @media (max-width:768px){ .hero-veil { background:linear-gradient(180deg, rgba(255,249,238,.5) 0%, rgba(255,249,238,.72) 44%, rgba(255,249,238,.95) 80%, #FFF9EE 100%); } }
+      background:linear-gradient(105deg, rgba(255,249,238,.82) 0%, rgba(255,249,238,.5) 42%, rgba(255,249,238,.18) 100%); }
+    @media (max-width:768px){ .hero-veil { background:linear-gradient(180deg, rgba(255,249,238,.28) 0%, rgba(255,249,238,.55) 46%, rgba(255,249,238,.88) 82%, #FFF9EE 100%); } }
     @media (prefers-reduced-motion: reduce){ .hero-slide { transition:none; } }
 
     .floaty   { animation: floaty 5s ease-in-out infinite; }
@@ -261,6 +261,7 @@
     details.faq summary { list-style:none; cursor:pointer; padding:16px 18px; font-weight:800; display:flex; align-items:center; gap:10px; }
     details.faq summary::-webkit-details-marker { display:none; }
     details.faq summary .q { width:24px;height:24px;flex:0 0 24px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--color-leaf);color:#fff;font-weight:900;border:2px solid var(--color-ink); }
+    details.faq summary .qimg { width:30px;height:30px;flex:0 0 30px;object-fit:contain; }
     details.faq summary .tw { margin-left:auto; transition:transform .2s ease; color:var(--color-leaf-deep); font-weight:900; }
     details.faq[open] summary .tw { transform:rotate(45deg); }
     details.faq .a { padding:0 18px 18px 52px; color:var(--color-ink-soft); line-height:1.9; font-size:14.5px; }
@@ -508,25 +509,24 @@
       <!-- what you get access to (like the welcome email) -->
       <div class="mt-9 sm:mt-12 sc-row sm:grid-cols-3 reveal">
         <div class="sticker p-6">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-3" style="background:rgba(79,166,62,.15);"><svg width="24" height="24" style="color:var(--color-leaf-deep);"><use href="#users"/></svg></div>
+          <img src="/images/vegfit/icons/ic_line.png" alt="" class="w-16 h-16 object-contain mb-2">
           <h3 class="font-display text-[18px] text-ink">メンバー限定LINE</h3>
           <p class="mt-2 text-[13.5px] leading-[1.85] text-ink-soft">仲間とつながる、いちばんの場所。質問・雑談から、ベジ栄養や回復のtipsのシェア、ご飯会・オフ会の相談まで。</p>
         </div>
         <div class="sticker p-6">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-3" style="background:rgba(238,123,30,.15);"><svg width="24" height="24" style="color:var(--color-carrot-deep);"><use href="#calendar"/></svg></div>
+          <img src="/images/vegfit/icons/ic_event.png" alt="" class="w-16 h-16 object-contain mb-2">
           <h3 class="font-display text-[18px] text-ink">イベントを提案・参加表明</h3>
           <p class="mt-2 text-[13.5px] leading-[1.85] text-ink-soft">出たい大会を提案したり、「参加します」と表明。あなたの参加を見た仲間が「じゃあ私も！」と集まって、一緒に走れます。</p>
         </div>
         <div class="sticker p-6">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-3" style="background:rgba(79,182,230,.15);"><svg width="24" height="24" style="color:var(--color-sky-deep);"><use href="#run"/></svg></div>
+          <img src="/images/vegfit/icons/ic_strava.png" alt="" class="w-16 h-16 object-contain mb-2">
           <h3 class="font-display text-[18px] text-ink">Stravaクラブ</h3>
           <p class="mt-2 text-[13.5px] leading-[1.85] text-ink-soft">ランやライドの記録をシェアして、お互いの頑張りを応援し合おう。離れていても、つながれる。</p>
         </div>
       </div>
 
       <!-- play types (light, side-scroll) -->
-      <p class="mt-12 sm:mt-14 text-center text-[14px] text-muted reveal">こんな遊び方があります（自由参加）</p>
-      <div class="mt-4 flex sm:grid sm:grid-cols-6 gap-3 overflow-x-auto sm:overflow-visible pb-2 -mx-5 px-5 sm:mx-0 sm:px-0 reveal">
+      <div class="mt-12 sm:mt-14 flex sm:grid sm:grid-cols-6 gap-3 overflow-x-auto sm:overflow-visible pb-2 -mx-5 px-5 sm:mx-0 sm:px-0 reveal">
         <div class="sticker sticker-hover p-4 sm:p-5 flex-none w-[40%] sm:w-auto flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_run.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">ランニング</h3></div>
         <div class="sticker sticker-hover p-4 sm:p-5 flex-none w-[40%] sm:w-auto flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_trail.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">トレイルラン</h3></div>
         <div class="sticker sticker-hover p-4 sm:p-5 flex-none w-[40%] sm:w-auto flex flex-col items-center text-center gap-2"><img src="/images/vegfit/icons/a_tri.png" alt="" class="w-12 h-12 sm:w-14 sm:h-14 object-contain"/><h3 class="font-display text-[15px] sm:text-[16px] text-ink">トライアスロン</h3></div>
@@ -570,7 +570,7 @@
         <h2 class="mt-3 font-display display-tight text-[32px] sm:text-[52px] text-leaf-deep">仲間になろう。</h2>
         <p class="mt-5 text-[15px] sm:text-[16px] leading-[1.95] text-ink-soft">
           月額メンバーになると、<span class="font-bold text-ink">メンバー限定LINE・Monday イベントボード・Stravaクラブ・イベント調整</span> がぜんぶ使えます。
-          いつでも解約OK。まずは気軽に、のぞいてみて。
+          メンバーは<span class="font-bold text-carrot-deep">初月無料</span>・いつでも解約OK。気軽にはじめてみて。
         </p>
       </div>
 
@@ -581,15 +581,15 @@
           <h3 class="font-display text-[20px] text-ink mt-1">メンバー</h3>
           <p class="text-[13px] text-muted font-bold uppercase tracking-wide">Member</p>
           <div class="mt-4 flex items-end gap-1"><span class="font-display text-[44px] text-leaf-deep leading-none">¥500</span><span class="text-[14px] text-muted font-bold pb-1">/月</span></div>
-          <ul class="mt-5 space-y-2.5 text-[13.5px] text-ink-soft flex-1">
-            <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> Monday イベントボード</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> メンバー限定LINEコミュニティ</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> Stravaクラブに招待</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> イベント調整・呼びかけ</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-leaf flex-none"><use href="#check"/></svg> ベジ栄養・回復tipsを仲間とシェア</li>
+          <p class="mt-1 text-[13px] font-extrabold text-carrot-deep">🎉 初月無料ではじめられる</p>
+          <ul class="mt-4 space-y-2.5 text-[13.5px] text-ink-soft flex-1">
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_check.png" alt="" class="w-5 h-5 flex-none object-contain"> Monday イベントボード</li>
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_check.png" alt="" class="w-5 h-5 flex-none object-contain"> メンバー限定LINEコミュニティ</li>
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_check.png" alt="" class="w-5 h-5 flex-none object-contain"> Stravaクラブに招待</li>
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_check.png" alt="" class="w-5 h-5 flex-none object-contain"> イベント調整・呼びかけ</li>
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_check.png" alt="" class="w-5 h-5 flex-none object-contain"> ベジ栄養・回復tipsを仲間とシェア</li>
           </ul>
-          <!-- TODO: replace href with the Stripe subscription link for the ¥500 tier -->
-          <a href="https://buy.stripe.com/cNi00i7UebILfWjaKvao807" target="_blank" rel="noopener" data-stripe="member-500" class="btn-primary w-full mt-6 !text-[15px]">¥500で参加する</a>
+          <a href="https://buy.stripe.com/4gM9AS8Yi3cfaBZ2dZao80h" target="_blank" rel="noopener" data-stripe="member-500" class="btn-primary w-full mt-6 !text-[15px]">初月無料ではじめる</a>
         </div>
 
         <!-- サポーター -->
@@ -598,10 +598,9 @@
           <p class="text-[13px] text-muted font-bold uppercase tracking-wide">Supporter</p>
           <div class="mt-4 flex items-end gap-1"><span class="font-display text-[44px] text-carrot-deep leading-none">¥1,000</span><span class="text-[14px] text-muted font-bold pb-1">/月</span></div>
           <ul class="mt-5 space-y-2.5 text-[13.5px] text-ink-soft flex-1">
-            <li class="flex gap-2"><svg width="18" height="18" class="text-carrot flex-none"><use href="#check"/></svg> メンバー特典、ぜんぶ</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-carrot flex-none"><use href="#check"/></svg> サイトにお名前を掲載</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-carrot flex-none"><use href="#check"/></svg> LINEサポーターバッジ</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-carrot flex-none"><use href="#heart"/></svg> 近くにいなくても、応援できる</li>
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_check.png" alt="" class="w-5 h-5 flex-none object-contain"> メンバー特典、ぜんぶ</li>
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_check.png" alt="" class="w-5 h-5 flex-none object-contain"> 活動の運営を、しっかり応援</li>
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_heart.png" alt="" class="w-5 h-5 flex-none object-contain"> 近くにいなくても、応援できる</li>
           </ul>
           <!-- TODO: replace href with the Stripe subscription link for the ¥1,000 tier -->
           <a href="https://buy.stripe.com/aFa00i3DY6or6lJf0Lao808" target="_blank" rel="noopener" data-stripe="supporter-1000" class="btn-sun w-full mt-6 !text-[15px]">¥1,000で応援する</a>
@@ -613,9 +612,9 @@
           <p class="text-[13px] text-muted font-bold uppercase tracking-wide">Big Supporter</p>
           <p class="mt-3 text-[13.5px] leading-[1.7] text-ink-soft">好きな金額で、活動をもっと応援。選んだ額が毎月の応援になります。</p>
           <ul class="mt-4 space-y-2.5 text-[13.5px] text-ink-soft flex-1">
-            <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#check"/></svg> サポーター特典、ぜんぶ</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#check"/></svg> お名前を大きく掲載</li>
-            <li class="flex gap-2"><svg width="18" height="18" class="text-wood flex-none"><use href="#crown"/></svg> 王子から特別なありがとう</li>
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_check.png" alt="" class="w-5 h-5 flex-none object-contain"> サポーター特典、ぜんぶ</li>
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_check.png" alt="" class="w-5 h-5 flex-none object-contain"> 活動を、大きく支える力に</li>
+            <li class="flex gap-2 items-center"><img src="/images/vegfit/icons/ic_crown.png" alt="" class="w-5 h-5 flex-none object-contain"> 王子から特別なありがとう</li>
           </ul>
           <p class="mt-5 text-[13px] font-bold text-muted text-center">金額を選ぶ（月額）</p>
           <div class="mt-2 grid grid-cols-2 gap-2">
@@ -627,17 +626,6 @@
         </div>
       </div>
 
-      <!-- free on-ramp -->
-      <div class="mt-10 sticker p-6 sm:p-7 flex flex-col sm:flex-row items-center gap-5 reveal" style="background:#EAF7E3;">
-        <img src="/images/oji/oji_welcoming.png" alt="ビーガン王子" class="w-20 sm:w-24 h-auto object-contain flex-none bob"/>
-        <div class="text-center sm:text-left flex-1">
-          <h3 class="font-display text-[18px] text-ink">まずは無料で、のぞいてみて。</h3>
-          <p class="mt-1 text-[13.5px] leading-[1.85] text-ink-soft">Instagram (@veganoji) で、ベジトレの空気は無料で味わえます。メンバー限定のLINEコミュニティには、参加後にご招待します。</p>
-        </div>
-        <div class="flex gap-2.5 justify-center">
-          <a href="https://instagram.com/veganoji" target="_blank" rel="noopener" class="btn-ghost !text-[14px] !px-5 !py-3">Instagramを見る</a>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -650,11 +638,11 @@
       </div>
 
       <div class="mt-10 reveal sc-row sm:grid-cols-2">
-        <div class="sticker p-6 flex gap-4"><div class="font-display text-[28px] text-leaf-soft leading-none">01</div><div><h3 class="font-display text-[17px] text-ink">だれでもウェルカム</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">ビーガンも、ベジタリアンも、ちょっと気になる人も。差別は、しない。</p></div></div>
-        <div class="sticker p-6 flex gap-4"><div class="font-display text-[28px] text-leaf-soft leading-none">02</div><div><h3 class="font-display text-[17px] text-ink">楽しく、安全に</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">無理はしない。自分の体は自分で守る（レース参加は自己責任で）。</p></div></div>
-        <div class="sticker p-6 flex gap-4"><div class="font-display text-[28px] text-leaf-soft leading-none">03</div><div><h3 class="font-display text-[17px] text-ink">押しつけない、でも楽しむ</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">ベジを誰かに強制しない。自分は、ベジを思いっきり楽しむ。</p></div></div>
-        <div class="sticker p-6 flex gap-4"><div class="font-display text-[28px] text-leaf-soft leading-none">04</div><div><h3 class="font-display text-[17px] text-ink">仲間をリスペクト</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">レベルも、目標も、ペースも人それぞれ。比べない、見下さない。</p></div></div>
-        <div class="sticker p-6 flex gap-4 sm:col-span-2"><div class="font-display text-[28px] text-leaf-soft leading-none">05</div><div><h3 class="font-display text-[17px] text-ink">シェアして、応援し合う</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">写真も、達成も、失敗も。出し合えば、もっと楽しい。みんなで盛り上げよう。</p></div></div>
+        <div class="sticker p-6 flex gap-4"><img src="/images/vegfit/icons/ic_n1.png" alt="1" class="w-12 h-12 flex-none object-contain"><div><h3 class="font-display text-[17px] text-ink">だれでもウェルカム</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">ビーガンも、ベジタリアンも、ちょっと気になる人も。差別は、しない。</p></div></div>
+        <div class="sticker p-6 flex gap-4"><img src="/images/vegfit/icons/ic_n2.png" alt="2" class="w-12 h-12 flex-none object-contain"><div><h3 class="font-display text-[17px] text-ink">楽しく、安全に</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">無理はしない。自分の体は自分で守る（レース参加は自己責任で）。</p></div></div>
+        <div class="sticker p-6 flex gap-4"><img src="/images/vegfit/icons/ic_n3.png" alt="3" class="w-12 h-12 flex-none object-contain"><div><h3 class="font-display text-[17px] text-ink">押しつけない、でも楽しむ</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">ベジを誰かに強制しない。自分は、ベジを思いっきり楽しむ。</p></div></div>
+        <div class="sticker p-6 flex gap-4"><img src="/images/vegfit/icons/ic_n4.png" alt="4" class="w-12 h-12 flex-none object-contain"><div><h3 class="font-display text-[17px] text-ink">仲間をリスペクト</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">レベルも、目標も、ペースも人それぞれ。比べない、見下さない。</p></div></div>
+        <div class="sticker p-6 flex gap-4 sm:col-span-2"><img src="/images/vegfit/icons/ic_n5.png" alt="5" class="w-12 h-12 flex-none object-contain"><div><h3 class="font-display text-[17px] text-ink">シェアして、応援し合う</h3><p class="mt-1.5 text-[13.5px] leading-[1.85] text-ink-soft">写真も、達成も、失敗も。出し合えば、もっと楽しい。みんなで盛り上げよう。</p></div></div>
       </div>
     </div>
   </section>
@@ -666,12 +654,12 @@
         <h2 class="mt-3 font-display display-tight text-[30px] sm:text-[46px] text-ink">よくある質問</h2>
       </div>
       <div class="mt-10 reveal">
-        <details class="faq" open><summary><span class="q">Q</span>ビーガンじゃないと入れない?<span class="tw">+</span></summary><div class="a">いいえ。だれでも大歓迎です。ビーガンも、ベジタリアンも、「ちょっと気になる」だけの人も。ベジトレは、まず楽しく動くことが目的。食事は、できる範囲でゆるっと。</div></details>
-        <details class="faq"><summary><span class="q">Q</span>運動初心者でも大丈夫?<span class="tw">+</span></summary><div class="a">大丈夫です。むしろ初心者が主役。5kmのゆるジョグから始める人がほとんど。レベル不問・ノルマなし。出たいイベントに、出たいときだけ。</div></details>
-        <details class="faq"><summary><span class="q">Q</span>地方や海外に住んでいても参加できる?<span class="tw">+</span></summary><div class="a">できます。LINEコミュニティやイベントボードはどこからでも。離れていても応援したい人には、サポーター枠がぴったりです。</div></details>
-        <details class="faq"><summary><span class="q">Q</span>支払いは? 解約はできる?<span class="tw">+</span></summary><div class="a">Stripe（クレジットカード）での月額制です。いつでも解約OK。気軽に始めて、合わなければやめられます。</div></details>
-        <details class="faq"><summary><span class="q">Q</span>必ずイベントに出ないとダメ?<span class="tw">+</span></summary><div class="a">いいえ、ノルマはありません。LINEコミュニティで質問したり、雑談したり、仲間と知り合うだけでも大歓迎。見る専・応援専もOK。出たいイベントに、出たいときだけどうぞ。</div></details>
-        <details class="faq"><summary><span class="q">Q</span>Stravaのグループはある?<span class="tw">+</span></summary><div class="a">あります！ベジトレの Strava クラブで、ランやライドの記録をシェアして応援し合っています。参加してくれたメンバーを、順次ご招待します。<a href="https://www.strava.com/clubs/1757566" target="_blank" rel="noopener" class="text-leaf-deep font-bold underline">Stravaクラブを見る ↗</a></div></details>
+        <details class="faq" open><summary><img src="/images/vegfit/icons/ic_q.png" alt="Q" class="qimg">ビーガンじゃないと入れない?<span class="tw">+</span></summary><div class="a">いいえ。だれでも大歓迎です。ビーガンも、ベジタリアンも、「ちょっと気になる」だけの人も。ベジトレは、まず楽しく動くことが目的。食事は、できる範囲でゆるっと。</div></details>
+        <details class="faq"><summary><img src="/images/vegfit/icons/ic_q.png" alt="Q" class="qimg">運動初心者でも大丈夫?<span class="tw">+</span></summary><div class="a">大丈夫です。むしろ初心者が主役。5kmのゆるジョグから始める人がほとんど。レベル不問・ノルマなし。出たいイベントに、出たいときだけ。</div></details>
+        <details class="faq"><summary><img src="/images/vegfit/icons/ic_q.png" alt="Q" class="qimg">地方や海外に住んでいても参加できる?<span class="tw">+</span></summary><div class="a">できます。LINEコミュニティやイベントボードはどこからでも。離れていても応援したい人には、サポーター枠がぴったりです。</div></details>
+        <details class="faq"><summary><img src="/images/vegfit/icons/ic_q.png" alt="Q" class="qimg">支払いは? 解約はできる?<span class="tw">+</span></summary><div class="a">Stripe（クレジットカード）での月額制です。いつでも解約OK。気軽に始めて、合わなければやめられます。</div></details>
+        <details class="faq"><summary><img src="/images/vegfit/icons/ic_q.png" alt="Q" class="qimg">必ずイベントに出ないとダメ?<span class="tw">+</span></summary><div class="a">いいえ、ノルマはありません。LINEコミュニティで質問したり、雑談したり、仲間と知り合うだけでも大歓迎。見る専・応援専もOK。出たいイベントに、出たいときだけどうぞ。</div></details>
+        <details class="faq"><summary><img src="/images/vegfit/icons/ic_q.png" alt="Q" class="qimg">Stravaのグループはある?<span class="tw">+</span></summary><div class="a">あります！ベジトレの Strava クラブで、ランやライドの記録をシェアして応援し合っています。参加してくれたメンバーを、順次ご招待します。<a href="https://www.strava.com/clubs/1757566" target="_blank" rel="noopener" class="text-leaf-deep font-bold underline">Stravaクラブを見る ↗</a></div></details>
       </div>
     </div>
   </section>
