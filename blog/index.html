@@ -1127,13 +1127,13 @@
     /* Title block — modern card overlapping the hero */
     .post-head {
       position: relative; z-index: 2;
-      margin: -46px 14px 0;
+      margin: 14px 14px 0;
       background: var(--color-paper);
-      border: 2.5px solid var(--color-ink); border-radius: 22px;
-      box-shadow: 5px 5px 0 var(--color-ink);
-      padding: 20px 22px 18px;
+      border: 2.5px solid var(--color-ink); border-radius: 16px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+      padding: 11px 18px;
     }
-    @media (min-width: 640px) { .post-head { margin: -58px 36px 0; padding: 26px 32px 22px; } }
+    @media (min-width: 640px) { .post-head { margin: 16px 36px 0; padding: 13px 26px; } }
     /* No-hero posts: plain header, no overlap card */
     .post-head--nohero { margin: 1.6rem 0 0; padding: 0; background: none; border: 0; box-shadow: none; }
     .post-meta { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; font-family: var(--font-jp); font-size: 13px; color: var(--color-muted); }
@@ -1145,12 +1145,14 @@
       margin-top: 0.7rem; letter-spacing: -0.01em;
     }
     @media (min-width: 640px) { .post-title { font-size: 38px; line-height: 1.38; } }
+    /* Hero posts: the banner carries the headline → h1 kept for SEO/a11y but visually hidden */
+    .post-title-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .post-head-row { display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; }
+    .post-head--nohero .post-head-row { margin-top: 1.3rem; padding-top: .9rem; border-top: 1px solid var(--color-line); }
 
     /* Slim top share row */
     .post-share-top {
       display: flex; align-items: center; gap: 12px;
-      margin-top: 1.5rem; padding-top: 1rem;
-      border-top: 1px solid var(--color-line);
     }
 
     /* rendered markdown body */
@@ -1757,17 +1759,19 @@
           </figure>` : ''}
 
           <header class="post-head${meta.hero ? '' : ' post-head--nohero'}">
-            ${!meta.hero ? `<span class="cat-chip cat-${esc(meta.category)} mb-3 inline-flex">${catLabel}</span>` : ''}
-            <div class="post-meta">
-              <span>${fmtDate(meta.date)}</span>
-              <span class="dot"></span>
-              <span class="rt"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>約${rt}分で読めます</span>
-            </div>
-            <h1 class="post-title">${esc(meta.title)}</h1>
-
-            <div class="post-share-top">
-              <span class="font-jp text-[13px] text-muted">シェア</span>
-              ${shareBarHTML(meta)}
+            ${meta.hero
+              ? `<h1 class="post-title-sr">${esc(meta.title)}</h1>`
+              : `<span class="cat-chip cat-${esc(meta.category)} mb-3 inline-flex">${catLabel}</span><h1 class="post-title">${esc(meta.title)}</h1>`}
+            <div class="post-head-row">
+              <div class="post-share-top">
+                <span class="font-jp text-[13px] text-muted">シェア</span>
+                ${shareBarHTML(meta)}
+              </div>
+              <div class="post-meta">
+                <span>${fmtDate(meta.date)}</span>
+                <span class="dot"></span>
+                <span class="rt"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>約${rt}分で読めます</span>
+              </div>
             </div>
           </header>
 
