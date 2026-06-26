@@ -1197,7 +1197,7 @@
     @media (min-width: 640px) { .related-grid { grid-template-columns: repeat(3, 1fr); } }
     .related-card { display: block; background: var(--color-paper); border: 2px solid var(--color-ink); border-radius: 16px; overflow: hidden; box-shadow: 3px 3px 0 var(--color-ink); transition: transform .2s, box-shadow .2s; }
     .related-card:hover { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--color-ink); }
-    .related-card__img { aspect-ratio: 16/10; overflow: hidden; background: var(--color-cream); }
+    .related-card__img { aspect-ratio: 4/3; overflow: hidden; background: var(--color-cream); }
     .related-card__img img { width: 100%; height: 100%; object-fit: cover; }
     .related-card__body { padding: 11px 13px 13px; }
     .related-card__title { font-family: var(--font-jp-display); font-weight: 700; font-size: 13px; color: var(--color-ink); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
@@ -1505,14 +1505,12 @@
         const text = meta.title;
         const lineHref   = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`;
         const xHref      = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&via=VeganOji`;
-        const hatenaHref = `https://b.hatena.ne.jp/entry/${url.replace(/^https?:\/\//,'')}`;
         return `
           <div class="share-bar" data-share-bar>
             <button class="share-btn" data-share-action="native" aria-label="シェア"><img src="/images/social/share.png" alt=""></button>
             <button class="share-btn" data-share-action="copy" data-brand="copy" aria-label="リンクをコピー"><img src="/images/social/copy.png" alt=""></button>
             <a class="share-btn" data-brand="line" href="${lineHref}" target="_blank" rel="noopener" aria-label="LINEでシェア"><img src="/images/social/line.png" alt=""></a>
             <a class="share-btn" data-brand="x" href="${xHref}" target="_blank" rel="noopener" aria-label="Xでシェア"><img src="/images/social/x.png" alt=""></a>
-            <a class="share-btn" data-brand="hatena" href="${hatenaHref}" target="_blank" rel="noopener" aria-label="はてなブックマーク"><img src="/images/social/hatena.png" alt=""></a>
           </div>`;
       }
 
@@ -1728,6 +1726,23 @@
           return;
         }
         document.title = meta.title + ' · ' + baseTitle;
+        // Per-post SEO. The visible headline lives in the banner image, but the text title
+        // is in <h1 class="post-title-sr">, document.title, the hero <img alt>, and here —
+        // so search engines still get it. Update OG/Twitter/canonical + inject Article JSON-LD.
+        try {
+          const _u = postURL(meta.slug);
+          const _img = meta.hero ? (meta.hero.startsWith('http') ? meta.hero : siteOrigin + meta.hero) : '';
+          const _prop = (p, v) => { let m = document.head.querySelector(`meta[property="${p}"]`); if (!m) { m = document.createElement('meta'); m.setAttribute('property', p); document.head.appendChild(m); } m.setAttribute('content', v); };
+          const _name = (n, v) => { let m = document.head.querySelector(`meta[name="${n}"]`); if (!m) { m = document.createElement('meta'); m.setAttribute('name', n); document.head.appendChild(m); } m.setAttribute('content', v); };
+          _prop('og:type', 'article'); _prop('og:title', meta.title); _prop('og:url', _u);
+          if (meta.excerpt) { _prop('og:description', meta.excerpt); _name('twitter:description', meta.excerpt); }
+          if (_img) { _prop('og:image', _img); _name('twitter:image', _img); }
+          _name('twitter:title', meta.title);
+          _name('description', meta.excerpt || meta.title);
+          let _c = document.head.querySelector('link[rel="canonical"]'); if (!_c) { _c = document.createElement('link'); _c.rel = 'canonical'; document.head.appendChild(_c); } _c.href = _u;
+          let _ld = document.getElementById('post-jsonld'); if (!_ld) { _ld = document.createElement('script'); _ld.type = 'application/ld+json'; _ld.id = 'post-jsonld'; document.head.appendChild(_ld); }
+          _ld.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: meta.title, datePublished: meta.date, dateModified: meta.date, image: _img ? [_img] : undefined, description: meta.excerpt || undefined, articleSection: meta.category_display, inLanguage: 'ja', author: { '@type': 'Person', name: 'ビーガン王子（アレックス・デレチ）', url: siteOrigin }, publisher: { '@type': 'Organization', name: 'ビーガン王子 Vegan Oji', logo: { '@type': 'ImageObject', url: siteOrigin + '/images/social/og-card.jpg' } }, mainEntityOfPage: _u });
+        } catch (e) {}
 
         let md = '';
         try {
