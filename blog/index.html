@@ -1813,9 +1813,12 @@
               if (!resp.ok) throw new Error('fetch failed');
               const blob = await resp.blob();
               const ext = (meta.hero.split('.').pop() || 'png').toLowerCase();
+              // Friendly, brand-forward filename: ビーガン王子_<headline>.png
+              const head = (meta.title || meta.slug).split(/[—–-]/)[0]
+                .replace(/[\\\/:*?"<>|「」『』？／：]/g, '').replace(/\s+/g, ' ').trim().slice(0, 40);
               const url = URL.createObjectURL(blob);
               const a = document.createElement('a');
-              a.href = url; a.download = `veganoji-${meta.slug}.${ext}`;
+              a.href = url; a.download = `ビーガン王子_${head || meta.slug}.${ext}`;
               document.body.appendChild(a); a.click(); a.remove();
               URL.revokeObjectURL(url);
               statusEl.textContent = '保存しました ✓';
