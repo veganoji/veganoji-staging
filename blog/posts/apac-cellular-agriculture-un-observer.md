@@ -1,6 +1,6 @@
 ---
 title:    "培養肉のルールづくりに、アジアの声を — 日本も参加する団体が国連の委員会へ"
-date:     2026-06-26
+date:     2026-07-26
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["培養肉", "細胞農業", "規制", "食品安全", "国連", "アジア太平洋", "vegan", "vegan oji"]

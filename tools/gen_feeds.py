@@ -13,7 +13,7 @@ Usage:
 import json
 import sys
 import pathlib
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 POSTS_JSON = ROOT / "blog" / "posts.json"
@@ -90,6 +90,9 @@ def strip_build_date(xml: str) -> str:
 
 def main() -> int:
     posts = json.loads(POSTS_JSON.read_text(encoding="utf-8"))
+    # Scheduled drip: never list a future-dated (not-yet-published) post in the feed.
+    today_jst = (datetime.now(timezone.utc) + timedelta(hours=9)).date().isoformat()
+    posts = [p for p in posts if p.get("date", "") <= today_jst]
     check = "--check" in sys.argv
 
     if check:

@@ -1,6 +1,6 @@
 ---
 title:    "愛犬の食事も、植物性へ — 英Omniが“10倍成長”で約20億円を調達"
-date:     2026-06-26
+date:     2026-07-11
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["ペットフード", "犬", "プラントベース", "ヘルス", "アレルギー", "イギリス", "vegan", "vegan oji"]

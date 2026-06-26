@@ -1,5 +1,71 @@
 [
   {
+    "slug": "apac-cellular-agriculture-un-observer",
+    "title": "培養肉のルールづくりに、アジアの声を — 日本も参加する団体が国連の委員会へ",
+    "date": "2026-07-26",
+    "category": "sekai-no-ugoki",
+    "category_display": "世界のうごき",
+    "tags": ["培養肉", "細胞農業", "規制", "食品安全", "国連", "アジア太平洋"],
+    "hero": "/images/blog/2026/apac-cellular-agriculture-un-observer.png",
+    "excerpt": "培養肉（細胞農業）の“世界共通ルール”づくりに、アジアの声が届くようになります。日本も加盟するアジア太平洋の団体が、国連（FAO/WHO）の食品規格委員会でオブザーバー資格を得ました。地味だけれど、未来の食卓を静かに形づくる、とても大切な一歩です。",
+    "source": "https://veganoji.jp/apac-cellular-agriculture-un-observer/"
+  },
+  {
+    "slug": "eu-backs-vivici-precision-fermented-whey",
+    "title": "牛を介さず、本物のホエイを — EUが約20億円で“精密発酵ミルク”を後押し",
+    "date": "2026-07-21",
+    "category": "sekai-no-ugoki",
+    "category_display": "世界のうごき",
+    "tags": ["精密発酵", "代替乳製品", "ホエイプロテイン", "フードテック", "食料安全保障", "EU"],
+    "hero": "/images/blog/2026/eu-backs-vivici-precision-fermented-whey.png",
+    "excerpt": "プロテインでおなじみの「ホエイ」。実はいま世界的に供給が不足し、価格が高騰しています。そんな中、オランダの企業が“牛を介さずに本物のホエイ”をつくる技術で、EUから€12.5M（約20億円）の公的支援を獲得しました。食の未来を変える一手です。",
+    "source": "https://veganoji.jp/eu-backs-vivici-precision-fermented-whey/"
+  },
+  {
+    "slug": "protein-diversification-emissions-cut-eu",
+    "title": "タンパク質を“多様化”するだけで、排出5%減 — EU環境機関が描いた未来の設計図",
+    "date": "2026-07-16",
+    "category": "kenkyushitsu-kara",
+    "category_display": "研究室から",
+    "tags": ["気候変動", "タンパク質", "サステナビリティ", "食料安全保障", "EEA", "EU"],
+    "hero": "/images/blog/2026/protein-diversification-emissions-cut-eu.png",
+    "excerpt": "「お肉を全部やめて」ではなく、「タンパク質の“内訳”を少し見直そう」。それだけで、EU全体の排出量を5%減らせる——EUの公式な環境機関（EEA）が、感情論ではなく冷静なデータで、そんな前向きな設計図を示しました。",
+    "source": "https://veganoji.jp/protein-diversification-emissions-cut-eu/"
+  },
+  {
+    "slug": "vegan-pet-food-omni-raises-11m",
+    "title": "愛犬の食事も、植物性へ — 英Omniが“10倍成長”で約20億円を調達",
+    "date": "2026-07-11",
+    "category": "sekai-no-ugoki",
+    "category_display": "世界のうごき",
+    "tags": ["ペットフード", "犬", "プラントベース", "ヘルス", "アレルギー", "イギリス"],
+    "hero": "/images/blog/2026/vegan-pet-food-omni-raises-11m.png",
+    "excerpt": "プラントベースの波は、私たちの食卓だけでなく“愛犬のごはん”にも。イギリスのビーガンペットフード「Omni」が、1年で10倍に成長し、£11M（約20億円）を調達しました。しかもその人気の理由が、とても納得のいくものなんです。",
+    "source": "https://veganoji.jp/vegan-pet-food-omni-raises-11m/"
+  },
+  {
+    "slug": "finally-foods-casein-potatoes",
+    "title": "牛なしで、本物のチーズを — ジャガイモが“カゼイン”を実らせる時代へ",
+    "date": "2026-07-07",
+    "category": "kenkyushitsu-kara",
+    "category_display": "研究室から",
+    "tags": ["分子農業", "代替乳製品", "チーズ", "精密発酵", "フードテック", "イノベーション"],
+    "hero": "/images/blog/2026/finally-foods-casein-potatoes.png",
+    "excerpt": "「ビーガンになったら、本物のチーズだけは諦めないと」——そう思っていませんか？ イスラエルの会社が、なんと“ジャガイモ”に牛乳のタンパク質「カゼイン」を実らせることに成功しました。牛のいらないチーズが、畑から生まれる時代の話です。",
+    "source": "https://veganoji.jp/finally-foods-casein-potatoes/"
+  },
+  {
+    "slug": "plant-based-public-food-eu-savings",
+    "title": "給食を変えるだけで、年1.8兆円。EUが示した“植物性シフト”の経済効果",
+    "date": "2026-07-02",
+    "category": "sekai-no-ugoki",
+    "category_display": "世界のうごき",
+    "tags": ["政策", "給食", "公共調達", "サステナビリティ", "食育", "EU"],
+    "hero": "/images/blog/2026/plant-based-public-food-eu-savings.png",
+    "excerpt": "学校や病院の食事——いわゆる“公共のごはん”を、もう少し植物性に寄せるだけで、EUは年間€11.6B（約1.8兆円）も節約できる。そんな試算が発表されました。個人のがんばりではなく「仕組み」を変える、スケールの大きなお話です。",
+    "source": "https://veganoji.jp/plant-based-public-food-eu-savings/"
+  },
+  {
     "slug": "ai-tastier-plant-based-meat-lab",
     "title": "「おいしくない」を、AIが変える — ベゾスも出資する“フード・インテリジェンス・ラボ”の挑戦",
     "date": "2026-06-26",

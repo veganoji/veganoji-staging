@@ -1,6 +1,6 @@
 ---
 title:    "タンパク質を“多様化”するだけで、排出5%減 — EU環境機関が描いた未来の設計図"
-date:     2026-06-26
+date:     2026-07-16
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["気候変動", "タンパク質", "サステナビリティ", "食料安全保障", "EEA", "EU", "vegan", "vegan oji"]

@@ -1884,6 +1884,10 @@
           if (r.ok) allPosts = await r.json();
         } catch (e) {}
         allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        // Scheduled drip: hide future-dated posts until their date (JST) — each one
+        // auto-appears on its date. ?preview=1 still renders them anytime (frontmatter fallback).
+        const _todayJST = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+        allPosts = allPosts.filter(p => !p.date || p.date <= _todayJST);
         renderCounts();
         const params = new URLSearchParams(location.search);
         const slug = params.get('post');

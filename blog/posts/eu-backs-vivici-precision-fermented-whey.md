@@ -1,6 +1,6 @@
 ---
 title:    "牛を介さず、本物のホエイを — EUが約20億円で“精密発酵ミルク”を後押し"
-date:     2026-06-26
+date:     2026-07-21
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["精密発酵", "代替乳製品", "ホエイプロテイン", "フードテック", "食料安全保障", "EU", "vegan", "vegan oji"]

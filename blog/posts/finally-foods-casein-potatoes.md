@@ -1,6 +1,6 @@
 ---
 title:    "牛なしで、本物のチーズを — ジャガイモが“カゼイン”を実らせる時代へ"
-date:     2026-06-26
+date:     2026-07-07
 category: kenkyushitsu-kara
 category_display: "研究室から"
 tags:     ["分子農業", "代替乳製品", "チーズ", "精密発酵", "フードテック", "イノベーション", "vegan", "vegan oji"]

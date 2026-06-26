@@ -1,6 +1,6 @@
 ---
 title:    "給食を変えるだけで、年1.8兆円。EUが示した“植物性シフト”の経済効果"
-date:     2026-06-26
+date:     2026-07-02
 category: sekai-no-ugoki
 category_display: "世界のうごき"
 tags:     ["政策", "給食", "公共調達", "サステナビリティ", "食育", "EU", "vegan", "vegan oji"]
