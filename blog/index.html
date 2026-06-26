@@ -1077,15 +1077,18 @@
     }
     .share-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    /* Share card CTA (canvas download) */
+    /* Featured-image download CTA — chibi sticker button (matches site buttons) */
     .share-card-cta {
       display: flex; align-items: center; gap: 14px;
-      padding: 16px 18px;
-      background: linear-gradient(135deg, var(--color-cream), var(--color-paper));
-      border: 1px solid var(--color-gold); border-radius: 16px;
-      transition: all .25s ease;
+      padding: 15px 18px;
+      background: var(--color-paper);
+      border: 2.5px solid var(--color-ink); border-radius: 18px;
+      box-shadow: 4px 4px 0 var(--color-ink);
+      transition: transform .16s ease, box-shadow .16s ease;
+      cursor: pointer;
     }
-    .share-card-cta:hover { border-color: var(--color-royal); transform: translateY(-2px); box-shadow: 0 12px 28px -12px rgba(156,20,40,.25); }
+    .share-card-cta:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--color-ink); }
+    .share-card-cta:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--color-ink); }
 
     /* ═══════════════ MODERN BLOG-POST STYLES ═══════════════ */
 
@@ -1484,7 +1487,7 @@
         emptyEl.classList.add('hidden');
         listEl.innerHTML = filtered.map(p => `
           <a href="?post=${encodeURIComponent(p.slug)}" class="post-card block bg-paper border border-line rounded-2xl overflow-hidden">
-            <div class="post-card-img">${p.hero ? `<img src="${esc(cardSrc(p.hero))}" alt="" loading="lazy">` : ''}</div>
+            <div class="post-card-img">${p.hero ? `<img src="${esc(cardSrc(p.hero))}" onerror="this.onerror=null;this.src='${esc(p.hero)}'" alt="" loading="lazy">` : ''}</div>
             <div class="p-5">
               <div class="flex items-center gap-2.5 mb-2.5">
                 <span class="card-tag cat-${esc(p.category)}">${esc(p.category_display || CAT_LABELS[p.category] || 'ブログ')}</span>
@@ -1683,7 +1686,7 @@
             <div class="related-grid">
               ${picks.map(p => `
                 <a href="?post=${encodeURIComponent(p.slug)}" class="related-card">
-                  <div class="related-card__img">${p.hero ? `<img src="${esc(cardSrc(p.hero))}" alt="" loading="lazy">` : ''}</div>
+                  <div class="related-card__img">${p.hero ? `<img src="${esc(cardSrc(p.hero))}" onerror="this.onerror=null;this.src='${esc(p.hero)}'" alt="" loading="lazy">` : ''}</div>
                   <div class="related-card__body">
                     <div class="related-card__title">${esc(p.title)}</div>
                   </div>
@@ -1780,15 +1783,13 @@
             ${shareBarHTML(meta)}
 
             <button id="share-card-btn" class="share-card-cta mt-5 w-full text-left">
-              <div class="w-12 h-12 rounded-2xl bg-royal/10 text-royal flex items-center justify-center flex-shrink-0">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H4z M2 20h20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
+              <img src="/images/ui-icons/share-image.png" alt="" class="w-12 h-12 flex-shrink-0">
               <div class="flex-1 min-w-0">
-                <div class="font-jp-display text-[15px] text-ink leading-tight" style="font-weight:700">シェア画像をダウンロード</div>
-                <div class="font-jp text-[14px] sm:text-[15px] text-muted mt-0.5 leading-relaxed">王子ブランドの画像でInstagramやXに投稿しよう。<span class="text-royal">@veganoji</span> をタグ付けして！</div>
+                <div class="font-jp-display text-[15px] text-ink leading-tight" style="font-weight:700">この記事の画像をダウンロード</div>
+                <div class="font-jp text-[13.5px] sm:text-[14px] text-muted mt-0.5 leading-relaxed">王子ブランドの画像で Instagram や X に投稿しよう。<span class="text-royal" style="font-weight:600">@veganoji</span> をタグ付けしてね！</div>
               </div>
               <span id="share-card-status" class="hidden font-jp text-[11px] text-leaf-deep flex-shrink-0">準備中…</span>
-              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" class="text-royal flex-shrink-0"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <svg width="17" height="17" viewBox="0 0 14 14" fill="none" class="text-muted flex-shrink-0"><path d="M7 2v8m0 0L4 7m3 3l3-3M2 12h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
             </button>
           </div>
 
@@ -1804,20 +1805,19 @@
         const statusEl = document.getElementById('share-card-status');
         if (cardBtn) {
           cardBtn.addEventListener('click', async () => {
+            if (!meta.hero) return;
             statusEl.classList.remove('hidden'); statusEl.textContent = '準備中…';
             try {
-              const whenFonts = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
-              await whenFonts;
-              const canvas = await buildShareCard(meta);
-              await new Promise((res, rej) => canvas.toBlob(blob => {
-                if (!blob) return rej('blob failed');
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url; a.download = `veganoji-${meta.slug}.png`;
-                document.body.appendChild(a); a.click(); a.remove();
-                URL.revokeObjectURL(url);
-                res();
-              }, 'image/png'));
+              // Download the post's featured banner image directly.
+              const resp = await fetch(meta.hero, { cache: 'force-cache' });
+              if (!resp.ok) throw new Error('fetch failed');
+              const blob = await resp.blob();
+              const ext = (meta.hero.split('.').pop() || 'png').toLowerCase();
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url; a.download = `veganoji-${meta.slug}.${ext}`;
+              document.body.appendChild(a); a.click(); a.remove();
+              URL.revokeObjectURL(url);
               statusEl.textContent = '保存しました ✓';
               setTimeout(() => statusEl.classList.add('hidden'), 1800);
             } catch (e) {
