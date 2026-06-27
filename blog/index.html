@@ -1695,6 +1695,34 @@
           </section>`;
       }
 
+      // Mid-article newsletter CTA (chibi-sticker style; posts to the same double opt-in endpoint as the footer).
+      const BLOG_NL_CTA = `
+<div class="blog-nl-cta not-prose" style="margin:36px 0;background:#FDF1DA;border:2.5px solid #1F1812;border-radius:18px;box-shadow:5px 5px 0 #1F1812;padding:20px 20px 18px;text-align:center;">
+  <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:17px;font-weight:900;color:#1F1812;margin-bottom:6px;"><img src="/images/oji/oji_writing.png" alt="" style="width:34px;height:34px;object-fit:contain;">王子通信を受け取る</div>
+  <p style="margin:0 0 13px;font-size:13.5px;color:#6E5B45;line-height:1.75;font-weight:600;">月に一度、世界のベジーニュース・レシピ・最新動画を、王子の声でお届けします。</p>
+  <form class="blog-nl-form" style="display:flex;gap:8px;max-width:420px;margin:0 auto;">
+    <input type="email" name="email" placeholder="メールアドレス" required style="flex:1;min-width:0;border:2px solid #1F1812;border-radius:12px;padding:11px 13px;font-family:inherit;font-size:14px;background:#fff;color:#1F1812;">
+    <button type="submit" style="border:2.5px solid #1F1812;border-radius:12px;background:linear-gradient(135deg,#86AD79,#3F6A3A);color:#fff;font-family:inherit;font-weight:900;font-size:14px;padding:0 20px;cursor:pointer;white-space:nowrap;box-shadow:3px 3px 0 #1F1812;">登録</button>
+  </form>
+  <div class="blog-nl-done" style="display:none;font-weight:900;color:#3F6A3A;padding:8px 0;font-size:14px;">確認メールを送りました！📧 メール内のリンクで登録完了です。</div>
+</div>`;
+      function injectBlogCTA(html) {
+        const segs = html.split('</p>');
+        if (segs.length < 5) return html; // short posts: footer form covers it
+        const mid = Math.ceil(segs.length / 2);
+        return segs.map((s, i) => (s + (i < segs.length - 1 ? '</p>' : '')) + (i === mid ? BLOG_NL_CTA : '')).join('');
+      }
+      document.addEventListener('submit', async (e) => {
+        const f = e.target.closest && e.target.closest('.blog-nl-form'); if (!f) return;
+        e.preventDefault();
+        const box = f.closest('.blog-nl-cta'), email = (f.email.value || '').trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { f.email.style.borderColor = '#C9223A'; return; }
+        const btn = f.querySelector('button'); btn.disabled = true; btn.textContent = '送信中…';
+        try { await fetch('https://news.veganoji.jp/subscribe', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: email, lang: 'ja', hp: '' }) }); } catch (_) {}
+        f.style.display = 'none';
+        if (box) box.querySelector('.blog-nl-done').style.display = 'block';
+      });
+
       async function renderPost(slug) {
         listEl.classList.add('hidden');
         emptyEl.classList.add('hidden');
@@ -1757,6 +1785,9 @@
           const heroBase = meta.hero.split('/').pop().replace(/-card(\.[a-z]+)$/i, '$1');
           body = body.replace(/<p>\s*<img\b[^>]*>\s*<\/p>/i, m => m.includes(heroBase) ? '' : m);
         }
+
+        // Mid-article: invite readers to the newsletter (drives signups)
+        body = injectBlogCTA(body);
 
         const rt = readingTime(md);
         const catLabel = esc(meta.category_display || CAT_LABELS[meta.category] || 'ブログ');
