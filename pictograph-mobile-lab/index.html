@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>畜産＞交通 ピクトグラフ — モバイル配置ラボ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{ --ink:#1F1812; --muted:#786148; --paper:#FFF9EE; --royal:#C9223A; --gold:#D4A847; }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:#EAddc8;
+      -webkit-font-smoothing:antialiased;padding-bottom:120px;}
+    .topbar{position:sticky;top:0;z-index:50;background:#FFFDF8;border-bottom:2px solid rgba(31,24,18,.12);
+      padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+    .topbar h1{font-size:15px;font-weight:900;margin:0;flex:1 1 auto;min-width:200px;}
+    .seg{display:inline-flex;border:2px solid var(--ink);border-radius:11px;overflow:hidden;}
+    .seg button{font-family:inherit;font-weight:700;font-size:13px;border:none;background:#fff;color:var(--ink);
+      padding:7px 12px;cursor:pointer;border-right:2px solid var(--ink);}
+    .seg button:last-child{border-right:none;}
+    .seg button.on{background:var(--royal);color:#fff;}
+    .btn{font-family:inherit;font-weight:900;font-size:13px;cursor:pointer;border-radius:11px;
+      border:2px solid var(--ink);background:#fff;color:var(--ink);padding:7px 14px;}
+    .btn.primary{background:var(--royal);color:#fff;box-shadow:2px 2px 0 var(--ink);}
+    .hint{max-width:760px;margin:14px auto 0;padding:0 16px;font-size:13px;line-height:1.8;color:#5C4A38;text-align:center;}
+    .hint b{color:var(--royal);}
+
+    .stage{display:flex;justify-content:center;padding:22px 12px 0;}
+    /* phone frame — chrome (53px) replicates the live section/card padding so the
+       inner card content width matches vegan-and-earth at the same viewport. */
+    .phone{position:relative;background:linear-gradient(180deg,#F7B89E,#FCE9DD 38%);border:7px solid #2A2018;
+      border-radius:34px;box-shadow:0 16px 40px rgba(31,24,18,.3);padding:26px 0;overflow:hidden;}
+    .phone::before{content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);
+      width:78px;height:6px;border-radius:6px;background:rgba(31,24,18,.45);}
+
+    /* ── card replica (mirrors .sticker p-6 on the live page) ── */
+    .card{margin:0 auto;background:var(--paper);border:2.5px solid var(--ink);border-radius:22px;
+      box-shadow:5px 5px 0 rgba(31,24,18,.16);padding:24px;position:relative;}
+    .keyfact{position:absolute;top:-13px;left:18px;background:var(--royal);color:#fff;border:2px solid var(--ink);
+      border-radius:999px;font-size:11px;letter-spacing:.14em;font-weight:700;padding:3px 10px;}
+    .lead{font-size:14px;line-height:1.85;margin:6px 0 0;}
+    .lead b{font-weight:700;}
+    .more{text-align:center;margin:10px 0 0;}
+    .more .big{font-size:54px;font-weight:900;color:var(--royal);line-height:1;}
+    .more .sub{font-size:20px;font-weight:900;}
+
+    /* ── pictograph grid — EXACT mobile layout values from the live page ──
+       equal columns via minmax(0,1fr); both clusters wrap to a symmetric 2×2. */
+    .pg{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:4px;align-items:center;margin-top:30px;}
+    .side{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;}
+    .cluster-lv{position:relative;z-index:10;display:flex;align-items:flex-end;justify-content:center;
+      flex-wrap:wrap-reverse;gap:4px;min-height:108px;max-width:118px;}
+    .cluster-tx{position:relative;z-index:10;display:flex;flex-wrap:wrap;align-items:flex-end;
+      justify-content:center;gap:4px;max-width:118px;}
+    .label{margin-top:12px;font-weight:700;font-size:12px;line-height:1.3;white-space:normal;word-break:break-word;}
+    .label rt{font-size:.55em;font-weight:500;}
+    .gt{justify-self:center;}
+
+    .wrap{display:inline-block;touch-action:none;}
+    .pic{display:block;touch-action:none;cursor:grab;filter:drop-shadow(0 4px 10px rgba(31,24,18,.18));
+      -webkit-user-drag:none;user-select:none;}
+    .cloud{position:absolute;z-index:0;left:50%;top:46%;transform:translate(-50%,-50%);
+      touch-action:none;cursor:grab;opacity:.55;-webkit-user-drag:none;user-select:none;}
+    .sel{outline:2px dashed var(--royal);outline-offset:3px;border-radius:6px;}
+
+    /* ── bottom control dock ── */
+    .dock{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#FFFDF8;border-top:2px solid rgba(31,24,18,.15);
+      box-shadow:0 -6px 20px rgba(31,24,18,.12);padding:12px 16px;display:flex;gap:16px;align-items:center;
+      flex-wrap:wrap;justify-content:center;}
+    .dock .name{font-weight:900;font-size:14px;min-width:120px;}
+    .dock .name span{color:var(--muted);font-weight:500;font-size:12px;}
+    .dock label{font-size:12px;font-weight:700;color:#5C4A38;display:flex;align-items:center;gap:8px;}
+    .dock input[type=range]{width:150px;accent-color:var(--royal);}
+    .dock .read{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:120px;}
+    .nudge{display:inline-flex;gap:4px;}
+    .nudge button{width:26px;height:26px;border:1.5px solid var(--ink);background:#fff;border-radius:7px;cursor:pointer;
+      font-weight:900;font-size:13px;line-height:1;}
+
+    dialog{border:2.5px solid var(--ink);border-radius:16px;padding:0;max-width:680px;width:92vw;}
+    dialog .dlg-h{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:2px solid rgba(31,24,18,.12);}
+    dialog .dlg-h b{font-size:14px;}
+    dialog textarea{width:100%;height:300px;border:none;padding:14px 16px;font-family:ui-monospace,Menlo,monospace;
+      font-size:12.5px;line-height:1.6;resize:vertical;color:#1F1812;}
+    dialog .dlg-f{padding:10px 16px;border-top:2px solid rgba(31,24,18,.12);display:flex;justify-content:flex-end;gap:8px;}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1>畜産＞交通 ピクトグラフ — モバイル配置ラボ</h1>
+    <div class="seg" id="wseg">
+      <button data-w="360">360</button>
+      <button data-w="390" class="on">390</button>
+      <button data-w="430">430</button>
+    </div>
+    <button class="btn" id="resetBtn">リセット</button>
+    <button class="btn primary" id="exportBtn">CSSを書き出す</button>
+  </div>
+
+  <p class="hint">
+    各ステッカーを<b>ドラッグ</b>して配置、クリックで選択して<b>下のスライダー</b>でサイズ変更。雲も動かせます。
+    実機幅（360/390/430）で確認できます。<b>「CSSを書き出す」</b>を押すと、本番ページに貼り付けるCSSが出ます。
+    <br>※ この幅は実際の <code>vegan-and-earth</code> カード内容幅に一致させています（最終確認は実ページで行います）。
+  </p>
+
+  <div class="stage">
+    <div class="phone" id="phone">
+      <div class="card" id="card">
+        <span class="keyfact">KEY FACT</span>
+        <p class="lead">動物畜産による温室効果ガスは、世界の<b>飛行機・船・車・電車</b>、全部を合わせたよりも</p>
+        <div class="more"><div class="big">もっと</div><div class="sub">多い。</div></div>
+
+        <div class="pg" id="pg">
+          <!-- LEFT: livestock -->
+          <div class="side" id="side-lv">
+            <img class="cloud" data-el="smoke-lv" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""/>
+            <div class="cluster-lv">
+              <span class="wrap" data-el="pig"><img class="pic" src="/images/vegan-to-chikyu/icon-pig-solo.png" alt="豚"/></span>
+              <span class="wrap" data-el="cow"><img class="pic" src="/images/vegan-to-chikyu/icon-cow-solo.png" alt="牛"/></span>
+              <span class="wrap" data-el="sheep"><img class="pic" src="/images/vegan-to-chikyu/icon-sheep-solo.png" alt="羊"/></span>
+              <span class="wrap" data-el="chicken"><img class="pic" src="/images/vegan-to-chikyu/icon-chicken-solo.png" alt="鶏"/></span>
+            </div>
+            <div class="label"><ruby>畜産<rt>ちくさん</rt></ruby></div>
+          </div>
+          <!-- > -->
+          <img class="gt pic" data-el="gt" src="/images/vegan-to-chikyu/icon-greater-than-red.png" alt="より多い"/>
+          <!-- RIGHT: transport -->
+          <div class="side" id="side-tx">
+            <img class="cloud" data-el="smoke-tx" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""/>
+            <div class="cluster-tx">
+              <span class="wrap" data-el="plane"><img class="pic" src="/images/vegan-to-chikyu/icon-airplane-chibi.png" alt="飛行機"/></span>
+              <span class="wrap" data-el="ship"><img class="pic" src="/images/vegan-to-chikyu/icon-cargo-ship-chibi.png" alt="船"/></span>
+              <span class="wrap" data-el="car"><img class="pic" src="/images/vegan-to-chikyu/icon-hybrid-car.png" alt="車"/></span>
+              <span class="wrap" data-el="train"><img class="pic" src="/images/vegan-to-chikyu/icon-train-chibi.png" alt="電車"/></span>
+            </div>
+            <div class="label"><ruby>飛行機<rt>ひこうき</rt></ruby>・<ruby>船<rt>ふね</rt></ruby>・<ruby>車<rt>くるま</rt></ruby>・<ruby>電車<rt>でんしゃ</rt></ruby></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dock">
+    <div class="name" id="selName">選択なし <span>（ステッカーをクリック）</span></div>
+    <label>サイズ <input type="range" id="sizeSlider" min="28" max="190" value="60" disabled></label>
+    <span class="read" id="sizeRead">—</span>
+    <span class="nudge" id="nudge">
+      <button data-dx="-2">←</button><button data-dy="-2">↑</button><button data-dy="2">↓</button><button data-dx="2">→</button>
+    </span>
+    <span class="read" id="posRead">—</span>
+  </div>
+
+  <dialog id="exportDlg">
+    <div class="dlg-h"><b>本番ページに貼り付けるCSS（既存の <code>#ch1-picto-mobile</code> ブロックを置き換え）</b></div>
+    <textarea id="exportText" readonly></textarea>
+    <div class="dlg-f">
+      <button class="btn" id="copyBtn">コピー</button>
+      <button class="btn primary" onclick="document.getElementById('exportDlg').close()">閉じる</button>
+    </div>
+  </dialog>
+
+  <script>
+    // ── seed = current live default values ──
+    const DEFAULTS = {
+      pig:{tx:0,ty:0,w:50}, cow:{tx:0,ty:0,w:52}, sheep:{tx:0,ty:0,w:48}, chicken:{tx:0,ty:0,w:48},
+      plane:{tx:0,ty:0,w:50}, ship:{tx:0,ty:0,w:50}, car:{tx:0,ty:0,w:50}, train:{tx:0,ty:0,w:50},
+      gt:{w:34},
+      'smoke-lv':{cw:106,ctop:46,cleft:50}, 'smoke-tx':{cw:100,ctop:46,cleft:50},
+    };
+    const STICKERS=['pig','cow','sheep','chicken','plane','ship','car','train'];
+    const CLOUDS=['smoke-lv','smoke-tx'];
+    const JP={pig:'豚',cow:'牛',sheep:'羊',chicken:'鶏',plane:'飛行機',ship:'船',car:'車',train:'電車',gt:'＞ 記号','smoke-lv':'煙（畜産側）','smoke-tx':'煙（交通側）'};
+    let state = structuredClone(DEFAULTS);
+    let sel = null;
+
+    const CHROME = 53;              // outer chrome only (measured: 390 − 337 card border-box width)
+    const $=s=>document.querySelector(s);
+    const el = name => document.querySelector('[data-el="'+name+'"]');
+    const imgOf = name => { const e=el(name); return e.classList.contains('pic')?e:e.querySelector('.pic'); };
+
+    function setPhoneWidth(w){
+      document.getElementById('card').style.width = (w - CHROME) + 'px';
+      document.querySelectorAll('#wseg button').forEach(b=>b.classList.toggle('on', +b.dataset.w===w));
+    }
+
+    function render(){
+      STICKERS.forEach(n=>{ const s=state[n]; el(n).style.transform='translate('+s.tx+'px,'+s.ty+'px)'; imgOf(n).style.width=s.w+'px'; });
+      imgOf('gt').style.width = state.gt.w+'px';
+      CLOUDS.forEach(n=>{ const c=state[n]; const e=el(n); e.style.width=c.cw+'px'; e.style.left=c.cleft+'%'; e.style.top=c.ctop+'%'; });
+      if(sel) updateDock();
+    }
+
+    function select(name){
+      document.querySelectorAll('.sel').forEach(e=>e.classList.remove('sel'));
+      sel=name;
+      const e = el(name);
+      (e.classList.contains('pic')?e:e).classList.add('sel');
+      updateDock();
+    }
+    function updateDock(){
+      const slider=$('#sizeSlider');
+      $('#selName').innerHTML = JP[sel]+' <span>を編集中</span>';
+      slider.disabled=false;
+      const s=state[sel];
+      if(CLOUDS.includes(sel)){ slider.value=s.cw; $('#sizeRead').textContent=s.cw+'px';
+        $('#posRead').textContent='left '+Math.round(s.cleft)+'% · top '+Math.round(s.ctop)+'%'; }
+      else if(sel==='gt'){ slider.value=s.w; $('#sizeRead').textContent=s.w+'px'; $('#posRead').textContent='（中央固定）'; }
+      else { slider.value=s.w; $('#sizeRead').textContent=s.w+'px'; $('#posRead').textContent='x '+s.tx+'px · y '+s.ty+'px'; }
+    }
+
+    // ── dragging ──
+    let drag=null;
+    function onDown(name, ev){
+      ev.preventDefault();
+      select(name);
+      if(name==='gt') return;       // gt is center-fixed, resize only
+      const p = ev.touches?ev.touches[0]:ev;
+      drag={name, x:p.clientX, y:p.clientY};
+    }
+    function onMove(ev){
+      if(!drag) return;
+      const p = ev.touches?ev.touches[0]:ev;
+      const dx=p.clientX-drag.x, dy=p.clientY-drag.y;
+      drag.x=p.clientX; drag.y=p.clientY;
+      const n=drag.name, s=state[n];
+      if(CLOUDS.includes(n)){
+        const par = (n==='smoke-lv'?document.getElementById('side-lv'):document.getElementById('side-tx'));
+        s.cleft += dx/par.clientWidth*100;
+        s.ctop  += dy/par.clientHeight*100;
+        s.cleft=Math.max(-20,Math.min(120,s.cleft)); s.ctop=Math.max(-20,Math.min(120,s.ctop));
+      } else { s.tx+=dx; s.ty+=dy; }
+      render();
+    }
+    function onUp(){ drag=null; }
+
+    document.querySelectorAll('[data-el]').forEach(e=>{
+      const name=e.dataset.el;
+      e.addEventListener('mousedown', ev=>onDown(name,ev));
+      e.addEventListener('touchstart', ev=>onDown(name,ev), {passive:false});
+    });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, {passive:false});
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+
+    // ── controls ──
+    $('#sizeSlider').addEventListener('input', e=>{
+      if(!sel) return; const v=+e.target.value;
+      if(CLOUDS.includes(sel)) state[sel].cw=v; else state[sel].w=v;
+      render();
+    });
+    $('#nudge').addEventListener('click', e=>{
+      const b=e.target.closest('button'); if(!b||!sel||sel==='gt') return;
+      const s=state[sel];
+      if(CLOUDS.includes(sel)){ if(b.dataset.dx)s.cleft+=(+b.dataset.dx); if(b.dataset.dy)s.ctop+=(+b.dataset.dy); }
+      else { if(b.dataset.dx)s.tx+=(+b.dataset.dx); if(b.dataset.dy)s.ty+=(+b.dataset.dy); }
+      render();
+    });
+    document.getElementById('wseg').addEventListener('click', e=>{ const b=e.target.closest('button'); if(b) setPhoneWidth(+b.dataset.w); });
+    document.getElementById('resetBtn').addEventListener('click', ()=>{ state=structuredClone(DEFAULTS); render(); if(sel)updateDock(); });
+
+    // ── export ──
+    function pad(n){ return String(n).padStart(7,' '); }
+    function exportCSS(){
+      const L=[];
+      L.push('<style id="ch1-picto-mobile">');
+      L.push('        /* Mobile-only placement for the 畜産 > 交通 pictograph. Desktop (≥640px)');
+      L.push('           uses the inline var() fallbacks and is untouched. Tunable in /pictograph-mobile-lab/. */');
+      L.push('        @media (max-width:640px){');
+      STICKERS.forEach(n=>{ const s=state[n];
+        L.push('          #ch1-w-'+n+'{--tx:'+Math.round(s.tx)+'px;--ty:'+Math.round(s.ty)+'px}      #ch1-pic-'+n+'{--w:'+Math.round(s.w)+'px}'); });
+      L.push('          #ch1-pic-gt{--w:'+Math.round(state.gt.w)+'px}');
+      CLOUDS.forEach(n=>{ const c=state[n];
+        L.push('          #ch1-pic-'+n+'{--cw:'+Math.round(c.cw)+'px;--ctop:'+Math.round(c.ctop)+'%;--cleft:'+Math.round(c.cleft)+'%}'); });
+      L.push('        }');
+      L.push('      </style>');
+      return L.join('\n');
+    }
+    document.getElementById('exportBtn').addEventListener('click', ()=>{
+      document.getElementById('exportText').value = exportCSS();
+      document.getElementById('exportDlg').showModal();
+    });
+    document.getElementById('copyBtn').addEventListener('click', ()=>{
+      const t=document.getElementById('exportText'); t.select();
+      navigator.clipboard.writeText(t.value).then(()=>{ const b=document.getElementById('copyBtn'); b.textContent='コピー済み ✓'; setTimeout(()=>b.textContent='コピー',1400); });
+    });
+
+    setPhoneWidth(390);
+    render();
+  </script>
+</body>
+</html>

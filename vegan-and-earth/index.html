@@ -1116,73 +1116,102 @@
              /pictograph-lab/. Each animal/transport img is wrapped in a span
              that holds the drag translate offset, so the bobble animation +
              reveal animation on the img itself don't fight with placement. -->
-        <div id="ch1-pictograph" class="mt-10 sm:mt-12 grid grid-cols-[1fr_auto_1fr] gap-2 sm:gap-6 items-center">
+        <style id="ch1-picto-mobile">
+        /* Mobile-only placement for the 畜産 > 交通 pictograph. Desktop (≥640px)
+           uses the inline var() fallbacks and is untouched. Tunable in /pictograph-mobile-lab/. */
+        @media (max-width:640px){
+          /* Tighten the grid + force the two sides to EQUAL width (minmax(0,1fr)
+             ignores content min-content, so the non-wrapping transport label can
+             no longer bully the column wider than the livestock side). */
+          #ch1-pictograph{gap:4px !important; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) !important}
+          /* Let the labels wrap within their column instead of forcing it wide. */
+          #ch1-label-lv,#ch1-label-tx{font-size:12px !important; line-height:1.3; white-space:normal; word-break:break-word}
+          /* Both clusters wrap to a symmetric 2×2 and are capped so a wide column
+             never spills to 3-across. The transport side is flipped from a rigid
+             2-col grid to wrap-flex so it stops forcing an over-wide column. */
+          #ch1-cluster-lv{max-width:118px !important; gap:4px !important}
+          #ch1-cluster-tx{display:flex !important; flex-wrap:wrap; align-items:flex-end;
+                          justify-content:center; max-width:118px !important; gap:4px !important}
+          /* Neutralise the desktop scatter offsets. */
+          #ch1-w-pig,#ch1-w-cow,#ch1-w-sheep,#ch1-w-chicken,
+          #ch1-w-plane,#ch1-w-ship,#ch1-w-car,#ch1-w-train{--tx:0px;--ty:0px}
+          /* Sizes tuned so 2×2 holds at 360px (smallest common phone). */
+          #ch1-pic-pig{--w:50px}   #ch1-pic-cow{--w:52px}
+          #ch1-pic-sheep{--w:48px} #ch1-pic-chicken{--w:48px}
+          #ch1-pic-plane{--w:50px} #ch1-pic-ship{--w:50px}
+          #ch1-pic-car{--w:50px}   #ch1-pic-train{--w:50px}
+          #ch1-pic-gt{--w:34px}
+          #ch1-pic-smoke-lv{--cw:106px;--ctop:46%}
+          #ch1-pic-smoke-tx{--cw:100px;--ctop:46%}
+        }
+      </style>
+      <div id="ch1-pictograph" class="mt-10 sm:mt-12 grid grid-cols-[1fr_auto_1fr] gap-2 sm:gap-6 items-center">
           <!-- LEFT: livestock cluster + big smoke cloud behind -->
           <div class="relative flex flex-col items-center text-center">
             <img id="ch1-pic-smoke-lv" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""
                  class="absolute pointer-events-none"
-                 style="z-index: 0; width: 162px; top: 38%; left: 50%; transform: translate(-50%, -50%) scale(0.7); opacity: 0; transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(.34,1.56,.64,1);"
+                 style="z-index: 0; width: var(--cw,162px); top: var(--ctop,38%); left: var(--cleft,50%); transform: translate(-50%, -50%) scale(0.7); opacity: 0; transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(.34,1.56,.64,1);"
                  loading="lazy"/>
-            <div class="relative z-10 flex items-end justify-center flex-wrap-reverse gap-1 sm:gap-2 min-h-[120px] sm:min-h-[180px]" style="max-width: 280px;">
-              <span class="inline-block" style="transform: translate(37px, 0px);">
+            <div id="ch1-cluster-lv" class="relative z-10 flex items-end justify-center flex-wrap-reverse gap-1 sm:gap-2 min-h-[120px] sm:min-h-[180px]" style="max-width: 280px;">
+              <span id="ch1-w-pig" class="inline-block" style="transform: translate(var(--tx,37px), var(--ty,0px));">
                 <img id="ch1-pic-pig" src="/images/vegan-to-chikyu/icon-pig-solo.png" alt="豚"
                      class="anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.18)]"
-                     style="width: 82px; opacity: 0; transition: opacity 0.5s ease-out; animation-delay:-0.7s;" loading="lazy"/>
+                     style="width: var(--w,82px); opacity: 0; transition: opacity 0.5s ease-out; animation-delay:-0.7s;" loading="lazy"/>
               </span>
-              <span class="inline-block" style="transform: translate(62px, -10px);">
+              <span id="ch1-w-cow" class="inline-block" style="transform: translate(var(--tx,62px), var(--ty,-10px));">
                 <img id="ch1-pic-cow" src="/images/vegan-to-chikyu/icon-cow-solo.png" alt="牛"
                      class="anim-bobble drop-shadow-[0_6px_14px_rgba(31,24,18,0.20)]"
-                     style="width: 95px; opacity: 0; transition: opacity 0.55s ease-out; animation-delay:-1.2s;" loading="lazy"/>
+                     style="width: var(--w,95px); opacity: 0; transition: opacity 0.55s ease-out; animation-delay:-1.2s;" loading="lazy"/>
               </span>
-              <span class="inline-block" style="transform: translate(-27px, -84px);">
+              <span id="ch1-w-sheep" class="inline-block" style="transform: translate(var(--tx,-27px), var(--ty,-84px));">
                 <img id="ch1-pic-sheep" src="/images/vegan-to-chikyu/icon-sheep-solo.png" alt="羊"
                      class="anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.18)]"
-                     style="width: 80px; opacity: 0; transition: opacity 0.5s ease-out; animation-delay:-1.8s;" loading="lazy"/>
+                     style="width: var(--w,80px); opacity: 0; transition: opacity 0.5s ease-out; animation-delay:-1.8s;" loading="lazy"/>
               </span>
-              <span class="inline-block" style="transform: translate(-50px, -2px);">
+              <span id="ch1-w-chicken" class="inline-block" style="transform: translate(var(--tx,-50px), var(--ty,-2px));">
                 <img id="ch1-pic-chicken" src="/images/vegan-to-chikyu/icon-chicken-solo.png" alt="鶏"
                      class="anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.18)]"
-                     style="width: 80px; opacity: 0; transition: opacity 0.5s ease-out; animation-delay:-2.4s;" loading="lazy"/>
+                     style="width: var(--w,80px); opacity: 0; transition: opacity 0.5s ease-out; animation-delay:-2.4s;" loading="lazy"/>
               </span>
             </div>
-            <div class="mt-3 font-jp font-bold text-ink text-[14px] sm:text-[16px]"><ruby>畜産<rt>ちくさん</rt></ruby></div>
+            <div id="ch1-label-lv" class="mt-3 font-jp font-bold text-ink text-[14px] sm:text-[16px]"><ruby>畜産<rt>ちくさん</rt></ruby></div>
           </div>
 
           <!-- > red symbol -->
           <img id="ch1-pic-gt" src="/images/vegan-to-chikyu/icon-greater-than-red.png" alt="より多い"
                class="anim-bobble"
-               style="width: 80px; opacity: 0; transition: opacity 0.5s ease-out; animation-delay:-1.5s;"
+               style="width: var(--w,80px); opacity: 0; transition: opacity 0.5s ease-out; animation-delay:-1.5s;"
                loading="lazy"/>
 
           <!-- RIGHT: transports + small smoke cloud -->
           <div class="relative flex flex-col items-center text-center">
             <img id="ch1-pic-smoke-tx" src="/images/vegan-to-chikyu/icon-smoke-cloud.png" alt=""
                  class="absolute pointer-events-none"
-                 style="z-index: 0; width: 80px; top: 40%; left: 50%; transform: translate(-50%, -50%) scale(0.7); opacity: 0; transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(.34,1.56,.64,1);"
+                 style="z-index: 0; width: var(--cw,80px); top: var(--ctop,40%); left: var(--cleft,50%); transform: translate(-50%, -50%) scale(0.7); opacity: 0; transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(.34,1.56,.64,1);"
                  loading="lazy"/>
-            <div class="relative z-10 grid grid-cols-2 gap-2 sm:gap-3" style="max-width: 200px;">
-              <span class="inline-block" style="transform: translate(-12px, -9px);">
+            <div id="ch1-cluster-tx" class="relative z-10 grid grid-cols-2 gap-2 sm:gap-3" style="max-width: 200px;">
+              <span id="ch1-w-plane" class="inline-block" style="transform: translate(var(--tx,-12px), var(--ty,-9px));">
                 <img id="ch1-pic-plane" src="/images/vegan-to-chikyu/icon-airplane-chibi.png" alt="飛行機"
                      class="anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.15)]"
-                     style="width: 85px; opacity: 0; transition: opacity 0.45s ease-out; animation-delay:-0.5s;" loading="lazy"/>
+                     style="width: var(--w,85px); opacity: 0; transition: opacity 0.45s ease-out; animation-delay:-0.5s;" loading="lazy"/>
               </span>
-              <span class="inline-block" style="transform: translate(16px, -8px);">
+              <span id="ch1-w-ship" class="inline-block" style="transform: translate(var(--tx,16px), var(--ty,-8px));">
                 <img id="ch1-pic-ship" src="/images/vegan-to-chikyu/icon-cargo-ship-chibi.png" alt="船"
                      class="anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.15)]"
-                     style="width: 85px; opacity: 0; transition: opacity 0.45s ease-out; animation-delay:-1s;" loading="lazy"/>
+                     style="width: var(--w,85px); opacity: 0; transition: opacity 0.45s ease-out; animation-delay:-1s;" loading="lazy"/>
               </span>
-              <span class="inline-block" style="transform: translate(-12px, -3px);">
+              <span id="ch1-w-car" class="inline-block" style="transform: translate(var(--tx,-12px), var(--ty,-3px));">
                 <img id="ch1-pic-car" src="/images/vegan-to-chikyu/icon-hybrid-car.png" alt="車"
                      class="anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.15)]"
-                     style="width: 80px; opacity: 0; transition: opacity 0.45s ease-out; animation-delay:-1.5s;" loading="lazy"/>
+                     style="width: var(--w,80px); opacity: 0; transition: opacity 0.45s ease-out; animation-delay:-1.5s;" loading="lazy"/>
               </span>
-              <span class="inline-block" style="transform: translate(17px, -5px);">
+              <span id="ch1-w-train" class="inline-block" style="transform: translate(var(--tx,17px), var(--ty,-5px));">
                 <img id="ch1-pic-train" src="/images/vegan-to-chikyu/icon-train-chibi.png" alt="電車"
                      class="anim-bobble drop-shadow-[0_4px_10px_rgba(31,24,18,0.15)]"
-                     style="width: 79px; opacity: 0; transition: opacity 0.45s ease-out; animation-delay:-2s;" loading="lazy"/>
+                     style="width: var(--w,79px); opacity: 0; transition: opacity 0.45s ease-out; animation-delay:-2s;" loading="lazy"/>
               </span>
             </div>
-            <div class="mt-3 font-jp font-bold text-ink text-[14px] sm:text-[16px]"><ruby>飛行機<rt>ひこうき</rt></ruby>・<ruby>船<rt>ふね</rt></ruby>・<ruby>車<rt>くるま</rt></ruby>・<ruby>電車<rt>でんしゃ</rt></ruby></div>
+            <div id="ch1-label-tx" class="mt-3 font-jp font-bold text-ink text-[14px] sm:text-[16px]"><ruby>飛行機<rt>ひこうき</rt></ruby>・<ruby>船<rt>ふね</rt></ruby>・<ruby>車<rt>くるま</rt></ruby>・<ruby>電車<rt>でんしゃ</rt></ruby></div>
           </div>
         </div>
       </div>
