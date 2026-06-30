@@ -18,6 +18,27 @@
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#031826" />
 
+  <!-- ふりがな toggle: set the initial state before paint (default OFF) so
+       there's no flash of readings.  Hiding is plain CSS below so it applies
+       before the Tailwind CDN finishes compiling. -->
+  <script>
+    (function () {
+      try {
+        var v = localStorage.getItem('umi_furigana');     // 'on' | 'off' | null
+        document.documentElement.classList.add(v === 'on' ? 'furigana-on' : 'furigana-off');
+      } catch (e) {
+        document.documentElement.classList.add('furigana-off');
+      }
+    })();
+  </script>
+  <style>
+    /* Critical, plain CSS (applies before the Tailwind CDN compiles):
+       when furigana is OFF, hide every reading and let the hero headline
+       return to its tight line-height since it no longer needs the room. */
+    html.furigana-off rt { display: none !important; }
+    html.furigana-off .hero-h1-with-ruby { line-height: 1.05 !important; }
+  </style>
+
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/umi-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/umi-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -508,6 +529,33 @@
       line-height: 1.25 !important;
     }
 
+    /* ─── ふりがな toggle pill (top-left of the hero) ─────────────── */
+    .furigana-toggle {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 10px 6px 13px; border-radius: 999px;
+      background: rgba(2, 12, 20, 0.5);
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(232, 199, 111, 0.45);
+      color: var(--color-paper);
+      font-family: var(--font-jp); font-weight: 600; font-size: 14px; line-height: 1;
+      cursor: pointer; user-select: none;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .furigana-toggle:hover {
+      background: rgba(2, 12, 20, 0.68);
+      border-color: rgba(232, 199, 111, 0.7);
+    }
+    .furigana-toggle .ft-track {
+      position: relative; width: 34px; height: 18px; border-radius: 999px;
+      background: rgba(255, 249, 238, 0.25); transition: background 0.2s ease; flex-shrink: 0;
+    }
+    .furigana-toggle .ft-thumb {
+      position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--color-paper); transition: transform 0.2s ease;
+    }
+    html.furigana-on .furigana-toggle .ft-track { background: var(--color-gold); }
+    html.furigana-on .furigana-toggle .ft-thumb { transform: translateX(16px); }
+
     /* Pause-zone CTA at the end of the count section */
     .pause-cta {
       pointer-events: none;
@@ -543,6 +591,17 @@
     <div class="hero-bg-img absolute inset-0" aria-hidden="true"></div>
     <div class="hero-bg-overlay absolute inset-0" aria-hidden="true"></div>
     <canvas id="hero-stars" class="ocean-canvas opacity-50" aria-hidden="true"></canvas>
+
+    <!-- ふりがな on/off toggle.  Top-LEFT so it clears the mobile hamburger
+         (fixed, top-right).  Default OFF, remembered per browser.  Hiding is
+         pure CSS (html.furigana-off rt{display:none}) so it also covers the
+         JS-injected counter readings. -->
+    <button id="furigana-toggle" type="button" role="switch" aria-checked="false"
+            class="furigana-toggle absolute top-4 left-4 sm:top-6 sm:left-6 z-20"
+            aria-label="ふりがなの表示を切り替える">
+      <span class="ft-label">ふりがな</span>
+      <span class="ft-track" aria-hidden="true"><span class="ft-thumb"></span></span>
+    </button>
 
     <div class="hero-content relative z-10 max-w-3xl mx-auto text-center">
       <div class="hero-eyebrow font-jp font-semibold text-gold/85 text-[20px] sm:text-[22px] lg:text-[24px] tracking-[0.04em] mb-5 sm:mb-3 lg:mb-3">
@@ -1508,6 +1567,26 @@
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) close(); });
     })();
   </script>
+  <!-- ふりがな toggle wiring: flip the root class + remember the choice. -->
+  <script>
+    (function () {
+      var btn = document.getElementById('furigana-toggle');
+      if (!btn) return;
+      var root = document.documentElement;
+      function sync() {
+        btn.setAttribute('aria-checked', root.classList.contains('furigana-on') ? 'true' : 'false');
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        var on = !root.classList.contains('furigana-on');
+        root.classList.toggle('furigana-on', on);
+        root.classList.toggle('furigana-off', !on);
+        try { localStorage.setItem('umi_furigana', on ? 'on' : 'off'); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
+
   <script src="/mnav.js" defer></script>
   <script src="/oji-footer.js" defer></script>
 
