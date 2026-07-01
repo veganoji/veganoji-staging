@@ -526,39 +526,41 @@
       line-height: 1.25 !important;
     }
 
-    /* ─── ふりがな toggle ─────────────────────────────────────────
-       Fixed chibi-sticker pill, top-left — deliberately mirrors the
-       mobile hamburger (top-right) so the two corners read as a matched
-       cream-sticker pair.  Stays reachable the whole way down the page. */
+    /* ─── ふりがな toggle — round emblem + label to the right ───────
+       Fixed top-left (mirrors the mobile hamburger).  A cream chibi-
+       sticker coin (「ふ」 + status dot) fills gold when ON, with the
+       ふりがな label as a matching cream pill to its right, vertically
+       centred.  Stays reachable the whole way down the page. */
     .furigana-toggle {
       position: fixed; top: 12px; left: 12px; z-index: 55;
       display: inline-flex; align-items: center; gap: 9px;
-      padding: 7px 13px; border-radius: 999px;
+      background: transparent; border: none; padding: 0;
+      cursor: pointer; user-select: none;
+    }
+    .furigana-toggle .ft-coin {
+      position: relative; width: 46px; height: 46px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
       background: rgba(255, 249, 238, 0.96);
       -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
-      border: 2.5px solid #1F1812;
-      box-shadow: 3px 3px 0 #1F1812;
-      color: #1F1812;
-      font-family: var(--font-jp); font-weight: 700; font-size: 14px; line-height: 1;
-      cursor: pointer; user-select: none;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border: 2.5px solid #1F1812; box-shadow: 3px 3px 0 #1F1812;
+      color: #1F1812; font-family: var(--font-jp); font-weight: 900; font-size: 20px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
     }
-    .furigana-toggle:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 #1F1812; }
-    .furigana-toggle:active { transform: translate(3px, 3px); box-shadow: 0 0 0 #1F1812; }
-    .furigana-toggle .ft-label { letter-spacing: 0.02em; }
-    .furigana-toggle .ft-track {
-      position: relative; width: 34px; height: 19px; border-radius: 999px;
-      background: #cdbfa3; border: 1.5px solid #1F1812;
-      transition: background 0.2s ease; flex-shrink: 0;
+    .furigana-toggle:active .ft-coin { transform: translate(3px, 3px); box-shadow: 0 0 0 #1F1812; }
+    .furigana-toggle .ft-dot {
+      position: absolute; bottom: -3px; right: -3px; width: 15px; height: 15px; border-radius: 50%;
+      background: #9aa0a6; border: 2px solid #1F1812; transition: background 0.2s ease;
     }
-    .furigana-toggle .ft-thumb {
-      position: absolute; top: 1px; left: 1px; width: 13px; height: 13px; border-radius: 50%;
-      background: #FFF9EE; border: 1.5px solid #1F1812; transition: transform 0.2s ease;
+    .furigana-toggle .ft-text {
+      font-family: var(--font-jp); font-weight: 700; font-size: 14px; line-height: 1; letter-spacing: 0.02em;
+      color: #1F1812; background: rgba(255, 249, 238, 0.96);
+      -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+      border: 2px solid #1F1812; box-shadow: 2px 2px 0 #1F1812; border-radius: 999px; padding: 6px 12px;
     }
-    html.furigana-on .furigana-toggle .ft-track { background: var(--color-gold); }
-    html.furigana-on .furigana-toggle .ft-thumb { transform: translateX(15px); }
+    html.furigana-on .furigana-toggle .ft-coin { background: var(--color-gold); }
+    html.furigana-on .furigana-toggle .ft-dot { background: #35c759; }
     @media (prefers-reduced-motion: reduce) {
-      .furigana-toggle, .furigana-toggle .ft-thumb, .furigana-toggle .ft-track { transition: none; }
+      .furigana-toggle .ft-coin { transition: background 0.2s ease; }
     }
 
     /* Pause-zone CTA at the end of the count section */
@@ -589,8 +591,8 @@
        counter readings. -->
   <button id="furigana-toggle" type="button" role="switch" aria-checked="false"
           class="furigana-toggle" aria-label="ふりがなの表示を切り替える">
-    <span class="ft-label">ふりがな</span>
-    <span class="ft-track" aria-hidden="true"><span class="ft-thumb"></span></span>
+    <span class="ft-coin">ふ<span class="ft-dot" aria-hidden="true"></span></span>
+    <span class="ft-text">ふりがな</span>
   </button>
 
   <!-- Header intentionally omitted — this page stands by itself.
