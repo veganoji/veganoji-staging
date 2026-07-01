@@ -390,6 +390,7 @@
           const data = await res.json();
           state.recipes = data.filter(r => r.published).sort((a, b) => a.id - b.id);
           renderShelves();
+          openFromHash();
         } catch (e) {
           $('shelves').innerHTML = '<div class="empty"><img src="/images/oji/oji_worried.png" alt=""/>' +
             '<p class="font-jp text-ink-soft">レシピを読みこめませんでした。<br>少し時間をおいてね。</p></div>';
@@ -486,8 +487,15 @@
       }
       function closeModal() {
         $('modal').classList.remove('is-open'); document.body.style.overflow = '';
+        if (location.hash) history.replaceState(null, '', location.pathname + location.search);
         if (lastFocus && lastFocus.focus) lastFocus.focus();
       }
+      // Deep-link: /recipes/#<slug> opens that recipe (used by other pages' recipe links).
+      function openFromHash() {
+        const slug = decodeURIComponent((location.hash || '').replace(/^#/, ''));
+        if (slug && bySlug(slug)) openModal(slug);
+      }
+      window.addEventListener('hashchange', openFromHash);
       $('modal-x').addEventListener('click', closeModal);
       $('modal').addEventListener('click', (e) => { if (e.target === $('modal')) closeModal(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && $('modal').classList.contains('is-open')) closeModal(); });
