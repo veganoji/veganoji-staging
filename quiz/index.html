@@ -1115,12 +1115,22 @@
 
       // ───────── share buttons ─────────
       function toast(msg) { const t = $('share-toast'); t.textContent = msg; t.style.opacity = '1'; setTimeout(() => t.style.opacity = '0', 2600); }
-      // 結果をシェア: link → clipboard + the card PNG into the OS share sheet (mobile);
-      // falls back to text share, then to download + copied-link toast.
+      // 結果をシェア — mobile: link → clipboard + card PNG into the OS share sheet;
+      // desktop: always SAVE the PNG + copy the link (desktop share sheets are flaky).
       $('share-native').addEventListener('click', async () => {
         const score = endScore();
         const txt = shareText(score);
         copyLink();
+        const mobile = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+        if (!mobile) {
+          if (cardBlob && cardScore === score) {          // pre-warmed → save synchronously, in-gesture
+            toast(downloadCard(score) ? '画像を保存して、リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
+            return;
+          }
+          const b = await buildCardBlob(score);
+          toast(b && downloadCard(score) ? '画像を保存して、リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
+          return;
+        }
         const blob = await buildCardBlob(score);
         if (blob && navigator.canShare) {
           const file = new File([blob], 'gohan-quiz-' + score + 'of10.png', { type: 'image/png' });
@@ -1137,9 +1147,14 @@
       });
       // X / LINE: the intent opens via the link itself; alongside it we save the
       // card image + copy the page link so it's easy to attach & paste.
+      // Synchronous fast-path when pre-warmed — late downloads get blocked as drive-by.
       ['share-x', 'share-line'].forEach(id => $(id).addEventListener('click', () => {
         const score = endScore();
         copyLink();
+        if (cardBlob && cardScore === score) {
+          toast(downloadCard(score) ? '画像を保存＆リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
+          return;
+        }
         buildCardBlob(score).then(b => {
           toast(b && downloadCard(score) ? '画像を保存＆リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
         });
