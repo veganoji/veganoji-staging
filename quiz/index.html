@@ -27,36 +27,9 @@
   <!-- furigana preference (shared with the story pages) — apply before paint -->
   <script>(function(){try{var v=localStorage.getItem('furigana');document.documentElement.classList.add(v==='on'?'furigana-on':'furigana-off');}catch(e){document.documentElement.classList.add('furigana-off');}})();</script>
   <style>html.furigana-off rt{display:none!important;}</style>
-  <!-- share-card generator (results screen → 認定証 PNG) -->
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
-  <style>
-    /* hidden 1080×1920 認定証 card — ABSOLUTE positions so html2canvas is exact
-       (flex + margins + auto-height img drift badly in html2canvas). Hardcoded hex. */
-    #sc-card { position: fixed; left: -2200px; top: 0; width: 1080px; height: 1920px; z-index: -1; pointer-events: none;
-      background: url('/images/quiz-bg/cert-frame.jpg') 0 0 / 100% 100% no-repeat #FFFDF7; overflow: hidden;
-      font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif; font-feature-settings: "palt"; color: #1F1812; }
-    #sc-card > * { position: absolute; left: 50%; transform: translateX(-50%); margin: 0; text-align: center; }
-    #sc-card .sc-logo { top: 232px; width: 400px; height: 313px; filter: drop-shadow(0 8px 16px rgba(31,24,18,0.20)); }
-    #sc-card .sc-title { top: 588px; width: 100%; font-weight: 900; font-size: 126px; line-height: 1; letter-spacing: 0.1em;
-      white-space: nowrap; color: #C9223A;
-      text-shadow: 3px 0 0 #FFFBF0, -3px 0 0 #FFFBF0, 0 3px 0 #FFFBF0, 0 -3px 0 #FFFBF0,
-                   2px 2px 0 #FFFBF0, -2px 2px 0 #FFFBF0, 2px -2px 0 #FFFBF0, -2px -2px 0 #FFFBF0,
-                   5px 10px 0 rgba(31,24,18,0.13); }
-    #sc-card .sc-spark { font-size: 54px; color: #D4A847; text-shadow: none; vertical-align: 0.22em; margin: 0 22px; }
-    #sc-card .sc-oji { top: 772px; width: 244px; height: 446px; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
-    #sc-card .sc-big { top: 1244px; display: flex; align-items: baseline; }
-    #sc-card .sc-num { font-weight: 900; font-size: 210px; line-height: 1; color: #C9223A;
-      text-shadow: 3px 0 0 #FFFBF0, -3px 0 0 #FFFBF0, 0 3px 0 #FFFBF0, 0 -3px 0 #FFFBF0,
-                   2px 2px 0 #FFFBF0, -2px 2px 0 #FFFBF0, 2px -2px 0 #FFFBF0, -2px -2px 0 #FFFBF0,
-                   5px 10px 0 rgba(31,24,18,0.13); }
-    #sc-card .sc-den { font-weight: 900; font-size: 94px; color: rgba(31,24,18,0.42); margin-left: 8px; }
-    #sc-card .sc-attest { top: 1490px; width: 820px; font-weight: 700; font-size: 31px; color: #3C2E22; letter-spacing: 0.02em; }
-    #sc-card .sc-date { top: 1550px; width: 820px; font-weight: 700; font-size: 37px; color: #3C2E22; }
-    #sc-card .sc-url { top: 1608px; width: 820px; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: 40px; color: #C9223A;
-      text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 8px; }
-    #sc-card .sc-seal { left: auto; right: 176px; top: 1150px; width: 214px; height: 214px; object-fit: contain;
-      transform: rotate(-8deg); filter: drop-shadow(0 6px 12px rgba(31,24,18,0.22)); }
-  </style>
+  <!-- share-card (認定証 PNG) is drawn directly on <canvas> in the results-screen
+       script — deterministic across devices (html2canvas rendered differently on
+       iPhone vs desktop). Zen Maru Gothic is loaded here so canvas fillText can use it. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet" />
@@ -559,18 +532,6 @@
     </div>
   </section>
 
-
-  <!-- hidden 認定証 share-card — rendered to a 1080×1920 PNG on the results screen -->
-  <div id="sc-card" aria-hidden="true">
-    <img class="sc-logo" src="/images/quiz-bg/title.png" alt=""/>
-    <div class="sc-title"><span class="sc-spark">✦</span>認定証<span class="sc-spark">✦</span></div>
-    <img class="sc-oji" src="/images/oji/oji_happy.png" alt=""/>
-    <div class="sc-big"><span class="sc-num" id="sc-num">7</span><span class="sc-den">/ 10</span></div>
-    <div class="sc-attest">上記の成績を収めたことを、ここに認定します。</div>
-    <div class="sc-date" id="sc-date">2026.7.2</div>
-    <div class="sc-url">veganoji.jp/quiz</div>
-    <img class="sc-seal" src="/images/quiz-bg/badge.png" alt=""/>
-  </div>
 
   <script>
     (function () {
@@ -1087,20 +1048,75 @@
       }
 
       // ───────── share card (認定証 → 1080×1920 PNG) ─────────
+      // Drawn directly on <canvas> so the output is pixel-identical on every device
+      // (html2canvas re-implements CSS and rendered differently on iPhone vs desktop).
+      const CARD_ASSETS = { frame: '/images/quiz-bg/cert-frame.jpg', logo: '/images/quiz-bg/title.png', oji: '/images/oji/oji_happy.png', seal: '/images/quiz-bg/badge.png' };
+      const _imgCache = {};
+      function loadImg(src) {
+        if (_imgCache[src]) return _imgCache[src];
+        return _imgCache[src] = new Promise((res, rej) => {
+          const i = new Image(); i.crossOrigin = 'anonymous';
+          i.onload = () => res(i); i.onerror = () => rej(new Error(src)); i.src = src;
+        });
+      }
+      function stickerText(g, txt, x, y) {   // cream outline behind red fill
+        g.lineJoin = 'round'; g.miterLimit = 2; g.lineWidth = 13; g.strokeStyle = '#FFFBF0';
+        g.strokeText(txt, x, y); g.fillStyle = '#C9223A'; g.fillText(txt, x, y);
+      }
+      async function drawCard(score) {
+        const ZEN = '"Zen Maru Gothic", sans-serif';
+        try { await Promise.all([
+          document.fonts.load('900 126px ' + ZEN), document.fonts.load('900 210px ' + ZEN),
+          document.fonts.load('700 31px ' + ZEN), document.fonts.load('700 40px "Noto Sans JP"'),
+        ]); } catch (_) {}
+        const [frame, logo, oji, seal] = await Promise.all([loadImg(CARD_ASSETS.frame), loadImg(CARD_ASSETS.logo), loadImg(CARD_ASSETS.oji), loadImg(CARD_ASSETS.seal)]);
+        const W = 1080, H = 1920, CX = 540;
+        const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+        const g = cv.getContext('2d');
+        g.textAlign = 'center';
+        g.drawImage(frame, 0, 0, W, H);
+        // logo
+        const lw = 400, lh = lw * logo.height / logo.width;
+        g.drawImage(logo, CX - lw / 2, 206, lw, lh);
+        // 認定証 (sticker) + gold sparkles
+        g.textBaseline = 'middle';
+        g.font = '900 126px ' + ZEN;
+        const tW = g.measureText('認定証').width;
+        stickerText(g, '認定証', CX, 604);
+        g.font = '900 52px ' + ZEN; g.fillStyle = '#D4A847';
+        g.fillText('✦', CX - tW / 2 - 50, 604); g.fillText('✦', CX + tW / 2 + 50, 604);
+        // prince
+        const pw = 236, ph = pw * oji.height / oji.width;
+        g.drawImage(oji, CX - pw / 2, 700, pw, ph);
+        // seal — rotated ribbon stamp, right side beside the score
+        g.save(); g.translate(802, 1180); g.rotate(-8 * Math.PI / 180); g.drawImage(seal, -108, -108, 216, 216); g.restore();
+        // score: N (red, outline) + " / 10" (grey), baseline-aligned, centred
+        g.textBaseline = 'alphabetic'; g.textAlign = 'left';
+        g.font = '900 210px ' + ZEN; const numTxt = String(score), numW = g.measureText(numTxt).width;
+        g.font = '900 94px ' + ZEN; const denTxt = ' / 10', denW = g.measureText(denTxt).width;
+        const sx = CX - (numW + denW) / 2, baseY = 1282;
+        g.font = '900 210px ' + ZEN; stickerText(g, numTxt, sx, baseY);
+        g.font = '900 94px ' + ZEN; g.fillStyle = 'rgba(31,24,18,0.42)'; g.fillText(denTxt, sx + numW, baseY);
+        g.textAlign = 'center';
+        // attest (tight spacing) / date / url
+        g.fillStyle = '#3C2E22'; g.font = '700 31px ' + ZEN;
+        g.fillText('上記の成績を収めたことを、ここに認定します。', CX, 1372);
+        g.font = '700 37px ' + ZEN; const d = new Date();
+        g.fillText(d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate(), CX, 1430);
+        g.font = '700 40px "Noto Sans JP"'; g.fillStyle = '#C9223A';
+        const url = 'veganoji.jp/quiz'; g.fillText(url, CX, 1494);
+        const uW = g.measureText(url).width; g.strokeStyle = '#C9223A'; g.lineWidth = 3;
+        g.beginPath(); g.moveTo(CX - uW / 2, 1506); g.lineTo(CX + uW / 2, 1506); g.stroke();
+        return new Promise(res => cv.toBlob(res, 'image/png'));
+      }
       let cardBlob = null, cardScore = -1, cardBusy = null;
       function buildCardBlob(score) {
         if (cardBlob && cardScore === score) return Promise.resolve(cardBlob);
-        if (cardBusy) return cardBusy;
-        if (!window.html2canvas) return Promise.resolve(null);
-        $('sc-num').textContent = score;
-        const d = new Date();
-        $('sc-date').textContent = d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate();
-        cardBusy = document.fonts.ready
-          .then(() => html2canvas($('sc-card'), { width: 1080, height: 1920, scale: 1, useCORS: true, backgroundColor: null }))
-          .then(canvas => new Promise(res => canvas.toBlob(res, 'image/png')))
+        if (cardBusy && cardBusy._score === score) return cardBusy;
+        const p = drawCard(score)
           .then(b => { cardBlob = b; cardScore = score; cardBusy = null; return b; })
           .catch(() => { cardBusy = null; return null; });
-        return cardBusy;
+        p._score = score; cardBusy = p; return p;
       }
       const fname = (score) => 'gohan-quiz-' + score + 'of10.png';
       function triggerDownload(blob, score) {         // works on desktop (iOS ignores download attr)
