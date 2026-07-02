@@ -30,30 +30,31 @@
   <!-- share-card generator (results screen → 認定証 PNG) -->
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
   <style>
-    /* hidden 1080×1920 認定証 card — hardcoded hex (no theme vars: tree-shaken + html2canvas) */
+    /* hidden 1080×1920 認定証 card — ABSOLUTE positions so html2canvas is exact
+       (flex + margins + auto-height img drift badly in html2canvas). Hardcoded hex. */
     #sc-card { position: fixed; left: -2200px; top: 0; width: 1080px; height: 1920px; z-index: -1; pointer-events: none;
-      background: url('/images/quiz-bg/cert-frame.jpg') 0 0 / 100% 100% no-repeat #FFFDF7;
-      display: flex; flex-direction: column; align-items: center; padding: 240px 172px 288px; overflow: hidden;
-      font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif; font-feature-settings: "palt"; color: #1F1812; text-align: center; }
-    #sc-card .sc-logo { width: 400px; height: auto; filter: drop-shadow(0 8px 16px rgba(31,24,18,0.20)); }
-    #sc-card .sc-title { font-weight: 900; font-size: 132px; line-height: 1; letter-spacing: 0.1em; margin-top: 26px;
-      display: flex; align-items: center; gap: 20px; color: #C9223A;
+      background: url('/images/quiz-bg/cert-frame.jpg') 0 0 / 100% 100% no-repeat #FFFDF7; overflow: hidden;
+      font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif; font-feature-settings: "palt"; color: #1F1812; }
+    #sc-card > * { position: absolute; left: 50%; transform: translateX(-50%); margin: 0; text-align: center; }
+    #sc-card .sc-logo { top: 232px; width: 400px; height: 313px; filter: drop-shadow(0 8px 16px rgba(31,24,18,0.20)); }
+    #sc-card .sc-title { top: 588px; width: 100%; font-weight: 900; font-size: 126px; line-height: 1; letter-spacing: 0.1em;
+      white-space: nowrap; color: #C9223A;
       text-shadow: 3px 0 0 #FFFBF0, -3px 0 0 #FFFBF0, 0 3px 0 #FFFBF0, 0 -3px 0 #FFFBF0,
                    2px 2px 0 #FFFBF0, -2px 2px 0 #FFFBF0, 2px -2px 0 #FFFBF0, -2px -2px 0 #FFFBF0,
                    5px 10px 0 rgba(31,24,18,0.13); }
-    #sc-card .sc-spark { font-size: 56px; color: #D4A847; text-shadow: none; }
-    #sc-card .sc-oji { width: 252px; height: auto; margin-top: 20px; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
-    #sc-card .sc-big { display: flex; align-items: baseline; line-height: 0.86; margin-top: 14px; }
-    #sc-card .sc-num { font-weight: 900; font-size: 216px; color: #C9223A;
+    #sc-card .sc-spark { font-size: 54px; color: #D4A847; text-shadow: none; vertical-align: 0.22em; margin: 0 22px; }
+    #sc-card .sc-oji { top: 772px; width: 244px; height: 446px; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
+    #sc-card .sc-big { top: 1244px; display: flex; align-items: baseline; }
+    #sc-card .sc-num { font-weight: 900; font-size: 210px; line-height: 1; color: #C9223A;
       text-shadow: 3px 0 0 #FFFBF0, -3px 0 0 #FFFBF0, 0 3px 0 #FFFBF0, 0 -3px 0 #FFFBF0,
                    2px 2px 0 #FFFBF0, -2px 2px 0 #FFFBF0, 2px -2px 0 #FFFBF0, -2px -2px 0 #FFFBF0,
                    5px 10px 0 rgba(31,24,18,0.13); }
-    #sc-card .sc-den { font-weight: 900; font-size: 96px; color: rgba(31,24,18,0.42); margin-left: 8px; }
-    #sc-card .sc-attest { margin-top: 34px; font-weight: 700; font-size: 31px; color: #3C2E22; letter-spacing: 0.02em; }
-    #sc-card .sc-date { margin-top: 14px; font-weight: 700; font-size: 37px; color: #3C2E22; }
-    #sc-card .sc-url { margin-top: 16px; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: 40px; color: #C9223A;
+    #sc-card .sc-den { font-weight: 900; font-size: 94px; color: rgba(31,24,18,0.42); margin-left: 8px; }
+    #sc-card .sc-attest { top: 1490px; width: 820px; font-weight: 700; font-size: 31px; color: #3C2E22; letter-spacing: 0.02em; }
+    #sc-card .sc-date { top: 1550px; width: 820px; font-weight: 700; font-size: 37px; color: #3C2E22; }
+    #sc-card .sc-url { top: 1608px; width: 820px; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: 40px; color: #C9223A;
       text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 8px; }
-    #sc-card .sc-seal { position: absolute; right: 172px; bottom: 518px; width: 218px; height: 218px; object-fit: contain;
+    #sc-card .sc-seal { left: auto; right: 176px; top: 1150px; width: 214px; height: 214px; object-fit: contain;
       transform: rotate(-8deg); filter: drop-shadow(0 6px 12px rgba(31,24,18,0.22)); }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
