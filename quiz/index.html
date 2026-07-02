@@ -1102,64 +1102,69 @@
           .catch(() => { cardBusy = null; return null; });
         return cardBusy;
       }
-      function downloadCard(score) {
-        if (!cardBlob) return false;
+      const fname = (score) => 'gohan-quiz-' + score + 'of10.png';
+      function triggerDownload(blob, score) {         // works on desktop (iOS ignores download attr)
+        const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.download = 'gohan-quiz-' + score + 'of10.png';
-        a.href = URL.createObjectURL(cardBlob);
+        a.href = url; a.download = fname(score); a.rel = 'noopener';
         document.body.appendChild(a); a.click(); a.remove();
-        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-        return true;
+        setTimeout(() => URL.revokeObjectURL(url), 8000);
+      }
+      // iOS Safari can't auto-download → show the PNG full-screen so the user
+      // long-presses it and picks 「"写真"に保存」. Works on every iPhone.
+      function showImageOverlay(blob) {
+        document.getElementById('sc-overlay')?.remove();
+        const url = URL.createObjectURL(blob);
+        const ov = document.createElement('div');
+        ov.id = 'sc-overlay';
+        ov.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(31,24,18,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:22px;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);';
+        ov.innerHTML =
+          '<div style="color:#FFF9EE;font-weight:700;font-size:16px;text-align:center;line-height:1.7">画像を長押しして<br>「&#8220;写真&#8221;に保存」を選んでね</div>' +
+          '<img src="' + url + '" alt="認定証" style="max-width:86%;max-height:66vh;border-radius:16px;box-shadow:0 12px 34px rgba(0,0,0,.45)"/>' +
+          '<div style="color:rgba(255,249,238,.75);font-size:12.5px">リンクはコピー済み</div>' +
+          '<button type="button" style="font-family:inherit;font-weight:800;font-size:15px;background:#FFF9EE;color:#1F1812;border:2.5px solid #1F1812;border-radius:12px;box-shadow:3px 3px 0 #1F1812;padding:11px 26px;cursor:pointer;margin-top:2px">閉じる</button>';
+        const close = () => { ov.remove(); URL.revokeObjectURL(url); };
+        ov.querySelector('button').addEventListener('click', close);
+        ov.addEventListener('click', (e) => { if (e.target === ov) close(); });
+        document.body.appendChild(ov);
       }
       function copyLink() { try { return (navigator.clipboard ? navigator.clipboard.writeText(pageUrl) : Promise.resolve()).catch(() => {}); } catch (_) { return Promise.resolve(); } }
       const endScore = () => answers.reduce((a, p, i) => a + (p === QUESTIONS[i].correct ? 1 : 0), 0);
+      const IS_MOBILE = window.matchMedia('(pointer: coarse)').matches;
 
-      // ───────── share buttons ─────────
-      function toast(msg) { const t = $('share-toast'); t.textContent = msg; t.style.opacity = '1'; setTimeout(() => t.style.opacity = '0', 2600); }
-      // 結果をシェア — mobile: link → clipboard + card PNG into the OS share sheet;
-      // desktop: always SAVE the PNG + copy the link (desktop share sheets are flaky).
-      $('share-native').addEventListener('click', async () => {
-        const score = endScore();
-        const txt = shareText(score);
-        copyLink();
-        const mobile = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-        if (!mobile) {
-          if (cardBlob && cardScore === score) {          // pre-warmed → save synchronously, in-gesture
-            toast(downloadCard(score) ? '画像を保存して、リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
-            return;
-          }
-          const b = await buildCardBlob(score);
-          toast(b && downloadCard(score) ? '画像を保存して、リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
-          return;
-        }
-        const blob = await buildCardBlob(score);
-        if (blob && navigator.canShare) {
-          const file = new File([blob], 'gohan-quiz-' + score + 'of10.png', { type: 'image/png' });
-          if (navigator.canShare({ files: [file] })) {
-            try { await navigator.share({ files: [file], text: txt + ' ' + pageUrl }); toast('リンクもコピーしたよ！'); return; }
-            catch (e) { if (e && e.name === 'AbortError') return; }
-          }
-        }
-        if (navigator.share) {
-          try { await navigator.share({ title: 'ごはんと地球のクイズ', text: txt, url: pageUrl }); return; }
-          catch (e) { if (e && e.name === 'AbortError') return; }
-        }
-        toast(downloadCard(score) ? '画像を保存して、リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
-      });
-      // X / LINE: the intent opens via the link itself; alongside it we save the
-      // card image + copy the page link so it's easy to attach & paste.
-      // Synchronous fast-path when pre-warmed — late downloads get blocked as drive-by.
-      ['share-x', 'share-line'].forEach(id => $(id).addEventListener('click', () => {
+      // ───────── share buttons — IMAGE FIRST ─────────
+      function toast(msg) { const t = $('share-toast'); t.textContent = msg; t.style.opacity = '1'; clearTimeout(toast._t); toast._t = setTimeout(() => t.style.opacity = '0', 3200); }
+
+      // One code path for all three buttons. Goal = get the PNG to the user.
+      //  · mobile + card ready → native share sheet ("画像を保存" + IG/X/LINE targets)
+      //  · mobile + not ready / share failed → full-screen image to long-press-save
+      //  · desktop → download the PNG (and open the X/LINE composer when asked)
+      async function shareResult(network) {
         const score = endScore();
         copyLink();
-        if (cardBlob && cardScore === score) {
-          toast(downloadCard(score) ? '画像を保存＆リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
+        const ready = cardBlob && cardScore === score;
+        const blob = ready ? cardBlob : await buildCardBlob(score);
+        if (!blob) { toast('画像を用意できなかった…もう一度ためしてね'); return; }
+
+        if (IS_MOBILE) {
+          const file = new File([blob], fname(score), { type: 'image/png' });
+          if (ready && navigator.canShare && navigator.canShare({ files: [file] })) {
+            try { await navigator.share({ files: [file], text: shareText(score) + ' ' + pageUrl }); toast('リンクもコピーしたよ！'); return; }
+            catch (e) { if (e && e.name === 'AbortError') return; }   // share sheet was shown
+          }
+          showImageOverlay(blob);   // guaranteed save on iPhone
           return;
         }
-        buildCardBlob(score).then(b => {
-          toast(b && downloadCard(score) ? '画像を保存＆リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
-        });
-      }));
+        // desktop
+        triggerDownload(blob, score);
+        if (network === 'x') window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(shareText(score)) + '&url=' + encodeURIComponent(pageUrl), '_blank', 'noopener');
+        else if (network === 'line') window.open('https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(shareText(score)), '_blank', 'noopener');
+        toast(network ? '画像を保存＆リンクをコピー！投稿に画像を添付してね' : '画像を保存して、リンクをコピーしたよ！');
+      }
+
+      $('share-native').addEventListener('click', (e) => { e.preventDefault(); shareResult(null); });
+      $('share-x').addEventListener('click', (e) => { e.preventDefault(); shareResult('x'); });
+      $('share-line').addEventListener('click', (e) => { e.preventDefault(); shareResult('line'); });
 
       // ───────── retry ─────────
       $('retry-btn').addEventListener('click', () => {
