@@ -72,6 +72,8 @@
     g.fillStyle = '#C9223A'; g.fillText(txt, x, y);
   }
   function todayStr() { var d = new Date(); return d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate(); }
+  // human-friendly saved-file name (shown on desktop download / Files / share targets)
+  function filename(score) { return 'ビーガン王子認定証_' + score + '問正解.png'; }
 
   var lastBoxes = {};
 
@@ -159,7 +161,7 @@
     });
   }
   window.CertCard = {
-    draw: draw, blob: blob, assets: ASSETS,
+    draw: draw, blob: blob, assets: ASSETS, filename: filename,
     LAYOUT: LAYOUT, META: META, W: W, H: H,
     boxes: function () { return clone(lastBoxes); },
     clone: clone

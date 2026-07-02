@@ -67,7 +67,7 @@
     document.getElementById('dl').addEventListener('click', function () {
       window.CertCard.blob(score()).then(function (blob) {
         if (!blob) return;
-        var name = 'gohan-quiz-' + score() + 'of10.png';
+        var name = window.CertCard.filename ? window.CertCard.filename(score()) : ('veganoji-quiz-' + score() + 'of10.png');
         if (window.matchMedia('(pointer: coarse)').matches) {
           var u = URL.createObjectURL(blob);
           var ov = document.createElement('div');

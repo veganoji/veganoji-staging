@@ -1061,7 +1061,7 @@
           .catch(() => { cardBusy = null; return null; });
         p._score = score; cardBusy = p; return p;
       }
-      const fname = (score) => 'gohan-quiz-' + score + 'of10.png';
+      const fname = (score) => (window.CertCard && window.CertCard.filename) ? window.CertCard.filename(score) : ('veganoji-quiz-' + score + 'of10.png');
       function triggerDownload(blob, score) {         // works on desktop (iOS ignores download attr)
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
