@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>認定証カード — レイアウト・エディタ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="/quiz/cert-card.js" defer></script>
+  <style>
+    :root { --paper:#FFF9EE; --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148; --royal:#C9223A; --leaf:#6C9560; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; background:var(--paper); color:var(--ink); }
+    body { font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif; -webkit-font-smoothing:antialiased; }
+    .wrap { max-width:900px; margin:0 auto; padding:20px 16px 70px; }
+    .pill { display:inline-block; font-size:12px; font-weight:700; padding:4px 13px; border-radius:999px; border:2px solid var(--ink); }
+    h1 { font-size:20px; margin:12px 0 4px; }
+    .sub { color:var(--ink-soft); font-size:13px; line-height:1.8; margin:0 0 14px; }
+    .cols { display:flex; flex-wrap:wrap; gap:22px; align-items:flex-start; }
+    /* stage */
+    .stage { position:relative; width:360px; max-width:92vw; flex:0 0 auto; touch-action:none;
+      border:2px solid var(--ink); border-radius:12px; overflow:hidden; box-shadow:0 8px 24px rgba(31,24,18,.14); background:#FFFDF7; }
+    .stage canvas { display:block; width:100%; height:auto; }
+    .handle { position:absolute; border:1.5px dashed rgba(201,34,58,.55); border-radius:6px;
+      background:rgba(201,34,58,.06); cursor:move; }
+    .handle:hover { background:rgba(201,34,58,.12); }
+    .handle.sel { border:2px solid var(--royal); background:rgba(201,34,58,.14); }
+    .handle .tag { position:absolute; top:-9px; left:-2px; font-size:10px; font-weight:900; color:#fff; background:var(--royal);
+      border-radius:5px; padding:1px 5px; white-space:nowrap; pointer-events:none; }
+    /* panel */
+    .panel { flex:1 1 300px; min-width:280px; }
+    .row { display:flex; align-items:center; gap:10px; font-weight:700; font-size:13.5px; margin:10px 0; }
+    .row label { min-width:78px; }
+    input[type=range]{ accent-color:var(--royal); flex:1; }
+    .val { min-width:52px; text-align:right; font-weight:900; color:var(--royal); }
+    .selname { font-weight:900; font-size:15px; margin:2px 0 8px; }
+    .selname span { color:var(--royal); }
+    .chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+    .chip { font-weight:800; font-size:12px; border:2px solid var(--ink); border-radius:8px; padding:5px 9px; background:#fff; cursor:pointer; }
+    .chip.sel { background:var(--royal); color:#fff; }
+    .btn { font-family:inherit; font-weight:900; font-size:14px; border:2.5px solid var(--ink); border-radius:12px; box-shadow:3px 3px 0 var(--ink); padding:9px 16px; cursor:pointer; background:var(--leaf); color:#fff; }
+    .btn.ghost { background:#fff; color:var(--ink); }
+    .btn:active { transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink); }
+    .btns { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+    textarea { width:100%; height:190px; font-family:ui-monospace,Menlo,monospace; font-size:11.5px; border:2px solid var(--ink); border-radius:10px; padding:10px; background:#fff; resize:vertical; }
+    .hint { color:var(--muted); font-size:12px; line-height:1.7; margin-top:6px; }
+    kbd { font-family:ui-monospace,monospace; font-size:11px; background:#fff; border:1.5px solid var(--ink); border-radius:5px; padding:0 5px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="pill">レイアウト・エディタ · noindex</span>
+    <h1>認定証カード — 好きに並べてください</h1>
+    <p class="sub">各パーツを <b>ドラッグ</b>して配置、選んだパーツは <b>サイズ</b>スライダーで大きさ調整。矢印キー <kbd>← ↑ → ↓</kbd>（+<kbd>Shift</kbd>で大きく）で微調整。決まったら「座標をコピー」して送ってください — そのままクイズと本番プレビューに反映します。</p>
+
+    <div class="cols">
+      <div class="stage" id="stage">
+        <canvas id="card" width="1080" height="1920"></canvas>
+        <!-- handles injected by JS -->
+      </div>
+
+      <div class="panel">
+        <div class="row"><label>点数</label><input id="score" type="range" min="0" max="10" value="7"/><span class="val" id="scoreVal">7</span></div>
+
+        <div class="chips" id="chips"></div>
+        <div class="selname">選択中：<span id="selName">—</span></div>
+        <div class="row"><label id="sizeLbl">サイズ</label><input id="size" type="range" min="20" max="620" value="200"/><span class="val" id="sizeVal">–</span></div>
+        <div class="row" id="rotRow" style="display:none"><label>回転</label><input id="rot" type="range" min="-30" max="30" value="-8"/><span class="val" id="rotVal">–</span></div>
+
+        <div class="btns">
+          <button class="btn" id="copy">📋 座標をコピー</button>
+          <button class="btn ghost" id="reset">はじめに戻す</button>
+        </div>
+
+        <textarea id="json" spellcheck="false" readonly></textarea>
+        <p class="hint">※ これはクイズ本体と同じ <code>/quiz/cert-card.js</code> で描いています。ここで合わせた配置が、そのまま保存画像になります。</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var stage = document.getElementById('card'), stageWrap = document.getElementById('stage');
+    var scoreEl = document.getElementById('score'), scoreVal = document.getElementById('scoreVal');
+    var chipsEl = document.getElementById('chips'), selNameEl = document.getElementById('selName');
+    var sizeEl = document.getElementById('size'), sizeVal = document.getElementById('sizeVal'), sizeLbl = document.getElementById('sizeLbl');
+    var rotRow = document.getElementById('rotRow'), rotEl = document.getElementById('rot'), rotVal = document.getElementById('rotVal');
+    var jsonEl = document.getElementById('json');
+
+    var work, META, sel = 'title', handles = {}, drawing = false, pending = false;
+    function scale() { return stageWrap.clientWidth / 1080; }
+
+    function redraw() {
+      if (!window.CertCard) return;
+      if (drawing) { pending = true; return; }
+      drawing = true;
+      window.CertCard.draw(parseInt(scoreEl.value, 10), stage, work).then(function () {
+        drawing = false; placeHandles(); syncPanel();
+        if (pending) { pending = false; redraw(); }
+      });
+    }
+    function placeHandles() {
+      var boxes = window.CertCard.boxes(), S = scale();
+      META.forEach(function (m) {
+        var b = boxes[m.key]; if (!b) return;
+        var h = handles[m.key];
+        h.style.left = (b.x * S) + 'px'; h.style.top = (b.y * S) + 'px';
+        h.style.width = Math.max(20, b.w * S) + 'px'; h.style.height = Math.max(16, b.h * S) + 'px';
+        h.classList.toggle('sel', m.key === sel);
+      });
+    }
+    function metaOf(k) { for (var i = 0; i < META.length; i++) if (META[i].key === k) return META[i]; }
+    function select(k) {
+      sel = k;
+      selNameEl.textContent = metaOf(k).label;
+      [].forEach.call(chipsEl.children, function (c) { c.classList.toggle('sel', c.dataset.k === k); });
+      syncPanel(); placeHandles();
+    }
+    function syncPanel() {
+      var m = metaOf(sel), o = work[sel];
+      sizeLbl.textContent = (m.sizeKey === 'w') ? '横幅' : 'サイズ';
+      sizeEl.value = o[m.sizeKey]; sizeVal.textContent = Math.round(o[m.sizeKey]);
+      if (m.rotKey) { rotRow.style.display = ''; rotEl.value = o[m.rotKey]; rotVal.textContent = o[m.rotKey] + '°'; }
+      else rotRow.style.display = 'none';
+      jsonEl.value = JSON.stringify(work, null, 2);
+    }
+
+    // dragging
+    function startDrag(k, e) {
+      select(k); e.preventDefault();
+      var h = handles[k], m = metaOf(k), S = scale();
+      var lastX = e.clientX, lastY = e.clientY;
+      h.setPointerCapture(e.pointerId);
+      function move(ev) {
+        var dx = (ev.clientX - lastX) / S, dy = (ev.clientY - lastY) / S;
+        lastX = ev.clientX; lastY = ev.clientY;
+        work[k][m.xk] = Math.round(work[k][m.xk] + dx);
+        work[k][m.yk] = Math.round(work[k][m.yk] + dy);
+        redraw();
+      }
+      function up(ev) { h.releasePointerCapture(e.pointerId); h.removeEventListener('pointermove', move); h.removeEventListener('pointerup', up); }
+      h.addEventListener('pointermove', move); h.addEventListener('pointerup', up);
+    }
+
+    function build() {
+      META = window.CertCard.META;
+      work = window.CertCard.clone(window.CertCard.LAYOUT);
+      // chips + handles
+      META.forEach(function (m) {
+        var c = document.createElement('button'); c.className = 'chip'; c.dataset.k = m.key; c.textContent = m.label;
+        c.addEventListener('click', function () { select(m.key); }); chipsEl.appendChild(c);
+        var h = document.createElement('div'); h.className = 'handle'; h.innerHTML = '<span class="tag">' + m.label + '</span>';
+        h.addEventListener('pointerdown', function (e) { startDrag(m.key, e); });
+        stageWrap.appendChild(h); handles[m.key] = h;
+      });
+      select('title');
+      redraw();
+    }
+
+    scoreEl.addEventListener('input', function () { scoreVal.textContent = scoreEl.value; redraw(); });
+    sizeEl.addEventListener('input', function () { work[sel][metaOf(sel).sizeKey] = parseInt(sizeEl.value, 10); redraw(); });
+    rotEl.addEventListener('input', function () { if (metaOf(sel).rotKey) { work[sel][metaOf(sel).rotKey] = parseInt(rotEl.value, 10); redraw(); } });
+    document.getElementById('reset').addEventListener('click', function () { work = window.CertCard.clone(window.CertCard.LAYOUT); redraw(); });
+    document.getElementById('copy').addEventListener('click', function () {
+      jsonEl.select();
+      navigator.clipboard && navigator.clipboard.writeText(jsonEl.value);
+      var b = document.getElementById('copy'); var t = b.textContent; b.textContent = '✓ コピーしました'; setTimeout(function () { b.textContent = t; }, 1600);
+    });
+    // arrow-key nudge
+    window.addEventListener('keydown', function (e) {
+      if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].indexOf(e.key) < 0) return;
+      if (document.activeElement && document.activeElement.tagName === 'TEXTAREA') return;
+      e.preventDefault();
+      var m = metaOf(sel), step = e.shiftKey ? 10 : 1;
+      if (e.key === 'ArrowLeft') work[sel][m.xk] -= step;
+      if (e.key === 'ArrowRight') work[sel][m.xk] += step;
+      if (e.key === 'ArrowUp') work[sel][m.yk] -= step;
+      if (e.key === 'ArrowDown') work[sel][m.yk] += step;
+      redraw();
+    });
+    window.addEventListener('resize', placeHandles);
+
+    (function boot() { if (window.CertCard) build(); else setTimeout(boot, 40); })();
+  </script>
+</body>
+</html>
