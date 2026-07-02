@@ -7,7 +7,7 @@
   <title>認定証シェアカード — ストーリー版</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <style type="text/tailwindcss">
@@ -22,21 +22,19 @@
     html, body { background: var(--color-paper); color: var(--color-ink); }
     body { font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif; font-feature-settings: "palt"; -webkit-font-smoothing: antialiased; }
     .pill { display:inline-block; font-size:12px; font-weight:700; padding:3px 11px; border-radius:999px; border:2px solid var(--color-ink); background:var(--color-paper); }
-    .f-cute { font-family: "Hachi Maru Pop", "Zen Maru Gothic", sans-serif; }
     .f-round { font-family: "Zen Maru Gothic", sans-serif; }
 
-    /* ── preview stage scales the true Instagram-story card (1080×1920) down to fit ── */
+    /* ── both cards are true 1080×1920, scaled down for preview ── */
     .stage { margin: 0 auto; }
     .cert {
       position: relative; width: 1080px; height: 1920px;
       transform-origin: top left;
-      background-size: 100% 100%; background-repeat: no-repeat;   /* fill 9:16, keep full border */
+      background-size: 100% 100%; background-repeat: no-repeat;
       background-color: #FFFDF7;
       display: flex; flex-direction: column; align-items: center;
-      padding: 270px 168px 250px;        /* keep content inside the frame's cream center */
+      padding: 240px 172px 288px;        /* content lives inside the frame's cream center */
       overflow: hidden;
     }
-    .cert.noframe { border: 18px solid var(--color-gold); box-shadow: inset 0 0 0 8px var(--color-gold-deep); border-radius: 40px; padding: 150px 120px 140px; }
 
     /* soft "sticker on paper" lift — cream halo + faint ink drop (html2canvas-safe) */
     .lift-red { color: var(--color-royal);
@@ -44,24 +42,41 @@
                    2px 2px 0 #FFFBF0, -2px 2px 0 #FFFBF0, 2px -2px 0 #FFFBF0, -2px -2px 0 #FFFBF0,
                    5px 10px 0 rgba(31,24,18,0.13); }
 
-    .c-eyebrow { font-weight: 700; font-size: 34px; letter-spacing: 0.02em; color: var(--color-gold-deep); text-align: center; }
-    .c-title { font-size: 150px; line-height: 1; letter-spacing: 0.06em; margin-top: 14px;
+    /* ── shared pieces ── */
+    .c-logo { width: 400px; height: auto; filter: drop-shadow(0 8px 16px rgba(31,24,18,0.20)); }
+    .c-title { font-weight: 900; font-size: 132px; line-height: 1; letter-spacing: 0.1em; margin-top: 26px;
       display: flex; align-items: center; gap: 26px; }
-    .c-title .spark { font-size: 64px; color: var(--color-gold); text-shadow: none; }
-    .c-oji { width: 372px; height: auto; margin-top: 18px; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
-    .c-scoreline { font-weight: 700; font-size: 56px; color: var(--color-ink); margin-top: 26px; }
-    .c-scoreline b { color: var(--color-royal); font-size: 64px; }
-    .c-big { display: flex; align-items: baseline; line-height: 0.86; margin-top: 6px; }
-    .c-big .num { font-weight: 900; font-size: 232px; }
-    .c-big .den { font-weight: 900; font-size: 104px; color: rgba(31,24,18,0.42); margin-left: 8px; }
-    .c-rank { margin-top: 30px; font-size: 52px; color: var(--color-leaf-deep);
+    .c-title .spark { font-size: 56px; color: var(--color-gold); text-shadow: none; }
+    .c-oji { width: 300px; height: auto; margin-top: 22px; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
+    .c-big { display: flex; align-items: baseline; line-height: 0.86; margin-top: 14px; }
+    .c-big .num { font-weight: 900; font-size: 216px; }
+    .c-big .den { font-weight: 900; font-size: 96px; color: rgba(31,24,18,0.42); margin-left: 8px; }
+    .c-rank { margin-top: 30px; font-weight: 900; font-size: 52px; color: var(--color-leaf-deep);
       background: #ECF5E6; border: 4px solid var(--color-leaf-deep); border-radius: 999px; padding: 12px 46px; box-shadow: 6px 6px 0 var(--color-leaf-deep); }
-    .c-foot { margin-top: auto; width: 100%; display: flex; align-items: flex-end; justify-content: space-between; }
-    .c-issuer { font-weight: 700; font-size: 32px; color: var(--color-ink-soft); text-align: left; line-height: 1.3; }
-    .c-issuer .u { display: block; font-family: var(--font-noto-sans-jp); font-size: 26px; color: var(--color-muted); font-weight: 500; margin-top: 4px; }
-    .c-date { font-weight: 700; font-size: 30px; color: var(--color-muted); }
-    .c-seal { position: absolute; right: 150px; bottom: 300px; width: 150px; height: 150px; object-fit: contain;
+    .c-attest { margin-top: 26px; font-weight: 700; font-size: 31px; color: var(--color-ink-soft); letter-spacing: 0.02em; }
+    .c-foot { margin-top: auto; text-align: center; line-height: 1.5; }
+    .c-foot .who { font-weight: 900; font-size: 33px; color: var(--color-ink-soft); }
+    .c-foot .who .date { font-weight: 700; color: var(--color-muted); font-size: 29px; }
+    .c-foot .url { font-family: var(--font-noto-sans-jp); font-weight: 700; font-size: 27px; color: var(--color-gold-deep); margin-top: 4px; }
+    .c-seal { position: absolute; right: 168px; bottom: 420px; width: 150px; height: 150px; object-fit: contain;
       transform: rotate(-8deg); filter: drop-shadow(0 5px 10px rgba(31,24,18,0.20)); }
+
+    /* ── version B (invite layout: score panel left, prince right) ── */
+    .b-mid { display: flex; align-items: center; justify-content: center; gap: 32px; width: 100%; margin-top: 64px; }
+    .b-panel { flex: 1 1 0; max-width: 414px; background: rgba(255,252,246,0.92); border: 4px solid var(--color-ink);
+      border-radius: 30px; box-shadow: 8px 8px 0 var(--color-ink); padding: 46px 22px 50px; text-align: center; }
+    .b-panel .lab { font-weight: 700; font-size: 30px; color: var(--color-muted); letter-spacing: 0.14em; }
+    .b-panel .b-big { display: flex; align-items: baseline; justify-content: center; line-height: 0.9; margin-top: 16px; }
+    .b-panel .b-big .num { font-weight: 900; font-size: 184px; }
+    .b-panel .b-big .den { font-weight: 900; font-size: 78px; color: rgba(31,24,18,0.42); margin-left: 6px; }
+    .b-panel .b-rank { margin-top: 34px; font-weight: 900; font-size: 35px; color: var(--color-leaf-deep); white-space: nowrap;
+      background: #ECF5E6; border: 3px solid var(--color-leaf-deep); border-radius: 999px; padding: 10px 22px; display: inline-block; }
+    .b-oji { width: 330px; height: auto; flex-shrink: 0; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
+    .b-cta { margin-top: 96px; text-align: center; }
+    .b-cta .ask { font-weight: 900; font-size: 58px; color: var(--color-ink); }
+    .b-cta .lnk { font-family: var(--font-noto-sans-jp); font-weight: 700; font-size: 40px; color: var(--color-royal); margin-top: 12px;
+      text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 8px; }
+    .b-foot { margin-top: auto; text-align: center; font-weight: 700; font-size: 28px; color: var(--color-muted); }
 
     /* controls */
     .btn { display:inline-flex; align-items:center; gap:8px; font-weight:900; font-size:15px; border:2.5px solid var(--color-ink);
@@ -70,56 +85,77 @@
     .btn-leaf { background: var(--color-leaf); color:#fff; }
     .btn-ghost { background: var(--color-paper); color: var(--color-ink); }
     input[type=range]{ accent-color: var(--color-royal); }
+    .ver-tag { display:inline-block; font-weight:900; font-size:14px; background:var(--color-ink); color:var(--color-paper); border-radius:999px; padding:5px 16px; }
   </style>
 </head>
 <body class="antialiased">
   <div class="max-w-2xl mx-auto px-5 py-8">
     <div class="text-center mb-5">
-      <div class="pill mb-3 f-round">認定証カード · ストーリー版 1080×1920 · noindex</div>
-      <p class="f-round text-ink-soft text-[14px] leading-[1.8]">インスタのストーリーやスマホに合う縦長サイズにしました。スライダーで点数を動かして、気に入ったら <b>PNGで保存</b> 。</p>
+      <div class="pill mb-3 f-round">認定証カード · 2案 · 1080×1920 · noindex</div>
+      <p class="f-round text-ink-soft text-[14px] leading-[1.8]">A＝認定証そのもの／B＝「挑戦してみませんか？」の招待つき。スライダーで点数を動かして、それぞれ <b>PNGで保存</b> できます。</p>
     </div>
 
     <!-- controls -->
-    <div class="flex flex-wrap items-center justify-center gap-4 mb-6">
+    <div class="flex flex-wrap items-center justify-center gap-4 mb-8">
       <label class="flex items-center gap-3 f-round font-bold text-[14px]">
         点数
         <input id="score" type="range" min="0" max="10" value="7" class="w-48" />
         <span id="score-readout" class="inline-flex items-center justify-center min-w-[58px] f-round font-black text-[16px] text-royal border-2 border-ink rounded-lg px-2 py-1">7 / 10</span>
       </label>
-      <button id="dl" class="btn btn-leaf">⬇ PNGで保存</button>
       <button id="frame-cycle" class="btn btn-ghost" title="枠のデザインを切り替え">枠を切り替え</button>
     </div>
 
-    <!-- the true-1080×1920 card (scaled for preview) -->
-    <div class="stage" id="stage">
-      <div class="cert noframe" id="cert">
-        <div class="c-eyebrow f-round">しらなかった！ごはんと地球のクイズ</div>
-        <div class="c-title f-cute lift-red"><span class="spark">✦</span>認定証<span class="spark">✦</span></div>
-        <img class="c-oji" src="/images/oji/oji_celebrate.png" alt="" crossorigin="anonymous" />
-        <div class="c-scoreline f-round">10問中 <b id="c-correct">7</b>問 正解！</div>
-        <div class="c-big f-round"><span class="num lift-red" id="c-num">7</span><span class="den">/ 10</span></div>
-        <div class="c-rank f-cute">称号 ― <span id="c-rank">ものしり王子</span></div>
-        <div class="c-foot">
-          <div class="c-issuer f-round">ビーガン王子 認定<span class="u">veganoji.jp/quiz</span></div>
-          <img class="c-seal" src="/images/quiz-bg/badge.png" alt="" crossorigin="anonymous" />
-          <div class="c-date f-round" id="c-date">2026.6.23</div>
+    <!-- ══════════ VERSION A · 認定証 ══════════ -->
+    <div class="text-center mb-4"><span class="ver-tag">A · 認定証</span></div>
+    <div class="stage" data-stage>
+      <div class="cert" data-cert>
+        <img class="c-logo" src="/images/quiz-bg/title.png" alt="しらなかった！ごはんと地球のクイズ" crossorigin="anonymous" />
+        <div class="c-title f-round lift-red"><span class="spark">✦</span>認定証<span class="spark">✦</span></div>
+        <img class="c-oji" src="/images/oji/oji_happy.png" alt="" crossorigin="anonymous" />
+        <div class="c-big f-round"><span class="num lift-red" data-num>7</span><span class="den">/ 10</span></div>
+        <div class="c-rank f-round">称号 ― <span data-rank>ものしり王子</span></div>
+        <div class="c-attest f-round">上記の成績を収めたことを、ここに認定します。</div>
+        <img class="c-seal" src="/images/quiz-bg/badge.png" alt="" crossorigin="anonymous" />
+        <div class="c-foot f-round">
+          <div class="who">ビーガン王子 認定<span class="date">　·　<span data-date>2026.6.24</span></span></div>
+          <div class="url">veganoji.jp/quiz</div>
         </div>
       </div>
     </div>
+    <div class="text-center mt-5 mb-12"><button class="btn btn-leaf" data-dl="0">⬇ AをPNGで保存</button></div>
+
+    <!-- ══════════ VERSION B · 招待つき ══════════ -->
+    <div class="text-center mb-4"><span class="ver-tag">B · 招待つき</span></div>
+    <div class="stage" data-stage>
+      <div class="cert" data-cert>
+        <img class="c-logo" src="/images/quiz-bg/title.png" alt="しらなかった！ごはんと地球のクイズ" crossorigin="anonymous" style="width:470px;" />
+        <div class="b-mid">
+          <div class="b-panel f-round">
+            <div class="lab">スコア</div>
+            <div class="b-big"><span class="num lift-red" data-num>7</span><span class="den">/10</span></div>
+            <div class="b-rank"><span data-rank>ものしり王子</span></div>
+          </div>
+          <img class="b-oji" src="/images/oji/oji_happy.png" alt="" crossorigin="anonymous" />
+        </div>
+        <div class="b-cta f-round">
+          <div class="ask">挑戦してみませんか？</div>
+          <div class="lnk">veganoji.jp/quiz</div>
+        </div>
+        <div class="b-foot f-round">ビーガン王子 認定　·　<span data-date>2026.6.24</span></div>
+      </div>
+    </div>
+    <div class="text-center mt-5 mb-8"><button class="btn btn-leaf" data-dl="1">⬇ BをPNGで保存</button></div>
   </div>
 
   <script>
-    const $ = (id) => document.getElementById(id);
-    const cert = $('cert'), stage = $('stage');
+    const $ = (s, r) => (r || document).querySelector(s);
+    const $$ = (s, r) => [...(r || document).querySelectorAll(s)];
+    const certs = $$('[data-cert]'), stages = $$('[data-stage]');
 
-    // candidate portrait frames; index 0 = CSS fallback. Default = storyA (scalloped, matches frameC).
-    const FRAMES = ['', '/quiz-sharecard-lab/img/storyA.jpg', '/quiz-sharecard-lab/img/storyC.jpg', '/quiz-sharecard-lab/img/storyB.jpg'];
-    let frameIdx = 1;
-    function applyFrame() {
-      const f = FRAMES[frameIdx];
-      if (f) { cert.style.backgroundImage = `url('${f}')`; cert.classList.remove('noframe'); }
-      else { cert.style.backgroundImage = 'none'; cert.classList.add('noframe'); }
-    }
+    // candidate portrait frames. Default = storyA (scalloped, matches the square frameC).
+    const FRAMES = ['/quiz-sharecard-lab/img/storyA.jpg', '/quiz-sharecard-lab/img/storyC.jpg', '/quiz-sharecard-lab/img/storyB.jpg'];
+    let frameIdx = 0;
+    function applyFrame() { certs.forEach(c => c.style.backgroundImage = `url('${FRAMES[frameIdx]}')`); }
 
     function rankFor(s) {
       if (s === 10) return '地球はかせ';
@@ -128,41 +164,38 @@
       if (s >= 1) return 'みならい';
       return 'これから！';
     }
-
     function render(s) {
-      $('c-correct').textContent = s;
-      $('c-num').textContent = s;
-      $('c-rank').textContent = rankFor(s);
-      $('score-readout').textContent = s + ' / 10';
+      $$('[data-num]').forEach(el => el.textContent = s);
+      $$('[data-rank]').forEach(el => el.textContent = rankFor(s));
+      $('#score-readout').textContent = s + ' / 10';
     }
+    (function setDate(){ const d = new Date(); const t = d.getFullYear() + '.' + (d.getMonth()+1) + '.' + d.getDate();
+      $$('[data-date]').forEach(el => el.textContent = t); })();
 
-    // today's date (real card would use the play date)
-    (function setDate(){ const d = new Date(); $('c-date').textContent = d.getFullYear() + '.' + (d.getMonth()+1) + '.' + d.getDate(); })();
-
-    // scale the 1080×1920 card to fit the viewport
+    // scale each 1080×1920 card to fit the viewport
     function fit() {
       const maxW = Math.min(window.innerWidth - 40, 430);
       const s = maxW / 1080;
-      cert.style.transform = `scale(${s})`;
-      stage.style.width = (1080 * s) + 'px';
-      stage.style.height = (1920 * s) + 'px';
+      certs.forEach((c, i) => { c.style.transform = `scale(${s})`;
+        stages[i].style.width = (1080 * s) + 'px'; stages[i].style.height = (1920 * s) + 'px'; });
     }
     window.addEventListener('resize', fit);
 
-    $('score').addEventListener('input', (e) => render(parseInt(e.target.value, 10)));
-    $('frame-cycle').addEventListener('click', () => { frameIdx = (frameIdx + 1) % FRAMES.length; applyFrame(); });
+    $('#score').addEventListener('input', (e) => render(parseInt(e.target.value, 10)));
+    $('#frame-cycle').addEventListener('click', () => { frameIdx = (frameIdx + 1) % FRAMES.length; applyFrame(); });
 
-    $('dl').addEventListener('click', async () => {
+    $$('[data-dl]').forEach(btn => btn.addEventListener('click', async () => {
       await document.fonts.ready;
+      const cert = certs[parseInt(btn.dataset.dl, 10)];
       const prev = cert.style.transform;
       cert.style.transform = 'none';               // capture at true 1080×1920
       const canvas = await html2canvas(cert, { width: 1080, height: 1920, scale: 1, useCORS: true, backgroundColor: null });
       cert.style.transform = prev;
       const a = document.createElement('a');
-      a.download = 'veganoji-quiz-' + $('score').value + 'of10.png';
+      a.download = 'veganoji-quiz-' + (btn.dataset.dl === '0' ? 'cert' : 'invite') + '-' + $('#score').value + 'of10.png';
       a.href = canvas.toDataURL('image/png');
       a.click();
-    });
+    }));
 
     applyFrame(); render(7); fit();
   </script>

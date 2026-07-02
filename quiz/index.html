@@ -24,6 +24,9 @@
   <!-- Preload the most-used reaction poses so reveals pop instantly. -->
   <link rel="preload" as="image" href="/images/oji/oji_surprised.png" />
   <link rel="preload" as="image" href="/images/oji/oji_excited.png" />
+  <!-- furigana preference (shared with the story pages) — apply before paint -->
+  <script>(function(){try{var v=localStorage.getItem('furigana');document.documentElement.classList.add(v==='on'?'furigana-on':'furigana-off');}catch(e){document.documentElement.classList.add('furigana-off');}})();</script>
+  <style>html.furigana-off rt{display:none!important;}</style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
@@ -370,6 +373,15 @@
     .rc-ok { color: var(--color-leaf-deep); }
     .rc-more { flex-shrink: 0; display:inline-flex; align-items:center; gap:5px; font-size:13.5px; font-weight:700; color:#fff; background:var(--color-leaf); border:2px solid var(--color-ink); border-radius:10px; box-shadow:3px 3px 0 var(--color-ink); padding:9px 13px; text-decoration:none; white-space:nowrap; }
     .rc-more:hover { background: var(--color-leaf-deep); }
+
+    /* ── furigana toggle (same component as the story pages; hero only) ── */
+    .furigana-toggle{position:fixed;top:12px;left:12px;z-index:55;display:inline-flex;align-items:center;gap:9px;background:transparent;border:none;padding:0;cursor:pointer;user-select:none;}
+    .furigana-toggle .ft-coin{position:relative;width:46px;height:46px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,249,238,.96);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:2.5px solid #1F1812;box-shadow:3px 3px 0 #1F1812;color:#1F1812;font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:20px;transition:transform .15s ease,box-shadow .15s ease,background .2s ease;}
+    .furigana-toggle:active .ft-coin{transform:translate(3px,3px);box-shadow:0 0 0 #1F1812;}
+    .furigana-toggle .ft-dot{position:absolute;bottom:-3px;right:-3px;width:15px;height:15px;border-radius:50%;background:#9aa0a6;border:2px solid #1F1812;transition:background .2s ease;}
+    .furigana-toggle .ft-text{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:14px;line-height:1;letter-spacing:.02em;color:#1F1812;background:rgba(255,249,238,.96);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:2px solid #1F1812;box-shadow:2px 2px 0 #1F1812;border-radius:999px;padding:6px 12px;}
+    html.furigana-on .furigana-toggle .ft-coin{background:#E8C76F;}
+    html.furigana-on .furigana-toggle .ft-dot{background:#35c759;}
   </style>
 </head>
 
@@ -392,7 +404,12 @@
              linear-gradient(180deg, rgba(255,249,238,0.55), rgba(255,249,238,0.4) 50%, rgba(255,249,238,0.7)),
              url('/images/quiz-bg/intro.jpg') center top / cover no-repeat,
              var(--color-paper);">
-    <div class="relative z-10 max-w-2xl mx-auto text-center pt-4 sm:pt-0">
+    <!-- furigana switcher — hero only (section hides during the quiz) -->
+    <button id="furigana-toggle" type="button" role="switch" aria-checked="false" class="furigana-toggle" aria-label="ふりがなの表示を切り替える">
+      <span class="ft-coin">ふ<span class="ft-dot"></span></span>
+      <span class="ft-text">ふりがな</span>
+    </button>
+    <div class="relative z-10 max-w-2xl mx-auto text-center pt-20 sm:pt-14">
 
       <h1 class="reveal" data-delay="1">
         <img src="/images/quiz-bg/title.png" alt="しらなかった！ごはんと地球のクイズ" class="w-[290px] sm:w-[430px] max-w-full h-auto mx-auto anim-title drop-shadow-[0_8px_18px_rgba(31,24,18,0.38)]"/>
@@ -610,7 +627,7 @@
             { src: 'icon-livestock-group', style: 'width:120px; bottom:-18px; left:-18px;', cls: 'anim-twinkle' },
           ]),
           q: '<ruby>世界<rt>せかい</rt></ruby>の<ruby>畜産<rt>ちくさん</rt></ruby>が"1<ruby>秒<rt>びょう</rt></ruby>"で<ruby>出<rt>だ</rt></ruby>すフンの<ruby>量<rt>りょう</rt></ruby>は？',
-          choices: ['約40kg', '約400kg', '約4,000kg', '約40,000kg'], correct: 3,
+          choices: ['40kg', '400kg', '4,000kg', '40,000kg'], correct: 3,
           reveal:
             '<div class="text-center">' +
               '<img id="q3-poo" src="' + IMG + 'icon-poo.png" alt="" ' +
@@ -633,7 +650,7 @@
             { src: 'icon-forest', style: 'width:120px; bottom:-16px; right:-16px;', cls: 'anim-twinkle' },
             { src: 'icon-grazing-cow', style: 'width:78px; top:8%; right:4%;', cls: 'anim-drift' },
           ]),
-          q: 'アマゾンの<ruby>森<rt>もり</rt></ruby>が<ruby>切<rt>き</rt></ruby>られる、いちばん<ruby>大<rt>おお</rt></ruby>きな<ruby>理由<rt>りゆう</rt></ruby>は？',
+          q: 'アマゾンの<ruby>森<rt>もり</rt></ruby>が<ruby>切<rt>き</rt></ruby>られる、<ruby>一番<rt>いちばん</rt></ruby><ruby>大<rt>おお</rt></ruby>きな<ruby>理由<rt>りゆう</rt></ruby>は？',
           choices: ['紙の生産', '住宅開発', '家畜の農地拡張', '木材'], correct: 2,
           reveal:
             '<div class="rounded-2xl border-2 border-ink p-4 sm:p-5 text-center" style="background:rgba(255,249,238,0.85); box-shadow:4px 4px 0 var(--color-ink);">' +
@@ -678,16 +695,16 @@
             { src: 'icon-pie-slice', style: 'width:88px; top:-10px; right:-12px;', cls: 'anim-twinkle' },
           ]),
           q: '<ruby>農地<rt>のうち</rt></ruby>の8<ruby>割<rt>わり</rt></ruby>が<ruby>畜産用<rt>ちくさんよう</rt></ruby>。では、そこから<ruby>得<rt>え</rt></ruby>られるカロリーは<ruby>全体<rt>ぜんたい</rt></ruby>の<ruby>何<rt>なん</rt></ruby>%？',
-          choices: ['約8割', '約5割', '約2割', '約半分'], correct: 2,
+          choices: ['約8割', '約6割', '約2割', '約4割'], correct: 2,
           reveal:
             '<div class="flex items-center justify-center gap-4">' +
-              '<img src="' + IMG + 'icon-pie-slice.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
+              '<img src="' + IMG + 'food-onigiri.png" alt="" class="w-14 h-14 sm:w-16 sm:h-16"/>' +
               '<div class="leading-none"><span class="font-jp-display text-[22px] text-ink/65">たった</span> ' +
               '<span class="big-number ticker text-[64px] sm:text-[88px]" data-count-target="2" style="color:#9C7E2A;">0</span>' +
               '<span class="font-jp-display text-[30px] text-ink"><ruby>割<rt>わり</rt></ruby></span></div>' +
             '</div>' +
             '<p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[16px] leading-[1.85] text-center">' +
-              'たった2<ruby>割<rt>わり</rt></ruby>。<br class="sm:hidden"/><ruby>広<rt>ひろ</rt></ruby>さのわりに、ごはんは<ruby>少<rt>すく</rt></ruby>ししか<ruby>作<rt>つく</rt></ruby>れていないんだ。</p>',
+              'たった2<ruby>割<rt>わり</rt></ruby>。<ruby>広<rt>ひろ</rt></ruby>さのわりに、<br class="sm:hidden"/>ごはんは<ruby>少<rt>すく</rt></ruby>ししか<ruby>作<rt>つく</rt></ruby>れていないんだ。</p>',
         },
         // ───────────────────────────── Q7 · 100× ─────────────────────────
         {
@@ -727,7 +744,7 @@
               '<span class="font-jp-display text-[30px]"><ruby>兆<rt>ちょう</rt>匹<rt>びき</rt></ruby></span></div>' +
             '</div>' +
             '<p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[16px] leading-[1.85] text-center">' +
-              '<ruby>約<rt>やく</rt></ruby>2<ruby>兆<rt>ちょう</rt>匹<rt>びき</rt></ruby>。<br class="sm:hidden"/><ruby>海<rt>うみ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>では、<ruby>想像<rt>そうぞう</rt></ruby>できないことが<ruby>起<rt>お</rt></ruby>きてるんだ。</p>',
+              '<ruby>約<rt>やく</rt></ruby>2<ruby>兆<rt>ちょう</rt>匹<rt>びき</rt></ruby>。<ruby>海<rt>うみ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>では、<br class="sm:hidden"/><ruby>想像<rt>そうぞう</rt></ruby>できないことが<ruby>起<rt>お</rt></ruby>きてるんだ。</p>',
         },
         // ───────────────────────────── Q9 · bycatch 4割 (OCEAN) ──────────
         {
@@ -746,7 +763,7 @@
               '<span class="font-jp-display text-[30px]"><ruby>割<rt>わり</rt></ruby></span></div>' +
             '</div>' +
             '<p class="mt-4 font-jp text-ink-soft text-[15px] sm:text-[16px] leading-[1.85] text-center">' +
-              '<ruby>約<rt>やく</rt></ruby>4<ruby>割<rt>わり</rt></ruby>。<br class="sm:hidden"/><ruby>狙<rt>ねら</rt></ruby>った<ruby>魚<rt>さかな</rt></ruby>じゃない<ruby>命<rt>いのち</rt></ruby>も、<ruby>巻<rt>ま</rt></ruby>きこまれてしまうんだ（<ruby>混獲<rt>こんかく</rt></ruby>）。</p>',
+              '<ruby>約<rt>やく</rt></ruby>4<ruby>割<rt>わり</rt></ruby>。<ruby>狙<rt>ねら</rt></ruby>った<ruby>魚<rt>さかな</rt></ruby>じゃない<ruby>命<rt>いのち</rt></ruby>も、<br class="sm:hidden"/><ruby>巻<rt>ま</rt></ruby>きこまれてしまうんだ（<ruby>混獲<rt>こんかく</rt></ruby>）。</p>',
         },
         // ───────────────────────────── Q10 · feed 100億人 ────────────────
         {
@@ -855,7 +872,7 @@
         progFill.style.width = pct + '%';
 
         const longest = Math.max.apply(null, qd.choices.map(c => c.replace(/<[^>]+>/g, '').length));
-        const colClass = longest > 6 ? '' : 'cols-2';
+        const colClass = longest > 8 ? '' : 'cols-2';   // Q8/Q10's long numbers stay 1-col; everything else fits 2×2
 
         qCard.innerHTML =
           '<div class="q-panel reveal-rise">' +
@@ -906,7 +923,7 @@
         if (qt) {
           qt.style.opacity = '0';
           setTimeout(() => {
-            qt.innerHTML = '<img src="/images/quiz-bg/' + (isCorrect ? 'seikai' : 'zannen') + '.png" alt="' + (isCorrect ? 'せいかい' : 'ざんねん') + '" class="h-14 sm:h-16 w-auto block mx-auto"/>';
+            qt.innerHTML = '<img src="/images/quiz-bg/' + (isCorrect ? 'seikai' : 'zannen') + '.png" alt="' + (isCorrect ? 'せいかい' : 'ざんねん') + '" class="' + (isCorrect ? 'h-14 sm:h-16' : 'h-[4.2rem] sm:h-[4.7rem]') + ' w-auto block mx-auto"/>';
             qt.style.opacity = '1';
           }, 250);
         }
@@ -1046,5 +1063,6 @@
   </script>
   <script src="/mnav.js" defer></script>
   <script src="/oji-footer.js" defer></script>
+  <script>(function(){var btn=document.getElementById('furigana-toggle');if(!btn)return;var root=document.documentElement;function sync(){btn.setAttribute('aria-checked',root.classList.contains('furigana-on')?'true':'false');}sync();btn.addEventListener('click',function(){var on=!root.classList.contains('furigana-on');root.classList.toggle('furigana-on',on);root.classList.toggle('furigana-off',!on);try{localStorage.setItem('furigana',on?'on':'off');}catch(e){}sync();});})();</script>
 </body>
 </html>
