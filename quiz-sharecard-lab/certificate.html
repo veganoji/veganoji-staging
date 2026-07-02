@@ -47,31 +47,21 @@
     .c-title { font-weight: 900; font-size: 132px; line-height: 1; letter-spacing: 0.1em; margin-top: 26px;
       display: flex; align-items: center; gap: 26px; }
     .c-title .spark { font-size: 56px; color: var(--color-gold); text-shadow: none; }
-    .c-oji { width: 300px; height: auto; margin-top: 22px; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
+    .c-oji { width: 252px; height: auto; margin-top: 20px; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
     .c-big { display: flex; align-items: baseline; line-height: 0.86; margin-top: 14px; }
     .c-big .num { font-weight: 900; font-size: 216px; }
     .c-big .den { font-weight: 900; font-size: 96px; color: rgba(31,24,18,0.42); margin-left: 8px; }
     .c-rank { margin-top: 30px; font-weight: 900; font-size: 52px; color: var(--color-leaf-deep);
       background: #ECF5E6; border: 4px solid var(--color-leaf-deep); border-radius: 999px; padding: 12px 46px; box-shadow: 6px 6px 0 var(--color-leaf-deep); }
-    .c-attest { margin-top: 26px; font-weight: 700; font-size: 31px; color: var(--color-ink-soft); letter-spacing: 0.02em; }
-    .c-foot { margin-top: auto; text-align: center; line-height: 1.5; }
+    .c-attest { margin-top: 34px; font-weight: 700; font-size: 31px; color: var(--color-ink-soft); letter-spacing: 0.02em; }
+    .c-foot { margin-top: 34px; text-align: center; line-height: 1.5; }   /* flows right under the attest line — stays inside the frame */
     .c-foot .who { font-weight: 900; font-size: 33px; color: var(--color-ink-soft); }
     .c-foot .who .date { font-weight: 700; color: var(--color-muted); font-size: 29px; }
     .c-foot .url { font-family: var(--font-noto-sans-jp); font-weight: 700; font-size: 27px; color: var(--color-gold-deep); margin-top: 4px; }
-    .c-seal { position: absolute; right: 168px; bottom: 420px; width: 150px; height: 150px; object-fit: contain;
+    .c-seal { position: absolute; right: 196px; bottom: 520px; width: 144px; height: 144px; object-fit: contain;
       transform: rotate(-8deg); filter: drop-shadow(0 5px 10px rgba(31,24,18,0.20)); }
 
-    /* ── version B (invite layout: score panel left, prince right) ── */
-    .b-mid { display: flex; align-items: center; justify-content: center; gap: 32px; width: 100%; margin-top: 64px; }
-    .b-panel { flex: 1 1 0; max-width: 414px; background: rgba(255,252,246,0.92); border: 4px solid var(--color-ink);
-      border-radius: 30px; box-shadow: 8px 8px 0 var(--color-ink); padding: 46px 22px 50px; text-align: center; }
-    .b-panel .lab { font-weight: 700; font-size: 30px; color: var(--color-muted); letter-spacing: 0.14em; }
-    .b-panel .b-big { display: flex; align-items: baseline; justify-content: center; line-height: 0.9; margin-top: 16px; }
-    .b-panel .b-big .num { font-weight: 900; font-size: 184px; }
-    .b-panel .b-big .den { font-weight: 900; font-size: 78px; color: rgba(31,24,18,0.42); margin-left: 6px; }
-    .b-panel .b-rank { margin-top: 34px; font-weight: 900; font-size: 35px; color: var(--color-leaf-deep); white-space: nowrap;
-      background: #ECF5E6; border: 3px solid var(--color-leaf-deep); border-radius: 999px; padding: 10px 22px; display: inline-block; }
-    .b-oji { width: 330px; height: auto; flex-shrink: 0; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
+    /* ── invite CTA + small footer (used by version C) ── */
     .b-cta { margin-top: 96px; text-align: center; }
     .b-cta .ask { font-weight: 900; font-size: 58px; color: var(--color-ink); }
     .b-cta .lnk { font-family: var(--font-noto-sans-jp); font-weight: 700; font-size: 40px; color: var(--color-royal); margin-top: 12px;
@@ -110,8 +100,8 @@
 <body class="antialiased">
   <div class="max-w-2xl mx-auto px-5 py-8">
     <div class="text-center mb-5">
-      <div class="pill mb-3 f-round">認定証カード · 3案 · 1080×1920 · noindex</div>
-      <p class="f-round text-ink-soft text-[14px] leading-[1.8]">A＝認定証／B＝招待つき／C＝結果発表レイアウト。スライダーで点数を動かして、それぞれ <b>PNGで保存</b> できます。</p>
+      <div class="pill mb-3 f-round">認定証カード · 2案 · 1080×1920 · noindex</div>
+      <p class="f-round text-ink-soft text-[14px] leading-[1.8]">A＝認定証／C＝結果発表レイアウト。スライダーで点数を動かして、それぞれ <b>PNGで保存</b> できます。</p>
     </div>
 
     <!-- controls -->
@@ -132,7 +122,6 @@
         <div class="c-title f-round lift-red"><span class="spark">✦</span>認定証<span class="spark">✦</span></div>
         <img class="c-oji" src="/images/oji/oji_happy.png" alt="" crossorigin="anonymous" />
         <div class="c-big f-round"><span class="num lift-red" data-num>7</span><span class="den">/ 10</span></div>
-        <div class="c-rank f-round">称号 ― <span data-rank>ものしり王子</span></div>
         <div class="c-attest f-round">上記の成績を収めたことを、ここに認定します。</div>
         <img class="c-seal" src="/images/quiz-bg/badge.png" alt="" crossorigin="anonymous" />
         <div class="c-foot f-round">
@@ -142,28 +131,6 @@
       </div>
     </div>
     <div class="text-center mt-5 mb-12"><button class="btn btn-leaf" data-dl="0">⬇ AをPNGで保存</button></div>
-
-    <!-- ══════════ VERSION B · 招待つき ══════════ -->
-    <div class="text-center mb-4"><span class="ver-tag">B · 招待つき</span></div>
-    <div class="stage" data-stage>
-      <div class="cert" data-cert>
-        <img class="c-logo" src="/images/quiz-bg/title.png" alt="しらなかった！ごはんと地球のクイズ" crossorigin="anonymous" style="width:470px;" />
-        <div class="b-mid">
-          <div class="b-panel f-round">
-            <div class="lab">スコア</div>
-            <div class="b-big"><span class="num lift-red" data-num>7</span><span class="den">/10</span></div>
-            <div class="b-rank"><span data-rank>ものしり王子</span></div>
-          </div>
-          <img class="b-oji" src="/images/oji/oji_happy.png" alt="" crossorigin="anonymous" />
-        </div>
-        <div class="b-cta f-round">
-          <div class="ask">挑戦してみませんか？</div>
-          <div class="lnk">veganoji.jp/quiz</div>
-        </div>
-        <div class="b-foot f-round">ビーガン王子 認定　·　<span data-date>2026.6.24</span></div>
-      </div>
-    </div>
-    <div class="text-center mt-5 mb-12"><button class="btn btn-leaf" data-dl="1">⬇ BをPNGで保存</button></div>
 
     <!-- ══════════ VERSION C · 結果発表レイアウト ══════════ -->
     <div class="text-center mb-4"><span class="ver-tag">C · 結果発表レイアウト</span></div>
@@ -191,7 +158,7 @@
         <div class="b-foot f-round" style="margin-top:auto;">ビーガン王子 認定　·　<span data-date>2026.7.2</span></div>
       </div>
     </div>
-    <div class="text-center mt-5 mb-8"><button class="btn btn-leaf" data-dl="2">⬇ CをPNGで保存</button></div>
+    <div class="text-center mt-5 mb-8"><button class="btn btn-leaf" data-dl="1">⬇ CをPNGで保存</button></div>
   </div>
 
   <script>
