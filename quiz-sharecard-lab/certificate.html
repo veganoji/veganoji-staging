@@ -54,12 +54,12 @@
     .c-rank { margin-top: 30px; font-weight: 900; font-size: 52px; color: var(--color-leaf-deep);
       background: #ECF5E6; border: 4px solid var(--color-leaf-deep); border-radius: 999px; padding: 12px 46px; box-shadow: 6px 6px 0 var(--color-leaf-deep); }
     .c-attest { margin-top: 34px; font-weight: 700; font-size: 31px; color: var(--color-ink-soft); letter-spacing: 0.02em; }
-    .c-foot { margin-top: 34px; text-align: center; line-height: 1.5; }   /* flows right under the attest line — stays inside the frame */
-    .c-foot .who { font-weight: 900; font-size: 33px; color: var(--color-ink-soft); }
-    .c-foot .who .date { font-weight: 700; color: var(--color-muted); font-size: 29px; }
-    .c-foot .url { font-family: var(--font-noto-sans-jp); font-weight: 700; font-size: 27px; color: var(--color-gold-deep); margin-top: 4px; }
-    .c-seal { position: absolute; right: 196px; bottom: 520px; width: 144px; height: 144px; object-fit: contain;
-      transform: rotate(-8deg); filter: drop-shadow(0 5px 10px rgba(31,24,18,0.20)); }
+    .c-date { margin-top: 14px; font-weight: 700; font-size: 37px; color: var(--color-ink-soft); }
+    .c-url { margin-top: 16px; font-family: var(--font-noto-sans-jp); font-weight: 700; font-size: 40px; color: var(--color-royal);
+      text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 8px; }
+    /* seal = ribbon stamp, bigger + a bit left; fine if it rides over the frame */
+    .c-seal { position: absolute; right: 172px; bottom: 518px; width: 218px; height: 218px; object-fit: contain;
+      transform: rotate(-8deg); filter: drop-shadow(0 6px 12px rgba(31,24,18,0.22)); }
 
     /* ── invite CTA + small footer (used by version C) ── */
     .b-cta { margin-top: 96px; text-align: center; }
@@ -123,11 +123,9 @@
         <img class="c-oji" src="/images/oji/oji_happy.png" alt="" crossorigin="anonymous" />
         <div class="c-big f-round"><span class="num lift-red" data-num>7</span><span class="den">/ 10</span></div>
         <div class="c-attest f-round">上記の成績を収めたことを、ここに認定します。</div>
+        <div class="c-date f-round" data-date>2026.6.24</div>
+        <div class="c-url">veganoji.jp/quiz</div>
         <img class="c-seal" src="/images/quiz-bg/badge.png" alt="" crossorigin="anonymous" />
-        <div class="c-foot f-round">
-          <div class="who">ビーガン王子 認定<span class="date">　·　<span data-date>2026.6.24</span></span></div>
-          <div class="url">veganoji.jp/quiz</div>
-        </div>
       </div>
     </div>
     <div class="text-center mt-5 mb-12"><button class="btn btn-leaf" data-dl="0">⬇ AをPNGで保存</button></div>

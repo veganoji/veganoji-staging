@@ -27,9 +27,38 @@
   <!-- furigana preference (shared with the story pages) — apply before paint -->
   <script>(function(){try{var v=localStorage.getItem('furigana');document.documentElement.classList.add(v==='on'?'furigana-on':'furigana-off');}catch(e){document.documentElement.classList.add('furigana-off');}})();</script>
   <style>html.furigana-off rt{display:none!important;}</style>
+  <!-- share-card generator (results screen → 認定証 PNG) -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <style>
+    /* hidden 1080×1920 認定証 card — hardcoded hex (no theme vars: tree-shaken + html2canvas) */
+    #sc-card { position: fixed; left: -2200px; top: 0; width: 1080px; height: 1920px; z-index: -1; pointer-events: none;
+      background: url('/images/quiz-bg/cert-frame.jpg') 0 0 / 100% 100% no-repeat #FFFDF7;
+      display: flex; flex-direction: column; align-items: center; padding: 240px 172px 288px; overflow: hidden;
+      font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif; font-feature-settings: "palt"; color: #1F1812; text-align: center; }
+    #sc-card .sc-logo { width: 400px; height: auto; filter: drop-shadow(0 8px 16px rgba(31,24,18,0.20)); }
+    #sc-card .sc-title { font-weight: 900; font-size: 132px; line-height: 1; letter-spacing: 0.1em; margin-top: 26px;
+      display: flex; align-items: center; gap: 20px; color: #C9223A;
+      text-shadow: 3px 0 0 #FFFBF0, -3px 0 0 #FFFBF0, 0 3px 0 #FFFBF0, 0 -3px 0 #FFFBF0,
+                   2px 2px 0 #FFFBF0, -2px 2px 0 #FFFBF0, 2px -2px 0 #FFFBF0, -2px -2px 0 #FFFBF0,
+                   5px 10px 0 rgba(31,24,18,0.13); }
+    #sc-card .sc-spark { font-size: 56px; color: #D4A847; text-shadow: none; }
+    #sc-card .sc-oji { width: 252px; height: auto; margin-top: 20px; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
+    #sc-card .sc-big { display: flex; align-items: baseline; line-height: 0.86; margin-top: 14px; }
+    #sc-card .sc-num { font-weight: 900; font-size: 216px; color: #C9223A;
+      text-shadow: 3px 0 0 #FFFBF0, -3px 0 0 #FFFBF0, 0 3px 0 #FFFBF0, 0 -3px 0 #FFFBF0,
+                   2px 2px 0 #FFFBF0, -2px 2px 0 #FFFBF0, 2px -2px 0 #FFFBF0, -2px -2px 0 #FFFBF0,
+                   5px 10px 0 rgba(31,24,18,0.13); }
+    #sc-card .sc-den { font-weight: 900; font-size: 96px; color: rgba(31,24,18,0.42); margin-left: 8px; }
+    #sc-card .sc-attest { margin-top: 34px; font-weight: 700; font-size: 31px; color: #3C2E22; letter-spacing: 0.02em; }
+    #sc-card .sc-date { margin-top: 14px; font-weight: 700; font-size: 37px; color: #3C2E22; }
+    #sc-card .sc-url { margin-top: 16px; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: 40px; color: #C9223A;
+      text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 8px; }
+    #sc-card .sc-seal { position: absolute; right: 172px; bottom: 518px; width: 218px; height: 218px; object-fit: contain;
+      transform: rotate(-8deg); filter: drop-shadow(0 6px 12px rgba(31,24,18,0.22)); }
+  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="/mnav.css" />
 
@@ -530,6 +559,18 @@
   </section>
 
 
+  <!-- hidden 認定証 share-card — rendered to a 1080×1920 PNG on the results screen -->
+  <div id="sc-card" aria-hidden="true">
+    <img class="sc-logo" src="/images/quiz-bg/title.png" alt=""/>
+    <div class="sc-title"><span class="sc-spark">✦</span>認定証<span class="sc-spark">✦</span></div>
+    <img class="sc-oji" src="/images/oji/oji_happy.png" alt=""/>
+    <div class="sc-big"><span class="sc-num" id="sc-num">7</span><span class="sc-den">/ 10</span></div>
+    <div class="sc-attest">上記の成績を収めたことを、ここに認定します。</div>
+    <div class="sc-date" id="sc-date">2026.7.2</div>
+    <div class="sc-url">veganoji.jp/quiz</div>
+    <img class="sc-seal" src="/images/quiz-bg/badge.png" alt=""/>
+  </div>
+
   <script>
     (function () {
       'use strict';
@@ -808,7 +849,8 @@
           urls.push('/images/quiz-bg/q' + String(i + 1).padStart(2, '0') + '.jpg');
         });
         ['oji_excited','oji_happy','oji_curious','oji_wondering','oji_questioning'].forEach(p => urls.push(OJI + p + '.png'));
-        urls.push('/images/quiz-bg/seikai.png','/images/quiz-bg/zannen.png','/images/quiz-bg/badge.png',
+        urls.push('/images/quiz-bg/cert-frame.jpg',
+                  '/images/quiz-bg/seikai.png','/images/quiz-bg/zannen.png','/images/quiz-bg/badge.png',
                   '/images/quiz-bg/q10.png','/images/quiz-bg/intro.jpg','/images/quiz-bg/score.jpg',
                   IMG + 'icon-check-social.png', IMG + 'icon-x-social.png');
         urls.forEach(u => { const im = new Image(); im.src = u; });
@@ -1023,7 +1065,8 @@
           });
         });
 
-        // share links
+        // share links + pre-warm the 認定証 card PNG (so button taps stay inside the user gesture)
+        buildCardBlob(score);
         const txt = shareText(score);
         $('share-x').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(txt) + '&url=' + encodeURIComponent(pageUrl);
         $('share-line').href = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(txt);
@@ -1042,14 +1085,65 @@
         runReveals(screenEnd);
       }
 
+      // ───────── share card (認定証 → 1080×1920 PNG) ─────────
+      let cardBlob = null, cardScore = -1, cardBusy = null;
+      function buildCardBlob(score) {
+        if (cardBlob && cardScore === score) return Promise.resolve(cardBlob);
+        if (cardBusy) return cardBusy;
+        if (!window.html2canvas) return Promise.resolve(null);
+        $('sc-num').textContent = score;
+        const d = new Date();
+        $('sc-date').textContent = d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate();
+        cardBusy = document.fonts.ready
+          .then(() => html2canvas($('sc-card'), { width: 1080, height: 1920, scale: 1, useCORS: true, backgroundColor: null }))
+          .then(canvas => new Promise(res => canvas.toBlob(res, 'image/png')))
+          .then(b => { cardBlob = b; cardScore = score; cardBusy = null; return b; })
+          .catch(() => { cardBusy = null; return null; });
+        return cardBusy;
+      }
+      function downloadCard(score) {
+        if (!cardBlob) return false;
+        const a = document.createElement('a');
+        a.download = 'gohan-quiz-' + score + 'of10.png';
+        a.href = URL.createObjectURL(cardBlob);
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+        return true;
+      }
+      function copyLink() { try { return (navigator.clipboard ? navigator.clipboard.writeText(pageUrl) : Promise.resolve()).catch(() => {}); } catch (_) { return Promise.resolve(); } }
+      const endScore = () => answers.reduce((a, p, i) => a + (p === QUESTIONS[i].correct ? 1 : 0), 0);
+
       // ───────── share buttons ─────────
-      function toast(msg) { const t = $('share-toast'); t.textContent = msg; t.style.opacity = '1'; setTimeout(() => t.style.opacity = '0', 2200); }
+      function toast(msg) { const t = $('share-toast'); t.textContent = msg; t.style.opacity = '1'; setTimeout(() => t.style.opacity = '0', 2600); }
+      // 結果をシェア: link → clipboard + the card PNG into the OS share sheet (mobile);
+      // falls back to text share, then to download + copied-link toast.
       $('share-native').addEventListener('click', async () => {
-        const score = answers.reduce((a, p, i) => a + (p === QUESTIONS[i].correct ? 1 : 0), 0);
+        const score = endScore();
         const txt = shareText(score);
-        if (navigator.share) { try { await navigator.share({ title: 'ごはんと地球のクイズ', text: txt, url: pageUrl }); } catch (_) {} }
-        else { try { await navigator.clipboard.writeText(txt + ' ' + pageUrl); toast('結果をコピーしたよ！'); } catch (_) {} }
+        copyLink();
+        const blob = await buildCardBlob(score);
+        if (blob && navigator.canShare) {
+          const file = new File([blob], 'gohan-quiz-' + score + 'of10.png', { type: 'image/png' });
+          if (navigator.canShare({ files: [file] })) {
+            try { await navigator.share({ files: [file], text: txt + ' ' + pageUrl }); toast('リンクもコピーしたよ！'); return; }
+            catch (e) { if (e && e.name === 'AbortError') return; }
+          }
+        }
+        if (navigator.share) {
+          try { await navigator.share({ title: 'ごはんと地球のクイズ', text: txt, url: pageUrl }); return; }
+          catch (e) { if (e && e.name === 'AbortError') return; }
+        }
+        toast(downloadCard(score) ? '画像を保存して、リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
       });
+      // X / LINE: the intent opens via the link itself; alongside it we save the
+      // card image + copy the page link so it's easy to attach & paste.
+      ['share-x', 'share-line'].forEach(id => $(id).addEventListener('click', () => {
+        const score = endScore();
+        copyLink();
+        buildCardBlob(score).then(b => {
+          toast(b && downloadCard(score) ? '画像を保存＆リンクをコピーしたよ！' : 'リンクをコピーしたよ！');
+        });
+      }));
 
       // ───────── retry ─────────
       $('retry-btn').addEventListener('click', () => {
