@@ -4,231 +4,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>認定証シェアカード — ストーリー版</title>
+  <title>認定証カード — 実物プレビュー</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-  <style type="text/tailwindcss">
-    .__seed { color: inherit; }
-    @theme {
-      --color-paper: #FFF9EE; --color-paper-soft: #FDF1DA;
-      --color-ink: #1F1812; --color-ink-soft: #3C2E22; --color-muted: #786148;
-      --color-royal: #C9223A; --color-royal-deep: #9C1428; --color-gold: #D4A847; --color-gold-deep: #9C7E2A;
-      --color-leaf: #6C9560; --color-leaf-deep: #3F6A3A;
-      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
-    }
-    html, body { background: var(--color-paper); color: var(--color-ink); }
-    body { font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif; font-feature-settings: "palt"; -webkit-font-smoothing: antialiased; }
-    .pill { display:inline-block; font-size:12px; font-weight:700; padding:3px 11px; border-radius:999px; border:2px solid var(--color-ink); background:var(--color-paper); }
-    .f-round { font-family: "Zen Maru Gothic", sans-serif; }
-
-    /* ── both cards are true 1080×1920, scaled down for preview ── */
-    .stage { margin: 0 auto; }
-    .cert {
-      position: relative; width: 1080px; height: 1920px;
-      transform-origin: top left;
-      background-size: 100% 100%; background-repeat: no-repeat;
-      background-color: #FFFDF7;
-      display: flex; flex-direction: column; align-items: center;
-      padding: 240px 172px 288px;        /* content lives inside the frame's cream center */
-      overflow: hidden;
-    }
-
-    /* soft "sticker on paper" lift — cream halo + faint ink drop (html2canvas-safe) */
-    .lift-red { color: var(--color-royal);
-      text-shadow: 3px 0 0 #FFFBF0, -3px 0 0 #FFFBF0, 0 3px 0 #FFFBF0, 0 -3px 0 #FFFBF0,
-                   2px 2px 0 #FFFBF0, -2px 2px 0 #FFFBF0, 2px -2px 0 #FFFBF0, -2px -2px 0 #FFFBF0,
-                   5px 10px 0 rgba(31,24,18,0.13); }
-
-    /* ── version A pieces — ABSOLUTE coords (identical to the quiz #sc-card so the
-       preview == the exported PNG; flex+margins drift in html2canvas) ── */
-    .c-logo { position: absolute; left: 50%; transform: translateX(-50%); top: 232px; width: 400px; height: 313px; filter: drop-shadow(0 8px 16px rgba(31,24,18,0.20)); }
-    .c-title { position: absolute; left: 50%; transform: translateX(-50%); top: 588px; width: 100%; text-align: center; white-space: nowrap;
-      font-weight: 900; font-size: 126px; line-height: 1; letter-spacing: 0.1em; }
-    .c-title .spark { font-size: 54px; color: var(--color-gold); text-shadow: none; vertical-align: 0.22em; margin: 0 22px; }
-    .c-oji { position: absolute; left: 50%; transform: translateX(-50%); top: 772px; width: 244px; height: 446px; filter: drop-shadow(0 16px 26px rgba(31,24,18,0.18)); }
-    .c-big { position: absolute; left: 50%; transform: translateX(-50%); top: 1244px; display: flex; align-items: baseline; }
-    .c-big .num { font-weight: 900; font-size: 210px; line-height: 1; }
-    .c-big .den { font-weight: 900; font-size: 94px; color: rgba(31,24,18,0.42); margin-left: 8px; }
-    .c-attest { position: absolute; left: 50%; transform: translateX(-50%); top: 1490px; width: 820px; text-align: center; font-weight: 700; font-size: 31px; color: var(--color-ink-soft); letter-spacing: 0.02em; }
-    .c-date { position: absolute; left: 50%; transform: translateX(-50%); top: 1550px; width: 820px; text-align: center; font-weight: 700; font-size: 37px; color: var(--color-ink-soft); }
-    .c-url { position: absolute; left: 50%; transform: translateX(-50%); top: 1608px; width: 820px; text-align: center; font-family: var(--font-noto-sans-jp); font-weight: 700; font-size: 40px; color: var(--color-royal);
-      text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 8px; }
-    /* seal = ribbon stamp, bigger + a bit left; fine if it rides over the frame */
-    .c-seal { position: absolute; left: auto; right: 176px; top: 1150px; width: 214px; height: 214px; object-fit: contain;
-      transform: rotate(-8deg); filter: drop-shadow(0 6px 12px rgba(31,24,18,0.22)); }
-
-    /* ── invite CTA + small footer (used by version C) ── */
-    .b-cta { margin-top: 96px; text-align: center; }
-    .b-cta .ask { font-weight: 900; font-size: 58px; color: var(--color-ink); }
-    .b-cta .lnk { font-family: var(--font-noto-sans-jp); font-weight: 700; font-size: 40px; color: var(--color-royal); margin-top: 12px;
-      text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 8px; }
-    .b-foot { margin-top: auto; text-align: center; font-weight: 700; font-size: 28px; color: var(--color-muted); }
-
-    /* ── version C (mirrors the quiz results screen) ── */
-    .c3-top { display: flex; align-items: center; justify-content: center; gap: 34px; width: 100%; margin-top: 10px; }
-    .c3-badge { width: 296px; height: auto; flex-shrink: 0; filter: drop-shadow(0 8px 16px rgba(31,24,18,0.18)); }
-    .c3-score { text-align: left; }
-    .c3-kekka { font-weight: 900; font-size: 48px; letter-spacing: 0.16em; color: var(--color-gold-deep); }
-    .c3-big { display: flex; align-items: baseline; line-height: 0.86; margin-top: 10px; }
-    .c3-big .num { font-weight: 900; font-size: 194px; }
-    .c3-big .den { font-weight: 900; font-size: 82px; color: rgba(31,24,18,0.42); margin-left: 6px; }
-    .c3-marks { display: flex; justify-content: center; gap: 11px; margin-top: 48px; width: 100%; }
-    .c3-marks img { width: 60px; height: 60px; }
-    .c3-oji-row { display: flex; align-items: flex-start; gap: 20px; margin-top: 56px; width: 100%; }
-    .c3-oji { width: 246px; height: auto; flex-shrink: 0; filter: drop-shadow(0 12px 22px rgba(31,24,18,0.16)); }
-    .c3-bubble { position: relative; flex: 1; background: #FFFCF6; border: 4px solid var(--color-ink); border-radius: 26px;
-      box-shadow: 7px 7px 0 var(--color-ink); padding: 36px 32px; margin-top: 30px; text-align: left; }
-    .c3-tail { position: absolute; left: -17px; top: 58px; width: 28px; height: 28px; background: #FFFCF6;
-      border-left: 4px solid var(--color-ink); border-bottom: 4px solid var(--color-ink); transform: rotate(45deg); }
-    .c3-msg { font-weight: 900; font-size: 38px; line-height: 1.65; color: var(--color-ink); white-space: nowrap; }
-    .c3-msg rt { font-size: 0.48em; opacity: 0.75; font-weight: 700; }
-
-    /* controls */
-    .btn { display:inline-flex; align-items:center; gap:8px; font-weight:900; font-size:15px; border:2.5px solid var(--color-ink);
-      border-radius:14px; box-shadow:4px 4px 0 var(--color-ink); padding:11px 20px; cursor:pointer; text-decoration:none; }
-    .btn:active { transform: translate(2px,2px); box-shadow:2px 2px 0 var(--color-ink); }
-    .btn-leaf { background: var(--color-leaf); color:#fff; }
-    .btn-ghost { background: var(--color-paper); color: var(--color-ink); }
-    input[type=range]{ accent-color: var(--color-royal); }
-    .ver-tag { display:inline-block; font-weight:900; font-size:14px; background:var(--color-ink); color:var(--color-paper); border-radius:999px; padding:5px 16px; }
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- SAME renderer the quiz uses → this preview is pixel-identical to the saved card -->
+  <script src="/quiz/cert-card.js" defer></script>
+  <style>
+    :root { --paper:#FFF9EE; --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148; --royal:#C9223A; --leaf:#6C9560; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; background:var(--paper); color:var(--ink); }
+    body { font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif; -webkit-font-smoothing:antialiased; }
+    .wrap { max-width:560px; margin:0 auto; padding:28px 20px 60px; text-align:center; }
+    .pill { display:inline-block; font-size:12px; font-weight:700; padding:4px 13px; border-radius:999px; border:2px solid var(--ink); background:var(--paper); }
+    h1 { font-size:22px; margin:16px 0 6px; }
+    .sub { color:var(--ink-soft); font-size:13.5px; line-height:1.85; margin:0 auto 4px; max-width:30em; }
+    .note { color:var(--muted); font-size:12px; line-height:1.7; margin:8px auto 0; max-width:30em; }
+    .controls { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:center; margin:22px 0 20px; }
+    .controls label { display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:14px; }
+    input[type=range]{ accent-color:var(--royal); width:190px; }
+    #readout { display:inline-flex; align-items:center; justify-content:center; min-width:60px; font-weight:900; font-size:16px; color:var(--royal); border:2px solid var(--ink); border-radius:9px; padding:5px 8px; }
+    .btn { font-family:inherit; font-weight:900; font-size:15px; border:2.5px solid var(--ink); border-radius:14px; box-shadow:4px 4px 0 var(--ink); padding:11px 22px; cursor:pointer; background:var(--leaf); color:#fff; }
+    .btn:active { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); }
+    .stage { margin:0 auto; width:min(90vw, 400px); }
+    #card { width:100%; height:auto; display:block; border-radius:12px; box-shadow:0 10px 30px rgba(31,24,18,.16); background:#FFFDF7; }
+    .loading { color:var(--muted); font-size:13px; padding:40px 0; }
   </style>
 </head>
-<body class="antialiased">
-  <div class="max-w-2xl mx-auto px-5 py-8">
-    <div class="text-center mb-5">
-      <div class="pill mb-3 f-round">認定証カード · 2案 · 1080×1920 · noindex</div>
-      <p class="f-round text-ink-soft text-[14px] leading-[1.8]">A＝認定証／C＝結果発表レイアウト。スライダーで点数を動かして、それぞれ <b>PNGで保存</b> できます。</p>
+<body>
+  <div class="wrap">
+    <div class="pill">認定証カード · クイズと同一 · noindex</div>
+    <h1>認定証カード — 実物プレビュー</h1>
+    <p class="sub">クイズの結果画面で保存されるカードと<b>まったく同じ描画</b>です（共通の <code>&lt;canvas&gt;</code> レンダラー）。スライダーで点数を変えて確認できます。</p>
+
+    <div class="controls">
+      <label>点数 <input id="score" type="range" min="0" max="10" value="7" /> <span id="readout">7 / 10</span></label>
+      <button id="dl" class="btn">⬇ PNGで保存</button>
     </div>
 
-    <!-- controls -->
-    <div class="flex flex-wrap items-center justify-center gap-4 mb-8">
-      <label class="flex items-center gap-3 f-round font-bold text-[14px]">
-        点数
-        <input id="score" type="range" min="0" max="10" value="7" class="w-48" />
-        <span id="score-readout" class="inline-flex items-center justify-center min-w-[58px] f-round font-black text-[16px] text-royal border-2 border-ink rounded-lg px-2 py-1">7 / 10</span>
-      </label>
-      <button id="frame-cycle" class="btn btn-ghost" title="枠のデザインを切り替え">枠を切り替え</button>
+    <div class="stage">
+      <canvas id="card" width="1080" height="1920"></canvas>
+      <div id="loading" class="loading">読み込み中…</div>
     </div>
-
-    <!-- ══════════ VERSION A · 認定証 ══════════ -->
-    <div class="text-center mb-4"><span class="ver-tag">A · 認定証</span></div>
-    <div class="stage" data-stage>
-      <div class="cert" data-cert>
-        <img class="c-logo" src="/images/quiz-bg/title.png" alt="しらなかった！ごはんと地球のクイズ" crossorigin="anonymous" />
-        <div class="c-title f-round lift-red"><span class="spark">✦</span>認定証<span class="spark">✦</span></div>
-        <img class="c-oji" src="/images/oji/oji_happy.png" alt="" crossorigin="anonymous" />
-        <div class="c-big f-round"><span class="num lift-red" data-num>7</span><span class="den">/ 10</span></div>
-        <div class="c-attest f-round">上記の成績を収めたことを、ここに認定します。</div>
-        <div class="c-date f-round" data-date>2026.6.24</div>
-        <div class="c-url">veganoji.jp/quiz</div>
-        <img class="c-seal" src="/images/quiz-bg/badge.png" alt="" crossorigin="anonymous" />
-      </div>
-    </div>
-    <div class="text-center mt-5 mb-12"><button class="btn btn-leaf" data-dl="0">⬇ AをPNGで保存</button></div>
-
-    <!-- ══════════ VERSION C · 結果発表レイアウト ══════════ -->
-    <div class="text-center mb-4"><span class="ver-tag">C · 結果発表レイアウト</span></div>
-    <div class="stage" data-stage>
-      <div class="cert" data-cert>
-        <div class="c3-top">
-          <img class="c3-badge" src="/images/quiz-bg/badge.png" alt="ビーガン王子認定" crossorigin="anonymous" />
-          <div class="c3-score f-round">
-            <div class="c3-kekka">結果発表</div>
-            <div class="c3-big"><span class="num lift-red" data-num>7</span><span class="den">/ 10</span></div>
-          </div>
-        </div>
-        <div class="c3-marks" data-marks></div>
-        <div class="c3-oji-row">
-          <img class="c3-oji" data-oji src="/images/oji/oji_happy.png" alt="ビーガン王子" crossorigin="anonymous" />
-          <div class="c3-bubble">
-            <div class="c3-tail"></div>
-            <div class="c3-msg f-round" data-msg>あっぱれ！ほとんど正解だね。</div>
-          </div>
-        </div>
-        <div class="b-cta f-round" style="margin-top:auto;">
-          <div class="ask">挑戦してみませんか？</div>
-          <div class="lnk">veganoji.jp/quiz</div>
-        </div>
-        <div class="b-foot f-round" style="margin-top:auto;">ビーガン王子 認定　·　<span data-date>2026.7.2</span></div>
-      </div>
-    </div>
-    <div class="text-center mt-5 mb-8"><button class="btn btn-leaf" data-dl="1">⬇ CをPNGで保存</button></div>
+    <p class="note">※ このプレビューはクイズ本体と同じ <code>/quiz/cert-card.js</code> で描いています。ここが正しければ、iPhone・PC どちらで保存しても同じ画像になります。</p>
   </div>
 
   <script>
-    const $ = (s, r) => (r || document).querySelector(s);
-    const $$ = (s, r) => [...(r || document).querySelectorAll(s)];
-    const certs = $$('[data-cert]'), stages = $$('[data-stage]');
+    var cv = document.getElementById('card');
+    var scoreEl = document.getElementById('score');
+    var readout = document.getElementById('readout');
+    var loading = document.getElementById('loading');
 
-    // candidate portrait frames. Default = storyA (scalloped, matches the square frameC).
-    const FRAMES = ['/quiz-sharecard-lab/img/storyA.jpg', '/quiz-sharecard-lab/img/storyC.jpg', '/quiz-sharecard-lab/img/storyB.jpg'];
-    let frameIdx = 0;
-    function applyFrame() { certs.forEach(c => c.style.backgroundImage = `url('${FRAMES[frameIdx]}')`); }
-
-    function rankFor(s) {
-      if (s === 10) return '地球はかせ';
-      if (s >= 7) return 'ものしり王子';
-      if (s >= 4) return 'なかなか探究家';
-      if (s >= 1) return 'みならい';
-      return 'これから！';
+    function score() { return parseInt(scoreEl.value, 10); }
+    function render() {
+      readout.textContent = score() + ' / 10';
+      if (!window.CertCard) return;
+      window.CertCard.draw(score(), cv).then(function () { loading.style.display = 'none'; });
     }
-    // same grade → pose + comment mapping as the quiz's results screen (<br/> = clean 2-line wrap on the card)
-    function gradeMeta(s) {
-      if (s === 10) return { pose: 'oji_excited', msg: 'ぜんぶ<ruby>正解<rt>せいかい</rt></ruby>！<br/>もう<ruby>地球<rt>ちきゅう</rt></ruby>はかせだね！' };
-      if (s >= 7)  return { pose: 'oji_happy', msg: 'あっぱれ！<br/>ほとんど<ruby>正解<rt>せいかい</rt></ruby>だね。' };
-      if (s >= 4)  return { pose: 'oji_curious', msg: 'いいかんじ！<br/><ruby>半分<rt>はんぶん</rt></ruby>こえたよ。' };
-      if (s >= 1)  return { pose: 'oji_wondering', msg: 'ナイス<ruby>挑戦<rt>ちょうせん</rt></ruby>！<br/>ここからが<ruby>面白<rt>おもしろ</rt></ruby>いよ。' };
-      return { pose: 'oji_questioning', msg: 'ドンマイ！<br/><ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>知<rt>し</rt></ruby>っていこう。' };
-    }
-    // plausible ✓/✗ spread for the lab preview (real integration uses actual answers)
-    function marksFor(s) {
-      const order = [0, 3, 7, 1, 5, 8, 2, 6, 4, 9];
-      const ok = new Set(order.slice(0, s));
-      let h = '';
-      for (let i = 0; i < 10; i++) h += '<img src="/images/vegan-to-chikyu/icon-' + (ok.has(i) ? 'check' : 'x') + '-social.png" alt="" crossorigin="anonymous"/>';
-      return h;
-    }
-    function render(s) {
-      $$('[data-num]').forEach(el => el.textContent = s);
-      $$('[data-rank]').forEach(el => el.textContent = rankFor(s));
-      const g = gradeMeta(s);
-      $$('[data-msg]').forEach(el => el.innerHTML = g.msg);
-      $$('[data-oji]').forEach(el => el.src = '/images/oji/' + g.pose + '.png');
-      $$('[data-marks]').forEach(el => el.innerHTML = marksFor(s));
-      $('#score-readout').textContent = s + ' / 10';
-    }
-    (function setDate(){ const d = new Date(); const t = d.getFullYear() + '.' + (d.getMonth()+1) + '.' + d.getDate();
-      $$('[data-date]').forEach(el => el.textContent = t); })();
+    scoreEl.addEventListener('input', render);
 
-    // scale each 1080×1920 card to fit the viewport
-    function fit() {
-      const maxW = Math.min(window.innerWidth - 40, 430);
-      const s = maxW / 1080;
-      certs.forEach((c, i) => { c.style.transform = `scale(${s})`;
-        stages[i].style.width = (1080 * s) + 'px'; stages[i].style.height = (1920 * s) + 'px'; });
-    }
-    window.addEventListener('resize', fit);
+    // desktop → download · mobile (iOS can't auto-download) → full-screen long-press save
+    document.getElementById('dl').addEventListener('click', function () {
+      window.CertCard.blob(score()).then(function (blob) {
+        if (!blob) return;
+        var name = 'gohan-quiz-' + score() + 'of10.png';
+        if (window.matchMedia('(pointer: coarse)').matches) {
+          var u = URL.createObjectURL(blob);
+          var ov = document.createElement('div');
+          ov.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(31,24,18,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:22px';
+          ov.innerHTML = '<div style="color:#FFF9EE;font-weight:700;font-size:16px;text-align:center;line-height:1.7">画像を長押しして<br>「&#8220;写真&#8221;に保存」を選んでね</div>' +
+            '<img src="' + u + '" style="max-width:86%;max-height:70vh;border-radius:16px;box-shadow:0 12px 34px rgba(0,0,0,.45)"/>' +
+            '<button type="button" style="font-family:inherit;font-weight:800;font-size:15px;background:#FFF9EE;color:#1F1812;border:2.5px solid #1F1812;border-radius:12px;box-shadow:3px 3px 0 #1F1812;padding:11px 26px">閉じる</button>';
+          function close() { ov.remove(); URL.revokeObjectURL(u); }
+          ov.querySelector('button').addEventListener('click', close);
+          ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+          document.body.appendChild(ov);
+        } else {
+          var url = URL.createObjectURL(blob), a = document.createElement('a');
+          a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(function () { URL.revokeObjectURL(url); }, 8000);
+        }
+      });
+    });
 
-    $('#score').addEventListener('input', (e) => render(parseInt(e.target.value, 10)));
-    $('#frame-cycle').addEventListener('click', () => { frameIdx = (frameIdx + 1) % FRAMES.length; applyFrame(); });
-
-    $$('[data-dl]').forEach(btn => btn.addEventListener('click', async () => {
-      await document.fonts.ready;
-      const cert = certs[parseInt(btn.dataset.dl, 10)];
-      const prev = cert.style.transform;
-      cert.style.transform = 'none';               // capture at true 1080×1920
-      const canvas = await html2canvas(cert, { width: 1080, height: 1920, scale: 1, useCORS: true, backgroundColor: null });
-      cert.style.transform = prev;
-      const a = document.createElement('a');
-      a.download = 'veganoji-quiz-' + (btn.dataset.dl === '0' ? 'cert' : 'invite') + '-' + $('#score').value + 'of10.png';
-      a.href = canvas.toDataURL('image/png');
-      a.click();
-    }));
-
-    applyFrame(); render(7); fit();
+    (function boot() { if (window.CertCard) render(); else setTimeout(boot, 40); })();
   </script>
 </body>
 </html>

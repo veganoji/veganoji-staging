@@ -27,9 +27,10 @@
   <!-- furigana preference (shared with the story pages) — apply before paint -->
   <script>(function(){try{var v=localStorage.getItem('furigana');document.documentElement.classList.add(v==='on'?'furigana-on':'furigana-off');}catch(e){document.documentElement.classList.add('furigana-off');}})();</script>
   <style>html.furigana-off rt{display:none!important;}</style>
-  <!-- share-card (認定証 PNG) is drawn directly on <canvas> in the results-screen
-       script — deterministic across devices (html2canvas rendered differently on
-       iPhone vs desktop). Zen Maru Gothic is loaded here so canvas fillText can use it. -->
+  <!-- share-card (認定証 PNG) — drawn on <canvas> (deterministic across devices).
+       Shared with /quiz-sharecard-lab/certificate so they stay pixel-identical.
+       Zen Maru Gothic is loaded above so canvas fillText can use it. -->
+  <script src="/quiz/cert-card.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet" />
@@ -1048,72 +1049,14 @@
       }
 
       // ───────── share card (認定証 → 1080×1920 PNG) ─────────
-      // Drawn directly on <canvas> so the output is pixel-identical on every device
-      // (html2canvas re-implements CSS and rendered differently on iPhone vs desktop).
-      const CARD_ASSETS = { frame: '/images/quiz-bg/cert-frame.jpg', logo: '/images/quiz-bg/title.png', oji: '/images/oji/oji_happy.png', seal: '/images/quiz-bg/badge.png' };
-      const _imgCache = {};
-      function loadImg(src) {
-        if (_imgCache[src]) return _imgCache[src];
-        return _imgCache[src] = new Promise((res, rej) => {
-          const i = new Image(); i.crossOrigin = 'anonymous';
-          i.onload = () => res(i); i.onerror = () => rej(new Error(src)); i.src = src;
-        });
-      }
-      function stickerText(g, txt, x, y) {   // cream outline behind red fill
-        g.lineJoin = 'round'; g.miterLimit = 2; g.lineWidth = 13; g.strokeStyle = '#FFFBF0';
-        g.strokeText(txt, x, y); g.fillStyle = '#C9223A'; g.fillText(txt, x, y);
-      }
-      async function drawCard(score) {
-        const ZEN = '"Zen Maru Gothic", sans-serif';
-        try { await Promise.all([
-          document.fonts.load('900 126px ' + ZEN), document.fonts.load('900 210px ' + ZEN),
-          document.fonts.load('700 31px ' + ZEN), document.fonts.load('700 40px "Noto Sans JP"'),
-        ]); } catch (_) {}
-        const [frame, logo, oji, seal] = await Promise.all([loadImg(CARD_ASSETS.frame), loadImg(CARD_ASSETS.logo), loadImg(CARD_ASSETS.oji), loadImg(CARD_ASSETS.seal)]);
-        const W = 1080, H = 1920, CX = 540;
-        const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
-        const g = cv.getContext('2d');
-        g.textAlign = 'center';
-        g.drawImage(frame, 0, 0, W, H);
-        // logo
-        const lw = 400, lh = lw * logo.height / logo.width;
-        g.drawImage(logo, CX - lw / 2, 206, lw, lh);
-        // 認定証 (sticker) + gold sparkles
-        g.textBaseline = 'middle';
-        g.font = '900 126px ' + ZEN;
-        const tW = g.measureText('認定証').width;
-        stickerText(g, '認定証', CX, 604);
-        g.font = '900 52px ' + ZEN; g.fillStyle = '#D4A847';
-        g.fillText('✦', CX - tW / 2 - 50, 604); g.fillText('✦', CX + tW / 2 + 50, 604);
-        // prince
-        const pw = 236, ph = pw * oji.height / oji.width;
-        g.drawImage(oji, CX - pw / 2, 700, pw, ph);
-        // seal — rotated ribbon stamp, right side beside the score
-        g.save(); g.translate(802, 1180); g.rotate(-8 * Math.PI / 180); g.drawImage(seal, -108, -108, 216, 216); g.restore();
-        // score: N (red, outline) + " / 10" (grey), baseline-aligned, centred
-        g.textBaseline = 'alphabetic'; g.textAlign = 'left';
-        g.font = '900 210px ' + ZEN; const numTxt = String(score), numW = g.measureText(numTxt).width;
-        g.font = '900 94px ' + ZEN; const denTxt = ' / 10', denW = g.measureText(denTxt).width;
-        const sx = CX - (numW + denW) / 2, baseY = 1282;
-        g.font = '900 210px ' + ZEN; stickerText(g, numTxt, sx, baseY);
-        g.font = '900 94px ' + ZEN; g.fillStyle = 'rgba(31,24,18,0.42)'; g.fillText(denTxt, sx + numW, baseY);
-        g.textAlign = 'center';
-        // attest (tight spacing) / date / url
-        g.fillStyle = '#3C2E22'; g.font = '700 31px ' + ZEN;
-        g.fillText('上記の成績を収めたことを、ここに認定します。', CX, 1372);
-        g.font = '700 37px ' + ZEN; const d = new Date();
-        g.fillText(d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate(), CX, 1430);
-        g.font = '700 40px "Noto Sans JP"'; g.fillStyle = '#C9223A';
-        const url = 'veganoji.jp/quiz'; g.fillText(url, CX, 1494);
-        const uW = g.measureText(url).width; g.strokeStyle = '#C9223A'; g.lineWidth = 3;
-        g.beginPath(); g.moveTo(CX - uW / 2, 1506); g.lineTo(CX + uW / 2, 1506); g.stroke();
-        return new Promise(res => cv.toBlob(res, 'image/png'));
-      }
+      // Rendered by the shared /quiz/cert-card.js (window.CertCard) so the quiz and
+      // the sharecard lab are pixel-identical. Cached per score; pre-warmed at showEnd.
       let cardBlob = null, cardScore = -1, cardBusy = null;
       function buildCardBlob(score) {
         if (cardBlob && cardScore === score) return Promise.resolve(cardBlob);
         if (cardBusy && cardBusy._score === score) return cardBusy;
-        const p = drawCard(score)
+        if (!window.CertCard) return Promise.resolve(null);
+        const p = window.CertCard.blob(score)
           .then(b => { cardBlob = b; cardScore = score; cardBusy = null; return b; })
           .catch(() => { cardBusy = null; return null; });
         p._score = score; cardBusy = p; return p;
