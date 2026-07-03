@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>イベントを提案・参加表明 | ベジトレClub</title>
+  <title>イベントに参加・提案 | ベジトレClub</title>
   <meta name="robots" content="noindex,nofollow" />
   <link rel="icon" type="image/png" href="/images/vegfit/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,6 +38,7 @@
     .btn-primary:disabled { opacity:.6; pointer-events:none; }
     .lbl { display:block; font-weight:800; font-size:13.5px; margin:0 0 6px; color:var(--color-ink); }
     .req { color:var(--color-berry); font-weight:900; }
+    .hint { font-size:12px; color:var(--color-muted); margin-top:6px; }
     .field { width:100%; border:2px solid var(--color-ink); border-radius:14px; background:#fff; padding:11px 14px; font-size:15px; color:var(--color-ink); font-family:inherit; }
     .field:focus { outline:none; box-shadow:3px 3px 0 var(--color-leaf-soft); }
     textarea.field { resize:vertical; min-height:78px; }
@@ -50,69 +51,72 @@
 <body>
   <div class="max-w-[560px] mx-auto px-4 sm:px-5 py-10 sm:py-14">
 
-    <!-- header -->
     <div class="text-center">
       <img src="/images/oji/oji_excited.png" alt="ビーガン王子" class="w-20 h-20 mx-auto object-contain" />
-      <h1 class="mt-1 font-display display-tight text-[26px] sm:text-[32px] text-leaf-deep">イベントを提案・参加表明</h1>
+      <h1 class="mt-1 font-display display-tight text-[26px] sm:text-[32px] text-leaf-deep">イベントに参加・提案</h1>
       <p class="mt-3 text-[14px] leading-[1.85] text-ink-soft">
-        出たい大会・気になるイベントを教えてね。<br>
-        <b class="text-ink">「参加します」</b>を選ぶと、サイトの「次の冒険」に載って、仲間も一緒に誘えます🌱
+        気になる大会に「参加・興味」を伝えたり、新しい大会を提案したり。<br>仲間と一緒に走ろう🌱
       </p>
     </div>
 
-    <!-- form -->
     <form id="ev-form" class="sticker mt-7 p-6 sm:p-7 grid gap-5">
+      <!-- mode -->
+      <div>
+        <span class="lbl">どうする？ <span class="req">*</span></span>
+        <div class="grid gap-3">
+          <label class="opt"><input type="radio" name="mode" value="join" checked /><span><b>気になるイベントに「参加・興味」を伝える</b><br><small>登録済みの大会から選びます</small></span></label>
+          <label class="opt"><input type="radio" name="mode" value="new" /><span><b>新しいイベントを提案する</b><br><small>まだ載っていない大会を教えてね</small></span></label>
+        </div>
+      </div>
+
+      <!-- name (common) -->
       <div>
         <label class="lbl" for="submitter">お名前・ニックネーム <span class="req">*</span></label>
         <input class="field" id="submitter" name="submitter" type="text" required placeholder="例）たろう" />
       </div>
 
+      <!-- JOIN: pick existing event -->
+      <div id="join-fields">
+        <label class="lbl" for="eventId">イベントを選ぶ <span class="req">*</span></label>
+        <select class="field" id="eventId" name="eventId"><option value="">読み込み中…</option></select>
+        <p class="hint">見つからない大会は、上の「新しいイベントを提案」から追加してね。</p>
+      </div>
+
+      <!-- NEW: propose event -->
+      <div id="new-fields" class="hidden grid gap-5">
+        <div>
+          <label class="lbl" for="eventName">イベント名・大会名 <span class="req">*</span></label>
+          <input class="field" id="eventName" name="eventName" type="text" placeholder="例）2026 函館マラソン" />
+        </div>
+        <div>
+          <label class="lbl" for="sport">競技</label>
+          <select class="field" id="sport" name="sport">
+            <option value="未定/その他" selected>未定／その他</option>
+            <option value="ランニング">ランニング</option>
+            <option value="トレラン">トレラン</option>
+            <option value="トライアスロン">トライアスロン</option>
+            <option value="スパルタン">スパルタン</option>
+            <option value="HYROX">HYROX</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div><label class="lbl" for="date">開催日</label><input class="field" id="date" name="date" type="date" /></div>
+          <div><label class="lbl" for="distance">距離</label><input class="field" id="distance" name="distance" type="text" placeholder="例）ハーフ / 10km" /></div>
+        </div>
+        <div><label class="lbl" for="location">場所</label><input class="field" id="location" name="location" type="text" placeholder="例）北海道函館市" /></div>
+        <div><label class="lbl" for="link">公式サイト・リンク <span class="req">*</span></label><input class="field" id="link" name="link" type="url" placeholder="https://..." /></div>
+      </div>
+
+      <!-- intent (common) -->
       <div>
-        <span class="lbl">あなたの参加 <span class="req">*</span></span>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <span class="lbl">あなたの意向 <span class="req">*</span></span>
+        <div class="grid grid-cols-2 gap-3">
           <label class="opt"><input type="radio" name="intent" value="参加" checked /><span><b>参加します</b><br><small>エントリー予定／済み</small></span></label>
           <label class="opt"><input type="radio" name="intent" value="興味" /><span><b>興味あり</b><br><small>情報がほしい</small></span></label>
         </div>
       </div>
 
-      <div>
-        <label class="lbl" for="eventName">イベント名・大会名 <span class="req">*</span></label>
-        <input class="field" id="eventName" name="eventName" type="text" required placeholder="例）2026 函館マラソン" />
-      </div>
-
-      <div>
-        <label class="lbl" for="sport">競技</label>
-        <select class="field" id="sport" name="sport">
-          <option value="未定/その他" selected>未定／その他</option>
-          <option value="ランニング">ランニング</option>
-          <option value="トレラン">トレラン</option>
-          <option value="トライアスロン">トライアスロン</option>
-          <option value="スパルタン">スパルタン</option>
-          <option value="HYROX">HYROX</option>
-        </select>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3">
-        <div>
-          <label class="lbl" for="date">開催日</label>
-          <input class="field" id="date" name="date" type="date" />
-        </div>
-        <div>
-          <label class="lbl" for="distance">距離</label>
-          <input class="field" id="distance" name="distance" type="text" placeholder="例）ハーフ / 10km" />
-        </div>
-      </div>
-
-      <div>
-        <label class="lbl" for="location">場所</label>
-        <input class="field" id="location" name="location" type="text" placeholder="例）北海道函館市" />
-      </div>
-
-      <div>
-        <label class="lbl" for="link">公式サイト・リンク <span class="req">*</span></label>
-        <input class="field" id="link" name="link" type="url" required placeholder="https://..." />
-      </div>
-
+      <!-- memo (common) -->
       <div>
         <label class="lbl" for="memo">ひとこと（任意）</label>
         <textarea class="field" id="memo" name="memo" placeholder="一緒に走りたい人へのメッセージなど"></textarea>
@@ -122,14 +126,10 @@
       <p id="err" class="hidden text-center text-[13px] text-berry font-bold">送信できませんでした。少し時間をおいて、もう一度お試しください。</p>
     </form>
 
-    <!-- success -->
     <div id="done" class="hidden sticker mt-7 p-7 text-center" style="background:#F2FAEC;">
       <img src="/images/oji/oji_happy.png" alt="" class="w-24 h-24 mx-auto object-contain" />
       <h2 class="mt-1 font-display text-[22px] text-leaf-deep">ありがとう！🎉</h2>
-      <p class="mt-3 text-[14px] leading-[1.9] text-ink-soft">
-        内容を受け取りました🌱 運営が確認して、サイトの「次の冒険」に掲載しますね。<br>
-        よかったらLINEでも「<b class="text-ink">この大会に出ます！</b>」とひとこと。あなたの一歩を見て、仲間もきっと集まります。
-      </p>
+      <p id="done-msg" class="mt-3 text-[14px] leading-[1.9] text-ink-soft"></p>
       <a href="/vegfit/#events" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-paper text-leaf-deep px-6 py-3 text-[15px] mt-5" style="font-weight:800;border:2.5px solid var(--color-ink);box-shadow:4px 4px 0 var(--color-ink);">サイトに戻る</a>
     </div>
 
@@ -138,19 +138,53 @@
 
   <script>
     (function () {
-      var WEBHOOK = 'https://ojidigital.app.n8n.cloud/webhook/vegfit-event-submit';
+      var LIST = 'https://ojidigital.app.n8n.cloud/webhook/vegfit-event-list';
+      var SUBMIT = 'https://ojidigital.app.n8n.cloud/webhook/vegfit-event-submit';
       var form = document.getElementById('ev-form');
       var btn = document.getElementById('submit-btn');
       var err = document.getElementById('err');
+      var eventId = document.getElementById('eventId');
+      var eventName = document.getElementById('eventName');
+      var link = document.getElementById('link');
+
+      // populate dropdown of current events
+      fetch(LIST).then(function (r) { return r.json(); }).then(function (d) {
+        var evs = (d && d.events) || [];
+        if (!evs.length) { eventId.innerHTML = '<option value="">（まだ登録イベントがありません — 下から提案してね）</option>'; return; }
+        eventId.innerHTML = '<option value="">選んでください</option>';
+        evs.forEach(function (e) {
+          var o = document.createElement('option');
+          o.value = e.id;
+          o.textContent = (e.date ? '[' + e.date.slice(5).replace('-', '/') + '] ' : '') + e.name;
+          eventId.appendChild(o);
+        });
+      }).catch(function () { eventId.innerHTML = '<option value="">読み込みに失敗（後でもう一度）</option>'; });
+
+      function setMode(m) {
+        document.getElementById('join-fields').classList.toggle('hidden', m !== 'join');
+        document.getElementById('new-fields').classList.toggle('hidden', m !== 'new');
+        eventId.required = (m === 'join');
+        eventName.required = (m === 'new');
+        link.required = (m === 'new');
+      }
+      [].forEach.call(document.querySelectorAll('input[name=mode]'), function (r) {
+        r.addEventListener('change', function () { setMode(this.value); });
+      });
+      setMode('join');
+
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         err.classList.add('hidden');
         btn.disabled = true; btn.textContent = '送信中…';
+        var mode = (document.querySelector('input[name=mode]:checked') || {}).value;
         var data = new URLSearchParams(new FormData(form));
-        fetch(WEBHOOK, { method: 'POST', body: data })
+        fetch(SUBMIT, { method: 'POST', body: data })
           .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
           .then(function (d) {
             if (d && d.ok) {
+              document.getElementById('done-msg').innerHTML = (mode === 'new')
+                ? '新しいイベントの提案を受け取りました🌱 運営が確認して、みんなに共有しますね。LINEでも「この大会どう？」とシェアしてね。'
+                : '参加表明を受け取りました🌱 よかったらLINEでも「<b class="text-ink">この大会に出ます！</b>」とひとこと。あなたの一歩を見て、仲間もきっと集まります。';
               form.classList.add('hidden');
               document.getElementById('done').classList.remove('hidden');
               window.scrollTo({ top: 0, behavior: 'smooth' });
