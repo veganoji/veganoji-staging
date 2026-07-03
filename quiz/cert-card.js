@@ -29,10 +29,10 @@
     title:  { cx: 540, y: 604,  size: 126, gap: 50 },     // y = vertical centre; gap = sparkle spacing
     oji:    { cx: 540, y: 700,  w: 236 },                 // y = top
     score:  { cx: 540, y: 1282, numSize: 210, denSize: 94 }, // y = baseline
-    seal:   { cx: 802, cy: 1180, size: 216, rot: -8 },    // cx/cy = centre
-    attest: { cx: 540, y: 1372, size: 31 },               // y = baseline
-    date:   { cx: 540, y: 1430, size: 37 },               // y = baseline
-    url:    { cx: 540, y: 1494, size: 40 }                // y = baseline
+    seal:   { cx: 545, cy: 1663, size: 354, rot: -8 },    // cx/cy = centre (big centred stamp, user layout)
+    attest: { cx: 540, y: 1327, size: 31 },               // y = baseline
+    date:   { cx: 540, y: 1381, size: 37 },               // y = baseline
+    url:    { cx: 540, y: 1461, size: 55 }                // y = baseline
   };
   // element metadata for the drag editor (xk/yk = which keys a drag moves)
   var META = [
