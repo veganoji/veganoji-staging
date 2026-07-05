@@ -40,7 +40,7 @@
     </div>
 
     <div class="mnav-label">とっておき</div>
-    <a class="mnav-card" href="https://japanveganmap.org" target="_blank" rel="noopener">
+    <a class="mnav-card" href="https://japanveganmap.ojidigital.com" target="_blank" rel="noopener">
       <img src="/images/mascot/map-japan.png" alt="" />
       <span class="b"><span class="t">日本ビーガンマップ</span><span class="s">Japan Vegan Map · 全国2,300店</span></span>
       <span class="c">›</span>

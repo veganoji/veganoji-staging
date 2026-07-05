@@ -150,7 +150,7 @@
         '<a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/images/social/li.png" alt=""></a>' +
       '</div>' +
       '<a class="ojf-btn ojf-recipe" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png" alt="">' + t.recipe + '<span class="ojf-ar">→</span></a>' +
-      '<a class="ojf-btn ojf-map" href="https://japanveganmap.org" target="_blank" rel="noopener"><img src="/images/mascot/map-japan.png" alt="">' + t.map + '<span class="ojf-ar">→</span></a>' +
+      '<a class="ojf-btn ojf-map" href="https://japanveganmap.ojidigital.com" target="_blank" rel="noopener"><img src="/images/mascot/map-japan.png" alt="">' + t.map + '<span class="ojf-ar">→</span></a>' +
       '<div class="ojf-sectitle">' + t.why + '</div>' +
       '<div class="ojf-tri">' +
         '<a class="ojf-earth" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt=""><span class="ojf-t">' + t.earth + '</span><span class="ojf-g">PLANET</span></a>' +
