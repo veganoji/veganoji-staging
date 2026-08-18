@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>ビーガン電卓 — もしビーガンを続けたら？ | ビーガン王子</title>
+  <meta name="description" content="ビーガンはどれだけ地球に優しいの？ 期間を入れるだけで、水・穀物・森林・CO₂・動物のいのち——地球に贈れる「ギフト」が見える、ビーガン王子のビーガン電卓。" />
+  <link rel="canonical" href="https://veganoji.jp/calculator/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://veganoji.jp/calculator/" />
+  <meta property="og:site_name" content="ビーガン王子 Vegan Oji" />
+  <meta property="og:title" content="ビーガン電卓 — もしビーガンを続けたら？" />
+  <meta property="og:description" content="期間を入れるだけで、地球に贈れる「ギフト」が見える。ビーガン王子のビーガン電卓🌏" />
+  <meta property="og:image" content="https://veganoji.jp/images/social/og-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/crown-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/crown-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/mnav.css" />
+  <style>
+    :root{
+      --paper:#FFF9EE; --cream:#FDF1DA; --cream2:#F6E4BD;
+      --royal:#C9223A; --royal-deep:#9C1428;
+      --gold:#D4A847; --gold-soft:#E8C76F; --gold-deep:#9C7E2A;
+      --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148; --line:#E9D9B5;
+      --leaf:#6C9560; --leaf-deep:#3F6A3A; --blue:#2B7AB0; --purple:#6B4E8C;
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0; font-family:"Noto Sans JP",sans-serif; color:var(--ink); background:var(--paper);
+      -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    }
+    .zm{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif;}
+    img{max-width:100%;}
+
+    /* ───── hero ───── */
+    .hero{position:relative; overflow:hidden; min-height:560px; display:flex; align-items:flex-end;}
+    .hero-bg{position:absolute; inset:0; background:url('/images/decorations/share-bgs/diet-hold-earth.jpg') center 8%/cover no-repeat;}
+    .hero-veil{position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,249,238,.14) 0%, rgba(255,249,238,.02) 40%, rgba(255,249,238,.96) 84%, var(--paper) 100%);}
+    .hero-in{position:relative; width:100%; max-width:680px; margin:0 auto; padding:330px 24px 16px; text-align:center;}
+    .hero-eyebrow{font-size:12px; letter-spacing:.3em; font-weight:700; color:var(--royal); text-transform:uppercase; text-shadow:0 1px 8px rgba(255,249,238,.9);}
+    .hero-title{font-size:clamp(42px,11vw,58px); font-weight:900; line-height:1.12; margin:8px 0 0; letter-spacing:.02em; text-shadow:0 2px 14px rgba(255,249,238,.85);}
+    .hero-title .r{color:var(--royal);}
+    .hero-lead{font-size:15px; line-height:2; color:var(--ink-soft); margin:14px auto 0; max-width:440px; font-weight:500; text-shadow:0 1px 6px rgba(255,249,238,.9);}
+    .hero-lead b{color:var(--ink); font-weight:900;}
+
+    .wrap{max-width:680px; margin:0 auto; padding:0 20px 70px;}
+
+    /* ───── chibi buttons ───── */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer;
+      font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif; font-weight:900; color:var(--ink);
+      background:var(--paper); border:2.5px solid var(--ink); border-radius:16px;
+      box-shadow:4px 4px 0 var(--ink); padding:13px 22px; font-size:15px; text-decoration:none;
+      transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .btn:hover{transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink);}
+    .btn:active{transform:translate(3px,3px); box-shadow:1px 1px 0 var(--ink);}
+    .btn-red{background:var(--royal); color:var(--paper);}
+    .btn-red:hover{background:var(--royal-deep);}
+    .btn-gold{background:var(--gold);}
+    .btn img{width:18px; height:18px;}
+
+    /* ───── input card ───── */
+    .card{
+      background:#FFFDF8; border:2.5px solid var(--ink); border-radius:24px;
+      box-shadow:6px 6px 0 var(--ink); padding:22px 18px; position:relative;
+    }
+    .card + .card{margin-top:26px;}
+    .card-label{font-size:12px; letter-spacing:.24em; font-weight:700; color:var(--gold-deep); text-transform:uppercase; text-align:center;}
+    .card-q{font-size:19px; font-weight:900; text-align:center; margin:6px 0 16px; line-height:1.5;}
+    .presets{display:flex; flex-wrap:wrap; justify-content:center; gap:9px;}
+    .chip{
+      font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif; font-weight:900; font-size:15px; cursor:pointer;
+      background:var(--cream); color:var(--ink); border:2.5px solid var(--ink); border-radius:999px;
+      padding:10px 18px; box-shadow:3px 3px 0 var(--ink);
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .chip:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink);}
+    .chip[data-on="true"]{background:var(--leaf); color:#fff;}
+    .custom{display:flex; justify-content:center; align-items:center; gap:16px; margin-top:18px; flex-wrap:wrap;}
+    .stepper{display:flex; align-items:center; gap:8px;}
+    .step-btn{
+      width:46px; height:46px; border-radius:14px; border:2.5px solid var(--ink); background:var(--paper);
+      box-shadow:3px 3px 0 var(--ink); font-size:22px; font-weight:900; color:var(--ink); cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center; font-family:inherit;
+      transition:transform .12s ease, box-shadow .12s ease; -webkit-tap-highlight-color:transparent;
+    }
+    .step-btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink);}
+    .step-val{min-width:58px; text-align:center; font-size:26px; font-weight:900; font-variant-numeric:tabular-nums;}
+    .step-unit{font-size:15px; font-weight:700; color:var(--ink-soft);}
+
+    /* ───── daily strip ───── */
+    .daily{
+      margin-top:16px; background:var(--cream); border:2px dashed rgba(31,24,18,.28); border-radius:16px;
+      padding:12px 14px; text-align:center; font-size:12.5px; color:var(--ink-soft); line-height:1.9;
+    }
+    .daily b{color:var(--leaf-deep);}
+
+    /* ───── results ───── */
+    .res-head{text-align:center; margin:34px 0 16px;}
+    .res-kicker{font-size:13px; font-weight:700; color:var(--leaf-deep);}
+    .res-title{font-size:clamp(24px,6.4vw,30px); font-weight:900; margin-top:4px; line-height:1.4;}
+    .res-title .r{color:var(--royal);}
+    .tiles{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+    .tile{
+      background:#FFFDF8; border:2.5px solid var(--ink); border-radius:18px; padding:13px 12px 12px;
+      box-shadow:3px 3px 0 rgba(31,24,18,.15); text-align:center;
+    }
+    .tile.wide{grid-column:1 / -1; display:flex; align-items:center; justify-content:center; gap:14px; text-align:left;}
+    .tile img{width:46px; height:46px; object-fit:contain;}
+    .tile .tl{font-size:11.5px; font-weight:700; color:var(--muted); margin-top:5px; letter-spacing:.06em;}
+    .tile.wide .tl{margin-top:0;}
+    .tile .tn{font-size:clamp(19px,5.4vw,24px); font-weight:900; line-height:1.1; margin-top:3px; font-variant-numeric:tabular-nums; white-space:nowrap;}
+    .tile .ts{font-size:10.5px; color:var(--muted); margin-top:4px; line-height:1.5;}
+    .c-blue{color:var(--blue);} .c-gold{color:var(--gold-deep);} .c-leaf{color:var(--leaf-deep);} .c-red{color:var(--royal);} .c-purple{color:var(--purple);}
+
+    /* ───── oji reaction ───── */
+    .oji-row{display:flex; align-items:flex-end; justify-content:center; gap:6px; margin-top:26px; min-height:150px;}
+    .oji-bubble{
+      position:relative; max-width:300px; background:#FFFDF8; border:2.5px solid var(--ink); border-radius:18px;
+      padding:13px 16px; font-size:14px; font-weight:700; line-height:1.75; box-shadow:3px 3px 0 rgba(31,24,18,.15);
+      margin-bottom:34px;
+    }
+    .oji-bubble::after{
+      content:""; position:absolute; right:-13px; bottom:16px; width:22px; height:22px;
+      background:#FFFDF8; border-right:2.5px solid var(--ink); border-top:2.5px solid var(--ink);
+      transform:rotate(45deg);
+    }
+    .oji-img{width:132px; flex-shrink:0; filter:drop-shadow(0 8px 14px rgba(31,24,18,.18)); transition:opacity .25s ease;}
+
+    /* ───── share ───── */
+    .share-box{margin-top:28px; text-align:center;}
+    .share-note{font-size:12px; color:var(--muted); margin-top:12px; line-height:1.8;}
+    .share-note b{color:var(--leaf-deep);}
+    .share-btns{display:flex; flex-wrap:wrap; justify-content:center; gap:12px;}
+
+    /* iOS save overlay (long-press) */
+    .save-overlay{position:fixed; inset:0; z-index:90; background:rgba(31,24,18,.86); display:none; flex-direction:column; align-items:center; justify-content:center; padding:22px;}
+    .save-overlay[data-open="true"]{display:flex;}
+    .save-overlay img{max-height:72vh; max-width:92vw; border-radius:18px; border:3px solid var(--paper); box-shadow:0 18px 50px rgba(0,0,0,.5);}
+    .save-hint{color:var(--paper); font-size:14px; font-weight:700; margin-top:16px; text-align:center; line-height:1.8;}
+    .save-close{margin-top:14px;}
+
+    /* ───── learn / sources ───── */
+    .learn{margin-top:34px; text-align:center;}
+    .sources{font-size:10.5px; color:var(--muted); text-align:center; margin-top:26px; line-height:1.9;}
+    .sources a{color:var(--muted);}
+
+    .footer-nav{padding:56px 20px 64px; background:var(--paper);}
+    .footer-nav > div{max-width:680px; margin:0 auto;}
+
+    @media (min-width:560px){
+      .tiles{grid-template-columns:repeat(2,1fr);}
+      .hero{min-height:640px;}
+      .hero-in{padding-top:400px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- floating burger (headerless page, same as quiz) -->
+  <button id="mnav-open" type="button" class="mnav-burger mnav-float" aria-label="メニューを開く" aria-expanded="false" aria-controls="mnav-sheet">
+    <svg width="22" height="22" viewBox="0 0 22 22"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></g></svg>
+  </button>
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-veil"></div>
+    <div class="hero-in">
+      <div class="hero-eyebrow">Vegan Calculator</div>
+      <h1 class="hero-title zm">ビーガン<span class="r">電卓</span></h1>
+      <p class="hero-lead">ビーガンは、どれだけ地球に優しいの？<br /><b>期間を入れるだけ</b>で、地球へ贈れる「ギフト」が見えてきます 🎁</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ───────── INPUT ───────── -->
+    <section class="card" style="margin-top:18px;">
+      <div class="card-label">How long?</div>
+      <div class="card-q zm">ビーガンを、どれくらい続ける？</div>
+      <div class="presets" id="presets">
+        <button class="chip" data-y="0" data-m="1">１ヶ月</button>
+        <button class="chip" data-y="1" data-m="0" data-on="true">１年</button>
+        <button class="chip" data-y="3" data-m="0">３年</button>
+        <button class="chip" data-y="5" data-m="0">５年</button>
+        <button class="chip" data-y="10" data-m="0">１０年</button>
+      </div>
+      <div class="custom">
+        <div class="stepper">
+          <button class="step-btn" data-step="y-1" aria-label="年を減らす">−</button>
+          <span class="step-val" id="v-years">1</span><span class="step-unit">年</span>
+          <button class="step-btn" data-step="y+1" aria-label="年を増やす">＋</button>
+        </div>
+        <div class="stepper">
+          <button class="step-btn" data-step="m-1" aria-label="ヶ月を減らす">−</button>
+          <span class="step-val" id="v-months">0</span><span class="step-unit">ヶ月</span>
+          <button class="step-btn" data-step="m+1" aria-label="ヶ月を増やす">＋</button>
+        </div>
+      </div>
+      <div class="daily">ビーガンは毎日、<b>水 約4,164L</b>・<b>穀物 約18kg</b>・<b>森林 約2.8㎡</b>・<b>CO₂ 約9.1kg</b>・<b>動物のいのち 1つ</b>を地球に貢献してるよ〜</div>
+    </section>
+
+    <!-- ───────── RESULTS ───────── -->
+    <section aria-live="polite">
+      <div class="res-head">
+        <div class="res-kicker" id="res-kicker">１年のビーガン生活で──</div>
+        <h2 class="res-title zm">地球に、<span class="r">これだけ。</span></h2>
+      </div>
+
+      <div class="tiles">
+        <div class="tile">
+          <img src="/images/vegan-to-chikyu/icon-water-drop.png" alt="" />
+          <div class="tl">水</div>
+          <div class="tn c-blue" id="o-water">—</div>
+          <div class="ts" id="e-water"></div>
+        </div>
+        <div class="tile">
+          <img src="/images/vegan-to-chikyu/icon-grain-sack.png" alt="" />
+          <div class="tl">穀物</div>
+          <div class="tn c-gold" id="o-grains">—</div>
+          <div class="ts" id="e-grains"></div>
+        </div>
+        <div class="tile">
+          <img src="/images/vegan-to-chikyu/icon-forest.png" alt="" />
+          <div class="tl">森林</div>
+          <div class="tn c-leaf" id="o-forest">—</div>
+          <div class="ts" id="e-forest"></div>
+        </div>
+        <div class="tile">
+          <img src="/images/vegan-to-chikyu/icon-co2-cloud.png" alt="" />
+          <div class="tl">CO₂</div>
+          <div class="tn c-red" id="o-co2">—</div>
+          <div class="ts" id="e-co2"></div>
+        </div>
+        <div class="tile wide">
+          <img src="/images/vegan-to-chikyu/icon-chicken-solo.png" alt="" />
+          <div>
+            <div class="tl">動物のいのち</div>
+            <div class="tn c-purple" id="o-animals">—</div>
+            <div class="ts">にやさしい選択を 🌱</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- oji reaction -->
+      <div class="oji-row">
+        <div class="oji-bubble zm" id="oji-say">期間を入れてみてね！</div>
+        <img class="oji-img" id="oji-img" src="/images/oji/oji_happy.png" alt="ビーガン王子" />
+      </div>
+    </section>
+
+    <!-- ───────── SHARE ───────── -->
+    <section class="share-box">
+      <div class="share-btns">
+        <button class="btn btn-red" id="save-btn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2.5v8m0 0L4.6 7.2M8 10.5l3.4-3.3M2.5 13.5h11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          結果を画像で保存
+        </button>
+        <a class="btn" id="x-btn" href="#" target="_blank" rel="noopener">
+          <img src="/images/social/x.png" alt="" />ポストする
+        </a>
+        <a class="btn" id="line-btn" href="#" target="_blank" rel="noopener">
+          <img src="/images/social/line.png" alt="" />LINEで送る
+        </a>
+      </div>
+      <p class="share-note">画像を保存して、SNSでシェア🌏 <b>@veganoji</b> をタグ付けしてくれたら、王子が見つけにいきます ♡</p>
+    </section>
+
+    <!-- learn more -->
+    <div class="learn">
+      <a class="btn btn-gold" href="/vegan-and-earth/">🌏 ビーガンと地球のつながりを学ぶ</a>
+    </div>
+
+    <p class="sources">出典：<a href="https://www.cowspiracy.com/facts" target="_blank" rel="noopener">Cowspiracy: The Sustainability Secret</a> のデータをもとに算出した試算値です。<br />1日あたり：水 4,164L / 穀物 18.1kg / 森林 2.8㎡ / CO₂ 9.1kg / 動物のいのち 1</p>
+  </main>
+
+  <!-- iOS save overlay -->
+  <div class="save-overlay" id="save-overlay">
+    <img id="save-img" alt="ビーガン電卓の結果カード" />
+    <div class="save-hint">画像を<b>長押し</b>して「写真に追加」で保存してね 📲</div>
+    <button class="btn save-close" id="save-close">とじる</button>
+  </div>
+
+  <!-- shared bottom-of-page nav card -->
+  <div class="footer-nav"><div id="oji-footer-nav"></div></div>
+
+  <canvas id="card-canvas" width="1080" height="1920" style="display:none;"></canvas>
+
+  <script>
+  (function(){
+    // ── per-day factors (Cowspiracy, same as /tools/) ──
+    var perDay = { water:4163.9, grains:18.1, forest:2.8, co2:9.1, animals:1 };
+    var state = { y:1, m:0 };
+
+    var $ = function(id){ return document.getElementById(id); };
+    var vY=$('v-years'), vM=$('v-months');
+
+    // compact JP number: 152万 / 1.2億
+    function fmtJP(n){
+      if (n >= 1e8) { var o = n/1e8; return (o>=10?Math.round(o):Math.round(o*10)/10).toLocaleString('ja-JP') + '億'; }
+      if (n >= 1e4) { var w = n/1e4; return (w>=10?Math.round(w):Math.round(w*10)/10).toLocaleString('ja-JP') + '万'; }
+      return Math.round(n).toLocaleString('ja-JP');
+    }
+    function durationLabel(y,m){
+      if (y>0 && m>0) return y+'年'+m+'ヶ月';
+      if (y>0) return y+'年';
+      if (m>0) return m+'ヶ月';
+      return '0日';
+    }
+
+    // oji reactions by days
+    function ojiFor(days){
+      if (days <= 0)    return { img:'oji_wondering.png',  say:'期間を入れてみてね！' };
+      if (days < 90)    return { img:'oji_happy.png',      say:'小さな一歩も、ちゃんと地球に届いてるよ🌱' };
+      if (days < 365)   return { img:'oji_excited.png',    say:'すごい！もう地球が変わりはじめてる…！' };
+      if (days < 1095)  return { img:'oji_celebrate.png',  say:'こんなに！？王子、ちょっと感動してる🥹' };
+      if (days < 3650)  return { img:'oji_teaching.png',   say:'ここまで来たら、立派な「地球の味方」だね！' };
+      return               { img:'oji_certificate.png', say:'殿堂入り！王子から表彰します🏆✨' };
+    }
+
+    var last = { total:{}, label:'', days:0 };
+
+    function compute(){
+      var days = state.y*365 + state.m*30;
+      var t = {};
+      Object.keys(perDay).forEach(function(k){ t[k] = perDay[k]*days; });
+      last = { total:t, label:durationLabel(state.y,state.m), days:days };
+
+      vY.textContent = state.y; vM.textContent = state.m;
+
+      $('o-water').textContent   = days? fmtJP(t.water)+'L' : '—';
+      $('o-grains').textContent  = days? fmtJP(t.grains)+'kg' : '—';
+      $('o-forest').textContent  = days? fmtJP(t.forest)+'㎡' : '—';
+      $('o-co2').textContent     = days? fmtJP(t.co2)+'kg' : '—';
+      $('o-animals').textContent = days? fmtJP(t.animals) : '—';
+
+      $('e-water').textContent   = days? 'バスタブ 約'+fmtJP(t.water/200)+'杯分' : '';
+      $('e-grains').textContent  = days? 'おにぎり 約'+fmtJP(t.grains*10)+'個分' : '';
+      $('e-forest').textContent  = days? 'テニスコート 約'+fmtJP(Math.max(1,t.forest/250))+'面分' : '';
+      $('e-co2').textContent     = days? 'スギ 約'+fmtJP(Math.max(1,t.co2/14))+'本の1年分' : '';
+
+      $('res-kicker').textContent = days? last.label+'のビーガン生活で──' : 'まずは期間をえらんでね';
+
+      var o = ojiFor(days);
+      var oi = $('oji-img');
+      if (!oi.src.endsWith(o.img)) { oi.style.opacity=0; setTimeout(function(){ oi.src='/images/oji/'+o.img; oi.onload=function(){oi.style.opacity=1;}; }, 120); }
+      $('oji-say').textContent = o.say;
+
+      // share links
+      var url = 'https://veganoji.jp/calculator/';
+      var text = days
+        ? 'ビーガン電卓で計算してみたら、'+last.label+'で 水'+fmtJP(t.water)+'L・CO₂'+fmtJP(t.co2)+'kg も地球にギフトできるって🌏✨ きみもやってみて！ #ビーガン王子'
+        : 'ビーガン電卓 — もしビーガンを続けたら？🌏 #ビーガン王子';
+      $('x-btn').href = 'https://twitter.com/intent/tweet?text='+encodeURIComponent(text)+'&url='+encodeURIComponent(url);
+      $('line-btn').href = 'https://line.me/R/share?text='+encodeURIComponent(text+' '+url);
+      $('save-btn').disabled = !days;
+      $('save-btn').style.opacity = days? 1 : .45;
+    }
+
+    // presets
+    var chips = document.querySelectorAll('#presets .chip');
+    chips.forEach(function(c){
+      c.addEventListener('click', function(){
+        chips.forEach(function(x){ x.removeAttribute('data-on'); });
+        c.setAttribute('data-on','true');
+        state.y = +c.dataset.y; state.m = +c.dataset.m;
+        compute();
+      });
+    });
+    // steppers
+    document.querySelectorAll('.step-btn').forEach(function(b){
+      b.addEventListener('click', function(){
+        var s = b.dataset.step;
+        if (s==='y+1') state.y = Math.min(99, state.y+1);
+        if (s==='y-1') state.y = Math.max(0,  state.y-1);
+        if (s==='m+1') state.m = Math.min(11, state.m+1);
+        if (s==='m-1') state.m = Math.max(0,  state.m-1);
+        chips.forEach(function(x){ x.removeAttribute('data-on'); });
+        compute();
+      });
+    });
+
+    compute();
+
+    // ───────── share-card canvas (1080×1920, deterministic) ─────────
+    var CARD_BG='/images/decorations/share-bgs/diet-earth.jpg';
+    var ICONS={
+      water:'/images/vegan-to-chikyu/icon-water-drop.png',
+      grains:'/images/vegan-to-chikyu/icon-grain-sack.png',
+      forest:'/images/vegan-to-chikyu/icon-forest.png',
+      co2:'/images/vegan-to-chikyu/icon-co2-cloud.png',
+      animals:'/images/vegan-to-chikyu/icon-chicken-solo.png'
+    };
+    var imgCache={};
+    function loadImg(src){
+      return imgCache[src] || (imgCache[src] = new Promise(function(res,rej){
+        var im=new Image(); im.onload=function(){res(im);}; im.onerror=rej; im.src=src;
+      }));
+    }
+    function rr(ctx,x,y,w,h,r){
+      ctx.beginPath();
+      ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
+      ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
+    }
+
+    function drawCard(){
+      var c=$('card-canvas'), ctx=c.getContext('2d');
+      var t=last.total;
+      var jobs=[loadImg(CARD_BG)];
+      Object.keys(ICONS).forEach(function(k){ jobs.push(loadImg(ICONS[k])); });
+      var fonts = (document.fonts && document.fonts.load)
+        ? Promise.all([document.fonts.load('900 84px "Zen Maru Gothic"'), document.fonts.load('900 52px "Noto Sans JP"'), document.fonts.load('700 34px "Noto Sans JP"')])
+        : Promise.resolve();
+      return Promise.all([Promise.all(jobs), fonts]).then(function(all){
+        var imgs=all[0], bg=imgs[0];
+        // bg cover
+        var s=Math.max(1080/bg.width, 1920/bg.height), bw=bg.width*s, bh=bg.height*s;
+        ctx.clearRect(0,0,1080,1920);
+        ctx.drawImage(bg,(1080-bw)/2,(1920-bh)/2,bw,bh);
+        // soft veil for legibility
+        var g=ctx.createLinearGradient(0,0,0,1920);
+        g.addColorStop(0,'rgba(255,249,238,.32)'); g.addColorStop(.42,'rgba(255,249,238,.10)'); g.addColorStop(.75,'rgba(255,249,238,.26)'); g.addColorStop(1,'rgba(255,249,238,.05)');
+        ctx.fillStyle=g; ctx.fillRect(0,0,1080,1920);
+
+        ctx.textAlign='center'; ctx.textBaseline='alphabetic';
+        // eyebrow
+        ctx.font='700 40px "Noto Sans JP"'; ctx.fillStyle='#3F6A3A';
+        ctx.fillText(last.label+'のビーガン生活で──', 540, 150);
+        // headline (two-tone)
+        ctx.font='900 92px "Zen Maru Gothic"';
+        var a='地球に、', b='これだけ。';
+        var wa=ctx.measureText(a).width, wb=ctx.measureText(b).width, x0=540-(wa+wb)/2;
+        ctx.textAlign='left';
+        ctx.fillStyle='#1F1812'; ctx.fillText(a,x0,268);
+        ctx.fillStyle='#C9223A'; ctx.fillText(b,x0+wa,268);
+        ctx.textAlign='center';
+
+        // tiles
+        var defs=[
+          {k:'water',  lab:'水',        val:fmtJP(t.water)+'L',   sub:'バスタブ 約'+fmtJP(t.water/200)+'杯分',            col:'#2B7AB0'},
+          {k:'grains', lab:'穀物',      val:fmtJP(t.grains)+'kg', sub:'おにぎり 約'+fmtJP(t.grains*10)+'個分',            col:'#9C7E2A'},
+          {k:'forest', lab:'森林',      val:fmtJP(t.forest)+'㎡', sub:'テニスコート 約'+fmtJP(Math.max(1,t.forest/250))+'面分', col:'#3F6A3A'},
+          {k:'co2',    lab:'CO₂',       val:fmtJP(t.co2)+'kg',    sub:'スギ 約'+fmtJP(Math.max(1,t.co2/14))+'本の1年分',   col:'#C9223A'}
+        ];
+        var iconMap={}; Object.keys(ICONS).forEach(function(k,i){ iconMap[k]=imgs[i+1]; });
+        var TX=54, TW=470, TH=330, GAP=32, TY=360;
+        defs.forEach(function(d,i){
+          var x=TX+(i%2)*(TW+GAP), y=TY+Math.floor(i/2)*(TH+GAP);
+          ctx.fillStyle='#FFFDF8'; rr(ctx,x,y,TW,TH,36); ctx.fill();
+          ctx.lineWidth=7; ctx.strokeStyle='#1F1812'; rr(ctx,x+3.5,y+3.5,TW-7,TH-7,33); ctx.stroke();
+          var ic=iconMap[d.k]; if(ic) ctx.drawImage(ic, x+TW/2-60, y+26, 120, 120);
+          ctx.font='700 30px "Noto Sans JP"'; ctx.fillStyle='#786148'; ctx.fillText(d.lab, x+TW/2, y+188);
+          ctx.font='900 58px "Noto Sans JP"'; ctx.fillStyle=d.col; ctx.fillText(d.val, x+TW/2, y+252);
+          ctx.font='500 25px "Noto Sans JP"'; ctx.fillStyle='#786148'; ctx.fillText(d.sub, x+TW/2, y+296);
+        });
+        // wide animals tile
+        var wy=TY+2*(TH+GAP), WW=TW*2+GAP;
+        ctx.fillStyle='#FFFDF8'; rr(ctx,TX,wy,WW,260,36); ctx.fill();
+        ctx.lineWidth=7; ctx.strokeStyle='#1F1812'; rr(ctx,TX+3.5,wy+3.5,WW-7,260-7,33); ctx.stroke();
+        var ai=iconMap.animals; if(ai) ctx.drawImage(ai, TX+70, wy+62, 136, 136);
+        ctx.textAlign='left';
+        ctx.font='700 32px "Noto Sans JP"'; ctx.fillStyle='#786148'; ctx.fillText('動物のいのち', TX+240, wy+96);
+        var numStr=fmtJP(t.animals);
+        ctx.font='900 78px "Noto Sans JP"'; ctx.fillStyle='#6B4E8C'; ctx.fillText(numStr, TX+240, wy+186);
+        var numW=ctx.measureText(numStr).width;
+        ctx.font='700 32px "Noto Sans JP"'; ctx.fillStyle='#3C2E22';
+        ctx.fillText('にやさしい選択を 🌱', TX+240+numW+18, wy+186);
+        ctx.textAlign='center';
+
+        // prince + crown note
+        ctx.font='700 34px "Noto Sans JP"'; ctx.fillStyle='#3C2E22';
+        ctx.fillText('ビーガン王子の ビーガン電卓 👑', 540, wy+260+92);
+
+        // invite bar
+        ctx.fillStyle='#1F1812'; ctx.fillRect(0,1920-140,1080,140);
+        ctx.font='700 38px "Noto Sans JP"'; ctx.fillStyle='#FFF9EE';
+        var p1='🌱 きみも計算してみて → ';
+        var w1=ctx.measureText(p1).width;
+        ctx.font='900 38px "Noto Sans JP"';
+        var p2='veganoji.jp/calculator';
+        var w2=ctx.measureText(p2).width;
+        var sx=540-(w1+w2)/2;
+        ctx.textAlign='left';
+        ctx.font='700 38px "Noto Sans JP"'; ctx.fillStyle='#FFF9EE'; ctx.fillText(p1,sx,1920-55);
+        ctx.font='900 38px "Noto Sans JP"'; ctx.fillStyle='#E8C76F'; ctx.fillText(p2,sx+w1,1920-55);
+        ctx.textAlign='center';
+        return c;
+      });
+    }
+
+    var isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+    $('save-btn').addEventListener('click', function(){
+      if (!last.days) return;
+      var btn=$('save-btn'); btn.disabled=true;
+      drawCard().then(function(c){
+        return new Promise(function(res){ c.toBlob(function(bl){res(bl);},'image/png'); });
+      }).then(function(blob){
+        btn.disabled=false;
+        var url=URL.createObjectURL(blob);
+        if (isIOS){
+          $('save-img').src=url;
+          $('save-overlay').setAttribute('data-open','true');
+        } else {
+          var a=document.createElement('a');
+          a.href=url; a.download='vegan-dentaku_'+last.label+'.png'; a.rel='noopener';
+          document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(function(){URL.revokeObjectURL(url);},4000);
+        }
+      }).catch(function(){ btn.disabled=false; alert('画像の生成に失敗しました。もう一度ためしてね🙏'); });
+    });
+    $('save-close').addEventListener('click', function(){
+      $('save-overlay').removeAttribute('data-open');
+      $('save-img').src='';
+    });
+  })();
+  </script>
+
+  <script src="/mnav.js" defer></script>
+  <script src="/oji-footer.js" defer></script>
+</body>
+</html>
