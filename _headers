@@ -7,3 +7,7 @@
 /kb/*
   X-Robots-Tag: noindex, nofollow
   Referrer-Policy: no-referrer
+
+# Internal shooting schedule — unlisted, keep out of search indexes
+/vlog-schedule/*
+  X-Robots-Tag: noindex, nofollow

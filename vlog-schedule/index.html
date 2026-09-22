@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>「ヴィーガンの1日」撮影香盤表 | ビーガン王子</title>
+  <meta name="description" content="A Day in the Life of a Vegan in Tokyo — 1日撮影の香盤表。" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/crown-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/crown-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" />
+<style>
+  :root {
+    --ink:        #16231c;
+    --ink-2:      #445449;
+    --ink-3:      #78877f;
+    --paper:      #ffffff;
+    --surface:    #f2f5f0;
+    --line:       #d7dfd6;
+    --line-soft:  #e6ebe4;
+
+    --c-home:     #6f5fbe;
+    --c-work:     #2f6fb5;
+    --c-move:     #8b968f;
+    --c-sport:    #cf5f27;
+    --c-beauty:   #bd3d77;
+    --c-shop:     #15866a;
+    --c-food:     #a07c16;
+
+    --c-home-bg:   #efedfa;
+    --c-work-bg:   #e8f1fa;
+    --c-sport-bg:  #fbeee6;
+    --c-beauty-bg: #fbeaf1;
+    --c-shop-bg:   #e3f3ed;
+    --c-food-bg:   #f8f1dd;
+
+    --warn:       #b8500f;
+    --warn-bg:    #fcefe4;
+
+    --radius: 10px;
+    --font-jp: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+    --font-num: "Roboto Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink:        #e8efe9;
+      --ink-2:      #adbcb2;
+      --ink-3:      #809086;
+      --paper:      #12180f;
+      --surface:    #1c2419;
+      --line:       #32402f;
+      --line-soft:  #28331f;
+
+      --c-home:     #ada0f2;
+      --c-work:     #7cb8f0;
+      --c-sport:    #f4975d;
+      --c-beauty:   #f284b0;
+      --c-shop:     #52c9a5;
+      --c-food:     #e0bb45;
+
+      --c-home-bg:   #262341;
+      --c-work-bg:   #16293b;
+      --c-sport-bg:  #37220f;
+      --c-beauty-bg: #38182a;
+      --c-shop-bg:   #10312a;
+      --c-food-bg:   #322813;
+
+      --warn:       #f0a261;
+      --warn-bg:    #33220f;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ink:        #e8efe9;
+    --ink-2:      #adbcb2;
+    --ink-3:      #809086;
+    --paper:      #12180f;
+    --surface:    #1c2419;
+    --line:       #32402f;
+    --line-soft:  #28331f;
+
+    --c-home:     #ada0f2;
+    --c-work:     #7cb8f0;
+    --c-sport:    #f4975d;
+    --c-beauty:   #f284b0;
+    --c-shop:     #52c9a5;
+    --c-food:     #e0bb45;
+
+    --c-home-bg:   #262341;
+    --c-work-bg:   #16293b;
+    --c-sport-bg:  #37220f;
+    --c-beauty-bg: #38182a;
+    --c-shop-bg:   #10312a;
+    --c-food-bg:   #322813;
+
+    --warn:       #f0a261;
+    --warn-bg:    #33220f;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  img { max-width: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-jp);
+    font-size: 17px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 880px;
+    margin-inline: auto;
+    padding-inline: 18px;
+    padding-block: 40px 72px;
+  }
+
+  /* ---------- header ---------- */
+  .head { border-bottom: 3px solid var(--ink); padding-bottom: 20px; }
+  .eyebrow {
+    font-family: var(--font-num);
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(29px, 6.4vw, 42px);
+    font-weight: 700;
+    line-height: 1.28;
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+  .sub { margin: 0; color: var(--ink-2); font-size: 16px; }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 34px;
+    margin: 20px 0 0;
+  }
+  .meta div { font-size: 16px; }
+  .meta dt {
+    font-family: var(--font-num);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0;
+  }
+  .meta dd { margin: 0; font-weight: 500; }
+
+  /* ---------- timeline ---------- */
+  .tl { display: flex; flex-direction: column; margin-top: 34px; }
+
+  .slot, .leg {
+    display: grid;
+    grid-template-columns: 66px 1fr;
+    gap: 14px;
+  }
+  .slot { align-items: start; }
+  .leg  { align-items: center; margin-bottom: 9px; }
+
+  .clock {
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    padding-top: 13px;
+    text-align: right;
+  }
+  .leg .clock { padding-top: 0; font-size: 14px; color: var(--ink-3); }
+
+  .block {
+    border-left: 5px solid var(--edge, var(--line));
+    background: var(--fill, var(--surface));
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 13px 18px 15px;
+    margin-bottom: 9px;
+  }
+  .block h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .where {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--edge);
+    margin: 2px 0 8px;
+  }
+  .block ul {
+    margin: 0;
+    padding-left: 1.15em;
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.8;
+  }
+  .block li::marker { color: var(--edge); }
+  .block b { color: var(--ink); font-weight: 700; }
+  .dur {
+    float: right;
+    font-family: var(--font-num);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-3);
+    padding-top: 6px;
+    margin-left: 12px;
+  }
+
+  .b-home   { --edge: var(--c-home);   --fill: var(--c-home-bg); }
+  .b-work   { --edge: var(--c-work);   --fill: var(--c-work-bg); }
+  .b-sport  { --edge: var(--c-sport);  --fill: var(--c-sport-bg); }
+  .b-beauty { --edge: var(--c-beauty); --fill: var(--c-beauty-bg); }
+  .b-shop   { --edge: var(--c-shop);   --fill: var(--c-shop-bg); }
+  .b-food   { --edge: var(--c-food);   --fill: var(--c-food-bg); }
+
+  .leg-body {
+    border-left: 5px dotted var(--c-move);
+    padding: 6px 18px;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+  .leg-body b { color: var(--ink); font-weight: 500; }
+
+  .flag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--warn);
+    background: var(--warn-bg);
+    border-radius: 5px;
+    padding: 1px 8px;
+    margin-left: 5px;
+  }
+
+  /* ---------- sections ---------- */
+  h2 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: var(--ink);
+    margin: 52px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .closing {
+    margin-top: 44px;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+  }
+  .closing p:last-child {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.9;
+    text-wrap: balance;
+  }
+
+  .checks { list-style: none; padding: 0; margin: 0; }
+  .checks li {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    color: var(--ink-2);
+    font-size: 16px;
+  }
+  .checks li:last-child { border-bottom: 0; }
+  .checks .box {
+    flex: 0 0 auto;
+    width: 15px; height: 15px;
+    border: 1.5px solid var(--ink-3);
+    border-radius: 3px;
+    transform: translateY(2px);
+  }
+  .checks b { color: var(--ink); font-weight: 700; }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    padding: 16px 18px 18px;
+  }
+  .card h4 { margin: 0 0 8px; font-size: 17px; font-weight: 700; }
+  .card p { margin: 0; font-size: 16px; color: var(--ink-2); line-height: 1.8; }
+
+  .titles { list-style: none; padding: 0; margin: 0; }
+  .titles li {
+    font-size: 17px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--ink);
+  }
+  .titles li:last-child { border-bottom: 0; }
+  .titles span {
+    font-family: var(--font-num);
+    font-size: 12px;
+    color: var(--ink-3);
+    margin-right: 12px;
+  }
+
+  footer {
+    margin-top: 48px;
+    font-size: 14px;
+    color: var(--ink-3);
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+
+  @media (max-width: 460px) {
+    body { font-size: 16px; }
+    .slot, .leg { grid-template-columns: 54px 1fr; gap: 10px; }
+    .clock { font-size: 15px; }
+    .block h3 { font-size: 18px; }
+    .dur { float: none; display: block; margin: 0 0 2px; padding-top: 0; }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    .block, .card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <p class="eyebrow">Shooting Schedule</p>
+    <h1>「ヴィーガンの1日」撮影香盤表</h1>
+    <p class="sub">A Day in the Life of a Vegan in Tokyo ／ 自宅 → 長原 → 原宿・表参道 → 代々木公園 → 渋谷</p>
+
+    <dl class="meta">
+      <div><dt>撮影日</dt><dd>　月　日（　）</dd></div>
+      <div><dt>出演</dt><dd>Alex ／ カリナ ／ 友達1名</dd></div>
+      <div><dt>撮影時間</dt><dd>7:30 – 22:00</dd></div>
+    </dl>
+  </header>
+
+  <div class="tl">
+
+    <div class="slot">
+      <div class="clock">7:30</div>
+      <div class="block b-home">
+        <span class="dur">5分</span>
+        <h3>起床・オープニング</h3>
+        <div class="where">自宅</div>
+        <ul>
+          <li>ベッドから起きるところ</li>
+          <li>「ヴィーガンの人って1日どんな生活してるの？」から入る</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">7:35</div>
+      <div class="block b-home">
+        <span class="dur">20分</span>
+        <h3>朝のルーティン</h3>
+        <div class="where">自宅・洗面所</div>
+        <ul>
+          <li>歯磨き・ヴィーガンスキンケア</li>
+          <li>使っているクルエルティフリー商品を手短に紹介</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">8:00</div>
+      <div class="block b-sport">
+        <span class="dur">45分</span>
+        <h3>自宅で筋トレ</h3>
+        <div class="where">自宅・トレーニングスペース</div>
+        <ul>
+          <li>パワーラック・ウェイトで普通にトレーニング</li>
+          <li>終わりにヴィーガンプロテイン → <b>「タンパク質どうしてるの？」の答えをここで先に見せる</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">8:45</div>
+      <div class="block b-home">
+        <span class="dur">15分</span>
+        <h3>シャワー・着替え</h3>
+        <div class="where">自宅</div>
+        <ul>
+          <li>さらっと。商品紹介は夜のお風呂でやるのでここでは触れない</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">9:00</div>
+      <div class="block b-food">
+        <span class="dur">30分</span>
+        <h3>朝ごはん・冷蔵庫オープン</h3>
+        <div class="where">自宅・キッチン</div>
+        <ul>
+          <li>冷蔵庫の中身チラ見せ → 豆乳・オーツミルク紹介</li>
+          <li>トースト・フルーツなど軽めに</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">9:30</div>
+      <div class="block b-home">
+        <span class="dur">10分</span>
+        <h3>持ち物紹介・出発</h3>
+        <div class="where">玄関</div>
+        <ul>
+          <li>マイボトル・トートバッグ・今日のバッグの中身</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="clock">9:45</div>
+      <div class="leg-body"><b>徒歩 10分</b> ── 自宅 → 長原</div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">9:55</div>
+      <div class="block b-work">
+        <span class="dur">65分</span>
+        <h3>ソイラテ＋仕事</h3>
+        <div class="where">ドトール 長原</div>
+        <ul>
+          <li>ソイラテ注文（カスタムの言い方も見せる）</li>
+          <li><b>この日のメイン「仕事」シーン。</b>「今日中にこの編集チェック終わらせる」と口に出す</li>
+          <li>PCで動画編集・メールチェック</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="clock">11:00</div>
+      <div class="leg-body"><b>移動 35分</b> ── 長原 → 原宿</div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">11:45</div>
+      <div class="block b-beauty">
+        <span class="dur">105分</span>
+        <h3>ヴィーガン美容室</h3>
+        <div class="where">whyte（原宿）</div>
+        <ul>
+          <li>アサイーボウル＋ドリンクをいただく（これがお昼ごはん代わり）</li>
+          <li>ヴィーガン対応のシャンプー・カラー剤を紹介してもらう</li>
+          <li>美容師さんに「普通の美容室と何が違うの？」を聞く</li>
+          <li>合間にPCでメール返信</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="clock">13:30</div>
+      <div class="leg-body"><b>徒歩 10分</b> ── 原宿 → 表参道</div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">13:40</div>
+      <div class="block b-beauty">
+        <span class="dur">30分</span>
+        <h3>ヴィーガンコスメを見る</h3>
+        <div class="where">Cosme Kitchen（表参道）<span class="flag">撮影可否 要確認</span></div>
+        <ul>
+          <li>ヴィーガンコスメ／クルエルティフリー商品</li>
+          <li>「普段どういう基準で選んでるか」を一言</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="clock">14:10</div>
+      <div class="leg-body"><b>徒歩 10分</b> ── 表参道 → スーパー</div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">14:20</div>
+      <div class="block b-shop">
+        <span class="dur">45分</span>
+        <h3>スーパーでヴィーガンクイズ</h3>
+        <div class="where">ナチュラルハウス青山 or 成城石井<span class="flag">撮影許可 要確認</span></div>
+        <ul>
+          <li><b>カリナ出演。</b>「これヴィーガン？ヴィーガンじゃない？」のクイズ形式</li>
+          <li>原材料表示の見方を実演</li>
+          <li>日本で買えるおすすめヴィーガン商品を3つほど紹介</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="clock">15:05</div>
+      <div class="leg-body"><b>徒歩 10分</b> ── スーパー → カフェ</div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">15:15</div>
+      <div class="block b-food">
+        <span class="dur">45分</span>
+        <h3>ヴィーガンスイーツ休憩</h3>
+        <div class="where">表参道・原宿のおしゃれカフェ<span class="flag">押していたらカット</span></div>
+        <ul>
+          <li>ドーナツ・ケーキ・アイスなど</li>
+          <li>「ヴィーガンでも甘いものは普通に食べる」を見せる</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="clock">16:00</div>
+      <div class="leg-body"><b>移動・着替え 30分</b> ── 表参道 → 代々木公園　／　友達とここで合流</div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">16:35</div>
+      <div class="block b-sport">
+        <span class="dur">45分</span>
+        <h3>夕方ラン（友達と）</h3>
+        <div class="where">代々木公園</div>
+        <ul>
+          <li>走りながら／走り終わりに、友達とヴィーガンの話</li>
+          <li>17時すぎには暗くなるので「夜ラン」の画になる</li>
+          <li><b>汗をかきすぎないペースで。</b>このあとシャワーなしで居酒屋へ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="clock">17:20</div>
+      <div class="leg-body"><b>着替え・移動 30分</b> ── 代々木公園 → 渋谷</div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">18:00</div>
+      <div class="block b-food">
+        <span class="dur">120分</span>
+        <h3>夕食＋Q&amp;Aトーク</h3>
+        <div class="where">ヴィーガン居酒屋 まさか（渋谷）<span class="flag">要予約</span></div>
+        <ul>
+          <li>「ヴィーガン＝サラダだけじゃない」を料理で見せる（アップ多め）</li>
+          <li>友達と食べながらQ&amp;A：<br />「タンパク質どうしてる？」「外食大変じゃない？」「ずっとヴィーガンなの？」「日本でヴィーガン生活は難しい？」</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="clock">20:00</div>
+      <div class="leg-body"><b>移動 35分</b> ── 渋谷 → 自宅</div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">20:40</div>
+      <div class="block b-shop">
+        <span class="dur">20分</span>
+        <h3>今日の購入品紹介</h3>
+        <div class="where">自宅</div>
+        <ul>
+          <li>スーパーで買った食品・コスメを並べて紹介</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">21:00</div>
+      <div class="block b-home">
+        <span class="dur">25分</span>
+        <h3>お風呂</h3>
+        <div class="where">自宅</div>
+        <ul>
+          <li>ヴィーガンシャンプー・ボディケア商品を紹介</li>
+          <li>夜のスキンケアは朝と同じ内容なのでカット。ここがその代わり</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">21:30</div>
+      <div class="block b-home">
+        <span class="dur">15分</span>
+        <h3>読書</h3>
+        <div class="where">ベッド</div>
+        <ul>
+          <li>あえてヴィーガンと関係ない普通の本のほうが、締めの言葉と合う</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="clock">21:50</div>
+      <div class="block b-home">
+        <span class="dur">10分</span>
+        <h3>就寝・締めコメント</h3>
+        <div class="where">ベッド</div>
+        <ul>
+          <li>1日の感想 → 締めのセリフ（下）</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="closing">
+    <p class="eyebrow">締めのセリフ</p>
+    <p>「ヴィーガンだから特別な生活をしてるわけじゃなくて、食べ物も、美容も、日用品も、毎日のちょっとした選択が違うだけ。」</p>
+  </div>
+
+  <h2>事前に押さえること</h2>
+  <ul class="checks">
+    <li><span class="box"></span><span><b>whyte（原宿）</b>── 11:45で予約＋撮影許可。ヴィーガン薬剤について話してもらえるか事前に相談</span></li>
+    <li><span class="box"></span><span><b>まさか（渋谷）</b>── 18:00で予約。撮影OKか確認</span></li>
+    <li><span class="box"></span><span><b>スーパー・Cosme Kitchen</b>── 店内撮影はNGの店が多い。事前連絡必須。ダメなら外観＋購入品紹介に切り替え</span></li>
+    <li><span class="box"></span><span><b>カリナ</b>── 14:20 スーパー前集合</span></li>
+    <li><span class="box"></span><span><b>友達</b>── 16:25 代々木公園集合 → そのまま夕食まで</span></li>
+  </ul>
+
+  <h2>持ち物</h2>
+  <div class="cards">
+    <div class="card">
+      <h4>撮影</h4>
+      <p>カメラ本体／ジンバル or 三脚／ピンマイク／予備バッテリー／SDカード予備／モバイルバッテリー</p>
+    </div>
+    <div class="card">
+      <h4>本人</h4>
+      <p>マイボトル／トートバッグ／PC／ランニングウェア一式／着替え／タオル</p>
+    </div>
+  </div>
+
+  <h2>タイトル案</h2>
+  <ul class="titles">
+    <li><span>01</span>A Day in the Life of a Vegan in Tokyo</li>
+    <li><span>02</span>24 Hours as a Vegan in Tokyo</li>
+    <li><span>03</span>What a Vegan Actually Does in a Day</li>
+    <li><span>04</span>A Realistic Day in My Life as a Vegan in Tokyo</li>
+  </ul>
+
+  <footer>
+    移動時間は乗換・徒歩込みの目安。分数は撮影にかかる実時間（セッティング・撮り直し含む）です。
+  </footer>
+
+</div>
+</body>
+</html>
