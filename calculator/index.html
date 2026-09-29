@@ -19,18 +19,17 @@
   <meta name="twitter:image" content="https://veganoji.jp/images/tools/og-calculator.jpg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/crown-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/crown-180.png" />
-  <link rel="preload" as="image" href="/images/tools/sky-earth.webp" />
+  <link rel="preload" as="image" href="/images/tools/hero-earth.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/mnav.css" />
   <style>
     :root{
-      --paper:#FFF9EE; --white:#FFFDF8; --cream:#FDF1DA; --line:#EADCC0;
+      --paper:#FFF9EE; --white:#FFFDF8; --cream:#FDF1DA; --line:#EADCC0; --gold:#E8C76F;
       --ink:#1F1812; --ink-soft:#3C2E22; --muted:#786148;
-      --leaf-deep:#3F6A3A; --royal:#C9223A; --royal-deep:#9C1428;
-      --round:"Zen Maru Gothic","Noto Sans JP",sans-serif;
-      --sans:"Noto Sans JP",sans-serif;
+      --leaf-deep:#3F6A3A; --royal:#C9223A; --royal-deep:#9C1428; --night:#13213F;
+      --round:"Zen Maru Gothic","Noto Sans JP",sans-serif; --sans:"Noto Sans JP",sans-serif;
     }
     *{box-sizing:border-box}
     html{-webkit-text-size-adjust:100%}
@@ -39,50 +38,64 @@
     img{display:block; max-width:100%}
     .col{max-width:480px; margin:0 auto; padding:0 18px}
 
-    /* ── top: watercolor sky + title ── */
-    .sky{height:clamp(210px,34vh,320px); background:#F6E9B8 url('/images/tools/sky-earth.webp') center 14%/cover no-repeat; position:relative}
-    .sky::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,249,238,0) 50%,var(--paper) 100%)}
-    .head{position:relative; z-index:1; margin-top:-58px; text-align:center}
+    /* ── hero: layered watercolor (sky · clouds · Earth · hills) ── */
+    .art{position:relative; height:clamp(240px,36vh,340px); overflow:hidden; background:#F7E4A6 url('/images/tools/hero-sky.webp') center/cover no-repeat}
+    .art::after{content:""; position:absolute; left:0; right:0; bottom:0; height:64px; background:linear-gradient(180deg,rgba(255,249,238,0),var(--paper)); z-index:4}
+    .earth{position:absolute; left:50%; top:9%; width:clamp(140px,40vw,232px); z-index:1; animation:bob 6s ease-in-out infinite}
+    .cl{position:absolute; z-index:2; pointer-events:none}
+    .c1{width:clamp(110px,28vw,230px); top:14%; left:-3%; animation:drift 24s ease-in-out infinite alternate}
+    .c2{width:clamp(150px,38vw,340px); top:46%; right:-6%; animation:drift 30s ease-in-out infinite alternate-reverse}
+    .c3{width:clamp(70px,18vw,150px); top:5%; right:12%; opacity:.85; animation:drift 20s ease-in-out infinite alternate}
+    .hills{position:absolute; left:0; right:0; bottom:0; height:clamp(64px,12vw,150px); z-index:3; background:url('/images/tools/hero-hills.webp') center bottom/auto 100% repeat-x}
+    @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-9px)}}
+    @keyframes drift{from{transform:translateX(0)}to{transform:translateX(36px)}}
+    .head{text-align:center; margin-top:-6px; position:relative; z-index:5}
     h1{font:900 46px/1.15 var(--round); letter-spacing:.05em; margin:0}
     h1 em{font-style:normal; color:var(--royal)}
-    .lead{font-size:17px; color:var(--ink-soft); margin:10px 0 0}
+    .lead{font-size:17px; line-height:1.75; color:var(--ink-soft); margin:8px 0 0}
 
-    /* ── duration picker ── */
-    .pick{margin-top:30px; text-align:center}
-    .q{font:900 19px/1.4 var(--round); margin:0 0 14px}
+    /* ── picker ── */
+    .pick{margin-top:24px; text-align:center}
     .seg{display:grid; grid-template-columns:repeat(5,1fr); gap:7px}
     .seg button{height:54px; padding:0; cursor:pointer; font:900 17px var(--round); background:var(--white); border:2.5px solid var(--ink); border-radius:16px; box-shadow:3px 3px 0 var(--ink); transition:transform .12s, box-shadow .12s, background .15s, color .15s}
     .seg button:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
     .seg button[aria-pressed="true"]{background:var(--leaf-deep); color:#fff}
-    .fine{display:flex; align-items:center; justify-content:center; gap:16px; margin-top:16px}
-    .fine button{width:44px; height:44px; cursor:pointer; font:900 22px/1 var(--round); background:var(--white); border:2px solid var(--ink); border-radius:13px; box-shadow:2px 2px 0 var(--ink)}
-    .fine button:active{transform:translate(2px,2px); box-shadow:0 0 0 var(--ink)}
-    .fine button:disabled{opacity:.3; cursor:default}
-    .fine output{min-width:100px; font:900 22px var(--round)}
+    .stepper{display:inline-flex; align-items:center; gap:8px; margin-top:16px; padding:5px; background:var(--white); border:2.5px solid var(--ink); border-radius:999px; box-shadow:3px 3px 0 var(--ink)}
+    .stepper button{width:44px; height:44px; flex:none; cursor:pointer; border-radius:50%; border:2px solid var(--ink); background:var(--gold); font:900 24px/1 var(--round); display:grid; place-items:center; transition:transform .12s, opacity .15s}
+    .stepper button:active{transform:scale(.9)}
+    .stepper button:disabled{opacity:.3; cursor:default}
+    .stepper output{min-width:118px; height:44px; padding:0 14px; border-radius:999px; background:var(--leaf-deep); color:#fff; font:900 21px/44px var(--round); text-align:center}
 
     /* ── results ── */
-    .res{margin-top:28px}
+    .res{margin-top:30px}
     .k{font:700 17px var(--sans); color:var(--leaf-deep); text-align:center; margin:0}
     .h{font:900 32px/1.35 var(--round); text-align:center; margin:2px 0 14px}
     .h em{font-style:normal; color:var(--royal)}
     .list{background:var(--white); border:2.5px solid var(--ink); border-radius:26px; box-shadow:5px 5px 0 var(--ink); overflow:hidden}
-    .row{display:flex; align-items:center; gap:16px; padding:15px 20px}
+    .row{display:flex; align-items:center; gap:12px; padding:14px 14px 14px 10px}
     .row + .row{border-top:1.5px solid var(--line)}
-    .row img{width:58px; height:58px; flex:none}
-    .row > div{min-width:0}
-    .lab{font:700 15px/1.3 var(--sans); color:var(--muted); letter-spacing:.04em}
-    .num{font:900 40px/1.15 var(--round); color:var(--leaf-deep); font-variant-numeric:tabular-nums; white-space:nowrap}
-    .num .u{font-size:19px; margin-left:4px}
-    .eq{font:500 14px/1.5 var(--sans); color:var(--muted)}
+    .ico{position:relative; margin:0; width:70px; flex:none; text-align:center}
+    .ico .wash{position:absolute; left:50%; top:30px; width:80px; height:80px; transform:translate(-50%,-50%); opacity:.6; pointer-events:none}
+    .ico .i{position:relative; width:56px; height:56px; margin:0 auto}
+    .ico figcaption{position:relative; font:700 13px/1.3 var(--sans); color:var(--muted); margin-top:3px; white-space:nowrap}
+    .row.pulse .wash{animation:pulse .6s ease}
+    @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}45%{transform:translate(-50%,-50%) scale(1.14)}}
+    .val{flex:1; min-width:0}
+    .num{font:900 38px/1.1 var(--round); color:var(--leaf-deep); font-variant-numeric:tabular-nums; white-space:nowrap}
+    .num .u{font-size:18px; margin-left:4px}
+    .eq{font:500 13.5px/1.5 var(--sans); color:var(--muted)}
+    .why-btn{flex:none; width:38px; height:38px; cursor:pointer; border-radius:50%; border:2px solid var(--ink); background:var(--cream); box-shadow:2px 2px 0 var(--ink); font:900 18px/1 var(--round); color:var(--royal); display:grid; place-items:center; transition:transform .12s, box-shadow .12s}
+    .why-btn:active{transform:translate(2px,2px); box-shadow:0 0 0 var(--ink)}
+    .tip{font-size:13px; color:var(--muted); text-align:center; margin:10px 0 0}
 
     /* ── oji reaction ── */
-    .oji{display:flex; align-items:flex-end; justify-content:center; gap:8px; margin-top:28px}
-    .bubble{position:relative; flex:1; max-width:250px; margin-bottom:46px; padding:14px 16px; background:var(--white); border:2.5px solid var(--ink); border-radius:20px; box-shadow:3px 3px 0 var(--ink); font:700 16px/1.7 var(--round)}
+    .oji{display:flex; align-items:flex-end; justify-content:center; gap:8px; margin-top:26px}
+    .bubble{position:relative; flex:1; max-width:250px; margin:0 0 46px; padding:14px 16px; background:var(--white); border:2.5px solid var(--ink); border-radius:20px; box-shadow:3px 3px 0 var(--ink); font:700 16px/1.7 var(--round)}
     .bubble::after{content:""; position:absolute; right:-12px; bottom:20px; width:20px; height:20px; background:var(--white); border:2.5px solid var(--ink); border-left:0; border-bottom:0; transform:rotate(45deg)}
     .oji img{width:128px; height:auto; flex:none; transition:opacity .18s}
 
     /* ── share ── */
-    .share{margin-top:26px; text-align:center}
+    .share{margin-top:24px; text-align:center}
     .btn{display:flex; align-items:center; justify-content:center; gap:9px; width:100%; cursor:pointer; text-decoration:none; color:var(--ink); background:var(--white); border:2.5px solid var(--ink); border-radius:18px; box-shadow:4px 4px 0 var(--ink); font:900 16px var(--round); height:54px; transition:transform .12s, box-shadow .12s, background .15s}
     .btn:active{transform:translate(3px,3px); box-shadow:1px 1px 0 var(--ink)}
     .btn img{width:20px; height:20px}
@@ -93,15 +106,38 @@
     .hint{font-size:14px; color:var(--muted); margin:14px 0 0}
     .hint b{color:var(--leaf-deep)}
 
-    /* ── more ── */
-    .more{margin-top:34px; display:grid; gap:10px}
-    .more a{display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--cream); border-radius:18px; color:var(--ink); text-decoration:none; font:700 16px/1.5 var(--sans)}
-    .more a img{width:44px; height:44px; object-fit:contain; flex:none}
-    .more a span:last-child{margin-left:auto; color:var(--royal); font-weight:900}
-    .src{font-size:11.5px; line-height:1.9; color:var(--muted); text-align:center; margin:26px 0 0}
+    /* ── more (chibi cards) ── */
+    .more{margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    .mcard{position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; padding:14px 10px 16px; background:var(--white); color:var(--ink); text-decoration:none; border:2.5px solid var(--ink); border-radius:22px; box-shadow:4px 4px 0 var(--ink); transition:transform .12s, box-shadow .12s}
+    .mcard:active{transform:translate(3px,3px); box-shadow:1px 1px 0 var(--ink)}
+    .mcard .mw{position:relative; width:96px; height:96px; display:grid; place-items:center}
+    .mcard .mw .wash{position:absolute; inset:0; width:100%; height:100%; opacity:.55}
+    .mcard .mw img:not(.wash){position:relative; height:92px; width:auto}
+    .mcard b{font:900 16px/1.4 var(--round); margin-top:6px}
+    .mcard span{font-size:13px; color:var(--muted); margin-top:2px}
+    .src{font-size:11.5px; line-height:1.9; color:var(--muted); text-align:center; margin:24px 0 0}
     .src a{color:var(--muted)}
-    .foot{padding:52px 18px 64px}
-    .foot > div{max-width:560px; margin:0 auto}
+
+    /* ── night ending ── */
+    .night{position:relative; margin-top:30px; padding:190px 18px 72px; background:linear-gradient(180deg,var(--paper) 0,rgba(255,249,238,.9) 36px,rgba(255,249,238,.45) 110px,rgba(255,249,238,0) 190px) var(--night)}
+    .night.ready{background:linear-gradient(180deg,var(--paper) 0,rgba(255,249,238,.9) 36px,rgba(255,249,238,.45) 110px,rgba(255,249,238,0) 190px),var(--night) url('/images/tools/night.webp') 72% top/cover no-repeat}
+    .sleeper{position:absolute; top:58px; left:50%; width:clamp(180px,52vw,280px); animation:float 5.5s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-10px)}}
+    .night > div{max-width:560px; margin:0 auto}
+
+    /* ── why dialog ── */
+    dialog.why{width:min(440px,calc(100vw - 20px)); margin:auto auto 10px; padding:0; border:2.5px solid var(--ink); border-radius:26px; box-shadow:6px 6px 0 var(--ink); background:var(--white); color:var(--ink); overflow:hidden}
+    dialog.why[open]{animation:up .3s cubic-bezier(.2,.9,.3,1.2)}
+    dialog.why::backdrop{background:rgba(31,24,18,.5)}
+    @keyframes up{from{transform:translateY(40px); opacity:0}to{transform:none; opacity:1}}
+    .ws{position:relative; height:200px; background:#F7E4A6 center/cover no-repeat}
+    .ws img{position:absolute; left:10px; bottom:0; height:176px; width:auto; filter:drop-shadow(0 6px 10px rgba(31,24,18,.25))}
+    .wb{padding:18px 20px 20px}
+    .wb h3{font:900 21px/1.4 var(--round); margin:0 0 10px}
+    .wsay{position:relative; margin:0; padding:14px 16px; background:var(--cream); border-radius:18px; font:700 16px/1.85 var(--sans)}
+    .wsay::before{content:""; position:absolute; left:28px; top:-10px; width:18px; height:18px; background:var(--cream); transform:rotate(45deg)}
+    .wsrc{font-size:11.5px; color:var(--muted); margin:10px 0 0}
+    .wb .btn{margin-top:16px; background:var(--leaf-deep); color:#fff}
 
     /* save overlay (iOS long-press fallback) */
     .ov{position:fixed; inset:0; z-index:90; display:none; flex-direction:column; align-items:center; justify-content:center; gap:16px; padding:22px; background:rgba(31,24,18,.88)}
@@ -111,11 +147,13 @@
     .ov .btn{width:auto; padding:0 34px}
 
     @media (min-width:760px){
-      .sky{max-width:880px; margin:0 auto; border-radius:0 0 48px 48px; height:360px; background-position:center 18%}
-      .sky::after{border-radius:0 0 48px 48px}
-      h1{font-size:54px}
+      .art{height:360px}
+      h1{font-size:56px}
+      .col{max-width:540px}
+      dialog.why{margin:auto}
+      .ws{height:240px} .ws img{height:210px}
     }
-    @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+    @media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
   </style>
 </head>
 <body>
@@ -124,16 +162,21 @@
     <svg width="22" height="22" viewBox="0 0 22 22"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></g></svg>
   </button>
 
-  <div class="sky" role="presentation"></div>
+  <div class="art" aria-hidden="true">
+    <img class="cl c1" src="/images/tools/hero-cloud1.webp" alt="" />
+    <img class="cl c3" src="/images/tools/hero-cloud2.webp" alt="" />
+    <img class="earth" src="/images/tools/hero-earth.webp" alt="" />
+    <img class="cl c2" src="/images/tools/hero-cloud2.webp" alt="" />
+    <div class="hills"></div>
+  </div>
 
   <main class="col">
     <header class="head">
       <h1>ビーガン<em>電卓</em></h1>
-      <p class="lead">続けたら、地球はどう変わる？</p>
+      <p class="lead">期間をえらぶだけで、<br />地球へのやさしさが見える。</p>
     </header>
 
     <section class="pick" aria-label="期間をえらぶ">
-      <h2 class="q">どれくらい続ける？</h2>
       <div class="seg" id="seg">
         <button type="button" data-i="0">1ヶ月</button>
         <button type="button" data-i="3" aria-pressed="true">1年</button>
@@ -141,7 +184,7 @@
         <button type="button" data-i="7">5年</button>
         <button type="button" data-i="12">10年</button>
       </div>
-      <div class="fine">
+      <div class="stepper">
         <button type="button" id="dec" aria-label="短くする">−</button>
         <output id="dur" aria-live="polite">1年</output>
         <button type="button" id="inc" aria-label="長くする">＋</button>
@@ -149,15 +192,10 @@
     </section>
 
     <section class="res" aria-live="polite">
-      <p class="k" id="kicker">1年のビーガン生活で</p>
+      <p class="k" id="kicker">ビーガンを1年続けたら</p>
       <h2 class="h">地球に、<em>これだけ。</em></h2>
-      <div class="list">
-        <div class="row"><img src="/images/tools/ic-water.webp" alt="" width="58" height="58" /><div><div class="lab">水</div><div class="num"><span data-n="water">0</span><span class="u">L</span></div><div class="eq" data-e="water"></div></div></div>
-        <div class="row"><img src="/images/tools/ic-grain.webp" alt="" width="58" height="58" /><div><div class="lab">穀物</div><div class="num"><span data-n="grain">0</span><span class="u">kg</span></div><div class="eq" data-e="grain"></div></div></div>
-        <div class="row"><img src="/images/tools/ic-forest.webp" alt="" width="58" height="58" /><div><div class="lab">森林</div><div class="num"><span data-n="forest">0</span><span class="u">㎡</span></div><div class="eq" data-e="forest"></div></div></div>
-        <div class="row"><img src="/images/tools/ic-co2.webp" alt="" width="58" height="58" /><div><div class="lab">CO₂</div><div class="num"><span data-n="co2">0</span><span class="u">kg</span></div><div class="eq" data-e="co2"></div></div></div>
-        <div class="row"><img src="/images/tools/ic-animal.webp" alt="" width="58" height="58" /><div><div class="lab">動物のいのち</div><div class="num"><span data-n="animal">0</span></div><div class="eq" data-e="animal"></div></div></div>
-      </div>
+      <div class="list" id="list"></div>
+      <p class="tip"><b style="color:var(--royal)">？</b> をタップすると、王子がわけを教えてくれるよ</p>
 
       <div class="oji">
         <p class="bubble" id="say">えっ、こんなに！？王子、ちょっと感動…🥹</p>
@@ -178,14 +216,27 @@
     </section>
 
     <nav class="more" aria-label="あわせて">
-      <a href="/quiz/"><img src="/images/tools/oji-questioning.webp" alt="" width="44" height="44" /><span>ごはんと地球のクイズに挑戦</span><span>→</span></a>
-      <a href="/vegan-and-earth/"><img src="/images/tools/oji-greeting.webp" alt="" width="44" height="44" /><span>ビーガンと地球のこと、もっと知る</span><span>→</span></a>
+      <a class="mcard" href="/quiz/"><span class="mw"><img class="wash" src="/images/tools/wash-animal.webp" alt="" /><img src="/images/tools/oji-questioning.webp" alt="" /></span><b>ごはんと地球の<br />クイズ</b><span>全10問に挑戦！</span></a>
+      <a class="mcard" href="/vegan-and-earth/"><span class="mw"><img class="wash" src="/images/tools/wash-forest.webp" alt="" /><img src="/images/tools/oji-teaching.webp" alt="" /></span><b>ビーガンと<br />地球のこと</b><span>もっとくわしく</span></a>
     </nav>
 
-    <p class="src">数値は <a href="https://www.cowspiracy.com/facts" target="_blank" rel="noopener">Cowspiracy</a> のデータをもとにした試算です。<br />ビーガンの1日あたり：水 4,164L・穀物 18.1kg・森林 2.8㎡・CO₂ 9.1kg・動物のいのち 1</p>
+    <p class="src">数値は <a href="https://www.cowspiracy.com/facts" target="_blank" rel="noopener">Cowspiracy</a> のデータをもとにした試算です。</p>
   </main>
 
-  <div class="foot"><div id="oji-footer-nav"></div></div>
+  <div class="night" id="night">
+    <img class="sleeper" src="/images/tools/oji-sleeping-cloud.webp" alt="雲の上ですやすや眠るビーガン王子" loading="lazy" />
+    <div id="oji-footer-nav"></div>
+  </div>
+
+  <dialog class="why" id="why" aria-labelledby="why-t">
+    <div class="ws" id="why-scene"><img id="why-oji" alt="" /></div>
+    <div class="wb">
+      <h3 id="why-t"></h3>
+      <p class="wsay" id="why-say"></p>
+      <p class="wsrc" id="why-src"></p>
+      <form method="dialog"><button class="btn" value="ok">わかった！</button></form>
+    </div>
+  </dialog>
 
   <div class="ov" id="ov" role="dialog" aria-modal="true" aria-label="画像を保存">
     <img id="ov-img" alt="ビーガン電卓の結果" />
@@ -198,6 +249,21 @@
   <script>
   (function(){
     var PER_DAY = { water:4163.9, grain:18.1, forest:2.8, co2:9.1, animal:1 };
+    var ROWS = [ // key, label, unit
+      ['water','水','L'], ['grain','穀物','kg'], ['forest','森林','㎡'], ['co2','CO₂','kg'], ['animal','動物のいのち','']
+    ];
+    var WHY = {
+      water:  { t:'なぜ、水が守れるの？',    pose:'explaining',   src:'出典：Water Footprint Network',
+                say:'お肉をつくるには、動物の飲み水だけでなく、エサの作物を育てる水もたくさん必要なんだ。牛肉1kgで、なんとお風呂 約75杯ぶん（約15,000L）！植物を直接食べれば、ぐっと少なくてすむよ。' },
+      grain:  { t:'なぜ、穀物が守れるの？',  pose:'teaching',     src:'出典：FAO（国連食糧農業機関）',
+                say:'世界でつくられる穀物の約3分の1は、人ではなく家畜のエサになっているんだ。お肉を減らせば、そのぶんを人のごはんにまわせるよ。' },
+      forest: { t:'なぜ、森が守れるの？',    pose:'pointing-up',  src:'出典：世界銀行 ほか',
+                say:'牧場や、エサになる大豆・とうもろこしの畑をつくるために、森が切られているんだ。アマゾンの森林破壊の約8割は、牛の放牧が原因。お肉を減らせば、森を守れるよ。' },
+      co2:    { t:'なぜ、CO₂が減るの？',     pose:'explaining-2', src:'出典：FAO（国連食糧農業機関）',
+                say:'牛のゲップ（メタン）や、森を切ること、エサを運ぶことで、たくさんの温室効果ガスが出るんだ。畜産は世界の排出の約15%。植物中心のごはんなら、ずっと少なくてすむよ。' },
+      animal: { t:'なぜ、いのちが守れるの？', pose:'welcoming',    src:'出典：Cowspiracy（試算）',
+                say:'お肉や卵、牛乳のために、たくさんの動物が育てられているんだ。ビーガンを1日続けると、およそ1つのいのちを守れる計算。小さな選択が、ちゃんと届くよ。' }
+    };
     var STEPS = [{m:1},{m:3},{m:6},{y:1},{y:2},{y:3},{y:4},{y:5},{y:6},{y:7},{y:8},{y:9},{y:10},{y:15},{y:20},{y:30},{y:40},{y:50}];
     var TIERS = [ // [minDays, pose, page line, card line]
       [0,    'happy',       '小さな一歩も、ちゃんと地球に届いてるよ🌱', '小さな一歩も、届いてるよ'],
@@ -206,13 +272,19 @@
       [1095, 'confident',   'もう立派な「地球の味方」だね！',          'もう立派な地球の味方！'],
       [3650, 'welcoming',   '殿堂入り！王子から、心からありがとう👑',   '殿堂入り！ありがとう！']
     ];
-    var ICON = { water:'ic-water', grain:'ic-grain', forest:'ic-forest', co2:'ic-co2', animal:'ic-animal' };
-    var UNIT = { water:'L', grain:'kg', forest:'㎡', co2:'kg', animal:'' };
-    var LAB  = { water:'水', grain:'穀物', forest:'森林', co2:'CO₂', animal:'動物のいのち' };
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     var $ = function(id){ return document.getElementById(id); };
+
+    // ── build rows ──
+    $('list').innerHTML = ROWS.map(function(r){
+      return '<div class="row" data-k="'+r[0]+'">'
+        + '<figure class="ico"><img class="wash" src="/images/tools/wash-'+r[0]+'.webp" alt="" /><img class="i" src="/images/tools/ic-'+r[0]+'.webp" alt="" width="56" height="56" /><figcaption>'+r[1]+'</figcaption></figure>'
+        + '<div class="val"><div class="num"><span data-n="'+r[0]+'">0</span>'+(r[2]?'<span class="u">'+r[2]+'</span>':'')+'</div><div class="eq" data-e="'+r[0]+'"></div></div>'
+        + '<button type="button" class="why-btn" data-why="'+r[0]+'" aria-label="'+WHY[r[0]].t+'">？</button>'
+        + '</div>';
+    }).join('');
     var numEl = {}, eqEl = {};
-    Object.keys(PER_DAY).forEach(function(k){ numEl[k] = document.querySelector('[data-n="'+k+'"]'); eqEl[k] = document.querySelector('[data-e="'+k+'"]'); });
+    ROWS.forEach(function(r){ numEl[r[0]] = document.querySelector('[data-n="'+r[0]+'"]'); eqEl[r[0]] = document.querySelector('[data-e="'+r[0]+'"]'); });
 
     function fmt(n){
       if (n >= 1e8){ var o = n/1e8; return (o>=10?Math.round(o):Math.round(o*10)/10).toLocaleString('ja-JP')+'億'; }
@@ -231,13 +303,14 @@
     function labelOf(s){ return s.y ? s.y+'年' : s.m+'ヶ月'; }
     function tierOf(d){ var t = TIERS[0]; TIERS.forEach(function(x){ if (d >= x[0]) t = x; }); return t; }
 
-    var idx = 3, cur = { water:0, grain:0, forest:0, co2:0, animal:0 }, target = {}, raf = 0, pose = 'surprised-3';
+    var idx = 3, cur = { water:0, grain:0, forest:0, co2:0, animal:0 }, target = {}, raf = 0, pose = 'surprised-3', shareText = '';
+    var cache = {}, cardBlob = null, cardTimer = 0;
 
     function update(){
       var s = STEPS[idx], d = daysOf(s), label = labelOf(s);
       Object.keys(PER_DAY).forEach(function(k){ target[k] = PER_DAY[k]*d; eqEl[k].textContent = eq(k, target[k]); });
       $('dur').textContent = label;
-      $('kicker').textContent = label+'のビーガン生活で';
+      $('kicker').textContent = 'ビーガンを'+label+'続けたら';
       $('dec').disabled = idx === 0; $('inc').disabled = idx === STEPS.length-1;
       document.querySelectorAll('#seg button').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.i === idx)); });
 
@@ -248,6 +321,7 @@
         setTimeout(function(){ im.onload = function(){ im.style.opacity = 1; }; im.src = '/images/tools/oji-'+pose+'.webp'; if (im.complete) im.style.opacity = 1; }, reduce ? 0 : 150);
       }
 
+      document.querySelectorAll('.row').forEach(function(r, i){ r.classList.remove('pulse'); void r.offsetWidth; setTimeout(function(){ r.classList.add('pulse'); }, reduce ? 0 : i*60); });
       var from = Object.assign({}, cur), t0 = performance.now(), D = reduce ? 1 : 520;
       cancelAnimationFrame(raf);
       (function tick(now){
@@ -257,7 +331,7 @@
       })(t0);
 
       var url = 'https://veganoji.jp/calculator/';
-      var txt = 'ビーガン電卓で計算してみたら、'+label+'のビーガン生活で 水'+fmt(target.water)+'L・CO₂'+fmt(target.co2)+'kg を地球にやさしくできるって🌏 きみもやってみて！ #ビーガン王子';
+      var txt = 'ビーガン電卓で計算してみたら、ビーガンを'+label+'続けると 水'+fmt(target.water)+'L・CO₂'+fmt(target.co2)+'kg を地球にやさしくできるって🌏 きみもやってみて！ #ビーガン王子';
       $('x').href = 'https://twitter.com/intent/tweet?text='+encodeURIComponent(txt)+'&url='+encodeURIComponent(url);
       $('line').href = 'https://line.me/R/share?text='+encodeURIComponent(txt+'\n'+url);
       shareText = txt+'\n'+url;
@@ -268,29 +342,44 @@
     $('dec').addEventListener('click', function(){ if (idx > 0){ idx--; update(); } });
     $('inc').addEventListener('click', function(){ if (idx < STEPS.length-1){ idx++; update(); } });
 
+    // ── "なぜ？" dialog ──
+    var dlg = $('why');
+    $('list').addEventListener('click', function(e){
+      var b = e.target.closest('.why-btn'); if (!b) return;
+      var w = WHY[b.dataset.why];
+      $('why-scene').style.backgroundImage = "url('/images/tools/scene-"+b.dataset.why+".webp')";
+      $('why-oji').src = '/images/tools/oji-'+w.pose+'.webp';
+      $('why-t').textContent = w.t; $('why-say').textContent = w.say; $('why-src').textContent = w.src;
+      if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
+    });
+    dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
+
+    // ── night background: load only when near ──
+    var night = $('night');
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ es.forEach(function(x){ if (x.isIntersecting){ night.classList.add('ready'); ob.disconnect(); } }); }, { rootMargin:'600px' }).observe(night);
+    } else { night.classList.add('ready'); }
+
     // ── share card (1080×1920), pre-rendered so the tap can open the native share sheet ──
-    var cache = {}, cardBlob = null, cardTimer = 0, shareText = '';
     function load(src){ return cache[src] || (cache[src] = new Promise(function(ok, ng){ var i = new Image(); i.onload = function(){ ok(i); }; i.onerror = ng; i.src = src; })); }
     function rr(c,x,y,w,h,r){ c.beginPath(); c.moveTo(x+r,y); c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r); c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); }
-
     function drawCard(){
       var s = STEPS[idx], d = daysOf(s), label = labelOf(s), t = tierOf(d), v = {};
       Object.keys(PER_DAY).forEach(function(k){ v[k] = PER_DAY[k]*d; });
-      var head = label+'のビーガン生活で', bub = t[3];
+      var head = 'ビーガンを'+label+'続けたら', bub = t[3];
       var fonts = document.fonts && document.fonts.load ? Promise.all([
         document.fonts.load('900 108px "Zen Maru Gothic"', '地球に、これだけ。0123456789,.万億Lkg㎡'+bub),
-        document.fonts.load('700 48px "Noto Sans JP"', head+'ビーガン電卓水穀物森林CO₂動物のいのちきみも計算してみてveganoji.jp/calculator')
+        document.fonts.load('700 48px "Noto Sans JP"', head+'水穀物森林CO₂動物のいのちきみも計算してみてveganoji.jp/calculator')
       ]) : Promise.resolve();
       var imgs = [load('/images/decorations/share-bgs/diet-earth.jpg'), load('/images/tools/oji-'+t[1]+'.webp')]
-        .concat(Object.keys(ICON).map(function(k){ return load('/images/tools/'+ICON[k]+'.webp'); }));
-      return Promise.all([Promise.all(imgs), fonts]).then(function(r){
-        var im = r[0], bg = im[0], oji = im[1], c = $('cv').getContext('2d');
+        .concat(ROWS.map(function(r){ return load('/images/tools/ic-'+r[0]+'.webp'); }));
+      return Promise.all([Promise.all(imgs), fonts]).then(function(res){
+        var im = res[0], bg = im[0], oji = im[1], c = $('cv').getContext('2d');
         var sc = Math.max(1080/bg.width, 1920/bg.height), bw = bg.width*sc, bh = bg.height*sc;
         c.drawImage(bg, (1080-bw)/2, 0, bw, bh);
         var g = c.createLinearGradient(0, 380, 0, 1790);
         g.addColorStop(0, 'rgba(255,249,238,0)'); g.addColorStop(.1, 'rgba(255,249,238,.9)'); g.addColorStop(.8, 'rgba(255,249,238,.88)'); g.addColorStop(.9, 'rgba(255,249,238,.3)'); g.addColorStop(1, 'rgba(255,249,238,.3)');
         c.fillStyle = g; c.fillRect(0, 380, 1080, 1410);
-
         c.textAlign = 'center';
         c.fillStyle = '#3F6A3A'; c.font = '700 48px "Noto Sans JP"'; c.fillText(head, 540, 530);
         c.font = '900 108px "Zen Maru Gothic"';
@@ -298,21 +387,19 @@
         c.textAlign = 'left';
         c.fillStyle = '#1F1812'; c.fillText(a, x0, 650);
         c.fillStyle = '#C9223A'; c.fillText(b, x0+wa, 650);
-
         var PX = 60, PY = 700, PW = 960, RH = 164, PH = RH*5;
         c.fillStyle = '#1F1812'; rr(c, PX+9, PY+9, PW, PH, 44); c.fill();
         c.fillStyle = '#FFFDF8'; rr(c, PX, PY, PW, PH, 44); c.fill();
         c.lineWidth = 6; c.strokeStyle = '#1F1812'; rr(c, PX+3, PY+3, PW-6, PH-6, 41); c.stroke();
-        Object.keys(ICON).forEach(function(k, i){
-          var y = PY + i*RH;
+        ROWS.forEach(function(r, i){
+          var k = r[0], y = PY + i*RH;
           if (i){ c.fillStyle = '#EADCC0'; c.fillRect(PX+40, y, PW-80, 3); }
           c.drawImage(im[2+i], PX+46, y+22, 120, 120);
-          c.fillStyle = '#786148'; c.font = '700 32px "Noto Sans JP"'; c.fillText(LAB[k], PX+196, y+54);
+          c.fillStyle = '#786148'; c.font = '700 32px "Noto Sans JP"'; c.fillText(r[1], PX+196, y+54);
           var n = show(k, v[k]);
           c.fillStyle = '#3F6A3A'; c.font = '900 88px "Zen Maru Gothic"'; c.fillText(n, PX+194, y+140);
-          if (UNIT[k]){ var nw = c.measureText(n).width; c.font = '900 42px "Zen Maru Gothic"'; c.fillText(UNIT[k], PX+194+nw+10, y+140); }
+          if (r[2]){ var nw = c.measureText(n).width; c.font = '900 42px "Zen Maru Gothic"'; c.fillText(r[2], PX+194+nw+10, y+140); }
         });
-
         var oh = 420, ow = oji.width*oh/oji.height;
         c.drawImage(oji, 1080-ow-34, 1772-oh, ow, oh);
         c.font = '900 44px "Zen Maru Gothic"';
@@ -321,7 +408,6 @@
         c.fillStyle = '#FFFDF8'; rr(c, bx, by, bw2, 104, 30); c.fill();
         c.lineWidth = 5; c.strokeStyle = '#1F1812'; rr(c, bx+2.5, by+2.5, bw2-5, 99, 28); c.stroke();
         c.fillStyle = '#1F1812'; c.fillText(bub, bx+36, by+68);
-
         c.fillStyle = '#1F1812'; c.fillRect(0, 1790, 1080, 130);
         c.font = '700 40px "Noto Sans JP"';
         var p1 = 'きみも計算してみて → ', p2 = 'veganoji.jp/calculator', w1 = c.measureText(p1).width;
@@ -335,7 +421,6 @@
       cardBlob = null; clearTimeout(cardTimer);
       cardTimer = setTimeout(function(){ var at = idx; drawCard().then(function(bl){ if (at === idx) cardBlob = bl; }).catch(function(){}); }, 450);
     }
-
     var isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     var touch = window.matchMedia && matchMedia('(pointer: coarse)').matches;
     function fname(){ return 'vegan-dentaku-'+labelOf(STEPS[idx])+'.jpg'; }
