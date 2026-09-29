@@ -8,7 +8,7 @@
     "NEWSLETTER_FROM": "ビーガン王子 Vegan Oji <hello@veganoji.jp>",
     "NEWSLETTER_REPLY_TO": "info@veganoji.jp",
     "SITE_URL": "https://veganoji.jp",
-    "ALLOWED_ORIGINS": "https://veganoji.jp,https://veganoji-staging.ojidigital.com"
+    "ALLOWED_ORIGINS": "https://veganoji.jp,https://veganoji-staging.ojidigital.com,https://veganmapjapan.org"
   }
   // Secrets (set with `wrangler secret put`): RESEND_API_KEY, CONFIRM_SECRET
   // NOTE: veganoji.jp is now verified in Resend (DKIM + send. SPF/return-path),

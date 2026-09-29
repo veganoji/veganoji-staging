@@ -7,6 +7,10 @@
    (If the <div> is omitted, the card auto-inserts just before the page's
     <footer>.) Self-contained: injects its own <style>, no dependencies
     except Noto Sans JP, which every page already loads.
+   Other Vegan Oji sites (e.g. veganmapjapan.org) load it from veganoji.jp with
+       <div id="oji-footer-nav" data-base="https://veganoji.jp"></div>
+       <script src="https://veganoji.jp/oji-footer.js" defer></script>
+   data-base points every site-relative link and image back at veganoji.jp.
    ════════════════════════════════════════════════════════════════════════ */
 (function () {
   if (document.getElementById('ojf-style')) return; // guard against double-include
@@ -199,6 +203,8 @@
     if (f && f.parentNode) f.parentNode.insertBefore(mount, f);
     else document.body.appendChild(mount);
   }
+  var base = (mount.getAttribute('data-base') || '').replace(/\/+$/, '');
+  if (base) html = html.replace(/(src|href)="\/(?!\/)/g, '$1="' + base + '/');
   mount.innerHTML = html;
 
   // Newsletter form → POST to the news.veganoji.jp signup Worker (double opt-in).
