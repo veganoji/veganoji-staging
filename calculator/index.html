@@ -22,7 +22,8 @@
   <link rel="preload" as="image" href="/images/tools/hero-earth.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@500;700&family=Noto+Sans+JP:wght@500;700&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&text=0123456789%E6%97%A5%E9%80%B1%E9%96%93%E3%83%B6%E6%9C%88%E5%B9%B4&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/mnav.css" />
   <style>
     :root{
@@ -56,17 +57,33 @@
     h1 em{font-style:normal; color:var(--royal)}
     .lead{font-size:17px; line-height:1.75; color:var(--ink-soft); margin:8px 0 0}
 
-    /* ── picker ── */
-    .pick{margin-top:24px; text-align:center}
-    .seg{display:grid; grid-template-columns:repeat(5,1fr); gap:7px}
-    .seg button{height:54px; padding:0; cursor:pointer; font:900 17px var(--round); background:var(--white); border:2.5px solid var(--ink); border-radius:16px; box-shadow:3px 3px 0 var(--ink); transition:transform .12s, box-shadow .12s, background .15s, color .15s}
-    .seg button:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
-    .seg button[aria-pressed="true"]{background:var(--leaf-deep); color:#fff}
-    .stepper{display:inline-flex; align-items:center; gap:8px; margin-top:16px; padding:5px; background:var(--white); border:2.5px solid var(--ink); border-radius:999px; box-shadow:3px 3px 0 var(--ink)}
-    .stepper button{width:44px; height:44px; flex:none; cursor:pointer; border-radius:50%; border:2px solid var(--ink); background:var(--gold); font:900 24px/1 var(--round); display:grid; place-items:center; transition:transform .12s, opacity .15s}
-    .stepper button:active{transform:scale(.9)}
-    .stepper button:disabled{opacity:.3; cursor:default}
-    .stepper output{min-width:118px; height:44px; padding:0 14px; border-radius:999px; background:var(--leaf-deep); color:#fff; font:900 21px/44px var(--round); text-align:center}
+    /* ── period slider: the seedling grows as the period gets longer ── */
+    .pick{margin-top:20px; text-align:center}
+    .big{font:400 42px/1.2 "Mochiy Pop One","Zen Maru Gothic",sans-serif; color:#4E8A3F; min-height:52px; margin:0}
+    .sl{position:relative; padding:0 30px 2px; touch-action:pan-y; cursor:grab; -webkit-user-select:none; user-select:none; outline:none; -webkit-tap-highlight-color:transparent; --p:.4375; --ts:58px}
+    .sl.drag{cursor:grabbing}
+    .sl:focus-visible .rail{outline:3px solid #7FB0E0; outline-offset:4px; border-radius:14px}
+    .sl .rail{position:relative; height:98px}
+    .sl .track{position:absolute; left:0; right:0; bottom:20px; height:5px; border-radius:3px; background:var(--line)}
+    .sl .fill{height:100%; width:calc(var(--p)*100%); border-radius:3px; background:#7FB069}
+    .sl .dot{position:absolute; bottom:22.5px; left:calc(var(--dp)*100%); width:10px; height:10px; transform:translate(-50%,50%); border-radius:50%; background:var(--white); border:2px solid #D9C79E; transition:background .2s, border-color .2s}
+    .sl .dot.major{width:14px; height:14px}
+    .sl .dot.on{background:#7FB069; border-color:#7FB069}
+    .sl .thumb{position:absolute; bottom:30px; left:calc(var(--p)*100%); width:var(--ts); height:var(--ts); margin-left:calc(var(--ts) / -2); background:center bottom/contain no-repeat; transform-origin:50% 100%; transform:rotate(var(--tilt,0deg)) scale(var(--lift,1)); filter:drop-shadow(0 4px 3px rgba(31,24,18,.28)); transition:transform .55s cubic-bezier(.3,1.7,.5,1), width .25s, height .25s, margin .25s}
+    .sl.grab .thumb, .sl.drag .thumb{--lift:1.1; filter:drop-shadow(0 10px 7px rgba(31,24,18,.3)); transition:transform .12s, width .25s, height .25s, margin .25s}
+    .sl.snap .thumb{transition:left .34s cubic-bezier(.2,.9,.3,1.25), transform .55s cubic-bezier(.3,1.7,.5,1), width .25s, height .25s, margin .25s}
+    .sl.snap .fill{transition:width .34s cubic-bezier(.2,.9,.3,1.25)}
+    .sl .thumb.grow{animation:grow .45s cubic-bezier(.2,.9,.3,1.5)}
+    @keyframes grow{0%{scale:.55}100%{scale:1}}
+    .sl .hand{position:absolute; bottom:-6px; left:calc(var(--p)*100%); margin-left:-9px; font-size:28px; line-height:1; pointer-events:none; opacity:0; filter:drop-shadow(1px 2px 1px rgba(31,24,18,.25))}
+    .sl.hint .hand{animation:swipe 2.6s ease-in-out .9s infinite}
+    .sl.hint .thumb{animation:nudge 2.6s ease-in-out .9s infinite}
+    @keyframes swipe{0%{translate:0 0; opacity:0}12%{translate:0 0; opacity:1}55%{translate:66px 0; opacity:1}70%,100%{translate:66px 0; opacity:0}}
+    @keyframes nudge{0%,12%,100%{translate:0 0}40%{translate:12px 0}58%{translate:0 0}}
+    .ticks{position:relative; height:20px; margin-top:8px}
+    .ticks span{position:absolute; left:calc(var(--tp)*100%); transform:translateX(-50%); font:700 12px/1 var(--sans); color:var(--muted); white-space:nowrap}
+    .slhint{margin:8px 0 0; font:700 13.5px/1.4 var(--round); color:var(--muted); max-height:24px; overflow:hidden; transition:opacity .4s, max-height .4s .1s, margin .4s .1s}
+    .slhint.gone{opacity:0; max-height:0; margin:0}
 
     /* ── results ── */
     .res{margin-top:30px}
@@ -100,19 +117,23 @@
     @keyframes hop{0%,62%,100%{transform:translateY(0) scale(1)}70%{transform:translateY(-9px) scale(1.04,.96)}76%{transform:translateY(0) scale(1.1,.88)}82%{transform:translateY(-3px) scale(.97,1.03)}88%{transform:translateY(0) scale(1)}}
     .why-btn.done{background:var(--leaf-deep); color:#fff; animation:pop .45s cubic-bezier(.2,.9,.3,1.5)}
     @keyframes pop{0%{transform:scale(.6)}100%{transform:scale(1)}}
-    .quest{margin-top:16px; padding:11px 14px; background:var(--white); border:2px dashed #D9C79E; border-radius:18px; cursor:pointer; -webkit-tap-highlight-color:transparent}
-    .quest.done{cursor:default}
-    .q-play{display:flex; align-items:center; gap:10px}
-    .q-play .qt{font:900 14px/1.3 var(--round); color:var(--ink-soft)}
-    .slots{display:flex; gap:5px; margin-left:auto}
-    .slots img{width:30px; height:30px; filter:grayscale(1) opacity(.35); transition:filter .5s, transform .5s}
-    .slots img.on{filter:none; transform:scale(1.12)}
-    .qc{font:900 15px var(--round); color:var(--leaf-deep); min-width:34px; text-align:right}
-    .q-done{display:none; align-items:center; gap:12px}
+    .quest{position:relative; margin-top:30px; background:var(--white); border:2.5px solid var(--ink); border-radius:20px; box-shadow:3px 3px 0 var(--ink); cursor:pointer; -webkit-tap-highlight-color:transparent; -webkit-user-select:none; user-select:none}
+    .quest.done{cursor:default; background:linear-gradient(135deg,#FFF7DC,#FCEBC3)}
+    .q-play{display:flex; align-items:center; padding:26px 14px 14px}
+    .qtab{position:absolute; top:-15px; left:14px; background:var(--gold); border:2.5px solid var(--ink); border-radius:999px; padding:3px 13px; font:900 15px/1.35 var(--round); white-space:nowrap; box-shadow:2px 2px 0 var(--ink)}
+    .qtabn{position:absolute; top:-17px; right:14px; background:var(--leaf-deep); color:#fff; border:2.5px solid var(--ink); border-radius:999px; padding:1px 12px 2px; font:900 15px/1.35 var(--round); white-space:nowrap; box-shadow:2px 2px 0 var(--ink)}
+    .qtabn b{font-size:23px; margin-right:1px}
+    .stamps{display:flex; flex:1; justify-content:space-between; align-items:center}
+    .st{position:relative; width:52px; height:52px; border-radius:50%; border:2.5px dashed #CDB88E; display:grid; place-items:center; flex:none}
+    .st img{width:34px; height:34px; filter:grayscale(1) opacity(.2)}
+    .st.on{border:3px solid var(--royal); background:rgba(201,34,58,.07); animation:stamp .45s cubic-bezier(.2,.9,.3,1.3) both}
+    .st.on img{filter:none}
+    .st.on::after{content:"済"; position:absolute; right:-6px; bottom:-4px; width:22px; height:22px; border-radius:50%; background:var(--royal); color:#fff; font:900 11px/22px var(--round); text-align:center}
+    @keyframes stamp{0%{transform:scale(1.6) rotate(-24deg); opacity:0}60%{transform:scale(.92) rotate(-8deg); opacity:1}100%{transform:scale(1) rotate(-8deg)}}
+    .q-done{display:none; align-items:center; gap:12px; padding:12px 14px}
     .q-done img{width:62px; height:auto; flex:none; animation:bob2 3s ease-in-out infinite}
     .q-done b{display:block; font:900 18px/1.3 var(--round); color:var(--royal)}
     .q-done span{font-size:13.5px; line-height:1.6; color:var(--ink-soft)}
-    .quest.done{border:2.5px solid var(--ink); box-shadow:3px 3px 0 var(--ink); background:linear-gradient(135deg,#FFF7DC,#FCEBC3)}
     .quest.done .q-play{display:none} .quest.done .q-done{display:flex}
     @keyframes bob2{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-4px) rotate(4deg)}}
     .confetti{position:fixed; inset:0; pointer-events:none; z-index:95; overflow:hidden}
@@ -181,11 +202,46 @@
     .ov p{margin:0; color:var(--paper); font:700 16px/1.7 var(--round); text-align:center}
     .ov .btn{width:auto; padding:0 34px}
 
+    /* ── save sheet: swipe to pick a style ── */
+    .sheet{position:fixed; inset:0; z-index:80; display:flex; align-items:flex-end; justify-content:center; background:rgba(31,24,18,0); pointer-events:none; visibility:hidden; transition:background .3s, visibility 0s linear .45s}
+    .sheet[data-open]{background:rgba(31,24,18,.62); pointer-events:auto; visibility:visible; transition:background .3s, visibility 0s}
+    .panel{position:relative; width:100%; max-width:560px; max-height:100%; overflow:hidden; background:var(--paper); border:2.5px solid var(--ink); border-bottom:0; border-radius:28px 28px 0 0; padding:14px 0 calc(18px + env(safe-area-inset-bottom)); transform:translateY(105%); transition:transform .45s cubic-bezier(.2,.9,.3,1.08)}
+    .sheet[data-open] .panel{transform:none}
+    .sh-top{display:flex; align-items:center; gap:10px; padding:0 16px}
+    .sh-top img{width:40px; height:auto; animation:bob2 3s ease-in-out infinite}
+    .sh-top b{flex:1; font:900 20px var(--round)}
+    .sh-x{width:40px; height:40px; flex:none; border-radius:50%; border:2px solid var(--ink); background:var(--white); font:900 17px/1 var(--round); cursor:pointer; display:grid; place-items:center; padding:0}
+    .srail{--cw:min(62vw,270px); display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding:16px calc(50% - var(--cw)/2); scrollbar-width:none; -webkit-overflow-scrolling:touch}
+    .srail::-webkit-scrollbar{display:none}
+    .scard{flex:none; width:var(--cw); scroll-snap-align:center; transform-origin:50% 60%; will-change:transform; cursor:pointer}
+    .sin{position:relative; aspect-ratio:9/16; border-radius:18px; border:2.5px solid var(--ink); box-shadow:4px 4px 0 var(--ink); overflow:hidden; background:var(--cream)}
+    .sheet[data-open] .sin{animation:cardin .55s cubic-bezier(.2,.9,.3,1.25) both; animation-delay:calc(.12s + var(--i)*.08s)}
+    @keyframes cardin{from{transform:translateY(60px) scale(.9); opacity:0}to{transform:none; opacity:1}}
+    .sin img{width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .3s}
+    .scard.ready .sin img{opacity:1}
+    .scard:not(.ready) .sin::after{content:""; position:absolute; inset:0; background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.65) 50%,transparent 70%); animation:shim 1.2s infinite}
+    @keyframes shim{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+    .sname{margin:0; text-align:center; font:900 19px var(--round)}
+    .sname.pop{animation:namepop .35s cubic-bezier(.2,.9,.3,1.5)}
+    @keyframes namepop{0%{transform:scale(.8); opacity:.3}100%{transform:none; opacity:1}}
+    .sdots{display:flex; justify-content:center; gap:7px; margin:8px 0 12px}
+    .sdots i{width:9px; height:9px; border-radius:99px; background:#D9C79E; transition:width .25s, background .25s}
+    .sdots i.on{width:24px; background:var(--leaf-deep)}
+    .sgo{width:calc(100% - 32px); margin:0 16px}
+    .shint{margin:10px 0 0; text-align:center; font-size:12.5px; color:var(--muted)}
+    .sarr{display:none; position:absolute; top:50%; z-index:2; width:42px; height:42px; margin-top:-21px; border-radius:50%; border:2.5px solid var(--ink); background:var(--white); box-shadow:2px 2px 0 var(--ink); font:900 20px/1 var(--round); cursor:pointer; place-items:center; padding:0}
+    .sarr.l{left:12px} .sarr.r{right:12px}
+    @media (hover:hover) and (pointer:fine){ .sarr{display:grid} }
+    .toast{position:fixed; left:50%; bottom:calc(28px + env(safe-area-inset-bottom)); z-index:96; display:flex; align-items:center; gap:10px; padding:8px 16px 8px 8px; background:var(--white); border:2.5px solid var(--ink); border-radius:18px; box-shadow:3px 3px 0 var(--ink); font:900 15px var(--round); white-space:nowrap; pointer-events:none; transform:translate(-50%,160%); transition:transform .4s cubic-bezier(.2,.9,.3,1.2)}
+    .toast.show{transform:translate(-50%,0)}
+    .toast img{width:40px; height:auto}
+
     @media (min-width:760px){
       .art{height:360px}
       h1{font-size:56px}
       .col{max-width:540px}
       dialog.why{margin:auto}
+      .sheet{align-items:center} .panel{border-radius:28px; border-bottom:2.5px solid var(--ink)}
       .ws{height:240px} .ws img{height:calc(var(--oh,128px)*1.2)}
     }
     @media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
@@ -213,26 +269,20 @@
     </header>
 
     <section class="pick" aria-label="期間をえらぶ">
-      <div class="seg" id="seg">
-        <button type="button" data-i="0">1ヶ月</button>
-        <button type="button" data-i="3" aria-pressed="true">1年</button>
-        <button type="button" data-i="5">3年</button>
-        <button type="button" data-i="7">5年</button>
-        <button type="button" data-i="12">10年</button>
+      <p class="big" id="dur" aria-hidden="true">1年</p>
+      <div class="sl" id="sl" role="slider" tabindex="0" aria-label="ビーガンを続ける期間" aria-valuemin="0" aria-valuemax="16" aria-valuenow="7" aria-valuetext="1年">
+        <div class="rail" id="rail"><div class="track"><div class="fill"></div></div><span class="thumb" id="thumb"></span><span class="hand" aria-hidden="true">👆</span></div>
+        <div class="ticks" id="ticks"></div>
       </div>
-      <div class="stepper">
-        <button type="button" id="dec" aria-label="短くする">−</button>
-        <output id="dur" aria-live="polite">1年</output>
-        <button type="button" id="inc" aria-label="長くする">＋</button>
-      </div>
+      <p class="slhint" id="slhint">← ドラッグして、期間をえらんでね →</p>
     </section>
 
     <section class="res" aria-live="polite">
       <p class="k" id="kicker">ビーガンを1年続けたら</p>
       <h2 class="h">地球に、<em>これだけ。</em></h2>
       <div class="list" id="list"></div>
-      <div class="quest" id="quest">
-        <div class="q-play"><span class="qt">地球はかせ<br />チャレンジ</span><span class="slots" id="slots"></span><span class="qc" id="qc">0/5</span></div>
+      <div class="quest" id="quest" role="button" tabindex="0" aria-label="地球はかせチャレンジ：「なぜ？」をぜんぶ読んでスタンプを集めよう">
+        <div class="q-play"><span class="qtab">地球はかせチャレンジ</span><span class="qtabn"><b id="qc">0</b>/5</span><div class="stamps" id="slots"></div></div>
         <div class="q-done"><img src="/images/tools/badge.webp" alt="ビーガン王子認定バッジ" width="62" height="78" /><div><b>ぜんぶクリア！</b><span>きみも「地球はかせ」だね🎉<br />シェア画像に認定バッジがついたよ</span></div></div>
       </div>
 
@@ -283,7 +333,17 @@
     <button type="button" class="btn" id="ov-close">とじる</button>
   </div>
 
-  <canvas id="cv" width="1080" height="1920" hidden></canvas>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="保存する画像をえらぶ">
+    <div class="panel">
+      <div class="sh-top"><img src="/images/tools/oji-questioning.webp" alt="" /><b>どれにする？</b><button type="button" class="sh-x" id="sh-close" aria-label="とじる">✕</button></div>
+      <div style="position:relative"><button type="button" class="sarr l" data-go="-1" aria-label="まえの画像">‹</button><div class="srail" id="srail"></div><button type="button" class="sarr r" data-go="1" aria-label="つぎの画像">›</button></div>
+      <p class="sname" id="sname"></p>
+      <div class="sdots" id="sdots"></div>
+      <button type="button" class="btn btn-main sgo" id="sgo"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M3.5 16.5h13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>この1枚をシェア・保存</button>
+      <p class="shint">左右にスワイプして選べるよ</p>
+    </div>
+  </div>
+  <div class="toast" id="toast"><img src="/images/tools/oji-welcoming.webp" alt="" /><span id="toast-t"></span></div>
 
   <script>
   (function(){
@@ -303,7 +363,12 @@
       animal: { t:'なぜ、いのちが守れるの？', pose:'welcoming', side:'r', oh:124,    src:'出典：Cowspiracy（試算）',
                 say:'お肉や卵、牛乳のために、たくさんの動物が育てられているんだ。ビーガンを1日続けると、およそ1つのいのちを守れる計算。小さな選択が、ちゃんと届くよ。' }
     };
-    var STEPS = [{m:1},{m:3},{m:6},{y:1},{y:2},{y:3},{y:4},{y:5},{y:6},{y:7},{y:8},{y:9},{y:10},{y:15},{y:20},{y:30},{y:40},{y:50}];
+    var STOPS = [ // evenly spaced on the slider, so it moves like a log scale but always lands on a clean period
+      {d:1,l:'1日'}, {d:3,l:'3日'}, {d:7,l:'1週間'}, {d:14,l:'2週間'}, {d:30,l:'1ヶ月'}, {d:90,l:'3ヶ月'}, {d:180,l:'6ヶ月'},
+      {d:365,l:'1年'}, {d:730,l:'2年'}, {d:1095,l:'3年'}, {d:1825,l:'5年'}, {d:2555,l:'7年'}, {d:3650,l:'10年'},
+      {d:5475,l:'15年'}, {d:7300,l:'20年'}, {d:10950,l:'30年'}, {d:18250,l:'50年'}
+    ];
+    var N = STOPS.length - 1, MAJOR = [0, 4, 7, 12, 16];
     var TIERS = [ // [minDays, pose, page line, card line]
       [0,    'happy',       '小さな一歩も、ちゃんと地球に届いてるよ🌱', '小さな一歩も、届いてるよ'],
       [90,   'excited',     'いいね！地球が変わりはじめてる…！',       '地球が変わりはじめてる！'],
@@ -311,6 +376,7 @@
       [1095, 'confident',   'もう立派な「地球の味方」だね！',          'もう立派な地球の味方！'],
       [3650, 'welcoming',   '殿堂入り！王子から、心からありがとう👑',   '殿堂入り！ありがとう！']
     ];
+    var COLOR = { water:'#2A6BA0', grain:'#9A6A12', forest:'#3F6A3A', co2:'#4F5B67', animal:'#B0445E' };
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     var $ = function(id){ return document.getElementById(id); };
 
@@ -322,8 +388,8 @@
         + '<button type="button" class="why-btn" data-why="'+r[0]+'" aria-label="'+WHY[r[0]].t+'" style="--d:'+(i*.45)+'s">なぜ？</button>'
         + '</div>';
     }).join('');
-    var numEl = {}, eqEl = {};
-    ROWS.forEach(function(r){ numEl[r[0]] = document.querySelector('[data-n="'+r[0]+'"]'); eqEl[r[0]] = document.querySelector('[data-e="'+r[0]+'"]'); });
+    var numEl = {}, eqEl = {}, UNIT = {}, LABEL = {};
+    ROWS.forEach(function(r){ numEl[r[0]] = document.querySelector('[data-n="'+r[0]+'"]'); eqEl[r[0]] = document.querySelector('[data-e="'+r[0]+'"]'); UNIT[r[0]] = r[2]; LABEL[r[0]] = r[1]; });
 
     function fmt(n){
       if (n >= 1e8){ var o = n/1e8; return (o>=10?Math.round(o):Math.round(o*10)/10).toLocaleString('ja-JP')+'億'; }
@@ -335,9 +401,11 @@
       if (k === 'water')  return '<span>お風呂</span> <span>約'+fmt(v/200)+'杯ぶん</span>';
       if (k === 'grain')  return '<span>おにぎり</span> <span>約'+fmt(v*10)+'個ぶん</span>';
       if (k === 'forest') return v < 260 ? '<span>たたみ</span> <span>約'+fmt(v/1.62)+'枚ぶん</span>' : '<span>テニスコート</span> <span>約'+fmt(v/260)+'面ぶん</span>';
-      if (k === 'co2')    return '<span>スギ 約'+fmt(Math.max(1, v/14))+'本が</span><span>1年で吸う量</span>';
-      return '<span>1日に、</span><span>ひとつのいのち</span>';
+      if (k === 'co2')    return v < 14 ? '<span>車で</span> <span>約'+fmt(v/0.13)+'km 走るぶん</span>' : '<span>スギ 約'+fmt(v/14)+'本が</span><span>1年で吸う量</span>';
+      return v < 2 ? '<span>ひとつのいのち</span>' : '<span>1日に、</span><span>ひとつのいのち</span>';
     }
+    function plain(html){ return html.replace(/<[^>]+>/g, ''); }
+    function vals(d){ var v = {}; Object.keys(PER_DAY).forEach(function(k){ v[k] = PER_DAY[k]*d; }); return v; }
     // shrink a number only when it would run into the 「なぜ？」 button (long values on narrow phones)
     function fitNum(k, text){
       var el = numEl[k], box = el.parentNode, keep = el.textContent, fs = 38;
@@ -347,31 +415,28 @@
     }
     var fitT = 0;
     window.addEventListener('resize', function(){ clearTimeout(fitT); fitT = setTimeout(function(){ Object.keys(numEl).forEach(function(k){ fitNum(k, numEl[k].textContent); }); }, 150); });
-    function daysOf(s){ return (s.y||0)*365 + (s.m||0)*30; }
-    function labelOf(s){ return s.y ? s.y+'年' : s.m+'ヶ月'; }
     function tierOf(d){ var t = TIERS[0]; TIERS.forEach(function(x){ if (d >= x[0]) t = x; }); return t; }
 
-    var idx = 3, cur = { water:0, grain:0, forest:0, co2:0, animal:0 }, target = {}, raf = 0, pose = 'surprised-3', shareText = '';
-    var cache = {}, cardBlob = null, cardTimer = 0, openKey = null, cleared = {};
+    var idx = 7, cur = { water:0, grain:0, forest:0, co2:0, animal:0 }, target = {}, raf = 0, pose = 'surprised-3', shareText = '';
+    var openKey = null, cleared = {};
     try { (JSON.parse(localStorage.getItem('calcCleared')) || []).forEach(function(k){ if (PER_DAY[k] !== undefined) cleared[k] = 1; }); } catch(e){}
+    function allClear(){ return Object.keys(cleared).length === ROWS.length; }
 
-    function update(){
-      var s = STEPS[idx], d = daysOf(s), label = labelOf(s);
-      Object.keys(PER_DAY).forEach(function(k){ target[k] = PER_DAY[k]*d; eqEl[k].innerHTML = eq(k, target[k]); });
+    // fast = while dragging: quick count-up, no row pulses (those happen once the slider settles)
+    function update(fast){
+      var s = STOPS[idx], label = s.l;
+      Object.keys(PER_DAY).forEach(function(k){ target[k] = PER_DAY[k]*s.d; eqEl[k].innerHTML = eq(k, target[k]); });
       $('dur').textContent = label;
       $('kicker').textContent = 'ビーガンを'+label+'続けたら';
-      $('dec').disabled = idx === 0; $('inc').disabled = idx === STEPS.length-1;
-      document.querySelectorAll('#seg button').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.i === idx)); });
 
-      var t = tierOf(d);
+      var t = tierOf(s.d);
       $('say').textContent = t[2];
       if (t[1] !== pose){
         pose = t[1]; var im = $('oji'); im.style.opacity = 0;
         setTimeout(function(){ im.onload = function(){ im.style.opacity = 1; }; im.src = '/images/tools/oji-'+pose+'.webp'; if (im.complete) im.style.opacity = 1; }, reduce ? 0 : 150);
       }
 
-      document.querySelectorAll('.row').forEach(function(r, i){ r.classList.remove('pulse'); void r.offsetWidth; setTimeout(function(){ r.classList.add('pulse'); }, reduce ? 0 : i*60); });
-      var from = Object.assign({}, cur), t0 = performance.now(), D = reduce ? 1 : 520;
+      var from = Object.assign({}, cur), t0 = performance.now(), D = reduce ? 1 : (fast ? 160 : 520);
       Object.keys(target).forEach(function(k){ var a = show(k, from[k]), b = show(k, target[k]); fitNum(k, a.length > b.length ? a : b); });
       cancelAnimationFrame(raf);
       (function tick(now){
@@ -386,12 +451,76 @@
       $('x').href = 'https://twitter.com/intent/tweet?text='+encodeURIComponent(txt)+'&url='+encodeURIComponent(url);
       $('line').href = 'https://line.me/R/share?text='+encodeURIComponent(txt+'\n'+url);
       shareText = txt+'\n'+url;
-      scheduleCard();
+    }
+    var lastSettled = -1;
+    function settled(){
+      if (idx === lastSettled) return; lastSettled = idx;
+      document.querySelectorAll('.row').forEach(function(r, i){ r.classList.remove('pulse'); void r.offsetWidth; setTimeout(function(){ r.classList.add('pulse'); }, reduce ? 0 : i*60); });
+      scheduleShares();
     }
 
-    document.querySelectorAll('#seg button').forEach(function(b){ b.addEventListener('click', function(){ idx = +b.dataset.i; update(); }); });
-    $('dec').addEventListener('click', function(){ if (idx > 0){ idx--; update(); } });
-    $('inc').addEventListener('click', function(){ if (idx < STEPS.length-1){ idx++; update(); } });
+    // ── period slider: follows the finger, then settles on the nearest stop; the seedling grows with the period ──
+    var sl = $('sl'), rail = $('rail'), thumb = $('thumb');
+    rail.querySelector('.track').insertAdjacentHTML('afterend', STOPS.map(function(s, i){ return '<i class="dot'+(MAJOR.indexOf(i) > -1 ? ' major' : '')+'" style="--dp:'+(i/N)+'"></i>'; }).join(''));
+    $('ticks').innerHTML = MAJOR.map(function(i){ return '<span style="--tp:'+(i/N)+'">'+STOPS[i].l+'</span>'; }).join('');
+    var dots = sl.querySelectorAll('.dot');
+    var GROW = [['seed',46], ['sprout',52], ['seedling',58], ['sapling',64], ['forest',70]], stage = -1;
+    function stageOf(i){ return i < 4 ? 0 : i < 7 ? 1 : i < 10 ? 2 : i < 13 ? 3 : 4; }
+    function paintThumb(){
+      var s = stageOf(idx); if (s === stage) return; var first = stage < 0; stage = s;
+      thumb.style.backgroundImage = "url('" + (GROW[s][0] === 'forest' ? '/images/tools/ic-forest.webp' : '/images/tools/grow-'+GROW[s][0]+'.webp') + "')";
+      sl.style.setProperty('--ts', GROW[s][1] + 'px');
+      if (!first && !reduce){ thumb.classList.remove('grow'); void thumb.offsetWidth; thumb.classList.add('grow'); }
+    }
+    function setPos(p){ sl.style.setProperty('--p', p); }
+    function select(i, fast, user){
+      i = Math.max(0, Math.min(N, i));
+      if (i !== idx){ idx = i; if (user && navigator.vibrate){ try { navigator.vibrate(4); } catch(e){} } update(fast); }
+      sl.setAttribute('aria-valuenow', String(idx)); sl.setAttribute('aria-valuetext', STOPS[idx].l);
+      for (var k = 0; k < dots.length; k++) dots[k].classList.toggle('on', k <= idx);
+      paintThumb();
+    }
+    function settle(){
+      sl.classList.remove('drag', 'grab'); sl.classList.add('snap'); setPos(idx / N); thumb.style.setProperty('--tilt', '0deg');
+      clearTimeout(settle.t); settle.t = setTimeout(function(){ sl.classList.remove('snap'); }, 420);
+      settled();
+    }
+    var hinting = false;
+    try { hinting = localStorage.getItem('calcSlid') !== '1'; } catch(e){ hinting = true; }
+    if (hinting){ if (!reduce) sl.classList.add('hint'); } else $('slhint').classList.add('gone');
+    function dismissHint(){
+      if (!hinting) return; hinting = false; sl.classList.remove('hint'); $('slhint').classList.add('gone');
+      try { localStorage.setItem('calcSlid', '1'); } catch(e){}
+    }
+    function posAt(x){ var r = rail.getBoundingClientRect(); return Math.max(0, Math.min(1, (x - r.left) / r.width)); }
+    function thumbX(){ var r = thumb.getBoundingClientRect(); return r.left + r.width/2; }
+    var drag = null;
+    sl.addEventListener('pointerdown', function(e){
+      if (e.button > 0) return;
+      var onThumb = Math.abs(e.clientX - thumbX()) < 30;
+      drag = { x0:e.clientX, last:e.clientX, off: onThumb ? thumbX() - e.clientX : 0, moved:false, id:e.pointerId };
+      try { sl.setPointerCapture(e.pointerId); } catch(_){}
+      if (onThumb) sl.classList.add('grab');
+    });
+    sl.addEventListener('pointermove', function(e){
+      if (!drag || e.pointerId !== drag.id) return;
+      if (!drag.moved){ if (Math.abs(e.clientX - drag.x0) < 5) return; drag.moved = true; sl.classList.remove('snap'); sl.classList.add('drag'); dismissHint(); }
+      var p = posAt(e.clientX + drag.off); setPos(p);
+      thumb.style.setProperty('--tilt', Math.max(-14, Math.min(14, (e.clientX - drag.last) * 1.4)) + 'deg'); drag.last = e.clientX;
+      select(Math.round(p * N), true, true);
+    });
+    function release(e){
+      if (!drag || e.pointerId !== drag.id) return;
+      if (!drag.moved && e.type === 'pointerup'){ dismissHint(); select(Math.round(posAt(e.clientX + drag.off) * N), false, true); }
+      drag = null; settle();
+    }
+    sl.addEventListener('pointerup', release); sl.addEventListener('pointercancel', release);
+    sl.addEventListener('keydown', function(e){
+      var d = { ArrowLeft:-1, ArrowDown:-1, ArrowRight:1, ArrowUp:1, PageDown:-3, PageUp:3 }[e.key], to = null;
+      if (d) to = idx + d; else if (e.key === 'Home') to = 0; else if (e.key === 'End') to = N;
+      if (to === null) return;
+      e.preventDefault(); dismissHint(); select(to, false, true); settle();
+    });
 
     // ── "なぜ？" dialog ──
     var dlg = $('why');
@@ -410,20 +539,19 @@
     $('why-ok').addEventListener('click', function(){
       if (!openKey || cleared[openKey]) return;
       cleared[openKey] = 1; saveClear(); renderQuest();
-      if (Object.keys(cleared).length === ROWS.length){ confetti(); $('say').textContent = 'ぜんぶクリア！きみも地球はかせだね🎉'; scheduleCard(); }
+      if (allClear()){ confetti(); $('say').textContent = 'ぜんぶクリア！きみも地球はかせだね🎉'; scheduleShares(); }
     });
 
-    // ── 地球はかせチャレンジ: clear all five 「？」 ──
+    // ── 地球はかせチャレンジ: read all five 「なぜ？」 to fill the stamp card ──
     function saveClear(){ try { localStorage.setItem('calcCleared', JSON.stringify(Object.keys(cleared))); } catch(e){} }
     function renderQuest(){
       ROWS.forEach(function(r){
         var on = !!cleared[r[0]], row = document.querySelector('.row[data-k="'+r[0]+'"]'), b = row.querySelector('.why-btn');
         row.classList.toggle('cleared', on); b.classList.toggle('done', on); b.textContent = on ? '✓' : 'なぜ？';
       });
-      document.querySelectorAll('#slots img').forEach(function(im){ im.classList.toggle('on', !!cleared[im.dataset.k]); });
-      var n = Object.keys(cleared).length;
-      $('qc').textContent = n + '/' + ROWS.length;
-      $('quest').classList.toggle('done', n === ROWS.length);
+      document.querySelectorAll('#slots .st').forEach(function(st){ st.classList.toggle('on', !!cleared[st.dataset.k]); });
+      $('qc').textContent = Object.keys(cleared).length;
+      $('quest').classList.toggle('done', allClear());
     }
     function confetti(){
       if (reduce) return;
@@ -438,8 +566,10 @@
       }
       setTimeout(function(){ box.remove(); }, 3600);
     }
-    $('slots').innerHTML = ROWS.map(function(r){ return '<img src="/images/tools/ic-'+r[0]+'.webp" alt="'+r[1]+'" data-k="'+r[0]+'" />'; }).join('');
-    $('quest').addEventListener('click', function(){ var b = document.querySelector('.why-btn:not(.done)'); if (b) b.click(); });
+    $('slots').innerHTML = ROWS.map(function(r){ return '<span class="st" data-k="'+r[0]+'"><img src="/images/tools/ic-'+r[0]+'.webp" alt="'+r[1]+'" /></span>'; }).join('');
+    function nextWhy(){ var b = document.querySelector('.why-btn:not(.done)'); if (b) b.click(); }
+    $('quest').addEventListener('click', nextWhy);
+    $('quest').addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); nextWhy(); } });
     renderQuest();
 
     // ── night background: load only when near ──
@@ -448,90 +578,248 @@
       new IntersectionObserver(function(es, ob){ es.forEach(function(x){ if (x.isIntersecting){ night.classList.add('ready'); ob.disconnect(); } }); }, { rootMargin:'600px' }).observe(night);
     } else { night.classList.add('ready'); }
 
-    // ── share card (1080×1920), pre-rendered so the tap can open the native share sheet ──
-    function load(src){ return cache[src] || (cache[src] = new Promise(function(ok, ng){ var i = new Image(); i.onload = function(){ ok(i); }; i.onerror = ng; i.src = src; })); }
+    // ── saved images (1080×1920): both styles are pre-rendered, so the share tap can open the share sheet at once ──
+    var IMG = { earth:'/images/tools/hero-earth.webp', badge:'/images/tools/badge.webp', dietbg:'/images/decorations/share-bgs/diet-earth.jpg', meadow:'/images/tools/card-bg-meadow.webp' };
+    ROWS.forEach(function(r){ var k = r[0]; IMG['ic-'+k] = '/images/tools/ic-'+k+'.webp'; IMG['band-'+k] = '/images/tools/band-'+k+'.webp'; IMG['wash-'+k] = '/images/tools/wash-'+k+'.webp'; });
+    TIERS.forEach(function(t){ IMG['oji-'+t[1]] = '/images/tools/oji-'+t[1]+'.webp'; });
+    var imgCache = {}, imgsP = null, fontsP = null;
+    function load(src){ return imgCache[src] || (imgCache[src] = new Promise(function(ok, ng){ var i = new Image(); i.onload = function(){ ok(i); }; i.onerror = function(){ ng(src); }; i.src = src; })); }
+    function images(){ if (imgsP) return imgsP; var keys = Object.keys(IMG); return imgsP = Promise.all(keys.map(function(k){ return load(IMG[k]); })).then(function(a){ var o = {}; keys.forEach(function(k, i){ o[k] = a[i]; }); return o; }); }
+    var RECEIPT_TXT = '地球マートＥＡＲＴＨＭＡＲＴ　ビーガン店ＵＲＬveganoji.jp/calculator年月日月火水木金土日()レジ01王子担当：＊ビーガン生活分水せつやく穀物森林まもったＣＯ₂へらしたいのち小計点合計地球が笑顔お預りやさしい気持ちお釣りみらいのまたのご来店を、はいつでも歓迎ですVEGANOJI・はかせポイント+5pt0123456789,:/万億Lkg㎡ヶ月週間';
+    function fonts(){
+      if (fontsP) return fontsP;
+      if (!document.fonts || !document.fonts.load) return fontsP = Promise.resolve();
+      var s = '地球に、これだけ。ビーガンを続けたら0123456789,.万億Lkg㎡水穀物森林CO₂動物のいのちきみも計算してみて→veganoji.jp/calculatorお風呂約杯ぶんおにぎり個テニスコート面たたみ枚スギ本が年で吸う量車km走る日に、ひとつ小さな一歩も届いてるよ地球が変わりはじめてる！えっ、こんなに！？もう立派な味方殿堂入りありがとうヶ月週間';
+      return fontsP = Promise.all([
+        document.fonts.load('900 100px "Zen Maru Gothic"', s), document.fonts.load('700 40px "Noto Sans JP"', s), document.fonts.load('500 40px "Noto Sans JP"', s),
+        document.fonts.load('700 40px "M PLUS 1 Code"', RECEIPT_TXT), document.fonts.load('500 40px "M PLUS 1 Code"', RECEIPT_TXT)
+      ]).catch(function(){});
+    }
     function rr(c,x,y,w,h,r){ c.beginPath(); c.moveTo(x+r,y); c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r); c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); }
-    function drawCard(){
-      var s = STEPS[idx], d = daysOf(s), label = labelOf(s), t = tierOf(d), v = {};
-      Object.keys(PER_DAY).forEach(function(k){ v[k] = PER_DAY[k]*d; });
-      var head = 'ビーガンを'+label+'続けたら', bub = t[3];
-      var fonts = document.fonts && document.fonts.load ? Promise.all([
-        document.fonts.load('900 108px "Zen Maru Gothic"', '地球に、これだけ。0123456789,.万億Lkg㎡'+bub),
-        document.fonts.load('700 48px "Noto Sans JP"', head+'水穀物森林CO₂動物のいのちきみも計算してみてveganoji.jp/calculator')
-      ]) : Promise.resolve();
-      var hero = Object.keys(cleared).length === ROWS.length;
-      var imgs = [load('/images/decorations/share-bgs/diet-earth.jpg'), load('/images/tools/oji-'+t[1]+'.webp')]
-        .concat(ROWS.map(function(r){ return load('/images/tools/ic-'+r[0]+'.webp'); }))
-        .concat(hero ? [load('/images/tools/badge.webp')] : []);
-      return Promise.all([Promise.all(imgs), fonts]).then(function(res){
-        var im = res[0], bg = im[0], oji = im[1], c = $('cv').getContext('2d');
-        var sc = Math.max(1080/bg.width, 1920/bg.height), bw = bg.width*sc, bh = bg.height*sc;
-        c.drawImage(bg, (1080-bw)/2, 0, bw, bh);
-        var g = c.createLinearGradient(0, 380, 0, 1790);
-        g.addColorStop(0, 'rgba(255,249,238,0)'); g.addColorStop(.1, 'rgba(255,249,238,.9)'); g.addColorStop(.8, 'rgba(255,249,238,.88)'); g.addColorStop(.9, 'rgba(255,249,238,.3)'); g.addColorStop(1, 'rgba(255,249,238,.3)');
-        c.fillStyle = g; c.fillRect(0, 380, 1080, 1410);
-        if (hero){ var bd = im[2+ROWS.length], bh2 = 300, bw3 = bd.width*bh2/bd.height; c.save(); c.translate(1080-bw3/2-46, 46+bh2/2); c.rotate(.12); c.drawImage(bd, -bw3/2, -bh2/2, bw3, bh2); c.restore(); }
-        c.textAlign = 'center';
-        c.fillStyle = '#3F6A3A'; c.font = '700 48px "Noto Sans JP"'; c.fillText(head, 540, 530);
-        c.font = '900 108px "Zen Maru Gothic"';
-        var a = '地球に、', b = 'これだけ。', wa = c.measureText(a).width, wb = c.measureText(b).width, x0 = 540-(wa+wb)/2;
-        c.textAlign = 'left';
-        c.fillStyle = '#1F1812'; c.fillText(a, x0, 650);
-        c.fillStyle = '#C9223A'; c.fillText(b, x0+wa, 650);
-        var PX = 60, PY = 700, PW = 960, RH = 164, PH = RH*5;
-        c.fillStyle = '#1F1812'; rr(c, PX+9, PY+9, PW, PH, 44); c.fill();
-        c.fillStyle = '#FFFDF8'; rr(c, PX, PY, PW, PH, 44); c.fill();
-        c.lineWidth = 6; c.strokeStyle = '#1F1812'; rr(c, PX+3, PY+3, PW-6, PH-6, 41); c.stroke();
-        ROWS.forEach(function(r, i){
-          var k = r[0], y = PY + i*RH;
-          if (i){ c.fillStyle = '#EADCC0'; c.fillRect(PX+40, y, PW-80, 3); }
-          c.drawImage(im[2+i], PX+46, y+22, 120, 120);
-          c.fillStyle = '#786148'; c.font = '700 32px "Noto Sans JP"'; c.fillText(r[1], PX+196, y+54);
-          var n = show(k, v[k]);
-          c.fillStyle = '#3F6A3A'; c.font = '900 88px "Zen Maru Gothic"'; c.fillText(n, PX+194, y+140);
-          if (r[2]){ var nw = c.measureText(n).width; c.font = '900 42px "Zen Maru Gothic"'; c.fillText(r[2], PX+194+nw+10, y+140); }
-        });
-        var oh = 420, ow = oji.width*oh/oji.height;
-        c.drawImage(oji, 1080-ow-34, 1772-oh, ow, oh);
-        c.font = '900 44px "Zen Maru Gothic"';
-        var bw2 = c.measureText(bub).width + 72, bx = Math.max(40, 1080-ow-54-bw2), by = 1600;
-        c.fillStyle = '#1F1812'; rr(c, bx+6, by+6, bw2, 104, 30); c.fill();
-        c.fillStyle = '#FFFDF8'; rr(c, bx, by, bw2, 104, 30); c.fill();
-        c.lineWidth = 5; c.strokeStyle = '#1F1812'; rr(c, bx+2.5, by+2.5, bw2-5, 99, 28); c.stroke();
-        c.fillStyle = '#1F1812'; c.fillText(bub, bx+36, by+68);
-        c.fillStyle = '#1F1812'; c.fillRect(0, 1790, 1080, 130);
-        c.font = '700 40px "Noto Sans JP"';
-        var p1 = 'きみも計算してみて → ', p2 = 'veganoji.jp/calculator', w1 = c.measureText(p1).width;
-        c.font = '900 40px "Noto Sans JP"'; var w2 = c.measureText(p2).width, sx = 540-(w1+w2)/2;
-        c.font = '700 40px "Noto Sans JP"'; c.fillStyle = '#FFF9EE'; c.fillText(p1, sx, 1868);
-        c.font = '900 40px "Noto Sans JP"'; c.fillStyle = '#E8C76F'; c.fillText(p2, sx+w1, 1868);
-        return new Promise(function(ok){ $('cv').toBlob(function(bl){ ok(bl); }, 'image/jpeg', .92); });
+    function cover(c, im, x, y, w, h){ var s = Math.max(w/im.width, h/im.height), dw = im.width*s, dh = im.height*s; c.save(); c.beginPath(); c.rect(x, y, w, h); c.clip(); c.drawImage(im, x+(w-dw)/2, y+(h-dh)/2, dw, dh); c.restore(); }
+    function off(w, h){ var o = document.createElement('canvas'); o.width = w; o.height = h; return o; }
+    function twoTone(c, a, b, cx, y, font){ c.font = font; var wa = c.measureText(a).width, wb = c.measureText(b).width, x0 = cx - (wa+wb)/2; c.textAlign = 'left'; c.fillStyle = '#1F1812'; c.fillText(a, x0, y); c.fillStyle = '#C9223A'; c.fillText(b, x0+wa, y); }
+    function badgeAt(c, bd, cx, cy, h){ var w = bd.width*h/bd.height; c.save(); c.translate(cx, cy); c.rotate(.12); c.drawImage(bd, -w/2, -h/2, w, h); c.restore(); }
+    function sticker(c, im, x, y, s){
+      var o = off(s, s), sx = o.getContext('2d'); sx.drawImage(im, 0, 0, s, s); sx.globalCompositeOperation = 'source-in'; sx.fillStyle = '#fff'; sx.fillRect(0, 0, s, s);
+      var r = Math.max(3, s/22);
+      c.save(); c.shadowColor = 'rgba(31,24,18,.28)'; c.shadowBlur = s/9; c.shadowOffsetY = s/16; c.drawImage(o, x, y, s, s); c.restore();
+      for (var a = 0; a < 16; a++){ var t = a/16*Math.PI*2; c.drawImage(o, x + Math.cos(t)*r, y + Math.sin(t)*r, s, s); }
+      c.drawImage(im, x, y, s, s);
+    }
+    function numUnit(c, k, v, x, by, big, small){
+      var n = show(k, v), u = UNIT[k];
+      c.textAlign = 'left'; c.fillStyle = COLOR[k];
+      c.font = '900 '+big+'px "Zen Maru Gothic"'; c.fillText(n, x, by);
+      if (u){ var nw = c.measureText(n).width; c.font = '900 '+small+'px "Zen Maru Gothic"'; c.fillText(u, x + nw + 10, by); }
+    }
+    function bubble(c, text, right, y, maxW){
+      c.font = '900 44px "Zen Maru Gothic"';
+      var w = Math.min(c.measureText(text).width + 76, maxW), h = 102, x = right - w;
+      c.fillStyle = '#1F1812'; rr(c, x+6, y+6, w, h, 30); c.fill();
+      c.fillStyle = '#FFFDF8'; rr(c, x, y, w, h, 30); c.fill();
+      c.beginPath(); c.moveTo(right - 4, y + 36); c.lineTo(right + 26, y + 56); c.lineTo(right - 4, y + 74); c.closePath(); c.fill();
+      c.lineWidth = 5; c.strokeStyle = '#1F1812'; rr(c, x+2.5, y+2.5, w-5, h-5, 28); c.stroke();
+      c.beginPath(); c.moveTo(right - 2.5, y + 38); c.lineTo(right + 24, y + 56); c.lineTo(right - 2.5, y + 72); c.stroke();
+      c.fillStyle = '#FFFDF8'; c.fillRect(right - 6, y + 40, 5, 30);
+      c.fillStyle = '#1F1812'; c.textAlign = 'left'; c.fillText(text, x + 38, y + 67, w - 76);
+    }
+
+    // 水彩カード: full-screen watercolor, the five rows, a big Oji overlapping the card
+    function dCard(c, s, im){
+      var st = STOPS[s.i], v = vals(st.d), t = tierOf(st.d);
+      var bg = im.dietbg, sc = Math.max(1080/bg.width, 1920/bg.height), bw = bg.width*sc, bh = bg.height*sc;
+      c.drawImage(bg, (1080-bw)/2, 0, bw, bh);
+      var g = c.createLinearGradient(0, 380, 0, 1790);
+      g.addColorStop(0, 'rgba(255,249,238,0)'); g.addColorStop(.1, 'rgba(255,249,238,.9)'); g.addColorStop(.8, 'rgba(255,249,238,.88)'); g.addColorStop(.9, 'rgba(255,249,238,.3)'); g.addColorStop(1, 'rgba(255,249,238,.3)');
+      c.fillStyle = g; c.fillRect(0, 380, 1080, 1410);
+      if (s.badge) badgeAt(c, im.badge, 900, 230, 290);
+      c.textAlign = 'center'; c.fillStyle = '#3F6A3A'; c.font = '700 48px "Noto Sans JP"'; c.fillText('ビーガンを'+st.l+'続けたら', 540, 530);
+      twoTone(c, '地球に、', 'これだけ。', 540, 650, '900 108px "Zen Maru Gothic"');
+      var PX = 60, PY = 700, PW = 960, RH = 164, PH = RH*5;
+      c.fillStyle = '#1F1812'; rr(c, PX+9, PY+9, PW, PH, 44); c.fill();
+      c.fillStyle = '#FFFDF8'; rr(c, PX, PY, PW, PH, 44); c.fill();
+      c.save(); rr(c, PX, PY, PW, PH, 44); c.clip();
+      ROWS.forEach(function(r, i){
+        var k = r[0], y = PY + i*RH, ix = PX + 44, iy = y + 22, isz = 120, cx = ix + isz/2, cy = iy + isz/2, tx = PX + 202;
+        c.save(); c.globalAlpha = .45; c.drawImage(im['band-'+k], PX, y + 8, PW, RH - 16); c.restore();
+        c.save(); c.globalAlpha = .6; c.drawImage(im['wash-'+k], cx - 92, cy - 92, 184, 184); c.restore();
+        sticker(c, im['ic-'+k], ix, iy, isz);
+        c.textAlign = 'left'; c.fillStyle = '#3C2E22'; c.font = '700 30px "Noto Sans JP"'; c.fillText(r[1], tx, y + 46);
+        numUnit(c, k, v[k], tx - 2, y + 120, 84, 40);
+        c.textAlign = 'left'; c.fillStyle = '#5A4631'; c.font = '500 26px "Noto Sans JP"'; c.fillText(plain(eq(k, v[k])), tx, y + 154);
       });
+      c.restore();
+      ROWS.forEach(function(r, i){ if (i){ c.fillStyle = '#EADCC0'; c.fillRect(PX + 30, PY + i*RH - 1.5, PW - 60, 3); } });
+      c.lineWidth = 6; c.strokeStyle = '#1F1812'; rr(c, PX+3, PY+3, PW-6, PH-6, 41); c.stroke();
+      var oji = im['oji-'+t[1]], oh = 420, ow = oji.width*oh/oji.height;
+      c.drawImage(oji, 1080 - ow - 34, 1772 - oh, ow, oh);
+      c.font = '900 44px "Zen Maru Gothic"';
+      var bw2 = c.measureText(t[3]).width + 72, bx = Math.max(40, 1080 - ow - 54 - bw2), by = 1600;
+      c.fillStyle = '#1F1812'; rr(c, bx+6, by+6, bw2, 104, 30); c.fill();
+      c.fillStyle = '#FFFDF8'; rr(c, bx, by, bw2, 104, 30); c.fill();
+      c.lineWidth = 5; c.strokeStyle = '#1F1812'; rr(c, bx+2.5, by+2.5, bw2-5, 99, 28); c.stroke();
+      c.fillStyle = '#1F1812'; c.textAlign = 'left'; c.fillText(t[3], bx + 36, by + 68);
+      c.fillStyle = '#1F1812'; c.fillRect(0, 1790, 1080, 130);
+      c.font = '700 40px "Noto Sans JP"'; var p1 = 'きみも計算してみて → ', p2 = 'veganoji.jp/calculator', w1 = c.measureText(p1).width;
+      c.font = '900 40px "Noto Sans JP"'; var w2 = c.measureText(p2).width, sx = 540 - (w1+w2)/2;
+      c.font = '700 40px "Noto Sans JP"'; c.fillStyle = '#FFF9EE'; c.fillText(p1, sx, 1868);
+      c.font = '900 40px "Noto Sans JP"'; c.fillStyle = '#E8C76F'; c.fillText(p2, sx + w1, 1868);
     }
-    function scheduleCard(){
-      cardBlob = null; clearTimeout(cardTimer);
-      cardTimer = setTimeout(function(){ var at = idx; drawCard().then(function(bl){ if (at === idx) cardBlob = bl; }).catch(function(){}); }, 450);
+
+    // 地球マートのレシート: a receipt on a watercolor meadow, Oji standing in front of its corner
+    function receiptPath(c, x, y, w, h, z){
+      var n = Math.round(w / (z*2)), sw = w / n, i;
+      c.beginPath(); c.moveTo(x, y + z);
+      for (i = 0; i < n; i++){ c.lineTo(x + i*sw + sw/2, y); c.lineTo(x + (i+1)*sw, y + z); }
+      c.lineTo(x + w, y + h - z);
+      for (i = n; i > 0; i--){ c.lineTo(x + i*sw - sw/2, y + h); c.lineTo(x + (i-1)*sw, y + h - z); }
+      c.closePath();
     }
+    function dash(c, x1, x2, y){ c.save(); c.setLineDash([12, 9]); c.strokeStyle = 'rgba(42,36,32,.55)'; c.lineWidth = 3; c.beginPath(); c.moveTo(x1, y); c.lineTo(x2, y); c.stroke(); c.restore(); }
+    function lr(c, l, r, x1, x2, y, font, colR){ c.font = font; c.fillStyle = '#2A2420'; c.textAlign = 'left'; c.fillText(l, x1, y); c.textAlign = 'right'; c.fillStyle = colR || '#2A2420'; c.fillText(r, x2, y); }
+    function rdate(){ var d = new Date(), p = function(n){ return (n < 10 ? '0' : '') + n; }; return d.getFullYear()+'/'+p(d.getMonth()+1)+'/'+p(d.getDate())+'('+'日月火水木金土'[d.getDay()]+') '+p(d.getHours())+':'+p(d.getMinutes()); }
+    function barcode(c, x, y, w, h, seed){ var r = seed*7919 % 233280 + 1; function rnd(){ r = (r*9301 + 49297) % 233280; return r / 233280; } var cx = x; c.fillStyle = '#2A2420'; while (cx < x + w - 6){ var bw = 3 + Math.floor(rnd()*3)*3; if (rnd() > .38) c.fillRect(cx, y, bw, h); cx += bw + 3; } }
+    function hanko(c, cx, cy, r){
+      c.save(); c.translate(cx, cy); c.rotate(-.24); c.globalAlpha = .88; c.strokeStyle = '#C9223A'; c.fillStyle = '#C9223A';
+      c.lineWidth = 9; c.beginPath(); c.arc(0, 0, r, 0, Math.PI*2); c.stroke();
+      c.lineWidth = 3; c.beginPath(); c.arc(0, 0, r - 16, 0, Math.PI*2); c.stroke();
+      c.textAlign = 'center'; c.font = '900 30px "Zen Maru Gothic"'; c.fillText('地球はかせ', 0, -34);
+      c.font = '900 76px "Zen Maru Gothic"'; c.fillText('認定', 0, 44);
+      c.restore();
+    }
+    function dReceipt(c, s, im){
+      var st = STOPS[s.i], v = vals(st.d), t = tierOf(st.d), MONO = '"M PLUS 1 Code"';
+      cover(c, im.meadow, 0, 0, 1080, 1920);
+      var X = 108, Y = 88, W = 764, H = s.badge ? 1516 : 1472, L = X + 50, R = X + W - 50, MID = X + W/2;
+      c.save(); c.translate(MID, Y + H/2); c.rotate(-.025); c.translate(-MID, -(Y + H/2));
+      c.save(); c.shadowColor = 'rgba(31,24,18,.28)'; c.shadowBlur = 36; c.shadowOffsetX = 10; c.shadowOffsetY = 18; receiptPath(c, X, Y, W, H, 14); c.fillStyle = '#FFFEFA'; c.fill(); c.restore();
+      c.font = '700 70px '+MONO; var sw2 = c.measureText('地球マート').width, ew = 76, gx = MID - (ew + 16 + sw2)/2;
+      c.drawImage(im.earth, gx, Y + 50, ew, ew*im.earth.height/im.earth.width);
+      c.textAlign = 'left'; c.fillStyle = '#2A2420'; c.fillText('地球マート', gx + ew + 16, Y + 112);
+      c.textAlign = 'center'; c.font = '500 28px '+MONO; c.fillStyle = '#6E5E4E'; c.fillText('ＥＡＲＴＨ ＭＡＲＴ　ビーガン店', MID, Y + 160); c.fillText('ＵＲＬ veganoji.jp/calculator', MID, Y + 200);
+      dash(c, L, R, Y + 234);
+      lr(c, rdate(), 'レジ01', L, R, Y + 282, '500 29px '+MONO);
+      c.textAlign = 'left'; c.fillStyle = '#2A2420'; c.font = '500 29px '+MONO; c.fillText('担当：ビーガン王子', L, Y + 324);
+      c.textAlign = 'center'; c.font = '700 40px '+MONO; c.fillText('＊ ビーガン生活 '+st.l+'分 ＊', MID, Y + 390);
+      dash(c, L, R, Y + 426);
+      [['water','水　せつやく'], ['grain','穀物　せつやく'], ['forest','森林　まもった'], ['co2','ＣＯ₂　へらした'], ['animal','いのち　まもった']].forEach(function(it, i){
+        var k = it[0], y = Y + 494 + i*80;
+        c.drawImage(im['ic-'+k], L - 4, y - 46, 58, 58);
+        c.font = '700 36px '+MONO; c.fillStyle = '#2A2420'; c.textAlign = 'left'; c.fillText(it[1], L + 70, y);
+        c.textAlign = 'right'; c.fillStyle = COLOR[k]; c.font = '700 42px '+MONO; c.fillText(show(k, v[k]) + UNIT[k], R, y);
+      });
+      var y2 = Y + 856; dash(c, L, R, y2);
+      lr(c, '小計', '5点', L, R, y2 + 50, '500 32px '+MONO);
+      var ty = y2 + 76; c.fillStyle = '#2A2420'; c.fillRect(L, ty, R - L, 4); c.fillRect(L, ty + 104, R - L, 4);
+      lr(c, '合 計', '地球が笑顔😊', L, R, ty + 72, '700 52px '+MONO);
+      var y3 = ty + 166;
+      lr(c, 'お預り', 'やさしい気持ち', L, R, y3, '500 32px '+MONO);
+      lr(c, 'お釣り', 'みらいの地球', L, R, y3 + 46, '500 32px '+MONO);
+      if (s.badge) lr(c, '地球はかせポイント', '+5pt', L, R, y3 + 92, '700 32px '+MONO, '#C9223A');
+      var y4 = y3 + (s.badge ? 158 : 114);
+      c.textAlign = 'center'; c.fillStyle = '#4A3E34'; c.font = '500 30px '+MONO; c.fillText('またのご来店を、', MID, y4); c.fillText('地球はいつでも歓迎です🌏', MID, y4 + 42);
+      barcode(c, MID - 240, y4 + 74, 480, 92, s.i + 3);
+      c.fillStyle = '#4A3E34'; c.font = '500 26px '+MONO; c.fillText('VEGANOJI ・ '+st.l, MID, y4 + 204);
+      if (s.badge) hanko(c, L + 150, ty + 40, 104);
+      c.restore();
+      var oji = im['oji-'+t[1]], oh = 470, ow = oji.width*oh/oji.height, ox = 1080 - ow - 22;
+      c.drawImage(oji, ox, 1884 - oh, ow, oh);
+      bubble(c, t[3], ox - 18, 1664, ox - 60);
+    }
+
+    var DESIGNS = [ { id:'card', name:'水彩カード', draw:dCard }, { id:'receipt', name:'地球マートのレシート', draw:dReceipt } ];
+    var blobs = { key:'' }, urls = {}, gen = 0, shareT = 0;
+    function curKey(){ return idx + ':' + (allClear() ? 1 : 0); }
+    function renderShares(){
+      var my = ++gen, key = curKey(), s = { i:idx, badge:allClear() };
+      return Promise.all([images(), fonts()]).then(function(r){
+        var im = r[0];
+        return DESIGNS.reduce(function(p, d){
+          return p.then(function(){
+            if (my !== gen) return;
+            var cv = off(1080, 1920); d.draw(cv.getContext('2d'), s, im);
+            return new Promise(function(ok){ cv.toBlob(function(b){ ok(b); }, 'image/jpeg', .92); }).then(function(b){
+              if (my !== gen || !b) return;
+              if (blobs.key !== key) blobs = { key:key };
+              blobs[d.id] = b; if (urls[d.id]) URL.revokeObjectURL(urls[d.id]); urls[d.id] = URL.createObjectURL(b);
+              var el = document.querySelector('.scard[data-d="'+d.id+'"]'); if (el){ el.querySelector('img').src = urls[d.id]; el.classList.add('ready'); }
+            });
+          });
+        }, Promise.resolve());
+      }).catch(function(){});
+    }
+    function scheduleShares(){
+      clearTimeout(shareT);
+      shareT = setTimeout(function(){
+        var run = function(){ if (blobs.key !== curKey() || !blobs.card || !blobs.receipt) renderShares(); };
+        if (window.requestIdleCallback) requestIdleCallback(run, { timeout:1500 }); else run();
+      }, 700);
+    }
+
+    // ── the save sheet: swipe to pick a style, one button to share / save ──
+    var sheet = $('sheet'), srail = $('srail'), cards = [], active = -1, ticking = false, nudged = false;
+    function ready(id){ return blobs.key === curKey() && blobs[id]; }
+    function buildRail(){
+      srail.innerHTML = DESIGNS.map(function(d, i){ var ok = ready(d.id); return '<div class="scard'+(ok ? ' ready' : '')+'" data-d="'+d.id+'" data-k="'+i+'"><div class="sin" style="--i:'+i+'"><img alt="'+d.name+'"'+(ok ? ' src="'+urls[d.id]+'"' : '')+' /></div></div>'; }).join('');
+      $('sdots').innerHTML = DESIGNS.map(function(){ return '<i></i>'; }).join('');
+      cards = Array.prototype.slice.call(srail.querySelectorAll('.scard')); active = -1;
+    }
+    function paint(){
+      if (!cards.length) return;
+      var rb = srail.getBoundingClientRect(), mid = rb.left + rb.width/2, step = cards[0].offsetWidth + 14;
+      cards.forEach(function(el){
+        var r = el.getBoundingClientRect(), dd = ((r.left + r.width/2) - mid) / step, a = Math.min(1, Math.abs(dd));
+        el.style.transform = 'scale('+(1 - .12*a).toFixed(3)+') rotate('+(Math.max(-1, Math.min(1, dd))*4).toFixed(2)+'deg)';
+        el.style.opacity = (1 - .35*a).toFixed(3);
+      });
+      var i = Math.max(0, Math.min(cards.length - 1, Math.round(srail.scrollLeft / step)));
+      if (i !== active){
+        active = i; var nm = $('sname'); nm.textContent = DESIGNS[i].name; nm.classList.remove('pop'); void nm.offsetWidth; nm.classList.add('pop');
+        $('sdots').querySelectorAll('i').forEach(function(x, k){ x.classList.toggle('on', k === i); });
+      }
+    }
+    srail.addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(function(){ ticking = false; paint(); }); } }, { passive:true });
+    function goTo(i){ if (!cards.length) return; var step = cards[0].offsetWidth + 14; srail.scrollTo({ left: Math.max(0, Math.min(cards.length - 1, i)) * step, behavior: reduce ? 'auto' : 'smooth' }); }
+    srail.addEventListener('click', function(e){ var c = e.target.closest('.scard'); if (c && +c.dataset.k !== active) goTo(+c.dataset.k); });
+    sheet.querySelectorAll('.sarr').forEach(function(b){ b.addEventListener('click', function(){ goTo(active + +b.dataset.go); }); });
+    function openSheet(){
+      buildRail(); sheet.setAttribute('data-open', ''); document.documentElement.style.overflow = 'hidden';
+      srail.scrollLeft = 0; paint();
+      if (blobs.key !== curKey() || !blobs.card || !blobs.receipt) renderShares();
+      if (!nudged && !reduce){ nudged = true; setTimeout(function(){ srail.scrollTo({ left:70, behavior:'smooth' }); setTimeout(function(){ srail.scrollTo({ left:0, behavior:'smooth' }); }, 420); }, 900); }
+      setTimeout(function(){ $('sgo').focus({ preventScroll:true }); }, 60);
+    }
+    function closeSheet(){ sheet.removeAttribute('data-open'); document.documentElement.style.overflow = ''; $('save').focus({ preventScroll:true }); }
+    $('save').addEventListener('click', openSheet);
+    $('sh-close').addEventListener('click', closeSheet);
+    sheet.addEventListener('click', function(e){ if (e.target === sheet) closeSheet(); });
+    document.addEventListener('keydown', function(e){
+      if (!sheet.hasAttribute('data-open')) return;
+      if (e.key === 'Escape') closeSheet(); else if (e.key === 'ArrowRight') goTo(active + 1); else if (e.key === 'ArrowLeft') goTo(active - 1);
+    });
+
     var isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     var touch = window.matchMedia && matchMedia('(pointer: coarse)').matches;
-    function fname(){ return 'vegan-dentaku-'+labelOf(STEPS[idx])+'.jpg'; }
-    function fallback(bl){
+    function toast(msg){ var t = $('toast'); $('toast-t').textContent = msg; t.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(function(){ t.classList.remove('show'); }, 2400); }
+    function fallback(bl, name){
       var u = URL.createObjectURL(bl);
       if (isIOS){ $('ov-img').src = u; $('ov').setAttribute('data-open', 'true'); return; }
-      var a = document.createElement('a'); a.href = u; a.download = fname(); document.body.appendChild(a); a.click(); a.remove();
+      var a = document.createElement('a'); a.href = u; a.download = name; document.body.appendChild(a); a.click(); a.remove();
       setTimeout(function(){ URL.revokeObjectURL(u); }, 4000);
     }
-    $('save').addEventListener('click', function(){
-      var btn = this;
-      if (!cardBlob){ btn.disabled = true; drawCard().then(function(bl){ btn.disabled = false; cardBlob = bl; fallback(bl); }).catch(function(){ btn.disabled = false; alert('画像をつくれませんでした。もう一度ためしてね🙏'); }); return; }
-      var file = new File([cardBlob], fname(), { type:'image/jpeg' });
+    $('sgo').addEventListener('click', function(){
+      var d = DESIGNS[Math.max(0, active)], b = ready(d.id) ? blobs[d.id] : null;
+      if (!b){ toast('じゅんびちゅう…すこし待ってね'); return; }
+      var name = 'vegan-dentaku-'+STOPS[idx].l+'-'+d.id+'.jpg', file = new File([b], name, { type:'image/jpeg' });
+      var yay = function(){ confetti(); toast('ありがとう！王子もうれしい👑'); };
       if (touch && navigator.canShare && navigator.canShare({ files:[file] })){
-        navigator.share({ files:[file], text:shareText }).catch(function(e){ if (e && e.name !== 'AbortError') fallback(cardBlob); });
-      } else { fallback(cardBlob); }
+        navigator.share({ files:[file], text:shareText }).then(yay).catch(function(e){ if (e && e.name !== 'AbortError') fallback(b, name); });
+      } else { fallback(b, name); yay(); }
     });
     $('ov-close').addEventListener('click', function(){ $('ov').removeAttribute('data-open'); $('ov-img').removeAttribute('src'); });
 
-    update();
+    setPos(idx / N); select(idx); update(false); lastSettled = idx; scheduleShares();
   })();
   </script>
   <script src="/mnav.js" defer></script>
