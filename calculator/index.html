@@ -239,17 +239,29 @@
     .toast{position:fixed; left:50%; bottom:calc(28px + env(safe-area-inset-bottom)); z-index:96; display:flex; align-items:center; gap:10px; padding:8px 16px 8px 8px; background:var(--white); border:2.5px solid var(--ink); border-radius:18px; box-shadow:3px 3px 0 var(--ink); font:900 15px var(--round); white-space:nowrap; pointer-events:none; opacity:0; visibility:hidden; transform:translate(-50%,24px); transition:opacity .3s, transform .4s cubic-bezier(.2,.9,.3,1.2), visibility 0s linear .4s}
     .toast.show{opacity:1; visibility:visible; transform:translate(-50%,0); transition:opacity .3s, transform .4s cubic-bezier(.2,.9,.3,1.2), visibility 0s}
     .toast img{width:40px; height:auto}
-    .qmini{position:fixed; left:50%; bottom:calc(14px + env(safe-area-inset-bottom)); z-index:60; display:flex; align-items:center; gap:8px; padding:6px 12px 6px 6px; background:var(--white); border:2.5px solid var(--ink); border-radius:999px; box-shadow:3px 3px 0 var(--ink); cursor:pointer; -webkit-tap-highlight-color:transparent; opacity:0; visibility:hidden; transform:translate(-50%,22px); transition:opacity .3s, transform .35s cubic-bezier(.2,.9,.3,1.2), visibility 0s linear .35s}
-    .qmini.show{opacity:1; visibility:visible; transform:translate(-50%,0); transition:opacity .3s, transform .35s cubic-bezier(.2,.9,.3,1.2), visibility 0s}
-    .qm-t{background:var(--gold); border:2px solid var(--ink); border-radius:999px; padding:1px 9px; font:900 12.5px/1.4 var(--round); white-space:nowrap}
-    .qm-s{display:flex; gap:4px}
-    .qm-s img{width:24px; height:24px; filter:grayscale(1) opacity(.3); transition:filter .4s}
-    .qm-s img.on{filter:none; animation:mpop .45s cubic-bezier(.2,.9,.3,1.6)}
-    @keyframes mpop{0%{transform:scale(.4)}100%{transform:scale(1)}}
-    .qm-n{font:900 13px var(--round); color:var(--leaf-deep); white-space:nowrap}
-    .qm-n b{font-size:18px}
+    .qdock{position:fixed; left:50%; bottom:calc(10px + env(safe-area-inset-bottom)); z-index:60; width:min(calc(100% - 24px), 456px); padding:21px 12px 11px; background:var(--white); border:2.5px solid var(--ink); border-radius:20px; box-shadow:3px 3px 0 var(--ink); cursor:pointer; -webkit-tap-highlight-color:transparent; opacity:0; visibility:hidden; transform:translate(-50%,calc(100% + 24px)); transition:opacity .3s, transform .42s cubic-bezier(.2,.9,.3,1.15), visibility 0s linear .42s}
+    .qdock.show{opacity:1; visibility:visible; transform:translate(-50%,0); transition:opacity .3s, transform .42s cubic-bezier(.2,.9,.3,1.15), visibility 0s}
+    .qdock .qtab{top:-15px; left:12px}
+    .qdock .qtabn{top:-17px; right:12px}
+    .qdock .st{width:46px; height:46px}
+    .qdock .st img{width:30px; height:30px}
 
+    @media (max-width:759px){
+      .art{height:clamp(150px,21vh,190px); -webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 44px),transparent); mask-image:linear-gradient(180deg,#000 calc(100% - 44px),transparent)}
+      .earth{top:8%; width:clamp(96px,27vw,128px)}
+      .c1{top:8%; width:clamp(90px,24vw,130px)} .c2{top:44%; width:clamp(120px,32vw,170px)} .c3{top:2%}
+      .hills{height:clamp(44px,12vw,62px)}
+      .head{margin-top:-12px}
+      h1{font-size:38px}
+      .lead{font-size:14.5px; line-height:1.6; margin-top:2px}
+      .pick{margin-top:8px}
+      .big{font-size:36px; min-height:44px}
+      .sl .rail{height:84px}
+      .res{margin-top:12px}
+      .h{font-size:28px; margin:0 0 12px}
+    }
     @media (min-width:760px){
+      .qdock{display:none}
       .art{height:360px}
       h1{font-size:56px}
       .col{max-width:540px}
@@ -354,7 +366,7 @@
       <p class="shint">左右にスワイプして選べるよ</p>
     </div>
   </div>
-  <div class="qmini" id="qmini" aria-hidden="true"><span class="qm-t">地球はかせ</span><span class="qm-s" id="qm-s"></span><span class="qm-n"><b id="qm-n">0</b>/5</span></div>
+  <div class="qdock" id="qdock" aria-hidden="true"><span class="qtab">地球はかせチャレンジ</span><span class="qtabn"><b id="qd-n">0</b>/5</span><div class="stamps" id="qd-s"></div></div>
   <div class="toast" id="toast"><img src="/images/tools/oji-welcoming.webp" alt="" /><span id="toast-t"></span></div>
 
   <script>
@@ -451,7 +463,7 @@
         setTimeout(function(){ im.onload = function(){ im.style.opacity = 1; }; im.src = '/images/tools/oji-'+pose+'.webp'; if (im.complete) im.style.opacity = 1; }, reduce ? 0 : 150);
       }
 
-      var from = Object.assign({}, cur), t0 = performance.now(), D = reduce ? 1 : (fast ? 650 : 1100);
+      var from = Object.assign({}, cur), t0 = performance.now(), D = reduce ? 1 : (fast ? 1300 : 2100);
       Object.keys(target).forEach(function(k){ var a = show(k, from[k]), b = show(k, target[k]); fitNum(k, a.length > b.length ? a : b); });
       cancelAnimationFrame(raf);
       (function tick(now){
@@ -500,12 +512,11 @@
       clearTimeout(settle.t); settle.t = setTimeout(function(){ sl.classList.remove('snap'); }, 420);
       settled();
     }
-    var hinting = false;
-    try { hinting = localStorage.getItem('calcSlid') !== '1'; } catch(e){ hinting = true; }
+    var hinting = true;
+    try { localStorage.removeItem('calcSlid'); } catch(e){}
     if (hinting && !reduce) sl.classList.add('coach');
     function dismissHint(){
       if (!hinting) return; hinting = false; sl.classList.remove('coach');
-      try { localStorage.setItem('calcSlid', '1'); } catch(e){}
     }
     function posAt(x){ var r = rail.getBoundingClientRect(); return Math.max(0, Math.min(1, (x - r.left) / r.width)); }
     function thumbX(){ var r = thumb.getBoundingClientRect(); return r.left + r.width/2; }
@@ -549,7 +560,7 @@
       oj.style.animation = 'none'; void oj.offsetWidth; oj.style.animation = '';
       $('why-t').textContent = w.t; $('why-say').textContent = w.say; $('why-src').textContent = w.src;
       if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
-      updMini();
+      updDock();
     });
     dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
     $('why-ok').addEventListener('click', function(){
@@ -565,10 +576,10 @@
         row.classList.toggle('cleared', on); b.classList.toggle('done', on); b.textContent = on ? '✓' : 'なぜ？';
       });
       document.querySelectorAll('#slots .st').forEach(function(st){ st.classList.toggle('on', !!cleared[st.dataset.k]); });
-      document.querySelectorAll('#qm-s img').forEach(function(im){ im.classList.toggle('on', !!cleared[im.dataset.k]); });
-      $('qc').textContent = $('qm-n').textContent = Object.keys(cleared).length;
+      document.querySelectorAll('#qd-s .st').forEach(function(st){ st.classList.toggle('on', !!cleared[st.dataset.k]); });
+      $('qc').textContent = $('qd-n').textContent = Object.keys(cleared).length;
       $('quest').classList.toggle('done', allClear());
-      updMini();
+      updDock();
     }
     function confetti(){
       if (reduce) return;
@@ -584,20 +595,21 @@
       setTimeout(function(){ box.remove(); }, 3600);
     }
     $('slots').innerHTML = ROWS.map(function(r){ return '<span class="st" data-k="'+r[0]+'"><img src="/images/tools/ic-'+r[0]+'.webp" alt="'+r[1]+'" /></span>'; }).join('');
-    $('qm-s').innerHTML = ROWS.map(function(r){ return '<img src="/images/tools/ic-'+r[0]+'.webp" alt="" data-k="'+r[0]+'" />'; }).join('');
+    $('qd-s').innerHTML = $('slots').innerHTML;
 
-    // the little challenge pill: at the bottom of the screen while the rows are in view, until the real card scrolls in
-    var listSeen = false, questSeen = false;
-    function updMini(){
+    // the docked challenge bar: at the bottom of the screen from the first view, until the real card scrolls in
+    var questBelow = true;
+    function updDock(){
       var busy = sheet.hasAttribute('data-open') || dlg.open;
-      $('qmini').classList.toggle('show', listSeen && !questSeen && !allClear() && !busy);
+      $('qdock').classList.toggle('show', questBelow && !allClear() && !busy);
     }
-    if ('IntersectionObserver' in window){
-      new IntersectionObserver(function(es){ es.forEach(function(x){ listSeen = x.isIntersecting; }); updMini(); }, { rootMargin:'0px 0px -35% 0px' }).observe($('list'));
-      new IntersectionObserver(function(es){ es.forEach(function(x){ questSeen = x.isIntersecting; }); updMini(); }).observe($('quest'));
-    }
-    $('qmini').addEventListener('click', function(){ $('quest').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'center' }); });
-    dlg.addEventListener('close', updMini);
+    // scroll-based (an observer misses a jump from below the card to above it)
+    var dockTick = false;
+    function measureDock(){ dockTick = false; questBelow = $('quest').getBoundingClientRect().top > window.innerHeight - 40; updDock(); }
+    window.addEventListener('scroll', function(){ if (!dockTick){ dockTick = true; requestAnimationFrame(measureDock); } }, { passive:true });
+    window.addEventListener('resize', measureDock);
+    $('qdock').addEventListener('click', function(){ $('quest').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'center' }); });
+    dlg.addEventListener('close', updDock);
 
     // ── night background: load only when near ──
     var night = $('night');
@@ -811,13 +823,13 @@
     srail.addEventListener('click', function(e){ var c = e.target.closest('.scard'); if (c && +c.dataset.k !== active) goTo(+c.dataset.k); });
     sheet.querySelectorAll('.sarr').forEach(function(b){ b.addEventListener('click', function(){ goTo(active + +b.dataset.go); }); });
     function openSheet(){
-      buildRail(); sheet.setAttribute('data-open', ''); document.documentElement.style.overflow = 'hidden'; updMini();
+      buildRail(); sheet.setAttribute('data-open', ''); document.documentElement.style.overflow = 'hidden'; updDock();
       srail.scrollLeft = 0; paint();
       if (blobs.key !== curKey() || !blobs.card || !blobs.receipt) renderShares();
       if (!nudged && !reduce){ nudged = true; setTimeout(function(){ srail.scrollTo({ left:70, behavior:'smooth' }); setTimeout(function(){ srail.scrollTo({ left:0, behavior:'smooth' }); }, 420); }, 900); }
       setTimeout(function(){ $('sgo').focus({ preventScroll:true }); }, 60);
     }
-    function closeSheet(){ sheet.removeAttribute('data-open'); document.documentElement.style.overflow = ''; $('save').focus({ preventScroll:true }); updMini(); }
+    function closeSheet(){ sheet.removeAttribute('data-open'); document.documentElement.style.overflow = ''; $('save').focus({ preventScroll:true }); updDock(); }
     $('save').addEventListener('click', openSheet);
     $('sh-close').addEventListener('click', closeSheet);
     sheet.addEventListener('click', function(e){ if (e.target === sheet) closeSheet(); });
@@ -860,7 +872,7 @@
       }, 500);
     });
 
-    renderQuest();
+    renderQuest(); measureDock();
     setPos(idx / N); select(idx); update(false); lastSettled = idx; scheduleShares();
   })();
   </script>
