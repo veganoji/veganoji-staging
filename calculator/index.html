@@ -74,23 +74,30 @@
     .h{font:900 32px/1.35 var(--round); text-align:center; margin:2px 0 14px}
     .h em{font-style:normal; color:var(--royal)}
     .list{background:var(--white); border:2.5px solid var(--ink); border-radius:26px; box-shadow:5px 5px 0 var(--ink); overflow:hidden}
-    .row{display:flex; align-items:center; gap:12px; padding:14px 22px 14px 10px}
+    .row{position:relative; display:flex; align-items:center; gap:9px; padding:14px 20px 14px 10px}
     .row + .row{border-top:1.5px solid var(--line)}
-    .ico{position:relative; margin:0; width:70px; flex:none; text-align:center}
-    .ico .wash{position:absolute; left:50%; top:30px; width:80px; height:80px; transform:translate(-50%,-50%); opacity:.55; pointer-events:none; transition:opacity .5s}
+    .row::before{content:""; position:absolute; inset:4px 0; background:var(--band) center/100% 100% no-repeat; opacity:.45; pointer-events:none}
+    .row[data-k="water"]{--band:url('/images/tools/band-water.webp'); --c:#2A6BA0}
+    .row[data-k="grain"]{--band:url('/images/tools/band-grain.webp'); --c:#9A6A12}
+    .row[data-k="forest"]{--band:url('/images/tools/band-forest.webp'); --c:#3F6A3A}
+    .row[data-k="co2"]{--band:url('/images/tools/band-co2.webp'); --c:#4F5B67}
+    .row[data-k="animal"]{--band:url('/images/tools/band-animal.webp'); --c:#B0445E}
+    .ico{position:relative; margin:0; width:66px; flex:none; text-align:center}
+    .ico .wash{position:absolute; left:50%; top:30px; width:80px; height:80px; transform:translate(-50%,-50%); opacity:.6; pointer-events:none; transition:opacity .5s}
     .row.cleared .wash{opacity:.95}
-    .ico .i{position:relative; width:56px; height:56px; margin:0 auto}
+    .ico .i{position:relative; width:56px; height:56px; margin:0 auto; filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(1px 4px 3px rgba(31,24,18,.25))}
     .ico figcaption{position:relative; font:700 13px/1.3 var(--sans); color:var(--muted); margin-top:3px; white-space:nowrap}
     .row.pulse .wash{animation:pulse .6s ease}
     @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}45%{transform:translate(-50%,-50%) scale(1.14)}}
-    .val{flex:1; min-width:0; text-align:center}
-    .num{font:900 38px/1.1 var(--round); color:var(--leaf-deep); font-variant-numeric:tabular-nums; white-space:nowrap}
+    .val{position:relative; flex:1; min-width:0; text-align:center}
+    .num{font:900 38px/1.1 var(--round); color:var(--c, var(--leaf-deep)); font-variant-numeric:tabular-nums; white-space:nowrap}
     .num .u{font-size:18px; margin-left:4px}
-    .eq{font:500 13.5px/1.5 var(--sans); color:var(--muted)}
-    .why-btn{flex:none; width:38px; height:38px; cursor:pointer; border-radius:50%; border:2px solid var(--ink); background:var(--cream); box-shadow:2px 2px 0 var(--ink); font:900 18px/1 var(--round); color:var(--royal); display:grid; place-items:center; transition:transform .12s, box-shadow .12s}
-    .why-btn:active{transform:translate(2px,2px); box-shadow:0 0 0 var(--ink)}
-    .why-btn:not(.done){animation:beckon 2.6s ease-in-out infinite}
-    @keyframes beckon{0%,100%{box-shadow:2px 2px 0 var(--ink),0 0 0 0 rgba(201,34,58,.38)}55%{box-shadow:2px 2px 0 var(--ink),0 0 0 8px rgba(201,34,58,0)}}
+    .eq{font:500 12.5px/1.5 var(--sans); color:#5A4631}
+    .eq span{display:inline-block}
+    .why-btn{position:relative; flex:none; min-width:56px; height:36px; padding:0 6px; cursor:pointer; border-radius:999px; border:2px solid var(--ink); background:var(--cream); box-shadow:2px 2px 0 var(--ink); font:900 14px/1 var(--round); color:var(--royal); display:grid; place-items:center; transition:box-shadow .12s}
+    .why-btn:active{box-shadow:0 0 0 var(--ink)}
+    .why-btn:not(.done){animation:hop 2.6s ease-in-out infinite; animation-delay:var(--d, 0s)}
+    @keyframes hop{0%,62%,100%{transform:translateY(0) scale(1)}70%{transform:translateY(-9px) scale(1.04,.96)}76%{transform:translateY(0) scale(1.1,.88)}82%{transform:translateY(-3px) scale(.97,1.03)}88%{transform:translateY(0) scale(1)}}
     .why-btn.done{background:var(--leaf-deep); color:#fff; animation:pop .45s cubic-bezier(.2,.9,.3,1.5)}
     @keyframes pop{0%{transform:scale(.6)}100%{transform:scale(1)}}
     .quest{margin-top:16px; padding:11px 14px; background:var(--white); border:2px dashed #D9C79E; border-radius:18px; cursor:pointer; -webkit-tap-highlight-color:transparent}
@@ -308,11 +315,11 @@
     var $ = function(id){ return document.getElementById(id); };
 
     // ── build rows ──
-    $('list').innerHTML = ROWS.map(function(r){
+    $('list').innerHTML = ROWS.map(function(r, i){
       return '<div class="row" data-k="'+r[0]+'">'
         + '<figure class="ico"><img class="wash" src="/images/tools/wash-'+r[0]+'.webp" alt="" /><img class="i" src="/images/tools/ic-'+r[0]+'.webp" alt="" width="56" height="56" /><figcaption>'+r[1]+'</figcaption></figure>'
         + '<div class="val"><div class="num"><span data-n="'+r[0]+'">0</span>'+(r[2]?'<span class="u">'+r[2]+'</span>':'')+'</div><div class="eq" data-e="'+r[0]+'"></div></div>'
-        + '<button type="button" class="why-btn" data-why="'+r[0]+'" aria-label="'+WHY[r[0]].t+'">？</button>'
+        + '<button type="button" class="why-btn" data-why="'+r[0]+'" aria-label="'+WHY[r[0]].t+'" style="--d:'+(i*.45)+'s">なぜ？</button>'
         + '</div>';
     }).join('');
     var numEl = {}, eqEl = {};
@@ -325,12 +332,21 @@
     }
     function show(k, v){ return k === 'animal' ? Math.round(v).toLocaleString('ja-JP') : fmt(v); }
     function eq(k, v){
-      if (k === 'water')  return 'お風呂 約'+fmt(v/200)+'杯ぶん';
-      if (k === 'grain')  return 'おにぎり 約'+fmt(v*10)+'個ぶん';
-      if (k === 'forest') return v < 260 ? 'たたみ 約'+fmt(v/1.62)+'枚ぶん' : 'テニスコート 約'+fmt(v/260)+'面ぶん';
-      if (k === 'co2')    return 'スギ 約'+fmt(Math.max(1, v/14))+'本が1年で吸う量';
-      return '1日に、ひとつのいのち';
+      if (k === 'water')  return '<span>お風呂</span> <span>約'+fmt(v/200)+'杯ぶん</span>';
+      if (k === 'grain')  return '<span>おにぎり</span> <span>約'+fmt(v*10)+'個ぶん</span>';
+      if (k === 'forest') return v < 260 ? '<span>たたみ</span> <span>約'+fmt(v/1.62)+'枚ぶん</span>' : '<span>テニスコート</span> <span>約'+fmt(v/260)+'面ぶん</span>';
+      if (k === 'co2')    return '<span>スギ 約'+fmt(Math.max(1, v/14))+'本が</span><span>1年で吸う量</span>';
+      return '<span>1日に、</span><span>ひとつのいのち</span>';
     }
+    // shrink a number only when it would run into the 「なぜ？」 button (long values on narrow phones)
+    function fitNum(k, text){
+      var el = numEl[k], box = el.parentNode, keep = el.textContent, fs = 38;
+      el.textContent = text; box.style.fontSize = '';
+      while (box.scrollWidth > box.clientWidth + 1 && fs > 26){ fs -= 2; box.style.fontSize = fs + 'px'; }
+      el.textContent = keep;
+    }
+    var fitT = 0;
+    window.addEventListener('resize', function(){ clearTimeout(fitT); fitT = setTimeout(function(){ Object.keys(numEl).forEach(function(k){ fitNum(k, numEl[k].textContent); }); }, 150); });
     function daysOf(s){ return (s.y||0)*365 + (s.m||0)*30; }
     function labelOf(s){ return s.y ? s.y+'年' : s.m+'ヶ月'; }
     function tierOf(d){ var t = TIERS[0]; TIERS.forEach(function(x){ if (d >= x[0]) t = x; }); return t; }
@@ -341,7 +357,7 @@
 
     function update(){
       var s = STEPS[idx], d = daysOf(s), label = labelOf(s);
-      Object.keys(PER_DAY).forEach(function(k){ target[k] = PER_DAY[k]*d; eqEl[k].textContent = eq(k, target[k]); });
+      Object.keys(PER_DAY).forEach(function(k){ target[k] = PER_DAY[k]*d; eqEl[k].innerHTML = eq(k, target[k]); });
       $('dur').textContent = label;
       $('kicker').textContent = 'ビーガンを'+label+'続けたら';
       $('dec').disabled = idx === 0; $('inc').disabled = idx === STEPS.length-1;
@@ -356,11 +372,13 @@
 
       document.querySelectorAll('.row').forEach(function(r, i){ r.classList.remove('pulse'); void r.offsetWidth; setTimeout(function(){ r.classList.add('pulse'); }, reduce ? 0 : i*60); });
       var from = Object.assign({}, cur), t0 = performance.now(), D = reduce ? 1 : 520;
+      Object.keys(target).forEach(function(k){ var a = show(k, from[k]), b = show(k, target[k]); fitNum(k, a.length > b.length ? a : b); });
       cancelAnimationFrame(raf);
       (function tick(now){
         var p = Math.min(1, (now - t0)/D), e = 1 - Math.pow(1-p, 3);
         Object.keys(target).forEach(function(k){ cur[k] = from[k] + (target[k]-from[k])*e; numEl[k].textContent = show(k, cur[k]); });
         if (p < 1) raf = requestAnimationFrame(tick);
+        else Object.keys(target).forEach(function(k){ fitNum(k, numEl[k].textContent); });
       })(t0);
 
       var url = 'https://veganoji.jp/calculator/';
@@ -400,7 +418,7 @@
     function renderQuest(){
       ROWS.forEach(function(r){
         var on = !!cleared[r[0]], row = document.querySelector('.row[data-k="'+r[0]+'"]'), b = row.querySelector('.why-btn');
-        row.classList.toggle('cleared', on); b.classList.toggle('done', on); b.textContent = on ? '✓' : '？';
+        row.classList.toggle('cleared', on); b.classList.toggle('done', on); b.textContent = on ? '✓' : 'なぜ？';
       });
       document.querySelectorAll('#slots img').forEach(function(im){ im.classList.toggle('on', !!cleared[im.dataset.k]); });
       var n = Object.keys(cleared).length;
