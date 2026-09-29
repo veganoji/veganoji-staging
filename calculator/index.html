@@ -114,7 +114,7 @@
     .row.pulse .wash{animation:pulse .6s ease}
     @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}45%{transform:translate(-50%,-50%) scale(1.14)}}
     .val{position:relative; flex:1; min-width:0; text-align:center}
-    .num{font:900 38px/1.1 var(--round); color:var(--c, var(--leaf-deep)); font-variant-numeric:tabular-nums; white-space:nowrap}
+    .num{font:900 38px/1.1 var(--round); color:var(--c, var(--leaf-deep)); font-variant-numeric:tabular-nums; letter-spacing:-.01em; white-space:nowrap}
     .num .u{font-size:18px; margin-left:4px}
     .eq{font:500 12.5px/1.5 var(--sans); color:#5A4631}
     .eq span{display:inline-block}
@@ -158,7 +158,11 @@
     .btn{display:flex; align-items:center; justify-content:center; gap:9px; width:100%; cursor:pointer; text-decoration:none; color:var(--ink); background:var(--white); border:2.5px solid var(--ink); border-radius:18px; box-shadow:4px 4px 0 var(--ink); font:900 16px var(--round); height:54px; transition:transform .12s, box-shadow .12s, background .15s}
     .btn:active{transform:translate(3px,3px); box-shadow:1px 1px 0 var(--ink)}
     .btn img{width:32px; height:32px; margin:-4px 0}
-    .btn-main{height:62px; font-size:19px; background:var(--royal); color:var(--paper)}
+    .btn-main{position:relative; overflow:hidden; height:62px; font-size:19px; background:var(--royal); color:var(--paper)}
+    .btn-main.prompt{animation:ask 1.6s ease-in-out infinite}
+    .btn-main.prompt::after{content:""; position:absolute; inset:0; background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.5) 50%,transparent 65%) no-repeat; background-size:250% 100%; animation:shine 1.6s ease-in-out infinite; pointer-events:none}
+    @keyframes ask{0%,100%{transform:scale(1); box-shadow:4px 4px 0 var(--ink), 0 0 0 0 rgba(232,199,111,.75)}45%{transform:scale(1.045); box-shadow:4px 4px 0 var(--ink), 0 0 0 12px rgba(232,199,111,0)}}
+    @keyframes shine{0%{background-position:160% 0}55%,100%{background-position:-60% 0}}
     .btn-main:hover{background:var(--royal-deep)}
     .btn-main[disabled]{opacity:.55}
     .pair{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px}
@@ -239,7 +243,7 @@
     .toast{position:fixed; left:50%; bottom:calc(28px + env(safe-area-inset-bottom)); z-index:96; display:flex; align-items:center; gap:10px; padding:8px 16px 8px 8px; background:var(--white); border:2.5px solid var(--ink); border-radius:18px; box-shadow:3px 3px 0 var(--ink); font:900 15px var(--round); white-space:nowrap; pointer-events:none; opacity:0; visibility:hidden; transform:translate(-50%,24px); transition:opacity .3s, transform .4s cubic-bezier(.2,.9,.3,1.2), visibility 0s linear .4s}
     .toast.show{opacity:1; visibility:visible; transform:translate(-50%,0); transition:opacity .3s, transform .4s cubic-bezier(.2,.9,.3,1.2), visibility 0s}
     .toast img{width:40px; height:auto}
-    .qdock{position:fixed; left:50%; bottom:calc(10px + env(safe-area-inset-bottom)); z-index:60; width:min(calc(100% - 24px), 456px); padding:21px 12px 11px; background:var(--white); border:2.5px solid var(--ink); border-radius:20px; box-shadow:3px 3px 0 var(--ink); cursor:pointer; -webkit-tap-highlight-color:transparent; opacity:0; visibility:hidden; transform:translate(-50%,calc(100% + 24px)); transition:opacity .3s, transform .42s cubic-bezier(.2,.9,.3,1.15), visibility 0s linear .42s}
+    .qdock{position:fixed; left:50%; bottom:calc(10px + env(safe-area-inset-bottom)); z-index:60; width:min(calc(100% - 24px), 456px); padding:28px 12px 11px; background:var(--white); border:2.5px solid var(--ink); border-radius:20px; box-shadow:3px 3px 0 var(--ink); cursor:pointer; -webkit-tap-highlight-color:transparent; opacity:0; visibility:hidden; transform:translate(-50%,calc(100% + 24px)); transition:opacity .3s, transform .42s cubic-bezier(.2,.9,.3,1.15), visibility 0s linear .42s}
     .qdock.show{opacity:1; visibility:visible; transform:translate(-50%,0); transition:opacity .3s, transform .42s cubic-bezier(.2,.9,.3,1.15), visibility 0s}
     .qdock .qtab{top:-15px; left:12px}
     .qdock .qtabn{top:-17px; right:12px}
@@ -420,7 +424,7 @@
       if (n >= 1e4){ var w = n/1e4; return (w>=10?Math.round(w):Math.round(w*10)/10).toLocaleString('ja-JP')+'万'; }
       return Math.round(n).toLocaleString('ja-JP');
     }
-    function show(k, v){ return k === 'animal' ? Math.round(v).toLocaleString('ja-JP') : fmt(v); }
+    function show(k, v){ return Math.round(v).toLocaleString('ja-JP'); }
     function eq(k, v){
       if (k === 'water')  return '<span>お風呂</span> <span>約'+fmt(v/200)+'杯ぶん</span>';
       if (k === 'grain')  return '<span>おにぎり</span> <span>約'+fmt(v*10)+'個ぶん</span>';
@@ -434,7 +438,7 @@
     function fitNum(k, text){
       var el = numEl[k], box = el.parentNode, keep = el.textContent, fs = 38;
       el.textContent = text; box.style.fontSize = '';
-      while (box.scrollWidth > box.clientWidth + 1 && fs > 26){ fs -= 2; box.style.fontSize = fs + 'px'; }
+      while (box.scrollWidth > box.clientWidth + 1 && fs > 24){ fs -= 1; box.style.fontSize = fs + 'px'; }
       el.textContent = keep;
     }
     var fitT = 0;
@@ -474,7 +478,7 @@
       })(t0);
 
       var url = 'https://veganoji.jp/calculator/';
-      var txt = 'ビーガン電卓で計算してみたら、ビーガンを'+label+'続けると 水'+fmt(target.water)+'L・CO₂'+fmt(target.co2)+'kg を地球にやさしくできるって🌏 きみもやってみて！ #ビーガン王子';
+      var txt = 'ビーガン電卓で計算してみたら、ビーガンを'+label+'続けると 水'+show('water', target.water)+'L・CO₂'+show('co2', target.co2)+'kg を地球にやさしくできるって🌏 きみもやってみて！ #ビーガン王子';
       $('x').href = 'https://twitter.com/intent/tweet?text='+encodeURIComponent(txt)+'&url='+encodeURIComponent(url);
       $('line').href = 'https://line.me/R/share?text='+encodeURIComponent(txt+'\n'+url);
       shareText = txt+'\n'+url;
@@ -566,8 +570,18 @@
     $('why-ok').addEventListener('click', function(){
       if (!openKey || cleared[openKey]) return;
       cleared[openKey] = 1; renderQuest();
-      if (allClear()){ confetti(); say('ぜんぶクリア！|きみも|地球はかせだね🎉'); scheduleShares(); }
+      if (allClear()){ confetti(); say('ぜんぶクリア！|きみも|地球はかせだね🎉'); celebrate(); scheduleShares(); }
     });
+
+    // all five read: glide to Oji's message and make the save button ask to be tapped
+    function celebrate(){
+      var im = $('oji'); pose = 'welcoming'; im.src = '/images/tools/oji-welcoming.webp';
+      setTimeout(function(){
+        var box = document.querySelector('.oji').getBoundingClientRect();
+        window.scrollTo({ top: window.scrollY + box.top - 90, behavior: reduce ? 'auto' : 'smooth' });
+        $('save').classList.add('prompt');
+      }, 380);
+    }
 
     // ── 地球はかせチャレンジ: read all five 「なぜ？」 to fill the stamp card ──
     function renderQuest(){
@@ -823,6 +837,7 @@
     srail.addEventListener('click', function(e){ var c = e.target.closest('.scard'); if (c && +c.dataset.k !== active) goTo(+c.dataset.k); });
     sheet.querySelectorAll('.sarr').forEach(function(b){ b.addEventListener('click', function(){ goTo(active + +b.dataset.go); }); });
     function openSheet(){
+      $('save').classList.remove('prompt');
       buildRail(); sheet.setAttribute('data-open', ''); document.documentElement.style.overflow = 'hidden'; updDock();
       srail.scrollLeft = 0; paint();
       if (blobs.key !== curKey() || !blobs.card || !blobs.receipt) renderShares();
