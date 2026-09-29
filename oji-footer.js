@@ -22,7 +22,7 @@
   // ---- Language strings — picked by <html lang>. Default = ja.
   //      EN reviewed; DE/ES/FR/ZH are machine-quality → have a native check the copy. ----
   var DICT = {
-    ja: { next:'つぎは、どこへ？', recipe:'美味しいレシピ', map:'全国のビーガンマップ', why:'なぜビーガン？',
+    ja: { tMap:'マップ', tQuiz:'クイズ', tCalc:'電卓', next:'つぎは、どこへ？', recipe:'美味しいレシピ', map:'全国のビーガンマップ', why:'なぜビーガン？',
           earth:'地球', ocean:'海', body:'体', other:'その他', vegfit:'ベジトレClubに参加',
           news:'ベジー<wbr>ニュース', activity:'活動報告', nl:'ビーガン王子通信に購読', email:'メールアドレス',
           sub:'登録', support:'王子の活動を支援する',
@@ -95,6 +95,9 @@
   .ojf-tri img{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.22));}
   .ojf-tri .ojf-t{font-size:14px;font-weight:900;}
   .ojf-tri .ojf-g{font-size:9px;font-weight:700;letter-spacing:.12em;opacity:.8;}
+  .ojf-tmap{background:linear-gradient(135deg,#E8C76F,#B98F2E);}
+  .ojf-tquiz{background:linear-gradient(135deg,#F09A8E,#C9223A);}
+  .ojf-tcalc{background:linear-gradient(135deg,#72BDB0,#2E7D6F);}
   .ojf-earth{background:linear-gradient(135deg,#86AD79,#3F6A3A);}
   .ojf-ocean{background:linear-gradient(135deg,#5AA0CE,#1B5C8B);}
   .ojf-body{background:linear-gradient(135deg,#E5728A,#9C1428);}
@@ -150,7 +153,14 @@
         '<a href="https://www.linkedin.com/in/vegan-oji-alex-derycz/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/images/social/li.png" alt=""></a>' +
       '</div>' +
       '<a class="ojf-btn ojf-recipe" href="/recipes/"><img src="/images/vegan-to-chikyu/food-onigiri.png" alt="">' + t.recipe + '<span class="ojf-ar">→</span></a>' +
-      '<a class="ojf-btn ojf-map" href="https://veganmapjapan.org" target="_blank" rel="noopener"><img src="/images/mascot/map-japan.png" alt="">' + t.map + '<span class="ojf-ar">→</span></a>' +
+      // quiz + calculator exist in Japanese only, so other languages keep the single map button
+      (LANG === 'ja'
+        ? '<div class="ojf-tri">' +
+            '<a class="ojf-tmap" href="https://veganmapjapan.org" target="_blank" rel="noopener"><img src="/images/tools/map-japan.webp" alt=""><span class="ojf-t">' + t.tMap + '</span><span class="ojf-g">MAP</span></a>' +
+            '<a class="ojf-tquiz" href="/quiz/"><img src="/images/tools/oji-questioning.webp" alt=""><span class="ojf-t">' + t.tQuiz + '</span><span class="ojf-g">QUIZ</span></a>' +
+            '<a class="ojf-tcalc" href="/calculator/"><img src="/images/tools/oji-happy.webp" alt=""><span class="ojf-t">' + t.tCalc + '</span><span class="ojf-g">CALC</span></a>' +
+          '</div>'
+        : '<a class="ojf-btn ojf-map" href="https://veganmapjapan.org" target="_blank" rel="noopener"><img src="/images/mascot/map-japan.png" alt="">' + t.map + '<span class="ojf-ar">→</span></a>') +
       '<div class="ojf-sectitle">' + t.why + '</div>' +
       '<div class="ojf-tri">' +
         '<a class="ojf-earth" href="/vegan-and-earth/"><img src="/images/vegan-to-chikyu/icon-globe-earth.png" alt=""><span class="ojf-t">' + t.earth + '</span><span class="ojf-g">PLANET</span></a>' +

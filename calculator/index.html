@@ -32,15 +32,17 @@
       --round:"Zen Maru Gothic","Noto Sans JP",sans-serif; --sans:"Noto Sans JP",sans-serif;
     }
     *{box-sizing:border-box}
-    html{-webkit-text-size-adjust:100%}
-    body{margin:0; background:var(--paper); color:var(--ink); font:500 16px/1.7 var(--sans); -webkit-font-smoothing:antialiased; overflow-x:hidden}
+    html{-webkit-text-size-adjust:100%; background:#FFF9EE}
+    body{margin:0; background:transparent; color:var(--ink); font:500 16px/1.7 var(--sans); -webkit-font-smoothing:antialiased; overflow-x:hidden}
     button{font:inherit; color:inherit; -webkit-tap-highlight-color:transparent}
     img{display:block; max-width:100%}
     .col{max-width:480px; margin:0 auto; padding:0 18px}
 
     /* ── hero: layered watercolor (sky · clouds · Earth · hills) ── */
     .art{position:relative; height:clamp(240px,36vh,340px); overflow:hidden; background:#F7E4A6 url('/images/tools/hero-sky.webp') center/cover no-repeat}
-    .art::after{content:""; position:absolute; left:0; right:0; bottom:0; height:64px; background:linear-gradient(180deg,rgba(255,249,238,0),var(--paper)); z-index:4}
+    .art{-webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 72px),transparent); mask-image:linear-gradient(180deg,#000 calc(100% - 72px),transparent)}
+    .page-bg{position:fixed; inset:0; z-index:-1; pointer-events:none; background:#FFF9EE url('/images/tools/page-wash-portrait.webp') center/cover no-repeat}
+    @media (min-aspect-ratio:1/1){ .page-bg{background-image:url('/images/tools/page-wash-landscape.webp')} }
     .earth{position:absolute; left:50%; top:9%; width:clamp(140px,40vw,232px); z-index:1; animation:bob 6s ease-in-out infinite}
     .cl{position:absolute; z-index:2; pointer-events:none}
     .c1{width:clamp(110px,28vw,230px); top:14%; left:-3%; animation:drift 24s ease-in-out infinite alternate}
@@ -72,21 +74,43 @@
     .h{font:900 32px/1.35 var(--round); text-align:center; margin:2px 0 14px}
     .h em{font-style:normal; color:var(--royal)}
     .list{background:var(--white); border:2.5px solid var(--ink); border-radius:26px; box-shadow:5px 5px 0 var(--ink); overflow:hidden}
-    .row{display:flex; align-items:center; gap:12px; padding:14px 14px 14px 10px}
+    .row{display:flex; align-items:center; gap:12px; padding:14px 22px 14px 10px}
     .row + .row{border-top:1.5px solid var(--line)}
     .ico{position:relative; margin:0; width:70px; flex:none; text-align:center}
-    .ico .wash{position:absolute; left:50%; top:30px; width:80px; height:80px; transform:translate(-50%,-50%); opacity:.6; pointer-events:none}
+    .ico .wash{position:absolute; left:50%; top:30px; width:80px; height:80px; transform:translate(-50%,-50%); opacity:.55; pointer-events:none; transition:opacity .5s}
+    .row.cleared .wash{opacity:.95}
     .ico .i{position:relative; width:56px; height:56px; margin:0 auto}
     .ico figcaption{position:relative; font:700 13px/1.3 var(--sans); color:var(--muted); margin-top:3px; white-space:nowrap}
     .row.pulse .wash{animation:pulse .6s ease}
     @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}45%{transform:translate(-50%,-50%) scale(1.14)}}
-    .val{flex:1; min-width:0}
+    .val{flex:1; min-width:0; text-align:center}
     .num{font:900 38px/1.1 var(--round); color:var(--leaf-deep); font-variant-numeric:tabular-nums; white-space:nowrap}
     .num .u{font-size:18px; margin-left:4px}
     .eq{font:500 13.5px/1.5 var(--sans); color:var(--muted)}
     .why-btn{flex:none; width:38px; height:38px; cursor:pointer; border-radius:50%; border:2px solid var(--ink); background:var(--cream); box-shadow:2px 2px 0 var(--ink); font:900 18px/1 var(--round); color:var(--royal); display:grid; place-items:center; transition:transform .12s, box-shadow .12s}
     .why-btn:active{transform:translate(2px,2px); box-shadow:0 0 0 var(--ink)}
-    .tip{font-size:13px; color:var(--muted); text-align:center; margin:10px 0 0}
+    .why-btn:not(.done){animation:beckon 2.6s ease-in-out infinite}
+    @keyframes beckon{0%,100%{box-shadow:2px 2px 0 var(--ink),0 0 0 0 rgba(201,34,58,.38)}55%{box-shadow:2px 2px 0 var(--ink),0 0 0 8px rgba(201,34,58,0)}}
+    .why-btn.done{background:var(--leaf-deep); color:#fff; animation:pop .45s cubic-bezier(.2,.9,.3,1.5)}
+    @keyframes pop{0%{transform:scale(.6)}100%{transform:scale(1)}}
+    .quest{margin-top:16px; padding:11px 14px; background:var(--white); border:2px dashed #D9C79E; border-radius:18px; cursor:pointer; -webkit-tap-highlight-color:transparent}
+    .quest.done{cursor:default}
+    .q-play{display:flex; align-items:center; gap:10px}
+    .q-play .qt{font:900 14px/1.3 var(--round); color:var(--ink-soft)}
+    .slots{display:flex; gap:5px; margin-left:auto}
+    .slots img{width:30px; height:30px; filter:grayscale(1) opacity(.35); transition:filter .5s, transform .5s}
+    .slots img.on{filter:none; transform:scale(1.12)}
+    .qc{font:900 15px var(--round); color:var(--leaf-deep); min-width:34px; text-align:right}
+    .q-done{display:none; align-items:center; gap:12px}
+    .q-done img{width:62px; height:auto; flex:none; animation:bob2 3s ease-in-out infinite}
+    .q-done b{display:block; font:900 18px/1.3 var(--round); color:var(--royal)}
+    .q-done span{font-size:13.5px; line-height:1.6; color:var(--ink-soft)}
+    .quest.done{border:2.5px solid var(--ink); box-shadow:3px 3px 0 var(--ink); background:linear-gradient(135deg,#FFF7DC,#FCEBC3)}
+    .quest.done .q-play{display:none} .quest.done .q-done{display:flex}
+    @keyframes bob2{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-4px) rotate(4deg)}}
+    .confetti{position:fixed; inset:0; pointer-events:none; z-index:95; overflow:hidden}
+    .confetti i{position:absolute; top:-14px; width:9px; height:14px; border-radius:2px; animation:fall linear forwards}
+    @keyframes fall{to{transform:translate(var(--dx),108vh) rotate(var(--r))}}
 
     /* ── oji reaction ── */
     .oji{display:flex; align-items:flex-end; justify-content:center; gap:8px; margin-top:26px}
@@ -119,11 +143,12 @@
     .src a{color:var(--muted)}
 
     /* ── night ending ── */
-    .night{position:relative; margin-top:30px; padding:190px 18px 72px; background:linear-gradient(180deg,var(--paper) 0,rgba(255,249,238,.9) 36px,rgba(255,249,238,.45) 110px,rgba(255,249,238,0) 190px) var(--night)}
-    .night.ready{background:linear-gradient(180deg,var(--paper) 0,rgba(255,249,238,.9) 36px,rgba(255,249,238,.45) 110px,rgba(255,249,238,0) 190px),var(--night) url('/images/tools/night.webp') 72% top/cover no-repeat}
-    .sleeper{position:absolute; top:58px; left:50%; width:clamp(180px,52vw,280px); animation:float 5.5s ease-in-out infinite}
+    .night{position:relative; margin-top:30px; padding:190px 18px 72px}
+    .night::before{content:""; position:absolute; inset:0; background:var(--night); -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 200px); mask-image:linear-gradient(180deg,transparent 0,#000 200px)}
+    .night.ready::before{background:var(--night) url('/images/tools/night.webp') 72% top/cover no-repeat}
+    .sleeper{position:absolute; z-index:1; top:58px; left:50%; width:clamp(180px,52vw,280px); animation:float 5.5s ease-in-out infinite}
     @keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-10px)}}
-    .night > div{max-width:560px; margin:0 auto}
+    .night > div{position:relative; z-index:1; max-width:560px; margin:0 auto}
 
     /* ── why dialog ── */
     dialog.why{width:min(440px,calc(100vw - 20px)); margin:auto auto 10px; padding:0; border:2.5px solid var(--ink); border-radius:26px; box-shadow:6px 6px 0 var(--ink); background:var(--white); color:var(--ink); overflow:hidden}
@@ -131,7 +156,10 @@
     dialog.why::backdrop{background:rgba(31,24,18,.5)}
     @keyframes up{from{transform:translateY(40px); opacity:0}to{transform:none; opacity:1}}
     .ws{position:relative; height:200px; background:#F7E4A6 center/cover no-repeat}
-    .ws img{position:absolute; left:10px; bottom:0; height:176px; width:auto; filter:drop-shadow(0 6px 10px rgba(31,24,18,.25))}
+    .ws img{position:absolute; bottom:0; height:var(--oh,128px); width:auto; filter:drop-shadow(0 6px 10px rgba(31,24,18,.25)); animation:ojin .5s cubic-bezier(.2,.9,.3,1.3) both, sway 3.4s ease-in-out .55s infinite}
+    .ws.l img{left:6px} .ws.r img{right:6px}
+    @keyframes ojin{from{transform:translateY(46px); opacity:0}to{transform:none; opacity:1}}
+    @keyframes sway{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-1.5deg)}}
     .wb{padding:18px 20px 20px}
     .wb h3{font:900 21px/1.4 var(--round); margin:0 0 10px}
     .wsay{position:relative; margin:0; padding:14px 16px; background:var(--cream); border-radius:18px; font:700 16px/1.85 var(--sans)}
@@ -151,12 +179,13 @@
       h1{font-size:56px}
       .col{max-width:540px}
       dialog.why{margin:auto}
-      .ws{height:240px} .ws img{height:210px}
+      .ws{height:240px} .ws img{height:calc(var(--oh,128px)*1.2)}
     }
     @media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
   </style>
 </head>
 <body>
+  <div class="page-bg" aria-hidden="true"></div>
 
   <button id="mnav-open" type="button" class="mnav-burger mnav-float" aria-label="メニューを開く" aria-expanded="false" aria-controls="mnav-sheet">
     <svg width="22" height="22" viewBox="0 0 22 22"><g stroke="#1F1812" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></g></svg>
@@ -195,7 +224,10 @@
       <p class="k" id="kicker">ビーガンを1年続けたら</p>
       <h2 class="h">地球に、<em>これだけ。</em></h2>
       <div class="list" id="list"></div>
-      <p class="tip"><b style="color:var(--royal)">？</b> をタップすると、王子がわけを教えてくれるよ</p>
+      <div class="quest" id="quest">
+        <div class="q-play"><span class="qt">地球はかせ<br />チャレンジ</span><span class="slots" id="slots"></span><span class="qc" id="qc">0/5</span></div>
+        <div class="q-done"><img src="/images/tools/badge.webp" alt="ビーガン王子認定バッジ" width="62" height="78" /><div><b>ぜんぶクリア！</b><span>きみも「地球はかせ」だね🎉<br />シェア画像に認定バッジがついたよ</span></div></div>
+      </div>
 
       <div class="oji">
         <p class="bubble" id="say">えっ、こんなに！？王子、ちょっと感動…🥹</p>
@@ -234,7 +266,7 @@
       <h3 id="why-t"></h3>
       <p class="wsay" id="why-say"></p>
       <p class="wsrc" id="why-src"></p>
-      <form method="dialog"><button class="btn" value="ok">わかった！</button></form>
+      <form method="dialog"><button class="btn" id="why-ok">わかった！</button></form>
     </div>
   </dialog>
 
@@ -253,15 +285,15 @@
       ['water','水','L'], ['grain','穀物','kg'], ['forest','森林','㎡'], ['co2','CO₂','kg'], ['animal','動物のいのち','']
     ];
     var WHY = {
-      water:  { t:'なぜ、水が守れるの？',    pose:'explaining',   src:'出典：Water Footprint Network',
+      water:  { t:'なぜ、水が守れるの？',    pose:'explaining-2', side:'r', oh:135,   src:'出典：Water Footprint Network',
                 say:'お肉をつくるには、動物の飲み水だけでなく、エサの作物を育てる水もたくさん必要なんだ。牛肉1kgで、なんとお風呂 約75杯ぶん（約15,000L）！植物を直接食べれば、ぐっと少なくてすむよ。' },
-      grain:  { t:'なぜ、穀物が守れるの？',  pose:'teaching',     src:'出典：FAO（国連食糧農業機関）',
+      grain:  { t:'なぜ、穀物が守れるの？',  pose:'explaining', side:'l', oh:116,     src:'出典：FAO（国連食糧農業機関）',
                 say:'世界でつくられる穀物の約3分の1は、人ではなく家畜のエサになっているんだ。お肉を減らせば、そのぶんを人のごはんにまわせるよ。' },
-      forest: { t:'なぜ、森が守れるの？',    pose:'pointing-up',  src:'出典：世界銀行 ほか',
+      forest: { t:'なぜ、森が守れるの？',    pose:'teaching', side:'l', oh:132,  src:'出典：世界銀行 ほか',
                 say:'牧場や、エサになる大豆・とうもろこしの畑をつくるために、森が切られているんだ。アマゾンの森林破壊の約8割は、牛の放牧が原因。お肉を減らせば、森を守れるよ。' },
-      co2:    { t:'なぜ、CO₂が減るの？',     pose:'explaining-2', src:'出典：FAO（国連食糧農業機関）',
+      co2:    { t:'なぜ、CO₂が減るの？',     pose:'pointing-up', side:'l', oh:100, src:'出典：FAO（国連食糧農業機関）',
                 say:'牛のゲップ（メタン）や、森を切ること、エサを運ぶことで、たくさんの温室効果ガスが出るんだ。畜産は世界の排出の約15%。植物中心のごはんなら、ずっと少なくてすむよ。' },
-      animal: { t:'なぜ、いのちが守れるの？', pose:'welcoming',    src:'出典：Cowspiracy（試算）',
+      animal: { t:'なぜ、いのちが守れるの？', pose:'welcoming', side:'r', oh:124,    src:'出典：Cowspiracy（試算）',
                 say:'お肉や卵、牛乳のために、たくさんの動物が育てられているんだ。ビーガンを1日続けると、およそ1つのいのちを守れる計算。小さな選択が、ちゃんと届くよ。' }
     };
     var STEPS = [{m:1},{m:3},{m:6},{y:1},{y:2},{y:3},{y:4},{y:5},{y:6},{y:7},{y:8},{y:9},{y:10},{y:15},{y:20},{y:30},{y:40},{y:50}];
@@ -304,7 +336,8 @@
     function tierOf(d){ var t = TIERS[0]; TIERS.forEach(function(x){ if (d >= x[0]) t = x; }); return t; }
 
     var idx = 3, cur = { water:0, grain:0, forest:0, co2:0, animal:0 }, target = {}, raf = 0, pose = 'surprised-3', shareText = '';
-    var cache = {}, cardBlob = null, cardTimer = 0;
+    var cache = {}, cardBlob = null, cardTimer = 0, openKey = null, cleared = {};
+    try { (JSON.parse(localStorage.getItem('calcCleared')) || []).forEach(function(k){ if (PER_DAY[k] !== undefined) cleared[k] = 1; }); } catch(e){}
 
     function update(){
       var s = STEPS[idx], d = daysOf(s), label = labelOf(s);
@@ -346,13 +379,50 @@
     var dlg = $('why');
     $('list').addEventListener('click', function(e){
       var b = e.target.closest('.why-btn'); if (!b) return;
-      var w = WHY[b.dataset.why];
-      $('why-scene').style.backgroundImage = "url('/images/tools/scene-"+b.dataset.why+".webp')";
-      $('why-oji').src = '/images/tools/oji-'+w.pose+'.webp';
+      var w = WHY[b.dataset.why], sc = $('why-scene'), oj = $('why-oji');
+      openKey = b.dataset.why;
+      sc.style.backgroundImage = "url('/images/tools/scene-"+openKey+".webp')";
+      sc.className = 'ws ' + w.side; sc.style.setProperty('--oh', w.oh + 'px');
+      oj.src = '/images/tools/oji-'+w.pose+'.webp';
+      oj.style.animation = 'none'; void oj.offsetWidth; oj.style.animation = '';
       $('why-t').textContent = w.t; $('why-say').textContent = w.say; $('why-src').textContent = w.src;
       if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
     });
     dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
+    $('why-ok').addEventListener('click', function(){
+      if (!openKey || cleared[openKey]) return;
+      cleared[openKey] = 1; saveClear(); renderQuest();
+      if (Object.keys(cleared).length === ROWS.length){ confetti(); $('say').textContent = 'ぜんぶクリア！きみも地球はかせだね🎉'; scheduleCard(); }
+    });
+
+    // ── 地球はかせチャレンジ: clear all five 「？」 ──
+    function saveClear(){ try { localStorage.setItem('calcCleared', JSON.stringify(Object.keys(cleared))); } catch(e){} }
+    function renderQuest(){
+      ROWS.forEach(function(r){
+        var on = !!cleared[r[0]], row = document.querySelector('.row[data-k="'+r[0]+'"]'), b = row.querySelector('.why-btn');
+        row.classList.toggle('cleared', on); b.classList.toggle('done', on); b.textContent = on ? '✓' : '？';
+      });
+      document.querySelectorAll('#slots img').forEach(function(im){ im.classList.toggle('on', !!cleared[im.dataset.k]); });
+      var n = Object.keys(cleared).length;
+      $('qc').textContent = n + '/' + ROWS.length;
+      $('quest').classList.toggle('done', n === ROWS.length);
+    }
+    function confetti(){
+      if (reduce) return;
+      var cols = ['#C9223A','#E8C76F','#3F6A3A','#2B7AB0','#F2A7B5'], box = document.createElement('div');
+      box.className = 'confetti'; document.body.appendChild(box);
+      for (var i = 0; i < 48; i++){
+        var c = document.createElement('i');
+        c.style.left = (Math.random()*100) + 'vw'; c.style.background = cols[i % cols.length];
+        c.style.animationDelay = (Math.random()*.45) + 's'; c.style.animationDuration = (1.7 + Math.random()*1.3) + 's';
+        c.style.setProperty('--dx', (Math.random()*140 - 70) + 'px'); c.style.setProperty('--r', (Math.random()*720 - 360) + 'deg');
+        box.appendChild(c);
+      }
+      setTimeout(function(){ box.remove(); }, 3600);
+    }
+    $('slots').innerHTML = ROWS.map(function(r){ return '<img src="/images/tools/ic-'+r[0]+'.webp" alt="'+r[1]+'" data-k="'+r[0]+'" />'; }).join('');
+    $('quest').addEventListener('click', function(){ var b = document.querySelector('.why-btn:not(.done)'); if (b) b.click(); });
+    renderQuest();
 
     // ── night background: load only when near ──
     var night = $('night');
@@ -371,8 +441,10 @@
         document.fonts.load('900 108px "Zen Maru Gothic"', '地球に、これだけ。0123456789,.万億Lkg㎡'+bub),
         document.fonts.load('700 48px "Noto Sans JP"', head+'水穀物森林CO₂動物のいのちきみも計算してみてveganoji.jp/calculator')
       ]) : Promise.resolve();
+      var hero = Object.keys(cleared).length === ROWS.length;
       var imgs = [load('/images/decorations/share-bgs/diet-earth.jpg'), load('/images/tools/oji-'+t[1]+'.webp')]
-        .concat(ROWS.map(function(r){ return load('/images/tools/ic-'+r[0]+'.webp'); }));
+        .concat(ROWS.map(function(r){ return load('/images/tools/ic-'+r[0]+'.webp'); }))
+        .concat(hero ? [load('/images/tools/badge.webp')] : []);
       return Promise.all([Promise.all(imgs), fonts]).then(function(res){
         var im = res[0], bg = im[0], oji = im[1], c = $('cv').getContext('2d');
         var sc = Math.max(1080/bg.width, 1920/bg.height), bw = bg.width*sc, bh = bg.height*sc;
@@ -380,6 +452,7 @@
         var g = c.createLinearGradient(0, 380, 0, 1790);
         g.addColorStop(0, 'rgba(255,249,238,0)'); g.addColorStop(.1, 'rgba(255,249,238,.9)'); g.addColorStop(.8, 'rgba(255,249,238,.88)'); g.addColorStop(.9, 'rgba(255,249,238,.3)'); g.addColorStop(1, 'rgba(255,249,238,.3)');
         c.fillStyle = g; c.fillRect(0, 380, 1080, 1410);
+        if (hero){ var bd = im[2+ROWS.length], bh2 = 300, bw3 = bd.width*bh2/bd.height; c.save(); c.translate(1080-bw3/2-46, 46+bh2/2); c.rotate(.12); c.drawImage(bd, -bw3/2, -bh2/2, bw3, bh2); c.restore(); }
         c.textAlign = 'center';
         c.fillStyle = '#3F6A3A'; c.font = '700 48px "Noto Sans JP"'; c.fillText(head, 540, 530);
         c.font = '900 108px "Zen Maru Gothic"';
