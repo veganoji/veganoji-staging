@@ -4,111 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<title>電卓アイコン 5案 | ビーガン王子</title>
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/crown-32.png" />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet" />
-<style>
-  :root{--paper:#FFF9EE;--white:#FFFDF8;--cream:#FDF1DA;--line:#EADCC0;--ink:#1F1812;--ink-soft:#3C2E22;--muted:#786148;--leaf:#3F6A3A;--royal:#C9223A;
-    --round:"Zen Maru Gothic","Noto Sans JP",sans-serif;--sans:"Noto Sans JP",sans-serif}
-  *{box-sizing:border-box}
-  html{background:var(--paper)}
-  body{margin:0;background:transparent;color:var(--ink);font:500 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:120px}
-  .page-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--paper) url('/images/tools/page-wash-portrait.webp') center/cover no-repeat}
-  @media (min-aspect-ratio:1/1){.page-bg{background-image:url('/images/tools/page-wash-landscape.webp')}}
-  main{max-width:1100px;margin:0 auto;padding:28px 16px}
-  h1{font:900 28px/1.3 var(--round);text-align:center;margin:0}
-  .intro{text-align:center;color:var(--ink-soft);font-size:15px;margin:10px auto 18px;max-width:600px}
-  .modes{position:sticky;top:0;z-index:8;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 8px;margin:0 -16px 18px;background:rgba(255,249,238,.92);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-  .modes span{font:900 13px var(--round);color:var(--muted);margin-right:2px}
-  .modes button{font:900 13px var(--round);padding:7px 11px;border:2.5px solid var(--ink);border-radius:999px;background:var(--white);box-shadow:2px 2px 0 var(--ink);cursor:pointer;color:var(--ink);white-space:nowrap}
-  .modes button[aria-pressed="true"]{background:var(--leaf);color:#fff}
-  .sets{display:grid;gap:26px}
-  .set{background:rgba(255,253,248,.55);border:2.5px solid var(--ink);border-radius:26px;box-shadow:5px 5px 0 var(--ink);padding:18px 14px 16px}
-  .set[data-picked="true"]{box-shadow:5px 5px 0 var(--leaf);border-color:var(--leaf)}
-  .sh b{font:900 21px var(--round)} .sh p{margin:2px 0 12px;font-size:14px;color:var(--muted)}
-  /* calculator list — same as /calculator/ */
-  .list{background:var(--white);border:2.5px solid var(--ink);border-radius:24px;box-shadow:4px 4px 0 var(--ink);overflow:hidden}
-  .row{position:relative;display:flex;align-items:center;gap:12px;padding:14px 22px 14px 10px}
-  .row + .row{border-top:1.5px solid var(--line)}
-  .row::before{content:"";position:absolute;inset:4px 0;background:var(--band) center/100% 100% no-repeat;opacity:0;transition:opacity .25s;pointer-events:none}
-  body[data-mode="row"] .row::before,body[data-mode="both"] .row::before{opacity:.42}
-  .ico{position:relative;margin:0;width:70px;flex:none;text-align:center;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
-  .ico .wash{position:absolute;left:50%;top:30px;width:80px;height:80px;transform:translate(-50%,-50%);opacity:.6;pointer-events:none;transition:opacity .25s}
-  body[data-mode="row"] .ico .wash{opacity:0}
-  .ico .i{position:relative;display:block;width:56px;height:56px;margin:0 auto;transition:transform .15s}
-  .ico .l{position:relative;display:block;font:700 13px/1.3 var(--sans);color:var(--muted);margin-top:3px;white-space:nowrap}
-  .ico .h{position:absolute;top:-4px;right:-2px;z-index:2;font-size:15px;opacity:0;transition:opacity .15s,transform .15s}
-  .ico[aria-pressed="true"] .h{opacity:1;transform:scale(1.2)}
-  .ico[aria-pressed="true"] .i{transform:scale(1.08)}
-  .val{position:relative;flex:1;min-width:0;text-align:center}
-  .num{font:900 36px/1.1 var(--round);color:var(--leaf);white-space:nowrap}
-  .num small{font-size:17px;margin-left:4px}
-  .eq{font:500 13px/1.5 var(--sans);color:var(--muted)}
-  .q{position:relative;flex:none;width:36px;height:36px;border-radius:50%;border:2px solid var(--ink);background:var(--cream);box-shadow:2px 2px 0 var(--ink);font:900 17px/34px var(--round);color:var(--royal);text-align:center}
-  .pick{display:block;width:100%;margin-top:14px;height:48px;border:2.5px solid var(--ink);border-radius:16px;box-shadow:3px 3px 0 var(--ink);background:var(--white);font:900 16px var(--round);cursor:pointer;color:var(--ink)}
-  .set[data-picked="true"] .pick{background:var(--leaf);color:#fff}
-  .bar{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--ink);color:var(--paper);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
-  .bar-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:12px}
-  .bar p{margin:0;flex:1;font:700 13.5px/1.5 var(--sans);min-width:0}
-  .bar button{flex:none;height:44px;padding:0 18px;border-radius:14px;border:2.5px solid var(--paper);background:#E8C76F;color:var(--ink);font:900 15px var(--round);cursor:pointer}
-  @media (min-width:900px){.sets{grid-template-columns:1fr 1fr}.set:last-child{grid-column:1/-1;max-width:540px;justify-self:center;width:100%}}
-</style>
+<meta http-equiv="refresh" content="0; url=/calculator-lab/" />
+<title>電卓デザインラボへ | ビーガン王子</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#FFF9EE;color:#1F1812;font:700 16px/1.7 "Noto Sans JP",sans-serif}a{color:#3F6A3A}</style>
 </head>
-<body data-mode="icon">
-<div class="page-bg" aria-hidden="true"></div>
-<main>
-  <h1>ビーガン電卓の<br />アイコン5案</h1>
-  <p class="intro">新しい水彩デザインの中で比べられます。上の切り替えで「水彩の背景」も試してみてね。アイコンを<b>タップで♡</b>（何個でも・セットをまたいでもOK）→ 下の「コピー」で送ってね。</p>
-  <div class="modes" id="modes"><span>背景</span><button data-m="icon" aria-pressed="true">アイコンだけ</button><button data-m="row">行ぜんたい</button><button data-m="both">りょうほう</button></div>
-  <div class="sets" id="sets"></div>
-</main>
-<div class="bar"><div class="bar-in"><p id="sum">まだ選んでいません</p><button type="button" id="copy">コピー</button></div></div>
-<script>
-(function(){
-  var SETS = [['A','水彩','ふんわり透ける水彩。空の背景となじむ、いちばん穏やか。'],['B','ステッカー','太めのフチ＋白いステッカー縁。ボタンや王子の線画と同じ“チビシール”系。'],['C','にこにこ','ぜんぶに小さな顔。やさしいパステル、いちばんキャラっぽい。'],['D','絵本','色えんぴつとクレヨンの手描き感。あたたかい絵本のタッチ。'],['E','王子','ぜんぶが小さな王冠＋王子のマント（赤×金）。“王子の電卓”らしさ満点。']];
-  var ROWS = [['water','水','152万','L','お風呂 約7,599杯ぶん'],['grain','穀物','6,607','kg','おにぎり 約6.6万個ぶん'],['forest','森林','1,022','㎡','テニスコート 約4面ぶん'],['co2','CO₂','3,322','kg','スギ 約237本が1年で吸う量'],['animal','動物のいのち','365','','1日に、ひとつのいのち']];
-  var MODE_LABEL = {icon:'アイコンだけ', row:'行ぜんたい', both:'りょうほう'};
-  var st; try { st = JSON.parse(localStorage.getItem('calcIconLab2')) || {}; } catch(e){ st = {}; }
-  st.fav = st.fav || {}; st.set = st.set || ''; st.mode = st.mode || 'icon';
-  function save(){ try { localStorage.setItem('calcIconLab2', JSON.stringify(st)); } catch(e){} render(); }
-  document.getElementById('sets').innerHTML = SETS.map(function(s){
-    var rows = ROWS.map(function(r){
-      return '<div class="row" style="--band:url(\'/images/tools/band-'+r[0]+'.webp\')">'
-        + '<button type="button" class="ico" data-id="'+s[0]+'-'+r[0]+'" aria-pressed="false"><span class="h">♥</span><img class="wash" src="/images/tools/wash-'+r[0]+'.webp" alt="" /><img class="i" src="img/'+s[0]+'-'+r[0]+'.webp" alt="'+r[1]+'" loading="lazy" /><span class="l">'+r[1]+'</span></button>'
-        + '<div class="val"><div class="num">'+r[2]+(r[3]?'<small>'+r[3]+'</small>':'')+'</div><div class="eq">'+r[4]+'</div></div>'
-        + '<span class="q">？</span></div>';
-    }).join('');
-    return '<section class="set" data-set="'+s[0]+'"><div class="sh"><b>'+s[0]+'　'+s[1]+'</b><p>'+s[2]+'</p></div><div class="list">'+rows+'</div><button type="button" class="pick" data-pick="'+s[0]+'">このセットに決める</button></section>';
-  }).join('');
-  document.getElementById('sets').addEventListener('click', function(e){
-    var ic = e.target.closest('.ico'), pk = e.target.closest('.pick');
-    if (ic){ var id = ic.dataset.id; if (st.fav[id]) delete st.fav[id]; else st.fav[id] = 1; save(); }
-    if (pk){ st.set = st.set === pk.dataset.pick ? '' : pk.dataset.pick; save(); }
-  });
-  document.getElementById('modes').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b){ st.mode = b.dataset.m; save(); } });
-  function label(id){ var p = id.split('-'); var r = ROWS.filter(function(x){ return x[0] === p[1]; })[0]; return p[0]+'の'+r[1]; }
-  function summary(){
-    var a = [], favs = Object.keys(st.fav);
-    if (st.set) a.push('セット'+st.set+'に決定');
-    if (favs.length) a.push('♡ '+favs.map(label).join('・'));
-    a.push('水彩の背景：'+MODE_LABEL[st.mode]);
-    return a.join(' ／ ');
-  }
-  function render(){
-    document.body.setAttribute('data-mode', st.mode);
-    document.querySelectorAll('#modes button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.m === st.mode)); });
-    document.querySelectorAll('.ico').forEach(function(b){ b.setAttribute('aria-pressed', String(!!st.fav[b.dataset.id])); });
-    document.querySelectorAll('.set').forEach(function(s){ s.setAttribute('data-picked', String(st.set === s.dataset.set)); });
-    document.querySelectorAll('.pick').forEach(function(b){ b.textContent = st.set === b.dataset.pick ? '✓ このセットに決定' : 'このセットに決める'; });
-    document.getElementById('sum').textContent = summary();
-  }
-  document.getElementById('copy').addEventListener('click', function(){
-    var txt = '電卓アイコン: ' + summary(), b = this;
-    (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function(){ b.textContent = 'コピーした！'; setTimeout(function(){ b.textContent = 'コピー'; }, 1600); })
-      .catch(function(){ prompt('コピーしてね', txt); });
-  });
-  render();
-})();
-</script>
+<body>
+<p>アイコン選びは <a href="/calculator-lab/">電卓デザインラボ</a> に引っ越しました。</p>
 </body>
 </html>

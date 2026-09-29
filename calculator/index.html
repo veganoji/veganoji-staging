@@ -122,7 +122,7 @@
     .share{margin-top:24px; text-align:center}
     .btn{display:flex; align-items:center; justify-content:center; gap:9px; width:100%; cursor:pointer; text-decoration:none; color:var(--ink); background:var(--white); border:2.5px solid var(--ink); border-radius:18px; box-shadow:4px 4px 0 var(--ink); font:900 16px var(--round); height:54px; transition:transform .12s, box-shadow .12s, background .15s}
     .btn:active{transform:translate(3px,3px); box-shadow:1px 1px 0 var(--ink)}
-    .btn img{width:20px; height:20px}
+    .btn img{width:32px; height:32px; margin:-4px 0}
     .btn-main{height:62px; font-size:19px; background:var(--royal); color:var(--paper)}
     .btn-main:hover{background:var(--royal-deep)}
     .btn-main[disabled]{opacity:.55}
@@ -327,7 +327,7 @@
     function eq(k, v){
       if (k === 'water')  return 'お風呂 約'+fmt(v/200)+'杯ぶん';
       if (k === 'grain')  return 'おにぎり 約'+fmt(v*10)+'個ぶん';
-      if (k === 'forest') return 'テニスコート 約'+fmt(Math.max(1, v/260))+'面ぶん';
+      if (k === 'forest') return v < 260 ? 'たたみ 約'+fmt(v/1.62)+'枚ぶん' : 'テニスコート 約'+fmt(v/260)+'面ぶん';
       if (k === 'co2')    return 'スギ 約'+fmt(Math.max(1, v/14))+'本が1年で吸う量';
       return '1日に、ひとつのいのち';
     }
